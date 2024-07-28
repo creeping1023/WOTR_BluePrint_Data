@@ -1,0 +1,215 @@
+{
+  "AssetId": "5efe51210ed0407fa7f5b52e03c62a11",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$7d75e8c8-7404-4516-b37d-587cdb7c3824",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Spawn a Bhoga swarm to support the worm",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$a5eaaa3b-bad8-4f14-b739-95d84c11feb1",
+          "Spawner": {
+            "EntityNameInEditor": "MegaWorm",
+            "_entity_id": "b024f570-0f66-4b74-b009-47c32f9e469e",
+            "SceneAssetGuid": "26e8993ee25ddce4e8a6d01c4aaac7fc"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4cb25168-1ea3-496d-92b4-894f3e6a6648",
+              "Comment": "Path to the worm is cleared",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$8b88fff4-d14b-4b5f-ba23-55506c195749",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_134aeb83417b46db87715c7514e27484",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$799678bf-e601-404c-b9e4-78a523a26bb1",
+                    "Comment": "Wich swarm",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "8971cb2653f412b46ba71580482c29f6, DifficultyHigherThan",
+                          "name": "$DifficultyHigherThan$d520a029-cf82-4138-a6f9-bd85f6c3252f",
+                          "Not": false,
+                          "m_Difficulty": {
+                            "guid": "3585dbce489ba8b459297fb97a3d5f92",
+                            "fileid": 11400000
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                          "name": "$Spawn$d18ec885-0fb3-4ad0-b047-8ed2c664c5af",
+                          "Spawners": [
+                            {
+                              "EntityNameInEditor": "WormSupport_hard",
+                              "_entity_id": "4e956d00-7a40-4319-a805-b9b6617837bc",
+                              "SceneAssetGuid": "26e8993ee25ddce4e8a6d01c4aaac7fc"
+                            }
+                          ],
+                          "ActionsOnSpawn": {
+                            "Actions": [
+                              {
+                                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                "name": "$StartCombat$04d354ba-d0a9-45d4-9903-5a85fb2492ba",
+                                "Unit1": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$530ee2e1-54d9-4526-815a-284c62c2d3b0"
+                                },
+                                "Unit2": {
+                                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                  "name": "$PlayerCharacter$58f7e3da-5360-41a4-8806-5391c9a3cd04"
+                                }
+                              }
+                            ]
+                          },
+                          "RespawnIfDead": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                          "name": "$Spawn$49b8eeff-f0a6-4104-a24e-9e64bf00e1f9",
+                          "Spawners": [
+                            {
+                              "EntityNameInEditor": "WormSupport_easy",
+                              "_entity_id": "b0ae712b-36ad-4ebc-91b2-ca93395968c6",
+                              "SceneAssetGuid": "26e8993ee25ddce4e8a6d01c4aaac7fc"
+                            }
+                          ],
+                          "ActionsOnSpawn": {
+                            "Actions": [
+                              {
+                                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                "name": "$StartCombat$b67fe018-48b8-42a2-b274-ee002642259b",
+                                "Unit1": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$a2072a46-c4bb-4cd4-9afa-5955b0228faf"
+                                },
+                                "Unit2": {
+                                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                  "name": "$PlayerCharacter$e009415c-5663-447a-89c9-98167d023227"
+                                }
+                              }
+                            ]
+                          },
+                          "RespawnIfDead": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$eb489fad-0387-4d82-915c-5cb1c35ec6be",
+              "m_Cutscene": "!bp_eb60446bbe2a477ea870b65cd601d39f",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$9f1dd2d3-edea-4589-aead-eb4c2993c09a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$32f0b617-ac54-4e24-b66c-e0f77b305590",
+          "Spawner": {
+            "EntityNameInEditor": "MegaWorm",
+            "_entity_id": "b024f570-0f66-4b74-b009-47c32f9e469e",
+            "SceneAssetGuid": "26e8993ee25ddce4e8a6d01c4aaac7fc"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+              "name": "$ActionAchievementUnlock$1a401584-937c-465f-9f1a-ed238f642958",
+              "m_Achievement": "!bp_dc0d8f0b076a4e4aa03a662dd171227b"
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$293b5fa5-c8bc-4b18-b738-10bc6a0da66b",
+              "m_Cutscene": "!bp_eb60446bbe2a477ea870b65cd601d39f",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Worm burn completes etude",
+    "m_Parent": "!bp_a9d13d2ca4404716b53dd2e077e49d4f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_52f295d86ebf483e9414b36833dd31f9",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

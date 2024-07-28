@@ -1,0 +1,193 @@
+{
+  "AssetId": "31cfd8537959028499d530f64983f14c",
+  "Data": {
+    "$type": "96610525fc0cf8c41bfef88a84117024, Cutscene",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "m_Tracks": [
+      {
+        "m_Commands": [
+          "!bp_0aec4eb0319c01b4e97650eb693d5909"
+        ],
+        "m_EndGate": "!bp_a006ff5070ee0d24693252f3cef702a1",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_Commands": [
+          "!bp_f89afec205cffc34ea1ce61c037ff851"
+        ],
+        "m_EndGate": "!bp_54c1178956678c44db0cb2985be1a2ff",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      },
+      {
+        "m_Commands": [
+          "!bp_0013cba543631094a8c88fcac650cc6c"
+        ],
+        "m_EndGate": "!bp_ee997dec19dfdd34d853b7cab9fcb14b",
+        "m_Repeat": false,
+        "Comment": "",
+        "IsCollapsed": false
+      }
+    ],
+    "m_Op": "And",
+    "m_ActivationMode": "AllTracks",
+    "WhenTrackIsSkipped": "DoNotSignalGate",
+    "PauseForOneFrame": false,
+    "Priority": "Reaction",
+    "NonSkippable": false,
+    "ForbidDialogs": false,
+    "ForbidRandomIdles": true,
+    "IsBackground": false,
+    "Sleepless": true,
+    "AwakeRange": 23.4,
+    "Anchors": [],
+    "MarkedUnitHandling": "Pause",
+    "DefaultParameters": {
+      "Parameters": []
+    },
+    "OnStopped": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$b2a1dc8b-c729-4000-b12b-310b1f9996c7",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$5438f1eb-c290-42ac-957c-5c0502728b54",
+            "Spawner": {
+              "EntityNameInEditor": "[Baphomet]",
+              "_entity_id": "49ca9905-06a6-42f0-a186-59b6f4cb66d2",
+              "SceneAssetGuid": "d61670bf208a17143a1bb1dae68790a0"
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$2d73e8f7-c800-40d0-b5cc-2fd68c6eb5ab",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$bc19435f-92fa-4c51-b20a-d52ff87f423d",
+            "Spawner": {
+              "EntityNameInEditor": "[Baphomet]",
+              "_entity_id": "49ca9905-06a6-42f0-a186-59b6f4cb66d2",
+              "SceneAssetGuid": "d61670bf208a17143a1bb1dae68790a0"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$35785638-a42c-404b-857d-c9f59ff391ab"
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$e219109d-37f7-47be-8b92-7cec1e0bf268",
+          "m_Objective": "!bp_cd160700c9005ca4f8396ee7da7ee97c"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f69d2d9c-33bf-4f58-a3ae-10c4524fcbda",
+          "Comment": "Angelic Squad Fight?",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$69111a9a-5bdd-4cc4-b975-edbbb77b91ae",
+                "Not": false,
+                "m_Etude": "!bp_3a25b1f2a81f84a40b4fb658f4d2fe0f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$846dda68-c39a-4762-8a4d-ee8564d5c3d3",
+                "Not": true,
+                "m_Etude": "!bp_80d62fc585bdde648ad444ef9c591bee",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$dd764987-a31e-4599-a86b-dd4b054e44d1",
+                "m_SummonPool": "!bp_f4d2ba4329f776e4896bbdb78b669878",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$ae7c2742-500d-495a-8ec9-ff905b2ea152",
+                      "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$b00bdb50-ec17-45ea-a195-0b014c9942b8"
+                      },
+                      "Duration": null
+                    },
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$43545ff1-ec65-4124-b355-e659bccbefa7",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$ef2d0b1d-e0ab-4802-9182-4d26ddaaac77"
+                      },
+                      "m_Faction": "!bp_ff7b854fc400a64419f4f45273eed7ee",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$41d0f70d-b72b-41aa-a8d9-980d25a45bd2",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$916193da-a63d-49c7-9919-ee351562b2f7"
+                      },
+                      "Unit2": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$b4f01c53-2e34-4614-b630-343930e8cee5",
+                        "Spawner": {
+                          "EntityNameInEditor": "[Baphomet]",
+                          "_entity_id": "49ca9905-06a6-42f0-a186-59b6f4cb66d2",
+                          "SceneAssetGuid": "d61670bf208a17143a1bb1dae68790a0"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "AssetId": "83fceef22bce2474a881b44ab2fb9ef2",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Арилу ищщезает\nигроку дается мифиг-левл\nпотом спавнятся момонстры",
+    "ParentAsset": "4128d3f502f88184b826582649c6c8d1",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "3e33bf90-7bac-46ec-9b26-70aa22336522",
+      "m_OwnerString": "83fceef22bce2474a881b44ab2fb9ef2",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c6/AreeluDemiplane/AreeluAllTruth/Cue_0031_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b8e95405-6a7e-4c51-9103-71f8abfbe930",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$f08f48c7-1bea-47fc-81d1-fbd0af3e3d58",
+                "Not": false,
+                "m_Flag": "!bp_b221ec9ba1cb4d3989c6426431a1e4e6",
+                "MinValue": 0,
+                "MaxValue": 0
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$d7b4f645-7c70-475f-9548-292a802bdf9c",
+                "m_Flag": "!bp_b221ec9ba1cb4d3989c6426431a1e4e6",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$a209b31d-0ff6-4a3d-81f0-c1c0f029da03",
+                  "Value": 1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$27f7dd55-00c8-4d03-bcd4-474931cc1bf9",
+          "Comment": "не Легенда",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$48cf1774-1abe-4eec-a27e-c43c7d51b5a1",
+                "Not": true,
+                "m_Etude": "!bp_c6165efcd5571c442ae38d7c0601f2df",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "efeff58c12d74f00a73213c7f3750543, GainMythicLevel",
+                "name": "$GainMythicLevel$43884c0a-19e4-40d0-8d0b-d291dd3046dc",
+                "Levels": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$9ef659bc-8ffd-4b10-9aee-25fbc8cd2ee4",
+                "Encounter": "QuestMain",
+                "CR": 20,
+                "Modifier": 1.0,
+                "Count": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$b1b66869-c31b-4972-82ec-ea0c95c264bd",
+                  "Value": 1
+                },
+                "Dummy": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

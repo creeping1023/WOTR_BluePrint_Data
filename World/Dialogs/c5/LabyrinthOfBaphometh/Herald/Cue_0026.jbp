@@ -1,0 +1,194 @@
+{
+  "AssetId": "1f0fef1fbc666cc42a213671d6b171a2",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "герольд умирает",
+    "ParentAsset": "56daf246c68f71d48b6dfe2fd66760bf",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "165c5ac0-4707-46be-b1a4-d022bfef4fd7",
+      "m_OwnerString": "1f0fef1fbc666cc42a213671d6b171a2",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/LabyrinthOfBaphometh/Herald/Cue_0026_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$6d388df9-e897-40f0-9ac2-e55ea61af4e8",
+          "Status": "Complete",
+          "m_Objective": "!bp_f4a71f1b583408c40a4127392b05571e",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$2bc2a0a0-6de2-4c67-b11b-bf3389fd683b",
+          "Status": "Complete",
+          "m_Objective": "!bp_b6364cdb8834a4f4fbb00b15245ad75f",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b3f2efad-bd3d-4c1f-8981-77624dce4990",
+          "Comment": "профейлить обж про сердце если он есть",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$aee0ca51-3684-46cd-affe-9bc6cd71c9e2",
+                "Not": false,
+                "m_QuestObjective": "!bp_57fe7fcfd76f8b34790549a2e044b159",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$f104a581-f316-4d7d-91b0-1f368ade600c",
+                "Status": "Fail",
+                "m_Objective": "!bp_57fe7fcfd76f8b34790549a2e044b159",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$5bacf485-5646-4b83-8f1a-bbe2437bdc3e",
+          "Etude": "!bp_348dfb40784b436cbe21347f8e0f08ce",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e93923b4-9e09-4fb1-be77-15fdfd8bd109",
+          "Comment": "Locust?",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$48534ca6-1332-42fa-8ae7-5b8a9ba8d8cb",
+                "Not": false,
+                "m_Answer": "!bp_39c81d900156f804ebff54d7f7502f53",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$66585d1d-8b38-430a-b71d-9698203531bc",
+                "m_Cutscene": "!bp_379ffadc21f25f54aa878c1ef9b0d841",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Target",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                        "name": "$FirstUnitFromSummonPool$8b67a13b-3b1b-430a-8b29-623ce826ce63",
+                        "m_SummonPool": "!bp_7ad3271a2bf78fd49a7dbd00be0851b2",
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                "name": "$AddFact$90d9b86a-eb8d-46f8-ab35-3f2045d2b9f0",
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$592970af-94b5-4dd4-90a3-cf3de2c01ef2"
+                },
+                "m_Fact": "!bp_f8ae8c5b113e43ceb9ef39dc0c34e02e"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                "name": "$Kill$fd2ad055-e9d6-457d-9678-9b3f7c1673ad",
+                "Target": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$9e0e4ac1-324d-4b41-bcbc-3d819f1e08b8",
+                  "m_SummonPool": "!bp_7ad3271a2bf78fd49a7dbd00be0851b2",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                },
+                "Killer": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$19f87bfc-7b6e-48bd-b8fe-04e7bd504a3f"
+                },
+                "Critical": false,
+                "DisableBattleLog": true,
+                "RemoveExp": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_f88434e00b44d9441804defd3eb5f83c"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

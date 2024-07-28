@@ -1,0 +1,139 @@
+{
+  "AssetId": "40a7ac29996874d4e85364d2668708ce",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$79da421a-73d8-4dd4-b0bc-81b9173cf53b",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c6107285-cc40-4bc2-88e4-b28430b4910c",
+                "Not": false,
+                "m_Etude": "!bp_aa6f4ded36ce40346af5b83ba900fe83",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$9b8e08bc-a159-4420-9c7a-57a15af08825",
+                "Not": true,
+                "m_QuestObjective": "!bp_28e8dc7bc381f7f4bb5f8dc32404cbec",
+                "State": "Completed"
+              },
+              {
+                "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+                "name": "$IsInCombat$2457936e-d3b0-4589-82e8-2a4a3a73db3c",
+                "Not": true,
+                "Unit": null,
+                "Player": true
+              },
+              {
+                "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                "name": "$UnitIsDead$fee0fddb-dad0-4de4-bc8e-9fda1c7f7ce2",
+                "Not": true,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$341bd820-9fa6-4b9c-afe8-c6c93005efba",
+                  "Spawner": {
+                    "EntityNameInEditor": "Kilas",
+                    "_entity_id": "6c2139f6-0598-4a5f-b2a6-e650b428537f",
+                    "SceneAssetGuid": "6bf5314a39ac0c645a8f2b0209eecac2"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$06b513e2-6e71-4b1d-a427-42ca3f5a31a4",
+                "m_SummonPool": "!bp_570e96ca9467e39428b99f24825970ba",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$67f378ad-10ca-4a7e-aba1-54ff128171b8",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$9708aa01-a10f-4738-872c-c63aef54051a"
+                      },
+                      "Position": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$9633b5e7-e0ac-40db-a875-471d8eaa44e0",
+                        "Unit": {
+                          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                          "name": "$PlayerCharacter$5cb75ee3-a35c-4bd6-8d40-37b9ccf81c8f"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$2e6997df-0404-4269-99c7-d04d99f1abcb",
+                "m_Cutscene": "!bp_14abb6868a4463441a21f0c3260ade1b",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$3dd453b7-e8d1-477d-af3c-6fd9f4f106d6",
+                "m_SummonPool": "!bp_570e96ca9467e39428b99f24825970ba",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$6ea1dc66-8631-4f5c-9d47-03722cf72667",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$6b969071-ecea-4149-acee-b0ea65d2a2fa"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$c66935bf-2a8e-4817-afa1-ac3905b02518"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

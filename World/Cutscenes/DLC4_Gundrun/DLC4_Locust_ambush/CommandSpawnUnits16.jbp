@@ -1,0 +1,89 @@
+{
+  "AssetId": "834a6efb70054724b8f9b6c3e0fef253",
+  "Data": {
+    "$type": "879238b21b5340d2b1f4327cc62e8463, CommandSpawnUnits",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Spawners": [
+      {
+        "EntityNameInEditor": "Derakni_1",
+        "_entity_id": "2840045a-3ff2-4fb3-a48a-73da1ad6f44a",
+        "SceneAssetGuid": "e911d60bd4ff94948847d190b1f2cdec"
+      }
+    ],
+    "ActionsOnSpawn": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$f52ea72d-2fa0-4df7-87bf-c8d0fc89fe06",
+          "Target": {
+            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+            "name": "$SpawnedUnit$02097234-d7a7-4748-888f-fcc52f1e9a1f"
+          },
+          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5f794ac5-aebb-4af9-8ce3-5e5591ad8cd8",
+          "Comment": "Core or higher",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "8971cb2653f412b46ba71580482c29f6, DifficultyHigherThan",
+                "name": "$DifficultyHigherThan$b9009a5f-23bf-496e-bba0-c68cdc40cb98",
+                "Not": false,
+                "m_Difficulty": {
+                  "guid": "4164268f34506a741ba333a330cb4d42",
+                  "fileid": 11400000
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$b76ea8fe-7ee1-43e6-906c-00f18e53d489",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Derakni_2 (Core+)",
+                    "_entity_id": "44276db5-1a2b-4fec-9998-0413d8ab8726",
+                    "SceneAssetGuid": "e911d60bd4ff94948847d190b1f2cdec"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$c6258518-128f-4ca1-a129-0a31a3ab1f89",
+                      "Target": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$e74428a3-9c28-470f-8479-5a43db9f944c"
+                      },
+                      "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                },
+                "RespawnIfDead": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

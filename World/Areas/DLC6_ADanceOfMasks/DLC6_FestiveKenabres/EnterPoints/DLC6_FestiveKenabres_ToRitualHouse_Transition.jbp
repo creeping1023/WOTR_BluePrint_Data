@@ -1,0 +1,156 @@
+{
+  "AssetId": "6238a9aa400b4fdeb75799d97abadcad",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": null,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+              "name": "$ShowPartySelection$52ccff8c-9ce8-43de-8312-ed54f9dbfd53",
+              "ForceCapitalModeLogic": false,
+              "ActionsAfterPartySelection": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$dcd4e5b8-097d-4d0f-a815-dc30887f9b0f",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$f3548ab1-3f6d-44a4-8d5e-6059f950a5f9",
+                          "Not": false,
+                          "m_Flag": "!bp_ee0c0c38790442c899a2d58a89580fa9",
+                          "MinValue": 4,
+                          "MaxValue": 4
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$de47664b-b695-4da3-a929-3b4124933c8c",
+                          "m_exitPositon": "!bp_69d62cd292ad434292466b1f63f7c029",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$5492bbbb-22c1-4329-8fa2-24270a590ddf",
+                          "m_exitPositon": "!bp_69d62cd292ad434292466b1f63f7c029",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "ActionsIfCanceled": {
+                "Actions": [
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$187d9106-d0d9-43b3-9ebe-934d054121b4",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "b17f1c2c8ad82604390d09493d1278da",
+                        "stringkey": "ac274a7a-6c05-46bc-8c61-b6c6281556e2"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": false,
+                    "TargetUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$0687b22b-5063-4e9d-bd80-f4825ebec293",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spymaster",
+                        "_entity_id": "fcca8c0f-bb5c-43c9-b6fc-76e8f39aed74",
+                        "SceneAssetGuid": "39e6ab0a37fec9247b4b1e7bde899df3"
+                      }
+                    },
+                    "TargetMapObject": null
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$86f000da-8292-423c-8e74-e7490d44338c",
+              "Comment": "Ulbrig event started",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e1d23a6e-f155-4b1d-af84-ecc1e5eb06bf",
+                    "Not": false,
+                    "m_Etude": "!bp_fc0e7c1e47164088a721a79d9a7c09ca",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$302a3a49-30d0-4d77-a174-dffdc02434e2",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_474074b666664a26acae2c98f4db7d88",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$fe3e4cd4-aeb4-4842-8d1a-a724d9113a5a",
+                    "m_Buff": "!bp_78ee750ff66c47dc9cbf82d59013ae8f",
+                    "TargetType": "Evaluator",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$8d12e0bf-2bc1-4469-bdc3-68ba9609b352",
+                      "m_Companion": "!bp_42f0d5ec3dc844feb44b04507a7c1bfc",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

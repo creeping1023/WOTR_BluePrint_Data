@@ -1,0 +1,149 @@
+{
+  "AssetId": "c4162bfff993f5f45995193e010549bf",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "ДОБАВИТЬ УГОЛЁК В РОСТЕР И ОТКРЫТЬ РЕДАКТОР ПАРТИИ",
+    "ParentAsset": "132b730eb183fb44aae2811cf6f037f4",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "ccdc9e62-05ca-4f1d-b0d6-c1d56810bd18",
+      "m_OwnerString": "c4162bfff993f5f45995193e010549bf",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c1/KenabresBurning/MeetEmber/Cue_0082_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_a0096331dbe6a204090677301ffbe3d3",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ba6aa375-918e-4db4-b9ae-8b54f748f9de",
+          "Comment": "Late or Early",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4c212419-bacd-4d99-894d-cb1d6f3ac833",
+                "Not": false,
+                "m_Etude": "!bp_8611cf56383c5cd468bf58dd40d6ff54",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$b3fe67e7-4523-4943-bd24-9a79188dabda",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_2779754eecffd044fbd4842dba55312c",
+                    "NPCUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$992879c0-ead9-4959-abe8-51cdf703d840",
+                      "Spawner": {
+                        "EntityNameInEditor": "EmberEarly",
+                        "_entity_id": "5b9ad3d9-7261-42b2-869b-fcd58afbb6c4",
+                        "SceneAssetGuid": "1965cd68e37f04645834c10c1164aad2"
+                      }
+                    },
+                    "MustBeInParty": false
+                  }
+                ],
+                "AddToParty": true,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": []
+                },
+                "OnRecruitImmediate": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$885104d7-6c1d-4cff-8b50-ec7d217b8f11",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_2779754eecffd044fbd4842dba55312c",
+                    "NPCUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$ae2a5b22-aa29-4fc9-a5bb-548836cc3e07",
+                      "Spawner": {
+                        "EntityNameInEditor": "EmberLate",
+                        "_entity_id": "597f47b0-0c46-40db-aef2-5b3488b428bb",
+                        "SceneAssetGuid": "d23f655a90a852f40a77be4fe2df0c4c"
+                      }
+                    },
+                    "MustBeInParty": false
+                  }
+                ],
+                "AddToParty": true,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": []
+                },
+                "OnRecruitImmediate": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$c7065d84-23dd-40b8-8889-c57bbed76077",
+          "Etude": "!bp_057802b5ffdc1a349a4d88712de26ca8",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

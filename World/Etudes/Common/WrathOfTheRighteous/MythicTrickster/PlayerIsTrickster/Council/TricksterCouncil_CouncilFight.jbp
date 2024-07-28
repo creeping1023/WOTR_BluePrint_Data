@@ -1,0 +1,1166 @@
+{
+  "AssetId": "ce1d29b444c5f624dbe558ab89b78950",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$155f3d77-cdb6-4ff5-82c1-31bfd31e3eaa",
+      "$EvaluatedUnitDeathTrigger$24217aba-14a9-400c-a91c-beb728417893",
+      "$SummonPoolTrigger$718a56fd-1d71-4df0-b4d7-128a3d3669b6",
+      "$EtudeBracketMakePassive$22917217-1f0e-4362-a75b-0296d8806f02"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$155f3d77-cdb6-4ff5-82c1-31bfd31e3eaa",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$4f2000a5-db0a-4106-9611-c19e089fcbd1",
+              "m_SummonPool": "!bp_cf1bbc5936f4e7e4ab50f0f002536605",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$822699d7-7b0b-4101-b847-cf86a86b7ef5",
+                    "m_Cutscene": "!bp_d2840b1958e3c094ba8ee4849a11dc08",
+                    "m_AllCutscenesFromUnit": false,
+                    "WithUnit": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$694a98e5-85ad-40b4-847b-1a764c5c595a"
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+              "name": "$ShowPartySelection$fe286cf9-2435-43ed-9a01-4a951cea270f",
+              "ForceCapitalModeLogic": true,
+              "ActionsAfterPartySelection": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$2ab17eb4-4fd6-4d23-9ab3-312b8bb574d8",
+                    "m_Cutscene": "!bp_78df2a4466abe7d448805e7b138a32f6",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "ActionsIfCanceled": {
+                "Actions": [
+                  {
+                    "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                    "name": "$PartyUnits$8438837b-7255-4677-947c-3591620cc6c6",
+                    "m_UnitsList": "ActiveUnits",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$9c078747-bb90-4112-a071-de8dd5a20670",
+                          "Target": {
+                            "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                            "name": "$PartyUnit$ace9d9b6-7258-4894-af2c-b376cf04a767"
+                          },
+                          "Unhide": true,
+                          "Fade": false,
+                          "SetHideInSaves": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                    "name": "$TeleportParty$d1c1443b-fbcd-4704-b26d-9388c77ed9b1",
+                    "m_exitPositon": "!bp_5a0547ad4ec05a542bf733b90e54f006",
+                    "AutoSaveMode": "AfterEntry",
+                    "ForcePauseAfterTeleport": false,
+                    "AfterTeleport": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$5b11a150-0b75-4450-8ddd-5fbef307be9f",
+                    "Comment": "fight against council no nocta",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$f0fccc13-0313-4ada-9959-994e98e6bca9",
+                          "Not": false,
+                          "m_Etude": "!bp_b80a81e97e26167489c439caf34888f8",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$bac3fc0b-c4af-410d-a897-22ca27dd4122",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$aa4b0512-4380-44b3-95eb-3908224e067a",
+                            "Spawner": {
+                              "EntityNameInEditor": "Chadali",
+                              "_entity_id": "b5e2c840-e0f0-4e3d-91f4-8d0f96dbe17c",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            }
+                          },
+                          "Unhide": false,
+                          "Fade": false,
+                          "SetHideInSaves": false
+                        },
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$cbbcb6c1-ceba-49d2-ba21-38cad2273ef7",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$4eca9299-a33e-472c-b6f9-c823fce99f3e",
+                            "Spawner": {
+                              "EntityNameInEditor": "Cobblehoof",
+                              "_entity_id": "d4ab4c28-5818-4678-af5f-c3ecb2922247",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            }
+                          },
+                          "Unhide": false,
+                          "Fade": false,
+                          "SetHideInSaves": false
+                        },
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$d9e7c5d4-ef30-4573-830e-f73238b93ad1",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$9af57ab8-9a25-4469-ae74-4bf2f0c4daf8",
+                            "Spawner": {
+                              "EntityNameInEditor": "Eritrice",
+                              "_entity_id": "fc305491-d2a1-435f-a875-d7b4cf1ef698",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            }
+                          },
+                          "Unhide": false,
+                          "Fade": false,
+                          "SetHideInSaves": false
+                        },
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$8b5dcb46-85d1-45e2-bf43-3daeee3c37f6",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$878f2d75-fd6a-488a-ab4d-108a83500534",
+                            "Spawner": {
+                              "EntityNameInEditor": "Socothbenoth",
+                              "_entity_id": "93f25435-696f-4f1b-87a7-4c30805466a9",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            }
+                          },
+                          "Unhide": false,
+                          "Fade": false,
+                          "SetHideInSaves": false
+                        },
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$74662bbd-2565-4c23-9d2e-99dbcf481893",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$0e8f002b-df53-4be9-951b-1db0fcfec8e9",
+                            "Spawner": {
+                              "EntityNameInEditor": "Alichino",
+                              "_entity_id": "3fc72bdf-4bb2-4175-a393-2e1be3d584d7",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            }
+                          },
+                          "Unhide": false,
+                          "Fade": false,
+                          "SetHideInSaves": false
+                        },
+                        {
+                          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                          "name": "$Spawn$a0c15250-2bdc-4886-8703-6975fd980011",
+                          "Spawners": [
+                            {
+                              "EntityNameInEditor": "ChadaliEnemy",
+                              "_entity_id": "b6a50a85-0d98-4c60-850f-c201432a4d65",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            },
+                            {
+                              "EntityNameInEditor": "AlichinoEnemy",
+                              "_entity_id": "ca8cbd54-d5cd-41f8-925e-71ca90285fa0",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            },
+                            {
+                              "EntityNameInEditor": "SocothbenothEnemy",
+                              "_entity_id": "9737f11a-9096-4e6b-bb3a-9f8936a4b359",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            },
+                            {
+                              "EntityNameInEditor": "CobblehoofEnemy",
+                              "_entity_id": "16c96a95-5f43-47b7-9f63-e56933250d28",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            },
+                            {
+                              "EntityNameInEditor": "EritriceEnemy",
+                              "_entity_id": "cf9c567a-6b97-4d9c-9e8c-bd21e02f09d7",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            }
+                          ],
+                          "ActionsOnSpawn": {
+                            "Actions": []
+                          },
+                          "RespawnIfDead": false
+                        },
+                        {
+                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                          "name": "$StartCombat$38e510b5-37e3-458a-84d2-3eb3114cf348",
+                          "Unit1": {
+                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                            "name": "$PlayerCharacter$41159bb4-396d-4999-9a5f-1a4745b24309"
+                          },
+                          "Unit2": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$f880d4f2-8dde-4e8c-b932-4dfd62ea63dd",
+                            "Spawner": {
+                              "EntityNameInEditor": "SocothbenothEnemy",
+                              "_entity_id": "9737f11a-9096-4e6b-bb3a-9f8936a4b359",
+                              "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$e07b0bfd-91c4-4506-b16f-0118c586a569",
+                          "Comment": "fight against council with nocta",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                "name": "$EtudeStatus$85e425b9-a344-462f-a7e4-0eb340c02e92",
+                                "Not": false,
+                                "m_Etude": "!bp_f4004d2687004c646bbe3a047d15f78f",
+                                "NotStarted": false,
+                                "Started": false,
+                                "Playing": true,
+                                "CompletionInProgress": false,
+                                "Completed": false
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$e3579c5d-c67c-4e91-818f-6f8cab943491",
+                                "Target": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$0360513a-e335-4867-a63f-e8f9c49ddb2e",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "Chadali",
+                                    "_entity_id": "b5e2c840-e0f0-4e3d-91f4-8d0f96dbe17c",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                },
+                                "Unhide": false,
+                                "Fade": false,
+                                "SetHideInSaves": false
+                              },
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$dd7ca25f-cfd7-4014-a1f7-d55926d2c050",
+                                "Target": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$6c170dc6-869d-46f3-ab8b-732521137295",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "Cobblehoof",
+                                    "_entity_id": "d4ab4c28-5818-4678-af5f-c3ecb2922247",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                },
+                                "Unhide": false,
+                                "Fade": false,
+                                "SetHideInSaves": false
+                              },
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$bd32116f-bae1-4d5a-9187-8551cb821a85",
+                                "Target": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$366ec284-e59f-445c-81a0-5dd2a5ca5e83",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "Eritrice",
+                                    "_entity_id": "fc305491-d2a1-435f-a875-d7b4cf1ef698",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                },
+                                "Unhide": false,
+                                "Fade": false,
+                                "SetHideInSaves": false
+                              },
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$a5048cf9-9228-438c-97b3-465ab775b95a",
+                                "Target": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$18a5e210-df20-4ca6-9356-43caf74a4ef6",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "Socothbenoth",
+                                    "_entity_id": "93f25435-696f-4f1b-87a7-4c30805466a9",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                },
+                                "Unhide": false,
+                                "Fade": false,
+                                "SetHideInSaves": false
+                              },
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$8de5b14c-fbba-47a6-b56b-9f7b9dce0e9b",
+                                "Target": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$78b5440b-9bef-484f-85c5-69355fff8ef5",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "Alichino",
+                                    "_entity_id": "3fc72bdf-4bb2-4175-a393-2e1be3d584d7",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                },
+                                "Unhide": false,
+                                "Fade": false,
+                                "SetHideInSaves": false
+                              },
+                              {
+                                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                                "name": "$Spawn$f3adea63-15ea-4024-acec-80f904b8f6f5",
+                                "Spawners": [
+                                  {
+                                    "EntityNameInEditor": "ChadaliEnemy",
+                                    "_entity_id": "b6a50a85-0d98-4c60-850f-c201432a4d65",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  },
+                                  {
+                                    "EntityNameInEditor": "AlichinoEnemy",
+                                    "_entity_id": "ca8cbd54-d5cd-41f8-925e-71ca90285fa0",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  },
+                                  {
+                                    "EntityNameInEditor": "SocothbenothEnemy",
+                                    "_entity_id": "9737f11a-9096-4e6b-bb3a-9f8936a4b359",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  },
+                                  {
+                                    "EntityNameInEditor": "CobblehoofEnemy",
+                                    "_entity_id": "16c96a95-5f43-47b7-9f63-e56933250d28",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  },
+                                  {
+                                    "EntityNameInEditor": "EritriceEnemy",
+                                    "_entity_id": "cf9c567a-6b97-4d9c-9e8c-bd21e02f09d7",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                ],
+                                "ActionsOnSpawn": {
+                                  "Actions": []
+                                },
+                                "RespawnIfDead": false
+                              },
+                              {
+                                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                "name": "$StartCombat$ef88ccbb-ff13-4451-be48-420a74653a9f",
+                                "Unit1": {
+                                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                  "name": "$PlayerCharacter$aa4ba160-a532-4ef3-9057-c9d91251302f"
+                                },
+                                "Unit2": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$ef4e5ed0-c4fb-4f95-98a0-62b7cbe2a9ce",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "SocothbenothEnemy",
+                                    "_entity_id": "9737f11a-9096-4e6b-bb3a-9f8936a4b359",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                }
+                              },
+                              {
+                                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                "name": "$StartCombat$b6726772-f3ed-4fc2-bf49-0d7ecbc62714",
+                                "Unit1": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$16e96f60-698f-48ea-89e7-43cb1b5e58b8",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "Nocticula",
+                                    "_entity_id": "2eaf1703-7399-4c97-8c89-49d345ba369e",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                },
+                                "Unit2": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$f37b0405-3c0d-45ba-a17e-560045d57d7d",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "SocothbenothEnemy",
+                                    "_entity_id": "9737f11a-9096-4e6b-bb3a-9f8936a4b359",
+                                    "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                  }
+                                }
+                              },
+                              {
+                                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                                "name": "$PartyUnits$fe60cba5-9fcd-4d1c-9569-3e8129d5f9d4",
+                                "m_UnitsList": "ActiveUnits",
+                                "Actions": {
+                                  "Actions": [
+                                    {
+                                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                                      "name": "$AttachBuff$b914a1f7-9bf7-4bc6-bedf-ecfb40a3948f",
+                                      "m_Buff": "!bp_8fc11dece3b60e0479afa500121987e0",
+                                      "Target": {
+                                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                        "name": "$PartyUnit$6953aaf7-5afc-47c8-8a90-ee02b33fccb0"
+                                      },
+                                      "Duration": null,
+                                      "BattleLog": false,
+                                      "HasCustomBattleLogMessage": false,
+                                      "CustomBattleLogMessage": {
+                                        "m_Key": "",
+                                        "m_OwnerString": "",
+                                        "m_OwnerPropertyPath": "",
+                                        "m_JsonPath": "",
+                                        "Shared": null
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": [
+                              {
+                                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                                "name": "$Conditional$ee6761db-4f89-4a12-8537-50a54af23bd2",
+                                "Comment": "fight againt nocta with council",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$5dda607f-59b5-44cf-9129-b9bcd3b3574f",
+                                      "Not": false,
+                                      "m_Etude": "!bp_ed5d1dfa2402bed4cb7a59a21c14a1a4",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    }
+                                  ]
+                                },
+                                "IfTrue": {
+                                  "Actions": [
+                                    {
+                                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                                      "name": "$Conditional$067636ad-65c2-43a2-adf8-daa6d2311810",
+                                      "Comment": "nocta in dress",
+                                      "ConditionsChecker": {
+                                        "Operation": "And",
+                                        "Conditions": [
+                                          {
+                                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                            "name": "$EtudeStatus$316d3cd5-3e5c-4a65-8382-b93f09890eef",
+                                            "Not": false,
+                                            "m_Etude": "!bp_9b2af5f30ebd0c544b973c69a9c4dc39",
+                                            "NotStarted": false,
+                                            "Started": true,
+                                            "Playing": true,
+                                            "CompletionInProgress": false,
+                                            "Completed": false
+                                          }
+                                        ]
+                                      },
+                                      "IfTrue": {
+                                        "Actions": [
+                                          {
+                                            "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                                            "name": "$SwitchFaction$af5db9d1-dc25-4d0e-a7dd-12416cb88d1b",
+                                            "Target": {
+                                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                              "name": "$UnitFromSpawner$163cd2e9-002c-45fe-93e3-dbbdb3ab2537",
+                                              "Spawner": {
+                                                "EntityNameInEditor": "NocticulaInDress",
+                                                "_entity_id": "e2d7dd23-1d50-4bd3-9ee4-b75c816473de",
+                                                "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                              }
+                                            },
+                                            "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                                            "IncludeGroup": true,
+                                            "ResetAllRelations": false,
+                                            "ChangePetsFaction": true
+                                          },
+                                          {
+                                            "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                            "name": "$StartCombat$e1dba409-e011-43c6-812a-d7d1a6e4a402",
+                                            "Unit1": {
+                                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                              "name": "$PlayerCharacter$2dddc205-7465-4385-9fb1-d9c4180e8197"
+                                            },
+                                            "Unit2": {
+                                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                              "name": "$UnitFromSpawner$0cd24637-f18f-406c-bd9f-5441923c99ac",
+                                              "Spawner": {
+                                                "EntityNameInEditor": "NocticulaInDress",
+                                                "_entity_id": "e2d7dd23-1d50-4bd3-9ee4-b75c816473de",
+                                                "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                            "name": "$StartCombat$62f8eced-ab33-41a8-bb8f-7a86e75281a1",
+                                            "Unit1": {
+                                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                              "name": "$UnitFromSpawner$0d787c7f-e9dc-4cfa-990d-a1824600d985",
+                                              "Spawner": {
+                                                "EntityNameInEditor": "Socothbenoth",
+                                                "_entity_id": "93f25435-696f-4f1b-87a7-4c30805466a9",
+                                                "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                              }
+                                            },
+                                            "Unit2": {
+                                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                              "name": "$UnitFromSpawner$96a9e5ee-3913-4eed-9f87-02716990ac30",
+                                              "Spawner": {
+                                                "EntityNameInEditor": "NocticulaInDress",
+                                                "_entity_id": "e2d7dd23-1d50-4bd3-9ee4-b75c816473de",
+                                                "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "IfFalse": {
+                                        "Actions": [
+                                          {
+                                            "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                                            "name": "$SwitchFaction$b449a75b-726a-4101-a22d-e122dd71135e",
+                                            "Target": {
+                                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                              "name": "$UnitFromSpawner$972c4dcb-21eb-4c41-a819-55a53a7d37a5",
+                                              "Spawner": {
+                                                "EntityNameInEditor": "Nocticula",
+                                                "_entity_id": "2eaf1703-7399-4c97-8c89-49d345ba369e",
+                                                "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                              }
+                                            },
+                                            "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                                            "IncludeGroup": true,
+                                            "ResetAllRelations": false,
+                                            "ChangePetsFaction": true
+                                          },
+                                          {
+                                            "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                            "name": "$StartCombat$8cc34fcc-c0c5-4b5f-9bd5-5369f03f03aa",
+                                            "Unit1": {
+                                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                              "name": "$PlayerCharacter$265f6739-6b3f-4ab6-95de-c4c6fa095efd"
+                                            },
+                                            "Unit2": {
+                                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                              "name": "$UnitFromSpawner$3cc22ce8-58f7-4377-9f85-91e17f9ffa00",
+                                              "Spawner": {
+                                                "EntityNameInEditor": "Nocticula",
+                                                "_entity_id": "2eaf1703-7399-4c97-8c89-49d345ba369e",
+                                                "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                            "name": "$StartCombat$38f15bd6-7f12-4975-8e20-d52256ce7999",
+                                            "Unit1": {
+                                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                              "name": "$UnitFromSpawner$88a2e77a-6e29-4385-9bb5-05495d68c52f",
+                                              "Spawner": {
+                                                "EntityNameInEditor": "Socothbenoth",
+                                                "_entity_id": "93f25435-696f-4f1b-87a7-4c30805466a9",
+                                                "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                              }
+                                            },
+                                            "Unit2": {
+                                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                              "name": "$UnitFromSpawner$532c3746-5fe3-4d65-bcff-d623e0bcd79d",
+                                              "Spawner": {
+                                                "EntityNameInEditor": "Nocticula",
+                                                "_entity_id": "2eaf1703-7399-4c97-8c89-49d345ba369e",
+                                                "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                },
+                                "IfFalse": {
+                                  "Actions": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$7b60f9a5-688f-48c7-9af5-884c8cbe0c17",
+              "m_Cutscene": "!bp_30c00b96682ac7942b0a8b54277adc4f",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit1",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$7ac24d8c-1650-46b1-a4c1-6c8c92f189c8",
+                      "Spawner": {
+                        "EntityNameInEditor": "Shyka",
+                        "_entity_id": "a7cfc8bd-3fcd-4cee-897a-cab80dd4bcb4",
+                        "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$be56b3b3-5754-4160-b51f-a8104302839e",
+              "m_Cutscene": "!bp_ed4a553578d793e44a572fd18bc5c9dd",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$24217aba-14a9-400c-a91c-beb728417893",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$a915a74d-d239-4198-8960-ce335ae9fcc1",
+          "Spawner": {
+            "EntityNameInEditor": "NocticulaInDress",
+            "_entity_id": "e2d7dd23-1d50-4bd3-9ee4-b75c816473de",
+            "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$8e04dac0-c96e-4246-8561-7961fd6afdd0",
+              "Etude": "!bp_e581f609dc0f44a481e7e88824ac39da",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$53e681b6-be47-4843-8a86-80a2dbbc775f",
+              "m_Cutscene": "!bp_0656826e518a45c6af6622c2fb023c7e",
+              "m_AllCutscenesFromUnit": false,
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$0095ec8b-b595-4538-8e34-94ed24cc6ab8",
+              "m_Cutscene": "!bp_160be60b510346809ef26c486c5636f9",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$718a56fd-1d71-4df0-b4d7-128a3d3669b6",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_53342a5dd2a2426cbdc1cdde94c16676",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d881b68a-bd35-4e0e-b66a-c705313bdaab",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b086401a-c769-43f0-b841-1c97c74533da",
+                    "Not": false,
+                    "m_Etude": "!bp_f4004d2687004c646bbe3a047d15f78f",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$dabef940-aad1-4a49-8afc-0f74b695bc65",
+                    "m_Cutscene": "!bp_c50e52332aa74db3b160d43ac4c7a1f3",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$1a76bae2-60de-497e-83f6-9a79bd475fe9",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$35c9d52f-3ee5-45c0-80a4-81c8d5d03290",
+                          "Not": false,
+                          "m_Etude": "!bp_b80a81e97e26167489c439caf34888f8",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$5e2d9cc1-a0e7-4bd6-ad5f-ed19bf9449f9",
+                          "m_Cutscene": "!bp_a7650b1fec9d5fd4cbd21cfadad3a242",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "839317076a554a999fd5def8820dd93d, EtudeBracketMakePassive",
+        "m_Flags": 0,
+        "name": "$EtudeBracketMakePassive$22917217-1f0e-4362-a75b-0296d8806f02",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$d8cedfd6-9fc6-4751-b6ac-6d11d2fefe7c",
+          "Spawner": {
+            "EntityNameInEditor": "Shyka",
+            "_entity_id": "a7cfc8bd-3fcd-4cee-897a-cab80dd4bcb4",
+            "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+          }
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$4d32d2c1-96d6-4ae0-9c3c-e7ec92daa6a9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$0830480e-8fdf-4022-9948-3457929a4b0a",
+          "Spawner": {
+            "EntityNameInEditor": "Nocticula",
+            "_entity_id": "2eaf1703-7399-4c97-8c89-49d345ba369e",
+            "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$78a3e660-f386-4c4a-b682-638acef9402c",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3f59c4a0-a3ee-43a2-97b1-74fa765e827d",
+                    "Not": false,
+                    "m_Etude": "!bp_ed5d1dfa2402bed4cb7a59a21c14a1a4",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$53a1cb09-3096-4569-a735-02abfe11674f",
+                    "m_Cutscene": "!bp_160be60b510346809ef26c486c5636f9",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$5719f7ad-c50a-4283-b5c0-2d69a4daaa7a",
+              "Etude": "!bp_e581f609dc0f44a481e7e88824ac39da",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$f2dc4e18-85a8-4cdc-8a03-1887021a267f",
+              "m_Cutscene": "!bp_6ee8aa393f9f4239a198d4be847fa0bf",
+              "m_AllCutscenesFromUnit": false,
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$aa8f2bb1-3612-4775-ad41-7e0ab248c7cb",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$6a9838e6-d376-4731-bfac-f0e77e1ac1c2",
+          "Spawner": {
+            "EntityNameInEditor": "Nocticula",
+            "_entity_id": "2eaf1703-7399-4c97-8c89-49d345ba369e",
+            "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$811d2b07-3564-439c-9693-31546c09c14b",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$c2ac5a71-18c3-4cc0-80ff-ae93ff62ba90",
+                    "Not": false,
+                    "m_Etude": "!bp_ed5d1dfa2402bed4cb7a59a21c14a1a4",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$8b71d6b4-ed29-489b-aecb-cee233e7b2e8",
+                    "Unit1": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$34b5c45b-3e3f-41d9-ae0a-9141b22c3649",
+                      "Spawner": {
+                        "EntityNameInEditor": "Nocticula",
+                        "_entity_id": "2eaf1703-7399-4c97-8c89-49d345ba369e",
+                        "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                      }
+                    },
+                    "Unit2": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$ac22d1c9-4da9-49da-bc89-996c4454cb63"
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$cc0e25ec-b984-47da-8dac-0fc03ef1bc27",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$66224722-e00b-470c-9fa3-29700067dce8",
+          "Spawner": {
+            "EntityNameInEditor": "NocticulaInDress",
+            "_entity_id": "e2d7dd23-1d50-4bd3-9ee4-b75c816473de",
+            "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$ec840d91-5ee3-438c-879a-6cc79e3da1a9",
+              "Unit1": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$cff62b52-67c9-4e68-9b91-f1383a9549bf",
+                "Spawner": {
+                  "EntityNameInEditor": "NocticulaInDress",
+                  "_entity_id": "e2d7dd23-1d50-4bd3-9ee4-b75c816473de",
+                  "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                }
+              },
+              "Unit2": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$9701ef9b-3af4-44a3-a35b-308fba218f64"
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$45f8204b-0a1b-4ebf-8be8-60e37e268a48",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_cf1bbc5936f4e7e4ab50f0f002536605",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$c16d8ec3-bbd8-4d5b-baff-7e1d95222b4b",
+              "Unit1": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$80dddbd7-7246-417d-aaaa-f365454f7da4",
+                "Spawner": {
+                  "EntityNameInEditor": "NocticulaInDress",
+                  "_entity_id": "e2d7dd23-1d50-4bd3-9ee4-b75c816473de",
+                  "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                }
+              },
+              "Unit2": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$8da7b69f-89c6-4fbd-afbb-dca425b590f9"
+              }
+            },
+            {
+              "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+              "name": "$StartCombat$f02865e5-e2b9-4b2a-80cd-78a0223ded11",
+              "Unit1": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$8cda2b0f-3e29-4350-bd36-abc11f39f395",
+                "Spawner": {
+                  "EntityNameInEditor": "Nocticula",
+                  "_entity_id": "2eaf1703-7399-4c97-8c89-49d345ba369e",
+                  "SceneAssetGuid": "f27a4963ef47d354ab2e091cff67ab5f"
+                }
+              },
+              "Unit2": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$5d2945a6-e249-4d00-b20f-b35f0ac349f5"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_c388d0af029feb347b77886db29a59cd",
+    "ActivationCondition": {
+      "Operation": "Or",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$98f63ad4-d058-40df-9bc7-1afb5ef7ac84",
+          "Not": false,
+          "m_Etude": "!bp_b80a81e97e26167489c439caf34888f8",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$2b97eef7-23fd-4073-8dce-4f211ef9df2f",
+          "Not": false,
+          "m_Etude": "!bp_f4004d2687004c646bbe3a047d15f78f",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$85149d0e-06a1-4a01-8232-552256773e1e",
+          "Not": false,
+          "m_Etude": "!bp_ed5d1dfa2402bed4cb7a59a21c14a1a4",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_28a49e115795ed44397b5a1503cef4f0",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_3a6513ad79a05134d837bf302e42d5ee"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_e935d47579c04b64589cc974302fe0f1"
+    ],
+    "Priority": 200
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

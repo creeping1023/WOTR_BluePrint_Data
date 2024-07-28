@@ -1,0 +1,219 @@
+{
+  "AssetId": "d607326faceca024a933e2be6ecf2228",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_2aaa29bff07444bba8ca346157940be1",
+        "!bp_12d22fc9ec023484aa029e231ad6ba30"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$706c6e9a-f009-4fee-b978-28c16b74fb99",
+          "Comment": "Играем тему романса, если есть романс с Голфри",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1abd1dba-4572-4f75-ae41-e5a969f15f4f",
+                "Not": false,
+                "m_Etude": "!bp_c9358d866e0b3844b8d72536ca60e4b4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+                "name": "$PlayCustomMusic$ae62bc2f-d59d-4119-b276-c9d7e9a2f27f",
+                "MusicEventStart": "MUS_RomanceTheme_Play",
+                "MusicEventStop": "MUS_RomanceTheme_Stop"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+                "name": "$PlayCustomMusic$699fcf22-7dd3-4127-9e8a-318b5a1af911",
+                "MusicEventStart": "MUS_GalfreyTheme_Play",
+                "MusicEventStop": "MUS_GalfreyTheme_Stop"
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d384a6df-b718-407f-9747-c1db1a9f4a98",
+          "Comment": "Голфри старая",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$3e8fc118-1130-4194-b22c-f24a6922a523",
+                "Not": false,
+                "m_Etude": "!bp_0ab81986d8f7c484a8fede0d2188125c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "bfefd4b0c2e912a4a8d9e0bcde22a95c, SetPortrait",
+                "name": "$SetPortrait$0948aab5-20de-4378-9c5a-28ef3ace1e64",
+                "Unit": {
+                  "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+                  "name": "$DialogFirstSpeaker$7cf5df1b-53ff-4e8c-93ba-1332bf94e6c6"
+                },
+                "m_Portrait": "!bp_4e8dfb75015d356469b976145c851087"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0728942b-77c9-4620-a4b3-7de3303e5bb4",
+          "Comment": "если зафиналили романс",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$96308518-eb0a-47ac-b00a-d5779c1cae35",
+                "Not": false,
+                "m_Etude": "!bp_133f3b1b38f04fa44be3200b786e437f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                "name": "$RecruitInactive$a6cbb3ee-df3a-474b-b23e-5b869b48c019",
+                "m_CompanionBlueprint": "!bp_e46927657a79db64ea30758db3f42bb9",
+                "OnRecruit": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$9e32135e-d72e-4b87-ab02-ca531d15591f",
+                      "m_Cutscene": "!bp_5995907c880648269b0d48b2db349967",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+                "name": "$UnlockCompanionStory$1c5ac5e8-d00e-4194-a925-f91ef79946e9",
+                "m_Story": "!bp_cffa6159bb0c21743ad48b4d34732a7a"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$ae0fc979-b985-48db-8dcf-f4c2812ccc10",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "bd7636fe55dc9b947a556290d8bb2a71",
+                    "stringkey": "2770a8bf-116d-4b5c-b208-ae6339719fa9"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+                  "name": "$DialogFirstSpeaker$c7164e04-b070-4dc2-a40a-b6fa86bf4033"
+                },
+                "TargetMapObject": null
+              }
+            ]
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$c13998b4-c704-4347-b29e-92a086dabad8"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": [
+        {
+          "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+          "name": "$ShowBark$7ea2ac43-e62d-4822-80e8-3a0961c80ac6",
+          "WhatToBark": {
+            "m_Key": "",
+            "m_OwnerString": "",
+            "m_OwnerPropertyPath": "",
+            "m_JsonPath": "",
+            "Shared": {
+              "assetguid": "bd7636fe55dc9b947a556290d8bb2a71",
+              "stringkey": "2770a8bf-116d-4b5c-b208-ae6339719fa9"
+            }
+          },
+          "WhatToBarkShared": null,
+          "BarkDurationByText": true,
+          "TargetUnit": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$373fc01b-315c-43bd-bbf6-2ed22c0d0075"
+          },
+          "TargetMapObject": null
+        }
+      ]
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

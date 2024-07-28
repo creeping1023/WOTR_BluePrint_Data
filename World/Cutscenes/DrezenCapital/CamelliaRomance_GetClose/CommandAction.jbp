@@ -1,0 +1,109 @@
+{
+  "AssetId": "b4fbea39a2fc4494ad090ac6b39130e9",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fbbfe6bd-1909-4b35-a534-c62b1adc9dc9",
+          "Comment": "templeAwaits",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c083b0ac-142b-4a3e-ae13-8288866cda5c",
+                "Not": true,
+                "m_Etude": "!bp_872b79b77bd58834cbdbc23ac8764129",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$f0ca9adc-1b89-4f14-98d0-9d6ff28097d3",
+                "Not": true,
+                "m_Answer": "!bp_2ef8b8ef0e20672498a4074da814f206",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$6f18b1d0-68d2-469a-9064-aa3e275be47d",
+                "Etude": "!bp_872b79b77bd58834cbdbc23ac8764129",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$9d8acb29-efc4-453e-a818-f776d1067708",
+                "m_Cutscene": "!bp_890f753428394bf886e8cb159b674a6a",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$fac4e5f5-7d13-44f8-b34c-b918314eba27"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b3df0818-31fb-41cc-8582-adbf9b2ceae5",
+          "Comment": "Sex",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$0a3cc444-5d9c-421f-8b45-2b21fa813f22",
+                "Not": false,
+                "m_Answer": "!bp_2ef8b8ef0e20672498a4074da814f206",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$45a14a34-37ef-49b7-b53d-144165aa1a56",
+                "m_flag": "!bp_1607d14d446589542af1f795e4e76c8e",
+                "flagValue": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "AssetId": "9444fbc5622747c4e88adc4059a72a1d",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Набасу\nбой против всех, если нет доппля",
+    "ParentAsset": "5cd209b17617e9045955f22afc9bbfd7",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "16d81e82-c604-44f3-8680-d22089ee54cb",
+      "m_OwnerString": "9444fbc5622747c4e88adc4059a72a1d",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Camellia/Q2_HeartsDesire/DemonsLoveCommander/Cue_0018_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$80c783ba-774a-4f10-8851-1648ca8cfb95",
+          "Comment": "dopp is alive",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d727d2be-8f99-42ce-b856-c47d2c891acc",
+                "Not": false,
+                "m_Etude": "!bp_19c26002bcb4ae34a864695ddba1ff91",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$a37b3ed8-01c9-4c2b-b0c3-56eb43d318fb",
+                "m_Cutscene": "!bp_8d1053ea09ddb234a8e54daa2bf73fbe",
+                "WithUnit": null
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$c4081217-a383-4ba2-8f55-c76b4c910d07",
+                "m_SummonPool": "!bp_14390a8b459ca73409988a040ca33ec8",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$a0dab18f-f3bd-463e-925a-e1d1154f35ed",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$125f6eb5-7a29-4a52-8fb4-bd4637597397"
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": false,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$4021732c-2bf0-402c-ae4e-9d0edcb264e1",
+                      "Unit1": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$8e57441e-098b-47b4-a000-0530aa8eca8d"
+                      },
+                      "Unit2": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$1952aa99-8135-496b-890d-0c6485108a1e"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_ecf0587de2263e64abefff2c4fcc1526"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

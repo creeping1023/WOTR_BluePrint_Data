@@ -1,0 +1,174 @@
+{
+  "AssetId": "d36768f5f52068144ad05604593a2b9d",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EvaluatedUnitHealthTrigger$8c0b8a99-9873-420c-bbf6-c6048609a464"
+    ],
+    "Components": [
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$8c0b8a99-9873-420c-bbf6-c6048609a464",
+        "m_Overrides": [],
+        "Comment": "ХП триггер Хосиллы",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$b9160d28-3a49-4c21-b26a-c4f941b24fa0",
+          "Spawner": {
+            "EntityNameInEditor": "Hosilla",
+            "_entity_id": "5bedca92-82a2-4aae-be43-ab03ae93cb6e",
+            "SceneAssetGuid": "2c79edf2397a1914590e0216add5b96b"
+          }
+        },
+        "Once": false,
+        "Percentage": 35,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c8b868ff-8bc3-40fa-9693-10f832b2e865",
+              "Comment": "Проверяем хочет ли Вендуаг убить Хосиллу",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$21437068-82e3-44cf-a6fe-1f8ee37940d3",
+                    "Not": false,
+                    "m_Etude": "!bp_98a502b56a158ea4bb52c5788f029a89",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b4aa40cb-3bdc-4817-978c-8ba20b2d0400",
+                    "Not": false,
+                    "m_Etude": "!bp_1dff6917701d5f44c9073efc3ab25b32",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$9ee61bfb-5d72-423c-80a1-a5ff36d5303a",
+                    "m_Cutscene": "!bp_20d3ff2bccc9ff443ba7fabf580f98ef",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  },
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$05b6d70b-458f-4823-9392-62638e7768d0",
+                    "Etude": "!bp_d36768f5f52068144ad05604593a2b9d",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$21a5ead5-bade-46cc-95f8-c8023fcced1c",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                          "name": "$CompanionInParty$c688a46b-b837-4876-97d6-088b4ad27d59",
+                          "Not": false,
+                          "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                          "MatchWhenActive": true,
+                          "MatchWhenDetached": false,
+                          "MatchWhenRemote": false,
+                          "MatchWhenDead": false,
+                          "MatchWhenEx": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$d6743558-ad66-46db-98be-1e2c55fab38f",
+                          "m_Cutscene": "!bp_e02e5defabc90454ea348e7fdce7ea25",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        },
+                        {
+                          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                          "name": "$CompleteEtude$468475d8-c315-4470-a8b9-8bb9469d1976",
+                          "Etude": "!bp_d36768f5f52068144ad05604593a2b9d",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$e0f38620-ef11-4205-8d0c-11056cb8b308",
+                          "m_Cutscene": "!bp_afb9db804a68dd64c7a0feb3d4b4233e",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        },
+                        {
+                          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                          "name": "$CompleteEtude$404e62f5-5fe4-474b-a3c6-fe74107f36cc",
+                          "Etude": "!bp_d36768f5f52068144ad05604593a2b9d",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_b03a5181ed494cb4693354021935b0c1",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_944a6947fe8ffa8458c278aa1c0c4226",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

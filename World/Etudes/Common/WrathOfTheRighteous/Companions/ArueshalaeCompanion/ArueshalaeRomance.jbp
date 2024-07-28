@@ -1,0 +1,120 @@
+{
+  "AssetId": "d6a90c0f6536331498cafa1f3195d886",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeCompleteTrigger$7e986885-fadc-4953-b62a-39f093eff344"
+    ],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$7e986885-fadc-4953-b62a-39f093eff344",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$062e5388-3765-4ff4-8ce5-35df17f0a65f",
+              "Etude": "!bp_6a3fdd0758fe78d4aa2c3b26d7614fbc",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8878ffd2-bd97-4dc0-81d3-c788989488e9",
+              "Comment": "Проверка был ли запущен таймер на ожидание",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3a802387-cd21-4e9b-b6b9-f7adff544dbd",
+                    "Not": false,
+                    "m_Etude": "!bp_0e66272af9cfc0a438918bd042505047",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$b618d7fd-2f27-42be-9353-d3d06c636fec",
+                    "Not": false,
+                    "m_Quest": "!bp_bc50e858b1a4afe4895ce52f7c954c7e",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$280d5250-6200-45e5-b9ad-a65256b66ccc",
+                    "Etude": "!bp_0e66272af9cfc0a438918bd042505047",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$cf3ce2b4-e113-4d69-bee2-cebe052f7131",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_08e705b0445ec0140bbfed263796a48c",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Комплит значит фэйл романса",
+    "m_Parent": "!bp_ee750506c47ad6b49a07da975de13be7",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$14f70123-acce-4f99-9e16-d6fa6935e672",
+          "Not": true,
+          "m_Etude": "!bp_3d4cf05d72e552d4fa8490987a7fc7be",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

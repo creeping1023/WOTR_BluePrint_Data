@@ -1,0 +1,211 @@
+{
+  "AssetId": "dee864aec4a0d344b913dd27a4b504cb",
+  "Data": {
+    "$type": "cb208b98ceacca84baee15dba53b1979, BlueprintFeature",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$AddStatBonus$76448cc4-eebf-42fb-a816-0a52739033dd"
+    ],
+    "Components": [
+      {
+        "$type": "bdbdc2afaa197d4479e112a32f9bdab5, AddInitiatorAttackWithWeaponTrigger",
+        "m_Flags": 0,
+        "name": "$AddInitiatorAttackWithWeaponTrigger$a3720048-84e0-4c20-8419-ad3783d6d411",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "WaitForAttackResolve": false,
+        "OnlyHit": true,
+        "OnMiss": false,
+        "OnlyOnFullAttack": false,
+        "OnlyOnFirstAttack": false,
+        "OnlyOnFirstHit": true,
+        "CriticalHit": false,
+        "OnAttackOfOpportunity": false,
+        "NotCriticalHit": false,
+        "OnlySneakAttack": false,
+        "NotSneakAttack": false,
+        "m_WeaponType": "!bp_952e30e6cb40b454789a9db6e5f6dd09",
+        "CheckWeaponCategory": false,
+        "Category": "UnarmedStrike",
+        "CheckWeaponGroup": false,
+        "Group": "None",
+        "CheckWeaponRangeType": false,
+        "RangeType": "Melee",
+        "ActionsOnInitiator": false,
+        "ReduceHPToZero": false,
+        "DamageMoreTargetMaxHP": false,
+        "CheckDistance": false,
+        "DistanceLessEqual": {
+          "m_Value": 0.0
+        },
+        "AllNaturalAndUnarmed": false,
+        "DuelistWeapon": false,
+        "NotExtraAttack": false,
+        "OnCharge": false,
+        "IgnoreAutoHit": false,
+        "Action": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d44b94fa-73e7-4cdc-8e13-2f8526c7d5dc",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "60413a6d9c4dca742bcb441dabdbe47f, ContextConditionDifficultyHigherThan",
+                    "name": "$ContextConditionDifficultyHigherThan$2791720b-382a-414d-894e-c1ecbc6a9a6d",
+                    "Not": true,
+                    "Less": false,
+                    "Reverse": true,
+                    "CheckOnlyForMonster": true,
+                    "m_Difficulty": {
+                      "guid": "8035a286d2edf144f8da33a3bc1191aa",
+                      "fileid": 11400000
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$9da5389d-9adc-48fe-b1ff-4a6d73a311fc",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "Or",
+                      "Conditions": [
+                        {
+                          "$type": "4f0a6ea4f73a2884aa22689cadb3a835, ContextConditionHasBuffImmunityWithDescriptor",
+                          "name": "$ContextConditionHasBuffImmunityWithDescriptor$7afeacd4-e062-412d-9cec-5c88c0c9992b",
+                          "Not": true,
+                          "CheckBuffDescriptorComponent": true,
+                          "CheckSpellDescriptorComponent": true,
+                          "SpellDescriptor": {
+                            "m_IntValue": 562949953421312
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "35a0974c6f0c9ca49a1c3109bc07fa42, ContextActionSwallowWhole",
+                          "name": "$ContextActionSwallowWhole$7365f0ba-533d-4157-b2ca-93a175d4b53e",
+                          "m_TargetBuff": "!bp_368d1df7c1d0267459a584bf23ccadc8"
+                        },
+                        {
+                          "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+                          "name": "$ContextActionOnContextCaster$ad0064d0-deb8-440b-8ec9-fda3e51b5a5b",
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                                "name": "$ContextActionApplyBuff$cb8e9fd9-5882-465b-bacd-95c83acb2fc7",
+                                "m_Buff": "!bp_d5ae4c0a8d68e814ab327c7fe595a53a",
+                                "Permanent": true,
+                                "UseDurationSeconds": false,
+                                "DurationValue": {
+                                  "Rate": "Rounds",
+                                  "DiceType": "Zero",
+                                  "DiceCountValue": {
+                                    "ValueType": "Simple",
+                                    "Value": 0,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "Damage",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  },
+                                  "BonusValue": {
+                                    "ValueType": "Simple",
+                                    "Value": 0,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "Damage",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  },
+                                  "m_IsExtendable": true
+                                },
+                                "DurationSeconds": 0.0,
+                                "IsFromSpell": false,
+                                "IsNotDispelable": false,
+                                "ToCaster": false,
+                                "AsChild": false,
+                                "SameDuration": false
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "a2844c135c0324e439072bd3cc2f9260, AddStatBonus",
+        "m_Flags": 0,
+        "name": "$AddStatBonus$76448cc4-eebf-42fb-a816-0a52739033dd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": "UntypedStackable",
+        "Stat": "AdditionalCMB",
+        "Value": 4,
+        "ScaleByBasicAttackBonus": false
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "cb67699a-f143-4282-9880-d25174c2ab8c",
+      "m_OwnerString": "dee864aec4a0d344b913dd27a4b504cb",
+      "m_OwnerPropertyPath": "m_DisplayName",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/Units/Monsters/Purpule Worm/PurpleWormBrain/PurpleWormSwallowWholeFeature_m_DisplayName.json",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "60a8ba8e8b2ba5a43ad6f665e9b6700e",
+        "stringkey": "466c4582-7f42-4ff5-bc1e-c551c091319b"
+      }
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "HideInUI": true,
+    "HideInCharacterSheetAndLevelUp": false,
+    "HideNotAvailibleInUI": false,
+    "Groups": [],
+    "Ranks": 1,
+    "ReapplyOnLevelUp": false,
+    "IsClassFeature": false,
+    "IsPrerequisiteFor": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

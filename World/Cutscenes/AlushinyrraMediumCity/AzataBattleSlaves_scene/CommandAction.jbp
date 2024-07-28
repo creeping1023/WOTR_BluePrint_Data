@@ -1,0 +1,113 @@
+{
+  "AssetId": "f72d1a42d4b943b387ac801fc9d2c55c",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4de2bb8c-0a28-46ab-8739-7d9ce25c03e8",
+          "Comment": "Спавн гвардов Рамисы, если другие убиты",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8662b313-8556-4acf-8bb9-8f6568625e69",
+                "Not": false,
+                "m_Etude": "!bp_f2845232d8a3da145b5c8439bb92982f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                "name": "$SpawnBySummonPool$d4db56dc-60c6-4b39-9336-e7d8c55d9018",
+                "m_Pool": "!bp_84cc224cb07f4a81b0a0fc545a6126fa",
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$866f38c9-e447-4813-8096-5c66d58c402d",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$a30005e2-cfdb-4aee-84ee-8f10476d870c"
+                      },
+                      "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$ac2194ae-871d-474d-8116-e9c3ac4fc641",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "Rhamisa_Azatacutscene",
+              "_entity_id": "ba51b1ec-c5c0-4401-ac99-ecb0561e7efc",
+              "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$c34aaf6b-b726-4e4a-ac08-0e66c69fac29",
+                "Target": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$7c1ae608-492d-4021-97ab-2ce271450bad"
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+          "name": "$DestroyUnit$7ad8228e-6686-44cd-ad40-211b1287bcbe",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$d20d2c8a-7c88-424d-b5fe-20cd7732c912",
+            "Spawner": {
+              "EntityNameInEditor": "Rhamisa",
+              "_entity_id": "9ddb59af-4079-42bb-a052-8e6d29aac7d1",
+              "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+            }
+          },
+          "FadeOut": false
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$2ab22e48-fa21-49eb-9d94-05ecf2010eaa",
+          "m_exitPositon": "!bp_49fc77061ed74403b5878fdfee6805c2",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

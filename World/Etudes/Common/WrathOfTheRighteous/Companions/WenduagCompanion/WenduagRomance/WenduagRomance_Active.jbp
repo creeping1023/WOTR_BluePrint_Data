@@ -1,0 +1,142 @@
+{
+  "AssetId": "33c4c2f66f2461e4993df21566252079",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$ecdd8af0-20ac-4187-8cf2-7dbb376c73d4"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$ecdd8af0-20ac-4187-8cf2-7dbb376c73d4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$1dc16c99-3647-44bb-98db-0045769e5892",
+              "m_Flag": "!bp_5db9ec615236f044083a5c6bd3292432",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$d800c72c-3500-4523-a6a1-4d4b65c4c100",
+                "Value": 1
+              },
+              "UnlockIfNot": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$6098f518-ac27-46af-ad2b-4b100cd44a27",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Ачивка - A Spark - Начать любой романс ",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$9c5d750e-3150-4df9-9b86-6ff2cfc7a597",
+              "Etude": "!bp_b9c6e3e0d6ac42ef8b9a2bad0c36420d",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$ed256f2e-a048-4d73-bf6e-ce3dea2ab3c0",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3131954c-1977-4f2b-941a-48749a9f00a9",
+              "Comment": "не в процессе ктц Ревности",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$7ab8c846-e616-4c17-b2d6-ec4df1c5635c",
+                    "Not": true,
+                    "m_Etude": "!bp_4799a25da39295b43a6eefcd2cb2b4a7",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$cf7dac6f-d1f7-4b4c-aad4-a5fdc3f59bf1",
+                    "m_Flag": "!bp_5db9ec615236f044083a5c6bd3292432",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$dbf25c25-fb10-4e7d-a5a6-ed27a77a7639",
+                      "Value": -1
+                    },
+                    "UnlockIfNot": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Романс начат и не завершен или не зафейлен.\n",
+    "m_Parent": "!bp_39c388b5f2ab0f14b90030bab1b676b9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

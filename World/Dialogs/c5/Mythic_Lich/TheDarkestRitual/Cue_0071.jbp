@@ -1,0 +1,149 @@
+{
+  "AssetId": "97ea7ba96b0d46249ae28f9c0e8a07eb",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "анрекрут",
+    "ParentAsset": "2ef9dde3f19d49444a51f38156da8846",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$1efcbd35-6d4f-4aba-9f4c-0e8b95fadce7",
+          "Not": false,
+          "m_Etude": "!bp_efb130b8a22c9534ca40a1e41ef8e931",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "ca02d802-bf81-4dec-9d92-4783b23a38ee",
+      "m_OwnerString": "97ea7ba96b0d46249ae28f9c0e8a07eb",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/Mythic_Lich/TheDarkestRitual/Cue_0071_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$c18a23c3-db87-4ef5-afbe-bde5f0295e8a",
+          "m_Cutscene": "!bp_442fb54c1eb24bd4cb6b991dfdc0179a",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$c23156b9-ae1f-43ee-96e2-3a25286f8960",
+                  "m_Companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$e4bceafe-17e5-4b3c-9a8d-e87dc0167c45",
+          "m_flag": "!bp_7c3efde8daaba004aaf17519f40c41bc",
+          "flagValue": 1
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$98b32a1c-d0f1-4327-ab05-f89798ba3f59",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$095ccea6-79b8-4536-bb49-39b93611a228",
+                "Not": false,
+                "m_companion": "!bp_0bb1c03b9f7bbcf42bb74478af2c6258",
+                "MatchWhenActive": false,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$52de30d6-60fd-48c5-8929-7008a3aaa515",
+                "m_CompanionBlueprint": "!bp_0bb1c03b9f7bbcf42bb74478af2c6258",
+                "OnUnrecruit": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$267432d0-c2d1-448e-8c77-87823858714a",
+                "Etude": "!bp_e51dacc6378903a43b80eed6447aeb8a",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_2b3325626567417ca8f22131ba440d70"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "AssetId": "416f6ceb73a8b6043a25fedc854fe44b",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "бой против демонов. Доппль дерется за нас. Выживает, после боя встает, стоит с барком",
+    "ParentAsset": "9876485cc0dbbeb4ca1df349c163becd",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "9a75a8ae-aaf6-464a-85de-5ef33a001abb",
+      "m_OwnerString": "416f6ceb73a8b6043a25fedc854fe44b",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Camellia/Q2_HeartsDesire/DemonsLoveCommander/Cue_0023_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_d6a0567eafa16f64fb6ace31d79de3a0",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$58e6150d-e46f-4568-a735-1d3626c51c6a",
+          "m_SummonPool": "!bp_fa088696e258242489f1a3c36c049377",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$1112b85b-7627-43ac-9312-f107c31e9162",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$560b056b-e5d1-4026-8bd7-34f758b069c7"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$d23953c0-5d47-43c8-a5da-93255b19d6d2",
+                "Unit1": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$6041effa-26d4-4977-b30c-d8900787221b"
+                },
+                "Unit2": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$9e35dfe7-809e-44da-af68-ee69956c9a97"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$6c706836-435d-44b4-880e-7314be93b2cb",
+          "Target": {
+            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+            "name": "$FirstUnitFromSummonPool$a18c25d0-e438-4202-af93-ecaf364e9184",
+            "m_SummonPool": "!bp_985d68bc79144e24aac764cd38d1db1c",
+            "Conditions": {
+              "Operation": "And",
+              "Conditions": []
+            }
+          },
+          "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+          "IncludeGroup": false,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$08965d5a-6ea2-42b8-aada-842eaa9e771d",
+          "m_Cutscene": "!bp_4ba3e3db4f14baa46b6a351a0f9fda13",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$151690c2-a9ec-4b60-aede-3098d0f842e4",
+                  "m_SummonPool": "!bp_985d68bc79144e24aac764cd38d1db1c",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

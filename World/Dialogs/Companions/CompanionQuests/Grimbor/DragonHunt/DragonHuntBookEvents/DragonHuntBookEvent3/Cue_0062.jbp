@@ -1,0 +1,155 @@
+{
+  "AssetId": "58f7300ad7ecc804ca03cdf989db589c",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "GrimborCounter-1, дебаф и ранения партии",
+    "ParentAsset": "dc8efb8a61ac35c439d6b2b769d5e644",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "f40da3fe595e435780ba1f1b01dee3a6, CheckFailed",
+          "name": "$CheckFailed$4b5c10a8-5803-4153-9d26-bbb37ea7ae06",
+          "Not": false,
+          "m_Check": "!bp_2c2270f565b552049baa805980856bd6"
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "09ab1692-8307-424a-8e5b-16dcfeeaa27b",
+      "m_OwnerString": "58f7300ad7ecc804ca03cdf989db589c",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Grimbor/DragonHunt/DragonHuntBookEvents/DragonHuntBookEvent3/Cue_0062_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$362cc2d5-a398-4ce7-b55a-5365b11adac3",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$be5b6e05-2d6e-4e97-9998-b6a239cedefa",
+                "m_Buff": "!bp_e6f2fc5d73d88064583cb828801212f4",
+                "Target": {
+                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                  "name": "$PartyUnit$6c25e427-2158-4da2-95e1-93758365c885"
+                },
+                "Duration": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$935b40ac-5bf2-4fea-9822-662e8f197e24",
+                  "Value": 360
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "2379c20c25ff18a49ac676292ec98e7a, DamageParty",
+          "name": "$DamageParty$7b2c72e0-1ba2-4b31-9472-fa6966f431eb",
+          "DamageSource": null,
+          "NoSource": true,
+          "Damage": {
+            "Dice": {
+              "m_Rolls": 4,
+              "m_Dice": "D8"
+            },
+            "Bonus": 8,
+            "TypeDescription": {
+              "Type": "Physical",
+              "Common": {
+                "Reality": 0,
+                "Alignment": 0,
+                "Precision": false
+              },
+              "Physical": {
+                "Material": 0,
+                "Form": "Slashing",
+                "Enhancement": 0,
+                "EnhancementTotal": 0
+              },
+              "Energy": "Fire"
+            },
+            "IgnoreReduction": false,
+            "IgnoreImmunities": false,
+            "EvaluatedBonus": null,
+            "CausedByCheckFail": false
+          },
+          "DisableBattleLog": true
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$38fbc375-8c0c-4cae-84fd-8beaeb1e0c40",
+          "m_exitPositon": "!bp_a2ccb98f1e8331948a85f1c540e04a1b",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$6fb17af4-f91b-4a19-b455-7e5c12c17199",
+          "m_Flag": "!bp_34f0f22738c283240af69dabf825dd21",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$3bf35c63-4f77-4e56-97a7-02a5b934b0cb",
+            "Value": -1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "2326a4042cfc94e428a670cabea6a13a, GlobalMapTeleport",
+          "name": "$GlobalMapTeleport$19f6f3b7-4fe3-4a53-8fe5-58990e4636fd",
+          "Destination": {
+            "$type": "1764a2502dd662840b7e4a80a216114e, LocationBlueprint",
+            "name": "$LocationBlueprint$e1606b2e-5909-4a93-8871-78154b28921e",
+            "m_Location": "!bp_460375af7f35b784ba8ccc59f1e61e68"
+          },
+          "SkipHours": null,
+          "UpdateLocationVisitedTime": true
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

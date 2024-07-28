@@ -1,0 +1,180 @@
+{
+  "AssetId": "98726622627a40dd8ad40b23aa31853e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Если поднят флаг DLC1_State_Maelstrom\r\n\nНе-Локуст убивает Лариэля одним ударом\nЛокуст пожирает Лариэля. \n\nЕсли рядом стоит Таргона, то же происходит и с ней\n\nЕсли поднят флаг DLC1_TargonaSaved - опускаем его",
+    "ParentAsset": "09faf8b954754448aa1f02f0d343d761",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "0d02b0ad71b5df14f8851126adedb182",
+        "stringkey": "bfca441f-6662-40af-8f73-e9eb9debe513"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4335bc22-7caf-4554-8a03-d3db135f9db3",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b92545e9-d5e7-4940-a000-f9bb3f8f4820",
+                "Not": false,
+                "m_Etude": "!bp_439e63fed37f52048887d98f99255e40",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$a2743d3d-43a1-4cdb-a080-197127a00c60",
+                "m_SummonPool": "!bp_08f28e19ffba413daa9158d21370646d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$62173a59-3404-4fbf-a515-ccca76841412",
+                      "m_Cutscene": "!bp_c1dc18bd5ea245b09cc467eeb2959f28",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Target",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$4f3ff931-d021-4606-bd4d-dc320d7c9ead"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$115dd626-383b-4799-aa8c-30637c2cca29",
+                "m_Cutscene": "!bp_a2b07e8568384cdba99e7f1e5ef5dea1",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bcd33846-1b1a-4d2c-b989-eda9cab7e845",
+          "Comment": "Targona Saved?",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$aadca981-5258-4c5a-9be8-587e54b9149f",
+                "Not": false,
+                "m_Etude": "!bp_aafc29f323ca4a08a164d0ae126b8dc4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$963d6fda-46d4-4e45-9fdd-729ecc393175",
+                "Etude": "!bp_aafc29f323ca4a08a164d0ae126b8dc4",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$34b1d8bd-0178-489a-8dbb-a7f75242121b",
+                "Etude": "!bp_08327f9a2a234b63927dcd53ec5bb4a7",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_e28212f4329241eeba1e1ded7cf90a47"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "AssetId": "31753120c30c4530a88c863a0667f406",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Могильщик уходит\n\nEND DIALOGUE",
+    "ParentAsset": "a01931316c96462f915178553d4d51cf",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "65e907e6-9076-4161-b189-f6f390e6ebd6",
+      "m_OwnerString": "31753120c30c4530a88c863a0667f406",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC2_LowFantasy\\DLC2_Common\\Grave_Personal\\Cue_6_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_e8bef329125542299a0c4b023b82ca64",
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$139be13b-1469-4553-8116-f8c003f0d476",
+          "Comment": "Фейлим эрранд Могильщика, если он сейчас есть",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$9aa13ba0-e830-4103-9678-d5c19b4da233",
+                "Not": false,
+                "m_QuestObjective": "!bp_a251c832de9944c684e28b465d15f3b4",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e79bc66a-1121-4ae4-9c4f-2df8a92d3ad6",
+                "Status": "Fail",
+                "m_Objective": "!bp_a251c832de9944c684e28b465d15f3b4",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$5a39b78c-f6d9-4a7c-92a6-524167156507",
+          "m_Cutscene": "!bp_cf8ae439907040068f2e67624d3fbbc1",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Surv",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                  "name": "$DialogCurrentSpeaker$44248442-35db-4300-a501-73a507f7cbee"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$c0b06d36-ece0-4ad0-962a-9316abeed91a",
+          "Etude": "!bp_d9b65057ed814c24839473bcf6ac8271",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

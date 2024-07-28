@@ -1,0 +1,889 @@
+{
+  "AssetId": "2b982a1beb864ff1afd626d04e79be1d",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9840cbfa-d4d6-4729-8740-a7964532bd04",
+          "Comment": "Player is under control",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$84e6fad2-ebfa-417c-a803-73ef16448daa",
+                "Not": false,
+                "m_Flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+                "MinValue": 3,
+                "MaxValue": 3
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$04babe7c-65a5-447e-9c5e-cf8e6bd5a9ae",
+                "Comment": "Only player is obsessed",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$ec4fc246-57fe-42cc-89ac-b4585bb3be4b",
+                      "Not": true,
+                      "m_Cue": "!bp_bf56d18db53d4b65b905ce05b9855652",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$2c529bef-71dc-4e86-b3b3-43ef29fc7bbd",
+                      "Not": true,
+                      "m_Cue": "!bp_da2b4320002b415985325d544bf3e95b",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+                      "name": "$SummonUnitCopy$a658090f-6d5c-4fbd-b78f-53da89630a22",
+                      "CopyFrom": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$f90a69cd-3c61-4f75-b15a-fe17728f0f6f"
+                      },
+                      "Locator": {
+                        "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                        "name": "$LocatorReference$718e4453-1329-4b1a-b585-0e7b0a1e79ab",
+                        "Locator": {
+                          "EntityNameInEditor": "Obsessed_character_pos_1",
+                          "_entity_id": "da147e5b-2445-4b9c-a35c-3de94b8fdc10",
+                          "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                        }
+                      },
+                      "m_CopyBlueprint": "!bp_38e900803a694b0891c5da0f25547785",
+                      "m_SummonPool": "!bp_0c7fd252a2d548ca85b8e58186d3143f",
+                      "DoNotCreateItems": false,
+                      "OnSummon": {
+                        "Actions": [
+                          {
+                            "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                            "name": "$AttachBuff$2c8765f2-86bf-46a9-89ef-310f3d50b080",
+                            "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+                            "Target": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$3fb3f7c6-88bf-4857-8409-01fd11b8eeaa"
+                            },
+                            "Duration": null,
+                            "BattleLog": false,
+                            "HasCustomBattleLogMessage": false,
+                            "CustomBattleLogMessage": {
+                              "m_Key": "",
+                              "m_OwnerString": "",
+                              "m_OwnerPropertyPath": "",
+                              "m_JsonPath": "",
+                              "Shared": null
+                            }
+                          },
+                          {
+                            "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                            "name": "$UnitLookAt$60bdb03d-7d89-4dbe-9cd0-527f90177b70",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$43db5803-e22e-42d8-a2ab-ddad7546f738"
+                            },
+                            "Position": {
+                              "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                              "name": "$UnitPosition$c04ab595-77cc-4948-95b4-0c90d6197d15",
+                              "Unit": {
+                                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                "name": "$UnitFromSpawner$c2b978cd-dc72-46c8-9cdb-73df86321448",
+                                "Spawner": {
+                                  "EntityNameInEditor": "Hermit",
+                                  "_entity_id": "037f61a6-f0c5-43c3-ae1a-513d211757c6",
+                                  "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                                }
+                              },
+                              "Offset": "0|0|0"
+                            }
+                          },
+                          {
+                            "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                            "name": "$AddUnitToSummonPool$31f4ae90-553e-497c-9e98-ffb11675f09c",
+                            "m_SummonPool": "!bp_79fad063df0b4eb1a7f98bfeedc70b3c",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$4647a994-f15d-4b50-80c2-7845d3ed4de3"
+                            }
+                          },
+                          {
+                            "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                            "name": "$PartyMembersDetachEvaluated$9201c9f7-a316-4a60-b236-97a23b02a1df",
+                            "DetachThese": [
+                              {
+                                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                "name": "$PlayerCharacter$7794c4f3-09b3-4d44-9f96-32e650d0d247"
+                              }
+                            ],
+                            "AfterDetach": {
+                              "Actions": [
+                                {
+                                  "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                  "name": "$HideUnit$ce01b6e5-2607-491c-bc1c-ee223cc96d05",
+                                  "Target": {
+                                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                    "name": "$PlayerCharacter$36fec8e4-13c6-486d-bc1d-1b7ab7f292ab"
+                                  },
+                                  "Unhide": false,
+                                  "Fade": false
+                                }
+                              ]
+                            },
+                            "m_RestrictPartySize": false,
+                            "m_PartySize": -1
+                          },
+                          {
+                            "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                            "name": "$SpawnFx$46136c8d-d543-4276-af3e-342cbc3ac494",
+                            "Target": {
+                              "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                              "name": "$UnitTransform$764ddbad-d89e-41c1-be4d-cdbf01c92935",
+                              "Unit": {
+                                "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                "name": "$SpawnedUnit$f39a2a24-3604-47b4-8ee0-e63b2058d61f"
+                              }
+                            },
+                            "FxPrefab": {
+                              "AssetId": "c14a2f46018cb0e41bfeed61463510ff"
+                            }
+                          },
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$f22bd121-b95c-4a5c-94c1-5848626c4cb1",
+                            "m_Cutscene": "!bp_6bd3f48d2c9f72f48aaf78bc27f24d71",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": [
+                                {
+                                  "Name": "Unit",
+                                  "Type": "Unit",
+                                  "Evaluator": {
+                                    "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                    "name": "$SpawnedUnit$c110d32d-e91d-4115-8786-2a098f1f695f"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+                      "name": "$SummonUnitCopy$8b816b4f-e641-495c-8dfb-b2ae89df0630",
+                      "CopyFrom": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$326e36ee-5144-4799-bf1b-685dab0e604c"
+                      },
+                      "Locator": {
+                        "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                        "name": "$LocatorReference$06d653c2-63a0-47fd-90e8-81c7140df45b",
+                        "Locator": {
+                          "EntityNameInEditor": "Obsessed_character_pos_2",
+                          "_entity_id": "b18e88c2-2f6e-4540-9942-25a7802f8955",
+                          "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                        }
+                      },
+                      "m_CopyBlueprint": "!bp_38e900803a694b0891c5da0f25547785",
+                      "m_SummonPool": "!bp_20b4417055ca41dfb5380697d248de57",
+                      "DoNotCreateItems": false,
+                      "OnSummon": {
+                        "Actions": [
+                          {
+                            "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                            "name": "$AttachBuff$c61a5315-ae15-4799-a183-466535dff787",
+                            "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+                            "Target": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$23fb2a4a-fb10-4b2d-b5be-1adce2d7f1ff"
+                            },
+                            "Duration": null,
+                            "BattleLog": false,
+                            "HasCustomBattleLogMessage": false,
+                            "CustomBattleLogMessage": {
+                              "m_Key": "",
+                              "m_OwnerString": "",
+                              "m_OwnerPropertyPath": "",
+                              "m_JsonPath": "",
+                              "Shared": null
+                            }
+                          },
+                          {
+                            "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                            "name": "$UnitLookAt$a1cea993-2d18-487f-863c-2f2691cd01c5",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$81efe1fb-fe9a-4e62-ae9b-7aa3b2b117d5"
+                            },
+                            "Position": {
+                              "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                              "name": "$UnitPosition$5c7d43f6-4b03-4292-9fc3-ae127b437957",
+                              "Unit": {
+                                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                "name": "$UnitFromSpawner$32bdde69-47b3-497d-b392-5d7b9429a406",
+                                "Spawner": {
+                                  "EntityNameInEditor": "Hermit",
+                                  "_entity_id": "037f61a6-f0c5-43c3-ae1a-513d211757c6",
+                                  "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                                }
+                              },
+                              "Offset": "0|0|0"
+                            }
+                          },
+                          {
+                            "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                            "name": "$AddUnitToSummonPool$480d106c-df3f-492c-ab35-cc5cbe9d93d2",
+                            "m_SummonPool": "!bp_79fad063df0b4eb1a7f98bfeedc70b3c",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$4e6d5e8a-310e-49ae-b905-8d6e2a9ddc59"
+                            }
+                          },
+                          {
+                            "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                            "name": "$PartyMembersDetachEvaluated$54d7b12e-1733-4e17-a65b-8d8bed9a3ae6",
+                            "DetachThese": [
+                              {
+                                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                "name": "$PlayerCharacter$83b2f386-ed90-4857-8484-f58d1e872bdb"
+                              }
+                            ],
+                            "AfterDetach": {
+                              "Actions": [
+                                {
+                                  "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                  "name": "$HideUnit$305cc11e-faed-4fb3-928b-da4dbecf8297",
+                                  "Target": {
+                                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                    "name": "$PlayerCharacter$5083e8b6-6f61-477c-ad21-b85e70c03b4f"
+                                  },
+                                  "Unhide": false,
+                                  "Fade": false
+                                }
+                              ]
+                            },
+                            "m_RestrictPartySize": false,
+                            "m_PartySize": -1
+                          },
+                          {
+                            "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                            "name": "$SpawnFx$97b7526b-a212-4fee-94ca-795ac00b7d14",
+                            "Target": {
+                              "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                              "name": "$UnitTransform$4e0c71e3-fb40-4be2-b70a-88b2365997e9",
+                              "Unit": {
+                                "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                "name": "$SpawnedUnit$5aaae739-1423-4c13-83d2-02f50452f5a2"
+                              }
+                            },
+                            "FxPrefab": {
+                              "AssetId": "c14a2f46018cb0e41bfeed61463510ff"
+                            }
+                          },
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$fed6f938-fb08-45fd-b767-246bd8beb379",
+                            "m_Cutscene": "!bp_6bd3f48d2c9f72f48aaf78bc27f24d71",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": [
+                                {
+                                  "Name": "Unit",
+                                  "Type": "Unit",
+                                  "Evaluator": {
+                                    "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                    "name": "$SpawnedUnit$f4371642-95c6-4425-adda-ad0b1f04d4ca"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$38eb9a06-e936-4c17-b7a6-c16500aea16d",
+                "m_Flag": "!bp_8400abf2a44d4670ba2be142519162a6",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$54fd857d-67b0-4aa9-9039-f3d3cc65e607",
+                  "Value": 1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bc0491f7-d3e0-407d-ab1e-c93ecdf1a210",
+          "Comment": "Sendri is under control",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$8eee853d-580a-4fc7-8531-3e21b6b497c0",
+                "Not": false,
+                "m_Flag": "!bp_7716aeb81bec4e76bfd81b57edc42014",
+                "MinValue": 3,
+                "MaxValue": 3
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$06114efe-5602-486e-bb50-8172363596f8",
+                "Comment": "Sendri is on the first position",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$4d8a2441-1a49-4b1c-b1df-08dddcf21fac",
+                      "Not": false,
+                      "m_Cue": "!bp_da2b4320002b415985325d544bf3e95b",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+                      "name": "$SummonUnitCopy$79035d6f-937e-4bb9-9feb-9d1557ea27d9",
+                      "CopyFrom": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$f8bae979-61d2-4d8d-9603-ef395bc53739",
+                        "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": false,
+                        "IncludeDettached": false
+                      },
+                      "Locator": {
+                        "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                        "name": "$LocatorReference$6de03bca-cac1-4a27-a5b3-6d5a73a74ac0",
+                        "Locator": {
+                          "EntityNameInEditor": "Obsessed_character_pos_1",
+                          "_entity_id": "da147e5b-2445-4b9c-a35c-3de94b8fdc10",
+                          "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                        }
+                      },
+                      "m_CopyBlueprint": "!bp_382ef228bd974d2db45420a0ba6c81e0",
+                      "m_SummonPool": "!bp_0c7fd252a2d548ca85b8e58186d3143f",
+                      "DoNotCreateItems": false,
+                      "OnSummon": {
+                        "Actions": [
+                          {
+                            "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                            "name": "$AttachBuff$c405d511-dd71-4b46-a40e-ffaf7a151fd4",
+                            "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+                            "Target": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$c288a313-7b76-49ed-b842-e1b79d35d793"
+                            },
+                            "Duration": null,
+                            "BattleLog": false,
+                            "HasCustomBattleLogMessage": false,
+                            "CustomBattleLogMessage": {
+                              "m_Key": "",
+                              "m_OwnerString": "",
+                              "m_OwnerPropertyPath": "",
+                              "m_JsonPath": "",
+                              "Shared": null
+                            }
+                          },
+                          {
+                            "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                            "name": "$UnitLookAt$2b89c962-1b88-4984-a163-a6dc8cf24b45",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$8f694794-f01c-4427-bdcd-083db2e8b3c4"
+                            },
+                            "Position": {
+                              "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                              "name": "$UnitPosition$185213e7-fde6-4460-abd4-e8b5cce98511",
+                              "Unit": {
+                                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                "name": "$UnitFromSpawner$784da851-2ffa-4b5f-bdd3-6ee1ad7b1424",
+                                "Spawner": {
+                                  "EntityNameInEditor": "Hermit",
+                                  "_entity_id": "037f61a6-f0c5-43c3-ae1a-513d211757c6",
+                                  "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                                }
+                              },
+                              "Offset": "0|0|0"
+                            }
+                          },
+                          {
+                            "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                            "name": "$AddUnitToSummonPool$bad5af98-4f01-46f2-9220-c255b0add4ca",
+                            "m_SummonPool": "!bp_79fad063df0b4eb1a7f98bfeedc70b3c",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$ab5fbd06-c9ec-42c4-9435-cb08cc76ef78"
+                            }
+                          },
+                          {
+                            "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                            "name": "$PartyMembersDetachEvaluated$776c8865-8e2a-4d3d-b2db-e5d9539ae5a0",
+                            "DetachThese": [
+                              {
+                                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                "name": "$CompanionInParty$17dd0872-026f-4972-b8f3-821b7d663e21",
+                                "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                                "IncludeRemote": false,
+                                "IncludeExCompanions": false,
+                                "IncludeDettached": false
+                              }
+                            ],
+                            "AfterDetach": {
+                              "Actions": [
+                                {
+                                  "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                  "name": "$HideUnit$d71579dc-5ce9-4c77-91b8-9351c2307b19",
+                                  "Target": {
+                                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                    "name": "$CompanionInParty$ee112856-d186-495b-9d5f-0b0c037fd782",
+                                    "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                                    "IncludeRemote": false,
+                                    "IncludeExCompanions": false,
+                                    "IncludeDettached": true
+                                  },
+                                  "Unhide": false,
+                                  "Fade": false
+                                }
+                              ]
+                            },
+                            "m_RestrictPartySize": false,
+                            "m_PartySize": -1
+                          },
+                          {
+                            "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                            "name": "$SpawnFx$0a2adc36-cdb9-49cd-b94e-a382b6596290",
+                            "Target": {
+                              "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                              "name": "$UnitTransform$b0f5be66-b952-44f4-a8c0-69cc5d7d99c4",
+                              "Unit": {
+                                "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                "name": "$SpawnedUnit$73f2c714-2033-4159-aa9b-caca5c663213"
+                              }
+                            },
+                            "FxPrefab": {
+                              "AssetId": "c14a2f46018cb0e41bfeed61463510ff"
+                            }
+                          },
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$d00c68b9-147f-44cf-8b7e-ffb8eed2df01",
+                            "m_Cutscene": "!bp_6bd3f48d2c9f72f48aaf78bc27f24d71",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": [
+                                {
+                                  "Name": "Unit",
+                                  "Type": "Unit",
+                                  "Evaluator": {
+                                    "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                    "name": "$SpawnedUnit$42c73c30-9268-4270-8a5c-9e6e09b8bd59"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+                      "name": "$SummonUnitCopy$9e5e3bb6-28e3-401b-832e-01b5d31c48a3",
+                      "CopyFrom": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$7b016c74-3009-4d24-944e-4bd9b480f750",
+                        "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": false,
+                        "IncludeDettached": false
+                      },
+                      "Locator": {
+                        "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                        "name": "$LocatorReference$3b564c56-2a46-4575-8110-2cf9bf418a28",
+                        "Locator": {
+                          "EntityNameInEditor": "Obsessed_character_pos_2",
+                          "_entity_id": "b18e88c2-2f6e-4540-9942-25a7802f8955",
+                          "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                        }
+                      },
+                      "m_CopyBlueprint": "!bp_382ef228bd974d2db45420a0ba6c81e0",
+                      "m_SummonPool": "!bp_20b4417055ca41dfb5380697d248de57",
+                      "DoNotCreateItems": false,
+                      "OnSummon": {
+                        "Actions": [
+                          {
+                            "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                            "name": "$AttachBuff$883dd92f-eef5-4c23-a0cd-edabe8895e0a",
+                            "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+                            "Target": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$32820417-8df5-4ff4-acf5-330070536076"
+                            },
+                            "Duration": null,
+                            "BattleLog": false,
+                            "HasCustomBattleLogMessage": false,
+                            "CustomBattleLogMessage": {
+                              "m_Key": "",
+                              "m_OwnerString": "",
+                              "m_OwnerPropertyPath": "",
+                              "m_JsonPath": "",
+                              "Shared": null
+                            }
+                          },
+                          {
+                            "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                            "name": "$UnitLookAt$2725399d-7640-4829-9f6e-35597cc505b2",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$31487c94-4ce5-4034-9a0b-1ba96074a443"
+                            },
+                            "Position": {
+                              "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                              "name": "$UnitPosition$59473342-9fd1-4e5f-8b58-5f250261d885",
+                              "Unit": {
+                                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                "name": "$UnitFromSpawner$dd746023-1e33-46cc-a1b2-72521c800a8b",
+                                "Spawner": {
+                                  "EntityNameInEditor": "Hermit",
+                                  "_entity_id": "037f61a6-f0c5-43c3-ae1a-513d211757c6",
+                                  "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                                }
+                              },
+                              "Offset": "0|0|0"
+                            }
+                          },
+                          {
+                            "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                            "name": "$AddUnitToSummonPool$f4ee7a5b-8031-43de-81d1-e10ed7360b2f",
+                            "m_SummonPool": "!bp_79fad063df0b4eb1a7f98bfeedc70b3c",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$b3d054aa-0ce8-47e4-b2db-36e040ac6960"
+                            }
+                          },
+                          {
+                            "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                            "name": "$PartyMembersDetachEvaluated$944d3b64-4dcd-4020-b4b2-3122d8b90321",
+                            "DetachThese": [
+                              {
+                                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                "name": "$CompanionInParty$da832dc6-b350-479d-acc6-b8da221345c7",
+                                "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                                "IncludeRemote": false,
+                                "IncludeExCompanions": false,
+                                "IncludeDettached": false
+                              }
+                            ],
+                            "AfterDetach": {
+                              "Actions": [
+                                {
+                                  "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                  "name": "$HideUnit$287e8e34-c8dc-485d-8511-a176078be56c",
+                                  "Target": {
+                                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                    "name": "$CompanionInParty$93914a44-8807-4a2d-b3e2-e991be8cf342",
+                                    "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                                    "IncludeRemote": false,
+                                    "IncludeExCompanions": false,
+                                    "IncludeDettached": true
+                                  },
+                                  "Unhide": false,
+                                  "Fade": false
+                                }
+                              ]
+                            },
+                            "m_RestrictPartySize": false,
+                            "m_PartySize": -1
+                          },
+                          {
+                            "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                            "name": "$SpawnFx$c0272b50-9ccb-40a6-9602-9de67c333ba0",
+                            "Target": {
+                              "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                              "name": "$UnitTransform$daa2f191-7828-4c95-9553-d6063a03b7ff",
+                              "Unit": {
+                                "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                "name": "$SpawnedUnit$14c3d015-0adc-44e6-8d2a-b1b6b7855854"
+                              }
+                            },
+                            "FxPrefab": {
+                              "AssetId": "c14a2f46018cb0e41bfeed61463510ff"
+                            }
+                          },
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$40d1aef7-25b4-4119-a0f2-dc35be453a85",
+                            "m_Cutscene": "!bp_6bd3f48d2c9f72f48aaf78bc27f24d71",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": [
+                                {
+                                  "Name": "Unit",
+                                  "Type": "Unit",
+                                  "Evaluator": {
+                                    "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                    "name": "$SpawnedUnit$3406da8b-8eef-4396-955a-79f5a9afe065"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$80cff8da-e168-4a8d-b48a-0abed6aa9aca",
+                "m_Flag": "!bp_8400abf2a44d4670ba2be142519162a6",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$4511f3c6-d0ff-4f09-b7ab-b723d9940f3e",
+                  "Value": 1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$11b7c370-b297-4d04-872c-994c036d1275",
+          "Comment": "Rekarth is under control",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$b3a335dc-91d2-4aa4-9a93-ccdab78ca9a4",
+                "Not": false,
+                "m_Flag": "!bp_d00d4746f368447295e917967a67fe71",
+                "MinValue": 3,
+                "MaxValue": 3
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "73d33ed03a8613342b7b03883782e1dc, SummonUnitCopy",
+                "name": "$SummonUnitCopy$5acc1ba7-0878-46df-9f77-966401cb6a61",
+                "CopyFrom": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$15d75274-8427-4f20-88cc-ae096f86bbc4",
+                  "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": false
+                },
+                "Locator": {
+                  "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                  "name": "$LocatorReference$5009f99e-cfe3-4928-b74d-a090dbc73537",
+                  "Locator": {
+                    "EntityNameInEditor": "Obsessed_character_pos_1",
+                    "_entity_id": "da147e5b-2445-4b9c-a35c-3de94b8fdc10",
+                    "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                  }
+                },
+                "m_CopyBlueprint": "!bp_42a889de195945ca91fd98c376df98f6",
+                "m_SummonPool": "!bp_0c7fd252a2d548ca85b8e58186d3143f",
+                "DoNotCreateItems": false,
+                "OnSummon": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$d8cf1d33-f778-40f2-8545-d225d4ad68a9",
+                      "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+                      "Target": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$7eede89f-54ac-4744-8495-1331957c254c"
+                      },
+                      "Duration": null,
+                      "BattleLog": false,
+                      "HasCustomBattleLogMessage": false,
+                      "CustomBattleLogMessage": {
+                        "m_Key": "",
+                        "m_OwnerString": "",
+                        "m_OwnerPropertyPath": "",
+                        "m_JsonPath": "",
+                        "Shared": null
+                      }
+                    },
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$b393355f-32b5-4a4b-8813-bb5b5265910f",
+                      "Unit": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$5f3e4662-f637-4b68-88da-9f3c5d662a93"
+                      },
+                      "Position": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$03133c2e-80ea-4207-b9c1-fad37febebf2",
+                        "Unit": {
+                          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                          "name": "$UnitFromSpawner$1a2ee31c-e7e5-427a-b94d-3506c3f0651b",
+                          "Spawner": {
+                            "EntityNameInEditor": "Hermit",
+                            "_entity_id": "037f61a6-f0c5-43c3-ae1a-513d211757c6",
+                            "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                          }
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    },
+                    {
+                      "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                      "name": "$AddUnitToSummonPool$dcb8d9a3-545e-42e4-8c90-b12248c1291f",
+                      "m_SummonPool": "!bp_79fad063df0b4eb1a7f98bfeedc70b3c",
+                      "Unit": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$ebd37313-d36e-4811-b7c7-cdad70291664"
+                      }
+                    },
+                    {
+                      "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                      "name": "$PartyMembersDetachEvaluated$d7e65cd7-996d-4234-8dae-c84465134248",
+                      "DetachThese": [
+                        {
+                          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                          "name": "$CompanionInParty$ef24f7da-febf-434e-bb22-321f481ef80d",
+                          "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                          "IncludeRemote": false,
+                          "IncludeExCompanions": false,
+                          "IncludeDettached": false
+                        }
+                      ],
+                      "AfterDetach": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$d335c762-e6a2-4f47-8e9d-eedd12f433a0",
+                            "Target": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$1b38df4e-dea8-41b9-beac-a43981f9e362",
+                              "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                              "IncludeRemote": false,
+                              "IncludeExCompanions": false,
+                              "IncludeDettached": true
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "m_RestrictPartySize": false,
+                      "m_PartySize": -1
+                    },
+                    {
+                      "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                      "name": "$SpawnFx$d5232928-81f7-46a1-b8c0-9e4f9026f28f",
+                      "Target": {
+                        "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                        "name": "$UnitTransform$e2c6eadb-a699-4ce3-b402-53100a4eabfd",
+                        "Unit": {
+                          "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                          "name": "$SpawnedUnit$089a783a-6545-4538-86ce-b89ec2927b58"
+                        }
+                      },
+                      "FxPrefab": {
+                        "AssetId": "c14a2f46018cb0e41bfeed61463510ff"
+                      }
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$ef6f896b-3c87-49f5-b095-f3b2335ea33c",
+                      "m_Cutscene": "!bp_6bd3f48d2c9f72f48aaf78bc27f24d71",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$62a6c760-31c5-464d-b522-59a171f1a5ad"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$0779ddfb-4cbe-4af9-bb37-86852c2f4d16",
+                "m_Flag": "!bp_8400abf2a44d4670ba2be142519162a6",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$1268f16c-ee63-4af7-b44d-373b892c757d",
+                  "Value": 1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

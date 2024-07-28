@@ -1,0 +1,183 @@
+{
+  "AssetId": "a44be20bcf51e7847b9cd4ef55c33769",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_bb9c3a0aa811fe343aa0deb8bb60c9a0",
+        "!bp_863ba70eeeb19da468b851c681e47f4d"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$0a5a6322-6cad-4e79-a2d8-447314fa21df",
+          "MusicEventStart": "MUS_AreeluTheme_Play",
+          "MusicEventStop": "MUS_AreeluTheme_Stop"
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$0c2745ef-92bc-4e4a-b191-b7e8f35580ca",
+          "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$2c54f768-0f02-41f0-9304-8e144c070afe",
+            "Spawner": {
+              "EntityNameInEditor": "Areelu",
+              "_entity_id": "3efa599a-5d34-422b-855b-f31550840e0a",
+              "SceneAssetGuid": "01b913c5d0cc0b24082a74c6a6394472"
+            }
+          },
+          "Duration": null
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$2e32114e-8654-4285-bc4c-d88904176fe6",
+          "Status": "Complete",
+          "m_Objective": "!bp_887eb114fe618ab4781ec2a67b9fcfce",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$b01c27d7-8b2d-40e8-b618-045cda657b82"
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$d99e96b2-11b1-4adf-8764-8f6741ea3ff0",
+          "Unit1": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$fdba1a90-0496-43ea-b7ac-2e3b7c9e8b69"
+          },
+          "Unit2": {
+            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+            "name": "$FirstUnitFromSummonPool$c7cdfd92-db6e-4485-b3d6-6601714be32e",
+            "m_SummonPool": "!bp_025d0acdf7ede3b4fae62b4325965827",
+            "Conditions": {
+              "Operation": "And",
+              "Conditions": []
+            }
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$202d3c5e-1e81-44ca-b4e8-06405d5092ce",
+          "Comment": "если Коррамзадех жив",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1057f098-99f5-49bf-8bec-1ee4dce68984",
+                "Not": false,
+                "m_Etude": "!bp_91eca1e9429c76b42b378b3686ae3f66",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$ddaa71a2-7528-4324-94ed-f100c4635dfd",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Khorramzadeh_stillAlive",
+                    "_entity_id": "7895b2e3-1279-4a6c-a58e-bcc705cc16a3",
+                    "SceneAssetGuid": "01b913c5d0cc0b24082a74c6a6394472"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "682c5c563ccf44d198d9330db89f4e0e, CombineToGroup",
+                      "name": "$CombineToGroup$c72edf66-5d5a-4066-af8c-b00a1229aceb",
+                      "TargetUnit": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$3b5c745e-13f6-432c-8011-1453d52531e7"
+                      },
+                      "GroupHolder": {
+                        "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                        "name": "$FirstUnitFromSummonPool$a7a67b5e-7f1a-43b3-810f-c25e665cc0ba",
+                        "m_SummonPool": "!bp_025d0acdf7ede3b4fae62b4325965827",
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        }
+                      }
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$a9f82d29-1f86-4481-90f2-bb74d3e39a36",
+                      "Unit1": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$e4bd4948-9b35-458d-b74e-f4c5858cecc7"
+                      },
+                      "Unit2": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$6b7bdaf9-ab2d-4fa1-a718-bfa9938674a7"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$64d96735-f47f-4b32-bfc1-1f7ad65b13db",
+          "Etude": "!bp_94cba86a701e4f4da62f4abadf12bb10",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+          "name": "$AddFact$faa23b0d-64e9-4fd8-af84-5a4548700487",
+          "Unit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$52284707-cf44-4621-ade4-b2eeadff3468",
+            "Spawner": {
+              "EntityNameInEditor": "Areelu",
+              "_entity_id": "3efa599a-5d34-422b-855b-f31550840e0a",
+              "SceneAssetGuid": "01b913c5d0cc0b24082a74c6a6394472"
+            }
+          },
+          "m_Fact": "!bp_cc94292e663647449da775d6c3300a57"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "AssetId": "28c0e7ec749d8eb45b617f5a7342d203",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$df2d7e14-a026-4832-8ddb-6318c9fdf9aa"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$df2d7e14-a026-4832-8ddb-6318c9fdf9aa",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$99df5507-0a14-454d-ba68-83649639c55a",
+              "m_Cutscene": "!bp_f2c59ec4305187e4a9e6d31d2e36e6b4",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$8b7c4692-3872-4ff6-be37-22a22acb153f",
+              "m_Cutscene": "!bp_4100513157a1a7a4bb29eabac97234f3",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$2f4b9d26-0f4e-41ca-817a-97b9bd03dea2",
+                      "m_Value": "!bp_364bd2b570a8a044582832b8fcb45196"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$f2274144-225d-44c4-b72d-173b37d128f1",
+                      "m_Value": "!bp_28c0e7ec749d8eb45b617f5a7342d203"
+                    }
+                  },
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$2aad935b-0c5f-4880-b3cd-7a31aec9da71",
+                      "m_Companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$91912fb2-de49-4c00-81a0-00b25e5bc604",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$42771876-64be-4939-9c4c-0595c3acd30c",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e6753d44-931c-47ee-b571-877b8435ad5e",
+                    "Not": false,
+                    "m_Etude": "!bp_50eb9ca1adf78254ea8482637335a856",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                    "name": "$Kill$60f506dc-ec86-4bde-a8a6-56228d500824",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$49eb3885-67b9-45f6-b3c3-4d999653a858",
+                      "m_Companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "Killer": null,
+                    "Critical": false,
+                    "DisableBattleLog": false,
+                    "RemoveExp": true
+                  },
+                  {
+                    "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                    "name": "$Unrecruit$2e0d1da3-f69f-49dc-ba66-44db0f23488a",
+                    "m_CompanionBlueprint": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+                    "OnUnrecruit": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$4734156e-729a-4cdb-98a6-81e8b4ea16f1",
+                    "m_Cutscene": "!bp_1eb8954dc61220f4888e45b527325c56",
+                    "WithUnit": null,
+                    "m_CheckType": "Params"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Зося приходит рвать романс со злым мификом",
+    "m_Parent": "!bp_1e0b0f84af7f04c49bd96eb4fe0de384",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$ea85b874-691e-4f22-8c25-73027f222162",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_4669319266af37346aae8314ff61074f"
+    ],
+    "Priority": 100
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

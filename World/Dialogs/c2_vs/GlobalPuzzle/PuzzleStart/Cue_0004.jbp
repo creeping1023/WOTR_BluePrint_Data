@@ -1,0 +1,99 @@
+{
+  "AssetId": "f7498f13077c43345b8f0c4adb3f5759",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Анлок зоны Сердце загадки\n\nвыдаем обж1, если квест еще не стартован",
+    "ParentAsset": "8f0ac4bff4b895e44ab2aff13f992913",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "dc689893-2723-4abe-bb48-de545ac1fa57",
+      "m_OwnerString": "f7498f13077c43345b8f0c4adb3f5759",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c2_vs/GlobalPuzzle/PuzzleStart/Cue_0004_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bdf5f7a5-9a85-46f7-8a58-653709872291",
+          "Comment": "выдать обж1 если квест ноне",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$71783a08-68c5-4473-a65b-799b73a1da91",
+                "Not": false,
+                "m_Quest": "!bp_62966910016ad0f438d2c03e9ffda1f7",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$e9f8c7f9-2289-4fb0-9105-8510e255c6b2",
+                "m_Objective": "!bp_a3a3222d92fa49c4e9d499287e58ea0d"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "283706d83f2b5a8418f90b318819b1ae, UnlockLocation",
+          "name": "$UnlockLocation$936f0345-dd71-4594-b5fb-0ed1f9e76edd",
+          "m_Location": "!bp_65a6b214825f507409d9581130f4ab23",
+          "FakeDescription": false,
+          "HideInstead": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_3cb0a13174f81bb48bf5f5e9865f9405"
+    ],
+    "Continue": {
+      "Cues": [
+        "!bp_117f2aa195196d24297a204900b79d4d"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

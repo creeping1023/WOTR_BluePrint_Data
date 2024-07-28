@@ -1,0 +1,145 @@
+{
+  "AssetId": "221386b8ec0dfcc47b6b75553f9e0fa4",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Если поднят флаг CiarEnemy - опускает его\n\nлочит диалог до следующего визита в локацию",
+    "ParentAsset": "d9a4bb1ade6d7174ca07d1d8732edefd",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "f2ad4c23-ad19-495b-8515-8595362e63dd",
+      "m_OwnerString": "221386b8ec0dfcc47b6b75553f9e0fa4",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/Drezen_C3/Ciar_MainSquare/Cue_0058_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+          "name": "$RemoveItemFromPlayer$35231a82-68e3-4b76-b543-2f5324b8cb86",
+          "Money": false,
+          "RemoveAll": false,
+          "m_ItemToRemove": "!bp_a3488b3542ba3b941b345ed42d31ecad",
+          "m_Silent": false,
+          "Quantity": 1,
+          "Percentage": 0.0
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ebfdd6e8-310b-4798-8992-5a97f73dbc28",
+          "Comment": "Если Киар Враг",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fff36ca4-9ec1-447a-b3e8-23c411dc0b6c",
+                "Not": false,
+                "m_Etude": "!bp_77c766860d063104b9600a50976dca0a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$74ef1532-d832-420d-8ca6-88fdfac15042",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$0779b749-ec7b-4584-aae5-d4440b7c82ec",
+                      "Not": false,
+                      "m_Etude": "!bp_77c766860d063104b9600a50976dca0a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$fdd85cf4-3cd0-4a38-a173-b96c550e64ba",
+                      "m_flag": "!bp_01f96d48dafd61744ae551016688cf21",
+                      "flagValue": 0
+                    },
+                    {
+                      "$type": "5afa2802918b3874bb6e0d611d6489cd, UpdateEtudes",
+                      "name": "$UpdateEtudes$eb89014d-1b43-4cd2-bffb-adee835a1968"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$d51e8d7f-ca0e-4e86-b365-e535420db504",
+          "Etude": "!bp_57133b28fbde32d47bfb466b82e408a7",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_ebdcb748b92b7724893fd542b2882123",
+        "!bp_3c0cd4427cebf7f46bdf09f96636388f"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

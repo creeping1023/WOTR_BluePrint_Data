@@ -1,0 +1,178 @@
+{
+  "AssetId": "7caaed04ca96ad14c866d91ebbc5349e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Венду бьется против игрока (ливает из пати только на этот бой, в следующем диалоге джойнится обратно)\nстарт боя",
+    "ParentAsset": "cbf669671ac0da34ebaaae1948c363d6",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "aafc5240-c628-4048-903c-0bccd587b8af",
+      "m_OwnerString": "7caaed04ca96ad14c866d91ebbc5349e",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Wenduag/Q2_CallOfBlood/Savamelech_Welcome/Cue_0041_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_ae766624c03058440a036de90a7f2009",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$afda275c-3872-4139-8891-8873a77a7898",
+          "Status": "Complete",
+          "m_Objective": "!bp_40947278e4953444ea4f3f4d4933e3d0",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$290ac4c1-12fe-42f1-b33f-8b524900aaa3",
+          "m_Objective": "!bp_6ee25eeb563551e41a5eec73c618b647"
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$8b6d1c75-4f92-4097-8915-dbe905271439",
+          "m_flag": "!bp_6c9d0e661e00b774da6d5a81db8664f5",
+          "flagValue": 1
+        },
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$abe775c6-a626-4904-9bc2-fd0b43a38ce2",
+          "m_CompanionBlueprint": "!bp_ae766624c03058440a036de90a7f2009",
+          "OnUnrecruit": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$4e809549-b65a-481f-8052-829fe3cf0c95",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$98d55ddc-bbc8-4856-8815-fbd49e097d2e",
+                  "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDettached": false
+                },
+                "Unhide": true,
+                "Fade": false
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$60f06684-5d91-49bb-9625-79778498281c",
+                "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$2a9bca2d-3d10-4ace-9301-063acf9f129f",
+                  "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDettached": false
+                },
+                "Duration": null
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$14fd7997-8f03-409f-8ee4-4290108a1d88",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$74318ee6-557a-4f64-b805-1680d9850d86",
+                  "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDettached": false
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                "name": "$AddUnitToSummonPool$32bfa398-0d43-4e23-85f8-c386858b056f",
+                "m_SummonPool": "!bp_063cdd1443a0f8a43a572299f933d5be",
+                "Unit": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$1e0987fb-0b40-4abf-8586-4cc1e4ebc546",
+                  "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": true,
+                  "IncludeDettached": false
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$2cd9ec8f-e010-4e0b-969d-aec7ad68cfcc",
+          "m_SummonPool": "!bp_063cdd1443a0f8a43a572299f933d5be",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$a9ecc417-64d3-4a3c-8abb-9acfc5811b0d",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$36684460-dc0f-40e8-b0f4-582b912afe02"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$dcde0072-0d5e-4a8f-8438-bc4ca9973edf",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$745cf4e5-4cc2-4c6c-a4b6-2344332a839b"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$c956fd9d-ba32-4def-a085-49f0bcfea58e"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

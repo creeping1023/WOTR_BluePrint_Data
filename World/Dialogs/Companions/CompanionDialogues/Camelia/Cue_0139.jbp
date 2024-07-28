@@ -1,0 +1,147 @@
+{
+  "AssetId": "93dfe297a8b93214f9c026023fd45702",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Фейд аут, Камелия пропадает с локации до следующей загрузки, +1 к каунтеру убийств Камелии\nУбрать Харлана из Дрезена навсегда, положить КУДА_НИБУДЬ труп Харлана (в незаметный подвал, никто кроме нас его не может найти), выставить флаг про то, что Харлан теперь мертв",
+    "ParentAsset": "e7e6acf275d0cc44baa412831833eb89",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "3ad953cd-3cf6-4f63-90aa-32d64f41dc55",
+      "m_OwnerString": "93dfe297a8b93214f9c026023fd45702",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionDialogues/Camelia/Cue_0139_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$600c8bdd-e9fc-478d-ac0d-22b0f590088d",
+          "m_Flag": "!bp_9ce1c1b234ea3154da554aa32904d475",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$290bf9ee-5cb5-4885-947c-5c303d3a7cfd",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$03665264-5a68-4989-8a56-d9753394c7e2",
+          "Etude": "!bp_9b81cc87781828444bfd451ee2c556f0",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$c5759887-f567-4945-80eb-c99fb89a1609",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$4861d8f0-f428-406d-b8cb-bb3eaba04636",
+            "Spawner": {
+              "EntityNameInEditor": "Hulrun",
+              "_entity_id": "79a7054d-4850-43d3-b832-ab69534f2e2d",
+              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$6a9b2789-68ba-4314-bf0b-c11985eb0e48",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "Hurlun_dead",
+              "_entity_id": "fd260930-3253-4f71-90cd-326e6a9ac1e2",
+              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": [
+              {
+                "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                "name": "$Kill$4bff8613-bbc3-407c-91ed-5e9114fe4bdd",
+                "Target": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$6ad27f1d-750f-4e3c-b20e-359157e69e2d"
+                },
+                "Killer": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$29e5ca7f-2502-4d14-b19c-560c187a20e4"
+                },
+                "Critical": false,
+                "DisableBattleLog": true,
+                "RemoveExp": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$23b0a563-cf2c-4fb5-9e74-46153679dd06",
+          "m_Cutscene": "!bp_4d0821789698d264bad86ac40bf785d2",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$65b24dda-ca3f-42d0-84e8-a267e01a0e7a",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$1102f580-aa89-4743-85a7-90a533cc12f2",
+            "m_Companion": "!bp_397b090721c41044ea3220445300e1b8",
+            "IncludeRemote": true,
+            "IncludeExCompanions": false,
+            "IncludeDettached": true
+          },
+          "Unhide": false,
+          "Fade": true
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

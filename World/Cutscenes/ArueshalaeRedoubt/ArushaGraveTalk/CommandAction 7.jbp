@@ -1,0 +1,91 @@
+{
+  "AssetId": "815e1d807b7cdc84babc28852ac3da9d",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$05758abd-19d5-41a5-842a-b89861ce1418",
+          "Comment": "cutscene select",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1b0c609a-4a5b-4cc6-bb8e-c5e29d6597c3",
+                "Not": false,
+                "m_Etude": "!bp_4ba4c727a83f95c418591d474cbcf33b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$67695637-64d5-4b5d-a248-b03da4c2e087",
+                "m_Cutscene": "!bp_b5b5ad4d58dd27643ba26966207609e3",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$c4eb3259-85a1-495d-991b-e1545cae04e1",
+                        "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": false,
+                        "IncludeDettached": false
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$b081b806-ec6e-453d-822f-8dc0aa66f938",
+                "m_Cutscene": "!bp_b5b5ad4d58dd27643ba26966207609e3",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$087e353e-593d-42ab-a4e7-72d788f21dc3",
+                        "Spawner": {
+                          "EntityNameInEditor": "Arueshalae",
+                          "_entity_id": "9d7b4382-7090-48f3-84e4-a26c85fe781d",
+                          "SceneAssetGuid": "5af862eaed069b14ba1f5e0bb7df8ba5"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

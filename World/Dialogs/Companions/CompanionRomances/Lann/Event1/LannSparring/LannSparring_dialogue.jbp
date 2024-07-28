@@ -1,0 +1,160 @@
+{
+  "AssetId": "5916c5de71f0b3d48bbf5c64d5b0148a",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_4f610ae89bed0e246a1c40b11576bdce",
+        "!bp_2331100031f5d94499a53a3b03e54fe4",
+        "!bp_2a845e7bdada09f41b1dcce091619f88"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$a5e5fad0-c14a-4aff-bfb8-ed5fda42c1f8",
+          "m_Cutscene": "!bp_dc1cedc03520da24480e30ef1e90b3ed",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Position",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$5ad61a6f-bf45-4d09-b63b-d9c353fece73",
+                  "Locator": {
+                    "EntityNameInEditor": "LannSparring_Camera",
+                    "_entity_id": "b7e6d6bd-d1bb-48fd-92cd-48b6b0696c91",
+                    "SceneAssetGuid": "c5ce2cc123f5c314eb0e802d0058fd04"
+                  },
+                  "Offset": "0|0|0"
+                }
+              },
+              {
+                "Name": "Rotation",
+                "Type": "Float",
+                "Evaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$47c7a7c0-c900-41db-9e75-4d0cb0c63879",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "LannSparring_Camera",
+                    "_entity_id": "b7e6d6bd-d1bb-48fd-92cd-48b6b0696c91",
+                    "SceneAssetGuid": "c5ce2cc123f5c314eb0e802d0058fd04"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$5ac1ee75-272e-4c0b-9972-c9ac1a7d4713",
+          "MusicEventStart": "MUS_RomanceTheme_Play",
+          "MusicEventStop": "MUS_RomanceTheme_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$124243c7-1100-4ce9-b399-a87167bd0381",
+          "Comment": "after sparring",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$0fdb7dde-5599-4e34-85b5-f874d1d4c1fd",
+                "Not": false,
+                "m_ConditionFlag": "!bp_6f242ed4ce96a4f418dd965d0f1b8b11",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              },
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$8b5f3d44-b723-4e25-96ba-8a83d7eedf82",
+                "Not": false,
+                "m_ConditionFlag": "!bp_1ce6ab2a8f456cd44a38637c91445b80",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$aa022400-70bc-4539-8929-fcd51a9f5c79",
+                "m_exitPositon": "!bp_d17fefb30cff7c141a31465b38ed56d7",
+                "AutoSaveMode": "None",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$ead7f99b-fb2c-4b90-aa03-e6ba403bc83e",
+                      "Etude": "!bp_35d585854f8cfa84491a58e49642d4c0",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$4a664fdd-b3f6-4489-b062-7ae8b40f9112",
+                      "Etude": "!bp_639a11cf950ec7a45bc8840a58c6938c",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$18c74a95-37ee-4fee-a9a8-27400b5fee8e",
+                "m_Cutscene": "!bp_58b12a81fe4142abba93826a121c248f",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$f3d10358-1e0f-4f4b-8dc2-e005d05fd731"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

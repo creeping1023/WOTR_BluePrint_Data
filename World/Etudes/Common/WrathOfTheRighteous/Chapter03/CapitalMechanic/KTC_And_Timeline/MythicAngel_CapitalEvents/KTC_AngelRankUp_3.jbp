@@ -1,0 +1,159 @@
+{
+  "AssetId": "82cd3f8ea8771ef4782d428831781d46",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudeCompleteTrigger$4ad15a0a-25bb-4cd7-8c3b-d868974a7e3c",
+      "$EtudePlayTrigger$6a6459cd-7e89-4124-89af-4d2680b9ff24"
+    ],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$4ad15a0a-25bb-4cd7-8c3b-d868974a7e3c",
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d0d31c3a-f7ac-4a36-8357-7810226d18e4",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                    "name": "$CurrentAreaIs$b17c81db-b849-4242-8886-f9c42e158130",
+                    "Not": false,
+                    "m_Area": "!bp_2570015799edf594daf2f076f2f975d8"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                    "name": "$ReloadMechanic$596cdbe5-1e69-4f4b-a682-6f4658109606",
+                    "Desc": "Empty action",
+                    "ClearFx": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "7ca48b69cfcb37e4a9c23345171e23df, KingdomActionResolveEvent",
+              "name": "$KingdomActionResolveEvent$aaab7796-d3e5-4e4b-abe5-cbaed30e1dfb",
+              "m_EventBlueprint": "!bp_0690e2036212581488f9bc70a8bbfe6c",
+              "Result": "Success",
+              "Alignment": 0,
+              "FinalResolve": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$6a6459cd-7e89-4124-89af-4d2680b9ff24",
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$d22e3640-5d1e-4307-b81f-d6e13d0d8899",
+              "m_Cutscene": "!bp_df83bf98fd2813d4916b9778983a2259",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$3273393f-0cbb-4754-ae0b-fe391df88ba1",
+                      "Spawner": {
+                        "EntityNameInEditor": "Herald",
+                        "_entity_id": "22c14463-9402-42d0-8b8e-c45add12cad5",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    }
+                  },
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$c6d4db26-8a6f-48cc-b0b1-6db6d2ebdbd4",
+                      "m_Value": "!bp_a4c6052ceb8ceef48ad4f7bd282c9eba"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$1b0a7671-608e-4cf5-9197-e8ab8eacf119",
+                      "m_Value": "!bp_82cd3f8ea8771ef4782d428831781d46"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_13bbcc71d9e576142bf010852e705055",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$34f131f9-0272-4d92-b639-c9c6dd1012e0",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$cf2fba87-8992-47d7-a099-24279b9621a8",
+          "Not": false,
+          "m_Etude": "!bp_3a25b1f2a81f84a40b4fb658f4d2fe0f",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_dc1780f567f29b44b840eae225575cf5"
+    ],
+    "Priority": 60
+  }
+}

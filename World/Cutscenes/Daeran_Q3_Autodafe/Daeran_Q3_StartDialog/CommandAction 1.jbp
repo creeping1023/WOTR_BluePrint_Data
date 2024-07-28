@@ -1,0 +1,96 @@
+{
+  "AssetId": "eb06286e4641f1545b719942a5010f8a",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$47f34279-5f23-43f2-9bf3-fc3aed4555f6",
+          "m_CompanionBlueprint": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+          "OnUnrecruit": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$298ed8dc-e3d2-4b5f-8da0-b79442c91a79",
+                "Comment": "Super Hard Fight",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$c724a736-365c-4670-9cd9-b625b269c8a0",
+                      "Not": false,
+                      "m_Etude": "!bp_6bc242c16dcb40788b631c74ee104338",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$3272f64e-8e10-4005-90cd-b7488a0cd938",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Daeran_hard",
+                          "_entity_id": "9f07559a-c400-41b5-b139-fe0798ee48bd",
+                          "SceneAssetGuid": "d6c38bb5d27489d42863510615dbf4d6"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$1af67675-10bf-48fd-b4ff-14fe6589e308",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Daeran",
+                          "_entity_id": "163851aa-417f-4f4e-ba66-f78cb3ca6ec1",
+                          "SceneAssetGuid": "d6c38bb5d27489d42863510615dbf4d6"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$c4eb05a9-0dca-4016-bec0-10c3945539c4",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$c0f0859d-1dc5-428f-9b24-716c1be761eb",
+            "m_Companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+            "IncludeRemote": false,
+            "IncludeExCompanions": true,
+            "IncludeDettached": false
+          },
+          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+          "IncludeGroup": false,
+          "ResetAllRelations": false
+        }
+      ]
+    }
+  }
+}

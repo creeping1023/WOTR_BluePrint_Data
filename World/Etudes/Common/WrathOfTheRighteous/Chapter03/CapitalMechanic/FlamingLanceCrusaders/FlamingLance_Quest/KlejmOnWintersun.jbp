@@ -1,0 +1,306 @@
+{
+  "AssetId": "62b65c567fd0df9429292cba66d5aa17",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$40fdff88-13f8-4dd5-9de8-7501eceba4c8",
+      "$EtudePlayTrigger$321ea98a-bc99-4e1b-8ed8-6ecf22ccc8b3",
+      "$EvaluatedUnitCombatTrigger$353cbaf0-2f92-41f3-8e5d-e0c0b1a7180c",
+      "$SummonPoolTrigger$318752de-82a3-4306-93d3-d5a84ecd0c46"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$40fdff88-13f8-4dd5-9de8-7501eceba4c8",
+        "m_Overrides": [],
+        "Comment": "Похайдить трентов",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$de9b7c99-99f3-4424-94fd-bfdafa489019",
+              "Comment": "Тренты убиты?",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$3c529efc-5796-4b5a-a4b1-58fd989a5e03",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_de5969ffeaef01d42852ba9f3bf1a725",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$5bba8c11-ae2f-4883-ad65-d066dc21fc9a",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$f1847103-fd27-4539-affa-76a37eb839aa",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [CR11_BlightedTreant_Orange]_Patrol1",
+                        "_entity_id": "e26acd81-b766-4dad-a03e-f77ae8e87f49",
+                        "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$c27a0d29-3f9e-4abb-848b-60562befc1a6",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$0e9afd74-1dc7-4d58-a766-b2d87a75fc32",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [CR11_BlightedTreant_Orange]_Patrol2",
+                        "_entity_id": "0c92e660-395e-4190-a9d2-3520e9d60d53",
+                        "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$321ea98a-bc99-4e1b-8ed8-6ecf22ccc8b3",
+        "m_Overrides": [],
+        "Comment": "Спавн клейма и скрипт зоны диалога.",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$4a9b2ed5-4b6a-4d50-b920-2727906851e6",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "Spawner [Klejm]",
+                  "_entity_id": "bc8ac204-b716-453f-84f2-ecd139d450d6",
+                  "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$7ee349fa-7fa9-435a-a26f-a60ed05f0320",
+                    "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                    "Target": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$26ff1bfa-fb59-41d3-9c55-383e26a81d55"
+                    },
+                    "Duration": null
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$f39b41b1-14c6-4f15-9b75-b2f8c4d7e892",
+              "ScriptZone": {
+                "EntityNameInEditor": "MiammirConfr_zone",
+                "_entity_id": "152aa43b-50c5-44dd-843e-35a8cee5921b",
+                "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$353cbaf0-2f92-41f3-8e5d-e0c0b1a7180c",
+        "m_Overrides": [],
+        "Comment": "Бой с Сеабром. сумон смиладонов",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$695c9651-cfac-446c-916b-dc0d16b609af",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [WintersunSiabrae]",
+            "_entity_id": "eb0a30c8-20bc-4a7c-b4c1-3ec9b103630a",
+            "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+              "name": "$Summon$30bffcfa-b33d-4fc8-a597-15005a14c0ed",
+              "m_Unit": "!bp_862a04164c8c9e34ea50a086938ad306",
+              "m_SummonPool": "!bp_4e508572ae538df4bb023de43b7b5173",
+              "GroupBySummonPool": true,
+              "Transform": {
+                "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                "name": "$LocatorTransform$98fc0d53-fe76-43da-a48b-266e7385f84d",
+                "Locator": {
+                  "EntityNameInEditor": "SmilodonSum1",
+                  "_entity_id": "78f09e35-bd40-4c7d-9e19-5369ec1246a4",
+                  "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+                }
+              },
+              "Offset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "OnSummmon": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+              "name": "$Summon$e304b3fc-1ce9-436b-8d7d-5864ea38b5e4",
+              "m_Unit": "!bp_862a04164c8c9e34ea50a086938ad306",
+              "m_SummonPool": "!bp_4e508572ae538df4bb023de43b7b5173",
+              "GroupBySummonPool": true,
+              "Transform": {
+                "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                "name": "$LocatorTransform$dd4d9527-aa50-4c31-b829-191000b41b14",
+                "Locator": {
+                  "EntityNameInEditor": "SmilodonSum2",
+                  "_entity_id": "45af4219-fcf9-4fb3-88c4-d54f444b9fe2",
+                  "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+                }
+              },
+              "Offset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "OnSummmon": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2d7e9491-d40e-4a56-84f5-4306d32be05f",
+              "Comment": "Если защищаем миамир",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$e9b228e0-fff8-40aa-a5c0-9ce6743d6b05",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_fa3450fe8e26aea42b56d8f1defdede8",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$ec705429-8a43-45f4-8c3c-ecc85ad2ec3f",
+                    "Unit1": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$6944a25a-9c1c-4109-a2e4-93685ab55b02",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [WintersunSiabrae]",
+                        "_entity_id": "eb0a30c8-20bc-4a7c-b4c1-3ec9b103630a",
+                        "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+                      }
+                    },
+                    "Unit2": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$a1002ce0-c11d-4325-931e-d8d0ec69760a",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [Klejm]",
+                        "_entity_id": "bc8ac204-b716-453f-84f2-ecd139d450d6",
+                        "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$318752de-82a3-4306-93d3-d5a84ecd0c46",
+        "m_Overrides": [],
+        "Comment": "Финальный диалог миаммир после боя с Сеабром",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_4e508572ae538df4bb023de43b7b5173",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+              "name": "$FlagUnlocked$85539f82-f988-4278-9740-42b36cbd41c0",
+              "Not": false,
+              "m_ConditionFlag": "!bp_fa3450fe8e26aea42b56d8f1defdede8",
+              "ExceptSpecifiedValues": false,
+              "SpecifiedValues": []
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$039b5587-fe5a-45f5-be9f-24c5c8963c50",
+              "m_Cutscene": "!bp_bd79ae9d849a95e4e9c9e7332719b5f7",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_4d668a62a4051f1489df1164d3f03484",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_0a5654e7dc18f074d9356009d55eb51b",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "AssetId": "3e79f5138d3436743bfcafaa7710049d",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Диалог с Зантиром",
+    "FirstCue": {
+      "Cues": [
+        "!bp_37d59ee8d226c9f49a0bea8ff899b2f0"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": {
+      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+      "name": "$LocatorPosition$eaf186b6-4180-48e0-bb14-97846115a4b5",
+      "Locator": {
+        "EntityNameInEditor": "TransformationScene_DialogStart",
+        "_entity_id": "f9022291-9614-4109-9a49-c45d74c587c1",
+        "SceneAssetGuid": "1b3609da30e000d4da2f192527f56b0d"
+      },
+      "Offset": "0|0|0"
+    },
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$71936970-aa83-41fd-9899-6d7eeec73014",
+          "m_Cutscene": "!bp_890885fa4a851dc43b5c4ffd762b69bd",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e9c6aec6-6e34-47f2-bd84-b6b0e2960611",
+          "Comment": "Dont have \"Kill Zantir\" objective",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$52ca71ce-e895-47b5-822e-5d55842e1cf8",
+                "Not": true,
+                "m_QuestObjective": "!bp_d44f91b07f9914349aa0b6c082d98c25",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e64bf882-bafc-4588-9573-93bf22d6c9f0",
+                "Status": "Complete",
+                "m_Objective": "!bp_532bfc5f3624ddc4da61274ff58c39da",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$3938f688-0e2c-40cd-9450-d4c695f21ab8",
+                "m_Objective": "!bp_d44f91b07f9914349aa0b6c082d98c25"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$3e5492ea-6997-4445-938a-d9fa29e82b78",
+          "m_Cutscene": "!bp_1f12c1865d7e86142b6099c3e53375ae",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": false,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

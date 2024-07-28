@@ -1,0 +1,121 @@
+{
+  "AssetId": "98d3b2a744e740f79dc2f0c55f13535c",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Старт Боя с Грейбором в Ecorche lair",
+    "m_SpecificArea": "!bp_cb3fb43244053f04e910689a6481128e",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$231f71c7-f1c6-476a-85b7-24b2af840b4e",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$6645cc7d-4cd4-4133-9f3b-25197f070eb9",
+                "Not": false,
+                "m_Cue": "!bp_d37b6333154f71249b4f7447fc2e5a05",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$e57b7905-14eb-4427-9131-0dfc412eb688",
+                "Not": false,
+                "m_Cue": "!bp_c0c97d9a2dd34814db4db56fafaee273",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a6185f76-653a-4a14-b2f3-485577d430d3",
+                "Comment": "Анрекрут, если Грейбор в партии",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$ae6a7bf1-874c-469a-9471-585db82cbf74",
+                      "Not": false,
+                      "m_companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": false,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                      "name": "$Unrecruit$e2652108-a616-4507-970f-94baf6085d14",
+                      "m_CompanionBlueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                      "OnUnrecruit": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$e6b47200-f60b-4fda-9096-9391b43dc2a6",
+                            "Target": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$a23990e0-b742-4710-870d-ad59adfaaaf8",
+                              "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                              "IncludeRemote": false,
+                              "IncludeExCompanions": true,
+                              "IncludeDettached": false
+                            },
+                            "Unhide": true,
+                            "Fade": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$8990afd0-65a5-42ce-9f84-5106cbacde86",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$46196123-2c42-4c13-a9b5-38ed8be43263",
+                  "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": true,
+                  "IncludeDettached": false
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$69c169e3-8893-42f4-b1ab-e654579fb640",
+                "Etude": "!bp_eb652bfc81c21ff4ab2c8446a309bdef",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

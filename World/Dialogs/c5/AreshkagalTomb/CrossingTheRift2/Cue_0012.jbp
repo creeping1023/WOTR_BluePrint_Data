@@ -1,0 +1,125 @@
+{
+  "AssetId": "caebf26559e2b5346bc538a3ca6ba471",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Если еще не вешали стак \"отрицание Энигмы\" в этом эвенте:\n\nПовесить стак \"Отрицание Энигмы\".\nПовесить фатигу\n\nИначе - ничего не делать",
+    "ParentAsset": "10358012d33a8214bada8fe57516a568",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "0b32dfa9-b967-4fcd-ada6-b557b3a455aa",
+      "m_OwnerString": "caebf26559e2b5346bc538a3ca6ba471",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/AreshkagalTomb/CrossingTheRift2/Cue_0012_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$de1506b3-887f-4e1a-b1c5-7a7b5d8bf369",
+          "Comment": "Вешали ли Отрицание Энигмы",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$596c30a6-45a9-40a6-a81a-b8339755a012",
+                "Not": true,
+                "m_ConditionFlag": "!bp_519ba0392666cb747aa14e42164002d6",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$21a8ea2c-4304-41ed-a30d-e229a2142c75",
+                "m_Buff": "!bp_0922b2a5f961fc6438a8636227622d33",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$6cd1b173-1735-4bbd-968f-1975b0caae5f"
+                },
+                "Duration": null
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$f6ec310d-ca5d-4989-9ed0-f41dd66fe49f",
+                "m_Buff": "!bp_e6f2fc5d73d88064583cb828801212f4",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$eee81f4a-f1d0-493b-b265-7dc0daae3fc3"
+                },
+                "Duration": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$a9f3bf6d-3713-4572-af85-ac1ef82587ae",
+                  "Value": 7200
+                }
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$60adec7a-18f8-460f-938a-efbfa2803ed9",
+                "m_flag": "!bp_519ba0392666cb747aa14e42164002d6",
+                "flagValue": 0
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$c734eaab-5e6b-4cec-9446-2ca873e33952",
+                "m_Flag": "!bp_a94df55825f947d4854b952bd1d6c449",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$4b4d2f99-85e3-4aed-806b-1e6138a9722e",
+                  "Value": 1
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

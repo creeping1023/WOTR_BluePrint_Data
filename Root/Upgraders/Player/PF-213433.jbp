@@ -1,0 +1,66 @@
+{
+  "AssetId": "1534c5774b1f46d68a2bb77d1750f28c",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Квест \"The Final Sunset of Winter\" - отлинковался 4 обжектив.",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4ee2f1b0-23be-4463-b587-a7fe3aa9ed4a",
+          "Comment": "Видели куй, выдающий обжектив",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$274ed56d-f225-4b7b-8042-abebe97ef929",
+                "Not": false,
+                "m_Cue": "!bp_56ea7d62e4c1f7a4e8e00f47baf13d91",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$219eda01-fad2-45ab-9166-198d5b261b95",
+                "Comment": "У игрока нет 4 обжектива",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$05f6d14a-57b9-4b39-80ef-c49589f67d53",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_b00867d778bb2e449b86f42db05095bd",
+                      "State": "None"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$f0d9721c-0e16-45d4-a818-bfbb3d0f73c9",
+                      "m_Objective": "!bp_b00867d778bb2e449b86f42db05095bd"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

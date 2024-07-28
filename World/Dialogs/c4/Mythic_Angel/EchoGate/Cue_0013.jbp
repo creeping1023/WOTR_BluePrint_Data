@@ -1,0 +1,92 @@
+{
+  "AssetId": "bf0752de2deb83943b792b2b5e839ba8",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "зафейлить квест если он еще активен",
+    "ParentAsset": "9e74cc848d4911e489fb3f17c1ca0d15",
+    "ShowOnce": true,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "dcf303cb-25f7-4c04-97ff-65f26d176c45",
+      "m_OwnerString": "bf0752de2deb83943b792b2b5e839ba8",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/Mythic_Angel/EchoGate/Cue_0013_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f6a08204-f1c6-4cb2-8c0d-ddcf84e2ca09",
+          "Comment": "Fail Quest",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$7f5f8e92-8e61-4af3-a979-5e38d4e2019d",
+                "Not": false,
+                "m_Quest": "!bp_5a36e3f02f983314fbe9739e7e3301dc",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$a74fda14-b286-44ee-b113-9ab6e8056e2d",
+                "Status": "Fail",
+                "m_Objective": "!bp_5bbc27adc7986dc45b0a6f0ae097af12",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_082ee1e847217b945a27e4d5a0b063f5"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

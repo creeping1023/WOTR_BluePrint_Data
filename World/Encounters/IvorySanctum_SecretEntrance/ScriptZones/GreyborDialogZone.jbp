@@ -1,0 +1,118 @@
+{
+  "AssetId": "4fa5431b60a874f42adc0f34ed6fbe46",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+          "name": "$UnitEqual$82524577-e5b3-4d73-9054-17c20684a1c7",
+          "Not": true,
+          "FirstUnit": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$2f29fd00-764c-43cd-b371-4c56cbe3694b",
+            "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+            "IncludeRemote": true,
+            "IncludeExCompanions": true,
+            "IncludeDettached": false
+          },
+          "SecondUnit": {
+            "$type": "7092730319129374aadf8b65ceb5c42d, ScriptZoneUnit",
+            "name": "$ScriptZoneUnit$f44cf822-2b70-406a-a0d5-c4e7c09f8d72"
+          }
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d9fbcbb6-60a1-4d0e-a826-4f7c777f30a9",
+          "Comment": "Грейбор не мертв",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$867d9260-b822-422a-8df6-656818fe7769",
+                "Not": true,
+                "m_Etude": "!bp_10320ad437121a44eb629d5fa9a79c75",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                "name": "$StartDialog$b2bce2a0-b786-47ab-bdf2-b8b4571d3860",
+                "DialogueOwner": null,
+                "m_Dialogue": "!bp_a020d05c3239cb248808cedb3c90400e",
+                "DialogEvaluator": null,
+                "SpeakerName": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fd05a75a-b799-4e84-b530-d45c4985b0cd",
+          "Comment": "Грейбор мертв",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fcb5b706-5a24-4584-85b8-b262d6056a26",
+                "Not": false,
+                "m_Etude": "!bp_10320ad437121a44eb629d5fa9a79c75",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$bac952d0-41ea-47fb-a057-1e1971266f72",
+                "m_CompanionBlueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                "OnUnrecruit": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  }
+}

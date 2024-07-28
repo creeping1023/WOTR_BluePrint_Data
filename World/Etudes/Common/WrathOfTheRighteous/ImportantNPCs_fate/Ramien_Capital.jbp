@@ -1,0 +1,154 @@
+{
+  "AssetId": "d8f31833df179cc41ae65855b8a28e03",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$244d58ba-3dcf-441c-a19a-8e939ff6e93a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$3b6110eb-e468-4ad5-a270-05ddd0c36ff8",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$ae108b17-a22a-43b4-8acc-7e84cd4837eb",
+                "Spawner": {
+                  "EntityNameInEditor": "Ramien",
+                  "_entity_id": "69947a63-e445-4adb-abf6-35db365b4ab4",
+                  "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                }
+              },
+              "Unhide": true,
+              "Fade": false
+            },
+            {
+              "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+              "name": "$TranslocateUnit$3f8ea255-7bae-4abd-905e-de9d7b373145",
+              "Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$6c737c9b-1225-403b-ab65-d379e20348da",
+                "Spawner": {
+                  "EntityNameInEditor": "Ramien",
+                  "_entity_id": "69947a63-e445-4adb-abf6-35db365b4ab4",
+                  "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                }
+              },
+              "translocatePosition": {
+                "EntityNameInEditor": "",
+                "_entity_id": "",
+                "SceneAssetGuid": ""
+              },
+              "translocatePositionEvaluator": {
+                "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                "name": "$LocatorPosition$6eeffc6b-0ddf-4e96-937f-40bbbd95f38d",
+                "Locator": {
+                  "EntityNameInEditor": "RamienPosition",
+                  "_entity_id": "a431f07d-1b90-4a96-9da6-280d0baf1cc8",
+                  "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                },
+                "Offset": "0|0|0"
+              },
+              "m_CopyRotation": true,
+              "translocateOrientationEvaluator": null
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_ac56f3c9fb261664bb65d929d3a9ad79",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$3de5ccea-015b-4ee3-969a-434e0f77b55e",
+          "Not": false,
+          "m_Etude": "!bp_e0d8b253efedb70488badaaa3d47632c",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$86ef0e11-64b1-4f1c-a498-e6768ef3da1a",
+          "Not": true,
+          "Comment": "не играть если Рамьен мёртв",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8ac2659e-ee63-4b1b-be6f-db65925d2138",
+                "Not": false,
+                "m_Etude": "!bp_81037254dcdfb5441902e9b23f65aee4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1eb2d2af-e66b-414a-845d-126a791d5d05",
+                "Not": false,
+                "m_Etude": "!bp_2971976be1b2c2e488ce4c462ef3c678",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$efb43187-cab8-4694-be86-ac2b1611aaf7",
+          "Not": false,
+          "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_a57b363bab96b9a4eba597f8e85b137d"
+    ],
+    "Priority": 0
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "AssetId": "5bc8820627af4f2080c6e19d4ab8c223",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Стартует диалог, если игрок отходит от группы ",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "EnterActions": {
+      "Actions": []
+    },
+    "ExitActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b2d89a79-74ac-4a4b-a900-5e7325d9e3bb",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f12047e0588c11f4ba28423a0b8c3e8e, UnitInScriptZone",
+                "name": "$UnitInScriptZone$ec68ffae-1799-4637-af73-209deb840328",
+                "Not": false,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$408e4d04-4911-4108-b07d-e263662e1df6"
+                },
+                "ScriptZone": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$c6f7a1f3-31ce-4644-ab7b-9001e6a62b36",
+                  "MapObject": {
+                    "EntityNameInEditor": "SZ_Dialog_AneviaQuest",
+                    "_entity_id": "6e2dec81-2848-4526-83a3-aaec31a7003f",
+                    "SceneAssetGuid": "b9eda236a7ca24345839415b7fd5e369"
+                  }
+                }
+              },
+              {
+                "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+                "name": "$IsInCombat$68eca8b7-6032-4341-8abb-d34c2db9057b",
+                "Not": true,
+                "Unit": null,
+                "Player": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$3b379910-95ef-4f55-a12c-95d547093eca",
+                "m_Cutscene": "!bp_5692eb74379a457ebe49970df70ef19c",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                "name": "$ScriptZoneDeactivate$5a89c54c-bbdd-4075-9a3c-a4892cface2b",
+                "ScriptZone": {
+                  "EntityNameInEditor": "SZ_Dialog_AneviaQuest",
+                  "_entity_id": "6e2dec81-2848-4526-83a3-aaec31a7003f",
+                  "SceneAssetGuid": "b9eda236a7ca24345839415b7fd5e369"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": true
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "AssetId": "e49702f590611644580f09c8f9ef0e5b",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$2c7bd0cf-9261-420b-b59d-d9f3b403ba7b"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$2c7bd0cf-9261-420b-b59d-d9f3b403ba7b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$66eff266-5808-4007-a43c-ee57ec511bcb",
+              "Etude": "!bp_45fdb825e8f08be44b7ac41015970e8c",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$b07fd6b2-d029-4760-ac31-ab2314a10c80",
+              "m_Flag": "!bp_5db9ec615236f044083a5c6bd3292432",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$aa8503e8-eba6-4ca6-9dba-0bb356729eb3",
+                "Value": 1
+              },
+              "UnlockIfNot": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$cc19a481-8e95-4f5f-bebe-1ee9b9b0d375",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Ачивка - A Spark - Начать любой романс ",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$7833c400-8958-46f8-b120-37bc9b539909",
+              "Etude": "!bp_b9c6e3e0d6ac42ef8b9a2bad0c36420d",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$9d6812f9-c250-4507-a0a7-992d7bc66c32",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$634ea5f7-5f43-474a-8660-71de357b2fe5",
+              "Comment": "не в процессе ктц Ревности",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$606cdeb2-93fd-4dc6-9ae9-c4f5cfdc33a8",
+                    "Not": true,
+                    "m_Etude": "!bp_4799a25da39295b43a6eefcd2cb2b4a7",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$b42617de-0448-481d-82ea-0f9502f65f20",
+                    "m_Flag": "!bp_5db9ec615236f044083a5c6bd3292432",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$1f674ce1-ed1d-4e24-809f-6789821a16ed",
+                      "Value": -1
+                    },
+                    "UnlockIfNot": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "старт романса",
+    "m_Parent": "!bp_89f8c2f1a7a8ea24794bf4af231e89a1",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$5c437cb4-73d4-47be-972e-e7f53db81f72",
+          "Not": false,
+          "m_Etude": "!bp_fe6ee37b2aa394e4eaa51208cf7d7f86",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

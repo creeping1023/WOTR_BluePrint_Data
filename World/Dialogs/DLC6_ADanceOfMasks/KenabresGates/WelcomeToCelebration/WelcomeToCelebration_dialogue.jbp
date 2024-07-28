@@ -1,0 +1,99 @@
+{
+  "AssetId": "a94daec1bb0c4d0eae76edb7c0e00406",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Кроме второго обжа, в конце диалога должен выдаваться и третий, но только если ростер не пуст. Также надо выдавать адды к третьему обжу для каждого компаньона.",
+    "FirstCue": {
+      "Cues": [
+        "!bp_218e32ade06d4815a4aa2b8305335276"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$602a738b-db0d-4f8b-9b70-419244bf8a2d",
+          "Status": "Complete",
+          "m_Objective": "!bp_0eceefc0e23749718e8f0e4409ab5737",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+          "name": "$RaiseDead$66149a64-e894-469c-ac37-c68fbe25c28d",
+          "m_companion": null,
+          "riseAllCompanions": false,
+          "activeAndRemote": true
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$675ee527-2dd4-4246-a56f-cfe1a8284fd9",
+          "m_Objective": "!bp_af39ad20f8154c9aa97284517f2de3d2"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$812fcc2f-e699-4d7c-a4b8-efbd48d01332",
+          "Comment": "At least one companion is in party",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$a36979e7-c13f-4e65-8a0e-1008bb237367",
+                "Not": false,
+                "m_Flag": "!bp_1ca6ec2ca8b74441a3f51eab0ab04203",
+                "MinValue": 1,
+                "MaxValue": 100
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$927ec360-d635-4aed-84fc-e5ff3445452f",
+                "m_Objective": "!bp_4b5c5e84d0d74329ad3d6c5fb933a2b7"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$21ee708d-31fe-42b7-bb59-96de8121f3f7",
+          "m_exitPositon": "!bp_07c96e4ddfd8494dad87caaae09d3acb",
+          "AutoSaveMode": "AfterEntry",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

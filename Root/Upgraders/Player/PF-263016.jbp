@@ -1,0 +1,59 @@
+{
+  "AssetId": "40077cfca82548bfbf4ec860fdc5404d",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Фейлим квест аруши если игрок ушел в колифир или уже в 5 главе",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$907f270a-55f6-4dad-8903-273173aa54bd",
+          "Comment": "[companion] Burning Dreams",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$7dbbffdf-9c8b-4706-9741-6b8b50ca683e",
+                "Not": false,
+                "m_Quest": "!bp_b9e34688c759696499f2c826056a3678",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$6653fdc7-1ce3-45f6-9c23-896d45b14981",
+                "Not": false,
+                "m_Etude": "!bp_8fd5011c2303a81499c41aa8ba065ec4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$cd9a1678-83f0-4bcc-9703-6a97c0bd8e71",
+                "Status": "Fail",
+                "m_Objective": "!bp_f0149e05a13a495e98dd089feffde32c",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

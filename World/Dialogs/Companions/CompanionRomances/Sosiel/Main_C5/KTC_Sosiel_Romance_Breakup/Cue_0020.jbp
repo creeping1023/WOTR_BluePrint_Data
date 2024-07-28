@@ -1,0 +1,130 @@
+{
+  "AssetId": "feb82a850c5302e4b8a843afd4e76a19",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Перманентно убить Зосиэля\nЕсли есть Трвер - просто выгнать его из ростера. Сразу после этого КТЦ играть KTC_TreverDead.\n\nПоставить флаг SosielKilledByRomance, рассказать об этом нарративам. Мы хотим баркобантер на это событие завязать.\nТакой же флаг поднимается в диалоге DatingMonster",
+    "ParentAsset": "4893980c9fc75e2438971ae1342e2fb4",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "ea15ed53-3a7b-4fe8-b4c0-f78e5322318e",
+      "m_OwnerString": "feb82a850c5302e4b8a843afd4e76a19",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionRomances/Sosiel/Main_C5/KTC_Sosiel_Romance_Breakup/Cue_0020_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$1081579e-4cf9-44dd-898c-71f8b3b41cd7",
+          "m_Cutscene": "!bp_1eb8954dc61220f4888e45b527325c56",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$51764bd8-b753-44e9-ab9b-370c3eb8f1ab",
+          "Etude": "!bp_50eb9ca1adf78254ea8482637335a856",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$c1e82ff6-1b63-4de5-9031-ac24c32665df",
+          "Etude": "!bp_8527dcd067f0bb74fba289de739a709d",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5a6b3d4b-b93c-4757-b7a0-85979abc71e7",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$90706bb8-bb24-4252-8570-e7b12884b26f",
+                "Not": false,
+                "m_companion": "!bp_0bb1c03b9f7bbcf42bb74478af2c6258",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$751db34b-1dcb-4759-8de9-7314ecfc08fb",
+                "m_CompanionBlueprint": "!bp_0bb1c03b9f7bbcf42bb74478af2c6258",
+                "OnUnrecruit": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$c5854b6b-51fa-4c97-9668-dff4c6dbd0bf",
+                "Etude": "!bp_e51dacc6378903a43b80eed6447aeb8a",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

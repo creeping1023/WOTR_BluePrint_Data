@@ -1,0 +1,227 @@
+{
+  "AssetId": "7685134f6cac8d748823cc2a5f691958",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$11822b05-b968-4549-92c8-a80ef8396ec9",
+          "m_exitPositon": "!bp_08f1ec00e0ac24e49ba43da59814752d",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "9c6cd580a876d0d4e83cbb48ec00870f, FakePartyRest",
+                "name": "$FakePartyRest$6455fd3e-1f3d-4d3e-b946-e3a44ef4c115",
+                "m_Immediate": false,
+                "m_IgnoreCorruption": true,
+                "m_RestWithCraft": true,
+                "m_ActionsOnRestEnd": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$6f624ea2-94a3-41cc-a720-0cb96fb18f62",
+                "m_UnitsList": "Everyone",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "7c34a1bbda3ce6c4680181ce3eb2581b, RemoveDeathDoor",
+                      "name": "$RemoveDeathDoor$af4b2ada-f58e-4199-a47d-1b846db93fe9",
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$6e8843e4-22da-4f71-9354-043fab40dcf8"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                "name": "$LockFlag$35b36d27-423e-476b-94e6-aa3ebc3b9ba3",
+                "m_Flag": "!bp_58c279ed2d8c478e99593948f2cf407c"
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b71e832a-1593-4e8e-9994-4cebbb801269",
+          "Comment": "Переход в стейт атаки",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$60f9f928-cf61-4b96-a5a5-7e7b5f76ccd1",
+                "Not": false,
+                "m_Etude": "!bp_b76bfad91281ee24db6963c69b466c14",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$95213e7b-1d06-4d92-98f4-c38830e3edbd",
+                "Not": false,
+                "m_QuestObjective": "!bp_3fb35b07e971de24caaa6d6e188572b4",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$6ad4bd7a-7e66-4630-b19e-d4e92d693b4d",
+                "Etude": "!bp_897cefd681c79c54fa70f2dcfac47a64",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$52ee728b-f277-433a-a79d-2361819a3ada",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Spawner [AlarmMan]",
+                    "_entity_id": "d4dc7913-d5aa-455b-8fa5-f1212866d05b",
+                    "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                },
+                "RespawnIfDead": false
+              },
+              {
+                "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+                "name": "$ScriptZoneActivate$1132116b-4f6e-4f0b-867a-7674c007e938",
+                "UseEvaluator": false,
+                "ScriptZone": {
+                  "EntityNameInEditor": "AlarmScriptZone",
+                  "_entity_id": "7263e487-6f45-4d76-9414-2141282fd383",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                },
+                "ScriptZoneEvaluator": null
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$d9b98a02-23bc-457a-a0eb-2eade70e752b",
+                "Etude": "!bp_b76bfad91281ee24db6963c69b466c14",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+                "name": "$TimeSkip$8bf2ccd5-404b-40a6-a419-b0b76603b12f",
+                "m_Type": "TimeOfDay",
+                "MinutesToSkip": null,
+                "TimeOfDay": "Night",
+                "NoFatigue": true,
+                "MatchTimeOfDay": false,
+                "Silent": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$25d2fe88-bcdb-453a-a532-6d15698bf41e",
+          "Comment": "Убрать трупы Дейрана",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ea05e402-2528-48bc-8767-cddbb3ce11fd",
+                "Not": false,
+                "m_Etude": "!bp_a31b01603b4c40689a56b4f480ffa73e",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$bd388d39-9b2a-4488-bdec-3cd1a8552d96",
+                "Etude": "!bp_a31b01603b4c40689a56b4f480ffa73e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$897ce7e2-ea4f-4a81-8420-f661b75343d9",
+          "Comment": "Трупы демонов дейрана",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b806d2d5-90ac-4d06-90c8-4328d5356581",
+                "Not": false,
+                "m_Etude": "!bp_b73a4e97547057b41a14de6c072b2f56",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$753c66aa-ff72-49bb-8a3d-93e8a9f75425",
+                "Not": true,
+                "m_Etude": "!bp_a31b01603b4c40689a56b4f480ffa73e",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$014c14ec-8cc5-4090-b0fe-0881e65a1c18",
+                "Etude": "!bp_a31b01603b4c40689a56b4f480ffa73e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

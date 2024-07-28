@@ -1,0 +1,207 @@
+{
+  "AssetId": "41815d07e5faeab43af8c5aba089583e",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeCompleteTrigger$0f9b5576-ad7a-4087-9177-75c08e0f61af",
+      "$EtudePlayTrigger$f6bc1d95-f453-458f-89a4-02e6baf6324f"
+    ],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$0f9b5576-ad7a-4087-9177-75c08e0f61af",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "интерлюдия Ланна",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5368db17-a5af-450b-a45c-4aaf6f2b5787",
+              "Comment": "если ещё не начат Timer_Before_KTC_MamaDrezen",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$c38aaa60-104e-44d2-b669-becab05016cb",
+                    "Not": false,
+                    "m_Etude": "!bp_b2867ac6db04d4141a25d1115215cb65",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$e38d2b84-94b5-490e-a9ff-ee0a21201889",
+                    "Etude": "!bp_b2867ac6db04d4141a25d1115215cb65",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$f6bc1d95-f453-458f-89a4-02e6baf6324f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e0bd0d3b-29ec-45f5-8afc-dfb258716fea",
+              "Comment": "квест Лича",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$f5bc01e5-c8b2-430e-8139-ca94c1ab8dcd",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_7895a1cbe8859ca4abe670547c427d7a",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$1107c034-dcb5-4911-b5e5-63705c185459",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_7895a1cbe8859ca4abe670547c427d7a",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$bb59be9d-2b89-493d-b633-faaf7599232f",
+                    "m_Objective": "!bp_511cca6b25020f840bf9b0efe11757de"
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$bb24468f-7627-4065-bb5f-3037bdb2723d",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$98b1cce0-0714-46de-ba8a-1b3f4332abbe",
+                      "MapObject": {
+                        "EntityNameInEditor": "GoodLoot4Lich",
+                        "_entity_id": "859fd653-3f42-467b-bbae-92ffd8804f22",
+                        "SceneAssetGuid": "784967d04c1fa0b41ad8bd5be441cf7a"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$672dcc8a-6a6f-42e8-b592-1711e5f83d1a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "двери у магических стен",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$fae21693-7c6e-45dd-9b51-150054092167",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$9eef88f7-9ea4-49fa-a0ed-63a2be4bbc6c",
+                "MapObject": {
+                  "EntityNameInEditor": "LowProtectionDoor09",
+                  "_entity_id": "bd142780-7d85-4732-b11f-aa788df4d052",
+                  "SceneAssetGuid": "784967d04c1fa0b41ad8bd5be441cf7a"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$431c3fc4-8a3d-4599-b6af-b043ca5f5435",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$124a45e7-6e62-4b37-a15a-056d90ce412b",
+                "MapObject": {
+                  "EntityNameInEditor": "LowProtectionDoor10",
+                  "_entity_id": "9e2dcc76-964d-48fb-99be-5132591f1ca0",
+                  "SceneAssetGuid": "784967d04c1fa0b41ad8bd5be441cf7a"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "от попадания в AL, до получения мифика (анлока выхода из лабы)",
+    "m_Parent": "!bp_fb5d78d42fd1cf149ab926d49873d1d7",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_2c126421bc8d72d4290ebeaefb61c6d7",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

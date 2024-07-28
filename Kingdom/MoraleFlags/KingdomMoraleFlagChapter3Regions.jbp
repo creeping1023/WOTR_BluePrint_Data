@@ -1,0 +1,1340 @@
+{
+  "AssetId": "d04ff8f15c034f56bcfbad952a74bdb3",
+  "Data": {
+    "$type": "91a969d9ff86cca42aa864b54cbb424f, BlueprintKingdomMoraleFlag",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$233419f4-e1f3-4bee-b8da-aaffeb91e8b9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_295836fc8773eb94d9e6c879285996eb",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$d23112d0-adb2-43ee-970f-834cfd523c27",
+              "m_Settlement": "!bp_a96901d405a44d419ac22bdac62de1e8",
+              "m_Location": "!bp_295836fc8773eb94d9e6c879285996eb"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$6bd0d036-6e2a-40d4-b918-2adc00cbd976",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$38d639da-c5ed-4a77-b24c-c77da699e4e1",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_a0da1d97f6b44a14a4e9b33c77ca0d24",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$75129c88-4ef7-4fa2-9c05-01af21f4c647",
+                    "m_flag": "!bp_a0da1d97f6b44a14a4e9b33c77ca0d24",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$880d16c3-0df0-4c79-b4b7-d1dd6e6e9bf2",
+                    "Comment": "2nd garrison in the region already captured",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$68afc9f3-3c61-4a7a-9084-047e00059ce8",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_1ef082cd945c4fea9c62423380e6ae99",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                          "name": "$KingdomActionConquerRegion$d886bd18-ea75-4a47-aa3a-6e9de70b426a",
+                          "m_Region": "!bp_f77b533b72bb47a2951384f61e44de52"
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$eecc5b44-aaf9-495c-94dd-913a1c337aae",
+                          "Comment": "Complete 2_1 Main Crusade quest",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$214e0437-0796-4f19-92ed-5f9c0144465d",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "State": "Started"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                "name": "$SetObjectiveStatus$4435e851-388d-452c-a15c-16bdf8e8bb1a",
+                                "Status": "Complete",
+                                "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "StartObjectiveIfNone": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$d624d39c-391b-42d8-af39-68e7de00c28a",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$9e9f35d1-eaec-4ec2-a06b-2ac95cf91dcd",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$6d0f2740-7119-447c-91df-597538a6139a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_40bf57992d9a3f94a8b09a9b3489dffc",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$dfe68088-a7a6-4e7c-abb2-48a02e2cc9a6",
+              "m_Settlement": "!bp_caa6eeca6db54ed1b45d901451571382",
+              "m_Location": "!bp_40bf57992d9a3f94a8b09a9b3489dffc"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a643e686-2ce9-483e-add2-bfddd6eac3a5",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$b6d682d8-bdf5-4261-b824-244e8530f8ee",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_1ef082cd945c4fea9c62423380e6ae99",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$4151b13a-9205-4ae5-93ed-cb1521595650",
+                    "m_flag": "!bp_1ef082cd945c4fea9c62423380e6ae99",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$414b3d24-e7a0-4ce0-97c3-4beec868d35f",
+                    "Comment": "2nd garrison in the region already captured",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$17a6392a-fb53-44c6-ad1a-eaa13014101c",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_a0da1d97f6b44a14a4e9b33c77ca0d24",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                          "name": "$KingdomActionConquerRegion$c5fe13b8-d632-4821-9280-ab9501c46cac",
+                          "m_Region": "!bp_f77b533b72bb47a2951384f61e44de52"
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$0901e3c5-0955-416a-afc1-5a0739637823",
+                          "Comment": "Complete 2_1 Main Crusade quest",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$5fada225-e5b7-4363-8dc2-6708e74f429e",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "State": "Started"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                "name": "$SetObjectiveStatus$eda76202-72f1-43cd-8d08-a919790d0aba",
+                                "Status": "Complete",
+                                "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "StartObjectiveIfNone": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$76a9fac4-cb21-458e-aee4-c716d805e16d",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$6c6615c1-8608-470a-a0cd-c7f0fdf07b93",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$2c06799c-939b-49fb-8caf-e82a054c743f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_37ca70b7b61f69b4391a7e97913c83f1",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$78f32a7d-3ce2-4504-9107-ff7eb276d6b6",
+              "m_Settlement": "!bp_886ba91a05004139abebb9f350750df3",
+              "m_Location": "!bp_37ca70b7b61f69b4391a7e97913c83f1"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8e8d99e4-574b-4c52-adf7-f122160df2a6",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$cf83a23e-7e63-4910-9515-52f940bd21da",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_fa41b699174e4adba7dc1e3f1683b105",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$a12c92ce-2cf6-4814-aba1-badbd9fc8bb7",
+                    "m_flag": "!bp_fa41b699174e4adba7dc1e3f1683b105",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$496c0501-ceb4-4a72-aa16-7bd4e4bf0107",
+                    "Comment": "2nd garrison in the region already captured",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$73b8e2af-eebc-492a-9ef3-a17e67e9938c",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_fb8a840ff3764a8789767317865cbb11",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                          "name": "$KingdomActionConquerRegion$ab983601-edf4-4018-ad18-02b2bacb5141",
+                          "m_Region": "!bp_9ae3645130774f61a9ef847b33254a18"
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$9d1a048c-1938-483e-8b24-95b98812bda9",
+                          "Comment": "Complete 2_1 Main Crusade quest",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$acd2bc27-98db-4c05-8de6-735900f0e408",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "State": "Started"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                "name": "$SetObjectiveStatus$0f748d78-cd70-4142-ba95-6ba3bdf9b32e",
+                                "Status": "Complete",
+                                "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "StartObjectiveIfNone": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$0ce38622-5d15-412c-8f2d-1e028b177b25",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$b56d6cef-a9ce-44b2-8477-50474d6cee83",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$6af2c559-ad4c-43d7-81fa-d025d71f87bc",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_00ee9232cb0b57c4ab9ffdb324464bb8",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$6abe71ba-14ac-4564-a5cf-a599fa6a7951",
+              "m_Settlement": "!bp_63bf68268a394f758f15b7e14c4b9934",
+              "m_Location": "!bp_00ee9232cb0b57c4ab9ffdb324464bb8"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$0f55b342-acba-4a92-8429-b17536665501",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$a60923cf-2f0d-4842-8474-e2362f65e194",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_fb8a840ff3764a8789767317865cbb11",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$fd683f84-71a6-42dd-a4b0-244660b630b0",
+                    "m_flag": "!bp_fb8a840ff3764a8789767317865cbb11",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$d4d92cbf-d879-43b2-9a31-27e8cd589dc8",
+                    "Comment": "2nd garrison in the region already captured",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$e772b780-8cab-4b71-b274-09fcd754e118",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_fa41b699174e4adba7dc1e3f1683b105",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                          "name": "$KingdomActionConquerRegion$52971873-1618-4c1b-a444-9f21496c9152",
+                          "m_Region": "!bp_9ae3645130774f61a9ef847b33254a18"
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$1b02a6ed-0293-40c3-a2d4-d2a4337fa589",
+                          "Comment": "Complete 2_1 Main Crusade quest",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$87dc31b4-ba6e-498c-8769-0a9b8626c923",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "State": "Started"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                "name": "$SetObjectiveStatus$41fade19-9fdd-45b2-a27a-a86623661775",
+                                "Status": "Complete",
+                                "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "StartObjectiveIfNone": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$5493b0c7-470b-41f9-b197-b9ea3a7a0230",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$e2fbe798-3ce0-42a4-835b-9eb3ec25ce2a",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$15e8175b-c418-42d7-9163-23ea5465d5d1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_7f62fb536400c4b40a88ace49e696cea",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$caa41d73-7ba3-4f6c-8d8c-64f1dd96797e",
+              "m_Settlement": "!bp_4e392ecd9d60437e9bd93ca8fbd22563",
+              "m_Location": "!bp_7f62fb536400c4b40a88ace49e696cea"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7d03cbda-540a-4f08-86dc-75ab7cef516d",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$227987ee-3f67-4ed6-9af0-1af64cf42a5f",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_0589504240e54f8a9a8f414e9a7ae3ec",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$8cb199bb-1785-43b1-ae71-eb2abab352e1",
+                    "m_flag": "!bp_0589504240e54f8a9a8f414e9a7ae3ec",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$c566734f-4746-49c6-8229-31485b3ff84d",
+                    "Comment": "2nd garrison in the region already captured",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$3343fffb-7e18-41c0-a177-560c081aa3c3",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_ea88ff2cad8441b5a9229837bbe56425",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                          "name": "$KingdomActionConquerRegion$7d96ebf2-eb2c-4871-a2ca-23c641c3f722",
+                          "m_Region": "!bp_27a8e198d8284cc4ab947f5575c13ae3"
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$90b5a1af-d450-439c-bba9-7ccd3bcac5ff",
+                          "Comment": "Complete 2_1 Main Crusade quest",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$0b08c3cb-7268-4b64-8d96-e2a6bd8f3c2e",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "State": "Started"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                "name": "$SetObjectiveStatus$9d4fe2cd-4781-4d6f-96ed-f259e3d530c4",
+                                "Status": "Complete",
+                                "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "StartObjectiveIfNone": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "3e11d51c2c4645dc8f6d1c5604dd9073, KingdomFlagIncrement",
+                    "name": "$KingdomFlagIncrement$ece77f2a-33dc-42ea-897e-ab47fc51e808",
+                    "m_TargetFlag": "!bp_d04ff8f15c034f56bcfbad952a74bdb3",
+                    "m_Increment": 30
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$eb978d4e-b50d-4d54-ba8f-56a7690cd52d",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$c44628a3-935c-410d-b384-21639eecd70d",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$75195aaf-1599-499b-8e83-8708279e9477",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_8f2f2fac2da4b5748b9a34629ff44056",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$3b3cf72d-abbf-49b8-948c-9bece28eba58",
+              "m_Settlement": "!bp_9c9e13ea84464e3a8815449dc229fd66",
+              "m_Location": "!bp_8f2f2fac2da4b5748b9a34629ff44056"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$6257212c-e2dd-445c-81af-9990ce5e13b2",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$43ce984d-e804-49f3-8f06-f5c2c4006488",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_ea88ff2cad8441b5a9229837bbe56425",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$766a36d4-61db-43b3-bd10-68c965e42d30",
+                    "m_flag": "!bp_ea88ff2cad8441b5a9229837bbe56425",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$195ba1d4-a942-4a01-af4e-4bec5e436a8c",
+                    "Comment": "2nd garrison in the region already captured",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$ef337cee-60d6-42fd-8e49-46eaae5502ef",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0589504240e54f8a9a8f414e9a7ae3ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                          "name": "$KingdomActionConquerRegion$ab76f291-3d8c-46d6-83e7-52e2b8012e1c",
+                          "m_Region": "!bp_27a8e198d8284cc4ab947f5575c13ae3"
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$7a8c4ae8-eef3-4eca-aef8-e24e3d214887",
+                          "Comment": "Complete 2_1 Main Crusade quest",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$2e433b39-c861-4a3d-beb8-a316e22d6f88",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "State": "Started"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                "name": "$SetObjectiveStatus$1da78a83-595a-407f-84e5-ef9c463c98db",
+                                "Status": "Complete",
+                                "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "StartObjectiveIfNone": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "3e11d51c2c4645dc8f6d1c5604dd9073, KingdomFlagIncrement",
+                    "name": "$KingdomFlagIncrement$e214d2a9-f749-4108-92c7-9310afbb8537",
+                    "m_TargetFlag": "!bp_d04ff8f15c034f56bcfbad952a74bdb3",
+                    "m_Increment": 30
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$ca513cb9-3d8e-4afd-8715-d6173911fe16",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$5532c9e9-20df-470c-ac3f-06c0e361c353",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$cedaf668-a22d-40e8-bbe5-ba1a77952817",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_0cb5401dec90397418b61699d7278f3c",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$bcf4d699-9b29-4271-ae2b-02f98d7a4e8a",
+              "m_Settlement": "!bp_b4152385729340da89d5b3ef7a915ab6",
+              "m_Location": "!bp_0cb5401dec90397418b61699d7278f3c"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$74316844-edf3-479f-8ef4-2907e9626fbb",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$a5aa2f2c-4be4-46ba-976c-8655b447d819",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_af92132bc9324aa5a952243108050802",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$0a27b7d6-d861-41f3-a4f9-4a64aa4fcc97",
+                    "m_flag": "!bp_af92132bc9324aa5a952243108050802",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "3e11d51c2c4645dc8f6d1c5604dd9073, KingdomFlagIncrement",
+                    "name": "$KingdomFlagIncrement$aed5d02c-b421-4445-a6e8-aedf3567f56e",
+                    "m_TargetFlag": "!bp_d04ff8f15c034f56bcfbad952a74bdb3",
+                    "m_Increment": 30
+                  },
+                  {
+                    "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                    "name": "$KingdomActionConquerRegion$06759f65-354e-451d-9690-3d7b2a65511b",
+                    "m_Region": "!bp_2a5f009c48d042fd8dee4764631f17b4"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$da9eb0f6-f820-450b-99ae-2250397918ac",
+                    "Comment": "Complete 2_1 Main Crusade quest",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                          "name": "$ObjectiveStatus$9a3d3247-ff2d-4911-84dd-2f4fd07f8ac0",
+                          "Not": false,
+                          "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                          "State": "Started"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                          "name": "$SetObjectiveStatus$932d0baa-1ee2-4ff8-82a1-7e1c736513c7",
+                          "Status": "Complete",
+                          "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                          "StartObjectiveIfNone": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$cae0e924-ade0-4f02-80e8-ef753e82279d",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$21c491e5-757e-4d17-85ad-ff153601c6fc",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$1e5e447a-6d55-42af-9b27-1c5c1bf0938d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_adbea8821af851e4bbf5cffe56abf273",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$e7cb2229-f86d-431f-ab1a-bb99a92bddd5",
+              "m_Settlement": "!bp_54db9b19960241ef9068910e81fb9212",
+              "m_Location": "!bp_adbea8821af851e4bbf5cffe56abf273"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c1f69118-2bc6-4849-a0af-6fba1e7995c6",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$2a0fb6bc-8952-4e89-af23-02d9249c2112",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_d73e863f2a2249feadbea766bf9bcc12",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$3f4cd10a-573f-4f9d-9195-565174291ee0",
+                    "m_flag": "!bp_d73e863f2a2249feadbea766bf9bcc12",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "3e11d51c2c4645dc8f6d1c5604dd9073, KingdomFlagIncrement",
+                    "name": "$KingdomFlagIncrement$8000b91d-168c-4451-aa63-2ad3d1d72c9f",
+                    "m_TargetFlag": "!bp_d04ff8f15c034f56bcfbad952a74bdb3",
+                    "m_Increment": 30
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$60ffa5bf-c75f-4c0c-8ec4-054807c8e022",
+                    "Comment": "2nd garrison in the region already captured",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$a5d353d6-5055-445d-907e-6d69002cf4eb",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_3ee0a3ce01a54aa595611cadcb05c4f7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                          "name": "$KingdomActionConquerRegion$f15a04dd-9829-484f-aa4e-477b29c3f7f3",
+                          "m_Region": "!bp_7714545d0a72439bb88ae6d14bc4baea"
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$766febe6-fc2d-4c13-8702-2ff6010a9f33",
+                          "Comment": "Complete 2_1 Main Crusade quest",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$c249cf11-f0b5-4ac5-9afa-d5a9f9609372",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "State": "Started"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                "name": "$SetObjectiveStatus$9e6c333b-e631-455e-9d1f-8c904acec966",
+                                "Status": "Complete",
+                                "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "StartObjectiveIfNone": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$aec7ee50-eed4-42fa-9add-46dac7b28ade",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$3d4c6bb5-be74-4d33-845d-da16d55bd4f3",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$c60f7d22-57e0-491d-abdb-4eb5266cccaf",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_b6514043ef287be4ab0b5dc6d501883c",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$e5cab7c9-a066-4ac5-b985-04228f77157c",
+              "m_Settlement": "!bp_daa953dce4344c109c034d54b925cf9a",
+              "m_Location": "!bp_b6514043ef287be4ab0b5dc6d501883c"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$70a1219f-e458-4fb9-b079-7cbf24cbedd5",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$af586803-8a2a-455b-a189-8f06840f41f5",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_3ee0a3ce01a54aa595611cadcb05c4f7",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$d20c27c6-5e4f-488b-88c9-72794a51c82d",
+                    "m_flag": "!bp_3ee0a3ce01a54aa595611cadcb05c4f7",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "3e11d51c2c4645dc8f6d1c5604dd9073, KingdomFlagIncrement",
+                    "name": "$KingdomFlagIncrement$9db275f6-2cf6-47d0-9127-d85998159345",
+                    "m_TargetFlag": "!bp_d04ff8f15c034f56bcfbad952a74bdb3",
+                    "m_Increment": 30
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$25a96ce4-cfc6-4c2b-a62a-498d0fecc503",
+                    "Comment": "2nd garrison in the region already captured",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$391fd9e7-c378-4100-ae4f-ac0d46c864c1",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_d73e863f2a2249feadbea766bf9bcc12",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                          "name": "$KingdomActionConquerRegion$588ee780-4306-4e12-9dd2-7941c3f3bf7c",
+                          "m_Region": "!bp_7714545d0a72439bb88ae6d14bc4baea"
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$669215f8-26bf-4fd5-9f3e-17b8eef167f9",
+                          "Comment": "Complete 2_1 Main Crusade quest",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$a0a00106-5844-45db-afb0-32140e1aa76e",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "State": "Started"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                "name": "$SetObjectiveStatus$23055292-da53-4f0b-a2e1-6cf267bc3baf",
+                                "Status": "Complete",
+                                "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                                "StartObjectiveIfNone": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$ba8f5d8f-c245-442c-9909-ca3a65dca6a2",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$facb98b1-e3b5-4772-826a-afb5c5a7aea7",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "m_Flags": 0,
+        "name": "$GarrisonDefeatedTrigger$fbfc6574-8ef0-4e4e-a9c2-10eba71b820d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_987331a7fb682c5479b22e76188d7203",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "b0f54686895b7c94bb2c07728ecd4a41, KingdomActionFoundSettlement",
+              "name": "$KingdomActionFoundSettlement$9e135a1e-b55f-46bf-af06-17dfd2dd3913",
+              "m_Settlement": "!bp_47a7ed133f4b4fb6bebc7735c4019343",
+              "m_Location": "!bp_987331a7fb682c5479b22e76188d7203"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$cc8271d6-d1c9-4f89-acae-804146670452",
+              "Comment": "Was captured",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$57900a22-727d-440d-acaa-fa5457c670b2",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_f4537399e95c44d9966f2352917585e3",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$6c111470-fd03-4545-b374-257fef8bc229",
+                    "m_flag": "!bp_f4537399e95c44d9966f2352917585e3",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "3e11d51c2c4645dc8f6d1c5604dd9073, KingdomFlagIncrement",
+                    "name": "$KingdomFlagIncrement$d34a1d9d-3e45-4966-9e54-38e709e5b0c1",
+                    "m_TargetFlag": "!bp_d04ff8f15c034f56bcfbad952a74bdb3",
+                    "m_Increment": 30
+                  },
+                  {
+                    "$type": "1f4b9450e832465fa8bff56f9625b9ac, KingdomActionConquerRegion",
+                    "name": "$KingdomActionConquerRegion$4a199dbd-b914-4974-a152-7acdd68474b7",
+                    "m_Region": "!bp_1f4f5d4ffb6c4ddb8b6387ec9b91cd80"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$fe6d2b54-4a86-42c3-9a11-3f9032689f73",
+                    "Comment": "Complete 2_1 Main Crusade quest",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                          "name": "$ObjectiveStatus$fb82b6fc-27f4-4d61-8525-e96bf2e540c1",
+                          "Not": false,
+                          "m_QuestObjective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                          "State": "Started"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                          "name": "$SetObjectiveStatus$91975c28-9245-41a0-a985-4dbf554e6881",
+                          "Status": "Complete",
+                          "m_Objective": "!bp_31325a3a01ba44a69d3c205784cc1816",
+                          "StartObjectiveIfNone": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$59b73fa6-3b72-4f62-b262-1c283dafc067",
+                    "m_Flag": "!bp_b424cc9c29514971ab0d3c1972fc8f2b",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$977703bb-7e7f-487c-9e41-e3b424b8a1e4",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "c012038fc57ee8047b569ffdc9881ca3, KingdomRegionClaimedTrigger",
+        "m_Flags": 0,
+        "name": "$KingdomRegionClaimedTrigger$1272aa5f-b812-4d9c-82e1-3d9c5ff5d0e4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Regions": [
+          "!bp_f77b533b72bb47a2951384f61e44de52",
+          "!bp_9ae3645130774f61a9ef847b33254a18",
+          "!bp_1f4f5d4ffb6c4ddb8b6387ec9b91cd80",
+          "!bp_7714545d0a72439bb88ae6d14bc4baea",
+          "!bp_27a8e198d8284cc4ab947f5575c13ae3",
+          "!bp_2a5f009c48d042fd8dee4764631f17b4",
+          "!bp_8e68f5130a9845549a75141b906c0a31",
+          "!bp_e936028b62444c5ea3656686728394a9",
+          "!bp_98dee6e47af9413fb30962306f3c8c1d",
+          "!bp_a2c96f4b17864c0bad38901f726ae345"
+        ],
+        "m_Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$7a090b9c-1237-404b-8850-83c8cac21c10",
+              "m_flag": "!bp_91597f4253994fea8868137490407f52",
+              "flagValue": 1
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$13353f49-3f94-4e33-b38b-247b017d89d2",
+              "m_flag": "!bp_952adcd87d764718b77a419838289395",
+              "flagValue": 1
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "1ae113b935e95684792d03ac0466c250",
+        "stringkey": "b19dd358-f54c-4ab9-9935-ea3f83cc549c"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "e25357abe7193984a8b1c22d8ee8b059",
+        "stringkey": "a8bc6d4f-039b-46fc-b73d-fe2d6618f31e"
+      }
+    },
+    "m_NeutralDuration": 3,
+    "m_NegativeWarningDuration": 2,
+    "m_PerDayBonus": 1,
+    "m_PerDayPenalty": 3,
+    "m_FlagType": "Siege",
+    "m_CounterDecrementPerDay": 1
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

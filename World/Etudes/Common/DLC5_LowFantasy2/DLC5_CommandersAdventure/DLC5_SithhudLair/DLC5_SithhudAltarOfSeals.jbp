@@ -1,0 +1,234 @@
+{
+  "AssetId": "161c8081ef044c41b845c4b08652aaa1",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$4476d8e3-21b2-4eae-aa77-4e94d21a237e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Запускает сцену падения",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$0f4af51c-969e-4d05-b19e-600857ece078",
+              "m_Cutscene": "!bp_ba4cb949f4594fbd86366976b4665862",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$2bbf6f39-81b0-4042-a79c-a0c31332ac99",
+              "m_Cutscene": "!bp_b821903e053f18d4e909c6e7bd2edbc7",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "ShowLoc",
+                    "Type": "Locator",
+                    "Evaluator": {
+                      "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                      "name": "$LocatorReference$50c98cef-9e2f-47da-b952-d2d33dfaf436",
+                      "Locator": {
+                        "EntityNameInEditor": "Main_revealer",
+                        "_entity_id": "aa4234a5-402d-4748-b452-35846e78682c",
+                        "SceneAssetGuid": "4a2cc278bdd3f6342a0b90e0baf77ca6"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$b09d58eb-0695-466a-8151-cb19e39d025d",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$e8d1de86-722b-4b26-be0c-5c6c5fe1c0c7",
+                    "Comment": "Everyone except player character",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                          "name": "$UnitEqual$f0fa55c4-8b87-466e-98b1-fa73c39ef84b",
+                          "Not": true,
+                          "FirstUnit": {
+                            "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                            "name": "$PartyUnit$4fd7a1b3-5660-47b1-8e35-f89f251af34a"
+                          },
+                          "SecondUnit": {
+                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                            "name": "$PlayerCharacter$670aef63-0cdb-4b11-8d54-f2ca332b5720"
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                          "name": "$AttachBuff$5d53558f-f657-4cd8-8ffc-30b5d023e5aa",
+                          "m_Buff": "!bp_24cf3deb078d3df4d92ba24b176bda97",
+                          "Target": {
+                            "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                            "name": "$PartyUnit$ac5e5172-015a-4749-8290-d55a3bd33bf5"
+                          },
+                          "Duration": null,
+                          "BattleLog": false,
+                          "HasCustomBattleLogMessage": false,
+                          "CustomBattleLogMessage": {
+                            "m_Key": "",
+                            "m_OwnerString": "",
+                            "m_OwnerPropertyPath": "",
+                            "m_JsonPath": "",
+                            "Shared": null
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$36b7e78d-9aa4-476f-90fe-dfa446ef1738",
+                    "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$9744c301-eb50-420e-b8ca-bef83935f3bd"
+                    },
+                    "Duration": null,
+                    "BattleLog": false,
+                    "HasCustomBattleLogMessage": false,
+                    "CustomBattleLogMessage": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b6ad71c7-d58a-41ad-8335-aff7f051746f",
+              "Comment": "Only 3 shards left",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$bc69181c-9c23-485e-b0db-a3b5e243fff3",
+                    "Not": false,
+                    "m_Etude": "!bp_868bbf090c4143088181cb2dc19c14bf",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$8a179ad0-1926-4c1a-b2a8-36b292fb4225",
+                    "Not": false,
+                    "m_Etude": "!bp_808c64f59b654496b2e6dc894c2fed50",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b04ab272-3c72-434f-b177-aa0676ad3127",
+                    "Not": false,
+                    "m_Etude": "!bp_c168309a61134766a41f2c9bc38afe75",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$30581f5c-d782-4313-b302-729028cd5bf2",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$475058bd-7afa-4df2-a0f4-f2f892c03b91",
+                      "MapObject": {
+                        "EntityNameInEditor": "SideShards",
+                        "_entity_id": "580e5f3d-8e5d-4755-953c-eda89ae93bcd",
+                        "SceneAssetGuid": "4a2cc278bdd3f6342a0b90e0baf77ca6"
+                      }
+                    },
+                    "Unhide": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      }
+    ],
+    "Comment": "Для управления событиями на арене у алтаря",
+    "m_Parent": "!bp_1cc01da8e96940f48d6f48eae0c04283",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_5e5cd3899e0e426386398bd34b9cf437",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_63835e0ca7b14bd781e86c65359bd16f",
+      "!bp_325afada35e4493e8babde4792044112"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

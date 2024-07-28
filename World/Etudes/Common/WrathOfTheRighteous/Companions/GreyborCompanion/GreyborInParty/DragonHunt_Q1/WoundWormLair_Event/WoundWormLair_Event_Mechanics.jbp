@@ -1,0 +1,539 @@
+{
+  "AssetId": "fa1e44ec4639c4242b745b9b7c72cc03",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$fb62f97c-7d96-48b2-a4fc-b876316eafb2",
+      "$EvaluatedUnitCombatTrigger$85015847-3468-4050-b4b9-354d0546e004",
+      "$EvaluatedUnitDeathTrigger$211c323e-8c79-45e2-b148-4f7634d1d6e6",
+      "$EvaluatedUnitHealthTrigger$8b64e5e6-0a84-41e0-b6b2-662e52de657e",
+      "$EvaluatedUnitDeathTrigger$01dfe75d-3143-4909-8070-2f914ce328cf"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$fb62f97c-7d96-48b2-a4fc-b876316eafb2",
+        "m_Overrides": [],
+        "Comment": "General",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7f562c36-1efe-4798-b1dc-250ed2242563",
+              "Comment": "Букивент успешный",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$4344f8ab-a308-4660-bc77-539e70badd1f",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_f1be7270ec2815145baa2f018635c489",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$4decc79a-695f-4787-8ed1-7bd2da041c6a",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "1912b4c593c75b04cba90750a69670ca",
+                        "stringkey": "4e2f59fe-aab1-4416-b1e1-d9f1ea3093e9"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": true,
+                    "TargetUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$65d33c9b-96d7-4db6-8a3d-30cae1d41fc0",
+                      "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    },
+                    "TargetMapObject": null
+                  },
+                  {
+                    "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+                    "name": "$ScriptZoneActivate$3b08d8ec-0795-4f03-9e5f-ee7a68fe75ba",
+                    "ScriptZone": {
+                      "EntityNameInEditor": "Grimbor_bark2_zone",
+                      "_entity_id": "e3a7ee78-895b-48e3-ac64-99f829361c53",
+                      "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$ca2ddac5-7cfc-4082-a5d5-53bd35b6c2c8",
+                    "m_Cutscene": "!bp_be90093b69431414dacd7e61af61bf10",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$4f682d38-c35a-4f34-b024-97a07d86dffd",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$3b6586ca-3f73-428f-a7e9-74ead1af72cb",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+                  "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+                  "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+                }
+              },
+              "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+              "IncludeGroup": true,
+              "ResetAllRelations": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$3b9b44fd-9190-4f4a-8eb4-c3ba541ea8ed",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$90d13c02-e298-48cc-8854-78fb1e878836",
+                "MapObject": {
+                  "EntityNameInEditor": "MapExit_GlobalMap",
+                  "_entity_id": "d9023ecc-7243-4f09-a10f-3c500f5b11ff",
+                  "SceneAssetGuid": "b98629c5700cc2649ade16f14f0d5850"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$0d3c8231-350e-422e-841d-aa9953b39425",
+              "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$0e7b37fd-29eb-4b32-8206-968e01066f4a",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+                  "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+                  "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+                }
+              },
+              "Duration": null
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$ade3048e-7c9c-480e-96c4-503fd21c03ef",
+              "m_Buff": "!bp_89e35c5e00538c44f98b2af5c196a623",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$18d09ee8-80ee-4730-aff0-38939e562ed8",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+                  "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+                  "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+                }
+              },
+              "Duration": null
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$f959d028-a08e-4604-9591-7673a57aeb73",
+              "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$8336a055-694b-4c9b-b0f3-579c2028ea7c",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [Storyteller]",
+                  "_entity_id": "b32f1225-b3de-42a2-8700-54828a5c2b89",
+                  "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+                }
+              },
+              "Duration": null
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$85015847-3468-4050-b4b9-354d0546e004",
+        "m_Overrides": [],
+        "Comment": "Сказитель паникует",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$78a76da7-23b2-48a3-a46c-d5ca4dc7d1f7",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+            "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+            "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$62c20adf-b43c-4089-9918-7b79ee320961",
+              "Comment": "Once",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$2580634c-c1e9-44ed-9ec5-fb8d7b46abb5",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_04cbcddc8591f9f4cb8b67e877e83329",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$c059a6e2-398e-4a52-8eca-5c0a168a0c3d",
+                    "m_Cutscene": "!bp_ab47deef90fc69f44b6107625668e77b",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$4eba705f-ddec-42f9-84a3-30b2a9f2d8e1",
+        "m_Overrides": [],
+        "Comment": "Дракон барк 90%",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$2127a5b6-a2b6-4240-82d4-9f126fb1f883",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+            "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+            "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+          }
+        },
+        "Once": false,
+        "Percentage": 90,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$ec19f6d7-3676-4961-b4f4-688cdb659bcc",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "5624f681ace8db048aa05bc457ff659d",
+                  "stringkey": "529617be-6cdb-45cf-91dc-34f9307992dd"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": false,
+              "TargetUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$c0899615-ad19-4b56-a643-129808d27c9c",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+                  "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+                  "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+                }
+              },
+              "TargetMapObject": null
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$8d9f98cb-6911-4612-b7d6-9482393b84c1",
+        "m_Overrides": [],
+        "Comment": "Дракон барк 60%",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$acdc71cf-a049-423c-b52d-738d3e44475e",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+            "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+            "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+          }
+        },
+        "Once": false,
+        "Percentage": 60,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$351ca975-2f67-4ec7-8710-ec07af93ccfd",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "670e7af23b51fc443bea54711e446544",
+                  "stringkey": "06e11c83-171c-4bd9-9507-7ceeda6083e7"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": false,
+              "TargetUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$37956641-3c66-45c0-9878-ff455cab70c5",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+                  "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+                  "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+                }
+              },
+              "TargetMapObject": null
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$8b64e5e6-0a84-41e0-b6b2-662e52de657e",
+        "m_Overrides": [],
+        "Comment": "Дракон пытается улететь 10%",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$ca86882a-1211-47c9-829e-ebd27c35f73e",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+            "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+            "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+          }
+        },
+        "Once": false,
+        "Percentage": 10,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$53b69c79-81f5-47d7-9ac5-9d45de518cf4",
+              "Comment": "Once",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$1dd92ae8-1fd3-46e2-ba5b-112f3f0e3569",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_04cbcddc8591f9f4cb8b67e877e83329",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$08a6b637-1a3f-4f69-bdd8-3ef168c22716",
+                    "m_Cutscene": "!bp_e8bfbc9e7d53b664ea5abf70e5730528",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  },
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$a8bc7564-8b99-485d-a1cd-5cf1089fb359",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "49523e5ff353f474589341383a11c5b2",
+                        "stringkey": "68083457-b4e1-4abf-a129-eff26cdd77a8"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": false,
+                    "TargetUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$b8505909-8baf-45ab-8f28-6157682e5f8f",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+                        "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+                        "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+                      }
+                    },
+                    "TargetMapObject": null
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$b6fccf0d-6e06-4a6c-8b77-db6177eda405",
+                    "m_flag": "!bp_04cbcddc8591f9f4cb8b67e877e83329",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$211c323e-8c79-45e2-b148-4f7634d1d6e6",
+        "m_Overrides": [],
+        "Comment": "Если убили дракона",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$d49d9595-ab0e-4330-9b6a-df3e8dd6cd04",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [WoundWormsLair_BlackDragon]",
+            "_entity_id": "e43d0b6c-b064-4987-a717-14efcb4c1d56",
+            "SceneAssetGuid": "128772032f4413047b02bc7a8f306423"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$76de71ce-5872-48b1-add0-69a1ab3fc98a",
+              "m_Cutscene": "!bp_e8bfbc9e7d53b664ea5abf70e5730528",
+              "WithUnit": null
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$39c3d88a-e355-4929-94aa-623fde0b7819",
+              "Etude": "!bp_581521b398fb9dd4eb52bbfffb3b5c43",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$727967fc-a6c5-4e39-ba54-0d787f5d2d52",
+              "m_Cutscene": "!bp_a4fb45b56841e04409814e85bbe76ef1",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$4db59d96-f30f-496a-b2a0-77a0d8c85b5b",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$340c727a-c032-4fc1-8f96-b838cea3ee42",
+                "MapObject": {
+                  "EntityNameInEditor": "MapExit_GlobalMap",
+                  "_entity_id": "d9023ecc-7243-4f09-a10f-3c500f5b11ff",
+                  "SceneAssetGuid": "b98629c5700cc2649ade16f14f0d5850"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$ff02ed2b-81c8-46af-86b9-0828291f4566",
+              "Status": "Complete",
+              "m_Objective": "!bp_ab5b1bc2c51402f4181b8e6055b86ef8",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$97b95403-d7c0-4ead-8f56-4157eee6f818",
+              "m_Objective": "!bp_d8fcc4e164a7be04a8366f31cfe7cb49"
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$f23c604a-60da-42c2-a6bf-9656986cd905",
+              "m_Cutscene": "!bp_ab47deef90fc69f44b6107625668e77b",
+              "WithUnit": null
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$01dfe75d-3143-4909-8070-2f914ce328cf",
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$60754dd7-d899-47e4-b81a-e0d611b72356",
+          "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+          "IncludeRemote": false,
+          "IncludeExCompanions": true,
+          "IncludeDettached": false
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$989ededd-0b7d-4c4c-b733-0536de0bf13a",
+              "Etude": "!bp_10320ad437121a44eb629d5fa9a79c75",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_affc77eac949f364fba73b60d6a0c186",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_362dacd5490050b45aa6828c65a7d4c4",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_dcf721fe056ae474e8726342cbf727cc"
+    ],
+    "m_StartsWith": [
+      "!bp_6b0e83d33728eb84985130d50f299af9"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "AssetId": "3f8955057429cfc4bab17bce9352d29f",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeInvokeActionsDelayed$49b060ef-b926-44fc-bf90-d91ab26522a4"
+    ],
+    "Components": [
+      {
+        "$type": "e75e3ec07fb24b1b8146a0a83245e42f, EtudeInvokeActionsDelayed",
+        "name": "$EtudeInvokeActionsDelayed$49b060ef-b926-44fc-bf90-d91ab26522a4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Days": 2,
+        "m_ActionList": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$843ada93-9ecf-4c01-b01e-a8605abacb8a",
+              "Comment": "если эрранд Ланна не сделан - фэйлим его",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$b49ed496-0968-4e0c-9017-473da60d1a85",
+                    "Not": true,
+                    "m_Quest": "!bp_46bcd0505a0f7fb46bd459cc9b2a8ef1",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$62db2896-e8f3-4936-8f38-142c10d58186",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_b1ae2042aa191aa4baf495785c9c81d0",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$b07b3839-6266-4259-a54e-5bcb0afd3b48",
+                    "Comment": "если ещё не ушли в финальный данж",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                          "name": "$DialogSeen$59773b89-294c-4726-8de4-d6315ceea114",
+                          "Not": true,
+                          "m_Dialog": "!bp_a07f6d1f93531e048928c5c9de328a92"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                          "name": "$RecruitInactive$04445950-c708-4566-be7f-59fb40da0e3a",
+                          "m_CompanionBlueprint": "!bp_cb29621d99b902e4da6f5d232352fbda",
+                          "OnRecruit": {
+                            "Actions": [
+                              {
+                                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                                "name": "$Spawn$bb996bfb-9af3-4740-b747-3e6c9520205f",
+                                "Spawners": [
+                                  {
+                                    "EntityNameInEditor": "Lann_Companion",
+                                    "_entity_id": "d4e556e1-b290-4e6a-8beb-6776fcd3d2ea",
+                                    "SceneAssetGuid": "06d7811603f1f1d46a9fc5aab22fd338"
+                                  }
+                                ],
+                                "ActionsOnSpawn": {
+                                  "Actions": [
+                                    {
+                                      "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                                      "name": "$ReloadMechanic$86006b19-7816-45df-a12c-73f35750c5eb",
+                                      "Desc": "Empty action",
+                                      "ClearFx": true
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$b06bdf4d-12c2-413e-b513-2a24b21394b7",
+                          "Etude": "!bp_25ee79ea7527fd147af7a0d04f440dbc",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$8d038724-8ccc-4781-b064-7ed6e8467b03",
+              "Etude": "!bp_3f8955057429cfc4bab17bce9352d29f",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$c9489f5b-6863-4616-8859-886b58bcc059",
+              "Etude": "!bp_9e3ee217278c5e24bab55baecc225efb",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_2aed8294f29aaca44b9bdd66af11cbec",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

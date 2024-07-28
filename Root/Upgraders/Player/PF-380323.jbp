@@ -1,0 +1,92 @@
+{
+  "AssetId": "bd22666a78ef4d349145d81777327e7a",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Перезапускаем ангельский KTC тем у кого он сломался",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$878e7ff1-4962-42ea-a545-e120f800824c",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$5d9576b3-4c20-44a4-9818-208bd73f2ba7",
+                "Not": true,
+                "m_Cue": "!bp_92c0645e2d0d5074380eb98a6124293b",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$3b685ab7-5db3-4600-ae18-2cea7fdc3a2b",
+                "Not": false,
+                "m_Etude": "!bp_771e6cbe00e5f3840b90a6c2d1218c6d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$ab4f9194-8946-4413-8484-7b7ece1fa523",
+                "Comment": "still in alushinyrra?",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$8902c358-3f85-4db2-a9d1-b671c9418668",
+                      "Not": true,
+                      "m_Dialog": "!bp_a07f6d1f93531e048928c5c9de328a92"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                      "name": "$UnStartEtude$33184107-aaa1-4de8-86cd-e3e9e555a3d6",
+                      "Etude": "!bp_771e6cbe00e5f3840b90a6c2d1218c6d"
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$ad1edf34-fd9a-4522-a776-aa8b455ec6c0",
+                      "Etude": "!bp_771e6cbe00e5f3840b90a6c2d1218c6d",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                      "name": "$LockFlag$5d31d75f-79c0-41de-a8b4-dba7f3d24b1b",
+                      "m_Flag": "!bp_b787f125d6de0a840b28dfed03be07fa"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "AssetId": "806ece7bcf18a374e9ad1f7b9e3bc580",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$e058ae9e-49ec-4260-b76c-f69b2590ef03",
+      "$EvaluatedUnitDeathTrigger$5265ffb0-fb2e-4bdf-b79a-f93cea34be1c"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$e058ae9e-49ec-4260-b76c-f69b2590ef03",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Chivarro scene spawn everyone",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "Or",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$18f45206-5da7-4ab9-b6c7-33ebd7d813ee",
+              "Not": false,
+              "m_QuestObjective": "!bp_7ce588c0d2e296b41be4f754edbe60d3",
+              "State": "Started"
+            },
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$f5702283-d3a9-4338-883c-f638ce91f552",
+              "Not": false,
+              "m_QuestObjective": "!bp_c484e7498fc74d4caa6ec45b8a917308",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+              "name": "$SpawnByUnitGroup$a63a46c9-fbfb-4e5b-ab3d-61bf9d4631a3",
+              "m_Group": {
+                "EntityNameInEditor": "ChivarroAttacked",
+                "_entity_id": "acd46f02-8efe-405d-b51d-65878172f71d",
+                "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+              },
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$57abd9ac-3c0d-4cb0-93be-e8a8471b7ffd",
+              "ScriptZone": {
+                "EntityNameInEditor": "ChivarroAbusedScene",
+                "_entity_id": "ba4200ad-cdb3-4ea5-b7b5-cfefdb569de3",
+                "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$5265ffb0-fb2e-4bdf-b79a-f93cea34be1c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Chivarro death",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$22805847-8c9d-4416-b0aa-522a893bf376",
+          "Spawner": {
+            "EntityNameInEditor": "ChivarroAttacked",
+            "_entity_id": "5d051d3f-d8aa-4047-a4b4-0ecd3b77fb6d",
+            "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$ba1c259a-30c3-4ef1-8ce9-e4fb8aaae8da",
+              "Etude": "!bp_fd2ab9b67ce3e284184b1894c82c6c5d",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$428109ed-0730-4654-ba36-0a6cd64743b8",
+              "Status": "Complete",
+              "m_Objective": "!bp_7ce588c0d2e296b41be4f754edbe60d3",
+              "StartObjectiveIfNone": true
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$4559dc64-d41e-4842-8103-b11b48bf0bb4",
+              "m_Objective": "!bp_c484e7498fc74d4caa6ec45b8a917308"
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_deecc937a263ca24c9f1a64a4874451a",
+    "ActivationCondition": {
+      "Operation": "Or",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_4f849f5683145d0489db4077e0d7eccf",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

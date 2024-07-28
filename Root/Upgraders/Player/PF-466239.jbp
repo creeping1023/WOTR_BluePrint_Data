@@ -1,0 +1,151 @@
+{
+  "AssetId": "7d790c536fb24640b953599adaa68b45",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Окно для тех кто скипнул бунт и увидел КТС ритуала в 5ой главе. Так игрок сможет закончить ритуал.",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8f1347bd-34a5-492c-9940-c938a0510c3c",
+          "Comment": "Для тех кто уже хоть както начал квесты в 4-ой главе",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$67c1bb13-7e2c-47af-bffe-97f39943285f",
+                "Not": false,
+                "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$d01356f9-dafa-42b8-9678-3abd5ec162ec",
+                "Not": true,
+                "m_QuestObjective": "!bp_86579f17a657056429e6a44d6a77dc63",
+                "State": "None"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$af06ef1e-4470-4a94-978f-d8e64291a74b",
+                "Not": true,
+                "m_Etude": "!bp_5ecb3695c95e4bd4b836a0deac1ecfd7",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$ed3732c7-3c82-4340-8b5f-3e1d300be98d",
+                "Etude": "!bp_5ecb3695c95e4bd4b836a0deac1ecfd7",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$f8188e36-1612-4024-aedc-ac6f47ed0973",
+                "Status": "Complete",
+                "m_Objective": "!bp_2091806208e37f14095b248363f71e02",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f867afd9-5cf5-42bc-bc1e-5fe7bbfaf5bc",
+                "Comment": "Для тех кто в 4-ой главе еще не начали новый квест лича",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$fe5c9320-48cd-4ce7-bd70-cc7d857fd161",
+                      "Not": true,
+                      "m_Dialog": "!bp_8930669f08b5a3d4d91bb857181b88dd"
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$c91ecd75-8b57-4388-ad1a-fe2e6fe4bb82",
+                      "Not": false,
+                      "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$c8dd67d9-793b-4c3a-8612-2f553dabe6b5",
+                      "Not": true,
+                      "m_Etude": "!bp_5ecb3695c95e4bd4b836a0deac1ecfd7",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$d5e3935f-abed-422a-9db0-982157c23bac",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_86579f17a657056429e6a44d6a77dc63",
+                      "State": "None"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$36a74c3a-059e-4b88-9f14-fddda3eb9b30",
+                      "Etude": "!bp_5ecb3695c95e4bd4b836a0deac1ecfd7",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$5a83e31c-b133-4f00-9c55-3ac978f05245",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_2091806208e37f14095b248363f71e02",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$7b353f2e-5da2-4fb7-b153-86e5c2c6e759",
+                      "Etude": "!bp_7b80ec84c75e76e4e9c8a45fefca34b3",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

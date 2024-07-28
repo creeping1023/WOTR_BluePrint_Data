@@ -1,0 +1,100 @@
+{
+  "AssetId": "17c5859b99d88a84db22021b0c24c6e2",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_1e20361477469dd45b6c043a9131bab8",
+        "!bp_6fd869987ca24144394a48eaa946f8af",
+        "!bp_03ceced4e8b680646a507c1e63bdd7a8"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$b176824e-e03d-477d-b2e4-7411499aa628",
+          "MusicEventStart": "MUS_PowerfulEnemy_Play",
+          "MusicEventStop": "MUS_PowerfulEnemy_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$e6ac2707-5028-4820-bc40-eba4e72ccb33"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f8707326-4f2f-4260-8bfe-0f38d3dff65e",
+          "Comment": "Angel?",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a3e6ab90-ef72-41fe-91db-40c5635ed719",
+                "Not": false,
+                "m_Etude": "!bp_3a25b1f2a81f84a40b4fb658f4d2fe0f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$6f3c2123-3296-4e95-a62d-de0482c6d628",
+                "m_Cutscene": "!bp_d89c6f967dd0429984728f89ee217b0f",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$99fb88c9-c379-49dd-926a-e6f73d785a25",
+                "Unit1": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$33c669d1-5b26-4c19-89b7-582d154b952a"
+                },
+                "Unit2": {
+                  "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+                  "name": "$DialogFirstSpeaker$78cc7dbd-d6a0-43ef-97c0-61d20eb07819"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

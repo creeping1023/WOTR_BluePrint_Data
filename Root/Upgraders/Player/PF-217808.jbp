@@ -1,0 +1,55 @@
+{
+  "AssetId": "85d4a80bf0b74f328326a0a810c2253c",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1ddc30be-f2a9-462f-b253-49d31c3af881",
+          "Comment": "зафейлить второй квест Аруши всем, кто зафейлил первый",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$d5dec7a7-1c04-4a29-87c0-6b35f9b93210",
+                "Not": false,
+                "m_Quest": "!bp_95959bdc1ff82ce4da068684e80603a0",
+                "State": "Failed"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$6eb4be18-de98-4e5a-9099-375fd7fd0b56",
+                "Not": false,
+                "m_Quest": "!bp_b9e34688c759696499f2c826056a3678",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$7d22a967-53b8-4d5a-be98-cee722b5faaf",
+                "Status": "Fail",
+                "m_Objective": "!bp_f0149e05a13a495e98dd089feffde32c",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

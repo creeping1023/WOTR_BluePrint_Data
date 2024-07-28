@@ -1,0 +1,206 @@
+{
+  "AssetId": "9f86b8f30438920458feda7313591ec2",
+  "Data": {
+    "$type": "cb208b98ceacca84baee15dba53b1979, BlueprintFeature",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "b5443c467f2cb4e4b977dff0a5643603, ArmyFullAttackEndTrigger",
+        "m_Flags": 0,
+        "name": "$ArmyFullAttackEndTrigger$d2388e6d-3a58-4690-a165-fb8b285830f1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "ShouldBeInitiator": false,
+        "CheckAllAttacks": false,
+        "OnlyHit": true,
+        "CriticalHit": false,
+        "OnlyMelee": true,
+        "OnlyRanged": false,
+        "NotReach": false,
+        "OnlySneakAttack": false,
+        "NotSneakAttack": false,
+        "CheckCategory": false,
+        "Not": false,
+        "Categories": [],
+        "ActionsOnInitiator": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3b83c376-2195-48fa-8a44-7542984f13e2",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "71e7f7f1c12aea549be8312c55e0aa1a, TacticalCombatSquadHitPointsCondition",
+                    "name": "$TacticalCombatSquadHitPointsCondition$f4f2f4ec-72d3-439c-83e0-9d572f25d5e9",
+                    "Not": false,
+                    "CheckInitiatorHP": true,
+                    "Operation": "Greater",
+                    "ReferenceValue": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$9f7b6545-8331-40e9-8791-451c5864e7c8",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+                          "name": "$ContextConditionCasterHasFact$8b3984d4-83aa-4378-aa1c-74dd9c89a862",
+                          "Not": false,
+                          "m_Fact": "!bp_6ae55850ad5146289f27acd9fd7efbce"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": []
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "d5d47d57eee34dc8976fff1fa8db5e42, ContextActionMeleeAttack",
+                          "name": "$ContextActionMeleeAttack$8f8706d8-0cc6-4480-a6e8-3b7a5b58a920",
+                          "SelectNewTarget": false,
+                          "AutoHit": false,
+                          "IgnoreStatBonus": false,
+                          "AutoCritThreat": false,
+                          "AutoCritConfirmation": false,
+                          "ExtraAttack": true,
+                          "FullAttack": false
+                        },
+                        {
+                          "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+                          "name": "$ContextActionOnContextCaster$bbcc7166-c2cc-4d5b-a2c0-ba2d38910a81",
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                                "name": "$ContextActionApplyBuff$e78b63ce-07f9-41ee-a37c-e2dba3873155",
+                                "m_Buff": "!bp_6ae55850ad5146289f27acd9fd7efbce",
+                                "Permanent": false,
+                                "UseDurationSeconds": false,
+                                "DurationValue": {
+                                  "Rate": "Rounds",
+                                  "DiceType": "Zero",
+                                  "DiceCountValue": {
+                                    "ValueType": "Simple",
+                                    "Value": 0,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "Damage",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  },
+                                  "BonusValue": {
+                                    "ValueType": "Simple",
+                                    "Value": 1,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "Damage",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  },
+                                  "m_IsExtendable": true
+                                },
+                                "DurationSeconds": 0.0,
+                                "IsFromSpell": false,
+                                "IsNotDispelable": false,
+                                "ToCaster": false,
+                                "AsChild": true,
+                                "SameDuration": false
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "$type": "eb117305cabfd9b4c9d44512730470bf, ContextActionProjectileFx",
+                          "name": "$ContextActionProjectileFx$896e24f5-3e31-45d4-b819-de80f41201e5",
+                          "m_Projectile": "!bp_f76e194520d6f9946bb48d8852ce9e8c"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "ActionOnTarget": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "a17b42b051744bf5a5ae5a452ae9569a, TacticalCombatVisibleFeature",
+        "m_Flags": 0,
+        "name": "$TacticalCombatVisibleFeature$320f0d2b-61c3-4603-9283-84462db8936e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": []
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "97b54ee051ad2ad40935e95de9f7e40f",
+        "stringkey": "7f113424-6872-44d3-a975-f00c86559d91"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "8df8ca2c4b49c944ea1ceb2d71e8545c",
+        "stringkey": "12ac6661-e409-43c1-bbf4-c0622920e5de"
+      }
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "5b972d20bb6f39140b70b6bf6535f98c",
+      "fileid": 21300000
+    },
+    "HideInUI": false,
+    "HideInCharacterSheetAndLevelUp": false,
+    "HideNotAvailibleInUI": false,
+    "Groups": [],
+    "Ranks": 1,
+    "ReapplyOnLevelUp": false,
+    "IsClassFeature": true,
+    "IsPrerequisiteFor": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

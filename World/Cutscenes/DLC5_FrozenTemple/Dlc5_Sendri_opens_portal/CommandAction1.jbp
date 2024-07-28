@@ -1,0 +1,145 @@
+{
+  "AssetId": "d0118f3c3a86438a8d67db1ae7771f73",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$34b7c871-3c11-43d2-954a-d4e6496f6fa5",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$477e5b30-aaca-41d1-951a-09c70cc88828",
+            "MapObject": {
+              "EntityNameInEditor": "TavernPortal",
+              "_entity_id": "1cada929-fb03-400f-bc1d-85f3a618810e",
+              "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$1d9d9f61-cd10-4062-8bb9-fe472784528f",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$8c2c9f07-8038-472c-869e-ba894d20299a",
+                "Comment": "Everyone except Sendri",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$bcf185a1-fed4-4f6e-a93d-51cbd00a5cb0",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$366b04cf-aeb5-4ec1-8363-94856a9c3cbd"
+                      },
+                      "SecondUnit": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$9f9eea2f-7ef8-45bb-ab8e-7bbc7f08c71e",
+                        "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": false,
+                        "IncludeDettached": false
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$e192dc1b-d90c-412f-bc7f-f49b2ba4b70c",
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$f6ab0565-5090-4012-8125-e73ba938273e"
+                      },
+                      "Position": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$dbb32bb4-7efa-47af-b3ec-63a20c80e0e2",
+                        "Unit": {
+                          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                          "name": "$CompanionInParty$ba69871b-fe21-4c1c-bbd6-58408c635f4c",
+                          "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                          "IncludeRemote": false,
+                          "IncludeExCompanions": false,
+                          "IncludeDettached": false
+                        }
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$573cba1f-c07b-4931-b48e-cdbcd4515e19",
+          "Comment": "Hermit is alive",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$90a2706b-2469-483e-8bc2-be4ac08c7c18",
+                "Not": false,
+                "m_ConditionFlag": "!bp_067c44bfd67a4d0d86d351effc54fade",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                "name": "$UnitLookAt$5f93d337-ae3e-4871-ac6e-ae0adbaa877d",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$2ba1fc06-abc0-479d-aba3-1492983cf54b",
+                  "Spawner": {
+                    "EntityNameInEditor": "Hermit",
+                    "_entity_id": "037f61a6-f0c5-43c3-ae1a-513d211757c6",
+                    "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                  }
+                },
+                "Position": {
+                  "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                  "name": "$UnitPosition$f2f2aaff-9258-486b-9fa8-021f4e104bec",
+                  "Unit": {
+                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                    "name": "$CompanionInParty$32df6cc5-948a-413c-8f29-b35344e3fbb8",
+                    "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                    "IncludeRemote": false,
+                    "IncludeExCompanions": false,
+                    "IncludeDettached": false
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

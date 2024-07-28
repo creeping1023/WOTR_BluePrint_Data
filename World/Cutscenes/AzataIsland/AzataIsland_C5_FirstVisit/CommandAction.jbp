@@ -1,0 +1,148 @@
+{
+  "AssetId": "189799a577bce1b42ba1dcd652a7e643",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$92f1131e-bd39-447d-9785-b55270de1fa2",
+          "m_exitPositon": "!bp_0c4b3cefb2359e341a8fdfbf4fd2784c",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "6981071bc74236f4293f1a19ed2ebb32, TranslocatePlayer",
+                "name": "$TranslocatePlayer$d3f62685-72c6-4152-bad7-39ffb1df94cf",
+                "transolcatePosition": {
+                  "EntityNameInEditor": "PlayerLoc",
+                  "_entity_id": "dfec3ca7-c089-455c-9622-28c65f5393f9",
+                  "SceneAssetGuid": "2a7dc000fe2245349be70cff569dc48f"
+                },
+                "ByFormationAndWithPets": false,
+                "ScrollCameraToPlayer": true
+              },
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$30adb014-7888-4a7e-83fd-ffd20a42c4ec",
+                "Unit": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$af5eecb6-dfeb-42c7-b743-4d606ac3be67",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$066e6857-4741-47da-a8fc-90fc6576ee9a"
+                  },
+                  "PetType": "AzataHavocDragon"
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "PlayerDragonLoc",
+                  "_entity_id": "4aade687-26e4-498f-9675-61f19efbe6cc",
+                  "SceneAssetGuid": "2a7dc000fe2245349be70cff569dc48f"
+                },
+                "translocatePositionEvaluator": null,
+                "m_CopyRotation": true,
+                "translocateOrientationEvaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$f9519794-e853-4d92-a7de-e51aeee119e2",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "PlayerDragonLoc",
+                    "_entity_id": "4aade687-26e4-498f-9675-61f19efbe6cc",
+                    "SceneAssetGuid": "2a7dc000fe2245349be70cff569dc48f"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+          "name": "$SpawnByUnitGroup$26d3ed92-023f-4121-a6e4-dc6a486a9e74",
+          "m_Group": {
+            "EntityNameInEditor": "SpawnersMainNPC",
+            "_entity_id": "2ec8b779-c71f-4fc1-9d20-e5190c2d46e2",
+            "SceneAssetGuid": "2a7dc000fe2245349be70cff569dc48f"
+          },
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$25a4a343-5fa2-40bd-a064-1b9af3c8368c",
+          "m_Group": {
+            "EntityNameInEditor": "SpawnersMainNPC",
+            "_entity_id": "2ec8b779-c71f-4fc1-9d20-e5190c2d46e2",
+            "SceneAssetGuid": "2a7dc000fe2245349be70cff569dc48f"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$2183c981-5d79-4858-ba26-05639e71ff5f",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$80ecc791-e41b-4724-8403-394bddb1de48"
+                },
+                "Unhide": true,
+                "Fade": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$00b8e86c-1ae7-4a7c-b27b-40c3432191f5",
+          "Comment": "Если Тихона умер в Фейне",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$656d7b29-d5b6-41b6-81d5-a4017ac08e16",
+                "Not": false,
+                "m_Etude": "!bp_49c99adbf91a0c84aaa550061a60cb19",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$75eb6b36-d6a9-456a-84b1-23a57ca7a518",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$7ccbef1d-368c-42b5-b6ae-71758532e79c",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [Azata_Tall_DesnaPriest]",
+                    "_entity_id": "52ecf0dc-b50d-4790-8abd-1f0c8022d350",
+                    "SceneAssetGuid": "2a7dc000fe2245349be70cff569dc48f"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

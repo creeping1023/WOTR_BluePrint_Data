@@ -1,0 +1,111 @@
+{
+  "AssetId": "ca6468f1c73046609f0ef43a603b3bfb",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Скрываем пати в катсцене сна в DLC5",
+    "m_SpecificArea": "!bp_628b8e17ecc149a4b327d2e4505a667f",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d77f3237-c467-48be-8232-326f0af56e2e",
+          "Comment": "Проверяем стелс ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "3fc1a5c092d010144a97f0c119b23864, UnitIsInAreaPart",
+                "name": "$UnitIsInAreaPart$12ddb059-c1a3-4671-99a0-6e08933119b9",
+                "Not": false,
+                "m_AreaPart": "!bp_be71d523e6e1476f88c83e3209b8c13b",
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$3e7ac19d-05ef-4ceb-af43-c055ea3ce496"
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$142ffe58-0c93-4327-a06a-a17fa6c869fb",
+                "m_UnitsList": "PartyCharacters",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$be12456e-869b-451c-8a75-ae85acde6129",
+                      "Comment": "Everyone except Sendri and PC",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                            "name": "$UnitEqual$18361459-8e2d-424f-a90b-e57c349e0a95",
+                            "Not": true,
+                            "FirstUnit": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$51734960-8c57-4ede-9abc-2f434aa9550b"
+                            },
+                            "SecondUnit": {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$d52c2fc7-224e-4121-9809-9a2195b7149f"
+                            }
+                          },
+                          {
+                            "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                            "name": "$UnitEqual$ab87c1ed-1f9a-451f-9fce-af8857ca8559",
+                            "Not": true,
+                            "FirstUnit": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$b5d5910e-f5d2-44f1-8689-30682a401d9f"
+                            },
+                            "SecondUnit": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$68859971-cb40-48cd-b830-093fe26d00fa",
+                              "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                              "IncludeRemote": false,
+                              "IncludeExCompanions": false,
+                              "IncludeDettached": false
+                            }
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$be47727a-8aca-4320-bf4c-0522df2df474",
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$2d91502b-6778-4acd-a637-b079a99b08f8"
+                            },
+                            "Unhide": false,
+                            "SetHideInSaves": true,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

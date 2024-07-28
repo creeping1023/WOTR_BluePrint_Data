@@ -1,0 +1,114 @@
+{
+  "AssetId": "3944d299c18b7174bb2d6820aa5dc336",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$8cb4671c-63e4-4375-bead-2db9e1a872e6",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Fail companion quests",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+              "name": "$RunActionHolder$7c1f34a2-488c-471c-b547-94e33ddb960b",
+              "Comment": "Fail all companion quests - Daeran",
+              "Holder": "!bp_7c309faeefc04d53ad9bc1fd9b759cf3",
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9989a1ca-7d94-44ed-acdf-6d8879ce6637",
+              "Comment": "Romance?",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$09654815-3dd2-4acd-9ea1-c8097c26c9fa",
+                    "Not": false,
+                    "m_Etude": "!bp_8541453b31379964e834cf2309444388",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$5fae7f72-31d5-45c0-bf9d-21f7765484b4",
+                    "Etude": "!bp_8541453b31379964e834cf2309444388",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_1491d3e31d35c8c4c800d9151afb940e",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$f0c2d3d9-cac5-4f3f-887a-2c96a5921566",
+          "Not": false,
+          "m_companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+          "MatchWhenActive": false,
+          "MatchWhenDetached": false,
+          "MatchWhenRemote": false,
+          "MatchWhenDead": false,
+          "MatchWhenEx": true
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_bc307c68ea3ccdf4fad5c706a08cfd27",
+      "!bp_a79e02ba1bf0e414c8b19276f43ed33f",
+      "!bp_373fd4e6fdd9eaa4880004d08c6ac283"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

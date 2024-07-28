@@ -1,0 +1,119 @@
+{
+  "AssetId": "74fc2bc0ab194c08846e14a665900f1c",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "КОНЕЦ ДИАЛОГА\n\nЗнахарка уходит",
+    "ParentAsset": "d8bf1e911cf54269985ea05d2c410c74",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "49de405c-5021-48ae-84bd-10c5756e495b",
+      "m_OwnerString": "74fc2bc0ab194c08846e14a665900f1c",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC2_LowFantasy\\DLC2_Common\\Healer_Personal\\Cue_5_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_8fd057c9fbff4fe489d9d9b40d15f44d",
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c4f91952-26d2-4291-b72f-cdb430d3904c",
+          "Comment": "Фейлим эрранд Знахарки, если он сейчас есть",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$ea44263a-8bc6-42d4-8608-c597f4bd49e8",
+                "Not": false,
+                "m_QuestObjective": "!bp_801ca0caf3734f088b00bbd2da722d0d",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$079e469f-7b3e-454d-8de3-959332da5d27",
+                "Status": "Fail",
+                "m_Objective": "!bp_801ca0caf3734f088b00bbd2da722d0d",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$2982f279-5133-43ef-a9ed-7682c6b74477",
+          "m_Cutscene": "!bp_cf8ae439907040068f2e67624d3fbbc1",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Surv",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                  "name": "$DialogCurrentSpeaker$7e8b7231-be43-4867-ae05-96396f68958a"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$ae9d31db-0ce8-41ad-895f-e94dcc7b5948",
+          "Etude": "!bp_1bc71fecc83e4c568b654a4255216987",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

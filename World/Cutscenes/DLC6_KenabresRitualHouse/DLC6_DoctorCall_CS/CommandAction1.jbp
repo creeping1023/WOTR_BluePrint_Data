@@ -1,0 +1,138 @@
+{
+  "AssetId": "8fefbc9deef54b0cbbbb16f9829e189c",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a71c19b3-e1ea-454e-8c42-f5b3d3b36e7c",
+          "Comment": "Anyone is dead",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d00239901a4bf03408fc8b12116b4d67, CompanionIsDead",
+                "name": "$CompanionIsDead$f33fa312-8329-443a-be36-abaa45137112",
+                "Not": false,
+                "m_companion": null,
+                "anyCompanion": true,
+                "includeRemote": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$414bd372-3271-4c3b-8912-8b49984215c2",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$dbc0c60e-4951-4934-ae59-e11ebd508d0f",
+                      "Comment": "Fx on dead",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                            "name": "$UnitIsDead$853c87d8-87c0-4d87-a42c-3705bdcbe969",
+                            "Not": false,
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$beff671b-9a96-4b1c-a8ce-2f7f20b0446a"
+                            }
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                            "name": "$SpawnFx$4ea5a838-d4cb-4ac5-9241-9983eee10003",
+                            "Target": {
+                              "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                              "name": "$UnitTransform$69c0fcd4-eb0d-44af-9923-3a26dc3a7085",
+                              "Unit": {
+                                "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                "name": "$PartyUnit$41a7f88f-4112-481b-802c-1d6ea1fc5e09"
+                              }
+                            },
+                            "FxPrefab": {
+                              "AssetId": "0ebce62d69de8434b97fedbd696a7ae6"
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3bab5726-a4ea-45e6-973d-77b60be84067",
+          "Comment": "Aivu is dead",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                "name": "$UnitIsDead$5f1a55f8-c4cb-4b1b-acc6-88bff7cd3fd8",
+                "Not": false,
+                "Target": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$7829d32e-4f6c-429e-b310-26eeaab63ed1",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$0dd46fde-ccde-4703-8d91-0954f5bbf19e"
+                  },
+                  "PetType": "AzataHavocDragon"
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+                "name": "$RaiseDead$f5bc377a-d2db-43e8-a67f-4862c63fd0d1",
+                "m_companion": "!bp_32a037e97c3d5c54b85da8f639616c57",
+                "riseAllCompanions": false,
+                "activeAndRemote": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+          "name": "$RaiseDead$14177ccd-889a-43a3-89df-13d1beb64e2d",
+          "m_companion": null,
+          "riseAllCompanions": false,
+          "activeAndRemote": true
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

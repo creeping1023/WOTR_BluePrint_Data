@@ -1,0 +1,171 @@
+{
+  "AssetId": "eb652bfc81c21ff4ab2c8446a309bdef",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$817f5bb0-2b7c-4af6-a5de-af71a6f8c167"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$817f5bb0-2b7c-4af6-a5de-af71a6f8c167",
+        "m_Overrides": [],
+        "Comment": "Спавн двери и сундучка",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$6f3e90d9-e5b3-46cc-9cd5-fbe16f29e08d",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$fb46a696-0d53-4e6e-b6a7-4ae86f7a2398",
+                "MapObject": {
+                  "EntityNameInEditor": "Tavern_indoor_door_01_notkey",
+                  "_entity_id": "2fa52a0f-7efd-4daf-9ff6-01be53f9d0fb",
+                  "SceneAssetGuid": "55d5130c1ed165f48a7b1beb5ab59adc"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$777224fe-a340-450c-877e-d676a1090ef5",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$7ae36ff3-e90b-4616-9e4d-b0aa2cae1ec4",
+                "MapObject": {
+                  "EntityNameInEditor": "Tavern_indoor_door_01_key",
+                  "_entity_id": "c57e69ff-ec5f-4ee1-99ef-357748173aa7",
+                  "SceneAssetGuid": "55d5130c1ed165f48a7b1beb5ab59adc"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b3dedbce-ed4a-48a4-a9b8-68f22074c0bb",
+              "Comment": "Только за найм на дракона",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e6547e5b-6e20-4c4e-ab08-4370e33aa522",
+                    "Not": false,
+                    "m_Etude": "!bp_e0d5feb911e6b654ba9eb777cb788705",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b8ae5512-d0d8-4eb3-a78e-995a6e662528",
+                    "Not": true,
+                    "m_Etude": "!bp_ebb2b5e22ffff4849a1efd2f35619483",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$8fc2e073-592b-43f9-b014-f69c705dc020",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$4b0f2a3c-85a4-4cef-a726-3b82b6f3abb7",
+                      "MapObject": {
+                        "EntityNameInEditor": "GreyborChest_2500",
+                        "_entity_id": "b592489e-ad64-4273-a143-104185894071",
+                        "SceneAssetGuid": "55d5130c1ed165f48a7b1beb5ab59adc"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$dac61b56-ba0e-4ca2-aba4-83d29263546d",
+              "Comment": "Найм + награда за голову игрока",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$abe3aa90-b27e-4f2f-82e6-2b5984634384",
+                    "Not": false,
+                    "m_Etude": "!bp_ebb2b5e22ffff4849a1efd2f35619483",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$283feb40-8298-4f28-bdc6-862b47c9393b",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$f7c93662-8964-4402-87d7-62ca579e5ad9",
+                      "MapObject": {
+                        "EntityNameInEditor": "GreyborChest_8500",
+                        "_entity_id": "697051b9-6bbc-4dce-a71c-b80f18ce5cfa",
+                        "SceneAssetGuid": "55d5130c1ed165f48a7b1beb5ab59adc"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Этот этюд стартует если мы убиваем грейбора и лутаем с него ключ от его комнаты, где лежит голда за нашу голову.",
+    "m_Parent": "!bp_8da9c83998e580b4e84abc53d64c8fc4",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

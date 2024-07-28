@@ -1,0 +1,194 @@
+{
+  "AssetId": "edb31f5ddae9420f8355d7e34faf6522",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$d458f4c6-d60a-45f0-acd8-af9d672d415c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$81311831-7dd5-4cc7-a43f-475c85b7692f",
+              "m_Buff": "!bp_e68e0bedcfd3410798f7513a54e71b75",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$7fe4edca-66f5-4857-b1da-0feda06f7c48"
+              },
+              "Duration": null,
+              "BattleLog": false,
+              "HasCustomBattleLogMessage": false,
+              "CustomBattleLogMessage": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "m_Flags": 0,
+        "name": "$DeactivateTrigger$e18ea867-281d-4ea7-a393-8595552a8005",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a78b0e29-b349-4ea6-99b3-2afd7d12db10",
+              "Comment": "Забираем баф, если потеряли знамя",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3e5ad8b8-458b-46de-a222-7b2c7688c68d",
+                    "Not": false,
+                    "m_Etude": "!bp_0b027e2ab242a3f4892a87f79063e0ec",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$573e8077-b222-403b-81e7-7e8ca5a2177b",
+                    "Comment": "Игрок не трикстр и не вешал носок",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$90db740f-aa34-4b03-b91c-7874dc1f7882",
+                          "Not": true,
+                          "m_Etude": "!bp_9f486a9c0c9abfc4a952bb22e88a7e96",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        },
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$9879f60d-d287-49ac-9e77-977a359cbd96",
+                          "Not": true,
+                          "m_Etude": "!bp_b99cec06dab2bd24fa3124bad167028f",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                          "name": "$DetachBuff$e100ebfc-d1ad-46e0-aaa1-993201f886fa",
+                          "m_Buff": "!bp_e68e0bedcfd3410798f7513a54e71b75",
+                          "TargetType": "Evaluator",
+                          "Target": {
+                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                            "name": "$PlayerCharacter$f9741924-9d0a-4799-b021-bf6af8f0b16e"
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_d44c5bb992ad6d74aa5efeabbca3444d",
+    "ActivationCondition": {
+      "Operation": "Or",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$fd1a9b25-a550-447d-af71-e79556800b80",
+          "Not": true,
+          "m_Etude": "!bp_553a12cb045eb634e967dfdd99333de5",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$8b86ee5d-2c67-4a89-8d31-785b2053deaa",
+          "Not": false,
+          "m_Etude": "!bp_b99cec06dab2bd24fa3124bad167028f",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_2ccc6731787b6ec41ab5adc13f1b9ce9",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

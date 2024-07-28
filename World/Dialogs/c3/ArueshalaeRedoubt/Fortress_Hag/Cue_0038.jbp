@@ -1,0 +1,185 @@
+{
+  "AssetId": "769cb3f5284c5f743a82d7b92b708d13",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Спикер: Арушалай\n\nАнлок и ревил Санктум на глобалмапе\n\nЕсли есть 3 адда квесту - закрыть первый обж, выдать второй\n\nАрушалай уходит. Если была в ростере -- пропадает из него.",
+    "ParentAsset": "4aaf1f10e8ea205478eb0f08aebe6dbd",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "1fd9be10-654a-44ab-97b8-5f329cae998b",
+      "m_OwnerString": "769cb3f5284c5f743a82d7b92b708d13",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/ArueshalaeRedoubt/Fortress_Hag/Cue_0038_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "CalmShort05",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$ee5e2081-d424-4297-8aa2-8dffd6a2d447",
+          "m_Objective": "!bp_ab66787d058086a45a84cb6549dbb79d"
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$f700c3c8-b83c-4256-90dc-bfcd474104fa",
+          "m_Objective": "!bp_e17a13e460f781b4eb4d6540eb386f13"
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$0f26a5c3-32f5-468b-aa6a-c7fd02d66989",
+          "Status": "Complete",
+          "m_Objective": "!bp_354ae88d4e7f8e345bca5caef0379144",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$91635bd4-c4a5-4acd-a403-0458b5684f5e",
+          "m_Cutscene": "!bp_86e0cb4ad21a10a4a8e5f855026c7a8e",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$895daf63-b672-499e-99d6-383b4c68ee64",
+          "Comment": "3 адда? сменить обжи",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$ad885fa3-409c-4462-bf49-6218430efe8e",
+                "Not": false,
+                "m_QuestObjective": "!bp_92c3eed6dd168b740bd7615bce3fa452",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$54e48486-1b07-4052-922f-60f3e62b585d",
+                "Status": "Complete",
+                "m_Objective": "!bp_525081808f5c0664eb739474a1526da7",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$9c1e1311-cfd6-4967-b1a7-96ab3ee9b20f",
+                "m_Objective": "!bp_532bfc5f3624ddc4da61274ff58c39da"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3af513fa-4035-46e9-b4c0-69dd878b33ca",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$7263b893-323d-4857-90c8-9eb1df52e037",
+                "Not": false,
+                "m_companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$f8eaed14-ac85-47eb-9915-7a508c1e73f4",
+                "m_UseEvaluator": false,
+                "m_CompanionEvaluator": null,
+                "m_CompanionBlueprint": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                "OnUnrecruit": {
+                  "Actions": [
+                    {
+                      "$type": "279d4ee480d04f2b99e22da75adf77d6, UnequipAllItems",
+                      "name": "$UnequipAllItems$6394bd48-c854-401f-a923-1fd43334dd9a",
+                      "Target": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$eedcb7ef-2f5b-4027-8bef-6b65020d707a",
+                        "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      },
+                      "DestinationContainer": null,
+                      "Silent": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$c9433e43-d202-41c7-b84d-e96e259d19a1",
+                "Etude": "!bp_69565c2f81ac27e49ad0b765c40fbc0e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

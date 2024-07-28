@@ -1,0 +1,111 @@
+{
+  "AssetId": "042b39c2d6794a14f8a7740f9a0c2fc5",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$1fab8a1a-839a-489d-b885-9fcf1dae4b9f",
+          "Not": false,
+          "m_Etude": "!bp_85f05a312d0413b4592e495439acea2b",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "OnFail": "SkipCommand",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$12530db4-fef2-4667-a751-b3f076dee7ee",
+          "Comment": "рабы с нами или против",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$305efc7a-783a-4f05-9c30-f3d499b6aee2",
+                "Not": false,
+                "m_ConditionFlag": "!bp_02449e507c146594cbca1f1ccfef15a6",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$c95e635f-bf3d-4756-a6be-fc7887e7310c",
+                "m_SummonPool": "!bp_80547872d82ca5b4fbe4e409a65e7d1f",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$616d6651-4b4f-4a56-a72e-af6aff0a4439",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$572e392f-00c1-42a5-ba20-2975f5b2958e"
+                      },
+                      "m_Faction": "!bp_419c5165bae99664b92252b7dcc0a2db",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$38c06b60-728e-46b0-920b-65692cb6531c",
+                      "m_Buff": "!bp_6f1d9e5b1bf462642bb7e72d1ed67141",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$20a88358-f431-4ddc-8c3b-fdd2fade72c7"
+                      },
+                      "Duration": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$ee90e96e-d3d9-470c-9302-8e91fab0e635",
+                "m_SummonPool": "!bp_66b2c56adfb91324fab1a29959d3984c",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$f50a6be7-0fe0-4c4f-b21f-04a5562ddc72",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$d05a83ac-d568-4b52-96bf-96b4578fb313"
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

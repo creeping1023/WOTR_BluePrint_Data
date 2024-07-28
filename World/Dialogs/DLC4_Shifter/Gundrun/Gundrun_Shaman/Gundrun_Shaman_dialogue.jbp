@@ -1,0 +1,224 @@
+{
+  "AssetId": "70f0ec8f322a4ff48cfd260d0b186d22",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_9ac83bc12bff427b81c1afb0a519aa7b",
+        "!bp_d796d3b9af4045459745e3720cbf214f"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$e448ca1a-3fc8-408f-a8e5-942637d611dd",
+          "Not": false,
+          "m_Etude": "!bp_9558ecb2e3874822b63178a7644ee0a8",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$1c42908b-500a-4ecd-8c87-252bb8c7e9b2",
+          "Not": true,
+          "m_Etude": "!bp_4b2456bf3eb9417ba90dc68d6a8758ab",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$723a6fe1-59b3-4116-8bd0-255bdd1c6607",
+          "Comment": "Complete addendum",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$de569fe7-0c89-4914-8ad6-5637a0afd12e",
+                "Not": true,
+                "m_QuestObjective": "!bp_2ee429c9e6594adcb39693b0f05e9964",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$91f07e48-81bc-4b08-8cc7-b8fe0b24d5c2",
+                "Status": "Complete",
+                "m_Objective": "!bp_2ee429c9e6594adcb39693b0f05e9964",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$1d7dd687-bc98-4f76-995c-63e87378ce70",
+                "Comment": "Complete SeeGundrun objective",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$3bd49435-be1e-436a-8153-2a92224fc807",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_bc3df41c6ef44fbcb824c7a1a12b2353",
+                      "State": "Completed"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$85cb0106-3100-4771-8ae1-15253867ed14",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_05ec90f53cc640f68ebce027466c0118",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$eaec99e0-964d-4981-8672-fb541d2b179b",
+          "Comment": "Happyend",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$78c13616-90d8-4e0a-84ec-ecc0dfef8c3c",
+                "Not": false,
+                "m_Etude": "!bp_7d6e92f7dc414c21a1dabf094d188da5",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$6b304e38-720a-4d79-bead-df7ab725c04c",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "0e9cbea1dc39ec948b265d31af379b2b",
+                    "stringkey": "f137d7c6-bc62-4a0a-81b0-765eb941770e"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                  "name": "$ClickedUnit$426f598d-4dd8-425d-b624-057de675496e"
+                },
+                "TargetMapObject": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d735f9a9-cda3-4659-8dfe-f5d856f9b311",
+          "Comment": "Bad ending",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ab0537dd-0617-449e-b711-d6028ee9b4b9",
+                "Not": false,
+                "m_Etude": "!bp_2dd80ccc6e2c490e9f48f421aeb4f42a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$739f17ad-8282-4430-85ee-15f2b3a3ef06",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "d9489c13a196ad24e9f34e24558a4978",
+                    "stringkey": "6930c3e8-88ba-4833-88af-6791d48504f0"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                  "name": "$ClickedUnit$4d5d9f52-4854-4d29-938e-248744fa0ed1"
+                },
+                "TargetMapObject": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

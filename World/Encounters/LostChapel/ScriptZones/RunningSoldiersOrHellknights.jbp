@@ -1,0 +1,190 @@
+{
+  "AssetId": "990e02003d8a2704e8d901d83c856bd5",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "только убегающие солдаты / остальное в этом месте - в этюде или RunningSoldiersOrHellknights2",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "494b2e62fc3ee4b40956216331fc6de6, IsPartyMember",
+          "name": "$IsPartyMember$112545b9-cb8b-4096-a552-35aa2c3b9a2d",
+          "Not": false,
+          "Unit": {
+            "$type": "7092730319129374aadf8b65ceb5c42d, ScriptZoneUnit",
+            "name": "$ScriptZoneUnit$3ca23377-2326-436e-b7aa-dcd0182a4d03"
+          }
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$115a638a-511c-42d1-8765-b8d072ede912",
+          "Comment": "если убили Регила",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$435a52cf-d4c8-4dbd-bc08-5ba391e9e476",
+                "Not": false,
+                "m_Etude": "!bp_8ea908cfc8178844b95a202022db9957",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$3f0d7d86-51a7-4ef4-a62c-ecda35e5d2b2",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Ghoul01",
+                    "_entity_id": "e9e9babb-cfdb-4c19-bb54-21e055c189f7",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  {
+                    "EntityNameInEditor": "Ghoul02",
+                    "_entity_id": "e05ee906-2f4f-4c9c-a0eb-31acc6847455",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  {
+                    "EntityNameInEditor": "Ghoul03",
+                    "_entity_id": "5c4c7f92-bc43-49f2-a0de-8d5a8c1811b7",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  {
+                    "EntityNameInEditor": "Ghoul04",
+                    "_entity_id": "f162ada4-3a86-4b67-9c2f-ab2075058d54",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  {
+                    "EntityNameInEditor": "Gargoyle1",
+                    "_entity_id": "e4ee7360-05d3-4f18-b9bc-268641dc757e",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  {
+                    "EntityNameInEditor": "Gargoyle2",
+                    "_entity_id": "99129d4d-3079-423f-9f95-592dc784327d",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  {
+                    "EntityNameInEditor": "Gargoyle3",
+                    "_entity_id": "3bce5b21-c99c-4f82-83b2-7d0a7853ebc6",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  {
+                    "EntityNameInEditor": "Gargoyle4",
+                    "_entity_id": "d350eb47-8d63-4893-82fc-aa1df123e648",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$a23e0cad-fa09-45fc-a763-d9cfa517e5b1",
+                      "Unit1": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$30addd49-69db-4386-86ac-514bb15ce83b"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$2a6651a1-1e7d-4f02-90ce-e31a010e80b3"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$409147f0-d1fd-4958-b446-4f25e735f0f6",
+                "Comment": "если не убили",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$cdad0963-240c-46bc-acd1-a11c070dca37",
+                      "Not": false,
+                      "m_Etude": "!bp_e74866d50da079f44a868f0433cf77ff",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$9bcabf73-5e9a-4155-9b37-4a4ce65a9ce6",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Running_CrusadeSoldier1",
+                          "_entity_id": "7ac9c779-5057-4367-b403-da743cc4fa0c",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$b4cc173c-6856-4f5f-b36a-75535aeb32b2",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Running_CrusadeSoldier2",
+                          "_entity_id": "084e23be-0478-4818-8e63-c69f1648e773",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": [
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$bce271c7-bbd0-405b-a084-98d5a32d8b71",
+                            "m_Cutscene": "!bp_bec4785cdb562a143ae12da161e4556d",
+                            "PutInQueue": true,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": []
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  }
+}

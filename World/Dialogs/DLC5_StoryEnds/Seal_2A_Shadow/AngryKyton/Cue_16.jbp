@@ -1,0 +1,363 @@
+{
+  "AssetId": "da91b904f6cc43e29d401fef8a0d028e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "катсцена: велстрак берет осколок, корчится, Сендри открывает портал, все сбегают",
+    "ParentAsset": "53bd9c56fbe048da92550574053c4fc1",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "dd63028d-83b2-4d07-8008-d7f0172965de",
+      "m_OwnerString": "da91b904f6cc43e29d401fef8a0d028e",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC5_StoryEnds\\Seal_2A_Shadow\\AngryKyton\\Cue_16_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_d43990c791dc4e8aa580ab85f54f6977",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+          "name": "$ActionAchievementUnlock$4f1138d0-16aa-4d9f-a5e1-e5e0d531e5e0",
+          "m_Achievement": "!bp_783454d555c74487889d75ea5cb7db94"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5fec0d5d-691f-4734-9393-60a4da3b5fbe",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$14c865e6-631b-45d2-800d-62d6ee2ddc08",
+                "Not": false,
+                "m_Etude": "!bp_8b830e10aca7460ba992f56633394af4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                "name": "$ActionAchievementUnlock$bf52b7fb-900f-4755-8b70-6c3f2d5b8a3f",
+                "m_Achievement": "!bp_901dff017bba4f79936836da41a553d4"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$714f47cc-febc-4673-8ff3-935186c48c31",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$f9a80729-0877-4a32-aa9e-64fd14a80d0d",
+                "Not": false,
+                "m_Answer": "!bp_236628a5b1b54e9f9b994806b1736f81",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$6a03457b-1936-4af2-a1b2-e5c732b1c557",
+                "m_Cutscene": "!bp_04607a89dbb84378aa74c2e87b69cdb8",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$6685af16-1fa7-470d-a89c-52ec96bbd76e"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$5904b124-6762-4129-bf6c-959b4e194187",
+                "m_Flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$42c2a334-03ec-453f-be95-3e60aeaeecff",
+                  "Value": -1
+                },
+                "UnlockIfNot": false
+              },
+              {
+                "$type": "467a8a7fce2048c9976bb89471d6f302, RemoveMythicLevels",
+                "name": "$RemoveMythicLevels$6aca815f-e5e2-4177-abfd-95be5ef6280b",
+                "SpecificUnit": false,
+                "Unit": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$4e367828-bc8c-434b-93d6-4ee745bcd271",
+                  "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": false
+                },
+                "SpecificClass": false,
+                "m_Class": null,
+                "Levels": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cb4d0d35-be56-4693-8fac-a0593358e978",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$e28859c8-2046-442c-b9de-cb21635da88b",
+                "Not": false,
+                "m_Answer": "!bp_9a60a22e07234a2d8b02598f445eab85",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$eb79330c-661d-451a-88b2-cafa819b4608",
+                "m_Cutscene": "!bp_04607a89dbb84378aa74c2e87b69cdb8",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$714585f4-8827-4685-9322-fa6cc340b408",
+                        "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": false,
+                        "IncludeDettached": false
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$c24b3e14-06da-4ad2-830f-5b37a63ff0a8",
+                "m_Flag": "!bp_7716aeb81bec4e76bfd81b57edc42014",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$a5c37953-bc49-44f3-880f-40bb5ce7c112",
+                  "Value": -1
+                },
+                "UnlockIfNot": false
+              },
+              {
+                "$type": "467a8a7fce2048c9976bb89471d6f302, RemoveMythicLevels",
+                "name": "$RemoveMythicLevels$c2265822-fdf8-42db-8083-f5ee18bab3cf",
+                "SpecificUnit": true,
+                "Unit": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$a9b143f9-7c78-41b7-8338-7af911c2bc0c",
+                  "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": false
+                },
+                "SpecificClass": false,
+                "m_Class": null,
+                "Levels": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6bea5691-5566-429c-8d55-8f86940748ff",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$c392a585-c9c1-47bd-92b5-040d2e807f16",
+                "Not": false,
+                "m_Answer": "!bp_539d4c0b95944abca646c9f6b95c826b",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$cb695bb9-aed2-4584-a66d-b13f9a5dd89e",
+                "m_Cutscene": "!bp_04607a89dbb84378aa74c2e87b69cdb8",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$d20891a7-fe3f-4b26-9fc6-3ffa7b0b3f89",
+                        "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": false,
+                        "IncludeDettached": false
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$082e7743-86f0-454a-afcc-3d9953c7e601",
+                "m_Flag": "!bp_d00d4746f368447295e917967a67fe71",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$7f9df8cf-2eeb-4948-8a89-4e1f40aed8ef",
+                  "Value": -1
+                },
+                "UnlockIfNot": false
+              },
+              {
+                "$type": "467a8a7fce2048c9976bb89471d6f302, RemoveMythicLevels",
+                "name": "$RemoveMythicLevels$10478d2f-f3f6-4a35-9dc6-febabb26072b",
+                "SpecificUnit": true,
+                "Unit": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$362f5b57-22d7-445e-bc18-7b6cf08c7197",
+                  "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": false
+                },
+                "SpecificClass": false,
+                "m_Class": null,
+                "Levels": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$71a3f8db-a84c-4c4f-8114-09a1a23d2f12",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$b7373887-1897-434f-9560-50289938b75e",
+                "Not": false,
+                "m_QuestObjective": "!bp_f03f8453dc2a41c9b7d702f3c6c87e34",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$959592b9-308c-4e24-af11-f8272a48f405",
+                "Not": true,
+                "m_QuestObjective": "!bp_f03f8453dc2a41c9b7d702f3c6c87e34",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$ee4aaa55-5390-4f78-8ccf-80d580cf1b31",
+                "Status": "Fail",
+                "m_Objective": "!bp_f03f8453dc2a41c9b7d702f3c6c87e34",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$25962861-aa66-4ebb-a137-887a86ed4162",
+          "m_flag": "!bp_3a123a0040b24a7fa8aaea6339f30338",
+          "flagValue": 0
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "AssetId": "d40c8f6fe2d745449214bfb4732b369a",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$c68c720c-317c-460c-9320-07d0adc694b8",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Turn on Minagho Fiend scriptzone",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$753ebb5a-311b-4fa1-81d6-7df34c4bee6e",
+              "Not": false,
+              "m_Etude": "!bp_3b8c0801d5e9a694b848ee13564d2ad7",
+              "NotStarted": true,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$8186f285-4c0a-489d-b6cd-3add17460ebb",
+              "Not": false,
+              "m_Etude": "!bp_1d466fd4271fdc14ea1c077760c63ca5",
+              "NotStarted": true,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$290c65bf-df4e-4eb0-9a93-9a04c5c4228f",
+              "ScriptZone": {
+                "EntityNameInEditor": "MinaghoFiend",
+                "_entity_id": "4257b98e-9529-44b9-94d3-14c3a594a5a9",
+                "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$35166772-7924-4aaa-8cdb-bb099dbccc45",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Minagho Desperation dialogue",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_a90d61743ef690146888dc9d0614c05f",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+              "name": "$InterruptAllActions$cf44324f-f10d-4de8-94c7-51f15fe3eb7f",
+              "m_Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$90611d6d-b739-491f-a684-34695ff4b065",
+                "Spawner": {
+                  "EntityNameInEditor": "Minagho",
+                  "_entity_id": "622d7116-28d1-4341-ad3d-fee9fd2f6736",
+                  "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                }
+              }
+            },
+            {
+              "$type": "c436123ee6f44c75a69221bfb7d9024c, SplitUnitGroup",
+              "name": "$SplitUnitGroup$5dd51d35-e077-4ea1-9a5f-b67d7d81f44e",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$11517d8f-8ef8-4a98-b2d7-01e999ab0cd7",
+                "Spawner": {
+                  "EntityNameInEditor": "Minagho",
+                  "_entity_id": "622d7116-28d1-4341-ad3d-fee9fd2f6736",
+                  "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                }
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$4e79a43b-db61-4b44-95b0-48d204a72817",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$0a9d5181-649c-40f7-a0aa-0df7a2c7437c",
+                "Spawner": {
+                  "EntityNameInEditor": "Minagho",
+                  "_entity_id": "622d7116-28d1-4341-ad3d-fee9fd2f6736",
+                  "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                }
+              },
+              "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+              "IncludeGroup": false,
+              "ResetAllRelations": true
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$215b19a5-d073-4856-804e-8697fe334e84",
+              "m_Cutscene": "!bp_f81f2266171b0b5438ced0ed03fa9cc3",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$6aec09ca-80be-4617-9217-71287525c99b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Angel: Yaniel barks and shows loot",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$4d7d9019-1d98-46cc-b287-bd0533720074",
+          "Spawner": {
+            "EntityNameInEditor": "Minagho",
+            "_entity_id": "622d7116-28d1-4341-ad3d-fee9fd2f6736",
+            "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$306819eb-b219-41f9-9f84-b32b2ed391e0",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$19a6f97f-f35f-4ea9-ad82-5c39f4ac7896",
+                    "Not": false,
+                    "m_Etude": "!bp_63c9e7be8e501ac4db60fb11676fdd38",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$591b19e3-5092-4d8a-830c-5deeae329538",
+                    "Not": false,
+                    "m_Dialog": "!bp_ef7d64f0091305b4984dd1a9173f0388"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$89434438-d884-4f41-85c5-58b13f458388",
+                    "m_Cutscene": "!bp_010cbd2efdcdac54693b895fae06f79c",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_deecc937a263ca24c9f1a64a4874451a",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_4f849f5683145d0489db4077e0d7eccf",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

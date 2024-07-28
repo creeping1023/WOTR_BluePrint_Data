@@ -1,0 +1,236 @@
+{
+  "AssetId": "f6f7fe06ea8383641bababbf7c9e5c2e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Если таверна не разгромлена\nУходит в Сердце защитника\n\nЕсли у игрока в квесте FindAllies_Quest уже закомпличены адды 3 и 4, закомплитить весь квест.",
+    "ParentAsset": "dda90c3d59e87c54ab6ccfb45dfa49ab",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+          "name": "$CueSeen$fcf8c768-8dee-4153-96b0-2e02696b806c",
+          "Not": false,
+          "m_Cue": "!bp_d1b999043b2e70842b2ad942e15bf67a",
+          "CurrentDialog": false
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$82117ed9-ddbb-4dca-9bb6-28816b84308c",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a8a30fd8-cd8e-4a94-b5e6-92c868f8971f",
+                "Not": false,
+                "m_Etude": "!bp_8611cf56383c5cd468bf58dd40d6ff54",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c877642f-5fce-4a05-9df1-5d8e84b1631c",
+                "Not": false,
+                "m_Etude": "!bp_b4f7860936e1248468d7ec3583b7441e",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$d8160f82-9603-47ae-9ae1-92bc6abc5cea",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$0ec9acdf-902e-48ad-8adf-7b0dfb9757e1",
+                "Not": false,
+                "m_QuestObjective": "!bp_18eb223a3eeed5e4c88271cc08edfd7d",
+                "State": "None"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$e42fecc2-fb0b-4071-be25-9990430ac60d",
+                "Not": false,
+                "m_QuestObjective": "!bp_18eb223a3eeed5e4c88271cc08edfd7d",
+                "State": "Failed"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "868b3d1cef9978d458675c7e292c5f5b",
+        "stringkey": "a49578cc-90ea-48a1-9081-5deef90da962"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$f4258908-1927-4e1c-b14d-582f4b598507",
+          "m_Buff": "!bp_525f980cb29bc2240b93e953974cb325",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$9168df62-78d0-4a54-8251-bbab185c455f",
+            "Spawner": {
+              "EntityNameInEditor": "RamienNearTemple",
+              "_entity_id": "4d017d51-9208-44d4-b776-268cfb943e58",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$9789cb15-d471-4520-b8a9-6e6370d85f14",
+          "m_Cutscene": "!bp_88e7ba8850f243aabd7fdbc5ac286aed",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$15569e71-f3de-4a13-9c01-4e46d3c40676",
+          "m_Objective": "!bp_45092b7fb278bbe47959f7a5da4ccb35"
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$63138b4d-c18d-4d17-bb9c-1ee88956ce8a",
+          "Etude": "!bp_a6b8893e6d44a2040ba1736fb69d3786",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4f0edb42-c62f-4974-9977-adc9795c1ad1",
+          "Comment": "Ileks comes one time",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$9dd50df4-f914-48fc-a2b1-0306a18b2f33",
+                "Not": false,
+                "m_Etude": "!bp_6eee219018aa38140aca906b76b7fc70",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$46a30637-c581-4840-a8c8-aef2bd57dfc2",
+                "Etude": "!bp_6eee219018aa38140aca906b76b7fc70",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$ec9bd7e9-c037-4940-9ba8-0a7fc517bfce",
+                "m_Cutscene": "!bp_eb6a4fbbd85c405cb797748de3641875",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$591d688e-c97c-418c-a674-4b997d4e6d40",
+          "m_Buff": "!bp_d616ce293b89af14e839c846554b2ccb",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$27768313-6175-4b8f-a1a2-5c75e16614ee",
+            "Spawner": {
+              "EntityNameInEditor": "RamienNearTemple",
+              "_entity_id": "4d017d51-9208-44d4-b776-268cfb943e58",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Duration": null,
+          "BattleLog": false,
+          "HasCustomBattleLogMessage": false,
+          "CustomBattleLogMessage": {
+            "m_Key": "",
+            "m_OwnerString": "",
+            "m_OwnerPropertyPath": "",
+            "m_JsonPath": "",
+            "Shared": null
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

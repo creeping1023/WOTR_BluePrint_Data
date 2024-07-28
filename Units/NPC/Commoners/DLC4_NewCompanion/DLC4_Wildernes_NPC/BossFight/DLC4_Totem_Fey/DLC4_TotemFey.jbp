@@ -1,0 +1,358 @@
+{
+  "AssetId": "0faa3fce336b42d2811dc03662f7b0a5",
+  "Data": {
+    "$type": "fa4fa7e4548127a47a2846c91b051065, BlueprintUnit",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "af8520ef8a0f4954592fa9c59a5fd436, OverrideUnitHP",
+        "m_Flags": 0,
+        "name": "$OverrideUnitHP$2c2ad48e-fb54-4e7f-b6fc-067a0c7c7983",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "TargetValue": {
+          "ValueType": "Simple",
+          "Value": 350,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        }
+      },
+      {
+        "$type": "addae4953430725479cc27bae68ad849, AllowDyingCondition",
+        "m_Flags": 0,
+        "name": "$AllowDyingCondition$6f3049e9-2bed-46ef-8318-2b5bd317477b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": []
+      },
+      {
+        "$type": "d79ad4ed064aa4f43ace0e9c238fb9b9, AddFacts",
+        "m_Flags": 0,
+        "name": "$AddFacts$3897c9b2-e10d-4e5c-85ed-232e6b25b9b5",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Facts": [
+          "!bp_01a49a95711446d09bc6fcb96e5134d1"
+        ],
+        "Dummy": null,
+        "CasterLevel": 0,
+        "DoNotRestoreMissingFacts": false,
+        "HasDifficultyRequirements": true,
+        "InvertDifficultyRequirements": false,
+        "MinDifficulty": "Core"
+      },
+      {
+        "$type": "340d225347d5002409757c2be255cd50, DeathActions",
+        "m_Flags": 0,
+        "name": "$DeathActions$c284c042-7f14-48e0-a1a9-be23e32d53da",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$fe959613-361a-4453-a2a7-e594d447a652",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$9abb459c-d3dc-42e1-9d40-070ed9dd69f8",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_bf87f39b839842e388c5c7de219b0867",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$ea8930e4-447c-4513-810d-7400ce0212bf",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Fey",
+                        "_entity_id": "14f466ca-f380-4cd8-b130-df1d1fd50014",
+                        "SceneAssetGuid": "8b1a0b36b2959be41b1c88ae9d2b5a94"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                          "name": "$SpawnFx$80b2d803-8e87-4665-b80f-419dd50b6505",
+                          "Target": {
+                            "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                            "name": "$UnitTransform$7bed5367-f433-4b25-a57f-f8762a9accf9",
+                            "Unit": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$483a188f-75a0-46f0-9688-6f2187122fb0"
+                            }
+                          },
+                          "FxPrefab": {
+                            "AssetId": "14ba08b903ee28b41a779a616d905397"
+                          }
+                        },
+                        {
+                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                          "name": "$StartCombat$012f97b4-c33f-438b-9124-b0192adf08e8",
+                          "Unit1": {
+                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                            "name": "$SpawnedUnit$fd2927a8-11ab-4e7a-890f-2ba3cac50478"
+                          },
+                          "Unit2": {
+                            "$type": "4a0b4f8a27ed6e74c940f821cc147af9, RandomPartyUnit",
+                            "name": "$RandomPartyUnit$babb5c58-eeb0-4ed5-bcee-7161c48d1054",
+                            "ExceptPlayerCharacter": false,
+                            "Conditions": {
+                              "Operation": "And",
+                              "Conditions": []
+                            },
+                            "UnitIfNoVariants": null,
+                            "m_ForbiddenBlueprints": []
+                          }
+                        }
+                      ]
+                    },
+                    "RespawnIfDead": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "CheckResource": false,
+        "OnlyOnParty": false,
+        "OnlyNaturalDeath": false,
+        "m_Resource": null,
+        "m_DeathTrigger": "OnUnitDeath",
+        "m_WithUnconsciousLifeState": false
+      },
+      {
+        "$type": "d79ad4ed064aa4f43ace0e9c238fb9b9, AddFacts",
+        "m_Flags": 0,
+        "name": "$AddFacts$f26e7204-a3c3-4253-8ec6-c84960023152",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Facts": [
+          "!bp_65c289f08343f5349b6dafbc0240d6ef"
+        ],
+        "Dummy": null,
+        "CasterLevel": 0,
+        "DoNotRestoreMissingFacts": false,
+        "HasDifficultyRequirements": true,
+        "InvertDifficultyRequirements": false,
+        "MinDifficulty": "Core"
+      },
+      {
+        "$type": "d79ad4ed064aa4f43ace0e9c238fb9b9, AddFacts",
+        "m_Flags": 0,
+        "name": "$AddFacts$76c19ae1-14c9-475e-a202-1505af29ac53",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Facts": [
+          "!bp_a519018333016cd4696b1b81f8c22a29"
+        ],
+        "Dummy": null,
+        "CasterLevel": 0,
+        "DoNotRestoreMissingFacts": false,
+        "HasDifficultyRequirements": true,
+        "InvertDifficultyRequirements": false,
+        "MinDifficulty": "Normal"
+      },
+      {
+        "$type": "d79ad4ed064aa4f43ace0e9c238fb9b9, AddFacts",
+        "m_Flags": 0,
+        "name": "$AddFacts$065790f2-a4ad-4f09-976e-7686248c3a13",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Facts": [
+          "!bp_8685aca045794c2e8d945b1ab8305038"
+        ],
+        "Dummy": null,
+        "CasterLevel": 0,
+        "DoNotRestoreMissingFacts": false,
+        "HasDifficultyRequirements": true,
+        "InvertDifficultyRequirements": false,
+        "MinDifficulty": "Unfair"
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "m_Type": null,
+    "LocalizedName": {
+      "assetguid": "7a7f58b3574b63542a6704d1e91ac7c6",
+      "stringkey": "2b61a54f-b7b6-4db8-beb0-015756228562"
+    },
+    "Gender": "Male",
+    "Size": "Medium",
+    "IsLeftHanded": false,
+    "Color": {
+      "r": 0.15,
+      "g": 0.15,
+      "b": 0.15,
+      "a": 1.0
+    },
+    "m_Race": null,
+    "Alignment": "TrueNeutral",
+    "m_Portrait": "!bp_dade7480dfba4665b0b4c112b05932d4",
+    "Prefab": {
+      "AssetId": "e8538b69b19ddb54aaa6c24a3df2404e"
+    },
+    "m_CustomizationPreset": null,
+    "Visual": {
+      "BloodType": "Stone",
+      "FootprintType": "Humanoid",
+      "FootprintScale": 1.0,
+      "ArmorFx": null,
+      "BloodPuddleFx": null,
+      "DismemberFx": null,
+      "RipLimbsApartFx": null,
+      "IsNotUseDismember": false,
+      "m_Barks": null,
+      "ReachFXThresholdBonus": 0.0,
+      "DefaultArmorSoundType": "Stone",
+      "FootstepSoundSizeType": "None",
+      "FootSoundType": "None",
+      "FootSoundSize": "Medium",
+      "BodySoundType": "Stone",
+      "BodySoundSize": "Medium",
+      "FoleySoundPrefix": "",
+      "NoFinishingBlow": false,
+      "ImportanceOverride": 0,
+      "SilentCaster": false
+    },
+    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+    "FactionOverrides": {
+      "m_AttackFactionsToAdd": [],
+      "m_AttackFactionsToRemove": []
+    },
+    "m_StartingInventory": [],
+    "m_Brain": "!bp_ae78b6882e2545a2b79d7243ceb2d8e9",
+    "AlternativeBrains": [],
+    "Body": {
+      "DisableHands": true,
+      "m_EmptyHandWeapon": null,
+      "m_PrimaryHand": null,
+      "m_SecondaryHand": null,
+      "m_PrimaryHandAlternative1": null,
+      "m_SecondaryHandAlternative1": null,
+      "m_PrimaryHandAlternative2": null,
+      "m_SecondaryHandAlternative2": null,
+      "m_PrimaryHandAlternative3": null,
+      "m_SecondaryHandAlternative3": null,
+      "ActiveHandSet": 0,
+      "m_AdditionalLimbs": [],
+      "m_AdditionalSecondaryLimbs": [],
+      "m_Armor": null,
+      "m_Shirt": null,
+      "m_Belt": null,
+      "m_Head": null,
+      "m_Glasses": null,
+      "m_Feet": null,
+      "m_Gloves": null,
+      "m_Neck": null,
+      "m_Ring1": null,
+      "m_Ring2": null,
+      "m_Wrist": null,
+      "m_Shoulders": null,
+      "m_QuickSlots": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "Strength": 1,
+    "Dexterity": 1,
+    "Constitution": 1,
+    "Intelligence": 1,
+    "Wisdom": 1,
+    "Charisma": 1,
+    "Speed": {
+      "m_Value": 0.0
+    },
+    "BaseAttackBonus": 0,
+    "Skills": {
+      "Acrobatics": 0,
+      "Physique": 0,
+      "Diplomacy": 0,
+      "Thievery": 0,
+      "LoreNature": 0,
+      "Perception": 0,
+      "Stealth": 0,
+      "UseMagicDevice": 0,
+      "LoreReligion": 0,
+      "KnowledgeWorld": 0,
+      "KnowledgeArcana": 0
+    },
+    "MaxHP": 6,
+    "m_AdditionalTemplates": [],
+    "m_AddFacts": [
+      "!bp_65c289f08343f5349b6dafbc0240d6ef",
+      "!bp_14928ef2a63c4a8387b4b4bf92b65417",
+      "!bp_50b251e4bdd24791b4a9b7e3880ffe1d",
+      "!bp_d616ce293b89af14e839c846554b2ccb",
+      "!bp_069404a626564b5e82989be0a950b5a4"
+    ],
+    "IsCheater": false,
+    "IsFake": false,
+    "m_PS4ChunkId": "StartUp",
+    "m_HasAssignedChunkId": false
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

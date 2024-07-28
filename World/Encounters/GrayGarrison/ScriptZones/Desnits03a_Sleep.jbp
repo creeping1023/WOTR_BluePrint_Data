@@ -1,0 +1,118 @@
+{
+  "AssetId": "a5b4e591c5965074799c91d53f8eef47",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$a75f340d-efc9-4745-b4ee-9d8342f9ae58",
+          "Not": false,
+          "m_Etude": "!bp_24a2f5aba7034184aa34a6f1898e1165",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+          "name": "$IsInCombat$6299e5f8-741b-4e2e-948a-df383984fe87",
+          "Not": true,
+          "Unit": null,
+          "Player": true
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+          "name": "$ScriptZoneDeactivate$6c44d522-df6f-4c90-b5d2-718e2e33590c",
+          "ScriptZone": {
+            "EntityNameInEditor": "ScriptZone_Desnits_Sleep03",
+            "_entity_id": "578936dc-bc33-4f34-9b0c-ccba7381cb36",
+            "SceneAssetGuid": "8fc7e5577957b47408ed6483164a52ff"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f68b9d1b-2aa9-4548-a53c-9b725799fd4a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+                "name": "$IsInCombat$c326585a-6669-4dcd-8f17-42f6a991d999",
+                "Not": true,
+                "Unit": null,
+                "Player": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$016c5cc8-c607-44e8-b147-5b659ac34a4c",
+                "Etude": "!bp_b22173f937554925ad64db144f138a54",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$c4675cbc-93df-4975-b2b2-7fcf89bbf043",
+                "m_Cutscene": "!bp_3db87a2df6583b540b0129918011bb98",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Enemy1",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$0fc2a2d2-9c73-4e36-8315-8b4b2e2e3a10",
+                        "Spawner": {
+                          "EntityNameInEditor": "CR4_SchirStandard",
+                          "_entity_id": "d6a100bb-2d8a-40ec-9732-a1060dd29987",
+                          "SceneAssetGuid": "8fc7e5577957b47408ed6483164a52ff"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Enemy2",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$79c1530c-a049-4c8b-8844-9aad484e904d",
+                        "Spawner": {
+                          "EntityNameInEditor": "CR4_CR4_SchirStandard (2)",
+                          "_entity_id": "37616857-810f-4f1d-af68-14a803d47479",
+                          "SceneAssetGuid": "8fc7e5577957b47408ed6483164a52ff"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  }
+}

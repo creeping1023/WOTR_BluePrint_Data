@@ -1,0 +1,138 @@
+{
+  "AssetId": "da35443fe5c943c43aaa1e8451c54c1e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "старт боя",
+    "ParentAsset": "38e2bb090bca89d43aa9059777352dda",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "c1e08480-96a2-48cf-a505-bb309083c1e2",
+      "m_OwnerString": "da35443fe5c943c43aaa1e8451c54c1e",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/Mineshaft_14/Seilkind_Cave/Cue_0012_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_855f159c3ebc258489527dc82beb2f91",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$71fd8df0-3814-4864-9e79-7e32ead3f933",
+          "Status": "Fail",
+          "m_Objective": "!bp_f7e80d6f05108a04c8c8c67ddf76adb0",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$01203d22-16bd-43ef-a2f5-2804b03925ee",
+          "m_Cutscene": "!bp_054bfd691a830f94c8fc3abe80c0dc33",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$88de09e6-6f0a-4a26-8254-464c804b385e",
+          "Comment": "если обж стартован - фейлим",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7d307320-9faa-4024-adee-4f4a7532bc45",
+                "Not": false,
+                "m_QuestObjective": "!bp_6a5ada4bf0010d84fad1dab2fe73eb2a",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$d94c03bf-18ed-4a75-9e05-e782f182c709",
+                "Status": "Fail",
+                "m_Objective": "!bp_6a5ada4bf0010d84fad1dab2fe73eb2a",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$699b6759-2660-4897-8495-0743a3262ceb",
+          "Comment": "если обж стартован - фейлим",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$07697543-d4d5-4410-817a-e26f75840374",
+                "Not": false,
+                "m_QuestObjective": "!bp_ab19f865cb31ced4ab6f7cd25b7ae26d",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$dc0601f2-51c0-49b7-8f0e-c6010a1eaaae",
+                "Status": "Fail",
+                "m_Objective": "!bp_ab19f865cb31ced4ab6f7cd25b7ae26d",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

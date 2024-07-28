@@ -1,0 +1,257 @@
+{
+  "AssetId": "40c43d4d27ebde647b796f9faf4f0299",
+  "Data": {
+    "$type": "cb208b98ceacca84baee15dba53b1979, BlueprintFeature",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$AddTargetAttackRollTrigger$596e2f45-1236-4b69-894e-3d34fdc78b59"
+    ],
+    "Components": [
+      {
+        "$type": "06351e9cc58c16546a92cdd4fb3f4845, AddTargetAttackRollTrigger",
+        "m_Flags": 0,
+        "name": "$AddTargetAttackRollTrigger$596e2f45-1236-4b69-894e-3d34fdc78b59",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "OnlyHit": true,
+        "CriticalHit": true,
+        "OnlyMelee": false,
+        "NotReach": false,
+        "CheckCategory": false,
+        "Not": false,
+        "Categories": [],
+        "AffectFriendlyTouchSpells": false,
+        "ActionsOnAttacker": {
+          "Actions": []
+        },
+        "ActionOnSelf": {
+          "Actions": [
+            {
+              "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+              "name": "$ContextActionApplyBuff$a3bc02a9-c022-445e-a4ae-a22cb2b38974",
+              "m_Buff": "!bp_67e717743224efa49884cd0169d3fe4b",
+              "Permanent": true,
+              "UseDurationSeconds": false,
+              "DurationValue": {
+                "Rate": "Rounds",
+                "DiceType": "Zero",
+                "DiceCountValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "m_AbilityParameter": "Level"
+                },
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null,
+                  "m_AbilityParameter": "Level"
+                },
+                "m_IsExtendable": true
+              },
+              "DurationSeconds": 0.0,
+              "IsFromSpell": false,
+              "IsNotDispelable": false,
+              "ToCaster": false,
+              "AsChild": true,
+              "SameDuration": false,
+              "NotLinkToAreaEffect": false
+            }
+          ]
+        },
+        "DoNotPassAttackRoll": true
+      },
+      {
+        "$type": "76dd00a1f560ad2438ed8bf8cbfcd039, AddIncomingDamageTrigger",
+        "m_Flags": 0,
+        "name": "$AddIncomingDamageTrigger$e881e361-43da-4e42-bb16-bfb57feb2f56",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "ActionsOnInitiator": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e374322f-a112-4ffd-a51f-e4b044a4cd93",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "c5dd77fc57484bbba4bbc75f37fff18a, ContextConditionCompare",
+                    "name": "$ContextConditionCompare$edae28dc-3219-4b93-93b1-0dd3b21442de",
+                    "Not": false,
+                    "m_Type": "LessOrEqual",
+                    "CheckValue": {
+                      "ValueType": "TargetProperty",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "HPPercent",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level"
+                    },
+                    "TargetValue": {
+                      "ValueType": "Simple",
+                      "Value": 25,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level"
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$26954e78-30ce-48fb-b99a-725720935094",
+                    "m_Buff": "!bp_bea7ea5f47279ae41bbf8df96b84f564",
+                    "Permanent": true,
+                    "UseDurationSeconds": false,
+                    "DurationValue": {
+                      "Rate": "Rounds",
+                      "DiceType": "Zero",
+                      "DiceCountValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "m_IsExtendable": true
+                    },
+                    "DurationSeconds": 0.0,
+                    "IsFromSpell": false,
+                    "IsNotDispelable": false,
+                    "ToCaster": false,
+                    "AsChild": true,
+                    "SameDuration": false,
+                    "NotLinkToAreaEffect": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnStatDamageOrEnergyDrain": false,
+        "IgnoreDamageFromThisFact": false,
+        "ReduceBelowZero": false,
+        "CheckAoE": false,
+        "IsAoE": false,
+        "CheckSpellSchool": false,
+        "IsSpellSchool": "None",
+        "CheckDamageDealt": false,
+        "CompareType": "Equal",
+        "TargetValue": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "CheckWeaponAttackType": false,
+        "AttackType": 0,
+        "CheckEnergyDamageType": false,
+        "EnergyType": "Fire",
+        "CheckDamagePhysicalTypeNot": false,
+        "DamagePhysicalTypeNot": 0
+      },
+      {
+        "$type": "d79ad4ed064aa4f43ace0e9c238fb9b9, AddFacts",
+        "m_Flags": 0,
+        "name": "$AddFacts$07dbceaf-9e1b-4e89-87b9-548599f71c06",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Facts": [
+          "!bp_d6f2dce42486404093d632ea2cc0754e"
+        ],
+        "Dummy": null,
+        "CasterLevel": 0,
+        "DoNotRestoreMissingFacts": false,
+        "HasDifficultyRequirements": false,
+        "InvertDifficultyRequirements": false,
+        "MinDifficulty": "Story"
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "170a948c46f07024b9f0abaa7e461769",
+        "stringkey": "704509bd-b790-4cc4-92ac-e4a7b26bea56"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "7aaaf9b982e8cfa4da6a09d2383fee1e",
+        "stringkey": "21f03fc8-d945-423b-b3f9-349ce59f2b8e"
+      }
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "9a3cf56a492d31a4281e1a8aa8b2b2de",
+      "fileid": 21300000
+    },
+    "HideInUI": false,
+    "HideInCharacterSheetAndLevelUp": false,
+    "HideNotAvailibleInUI": false,
+    "Groups": [
+      "AzataSuperpowerAbilities"
+    ],
+    "Ranks": 1,
+    "ReapplyOnLevelUp": false,
+    "IsClassFeature": true,
+    "IsPrerequisiteFor": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

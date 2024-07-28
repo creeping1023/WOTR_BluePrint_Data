@@ -1,0 +1,251 @@
+{
+  "AssetId": "4337a2c7b05d48b6beb35b1ec651fb02",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "51c1c76edb91c1143804b582f1f281fe, DisableMountRiding",
+        "m_Flags": 0,
+        "name": "$DisableMountRiding$e2d5bc19-e490-4e2f-bb35-a603fa66e034",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": []
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$c84cf9b1-ab89-4b29-9db5-daf12ea00d9a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$93afac37-8f1d-4e71-9b22-f316a54997f0",
+              "Comment": "Rift is repaired",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e95ff6d2-6869-42a6-b0ed-1b348d3b0e3e",
+                    "Not": false,
+                    "m_Etude": "!bp_3fdcad8348254e08ad94e9a5742d1da2",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$5f81af20-0edc-49b4-9abd-51fe80fe5f3b",
+                    "Not": false,
+                    "m_Etude": "!bp_37d1ec3fbfed4c7283e2ac24d73789fd",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  },
+                  {
+                    "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                    "name": "$OrAndLogic$60e12237-3ee3-421e-a700-2614b98799cc",
+                    "Not": false,
+                    "Comment": "Objective status",
+                    "ConditionsChecker": {
+                      "Operation": "Or",
+                      "Conditions": [
+                        {
+                          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                          "name": "$ObjectiveStatus$cd2c9c3e-af79-4ff0-80b2-938291ee1942",
+                          "Not": false,
+                          "m_QuestObjective": "!bp_2bd3525403b64ddbbf5e2d425f5bc282",
+                          "State": "Started"
+                        },
+                        {
+                          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                          "name": "$ObjectiveStatus$2d6ceeaa-36cb-4d89-ace4-b6e69eb334f0",
+                          "Not": false,
+                          "m_QuestObjective": "!bp_2bd3525403b64ddbbf5e2d425f5bc282",
+                          "State": "Completed"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$b3bb0045-031c-4607-a8a2-4290d2a531c9",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$bd6b583a-49b7-418c-9404-b419184c078d",
+                      "MapObject": {
+                        "EntityNameInEditor": "ClosedRift",
+                        "_entity_id": "de500569-544b-482d-814e-7f0758ba2341",
+                        "SceneAssetGuid": "03ff1715e0d1f274ca8e47679a779cc6"
+                      }
+                    },
+                    "Unhide": true,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$009d9c8e-e769-40b6-81f5-d05c53edf7be",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$9f21778d-0975-43a2-b0e3-8c0c69e7301e",
+                      "MapObject": {
+                        "EntityNameInEditor": "MemorialToVictims",
+                        "_entity_id": "d3b11993-ab93-409e-8f65-ec3332511194",
+                        "SceneAssetGuid": "03ff1715e0d1f274ca8e47679a779cc6"
+                      }
+                    },
+                    "Unhide": true,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$e1f87e1d-09b6-4e28-9dd2-fd3886880581",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$1d8ff161-de74-41aa-8426-3cc0584fb0ff",
+                      "MapObject": {
+                        "EntityNameInEditor": "RiftReminder",
+                        "_entity_id": "372dec19-322d-47cf-9ca8-db102e415b26",
+                        "SceneAssetGuid": "03ff1715e0d1f274ca8e47679a779cc6"
+                      }
+                    },
+                    "Unhide": true,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$8bbd1af6-9e27-4c88-bfaa-e83ceffff9b1",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$888dc2bf-6f68-4560-b3dc-07c320ad29a4",
+                      "MapObject": {
+                        "EntityNameInEditor": "RiftNavmeshCuts",
+                        "_entity_id": "a3b386e8-9dcc-4113-9299-e6160b1a74a2",
+                        "SceneAssetGuid": "03ff1715e0d1f274ca8e47679a779cc6"
+                      }
+                    },
+                    "Unhide": false,
+                    "UseEntityFader": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$fa9e3a8b-3cb9-4e4e-bb99-3b938be0698a",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$04c58075-5075-44a3-a1c4-915dd807c606",
+                      "MapObject": {
+                        "EntityNameInEditor": "ClosedRift",
+                        "_entity_id": "de500569-544b-482d-814e-7f0758ba2341",
+                        "SceneAssetGuid": "03ff1715e0d1f274ca8e47679a779cc6"
+                      }
+                    },
+                    "Unhide": false,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$8aa184a3-2387-400b-a4f7-f29635d563ef",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$34a5aeed-d22b-4770-bb1b-49634ea805df",
+                      "MapObject": {
+                        "EntityNameInEditor": "MemorialToVictims",
+                        "_entity_id": "d3b11993-ab93-409e-8f65-ec3332511194",
+                        "SceneAssetGuid": "03ff1715e0d1f274ca8e47679a779cc6"
+                      }
+                    },
+                    "Unhide": false,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$bfbca54a-d733-4a1f-a385-d0e3040974ef",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$93a40cc3-8403-4e2d-b9c9-508c5cfb0f4d",
+                      "MapObject": {
+                        "EntityNameInEditor": "RiftReminder",
+                        "_entity_id": "372dec19-322d-47cf-9ca8-db102e415b26",
+                        "SceneAssetGuid": "03ff1715e0d1f274ca8e47679a779cc6"
+                      }
+                    },
+                    "Unhide": false,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$42a8365b-98ff-485b-b532-2012073d3566",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$9030c075-cc5a-4571-9ed2-3707c29561b9",
+                      "MapObject": {
+                        "EntityNameInEditor": "RiftNavmeshCuts",
+                        "_entity_id": "a3b386e8-9dcc-4113-9299-e6160b1a74a2",
+                        "SceneAssetGuid": "03ff1715e0d1f274ca8e47679a779cc6"
+                      }
+                    },
+                    "Unhide": true,
+                    "UseEntityFader": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      }
+    ],
+    "Comment": "Дефолт этюд Кенабрес Ребилдед",
+    "m_Parent": "!bp_1a091ecf62337f84bab795aefafcb38d",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_18b0d671b79db0e488f5b68da0145d72",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

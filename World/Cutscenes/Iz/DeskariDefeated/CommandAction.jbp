@@ -1,0 +1,122 @@
+{
+  "AssetId": "5d0de4fd6d752294e932745a29b0a4d9",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$c9a994be-591c-4102-981c-d2f666026775",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$1550ba9f-0659-4efd-829e-c0efa6bd5a03",
+            "Spawner": {
+              "EntityNameInEditor": "Deskari",
+              "_entity_id": "bc806174-7615-4ca5-a10d-f7686b446d6a",
+              "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$fbe8dab1-a133-4847-8455-8cef5bd558cd",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "DeskariDefeated",
+              "_entity_id": "1c5caefb-8b7e-4834-8af6-b93bf64d0d0f",
+              "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$a5bbb22a-26d0-4500-bf55-d1a825723b56",
+          "m_exitPositon": "!bp_fc79fa8da27f4ceb97f0756f35481862",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "64da7ddec4b0d684fb685bc810669a23, CreaturesAround",
+          "name": "$CreaturesAround$09295279-9f9e-4754-9d1d-bdc72e54f90f",
+          "Radius": {
+            "$type": "f21f7bc3861096d45b4081cd1c1a55c3, IntToFloat",
+            "name": "$IntToFloat$25e3ab46-5fb4-4fdb-bfa7-51249425e5ae",
+            "Value": {
+              "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+              "name": "$IntConstant$4acb9918-4c43-4c5f-b77d-b0f60836c4a0",
+              "Value": 50
+            }
+          },
+          "Center": {
+            "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+            "name": "$UnitPosition$90380ffa-a762-4b2f-8d29-3650eac7ccac",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$91862514-d6b3-43ff-90b1-f47380d93f27"
+            }
+          },
+          "CheckLos": false,
+          "IncludeDead": false,
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a7c689d2-8b73-4bc0-b0e2-a4263c1e7b7d",
+                "Comment": "усмирить всяких аддов",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "9ebbae81b66bb174b9050f3a92549ca3, IsEnemy",
+                      "name": "$IsEnemy$065af9bd-da0d-467d-b468-ac8ab04bb81a",
+                      "Not": false,
+                      "FirstUnit": {
+                        "$type": "7d2406b1361c66a44966831f0f1a203f, CreaturesAroundUnit",
+                        "name": "$CreaturesAroundUnit$6ee87ef2-cd18-4bd4-acf8-4b4cb9a9a35b"
+                      },
+                      "SecondUnit": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$441ac880-b12c-494c-8577-f2e4523acf03"
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$dc2997a6-6d0e-40fc-9a66-3edf16cbff87",
+                      "Target": {
+                        "$type": "7d2406b1361c66a44966831f0f1a203f, CreaturesAroundUnit",
+                        "name": "$CreaturesAroundUnit$449650da-6648-468b-a92a-437670995fbd"
+                      },
+                      "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

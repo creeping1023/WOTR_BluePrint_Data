@@ -1,0 +1,317 @@
+{
+  "AssetId": "76c88c9c00369e5419d8b0c70b67eef6",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeBracketTriggerAction$7bcc23b7-d147-455f-a72b-511c1a1b0c4f"
+    ],
+    "Components": [
+      {
+        "$type": "fae54e860aa242b6995ca39ee03ad184, EtudeBracketTriggerAction",
+        "name": "$EtudeBracketTriggerAction$7bcc23b7-d147-455f-a72b-511c1a1b0c4f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "OnActivated": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$6721f526-50b2-4fdd-8d9a-4e1ff99ebf0f",
+              "m_SummonPool": "!bp_e9aecdbcc4cabc248b62cbdeea2a4091",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$9ab40fbc-1a47-434e-9555-96d9f112dc6a",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$79961183-d0ee-48a6-9f5f-aa19ede3ce88"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+              "name": "$SpawnBySummonPool$a9c385dc-c45f-4cb8-bfe5-92a8d56cc72f",
+              "m_Pool": "!bp_dd253e055ec05da4a9fdbd510490c2bc",
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$eb9b22f3-d69b-41ed-9095-ffd54b34a9d1",
+              "m_SummonPool": "!bp_dd253e055ec05da4a9fdbd510490c2bc",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$e0c7f89d-cafd-42bb-af1a-044b590403fc",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$16e0c368-3b97-4b6e-b875-f4d351d2416d"
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4b42da40-44f2-4a54-90aa-3a66a65a6e9e",
+              "Comment": "Wendu с нами",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$b59df64b-80b3-42c1-bf62-0f0c11c97322",
+                    "Not": false,
+                    "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": true,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$4f6ab038-f18b-45d3-896c-260cd6ec8e79",
+                    "Unit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$70a9948e-a36e-481e-a66b-e011ac698f48",
+                      "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "WenduagDrillLocator",
+                      "_entity_id": "fb05228b-16c3-464c-8c16-acf7dcfd4db3",
+                      "SceneAssetGuid": "e15e1408bfb5153488bbd767ab532399"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": null
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "OnDeactivated": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$cb72c23b-21b2-4215-b91b-85f122b635e5",
+              "Comment": "не было боя",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$a7039113-2b84-407a-b495-dd27a5676d2a",
+                    "Not": false,
+                    "m_Etude": "!bp_823c79da2dec54044aa2e5bf94aa42e7",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$fbd3b266-ec86-4d14-8a8f-f3daeb3506c4",
+                    "m_SummonPool": "!bp_e9aecdbcc4cabc248b62cbdeea2a4091",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$e9b29fb4-77d3-47ca-9f4a-f2af2172ac3d",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$15cedf6b-2a10-42da-9a05-67bc4899324e"
+                          },
+                          "Unhide": true,
+                          "Fade": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$c8ec13b5-dcf3-4493-9036-b6d5b1cac5ff",
+                    "m_SummonPool": "!bp_dd253e055ec05da4a9fdbd510490c2bc",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$7a5ef341-616c-4417-a7b3-a8503dfd05c6",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$d2164e04-49c6-4db3-a6f6-95ab570dc0a2"
+                          },
+                          "Unhide": false,
+                          "Fade": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$363d91a9-6c44-40ed-bbf8-427fe9373941",
+                    "Comment": "Wendu с нами",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                          "name": "$CompanionInParty$bdf91333-4dab-41f9-804f-47db2e280a3b",
+                          "Not": false,
+                          "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                          "MatchWhenActive": true,
+                          "MatchWhenDetached": true,
+                          "MatchWhenRemote": true,
+                          "MatchWhenDead": false,
+                          "MatchWhenEx": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                          "name": "$TranslocateUnit$03a1f05b-825b-46bc-9640-87467028dd06",
+                          "Unit": {
+                            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                            "name": "$CompanionInParty$52cf9c0a-d476-43c7-81b0-417cb7e39981",
+                            "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                            "IncludeRemote": true,
+                            "IncludeExCompanions": false,
+                            "IncludeDettached": true
+                          },
+                          "translocatePosition": {
+                            "EntityNameInEditor": "WenduagDefaultPositionLocator",
+                            "_entity_id": "163a9709-f2ab-45c1-8696-e5dc03315f17",
+                            "SceneAssetGuid": "e15e1408bfb5153488bbd767ab532399"
+                          },
+                          "translocatePositionEvaluator": null,
+                          "m_CopyRotation": true,
+                          "translocateOrientationEvaluator": null
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$45e2be0a-31b0-43fe-a4d1-ba733bc56ee7",
+                    "m_SummonPool": "!bp_fd344bef79a2f36418c0153e7f2d938a",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$580afc32-8514-470b-80e7-d0faa1015936",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$257ce9fb-3883-4322-958e-e5e9c8313d97"
+                          },
+                          "Unhide": true,
+                          "Fade": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_53424650e26c2d145b15411edf31b089",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+          "name": "$DayTime$9665d0a9-efc8-4379-bcd6-0ef480c0b9de",
+          "Not": false,
+          "Time": "Night"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$ec252fba-813c-4909-b44f-98bbbe667f24",
+          "Not": false,
+          "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

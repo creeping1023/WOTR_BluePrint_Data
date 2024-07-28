@@ -1,0 +1,134 @@
+{
+  "AssetId": "d6e03117adb84d540b05b396c066cb25",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "ЕСЛИ ПОДНЯТ ФЛАГ PATRONAGE - НЕ ВЫПОЛНЯЕМ ACTIONS",
+    "ParentAsset": "1f535e2a49433a44689054e09c699cbf",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$cf3d7f17-f784-41e2-969c-8a1bdbfc0515",
+          "Not": true,
+          "m_Quest": "!bp_d83999279374c9946af9edd7d932cce0",
+          "State": "Completed"
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "7a29d1729a7e34b49ade62b8f5468e5f",
+        "stringkey": "a0dc6701-7c5c-44d8-9677-08afc212c45b"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$608ef7c8-0570-4aaa-80a1-79b7c7caed37",
+          "Comment": "Not Patronage started",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$13503d0c-513d-49c0-b7fc-30efc5fd7ec9",
+                "Not": true,
+                "m_Etude": "!bp_4d9c60b612e5c264283213c6d521a405",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$d67849b1-3bac-48bd-a234-af945b81ab08",
+                "Comment": "Если обж2 еще не стартован, стартуем его тут",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$7d28189f-55c8-4dbf-903a-8f28ad37f8e2",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_cbd3a4c5dda49fb4c9de6df4c5d27579",
+                      "State": "None"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$8763f8ca-1adf-4563-bbe6-576ad414d1e5",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_46be6adb81348ee4aac6f627d62a20d9",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$bceb5a10-c35d-4c08-ae07-c26df451e491",
+                      "m_Objective": "!bp_cbd3a4c5dda49fb4c9de6df4c5d27579"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "AssetId": "80aede39a4e349569caa023594cb998f",
+  "Data": {
+    "$type": "da11db195c86e0d4dae17a2c03a4ba9a, BlueprintAbility",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$AbilitySpawnFx$5984ab32-498e-412e-b681-f63149d25bc9",
+      "$SpellComponent$490eaa0f-844b-4c49-a8b7-6eb8b42ab28d",
+      "$SpellDescriptorComponent$14578181-af9b-4b1f-a304-7975df3deb3e"
+    ],
+    "Components": [
+      {
+        "$type": "c788cf748ec86bc45b986ac4de28cf45, AbilitySpawnFx",
+        "m_Flags": 0,
+        "name": "$AbilitySpawnFx$5984ab32-498e-412e-b681-f63149d25bc9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "PrefabLink": {
+          "AssetId": "d80d51c0a08f35140b10dd1526e540c4"
+        },
+        "Time": "OnApplyEffect",
+        "Anchor": "Caster",
+        "WeaponTarget": "None",
+        "DestroyOnCast": false,
+        "Delay": 0.0,
+        "PositionAnchor": "None",
+        "OrientationAnchor": "None",
+        "OrientationMode": "Copy"
+      },
+      {
+        "$type": "bbf7e743804d40a47bde0b27174f33a9, SpellComponent",
+        "m_Flags": 0,
+        "name": "$SpellComponent$490eaa0f-844b-4c49-a8b7-6eb8b42ab28d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "School": "Evocation"
+      },
+      {
+        "$type": "91216784d99a12e428bf782c8a8c7f5c, SpellDescriptorComponent",
+        "m_Flags": 0,
+        "name": "$SpellDescriptorComponent$14578181-af9b-4b1f-a304-7975df3deb3e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": {
+          "m_IntValue": 144115188075856896
+        }
+      },
+      {
+        "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
+        "m_Flags": 0,
+        "name": "$AbilityEffectRunAction$cd4b967c-50dc-4a44-a4d1-2f5c87c48b94",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "SavingThrowType": "Unknown",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f244ab18-7719-4e87-b91c-cb1fc5ff3004",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "b0c4370c781db0142b035f14ca13a6a5, ContextConditionIsEnemy",
+                    "name": "$ContextConditionIsEnemy$0529be47-cd46-4946-93e3-45822b423ccd",
+                    "Not": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "c41659e961b362647a00c3b32642d2c4, ContextActionTacticalCombatDealDamage",
+                    "name": "$ContextActionTacticalCombatDealDamage$3934a463-818a-4cfa-97e5-c059b3a4ab83",
+                    "DamageType": {
+                      "Type": "Energy",
+                      "Common": {
+                        "Reality": 0,
+                        "Alignment": 0,
+                        "Precision": false
+                      },
+                      "Physical": {
+                        "Material": 0,
+                        "Form": "Slashing",
+                        "Enhancement": 0,
+                        "EnhancementTotal": 0
+                      },
+                      "Energy": "Magic"
+                    },
+                    "RollsCount": {
+                      "ValueType": "Simple",
+                      "Value": 1,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null
+                    },
+                    "DiceType": "D6",
+                    "Half": false,
+                    "IgnoreCritical": false,
+                    "UseMinHPAfterDamage": false,
+                    "MinHPAfterDamage": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "11e6d0e147563004b9f0dbae15b3edd8, ContextActionTacticalCombatHealTarget",
+                    "name": "$ContextActionTacticalCombatHealTarget$fb065acb-e281-4789-9cab-e62750b0cc74",
+                    "RollsCount": {
+                      "ValueType": "Simple",
+                      "Value": 1,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null
+                    },
+                    "DiceType": "D6"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "6f247f59806e6c5499b6727200a46da3, AbilityTargetsAroundOnGrid",
+        "m_Flags": 0,
+        "name": "$AbilityTargetsAroundOnGrid$4bb32af9-7349-43ba-a076-8dd98942540d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_DiameterInCells": 3,
+        "m_TargetType": "Any",
+        "m_IncludeDead": false,
+        "m_Condition": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "m_SpreadSpeed": {
+          "m_Value": 0.0
+        }
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "cdea516386c3da748ad0d702f19522e1",
+        "stringkey": "42fe16d7-667b-45c8-89a0-79455122b4a3"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "108b006ed05d36c47be5ddf082551f2d",
+        "stringkey": "5e1502d1-d10e-4dcc-b241-53bf3e427bef"
+      }
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "f6cfa18c51311ed47ad3a25011823a92",
+      "fileid": 21300000
+    },
+    "m_DefaultAiAction": null,
+    "Type": "SpellLike",
+    "Range": "Personal",
+    "CustomRange": {
+      "m_Value": 0.0
+    },
+    "ShowNameForVariant": false,
+    "OnlyForAllyCaster": false,
+    "CanTargetPoint": false,
+    "CanTargetEnemies": false,
+    "CanTargetFriends": false,
+    "CanTargetSelf": true,
+    "SpellResistance": false,
+    "ActionBarAutoFillIgnored": false,
+    "Hidden": false,
+    "NeedEquipWeapons": false,
+    "NotOffensive": false,
+    "EffectOnAlly": "None",
+    "EffectOnEnemy": "None",
+    "m_Parent": null,
+    "Animation": "Omni",
+    "HasFastAnimation": false,
+    "AnimationStyle": "CastActionOmni",
+    "m_TargetMapObjects": false,
+    "ActionType": "Standard",
+    "AvailableMetamagic": 0,
+    "m_IsFullRoundAction": false,
+    "LocalizedDuration": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "LocalizedSavingThrow": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "MaterialComponent": {
+      "m_Item": null,
+      "Count": 1
+    },
+    "DisableLog": false,
+    "ResourceAssetIds": []
+  },
+  "Meta": {
+    "ShadowDeleted": true
+  }
+}

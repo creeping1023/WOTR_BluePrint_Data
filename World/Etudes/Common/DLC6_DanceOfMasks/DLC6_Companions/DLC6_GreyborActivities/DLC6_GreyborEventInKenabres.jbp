@@ -1,0 +1,175 @@
+{
+  "AssetId": "2b8f133de2144cf4bbdb99279c2b56e3",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$698549e6-9ce4-4241-8f7c-028f7b31d9c2",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$a56c4c85-d1bc-478f-8c3d-b515572ff3d6",
+              "m_Objective": "!bp_0d7596f445db46bbbce1150d44400b0b"
+            },
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$29155ef8-6f35-4888-80f8-c4e0147385b2",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "GreyborHidingCosplayer_1",
+                  "_entity_id": "f068bb9d-3038-462c-9931-0536681d86ae",
+                  "SceneAssetGuid": "60eca8e65de84cc438ec15df7a4cd9f7"
+                },
+                {
+                  "EntityNameInEditor": "GreyborHidingCosplayer_2",
+                  "_entity_id": "cadad209-be2a-4683-859d-b48729438936",
+                  "SceneAssetGuid": "60eca8e65de84cc438ec15df7a4cd9f7"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              },
+              "RespawnIfDead": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$5a2e7492-2a7a-4623-a66e-2ceb03ac33ba",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$38a00fde-a906-4865-b4d6-5bddbb0d1f08",
+              "m_Flag": "!bp_1ca6ec2ca8b74441a3f51eab0ab04203",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$472a717f-c116-4088-bb2d-e59cedd941e1",
+                "Value": -1
+              },
+              "UnlockIfNot": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$61cbe6fb-4c36-45bb-be25-d8f69b37ed7b",
+              "Etude": "!bp_89fe48108bcd4aa9ba6f86daaff67d62",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$cb322285-115c-49eb-b52e-fc1ddd5ec8db",
+              "Comment": "Fake commander is on scene",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b9d7f5af-b2c6-4c21-a62e-7ef9c54cffac",
+                    "Not": false,
+                    "m_Etude": "!bp_bf937759d21d4e2d93924ec03342d334",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$a39e44fb-0eca-4803-86ab-092b1904432b",
+                    "m_flag": "!bp_4ca4a775c06e46f5918ad6116d0de3be",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_aa846cb6f86440da8ce2e2c0ce6055ff",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$07b7cdf2-5e29-4f4f-b35f-215adaad6029",
+          "Not": true,
+          "m_Etude": "!bp_89fe48108bcd4aa9ba6f86daaff67d62",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "d00239901a4bf03408fc8b12116b4d67, CompanionIsDead",
+          "name": "$CompanionIsDead$0b5dd702-83a0-4dff-960d-41d334f949d1",
+          "Not": true,
+          "m_companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+          "anyCompanion": false,
+          "includeRemote": true
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$a0957baf-5f9a-48bd-8745-286a74817521",
+          "Not": false,
+          "m_Quest": "!bp_bee846a37e6b5c948b93b2feb1e27374",
+          "State": "Completed"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

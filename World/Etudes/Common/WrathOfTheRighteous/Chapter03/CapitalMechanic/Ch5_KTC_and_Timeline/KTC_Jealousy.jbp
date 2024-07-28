@@ -1,0 +1,204 @@
+{
+  "AssetId": "4799a25da39295b43a6eefcd2cb2b4a7",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$70d0258f-db8b-492f-8c95-449b8596d952"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$70d0258f-db8b-492f-8c95-449b8596d952",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "старый триггер",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": []
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$f580ece3-b2c0-4983-9427-0f206c666360",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+              "name": "$RunActionHolder$1b9e3629-a797-42c3-b8e4-b334325cb386",
+              "Comment": "мертвецы/EX",
+              "Holder": "!bp_f1d5126b188f47eea5f28763f27a45ca",
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+              "name": "$RunActionHolder$870658ea-1a0e-4a3f-a961-a6d2e9ba5910",
+              "Comment": "recount",
+              "Holder": "!bp_2660cbace62d42f38d543c822dbb660f",
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "5afa2802918b3874bb6e0d611d6489cd, UpdateEtudes",
+              "name": "$UpdateEtudes$3efab461-499c-44b7-9ea3-af54b3002049"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a7411de3-0790-4789-bde6-b1b96bd61a10",
+              "Comment": "романсов все ещё 2+",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                    "name": "$FlagInRange$be8cc9c2-8a27-403f-8ea6-b6cd731d5d54",
+                    "Not": false,
+                    "m_Flag": "!bp_5db9ec615236f044083a5c6bd3292432",
+                    "MinValue": 2,
+                    "MaxValue": 100
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$7eb84934-a388-4f43-b3da-24a9af8f5e6a",
+                    "m_Cutscene": "!bp_c72670de688ed91478c673b9e451a84e",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$01462917-95cd-4d77-8b6f-a7e1d7e14e21",
+                    "Etude": "!bp_4799a25da39295b43a6eefcd2cb2b4a7",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$0fea593b-7b94-493e-8fdb-d4001aa51548",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "лочим флаг",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+              "name": "$LockFlag$d3212f6c-de29-4f14-b9cd-64f99c566fe9",
+              "m_Flag": "!bp_5db9ec615236f044083a5c6bd3292432"
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "\"Эвент стартует сразу после саммита, при этом игрок не может выйти из Дрезена, не увидев этого эвента\"",
+    "m_Parent": "!bp_faf70d5071e52d145bfb686244200452",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$ff4f2e59-b991-4ccf-a667-dca1a9a3e82f",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$cd14d431-cd7e-4658-87ae-ecb26b6673cb",
+          "Not": false,
+          "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+          "name": "$DialogSeen$3c093b1d-9bfc-4c7d-b590-f77d2470e26d",
+          "Not": false,
+          "m_Dialog": "!bp_6bcb738ad2586b14bb3c82b4eaf5a8fb"
+        },
+        {
+          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+          "name": "$FlagInRange$5756be56-9866-4b3e-a87b-16bf8fee85b4",
+          "Not": false,
+          "m_Flag": "!bp_5db9ec615236f044083a5c6bd3292432",
+          "MinValue": 2,
+          "MaxValue": 100
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_6399271177af93444bc9bf1635ae971d",
+      "!bp_677ef4f4fdd575c4489506b173d942b0",
+      "!bp_da75ca00a6458164fa270d09dfe00586",
+      "!bp_245e6a0643228534d9808d0b99bf9746",
+      "!bp_4669319266af37346aae8314ff61074f",
+      "!bp_cc907c5146d2cfd49afa16c043f6d9b3",
+      "!bp_da2e083111964c99b4ce8087a9aa4d77"
+    ],
+    "Priority": 150
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

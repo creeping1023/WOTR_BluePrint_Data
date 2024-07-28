@@ -1,0 +1,138 @@
+{
+  "AssetId": "a3d41e37a42dbaf45b4fe1f6619f2dc9",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "После этого диалога Арилу всегда утелепортирывается, и дреч вместе с ней, если он тут есть. Иногда Арилу и дреч могут сделать это и внутри диалога - следите за фиолетовым текстом",
+    "FirstCue": {
+      "Cues": [
+        "!bp_e7aeebbcb6d08ac46bdb731fbd601348",
+        "!bp_e9a8471fdce2791498242f2ce0f6ecb3"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$77fdd268-8b4a-4677-a342-f11fce60c950",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$b5536e28-6f6b-43ed-8014-866e2c18ffc8",
+            "MapObject": {
+              "EntityNameInEditor": "NoctaThrone",
+              "_entity_id": "5999ee82-5417-4ba8-a836-bb4abbefaeda",
+              "SceneAssetGuid": "c78f4876f6a3c1b4d917039e445c5720"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$3fad75b3-87bb-4b51-a694-aae13575915f",
+          "MusicEventStart": "MUS_NocticulaTheme_Play",
+          "MusicEventStop": "MUS_NocticulaTheme_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$26d46c53-2caa-44b2-8ab9-3136d6ba7ac4",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fec65617-1e82-42e3-8a80-12d1ce071074",
+                "Not": true,
+                "m_Etude": "!bp_4734acaddfab5584da61857b65a27df4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$60e7552c-e1ee-4050-b214-d661c649edae",
+                "m_Cutscene": "!bp_58e64a9e7eea83148b150e4eee68a4bc",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$146431e6-a6c3-42b0-baae-f8e2535fab66",
+                        "Spawner": {
+                          "EntityNameInEditor": "Areelu",
+                          "_entity_id": "1991c5ea-f4e7-43f6-9ba5-5c4e63247047",
+                          "SceneAssetGuid": "c78f4876f6a3c1b4d917039e445c5720"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$f2384cd1-de37-4bad-a54e-3852340ed42e",
+                "m_Cutscene": "!bp_58e64a9e7eea83148b150e4eee68a4bc",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$322726f0-e8c0-46cb-bc6d-d04cb7e6a09b",
+                        "Spawner": {
+                          "EntityNameInEditor": "Stitch",
+                          "_entity_id": "361ddf36-ab86-4d5b-abbc-e752c70de4ac",
+                          "SceneAssetGuid": "c78f4876f6a3c1b4d917039e445c5720"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$4250fa5e-3e9a-4f34-b77b-52d18d5d99d2"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

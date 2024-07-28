@@ -1,0 +1,479 @@
+{
+  "AssetId": "9799d6b0bd04499f8eb835deed16b884",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "1862eb457738a6a4d908e20172213f3a, CapitalCompanionLogic",
+        "m_Flags": 0,
+        "name": "$CapitalCompanionLogic$a6db3897-ba04-4db5-86bb-ecb96e4da1ce",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_RestAllRemoteCompanions": false
+      },
+      {
+        "$type": "8b25726bac4999347b6946ed9ade440e, EtudePeacefulZone",
+        "m_Flags": 0,
+        "name": "$EtudePeacefulZone$88a1cbea-3ec0-430b-9aed-587648eee519",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "7d9dc37dd50d49e1bfe8001119168464, EtudeIgnorePartyEncumbrance",
+        "m_Flags": 0,
+        "name": "$EtudeIgnorePartyEncumbrance$4237fa80-8e68-45b3-9a9e-1f4b87f71d69",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "f905ab8b4c014637b79eae5da34c6fd5, EtudeIgnorePersonalEncumbrance",
+        "m_Flags": 0,
+        "name": "$EtudeIgnorePersonalEncumbrance$cfa15c5b-7112-4235-ace4-c9369ed5b0b7",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "51c1c76edb91c1143804b582f1f281fe, DisableMountRiding",
+        "m_Flags": 0,
+        "name": "$DisableMountRiding$30ccc425-b222-4973-86f9-8c3f5285b836",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": []
+      },
+      {
+        "$type": "e3b4c546b1062534fae2e54b72364be9, EtudeCorruptionFreeZone",
+        "m_Flags": 0,
+        "name": "$EtudeCorruptionFreeZone$505b62a8-79cf-4860-a557-65caba6a1e15",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_ClearAllCorruption": true
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$3373ac4d-d88a-44d0-b1aa-fca9cf3f09cc",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Локация ревилится, Выдаётся стартовый квест. Анлок флага для ивента с призраками",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$9d3289dc-fa0a-4908-bf41-cf40dfbda5d3",
+              "m_Cutscene": "!bp_45efc50c85ee4e6aa74957170d01526f",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$93b1b985-f811-4fa9-a393-1c801483781b",
+              "m_Objective": "!bp_0eceefc0e23749718e8f0e4409ab5737"
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$cb8373f2-a51d-4cb6-a43c-37f33854029e",
+              "Status": "Complete",
+              "m_Objective": "!bp_2bd3525403b64ddbbf5e2d425f5bc282",
+              "StartObjectiveIfNone": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$05031c25-ac93-417d-8285-3dca6868eb1f",
+              "Comment": "Проверка мертвяки с нами ли, если нет, то там стоят нпс",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$a8ffd8a9-8400-4df5-bc43-95fd5922d834",
+                    "Not": true,
+                    "m_companion": "!bp_6b1f599497f5cfa42853d095bda6dafd",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  },
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$c21cc942-e92d-4a36-af0b-ff3d3ceee161",
+                    "Not": true,
+                    "m_companion": "!bp_d58b81fd7ec14784fa05bc29fb6c7ae0",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  },
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$06a6fe35-226f-4608-9099-1643810f857f",
+                    "Not": true,
+                    "m_companion": "!bp_7ece3afabe2b6f343b17d1eaa409d273",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  },
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$100a23ad-97cd-49fe-a20b-1603abc119f1",
+                    "Not": true,
+                    "m_companion": "!bp_e551850403d61eb48bb2de010d12c894",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$193ff36a-3cde-4ddd-8ad2-ac24b4e204dc",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Citizen_male (63)",
+                        "_entity_id": "383e514c-2bc0-41e1-9200-e6b02a475c9d",
+                        "SceneAssetGuid": "098b59680644cc447aebe20eea4bafec"
+                      },
+                      {
+                        "EntityNameInEditor": "Citizen_male (64)",
+                        "_entity_id": "c4ad098c-c824-4dcf-963f-f99201642082",
+                        "SceneAssetGuid": "098b59680644cc447aebe20eea4bafec"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    },
+                    "RespawnIfDead": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$54124867-393c-464f-b346-85c2b48420de",
+              "m_Cutscene": "!bp_78c5f287c90a4e859ac0548f21f090bc",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3baebdbb-7bc5-410a-a395-f5cfcf7f7ac5",
+              "Comment": "Злая Аруша присутсвует на локе, активируется скриптзона",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b885bf7b-604e-44ab-aef9-f59a1bda4b94",
+                    "Not": false,
+                    "m_Etude": "!bp_b3560e3a07ff4e9797c2526f2c814294",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+                    "name": "$ScriptZoneActivate$23ef6011-bb2f-42e0-a75c-58272429abc9",
+                    "UseEvaluator": false,
+                    "ScriptZone": {
+                      "EntityNameInEditor": "BarksEvilArueshalae",
+                      "_entity_id": "07cf4c1c-34e2-42df-8ece-1bf5b1036516",
+                      "SceneAssetGuid": "098b59680644cc447aebe20eea4bafec"
+                    },
+                    "ScriptZoneEvaluator": null
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$76433182-2096-40a3-adf7-e10691632f02",
+              "Comment": "Баффы если игрок Аеон",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$572c2baf-4029-4591-9278-000f8084ce85",
+                    "Not": false,
+                    "m_Etude": "!bp_692336cb88c04693b121773762f92089",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$4c3f1be0-cb85-4451-b7cb-44c03570ed3f",
+                    "m_Buff": "!bp_cf2f65c16e02826428f32be045f8523d",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$c0b7b364-e705-441a-b04f-b50ac272a627",
+                      "Spawner": {
+                        "EntityNameInEditor": "Old_woman",
+                        "_entity_id": "fd1704aa-f794-4303-9faa-0d60a1cff7c7",
+                        "SceneAssetGuid": "098b59680644cc447aebe20eea4bafec"
+                      }
+                    },
+                    "Duration": null,
+                    "BattleLog": false,
+                    "HasCustomBattleLogMessage": false,
+                    "CustomBattleLogMessage": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$815f391e-293f-43c6-8646-e877827b7861",
+                    "m_Buff": "!bp_cf2f65c16e02826428f32be045f8523d",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$5346c89b-5280-47be-9265-f413c8d565db",
+                      "Spawner": {
+                        "EntityNameInEditor": "Cat",
+                        "_entity_id": "d0eb592e-6de7-4477-83f9-02b95360299e",
+                        "SceneAssetGuid": "098b59680644cc447aebe20eea4bafec"
+                      }
+                    },
+                    "Duration": null,
+                    "BattleLog": false,
+                    "HasCustomBattleLogMessage": false,
+                    "CustomBattleLogMessage": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$a401163a-02d9-4298-8e75-9ffafc7cda80",
+                    "m_Buff": "!bp_cf2f65c16e02826428f32be045f8523d",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$14b6d1de-015b-4715-bdf4-56b988cd52da",
+                      "Spawner": {
+                        "EntityNameInEditor": "Guard (3)",
+                        "_entity_id": "f325d8a3-bf88-42eb-b8cb-97e3c6ce2094",
+                        "SceneAssetGuid": "098b59680644cc447aebe20eea4bafec"
+                      }
+                    },
+                    "Duration": null,
+                    "BattleLog": false,
+                    "HasCustomBattleLogMessage": false,
+                    "CustomBattleLogMessage": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$13708c9e-2ad9-4827-a970-8e337981bf68",
+              "m_Cutscene": "!bp_2e0c26f481e34365ab88b7ab66079f32",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Move",
+                    "Type": "Position",
+                    "Evaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$20bc59d2-8601-4dd7-80fa-321092458c6c",
+                      "Locator": {
+                        "EntityNameInEditor": "PlayerStart (1)",
+                        "_entity_id": "60177bcc-dc3c-4ab8-9bcb-1d3790d4bf09",
+                        "SceneAssetGuid": "4ece0b4e6668f854a828eef07863225d"
+                      },
+                      "Offset": "0|0|0"
+                    }
+                  },
+                  {
+                    "Name": "Rotate",
+                    "Type": "Float",
+                    "Evaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$278b644f-173f-479d-a256-55fa0778f7d3",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "PlayerStart (1)",
+                        "_entity_id": "60177bcc-dc3c-4ab8-9bcb-1d3790d4bf09",
+                        "SceneAssetGuid": "4ece0b4e6668f854a828eef07863225d"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$d2ea6e9f-c888-4f3b-b5b7-dfc3150d8edf",
+              "m_flag": "!bp_4e84fee3f6ed4d259a89f5a2a01a0271",
+              "flagValue": 0
+            },
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$85c930ad-374d-4795-8b90-85a0362d48e4",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$26e49540-63db-4f93-96b2-96042d52e2ca",
+                    "m_Buff": "!bp_d29a752469e941a19727e7e3090314c2",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$b2c13ee3-861d-461d-8f63-235db0606621"
+                    },
+                    "Duration": null,
+                    "BattleLog": false,
+                    "HasCustomBattleLogMessage": false,
+                    "CustomBattleLogMessage": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "16b3c6e1a243b7a4fb57b056ddf4f99d, HideAllPets",
+        "m_Flags": 0,
+        "name": "$HideAllPets$795a7b6f-fea6-4483-9d28-ffdbc1a21f65",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "LeaveAzataDragon": true,
+        "HideOnRemoteAndEx": true,
+        "LeavePetOfMainCharacter": false
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_a257fbb936b54ae894fcd02e2325c20f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$47db78d9-855d-47e1-97d2-0b4ce065cf62",
+          "Not": true,
+          "m_Etude": "!bp_439e63fed37f52048887d98f99255e40",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_223a642a2f5e43a8a7bcc90ca894ce84",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_a52d83edb4c54088a721cf6a43fea16d"
+    ],
+    "m_StartsWith": [
+      "!bp_7a3a3083070b43aea1e7f9be34f2bee4",
+      "!bp_45bee711e6dd476183b0ee0a99fd1028",
+      "!bp_28ae09882a8b458ab1b0f535da34bafc"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

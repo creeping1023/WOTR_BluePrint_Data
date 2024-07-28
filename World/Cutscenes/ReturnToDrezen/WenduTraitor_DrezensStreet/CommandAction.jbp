@@ -1,0 +1,153 @@
+{
+  "AssetId": "c96ee929d04d45dfadf75e8af1509465",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$6bdbbf13-dbd4-432d-9eb7-cd3477d4e32b",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "WenduagCompanionSpawn",
+              "_entity_id": "974504ff-8dec-4a52-96de-8e160b243377",
+              "SceneAssetGuid": "6fb6e4b4f1b4d4542b46744223304df4"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$82bc911d-dfdb-4d58-a145-f5d027e89913",
+                "Comment": "в группе или нет",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$9a89c6de-7454-49c9-b8e4-cf0fcf74e6b7",
+                      "Not": false,
+                      "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                      "MatchWhenActive": false,
+                      "MatchWhenDetached": true,
+                      "MatchWhenRemote": true,
+                      "MatchWhenDead": true,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                      "name": "$Unrecruit$183de245-1330-465a-af84-e26f7ac74c00",
+                      "m_CompanionBlueprint": "!bp_ae766624c03058440a036de90a7f2009",
+                      "OnUnrecruit": {
+                        "Actions": [
+                          {
+                            "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                            "name": "$SwitchFaction$c796cca6-7010-4f98-b800-d821112d6d84",
+                            "Target": {
+                              "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                              "name": "$RecruitedUnit$02b0d625-699c-406b-976f-8e702a00c53d"
+                            },
+                            "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                            "IncludeGroup": false,
+                            "ResetAllRelations": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$be6e2ed1-5485-45d0-ad81-5d0dcd9e00a7",
+                      "Target": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$0d3c46ee-d10a-45b5-867e-41fd18134dd7"
+                      },
+                      "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                      "IncludeGroup": false,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+          "name": "$SpawnByUnitGroup$8a458543-5c76-4fee-b43e-d5ce622ce012",
+          "m_Group": {
+            "EntityNameInEditor": "CentralladderLowerDemons",
+            "_entity_id": "2e84f634-95fa-4149-9854-6bebc73dad3d",
+            "SceneAssetGuid": "73be1866bac863e4d9097254a9096c81"
+          },
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$de144711-f2d6-415a-a6aa-1a7dd9bb7e4b",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c7497504-d1f3-4174-bcd6-f8a8013b6a6e",
+                "Not": false,
+                "m_Etude": "!bp_3353cad8dbbb66f4a8247f8944369db1",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsFromSpawnersInUnitGroup$c125b9f0-d39d-49b5-8b0d-6511b4456b4a",
+                "m_Group": {
+                  "EntityNameInEditor": "CentralladderLowerDemons",
+                  "_entity_id": "2e84f634-95fa-4149-9854-6bebc73dad3d",
+                  "SceneAssetGuid": "73be1866bac863e4d9097254a9096c81"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$dfe8d6f2-2921-4821-88cb-244dd1d71a58",
+                      "m_Buff": "!bp_4e42460798665fd4cb9173ffa7ada323",
+                      "Target": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$8daf5a8f-ed80-4701-9025-1d588f02ce5f"
+                      },
+                      "Duration": null
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "AssetId": "426b5b48d639d4b4fbe0b704036976a1",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Игрок получает Чорный Арбалет\nставим флаг для ТруЭндинга",
+    "ParentAsset": "3fc86f468f590934a90416222d1d70be",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "59e66e41f05bf824f8ca54b1647d70bc",
+        "stringkey": "e99d24e5-c9f1-40a7-a614-dea6afacd000"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_90215a976d13b254ab905d0d6f747deb",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$e2cf64ef-0beb-4de6-a332-1b4284440600",
+          "Etude": "!bp_872600ab8da5d5a44af268870445d1d9",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "2284267c23c69d442a9c3b9e9954283b, HideWeapons",
+          "name": "$HideWeapons$3cd031b6-34f0-41e3-8b6b-ed47f30cd126",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$d1fa00f3-bcdd-46ad-b468-b5cab8dedfae"
+          },
+          "Hide": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e295429b-b933-45bc-8752-792884eb08bd",
+          "Comment": "Не друид",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$7112ff3e-0a5e-4e03-bfdd-0edaae05cb98",
+                "Not": false,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$51b3ed87-53d8-4899-b4df-2f0f83596bf6"
+                },
+                "m_Fact": "!bp_3d96feeabdfb1ff45b63af77b545813f"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$e7dbdd4e-a452-45b2-97d9-fc0efc564f4c",
+                "m_ItemToGive": "!bp_511c97c1ea111444aa186b1a58496664",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": true,
+                "EquipOn": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$1468892e-677d-491a-ae3e-78fa3eaab040"
+                },
+                "PreferredWeaponSet": 1,
+                "ErrorIfDidNotEquip": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6dd7f066-e345-4d64-bb71-c9f5c7fd1112",
+          "Comment": "Друид",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                "name": "$HasFact$95bd7d09-cd63-4fe3-b773-c12838640c76",
+                "Not": true,
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$d8ee82f4-e97e-4312-ae4f-ffdee40368ac"
+                },
+                "m_Fact": "!bp_3d96feeabdfb1ff45b63af77b545813f"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$bec89ff1-efd3-4cb2-9567-6982d4324e38",
+                "m_ItemToGive": "!bp_511c97c1ea111444aa186b1a58496664",
+                "Silent": false,
+                "Quantity": 1,
+                "Identify": false,
+                "Equip": false,
+                "EquipOn": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$05cec735-6bf5-492d-b323-fd67c314d759"
+                },
+                "PreferredWeaponSet": 1,
+                "ErrorIfDidNotEquip": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "d56ec97f49674c92b5d87e101eda2c9e, PlayAnimationOneShot",
+          "name": "$PlayAnimationOneShot$a043dc69-dcf2-4615-a3c5-62a75a04ac67",
+          "m_ClipWrapper": {
+            "guid": "4f4a5e7b102fb4f46bfb036a9791c3e5",
+            "fileid": 11400000
+          },
+          "Unit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$dbc381bb-3dba-4cbc-a435-42c55bb9437d",
+            "Spawner": {
+              "EntityNameInEditor": "Stitch2",
+              "_entity_id": "f9cdacea-659f-42eb-a384-d5b2c597dec5",
+              "SceneAssetGuid": "02141b6ae66c6524094d4876d57ec7e0"
+            }
+          },
+          "TransitionIn": 0.25,
+          "TransitionOut": 0.25
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_e6a6b4f730976634fb74e99fc3102921"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

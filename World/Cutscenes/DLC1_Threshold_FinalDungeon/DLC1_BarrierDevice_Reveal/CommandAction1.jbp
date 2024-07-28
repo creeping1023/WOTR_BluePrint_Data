@@ -1,0 +1,74 @@
+{
+  "AssetId": "bc89ff52cfdd4fb688186b89dd0f0dbc",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+          "name": "$SwitchDoor$30ea6922-b1a6-4e2a-b4dd-46ff23fa8a04",
+          "Door": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$a393c02d-78fb-41d7-882d-9f8bc417675e",
+            "MapObject": {
+              "EntityNameInEditor": "Barrier02",
+              "_entity_id": "b86fb691-cff9-4237-b717-73c4f914cfce",
+              "SceneAssetGuid": "d4e33cb5b0802fa4c9425b56036c8826"
+            }
+          },
+          "UnlockIfLocked": false,
+          "CloseIfAlreadyOpen": true,
+          "OpenIfAlreadyClosed": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e6230180-1c25-47ba-b215-2d1245c76512",
+          "Comment": "open / close 2",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$567dfae9-1d1b-4a7c-bc23-a2512e7a28cf",
+                "Not": true,
+                "m_ConditionFlag": "!bp_0bd6afb6edab4c928cc9ee64cd1c17df",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": [
+                  1
+                ]
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$acc0e226-f5e8-4a0e-895f-4af73c2c4f06",
+                "m_flag": "!bp_0bd6afb6edab4c928cc9ee64cd1c17df",
+                "flagValue": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$522a5ec4-04df-4568-a508-2749aa5e100d",
+                "m_flag": "!bp_0bd6afb6edab4c928cc9ee64cd1c17df",
+                "flagValue": 2
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

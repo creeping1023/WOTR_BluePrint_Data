@@ -1,0 +1,142 @@
+{
+  "AssetId": "d84acf842ca007b4ba13cd9604603751",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Аброгайл\n\n+ отряд чилекских солдат в армию\n\nАброгайл уходит",
+    "ParentAsset": "b307f221d5232ab45b45167600c24e75",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "e391c099871c7f142948eb551c887374",
+        "stringkey": "a45aec5d-f55e-41ea-9a51-dc51a21a1dee"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "CalmShort02",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+          "name": "$CreateArmy$d6666da0-a992-4d36-ac45-f2df463a89bb",
+          "Faction": "Crusaders",
+          "Preset": "!bp_2105e0a588c04362b13e15756a2af69a",
+          "Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+          "WithLeader": false,
+          "ArmyLeader": null,
+          "MovementPoints": 60,
+          "m_MoveTarget": "None",
+          "m_TargetLocation": null,
+          "m_CompleteActions": null,
+          "m_ArmySpeed": 1.0,
+          "m_ApplyRecruitIncrease": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fe2bc5e9-8ef5-4d07-8785-b50fe97e3da1",
+          "Comment": "Seen c17",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$dd9f3d64-42e8-4836-8ff9-9da4c712b68b",
+                "Not": false,
+                "m_Cue": "!bp_b2ba54e87190c5c44bb6968e84e48bf0",
+                "CurrentDialog": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9073ac9b6640cb54d93ba112a6b280c3, KingdomActionModifyStats",
+                "name": "$KingdomActionModifyStats$261fe7b6-2ced-4ecb-9039-19b717aa830b",
+                "IncludeInEventStats": false,
+                "Changes": {
+                  "m_Changes": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ResourcesPerTurn": {
+                    "m_Finances": 100,
+                    "m_Materials": 0,
+                    "m_Favors": 0
+                  },
+                  "ResourcesOneTime": {
+                    "m_Finances": 0,
+                    "m_Materials": 0,
+                    "m_Favors": 0
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$83358360-7af6-40a2-a179-7be136daa305",
+          "Status": "Complete",
+          "m_Objective": "!bp_13782c3bf749b844c9006dd84c77a81e",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$9739c987-66e1-4166-9855-5701d6068022",
+          "m_Cutscene": "!bp_353645041273fc94c8953a1b27c68590",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

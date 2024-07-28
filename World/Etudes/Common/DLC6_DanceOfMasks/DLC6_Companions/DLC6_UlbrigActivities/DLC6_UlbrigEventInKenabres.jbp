@@ -1,0 +1,192 @@
+{
+  "AssetId": "fc0e7c1e47164088a721a79d9a7c09ca",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$f6797f20-afcc-432f-9db9-3f75946bfd3b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$0730bfc9-89b3-4577-9fb5-585e2b0ddf32",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "Spectator_1",
+                  "_entity_id": "3fd788bc-53dc-44aa-951c-0fec0c90193e",
+                  "SceneAssetGuid": "124fe8d6cb74d12488b8e1f8d6dc23ef"
+                },
+                {
+                  "EntityNameInEditor": "Spectator_2",
+                  "_entity_id": "f95c4db5-ba45-4f8d-a5ed-51e106298096",
+                  "SceneAssetGuid": "124fe8d6cb74d12488b8e1f8d6dc23ef"
+                },
+                {
+                  "EntityNameInEditor": "Spectator_3",
+                  "_entity_id": "f8c3e2ef-0fcb-4954-a7f4-5ced5a32b70d",
+                  "SceneAssetGuid": "124fe8d6cb74d12488b8e1f8d6dc23ef"
+                },
+                {
+                  "EntityNameInEditor": "Spectator_4",
+                  "_entity_id": "0a37b799-b6c7-4a25-9ec3-2e1ff70cb007",
+                  "SceneAssetGuid": "124fe8d6cb74d12488b8e1f8d6dc23ef"
+                },
+                {
+                  "EntityNameInEditor": "SpectatorChild",
+                  "_entity_id": "7a9ea401-afc2-4b9a-a139-70fa0c53a25c",
+                  "SceneAssetGuid": "124fe8d6cb74d12488b8e1f8d6dc23ef"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              },
+              "RespawnIfDead": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$3c620822-865b-45fc-bede-3da2f68b9e81",
+              "m_Objective": "!bp_17759f6e57644d90933e9ea64ba4ee21"
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$2b736c08-766d-46cf-b3d8-bf0e7f97b087",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$b3d1a4fd-5b59-4119-81d5-c0bac1406886",
+              "m_Flag": "!bp_1ca6ec2ca8b74441a3f51eab0ab04203",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$2756c961-471c-4f00-a411-cc8537832108",
+                "Value": -1
+              },
+              "UnlockIfNot": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$089ec75f-1e00-4260-8c9f-eef12dcb0973",
+              "Etude": "!bp_ee437ee9ad234b6ba46fffad30f204bf",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$bd3835b7-dc02-481d-aa75-044cd166ef30",
+              "Comment": "Fake commander is on scene",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$040cce18-0632-4db4-a828-260131e8894b",
+                    "Not": false,
+                    "m_Etude": "!bp_bf937759d21d4e2d93924ec03342d334",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$95c2556d-8c44-4e4d-b67b-fbdf9a1e0508",
+                    "m_flag": "!bp_4ca4a775c06e46f5918ad6116d0de3be",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_022cf2d838b74c0685058a7e57059eff",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$07b7cdf2-5e29-4f4f-b35f-215adaad6029",
+          "Not": true,
+          "m_Etude": "!bp_ee437ee9ad234b6ba46fffad30f204bf",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "d00239901a4bf03408fc8b12116b4d67, CompanionIsDead",
+          "name": "$CompanionIsDead$4b04e7e1-c609-42f4-b8a5-deecfb5ed92c",
+          "Not": true,
+          "m_companion": "!bp_42f0d5ec3dc844feb44b04507a7c1bfc",
+          "anyCompanion": false,
+          "includeRemote": true
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$39b0bc31-82ea-48c6-bd4f-7d4a1fa38f52",
+          "Not": false,
+          "m_Quest": "!bp_9e0e09f593b247a790e7230ae1cf1355",
+          "State": "Completed"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_381f3bd03279476cb15c8551e700d2ec"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

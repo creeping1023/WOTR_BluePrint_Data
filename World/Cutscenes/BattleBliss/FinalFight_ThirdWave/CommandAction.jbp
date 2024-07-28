@@ -1,0 +1,136 @@
+{
+  "AssetId": "e422a0f68b358664db463f7d7b656923",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8b884f33-2cd2-4346-aadf-57a32f273a54",
+          "Comment": "solo or not",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$bcf211ed-8df9-4e46-9f97-f01fc567acb6",
+                "Not": false,
+                "m_ConditionFlag": "!bp_3f2b04888e860d64ea94cbd3280b06c0",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6981071bc74236f4293f1a19ed2ebb32, TranslocatePlayer",
+                "name": "$TranslocatePlayer$14548fd9-34d7-4902-b3f8-16db68ccddf5",
+                "transolcatePosition": {
+                  "EntityNameInEditor": "ArenaCenterPlayerLoc",
+                  "_entity_id": "e3557a95-c633-4f69-ad52-ae730a4e0ad6",
+                  "SceneAssetGuid": "6d803928819be60418c391ee6cbe116e"
+                },
+                "ByFormationAndWithPets": false,
+                "ScrollCameraToPlayer": true
+              },
+              {
+                "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                "name": "$RunActionHolder$bd0e518d-8d4b-4311-925d-018170781c61",
+                "Comment": "",
+                "Holder": "!bp_551a309819e9b22458188a4018d08dbc",
+                "Parameters": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$bcd0ab71-2b67-4351-b7cd-a957ea90c803",
+                "m_exitPositon": "!bp_9a3068b1f183c2340a5a226130a62d07",
+                "AutoSaveMode": "None",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": [
+                    {
+                      "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                      "name": "$RunActionHolder$23fb7771-c531-46ae-835a-bfd19ffcec6e",
+                      "Comment": "",
+                      "Holder": "!bp_551a309819e9b22458188a4018d08dbc",
+                      "Parameters": null
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$fa566912-5deb-40e9-abba-47cc1ca1c632",
+          "m_SummonPool": "!bp_80547872d82ca5b4fbe4e409a65e7d1f",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+                "name": "$InterruptAllActions$a3ed3d8d-1f04-4b54-88bd-feefa751b9a1",
+                "m_Unit": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$b8032577-a110-4b87-a9e0-044a5f373c86"
+                }
+              },
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$6d2b4fe1-d41b-46c3-b260-751c25f68d7b",
+                "Unit": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$b5c22da3-7341-4877-bcbe-7c36e929fe8f"
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "",
+                  "_entity_id": "",
+                  "SceneAssetGuid": null
+                },
+                "translocatePositionEvaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$5c124f35-69fa-4a1a-b41a-932b17190ad8",
+                  "Locator": {
+                    "EntityNameInEditor": "FinalFightHelpersResetPoint",
+                    "_entity_id": "f1338bbf-3380-4b51-afac-d9fe20932a2c",
+                    "SceneAssetGuid": "6d803928819be60418c391ee6cbe116e"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                },
+                "m_CopyRotation": true,
+                "translocateOrientationEvaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$914a49f4-7cb6-4904-aed3-be30cee4b7ac",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "FinalFightHelpersResetPoint",
+                    "_entity_id": "f1338bbf-3380-4b51-afac-d9fe20932a2c",
+                    "SceneAssetGuid": "6d803928819be60418c391ee6cbe116e"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

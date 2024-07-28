@@ -1,0 +1,168 @@
+{
+  "AssetId": "b78f8cd91769fe6419e50fa44da73911",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Диалог с Харланом",
+    "FirstCue": {
+      "Cues": [
+        "!bp_4bd502594a3b3a143afd86b7ec569af9",
+        "!bp_67e6f029c467a9144827174279b2a88b"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$4b3349c2-d0bf-47e0-9e18-0ce054f8418e",
+          "m_Cutscene": "!bp_415ab3677a2198a40b3fdb3f996012d4",
+          "WithUnit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$6e46eec8-abb7-454f-886e-e73859e97c25",
+            "Spawner": {
+              "EntityNameInEditor": "HurlunLate",
+              "_entity_id": "6a206104-13ad-45b8-800d-47063a1b3765",
+              "SceneAssetGuid": "d23f655a90a852f40a77be4fe2df0c4c"
+            }
+          },
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$f191aa11-ec5c-47fa-88c4-505465e191bd",
+          "m_Cutscene": "!bp_153dfbcb3c7242f4f89c80f4325624ba",
+          "WithUnit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$7558d0ba-7aa7-430f-a3d6-5aa8fc85bca6",
+            "Spawner": {
+              "EntityNameInEditor": "RamienLate",
+              "_entity_id": "9ca245f7-6d92-4052-9553-307c09a5c21d",
+              "SceneAssetGuid": "d23f655a90a852f40a77be4fe2df0c4c"
+            }
+          },
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$d94b1e61-508c-4917-b197-818c32cd71ce",
+          "MusicEventStart": "MUS_HardChoice_Play",
+          "MusicEventStop": "MUS_HardChoice_Stop"
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$603d93af-57c0-4049-824c-06c68874074c",
+          "m_Cutscene": "!bp_7645a7678327457582cab7f75e440abc",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ac5ae077-a2d6-43ad-98be-d4254947a2e6",
+          "Comment": "Hurlun leaves to tavern",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$a8b04f87-cd01-469c-b827-9e0e3e42acef",
+                "Not": false,
+                "m_Cue": "!bp_5b99e124d6f14544b829ed59c2c4f84d",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$dccba600-2010-4dd6-9844-db806d1cb5cf",
+                "Not": true,
+                "m_Cue": "!bp_caca29f5151f4c843bbb64da100394e1",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$033a0356-489d-4c5f-a04c-2470da7432fa",
+                "Etude": "!bp_24e6a99ad95fcc44fa1263fce18d3c35",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$145a1009-ed6d-4736-a386-ac2470dda3fa",
+                "m_Cutscene": "!bp_81c986f159c8c1e43a157c26d5bbd094",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+          "name": "$ScriptZoneActivate$4641fb07-f228-4df2-85c8-d1141f995c81",
+          "UseEvaluator": false,
+          "ScriptZone": {
+            "EntityNameInEditor": "IleksStartsDialogFromInvis",
+            "_entity_id": "4634fd30-b51a-4cc2-80f8-28c5b2a308c7",
+            "SceneAssetGuid": "d23f655a90a852f40a77be4fe2df0c4c"
+          },
+          "ScriptZoneEvaluator": null
+        },
+        {
+          "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+          "name": "$ScriptZoneActivate$c2b4b693-87c3-4358-b55f-b1fde4ae6b1a",
+          "UseEvaluator": false,
+          "ScriptZone": {
+            "EntityNameInEditor": "IleksStartsDialogFromInvisBack",
+            "_entity_id": "6ad3cfe4-e944-4089-bab8-a7f73b88ec2a",
+            "SceneAssetGuid": "d23f655a90a852f40a77be4fe2df0c4c"
+          },
+          "ScriptZoneEvaluator": null
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$a9c35cbf-7b84-46ce-9ab4-810a44e201de"
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$e59bb92d-f535-4143-8baa-105265b8a162",
+          "m_Cutscene": "!bp_7645a7678327457582cab7f75e440abc",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": false,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "AssetId": "a07f6d1f93531e048928c5c9de328a92",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_b25f384d080f50446b5535604a84f6fc"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": {
+      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+      "name": "$LocatorPosition$a7978df4-7721-438f-a74e-b42c53d46af3",
+      "Locator": {
+        "EntityNameInEditor": "AirBook",
+        "_entity_id": "d77e7474-0098-469e-a538-787dcbb20e78",
+        "SceneAssetGuid": "73360bf3fd115be44b01ef8940f2010b"
+      },
+      "Offset": "0|0|0"
+    },
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$393f145f-b4c6-497c-a771-5f0eaf327225",
+          "MusicEventStart": "MUS_CrusadeTheme_Play",
+          "MusicEventStop": "MUS_CrusadeTheme_Stop"
+        },
+        {
+          "$type": "12f52f92a7d3efe47b69ba8b41d4e47d, Play2DSound",
+          "name": "$Play2DSound$2bfd312e-cfc3-48ba-b83c-7caa21c0c941",
+          "SoundName": "NARR_CH4_AirAdventures_MuteDefaultAmb",
+          "SetSex": false,
+          "SetRace": false
+        },
+        {
+          "$type": "12f52f92a7d3efe47b69ba8b41d4e47d, Play2DSound",
+          "name": "$Play2DSound$543366ce-2120-4dea-bf00-92ba19c40710",
+          "SoundName": "NARR_CH4_AirAdventures_Amb_Play",
+          "SetSex": false,
+          "SetRace": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8f5cd6d7-ea69-46d9-8dcf-779afcb7a8dc",
+          "Comment": "Статус квеста айона",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$b0ecf806-b551-409b-a666-9020cb1654b0",
+                "Not": true,
+                "m_Quest": "!bp_48b2c86cb466492489a06266ea516ebc",
+                "State": "Completed"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$094dec58-8a16-49ac-954f-14c7eb56733f",
+                "Not": false,
+                "m_Quest": "!bp_48b2c86cb466492489a06266ea516ebc",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$817fc4d1-e41b-464d-97e6-b4aca0a53f2f",
+                "Status": "Fail",
+                "m_Objective": "!bp_1cb0938b290bbe5418fbf313bfe96d84",
+                "StartObjectiveIfNone": true
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$88ce566b-32ca-4acb-9727-9710bfcd590c",
+                "Etude": "!bp_1aa56301f56644fa8605ac991ab81091",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$04b48643-5e2c-4c56-ac9a-d6fc54fe9f25",
+          "m_State": {
+            "Value": "Muted",
+            "Group": "FatigueBarkMute"
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$a32b8e15-badc-4bd6-965b-9cc0a82c5b52",
+          "Etude": "!bp_8fd5011c2303a81499c41aa8ba065ec4",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "9c6cd580a876d0d4e83cbb48ec00870f, FakePartyRest",
+          "name": "$FakePartyRest$f495cb83-c3cb-4a92-a931-ebb1352230c8",
+          "m_Immediate": true,
+          "m_IgnoreCorruption": true,
+          "m_RestWithCraft": true,
+          "m_ActionsOnRestEnd": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$3bdbbc96-f0df-4060-b0bf-f79fb218b501"
+        },
+        {
+          "$type": "12f52f92a7d3efe47b69ba8b41d4e47d, Play2DSound",
+          "name": "$Play2DSound$3e922652-c0f8-4d42-8975-8b7dada2c135",
+          "SoundName": "NARR_CH4_AirAdventures_Amb_Stop",
+          "SetSex": false,
+          "SetRace": false
+        },
+        {
+          "$type": "12f52f92a7d3efe47b69ba8b41d4e47d, Play2DSound",
+          "name": "$Play2DSound$7246eaef-b1af-49b3-abb0-74fb94c6ccfd",
+          "SoundName": "NARR_CH4_AirAdventures_ReturnDefaultAmb",
+          "SetSex": false,
+          "SetRace": false
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$eda2aada-7609-4bf9-86ea-c72bf080c13c",
+          "m_State": {
+            "Value": "Normal",
+            "Group": "FatigueBarkMute"
+          }
+        },
+        {
+          "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+          "name": "$TimeSkip$8d45dd13-4b5d-4ec3-8183-bf9cd8b686b0",
+          "m_Type": "Minutes",
+          "MinutesToSkip": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$3ce4dc34-7e7d-47b8-9e1b-e1ccbfeb1038",
+            "Value": 262800
+          },
+          "TimeOfDay": "Morning",
+          "NoFatigue": true,
+          "MatchTimeOfDay": false,
+          "Silent": true
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Book",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "AssetId": "42e58e5eb6f14319899fb564b3f9869f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Lann Q3 не завершался в одном из исходов",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$02804fa5-a52d-4e57-96ba-8c80e4a00d22",
+          "Comment": "завершить квест, если он активен и видели финальный диалог",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$e2eda250-aee3-4c2d-a4c7-deafead60e19",
+                "Not": false,
+                "m_Cue": "!bp_842becde63c21fe4290ee0bf9c3f6f8e",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$cb3d8656-00e6-4712-8e3b-932797d2b978",
+                "Not": false,
+                "m_Quest": "!bp_df19bef39c8aa6a4b9dcaf40450b94dc",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$7296b143-71e0-4232-acea-dc196d58acde",
+                "Status": "Complete",
+                "m_Objective": "!bp_894d098df2f872e438bb2e56c0496604",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "AssetId": "c33152e653b54e87b1f89b70ff13487a",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "завершить LichRankUps если LichPath завершена",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e85d7ff7-6043-41bf-ad65-8781ed40ff84",
+          "Comment": "завершить LichRankUps если LichPath завершена",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4a1174c0-ac35-45b2-9689-689ec76499c8",
+                "Not": false,
+                "m_Etude": "!bp_7b80ec84c75e76e4e9c8a45fefca34b3",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4ee4bdcf-2fd1-4b27-b12b-95543836c3e2",
+                "Not": false,
+                "m_Etude": "!bp_44cdb7d54f779b141811f76261c06542",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$e985461d-45f1-4170-9a63-9b0a4f9ce89e",
+                "Etude": "!bp_44cdb7d54f779b141811f76261c06542",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

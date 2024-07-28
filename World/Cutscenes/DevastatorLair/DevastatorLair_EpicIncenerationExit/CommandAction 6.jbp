@@ -1,0 +1,90 @@
+{
+  "AssetId": "37569065be01b43408f3164c8d5073a4",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5bb8546d-8f02-4fe2-8bc3-8b536fa6d092",
+          "Comment": "Has Key?",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                "name": "$ItemsEnough$feddef7b-341b-4f28-8628-859379724381",
+                "Not": false,
+                "Money": false,
+                "m_ItemToCheck": "!bp_dac32e88810a20941a53a5960e581b3d",
+                "Quantity": 1
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$04d23e8f-b08c-4f38-af85-329eddcf4cbc",
+                "m_exitPositon": "!bp_48e2872395791124a938f790a5bfcdc7",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+                "name": "$RemoveItemFromPlayer$206d925c-7f8d-4acb-86a5-85db421b284a",
+                "Money": false,
+                "RemoveAll": false,
+                "m_ItemToRemove": "!bp_dac32e88810a20941a53a5960e581b3d",
+                "m_Silent": false,
+                "Quantity": 1,
+                "Percentage": 0.0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$4efef01a-ae4e-4f35-893b-9804c5564b73",
+                "m_UnitsList": "PartyCharacters",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$6ef73ce8-be2c-4c6f-b9d0-958455556fda",
+                      "m_Buff": "!bp_65860461f6bbd9d469b0a3a0bcb0100c",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$1050d3ff-40c0-4ed1-ac30-1b04757f0867"
+                      },
+                      "Duration": null
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$24e9c043-5e80-490c-8259-cb5bcb6ee082",
+                "m_exitPositon": "!bp_48e2872395791124a938f790a5bfcdc7",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "AssetId": "b532714c57b691e498796536199ea111",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$af1a4dfc-2d63-411a-b234-460b4d4ee0bc",
+          "Comment": "Живой хелнайт или нет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$3c0d354b-5cb6-43a1-87a5-ef6121a364aa",
+                "Not": false,
+                "m_Etude": "!bp_3022259a5ffd80c4c86baaf6dcb35faa",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$bf289ae1-94bd-4df3-b935-1f7cd54db094",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "BladesHeap_Hellknight",
+                    "_entity_id": "db73e0af-d240-4894-8f4c-f083e6d5f5a0",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$bfa977c5-6c8f-40c7-a985-27f5dc03f369",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "BladesHeap_Hellknight",
+                    "_entity_id": "db73e0af-d240-4894-8f4c-f083e6d5f5a0",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                      "name": "$Kill$95e65dad-150d-447a-82c4-1296b11b8441",
+                      "Target": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$99fd704d-8344-4d67-b673-d04e39bffbb9"
+                      },
+                      "Killer": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$564df153-7ae6-4628-affc-847e54066ddd"
+                      },
+                      "Critical": false,
+                      "DisableBattleLog": true,
+                      "RemoveExp": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

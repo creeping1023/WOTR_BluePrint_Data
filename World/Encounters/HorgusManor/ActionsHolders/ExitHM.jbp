@@ -1,0 +1,91 @@
+{
+  "AssetId": "d3d513239ac594941b9402007d99390d",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": {
+          "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+          "name": "$False$fb725141-3b3e-4108-b9e1-3b222d934e1d",
+          "Not": true
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f8787fb2-4186-437b-bcef-78b86066ac95",
+              "Comment": "после Q3 или нет",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$c8ddecc1-393c-4ef6-b0ca-f1c8899f5593",
+                    "Not": false,
+                    "m_Quest": "!bp_72d7618aeec2e134db7e9728e9fea90a",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                    "name": "$PartyUnits$18d4c566-a873-46c7-a39b-691f1dcaea95",
+                    "m_UnitsList": "AllDetachedUnits",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$1a637d00-53d2-4015-818d-ce63ae5c0a45",
+                          "Target": {
+                            "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                            "name": "$PartyUnit$1194e305-d718-4d56-957a-0e5d274a3825"
+                          },
+                          "Unhide": true,
+                          "Fade": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "cdaf4f23bba50a044a00da97d652575b, PartyMembersAttach",
+                    "name": "$PartyMembersAttach$656fef87-3da2-4cba-a79b-38e170a25c11"
+                  },
+                  {
+                    "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                    "name": "$TeleportParty$e774ef6d-8be8-4990-9196-f5821965ef1c",
+                    "m_exitPositon": "!bp_353560945f61c5446906f13b42b7c043",
+                    "AutoSaveMode": "None",
+                    "ForcePauseAfterTeleport": false,
+                    "AfterTeleport": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                    "name": "$TeleportParty$96b8437f-242f-489d-a891-e3c0c086c20b",
+                    "m_exitPositon": "!bp_353560945f61c5446906f13b42b7c043",
+                    "AutoSaveMode": "None",
+                    "ForcePauseAfterTeleport": false,
+                    "AfterTeleport": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

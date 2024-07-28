@@ -1,0 +1,71 @@
+{
+  "AssetId": "c47b5da4964e44daabbd69f4afb75952",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Фикс отображения иконки в особняке Хоруса Гверма при зачистке второго этажа",
+    "m_SpecificArea": "!bp_f85782027ff739043b35216be2ccf71b",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$db928d4b-43c7-4618-8d22-1beb31cda425",
+          "Comment": "Показ икоки на окне",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4121bfadf09dfbc4cb2c967b559d575c, SummonPoolCount",
+                "name": "$SummonPoolCount$f1f7a22f-f7d0-4600-9109-1f0322ae8b87",
+                "Not": false,
+                "m_SummonPoll": "!bp_1621de31dcbf884428b7716a0158b4e6",
+                "m_Operation": "Equal",
+                "m_Count": 0
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$3503591a-e73e-4381-b25e-7bb2205bd26d",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$270321df-a1ff-471b-a098-3fee34cdb6c8",
+                  "MapObject": {
+                    "EntityNameInEditor": "SignalToHorgus",
+                    "_entity_id": "316b5ab1-009c-4fc8-bc82-315019004a5f",
+                    "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$17bda679-dc23-4aa0-8254-9337e06e1376",
+                "m_Objective": "!bp_95555f4f59813074fbfd7f1f2fa0df5e"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "198ea5b1c6a50e145be95ff0a5ed618b, ForceFillSummonPools",
+                "name": "$ForceFillSummonPools$904554ed-6177-4524-b3f7-cdbd00f153e4",
+                "SummonPoolsUnits": [
+                  "!bp_1621de31dcbf884428b7716a0158b4e6"
+                ],
+                "IsAliveOnly": true,
+                "IsPreClear": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

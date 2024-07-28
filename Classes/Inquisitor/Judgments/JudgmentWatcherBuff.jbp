@@ -1,0 +1,187 @@
+{
+  "AssetId": "9b8bb2ce8f67e5b4fa634ed6a6671f7a",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$CombatStateTrigger$89de3b22-3742-44b4-9f47-39af547a96cb",
+      "$AddMechanicsFeature$7ff261e3-e390-4606-932d-63fe3a287e54",
+      "$AddFactContextActions$2bd2fad9-b796-4ec2-9581-20d4bfd0dc4a"
+    ],
+    "Components": [
+      {
+        "$type": "dbb7058d31be12446942310a6ab86b83, CombatStateTrigger",
+        "m_Flags": 0,
+        "name": "$CombatStateTrigger$89de3b22-3742-44b4-9f47-39af547a96cb",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "CombatStartActions": {
+          "Actions": []
+        },
+        "CombatEndActions": {
+          "Actions": [
+            {
+              "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+              "name": "$ContextActionRemoveBuff$e48c2753-5595-4ab3-897e-6f92b5a0ca9f",
+              "m_Buff": "!bp_9b8bb2ce8f67e5b4fa634ed6a6671f7a",
+              "RemoveRank": false,
+              "ToCaster": false,
+              "OnlyFromCaster": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "05fab0d4998390a4cbf88da0ab1e4123, AddMechanicsFeature",
+        "m_Flags": 0,
+        "name": "$AddMechanicsFeature$7ff261e3-e390-4606-932d-63fe3a287e54",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Feature": "JudgmentSwitch"
+      },
+      {
+        "$type": "25d172d2be8f52f468b2050d14d59806, AddFactContextActions",
+        "m_Flags": 0,
+        "name": "$AddFactContextActions$2bd2fad9-b796-4ec2-9581-20d4bfd0dc4a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Activated": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7a644c91-aadf-4075-a47b-445ccfec67f4",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+                    "name": "$ContextConditionCasterHasFact$06c619cf-6522-4336-87c5-d213af298a99",
+                    "Not": false,
+                    "m_Fact": "!bp_4a6dc772c9a7fe742a65820007107f03"
+                  },
+                  {
+                    "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+                    "name": "$ContextConditionCasterHasFact$54e6f78f-8349-41fa-86ee-15dd5907520c",
+                    "Not": false,
+                    "m_Fact": "!bp_c6ea4a6fcdf84133a7520b218d9351a4"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "a933c328a94be1e4a95d7ce1d9dc2b8a, ContextSpendResource",
+                    "name": "$ContextSpendResource$25a48432-0c5b-4fd2-acfe-1f801bdd19e6",
+                    "m_Resource": "!bp_394088e9e54ccd64698c7bd87534027f",
+                    "ContextValueSpendure": false,
+                    "Value": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level"
+                    }
+                  },
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$aa2a290d-371d-474a-82f7-f1fd269c67b7",
+                    "m_Buff": "!bp_c6ea4a6fcdf84133a7520b218d9351a4",
+                    "Permanent": true,
+                    "UseDurationSeconds": false,
+                    "DurationValue": {
+                      "Rate": "Rounds",
+                      "DiceType": "Zero",
+                      "DiceCountValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "m_IsExtendable": true
+                    },
+                    "DurationSeconds": 0.0,
+                    "IsFromSpell": false,
+                    "IsNotDispelable": false,
+                    "ToCaster": true,
+                    "AsChild": true,
+                    "SameDuration": false,
+                    "NotLinkToAreaEffect": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "Deactivated": {
+          "Actions": []
+        },
+        "NewRound": {
+          "Actions": []
+        }
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "9b8bb2ce8f67e5b4fa634ed6a6671f7a",
+      "m_OwnerPropertyPath": "m_DisplayName",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "9b8bb2ce8f67e5b4fa634ed6a6671f7a",
+      "m_OwnerPropertyPath": "m_Description",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "IsClassFeature": true,
+    "m_Flags": "HiddenInUi",
+    "Stacking": "Ignore",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

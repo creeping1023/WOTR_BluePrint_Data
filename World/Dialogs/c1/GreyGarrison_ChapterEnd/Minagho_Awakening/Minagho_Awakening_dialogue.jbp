@@ -1,0 +1,286 @@
+{
+  "AssetId": "6154accf328cd4346a1526c7633ec97b",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Диалог с Минаго",
+    "FirstCue": {
+      "Cues": [
+        "!bp_015951e54334a51419a0f415f3f25642"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": {
+      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+      "name": "$LocatorPosition$09f2d532-561f-477d-ad7e-71cb8d2f4918",
+      "Locator": {
+        "EntityNameInEditor": "Minagho_Final_loc",
+        "_entity_id": "9fd0f4f2-d607-4f19-8724-a45b8810ff96",
+        "SceneAssetGuid": "7a036cb63efa6914f9a5455825e4461c"
+      },
+      "Offset": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$425dcb26-0d8e-404d-a49c-5546b83976f3",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$5e4fad95-fd97-4481-8229-6cbd861efb33",
+                "m_Buff": "!bp_4b11247a4988c254fb9d1cd67f0b1e4a",
+                "Target": {
+                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                  "name": "$PartyUnit$19edd1a6-55a6-4575-82fa-24f8d905b634"
+                },
+                "Duration": null
+              }
+            ]
+          }
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$94509f1e-c26e-42aa-800b-2ec8c5365b45",
+          "m_State": {
+            "Value": "Minus_6dB",
+            "Group": "MusicScenesVolumeModify"
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$f5cda480-107d-4f9f-a1d9-277e595e30e0",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$f0751055-d551-42c5-a243-77ebef6be01d",
+            "Spawner": {
+              "EntityNameInEditor": "CR17_Minagho_FinalCombat",
+              "_entity_id": "8a53507e-2eb1-48bf-be9e-855db615489e",
+              "SceneAssetGuid": "7a036cb63efa6914f9a5455825e4461c"
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$a7acc94b-1f06-4afe-b71c-c5298c0fafb4",
+          "m_SummonPool": "!bp_e398c1fa4255da54fa664239b95fafd5",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$2ac52407-ff78-47b9-bf50-09f6b3024ef2",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$a0ab7b1e-b27e-4a4d-83d9-99db9b8773d3"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$ee19d880-10ec-4c55-baaa-8da5ed51cd7a",
+          "Unit1": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$4d48703f-42fa-420c-9b5a-c5ffb60d65c8"
+          },
+          "Unit2": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$a4793cef-5181-4cfc-a054-fc1073ab1ae8",
+            "Spawner": {
+              "EntityNameInEditor": "CR17_Minagho_FinalCombat",
+              "_entity_id": "8a53507e-2eb1-48bf-be9e-855db615489e",
+              "SceneAssetGuid": "7a036cb63efa6914f9a5455825e4461c"
+            }
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0c0057d9-808b-4923-a0ab-3a106805b405",
+          "Comment": "Thieflings attack",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b29827b3-b2b8-4e02-805c-24dc9dd1363d",
+                "Not": false,
+                "m_Etude": "!bp_5f4036415c704194d8a5b5df566481f0",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$553f225e-d7c8-4209-afdf-3dd28d65797c",
+                "Etude": "!bp_718442522a948224b8f73a83d5f22182",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$eff4d666-eb1c-4560-b97f-97dcda8da54a",
+                "Etude": "!bp_5f4036415c704194d8a5b5df566481f0",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$913fe3e5-cd60-40e5-8c3c-c7904fdc0170",
+                "m_SummonPool": "!bp_0fa1f4ad2567ce543855e53cdab9dca4",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$489a7bea-2152-4d57-876c-58c16a6da9ad",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$40e92dc2-f17a-491d-af18-bc859ad92ff4"
+                      },
+                      "Unit2": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$e21dd399-cb4c-4e59-8dfe-1291ca417212",
+                        "Spawner": {
+                          "EntityNameInEditor": "CR17_Minagho_FinalCombat",
+                          "_entity_id": "8a53507e-2eb1-48bf-be9e-855db615489e",
+                          "SceneAssetGuid": "7a036cb63efa6914f9a5455825e4461c"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c547fcff-c047-4c5c-88ed-32d18a0854ad",
+          "Comment": "Desnits attack",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$623987b5-5091-4b44-b44f-df0a2634ec7f",
+                "Not": false,
+                "m_Etude": "!bp_e40c8f5efe179a14ca95bc408e5dae2f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$9720dd01-3d3e-423c-813f-d9dc796e495b",
+                "Etude": "!bp_24a2f5aba7034184aa34a6f1898e1165",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$079e7c38-a5d5-4a1d-a858-2bd444863db3",
+                "Etude": "!bp_e40c8f5efe179a14ca95bc408e5dae2f",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$7b38377c-92f5-49cd-aea4-32975d97b4cb",
+                "m_SummonPool": "!bp_f0bb34362b010064dabf9e1151543b6b",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$9c9f4646-ca23-4ccc-b745-156c85e14b4b",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$d8664409-497b-4c9c-9b53-cc2d518b2f46"
+                      },
+                      "Unit2": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$b292b59e-7689-4aa5-8d5f-9e9514739b0c",
+                        "Spawner": {
+                          "EntityNameInEditor": "CR17_Minagho_FinalCombat",
+                          "_entity_id": "8a53507e-2eb1-48bf-be9e-855db615489e",
+                          "SceneAssetGuid": "7a036cb63efa6914f9a5455825e4461c"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$f0a0c90d-4110-4243-be2f-247792e44516",
+          "m_State": {
+            "Value": "Off",
+            "Group": "MusicScenesVolumeModify"
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

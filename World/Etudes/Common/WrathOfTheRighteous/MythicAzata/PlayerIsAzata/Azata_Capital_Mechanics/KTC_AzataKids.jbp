@@ -1,0 +1,172 @@
+{
+  "AssetId": "2fd45fdb7ec123248bee085ca973b1b2",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$ed483fb5-8eba-49c4-8a26-882b2f7c1e5c",
+      "$EtudeCompleteTrigger$075ac98e-0efe-4b24-bbf5-cbe6732d2d63"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$ed483fb5-8eba-49c4-8a26-882b2f7c1e5c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$4d36c1f4-88e0-4e9f-861a-2ac400d19a73",
+              "m_Cutscene": "!bp_aeb9a276e957b94459f1e630f55d6e4b",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$075ac98e-0efe-4b24-bbf5-cbe6732d2d63",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Запускаем KTC мимков, если всех приняли",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$0fa761d2-edfb-45e3-a86d-5390cb0f17b1",
+              "Comment": "Если всех приняли",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$7d1c002f-bc46-4d2b-8711-c514f1811cea",
+                    "Not": false,
+                    "m_Etude": "!bp_2479a0186ad67824c9a731837ff53a0b",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$fb1501d8-e8bb-4373-91de-a7675f2b3ca7",
+                    "Not": false,
+                    "m_Etude": "!bp_e788e48967411f245a67365251d63182",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e8c48851-feab-4f47-9ae2-120e09522b04",
+                    "Not": false,
+                    "m_Etude": "!bp_ca6e70da463acfa469ffd349937ed66d",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$f82c96a5-08b8-472f-8fa9-d2d06311300a",
+                    "Etude": "!bp_8725b5057b711fa47be9bf080fe01c6e",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_b2fb396f0502cd6449879b467cee4735",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$0686a4f4-30d2-4a14-b45d-50954c8cc544",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$317e2d57-7e89-46d0-991a-8e7ae728ec38",
+          "Not": true,
+          "m_Etude": "!bp_75fe973e88d36ef40ab9d7b8351981d1",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$9160dd3e-a724-4141-9cf7-a843484a1cf4",
+          "Not": false,
+          "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_27d10af5650a01b4d803da81799cbc86",
+      "!bp_2d3d35d5927e30644a959d3154ede89c"
+    ],
+    "Priority": 1
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

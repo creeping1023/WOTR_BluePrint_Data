@@ -1,0 +1,273 @@
+{
+  "AssetId": "7f0926a7a2a74360b027211015036ce5",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$27b5ae8e-0a16-4d61-b60a-94c4ec9a4f22",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$31c1b4cd-307b-4e1e-af5e-a95e58564f7a",
+          "Spawner": {
+            "EntityNameInEditor": "ButcherGiant",
+            "_entity_id": "a101bab1-6725-42ff-a67a-7a563bcceafc",
+            "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9101b7ce-e030-42ce-9808-2994933ee812",
+              "Comment": "Giants are big",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "f310985bf2724df4a97b165f74b806e8, HasFact",
+                    "name": "$HasFact$cc6d97fa-536f-419e-b0bb-eb553f82a548",
+                    "Not": true,
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$f1724bb9-5d15-488f-a0b7-64c782a8305c",
+                      "Spawner": {
+                        "EntityNameInEditor": "ButcherGiant",
+                        "_entity_id": "a101bab1-6725-42ff-a67a-7a563bcceafc",
+                        "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                      }
+                    },
+                    "m_Fact": "!bp_b0793973c61a19744a8630468e8f4174"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                    "name": "$UnitsFromSpawnersInUnitGroup$870146a9-abc7-43a4-b31e-7dcbc5d19664",
+                    "m_Group": {
+                      "EntityNameInEditor": "Tanners",
+                      "_entity_id": "571e221f-3ffa-4751-a697-7b2163874d48",
+                      "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                          "name": "$StopCutscene$3277f73d-97a8-49ec-be81-afd791791808",
+                          "m_Cutscene": "!bp_eff6d2ae5522dd64395f07fc92fbe65a",
+                          "WithUnit": {
+                            "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                            "name": "$UnitGroupUnit$b30924e1-966a-4cf8-85c0-b35b4ce5cc27"
+                          },
+                          "m_CheckType": "Params"
+                        },
+                        {
+                          "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                          "name": "$UnitLookAt$839b6249-d530-4905-9bcf-0a992e00ba5e",
+                          "Unit": {
+                            "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                            "name": "$UnitGroupUnit$de2bb67f-33ed-4778-bb6f-11f2ad9dc13a"
+                          },
+                          "Position": {
+                            "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                            "name": "$LocatorPosition$6ebd4306-bf79-4d58-893e-50518201b94d",
+                            "Locator": {
+                              "EntityNameInEditor": "ButcherGuard_pos_3",
+                              "_entity_id": "d00b8231-5a5a-41a8-b5f9-63fa0ad99f6e",
+                              "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                            },
+                            "Offset": "0|0|0"
+                          }
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$856292f6-5f29-4c95-a079-54320d845b05",
+                          "m_Cutscene": "!bp_2b151a3775f497845a58d50d9975d720",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": [
+                              {
+                                "Name": "Unit",
+                                "Type": "Unit",
+                                "Evaluator": {
+                                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                                  "name": "$UnitGroupUnit$471e8bfb-9238-459f-8688-2727e35140d0"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "e7e916cf1fcdef14a81da6a7fff47811, PerceptionTrigger",
+        "m_Flags": 0,
+        "name": "$PerceptionTrigger$d8e1ee6b-fe94-463a-b114-03994e9d6305",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": null,
+        "MapObject": {
+          "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+          "name": "$MapObjectFromScene$2f85a5c9-79de-4b52-925e-d79f6bb06007",
+          "MapObject": {
+            "EntityNameInEditor": "AddPoisonToDrinks",
+            "_entity_id": "a23fc493-79a1-405d-9e73-b575334e2757",
+            "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+          }
+        },
+        "OnSpotted": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$8846ad63-4cb1-4bdf-8c87-74117d4e355e",
+              "m_Cutscene": "!bp_4ce6c4b1143344dcb47fa051ffd42e33",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$4cb9f1ce-d509-4d20-9e0f-e6a154015846",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$afd013ed-ed31-48bf-a384-febb551ef921",
+          "Spawner": {
+            "EntityNameInEditor": "GiantGuard_1",
+            "_entity_id": "1257fada-f987-413c-aa64-af13509ef598",
+            "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$8a22a37a-fd74-4c0e-ba17-4af4d7edacdc",
+              "m_Cutscene": "!bp_b24cf9768daf4628ab16f80f439e5cc1",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$9c00625a-3710-49b2-b739-750b0ab4e06c",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$214b3290-6815-4f9c-bc5f-17049b24f4c9",
+                "Spawner": {
+                  "EntityNameInEditor": "GiantGuardiansWarningKitten",
+                  "_entity_id": "9e9fe3b8-5e8d-4bd2-99c2-a3b5a4ca1be3",
+                  "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$5ab1a781-731a-426f-8c21-bcfba1315125",
+              "m_Cutscene": "!bp_fe8c3a01cc894a76b56122be9030539b",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$26df9e9d-fc05-40cd-8f92-50d7b98bb2cd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$2654f679-a717-489d-9235-8ac071c01eed",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$70cbde54-4c3c-4db7-b1a9-32174e902219",
+                "MapObject": {
+                  "EntityNameInEditor": "AddPoisonToPot",
+                  "_entity_id": "3e6ca506-f9d9-4430-a48c-dbae7ca7de21",
+                  "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_39290cd4927241bfb851dab3105c3fd3",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

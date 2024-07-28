@@ -1,0 +1,125 @@
+{
+  "AssetId": "7d7183a495b665649942a44e2e5b5f8b",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Открыть локацию Molten Scar, проапдейтить квест\n\nубрать проект по поискам МолтенСкара, если он у игрока еще есть",
+    "ParentAsset": "0e9507e1a42f28a408714e75561c39ab",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "9caaa1b8d30764e45b1f2271dc97d6dc",
+        "stringkey": "ae586873-2855-4f9d-9a84-ebaac672e56a"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "283706d83f2b5a8418f90b318819b1ae, UnlockLocation",
+          "name": "$UnlockLocation$f923dd21-4b83-4b7b-b0ec-fe56d162e3cf",
+          "m_Location": "!bp_3d11e24ac8f52334dbcbf0e908bd5d28",
+          "FakeDescription": false,
+          "HideInstead": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$068e8515-0e94-4a97-8b83-b760606adfdb",
+          "Status": "Complete",
+          "m_Objective": "!bp_2263d3409b37b874db80f44344f2845c",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$461cea06-e305-4925-9164-bd6182b9ea51",
+          "Comment": "комплит поисков если они еще есть",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$24c2c18d-a210-4067-b12a-3604964208be",
+                "Not": false,
+                "m_QuestObjective": "!bp_39a11378f06fff740b8211686247d943",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$3c58f7d8-85bb-452b-bd0a-8b67ea67e9e5",
+                "Status": "Complete",
+                "m_Objective": "!bp_39a11378f06fff740b8211686247d943",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$34b934e9-c8ba-4bbc-ba1d-52b1eb8bfb12",
+          "m_Objective": "!bp_f6694c696284e2046b0f064f83c320c2"
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$d9321321-a619-4ee9-9b4e-5293ac6cc079",
+          "Etude": "!bp_afb14a7fa4895864c802aa8fbb49d870",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_4d2164f1c103ec74492228a24e29f745"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

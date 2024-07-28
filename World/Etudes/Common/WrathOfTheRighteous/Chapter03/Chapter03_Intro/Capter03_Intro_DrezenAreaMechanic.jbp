@@ -1,0 +1,168 @@
+{
+  "AssetId": "fc592ded9a9ea4f44808a55c55b299b0",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$d9a0b014-495b-469d-8590-aa687d1d9e66"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$d9a0b014-495b-469d-8590-aa687d1d9e66",
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "9c6cd580a876d0d4e83cbb48ec00870f, FakePartyRest",
+              "name": "$FakePartyRest$93d03b2c-8571-4a3a-91e0-8725cb856798",
+              "m_Immediate": true,
+              "m_IgnoreCorruption": true,
+              "m_RestWithCraft": true
+            },
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$1767e486-fdf6-49bb-8ab1-b79a3e4a4cfb",
+              "m_UnitsList": "Everyone",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "7c34a1bbda3ce6c4680181ce3eb2581b, RemoveDeathDoor",
+                    "name": "$RemoveDeathDoor$24e101db-e91d-4bcf-a60b-805728195e40",
+                    "Unit": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$17b13329-886f-4b57-aec2-38e11370b3c6"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "6981071bc74236f4293f1a19ed2ebb32, TranslocatePlayer",
+              "name": "$TranslocatePlayer$cab2fad4-d02d-4f32-ac81-0b2a5041dd40",
+              "transolcatePosition": {
+                "EntityNameInEditor": "PlayerStartPosition",
+                "_entity_id": "fc9caae5-4bef-4581-8cfb-8f3028c4d652",
+                "SceneAssetGuid": "9468ca926404d6c44a406a315bf5bb30"
+              },
+              "ByFormationAndWithPets": true,
+              "ScrollCameraToPlayer": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$492942b5-dfa2-44db-a07c-f8a84f9e4edd",
+              "Comment": "Голфри если с нами",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ff72af25-b613-4ec8-a9b2-d8bb6fbed6df",
+                    "Not": false,
+                    "m_Etude": "!bp_3d4684e1206164c4281b5540ff78229e",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$210aa560-e279-464c-a3de-7c8e60a3a407",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Spawner [QueenGalfrey_DrezenCapital]",
+                        "_entity_id": "2d4379f8-1a63-4a62-bd0d-bef52f3476db",
+                        "SceneAssetGuid": "9468ca926404d6c44a406a315bf5bb30"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$d677caf3-6fd4-4584-af25-aab277caa86c",
+              "m_Cutscene": "!bp_5d7181a40d929ce4b98522c5da5ee838",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+              "name": "$TranslocateUnit$d4c98e81-ddb6-4b9f-bffa-e01e95f0f188",
+              "Unit": {
+                "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                "name": "$PetEvaluator$2f027d37-31e0-46f3-bb69-318ce29a2eba",
+                "Master": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$02ed4a87-3435-4cea-a10b-ee07bc7b06ff"
+                },
+                "PetType": "AzataHavocDragon"
+              },
+              "translocatePosition": {
+                "EntityNameInEditor": "AzataDragonPosition",
+                "_entity_id": "fb54b264-20f3-4ec2-8796-f8c7318bed8c",
+                "SceneAssetGuid": "9468ca926404d6c44a406a315bf5bb30"
+              },
+              "translocatePositionEvaluator": null,
+              "m_CopyRotation": false,
+              "translocateOrientationEvaluator": null
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_66413da979943e940827cd8893b43e5e",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$0c89dd0d-586b-4255-ad54-d87e8c5470b2",
+          "Not": true,
+          "m_Group": "!bp_09bcb0ca88c8a394f8601179a094905a"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_8a076e720870a44438d13b9b939933fd",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [
+      "!bp_586b12f027ace8043bd154cd513eb666"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_997d865aa6f17cc48b480bd62ba02841",
+      "!bp_09bcb0ca88c8a394f8601179a094905a"
+    ],
+    "Priority": 100
+  }
+}

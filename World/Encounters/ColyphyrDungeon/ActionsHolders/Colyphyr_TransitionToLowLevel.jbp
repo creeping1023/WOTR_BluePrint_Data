@@ -1,0 +1,89 @@
+{
+  "AssetId": "b931dfe4c362e634fbc504bc52d072b7",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": {
+          "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+          "name": "$False$4252456a-9ca8-4791-8a75-ee280b68bb86",
+          "Not": true
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$60532844-c47c-4dd3-9e90-308b5963530f",
+              "m_exitPositon": "!bp_12907f977f7610e4caa4c770c462714e",
+              "AutoSaveMode": "None",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": [
+                  {
+                    "$type": "28f3698ba62041e09a5abcbe59a14725, MakeAutoSave",
+                    "name": "$MakeAutoSave$54768732-0c9d-4722-b841-61605cbc1661",
+                    "SaveForImport": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$533b0a52-9ff2-4b60-a67f-fda3990cf7f1",
+                    "Comment": "Alarm?",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$d7901991-118e-4e4b-80e9-40edb6b0de20",
+                          "Not": false,
+                          "m_Etude": "!bp_4722e29f7fe0d2f45aeb1d25695a3077",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                          "name": "$SummonPoolUnits$766b22f9-b1ad-4f4d-bd89-d2c69379b8c3",
+                          "m_SummonPool": "!bp_7dd1a2b40b6ffa34b8850d4e0a613a1e",
+                          "Conditions": {
+                            "Operation": "And",
+                            "Conditions": []
+                          },
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                                "name": "$AddFact$d89c184d-a787-4e5e-90b6-4407a753d761",
+                                "Unit": {
+                                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                                  "name": "$SummonPoolUnit$b76e4fa5-6606-412a-b158-7861b037d6b2"
+                                },
+                                "m_Fact": "!bp_7b56520f8b539f74cbedc11fc1804dc8"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "AssetId": "c2e77476c7dc1624faf08853ac91603a",
+  "Data": {
+    "$type": "9d27cf036b8dcef408e34b42d5234400, BlueprintQuestObjective",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "011e862b513000f4bae31886f3489ace, Experience",
+        "name": "$Experience$7415049a-7f7c-4fbf-9b1a-47a7ddd0b13b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Encounter": "QuestNormal",
+        "CR": 12,
+        "Modifier": 1.0,
+        "Count": null,
+        "Dummy": false
+      },
+      {
+        "$type": "0f213d9babee7834da8ccf71a034ad1c, ObjectiveStatusTrigger",
+        "name": "$ObjectiveStatusTrigger$1aefbf07-3975-4571-9aa5-86c724bcd735",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "objectiveState": "Completed",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+              "name": "$UnlockCompanionStory$1b4ea238-be2a-42b5-afec-a0a5b75a54a0",
+              "m_Story": "!bp_c051713dbef6d8a49851ee386ad5eb9e"
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$efa7582e-d15c-4a76-a73a-13fbf65f8812",
+              "Etude": "!bp_4d2ddafa3f064f848b7378c553585e79",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$0b7992ea-7314-463a-afa7-320861e0e212",
+              "Comment": "Angel was used in prologue",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e5dd2506-3afa-4cb2-951a-e6da89ece347",
+                    "Not": false,
+                    "m_Etude": "!bp_1dff6917701d5f44c9073efc3ab25b32",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                    "name": "$CreateArmy$ba88d60c-98ff-4ca6-8e46-be7397b4b992",
+                    "Faction": "Crusaders",
+                    "Preset": "!bp_921c6ec2347a451db64a7eedf073da2d",
+                    "Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+                    "WithLeader": false,
+                    "ArmyLeader": null,
+                    "MovementPoints": 30,
+                    "m_MoveTarget": "None",
+                    "m_TargetLocation": null,
+                    "m_CompleteActions": null,
+                    "m_ArmySpeed": 1.0,
+                    "m_ApplyRecruitIncrease": false
+                  },
+                  {
+                    "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+                    "name": "$AddMercenaryToPool$7e8bb601-9a71-40bc-b891-1245a188eed5",
+                    "m_Unit": "!bp_c0efa7525b6389a4992b11a574e5507a",
+                    "m_Weight": 1.0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                    "name": "$CreateArmy$9a1351ac-f8c9-4ae3-9bd5-a2a7e29f3361",
+                    "Faction": "Crusaders",
+                    "Preset": "!bp_081051d4de5a4daba85d79028959057f",
+                    "Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+                    "WithLeader": false,
+                    "ArmyLeader": null,
+                    "MovementPoints": 30,
+                    "m_MoveTarget": "None",
+                    "m_TargetLocation": null,
+                    "m_CompleteActions": null,
+                    "m_ArmySpeed": 1.0,
+                    "m_ApplyRecruitIncrease": false
+                  },
+                  {
+                    "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+                    "name": "$AddMercenaryToPool$f336fa38-403f-42ec-96ef-431944a13d5e",
+                    "m_Unit": "!bp_fd8421c605a527649961278e7fd22993",
+                    "m_Weight": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "062924fe653b9df4ab8b8789fc1ff422, KingdomActionStartEvent",
+              "name": "$KingdomActionStartEvent$0b3da7fb-1ad2-4011-95cc-ea54ab863bbb",
+              "m_Event": "!bp_6e86773126074c7e895edc6631c0a7dd",
+              "m_Region": null,
+              "RandomRegion": false,
+              "DelayDays": 20,
+              "StartNextMonth": false,
+              "CheckTriggerImmediately": false,
+              "CheckTriggerOnStart": true
+            },
+            {
+              "$type": "062924fe653b9df4ab8b8789fc1ff422, KingdomActionStartEvent",
+              "name": "$KingdomActionStartEvent$6fc8d516-1008-4577-9518-ecb38f9ed6a5",
+              "m_Event": "!bp_e54923e31912430d983a5d507672d085",
+              "m_Region": null,
+              "RandomRegion": false,
+              "DelayDays": 45,
+              "StartNextMonth": false,
+              "CheckTriggerImmediately": false,
+              "CheckTriggerOnStart": true
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "используется и для успешного комплита квеста тоже",
+    "m_Addendums": [],
+    "m_Areas": [],
+    "Title": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "Locations": [],
+    "MultiEntranceEntries": [],
+    "Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "AutoFailDays": 0,
+    "IsFakeFail": false,
+    "StartOnKingdomTime": false,
+    "m_FinishParent": true,
+    "m_Hidden": true,
+    "m_NextObjectives": [],
+    "m_Quest": "!bp_f7e03a41a7280db4dba44d981e65f312",
+    "m_Type": "Objective"
+  }
+}

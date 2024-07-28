@@ -1,0 +1,337 @@
+{
+  "AssetId": "d26ceffd3ab252d44bd8625f0e251097",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$SummonPoolTrigger$6facd872-3bc9-42e3-a268-f139df109cad",
+      "$EtudePlayTrigger$8a316910-3a06-4012-99d6-d5d8db391064",
+      "$SummonPoolTrigger$7bce6ce2-d21d-4ff7-816c-b33938ee42d6"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$8a316910-3a06-4012-99d6-d5d8db391064",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$99d9ea46-d533-4463-93b6-edb1850b6115",
+              "Comment": "романс Голфри",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$75baf991-9b92-4200-af2f-09f526d45368",
+                    "Not": false,
+                    "m_Etude": "!bp_133f3b1b38f04fa44be3200b786e437f",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$3f7f4d80-d0e6-483e-9e01-d39757b56c48",
+                    "Etude": "!bp_133842cc9812fc74f88a21e12ec2c6f8",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$6facd872-3bc9-42e3-a268-f139df109cad",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "победа на Имезленом",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_94451c04a51e40e4490d9671e646868e",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$063837d9-63f5-479d-be34-0da0d2bd8d24",
+              "Status": "Complete",
+              "m_Objective": "!bp_794299900ec5b3b43b6563cf78548200",
+              "StartObjectiveIfNone": true
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$63e55d55-8570-4d18-8ea4-3ca48b67569a",
+              "m_Objective": "!bp_7e4872313e21b45469cfb9d8cdde21e2"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$9314c816-a65e-450f-90c4-810cd0d92080",
+              "m_Cutscene": "!bp_8b12a11ef88222845bae69e16c14b52b",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$7bce6ce2-d21d-4ff7-816c-b33938ee42d6",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "победа над паком мобов у Арилу",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_77bbfe43fccc26145b1a6cdb87eb69f6",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$b7282489-30a4-49b0-8d59-a9ace71edbc4",
+              "Status": "Complete",
+              "m_Objective": "!bp_7e4872313e21b45469cfb9d8cdde21e2",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1f93721b-fe9e-4320-a324-3d50a1cf0321",
+              "Comment": "Aeon End or not",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$43fb363d-bc95-4e85-8e38-8dc8ff1d4046",
+                    "Not": false,
+                    "m_Quest": "!bp_b3fc817f0d6c2a344a59fea71dd149ae",
+                    "State": "Completed"
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$5bebea96-c654-428d-9274-15cd36ecdf30",
+                    "Not": false,
+                    "m_Etude": "!bp_3a040afde22f4b742a2f607354ab17e7",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$4d55ed15-f958-4ca3-b3ad-13cbcadb41a5",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$e8edbf2a-59c1-4ddf-af5a-6c27c90b6b2e",
+                      "MapObject": {
+                        "EntityNameInEditor": "AreaExit_Aeon",
+                        "_entity_id": "016ce654-56ac-46e9-bed4-c3db89f41aec",
+                        "SceneAssetGuid": "51913f52c40a30147bc6f657dd19c8da"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$37096053-42e4-498d-ace4-464696287fbc",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$e89d1763-d6b6-4f82-b47e-fc17370f42a4",
+                      "MapObject": {
+                        "EntityNameInEditor": "AreaExit_CampDefence",
+                        "_entity_id": "02a7f401-a23e-44b9-b750-53cf3758da8e",
+                        "SceneAssetGuid": "51913f52c40a30147bc6f657dd19c8da"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+              "name": "$StopCustomMusic$d1d1f272-538f-48e5-be60-8903c83b5e10"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitHealthTrigger$f11d2b3a-432f-440d-8eee-61e9efe2db93",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "смерть Герольда",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$f61576ec-ee82-4723-8c71-8222cdebd470",
+          "Spawner": {
+            "EntityNameInEditor": "CorruptedHerald",
+            "_entity_id": "24fd5ccc-b636-451f-b142-ab9444cc2922",
+            "SceneAssetGuid": "0fb75157a6f63f846b55a841ef16edad"
+          }
+        },
+        "Once": true,
+        "Percentage": 5,
+        "TriggerOnAlreadyLowerHeath": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$c6d74c76-aa5c-49c3-aacf-431b047b1b0b",
+              "m_Cutscene": "!bp_f45f4749db174286951a1327e6808eca",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fae54e860aa242b6995ca39ee03ad184, EtudeBracketTriggerAction",
+        "m_Flags": 0,
+        "name": "$EtudeBracketTriggerAction$e6c5cfa6-00d9-4384-a1a8-00110d4bea0c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "запрет телепортации",
+        "OnActivated": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$e57e0dd9-6578-4fbd-a5a2-c598debbb9b1",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$90c0240b-2ffe-40d3-a55a-44247b7dd0e5",
+                    "m_Buff": "!bp_4b0cd08a3cea2844dba9889c1d34d667",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$479b144d-1d4a-4598-bf22-d444e3730a1c"
+                    },
+                    "Duration": null,
+                    "BattleLog": false,
+                    "HasCustomBattleLogMessage": false,
+                    "CustomBattleLogMessage": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "OnDeactivated": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$f29e0b22-6744-40d6-aaf3-994e0bebda9d",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$a9bfce5e-378e-40e5-993d-27594ce837e8",
+                    "m_Buff": "!bp_4b0cd08a3cea2844dba9889c1d34d667",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$776044f4-4ae2-404f-a778-7bce7d1b70df"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_d44763472a4034145a590e3de949ca24",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_22c6a99913fe5bb46b2e6011aaf93368",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

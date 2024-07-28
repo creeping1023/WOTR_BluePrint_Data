@@ -1,0 +1,135 @@
+{
+  "AssetId": "35b1243a361706a469f327cd9a459722",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "баф игроку\nв сиянии Кессиль исчезает, DawnflowersKiss_Basic заменяется на DawnflowersKiss_Good",
+    "ParentAsset": "621fff6d183be6047a6d011adc733a89",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "78a7095f-2695-41ec-87f2-2f6f482b5ec0",
+      "m_OwnerString": "35b1243a361706a469f327cd9a459722",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/LabyrinthOfBaphometh/Cessily/Cue_0051_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+          "name": "$RemoveItemFromPlayer$a53e7de2-5f1e-40fa-92ac-e6e6bcfa07ee",
+          "Money": false,
+          "RemoveAll": false,
+          "m_ItemToRemove": "!bp_4ca4986b49b01954997f37c24c98d1f3",
+          "m_Silent": false,
+          "Quantity": 1,
+          "Percentage": 0.0
+        },
+        {
+          "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+          "name": "$AddItemToPlayer$9640dbaa-04b9-4942-a960-619847095138",
+          "m_ItemToGive": "!bp_68f6f11c28909314fbe40c96ab0d4bc2",
+          "Silent": false,
+          "Quantity": 1,
+          "Identify": false,
+          "Equip": false,
+          "EquipOn": null,
+          "PreferredWeaponSet": 0,
+          "ErrorIfDidNotEquip": true
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9339321a-8e2f-4666-a035-3325a23da43c",
+          "Comment": "Убить призрака если нет следующего Куя",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$db345471-8dc8-441f-b808-1cdd7e6dc010",
+                "Not": true,
+                "m_Cue": "!bp_2792ac2face86b84888adbdb3682093b",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$c7876f27-ea05-4324-bc3b-5d3eb678a1c0",
+                "Not": true,
+                "m_Answer": "!bp_8dc4121f524a89342be37f300e1acb87",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                "name": "$Kill$c360b1fd-3b18-4a62-93b1-412343b0f42d",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$5b7e1749-d8f5-49a4-9e2f-bf4e98463e47",
+                  "Spawner": {
+                    "EntityNameInEditor": "CessilyGhost",
+                    "_entity_id": "38c71638-ec0c-457e-b644-8a0f65dff45b",
+                    "SceneAssetGuid": "1c9b1a8d692860647848123dc61f3baa"
+                  }
+                },
+                "Killer": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$8d06ae7c-1929-4c28-a62e-d3d28c8e24b7"
+                },
+                "Critical": false,
+                "DisableBattleLog": true,
+                "RemoveExp": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_ad969572557536447991ef112133404c"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "AssetId": "ea7edba7b4f85564095f06aac7325006",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Лаулиех\n\nпафосные fxы, демоны ликуют\nзатемнение",
+    "ParentAsset": "599424440ed8b9b4ca10682f2b964230",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "d435b024-9e73-4175-927e-5f481d9b3a80",
+      "m_OwnerString": "ea7edba7b4f85564095f06aac7325006",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/Mythic_Demon/UltimateWin/Cue_0011_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_fa5af2f98697a8f4a9ec00df95932036",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$dae2833d-c731-49dd-a1cf-b3fe8aecfb33",
+          "m_SummonPool": "!bp_21bf7d5a64f681143a18f84f3a4d067e",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$ed6bc119-f387-40f3-870a-dda19a92754a",
+                "m_Cutscene": "!bp_49b17cddb53548c0a0e04d231bede716",
+                "WithUnit": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$119a2799-c8f7-472d-bb8a-bff322120615"
+                },
+                "m_CheckType": "Controlled"
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$5decebfd-88a4-4d9b-a638-658bb0596fbe",
+                "m_Cutscene": "!bp_c4368e0e322c41a4b7326fcad0e9f396",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$42a6016f-a391-489c-8663-a6d1140c6a80"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$bc804aee-c36c-4946-b80d-4eafc98476d7",
+          "m_Cutscene": "!bp_49b17cddb53548c0a0e04d231bede716",
+          "WithUnit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$db919c92-3c2d-4eb3-bdf4-a62beebe9c78",
+            "Spawner": {
+              "EntityNameInEditor": "Lauliegh",
+              "_entity_id": "3eca33f0-94c2-4d17-a491-7502c1fc4d37",
+              "SceneAssetGuid": "e0829bf021b1e8e4d89c3cc37e66a21a"
+            }
+          },
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$5806f0a1-5473-49cb-8f51-593f21d394cb",
+          "m_Cutscene": "!bp_c4368e0e322c41a4b7326fcad0e9f396",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$012d8c9f-0b18-47ff-ad50-107968af6af4",
+                  "Spawner": {
+                    "EntityNameInEditor": "Lauliegh",
+                    "_entity_id": "3eca33f0-94c2-4d17-a491-7502c1fc4d37",
+                    "SceneAssetGuid": "e0829bf021b1e8e4d89c3cc37e66a21a"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f9ba4dbd-362e-424a-9b8a-2ddc92176f5c",
+          "Comment": "Если игрок видел CueSequence_0044 в Nocticula_WeHaveBetrayal_dialogue ИЛИ CueSequence_0013 в Shamira_YouAreNext_dialogue - выдаем ему эрранд",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$c61bbf6e-923b-4da6-afd4-74aeb2c9ad61",
+                "Not": false,
+                "m_Cue": "!bp_c9127c763625bca4e895775ace9bf643",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$3c5dce93-5879-4d53-aad4-f751cc202ac1",
+                "Not": false,
+                "m_Cue": "!bp_d05d6114e065bad4781def8b8c62c16c",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$8d01c8f2-44f8-43a5-bbbb-ab045f7dff34",
+                "m_Objective": "!bp_d847f0f9a2f6cd04ea346062f1cb9e67"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$087e2052-fb85-451d-8888-108c3a6ce1f7",
+          "m_exitPositon": "!bp_cdaba43118a82ff429b803ae846b35b0",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$9479d1f1-07ae-41e3-b662-a79fc22c6929",
+          "Etude": "!bp_dd2043a93cabf4241a554f91dab76d2c",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

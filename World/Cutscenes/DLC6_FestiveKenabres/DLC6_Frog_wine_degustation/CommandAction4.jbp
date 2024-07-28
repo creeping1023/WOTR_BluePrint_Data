@@ -1,0 +1,64 @@
+{
+  "AssetId": "d4f93bced9734fcaae61ed961588f19f",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cea696a9-f19a-4f3c-9f81-d98ebf764ceb",
+          "Comment": "All wines degustated",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$cb3262c5-cbed-40b5-90ac-47864504ef92",
+                "Not": false,
+                "m_Flag": "!bp_ecc2e0bee1d543688274850bf122488f",
+                "MinValue": 4,
+                "MaxValue": 4
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$a1cdeb09-7d56-4e03-a23d-5d329938132c",
+                "m_Cutscene": "!bp_f4e5272a4c7a406fbbbce1ba536be17f",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$3ec0bb6d-b892-4854-9abc-0891bcbd3072",
+                "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                "TargetType": "Evaluator",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$69216ee3-c360-41db-9b04-7920d78145d9"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

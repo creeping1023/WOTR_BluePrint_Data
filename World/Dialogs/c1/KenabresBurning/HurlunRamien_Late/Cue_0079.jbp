@@ -1,0 +1,184 @@
+{
+  "AssetId": "4bd502594a3b3a143afd86b7ec569af9",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "вход если уже говорили с этими двумя в стейте РАНО, но не завершили квест",
+    "ParentAsset": "b78f8cd91769fe6419e50fa44da73911",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$6bff1f7e-65dc-4b78-b0c0-a1ca687fb437",
+          "Not": false,
+          "m_Etude": "!bp_9ec6bd77a3d51da4481dc2f7bbf99b72",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "7f1a13ad-1c93-415f-a90d-175048aab06b",
+      "m_OwnerString": "4bd502594a3b3a143afd86b7ec569af9",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c1/KenabresBurning/HurlunRamien_Late/Cue_0079_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": "!bp_ba3b1c79d4681da4fb1ed03504b1bce3",
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$a367562e-72ed-4237-b5b1-5ff916a4823f",
+          "m_Cutscene": "!bp_6bd3f48d2c9f72f48aaf78bc27f24d71",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$71913f58-6dab-4852-9e1e-c27b0e3e787b",
+                  "Spawner": {
+                    "EntityNameInEditor": "HurlunLate",
+                    "_entity_id": "6a206104-13ad-45b8-800d-47063a1b3765",
+                    "SceneAssetGuid": "d23f655a90a852f40a77be4fe2df0c4c"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d1ff05c1-174f-487c-b09d-e1eb478a518d",
+          "Comment": "фейлим много обэективов если они есть",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$a32ecf66-0ac7-4d09-a19d-83f784880ea7",
+                "Not": false,
+                "m_QuestObjective": "!bp_e1a3adf1157fef84ca174c8a9c7ae1de",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$f0f4f051-2ed0-4d55-a411-554c763467b8",
+                "Status": "Fail",
+                "m_Objective": "!bp_e1a3adf1157fef84ca174c8a9c7ae1de",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$6f02da72-9be7-4aaa-b73c-05e81e9b4094",
+                "m_Objective": "!bp_c318b5321c4abc14698770805ffc9c59"
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e4070c2e-c923-48e5-8256-b1d062a655cf",
+                "Status": "Fail",
+                "m_Objective": "!bp_c318b5321c4abc14698770805ffc9c59",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c5870e67-0832-4f89-ad42-a2ec415cbe1b",
+          "Comment": "фейлим много обэективов если они есть",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$cf4e9400-5e0f-4be1-b117-dd43525c9c9e",
+                "Not": false,
+                "m_QuestObjective": "!bp_aa1569db29477a14bbe95548fe94a515",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$5857a59a-01b1-4b68-abe2-87eb5a62f03c",
+                "Status": "Fail",
+                "m_Objective": "!bp_aa1569db29477a14bbe95548fe94a515",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$a0c81d28-6013-4afe-93e1-ae13aaf31f43",
+                "m_Objective": "!bp_c318b5321c4abc14698770805ffc9c59"
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$fdece549-6950-46f7-b9f5-bfc6c4f48600",
+                "Status": "Fail",
+                "m_Objective": "!bp_c318b5321c4abc14698770805ffc9c59",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_f033889d115341a4890325b40607e832"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "AssetId": "87ad4d17846b4a818b38c78342be42f2",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$7a475d92-bb22-40dd-82b9-698052d8c50e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Show interactions",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3c538f66-0645-41fc-9337-f7113537a0e0",
+              "Comment": "Event is completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$1e32ac97-7960-4cd4-b5f3-0b02cc2fc85a",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_51d633635fed437396c05be09de2c8a2",
+                    "State": "Completed"
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$87765a73-fcc7-4d96-80b9-1c1c7b3acc03",
+                    "Not": false,
+                    "m_Etude": "!bp_4def8ef7e75e483382365a8f144afc79",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$da54cc1e-2205-4149-8416-89d75ad1334f",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_c0e40336da814953b8cbbded2ef1a34b",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$67ba6114-5e71-47b5-afb4-b5122e7eda86",
+                    "Comment": "Good or bad",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$2d05f53b-5d34-48b8-81ab-f02292567c4b",
+                          "Not": false,
+                          "m_Etude": "!bp_fb00853f5e7e1be449ac3320986c8afc",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$d9291b4c-5cfa-4459-86d3-7c196acef039",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$832ec51e-28f7-404f-9026-14b902f08dee",
+                            "MapObject": {
+                              "EntityNameInEditor": "GoodWoljifKidnapped",
+                              "_entity_id": "6973e23f-32ba-4401-8911-bb1d212ed257",
+                              "SceneAssetGuid": "136c1ef7622dada4fa0093fd3a4ce83a"
+                            }
+                          },
+                          "Unhide": true,
+                          "UseEntityFader": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$20b25683-4087-4d32-a218-7fbae11caa11",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$78af207e-5285-4cb8-8af3-01eff1a9b712",
+                            "MapObject": {
+                              "EntityNameInEditor": "BadWoljifKidnapped",
+                              "_entity_id": "3de6b3a2-0d69-40d4-bc83-e4221ea30540",
+                              "SceneAssetGuid": "136c1ef7622dada4fa0093fd3a4ce83a"
+                            }
+                          },
+                          "Unhide": true,
+                          "UseEntityFader": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Unit is unrecruited if this etude is completed. Companion gets unrecruited in DLC6_KidnappingTime_Actions and returns to party in DLC6_ReturnAllKidnappedCompanions_Actions.",
+    "m_Parent": "!bp_b63c9180a89746e7a2a29e22c4c1e904",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

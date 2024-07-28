@@ -1,0 +1,133 @@
+{
+  "AssetId": "6a5ffbc344124764b096bf21b3662046",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_8ecd988c398c4417a8c23c623093c754"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$6988847c-a027-4778-bcd8-4c748179ddb9",
+          "MusicEventStart": "MUS_MysteryTheme_Play",
+          "MusicEventStop": "MUS_MysteryTheme_Stop"
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$a93a0ce9-6ab2-4f63-8e25-2c423ea1bac6",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$63b4f065-77f5-4166-a544-0bf4ab28fce0",
+            "MapObject": {
+              "EntityNameInEditor": "DolmainInteraction",
+              "_entity_id": "c8dc1e9a-c47c-4301-b210-81234038c3ad",
+              "SceneAssetGuid": "43cdb66a1fdf6f74793b6ae306c88557"
+            }
+          },
+          "Unhide": false
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d140466a-e321-4337-addd-b7c0be5d5ef1",
+          "Comment": "Выдаем эрранд до 5-ой главы",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "56dbbbbbe442d504eb6761bdca7c8066, CurrentChapter",
+                "name": "$CurrentChapter$5fd51e17-fa9a-4098-adf3-71b96b21d438",
+                "Not": true,
+                "Chapter": 5
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$5f55308d-dc25-4369-b0c7-31cf662a3bcf",
+                "m_Objective": "!bp_bab3f68f1df042d39d8c08cb62f90aee"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$5fcef69a-e041-463e-a73a-ff01eb17c769",
+                "Comment": "Выдаем эрранд в 5-ой главе, но только если не игралось KTC",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$4617a1a1-89de-48e2-882e-55eb80c9bc95",
+                      "Not": true,
+                      "m_Etude": "!bp_cf15af283da744128648fd080eba1b4a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$6464198d-b0db-4334-9f7b-72f59b71e19f",
+                      "m_Objective": "!bp_bab3f68f1df042d39d8c08cb62f90aee"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$457aa2ad-ca96-4060-8a3b-a284ec39cb9f",
+          "Status": "Complete",
+          "m_Objective": "!bp_1ccd6c0894394ec099e007687d3e0ece",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$e640cbba-e187-4fcd-9da3-3f599daeabe6"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

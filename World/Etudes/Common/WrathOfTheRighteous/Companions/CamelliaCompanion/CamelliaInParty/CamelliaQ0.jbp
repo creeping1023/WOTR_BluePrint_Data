@@ -1,0 +1,250 @@
+{
+  "AssetId": "fa8a6b8ec67e7dc4a993ea3eb13abb38",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$28668211-7510-40e5-a2ed-69e05ebd3f2e",
+      "$EvaluatedUnitCombatTrigger$9efe1bfd-1867-46ad-ae29-ed182278780b",
+      "$SummonPoolTrigger$cf70826f-9c35-4af6-acaf-eb2ab05991b1",
+      "$EvaluatedUnitHealthTrigger$a91821ea-6c78-4a4c-b53d-2f889d057781",
+      "$EtudeBracketMarkUnitEssential$5e6f0031-9b42-4a41-b86c-a02a1e03537e",
+      "$EtudeBracketAudioEvents$671af6f6-263f-49ba-b6ad-869817bb3f62"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$28668211-7510-40e5-a2ed-69e05ebd3f2e",
+        "m_Overrides": [],
+        "Comment": "бандиты хоргуса спавнятся",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$6612e24c-5e3c-42eb-a894-2db258f0905b",
+              "Comment": "Если хоргус нанял бандитов",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$95ab372f-cc90-4915-8d92-614c677b2aa6",
+                    "Not": true,
+                    "m_QuestObjective": "!bp_182c362a6999c2c4b8806cf60735d9f8",
+                    "State": "None"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                    "name": "$SpawnByUnitGroup$8a7d397c-2bb2-44fc-a8f7-da250b8ffa0c",
+                    "m_Group": {
+                      "EntityNameInEditor": "HorgusHiredBandits",
+                      "_entity_id": "74513586-40ac-436c-8035-d37c53834b75",
+                      "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                    },
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                    "name": "$SpawnByUnitGroup$cd5865f1-329c-4604-bcb5-51f7c171f576",
+                    "m_Group": {
+                      "EntityNameInEditor": "EnemyGroup03_opt",
+                      "_entity_id": "a189f8a7-7940-46f6-b007-68844f955b08",
+                      "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                    },
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$9efe1bfd-1867-46ad-ae29-ed182278780b",
+        "m_Overrides": [],
+        "Comment": "бандит вступает в бой",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$e5d05c9b-2c71-4d38-9e12-97ee0a0c31cb",
+          "Spawner": {
+            "EntityNameInEditor": "CR3_BanditFighterMeleeLevel4_main",
+            "_entity_id": "59d3b431-0c65-4bae-86e4-4ecf720f5ca4",
+            "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$7dfefb7f-a47d-4a8f-8298-8f897c79db60",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "7a432b99fd8b6534e8fa7e0eebc0c15a",
+                  "stringkey": "c88c7530-e8f0-428a-88dc-244bb09ba52d"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": true,
+              "TargetUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$3ac1d106-58d1-4a4d-9a90-45a524125c75",
+                "Spawner": {
+                  "EntityNameInEditor": "CR3_BanditFighterMeleeLevel4_main",
+                  "_entity_id": "59d3b431-0c65-4bae-86e4-4ecf720f5ca4",
+                  "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                }
+              },
+              "TargetMapObject": null
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$cf70826f-9c35-4af6-acaf-eb2ab05991b1",
+        "m_Overrides": [],
+        "Comment": "зачистил второй этаж от врагов",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_1621de31dcbf884428b7716a0158b4e6",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$061ee51d-4233-4f9e-a0bc-988191c4e476",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$27bf6ecb-35bd-4d96-99ac-f355ecb18e76",
+                "MapObject": {
+                  "EntityNameInEditor": "SignalToHorgus",
+                  "_entity_id": "316b5ab1-009c-4fc8-bc82-315019004a5f",
+                  "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$9d9481d9-3907-427d-bbdf-e2129ecfffb1",
+              "m_Objective": "!bp_95555f4f59813074fbfd7f1f2fa0df5e"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$a91821ea-6c78-4a4c-b53d-2f889d057781",
+        "m_Overrides": [],
+        "Comment": "debug",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$50a78f76-666a-4c1e-b3f0-601e7ae83890",
+          "m_SummonPool": "!bp_294279f3961d6da48b2dbdd14ad6b57d",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Once": false,
+        "Percentage": 50,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "ae3ad240503b4ac4a9a505a90ff05741, DebugLog",
+              "name": "$DebugLog$a9458b20-6ab8-4cdc-8604-5429100a132e",
+              "Log": "=========Camellia 50% from Etude ======="
+            }
+          ]
+        }
+      },
+      {
+        "$type": "2631f5df3cb69464399dcdbcbbd803d8, EtudeBracketMarkUnitEssential",
+        "name": "$EtudeBracketMarkUnitEssential$5e6f0031-9b42-4a41-b86c-a02a1e03537e",
+        "m_Overrides": [],
+        "Comment": "Камелия важная если в группе",
+        "Target": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$f19e0d3e-1bf6-4f44-9e90-52b5d1044098",
+          "m_Companion": "!bp_397b090721c41044ea3220445300e1b8",
+          "IncludeRemote": true,
+          "IncludeExCompanions": true,
+          "IncludeDettached": true
+        }
+      },
+      {
+        "$type": "8aa8209ddf5f57e408da1c1ae7251392, EtudeBracketAudioEvents",
+        "name": "$EtudeBracketAudioEvents$671af6f6-263f-49ba-b6ad-869817bb3f62",
+        "m_Overrides": [],
+        "Comment": "Если в первой главе, добавляем звуки демонов и разрушений снаружи.",
+        "OnEtudeStart": [
+          {
+            "Value": "AMB_HorgusManor_CH1_KenabresAttackActivity_Play"
+          }
+        ],
+        "OnEtudeStop": [
+          {
+            "Value": "AMB_HorgusManor_CH1_KenabresAttackActivity_Stop"
+          }
+        ],
+        "TriggerStartOnAudioReload": true
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_4c0eb18ca162a5043bfd6cd21132bb71",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+          "name": "$CurrentAreaIs$3f4292af-635d-4bcf-bda4-9d173538e4f3",
+          "Not": true,
+          "m_Area": "!bp_f85782027ff739043b35216be2ccf71b"
+        }
+      ]
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_f85782027ff739043b35216be2ccf71b",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_b0a2fad77dbb4b44e875201df80688d7"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

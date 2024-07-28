@@ -1,0 +1,274 @@
+{
+  "AssetId": "40f948d8e5ee2534eb3d701f256f96b5",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$LockEquipmentSlot$7f9508bf-ae2c-4871-9c56-a50864716365",
+      "$AddDispelMagicFailedTrigger$0ec1a8ad-8967-4e71-a213-403565f37dec"
+    ],
+    "Components": [
+      {
+        "$type": "537c8f834c094964db16dd2ba24fdb69, LockEquipmentSlot",
+        "name": "$LockEquipmentSlot$7f9508bf-ae2c-4871-9c56-a50864716365",
+        "m_Overrides": [],
+        "m_SlotType": "Cloak",
+        "m_Deactivate": false
+      },
+      {
+        "$type": "91216784d99a12e428bf782c8a8c7f5c, SpellDescriptorComponent",
+        "name": "$SpellDescriptorComponent$bba6e063-d979-4ddf-a0e8-33e0c2e2a2e9",
+        "m_Overrides": [],
+        "Descriptor": {
+          "m_IntValue": 268435456
+        }
+      },
+      {
+        "$type": "c5e4f1f8df4efb84dac8de636b9e8c7b, ContextSetAbilityParams",
+        "name": "$ContextSetAbilityParams$e4561357-85e0-4a9a-8b95-b3e75982445e",
+        "m_Overrides": [],
+        "Add10ToDC": false,
+        "DC": {
+          "ValueType": "Simple",
+          "Value": 25,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null
+        },
+        "CasterLevel": {
+          "ValueType": "Simple",
+          "Value": 25,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null
+        },
+        "Concentration": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null
+        },
+        "SpellLevel": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null
+        }
+      },
+      {
+        "$type": "167f3af6438a44bd98ca46efcbb97fd0, AddDispelMagicFailedTrigger",
+        "name": "$AddDispelMagicFailedTrigger$0ec1a8ad-8967-4e71-a213-403565f37dec",
+        "m_Overrides": [],
+        "ActionOnOwner": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$04764be8-7dd3-4954-8216-a55f2edbf3bb",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "61dc0d7ead59cd9489d16672565d9160, ContextConditionPeaceful",
+                    "name": "$ContextConditionPeaceful$7de8ef0b-ecec-4e67-b8ab-23882c663033",
+                    "Not": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$19b69d5a-8cb9-422c-bdbd-471dc30b69e0",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$49f45df7-ef00-4cbf-aa4c-e6c6f59c023f",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_0f88b388b11b4bd4e8d64443da6b0525",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": [
+                            1
+                          ]
+                        },
+                        {
+                          "$type": "e3853cc4ac653674ea875f78fb93b8b9, IsUnitLevelLessThan",
+                          "name": "$IsUnitLevelLessThan$a9026c72-39bc-4cac-a8cf-b3af4060de47",
+                          "Not": true,
+                          "Unit": {
+                            "$type": "5490dbe723156cb459fa639153196db0, FactOwner",
+                            "name": "$FactOwner$7721243c-cf02-43d4-b7b6-05741d433cd0"
+                          },
+                          "Level": 20,
+                          "CheckExperience": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+                          "name": "$ContextActionSpawnFx$2c605036-97fb-47c0-8098-1ab9bf8aef56",
+                          "PrefabLink": {
+                            "AssetId": "3b8cab8bfd1916840acce0b5e917ed2d"
+                          }
+                        },
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$b48a348e-1359-4a51-97f5-888d8d2ad2a1",
+                          "m_flag": "!bp_0f88b388b11b4bd4e8d64443da6b0525",
+                          "flagValue": 1
+                        },
+                        {
+                          "$type": "930b32b3226bd714283798d0cc050b71, ContextActionKill",
+                          "name": "$ContextActionKillTarget$0f19c6be-53b0-4c4e-ad56-86964fb609c6",
+                          "Dismember": "None"
+                        },
+                        {
+                          "$type": "4013b809d4ea7be479ad659164b64724, ContextActionSpawnUnlinkedMonster",
+                          "name": "$ContextActionSpawnUnlinkedMonster$c763a809-28d3-442f-aa2c-15d2b2022a34",
+                          "m_Blueprint": "!bp_e287515e761bb1a48a61e1bbcb3527b1"
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+                          "name": "$ContextActionSpawnFx$78722707-b195-4b23-9370-74ca3d382a04",
+                          "PrefabLink": {
+                            "AssetId": "3b8cab8bfd1916840acce0b5e917ed2d"
+                          }
+                        },
+                        {
+                          "$type": "c7a3b2de9c37f154797b063a5730e307, ContextActionSpawnMonster",
+                          "name": "$ContextActionSpawnMonster$aba23164-7661-495b-a652-cb3015246306",
+                          "m_Blueprint": "!bp_bb32be1a89a7f874c9cada150602dda7",
+                          "AfterSpawn": {
+                            "Actions": []
+                          },
+                          "m_SummonPool": null,
+                          "DurationValue": {
+                            "Rate": "Days",
+                            "DiceType": "Zero",
+                            "DiceCountValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            },
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 1,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            },
+                            "m_IsExtendable": true
+                          },
+                          "CountValue": {
+                            "DiceType": "Zero",
+                            "DiceCountValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            },
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 1,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            }
+                          },
+                          "LevelValue": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null
+                          },
+                          "DoNotLinkToCaster": true,
+                          "IsDirectlyControllable": false
+                        },
+                        {
+                          "$type": "930b32b3226bd714283798d0cc050b71, ContextActionKill",
+                          "name": "$ContextActionKillTarget$d65969fe-114d-448c-81fb-acea36b02609",
+                          "Dismember": "None"
+                        },
+                        {
+                          "$type": "4013b809d4ea7be479ad659164b64724, ContextActionSpawnUnlinkedMonster",
+                          "name": "$ContextActionSpawnUnlinkedMonster$f8fae26d-858f-43d9-8e00-2913e668d104",
+                          "m_Blueprint": "!bp_38945f1cff10aa7498c3071e95f4ce20"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "ActionOnCaster": {
+          "Actions": []
+        }
+      }
+    ],
+    "Comment": "\rUnequipping this cloak is only possible after casting a Remove Curse on a wearer and passing a DC 25 caster level check. Failing this check kills the wearer immediately and summons a hostile Thanadaemon. If the wearer has reached the 20th level, it summons a hostile Astradaemon instead.\r\n",
+    "m_AllowNonContextActions": true,
+    "m_DisplayName": {
+      "m_Key": "66059ca9-cd71-4469-8777-727bb847f6db",
+      "m_OwnerString": "40f948d8e5ee2534eb3d701f256f96b5",
+      "m_OwnerPropertyPath": "m_DisplayName",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/Equipment/Cloaks/SoulsCloak/SoulsCloakCurseBuff_m_DisplayName.json",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "34673a2e968e17c4ca73ec93af01a835",
+      "fileid": 21300000
+    },
+    "IsClassFeature": false,
+    "m_Flags": "StayOnDeath",
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  }
+}

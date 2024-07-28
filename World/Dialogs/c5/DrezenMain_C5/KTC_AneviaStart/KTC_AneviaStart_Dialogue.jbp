@@ -1,0 +1,91 @@
+{
+  "AssetId": "6bcb738ad2586b14bb3c82b4eaf5a8fb",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Диалог с Аневией",
+    "FirstCue": {
+      "Cues": [
+        "!bp_f20c5d72f04acc04dbcac3de10b1c5c2",
+        "!bp_00dd58a9957303c4188d6b5a2a2be010"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$1aa19422-38a9-4a8f-abca-017efa254790",
+          "MusicEventStart": "MUS_CrusadeTheme_Play",
+          "MusicEventStop": "MUS_CrusadeTheme_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e1c942e4-7b3a-40c9-804b-4476c1c1c249",
+          "Comment": "Апдейт квеста говорящего вепона",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$c856341b-60f8-463d-80d6-573f39e95265",
+                "Not": false,
+                "m_QuestObjective": "!bp_44d6f38ed8b15d146bedc15f191ba0f8",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$228e1f3f-6439-4e38-99f9-2ab828292239",
+                "Status": "Complete",
+                "m_Objective": "!bp_44d6f38ed8b15d146bedc15f191ba0f8",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$69bb606c-16e7-45cf-a110-09ab7e5e005e",
+                "m_Objective": "!bp_1b1c1a24a934ef740a49bc9ce9656c3d"
+              },
+              {
+                "$type": "283706d83f2b5a8418f90b318819b1ae, UnlockLocation",
+                "name": "$UnlockLocation$73f9393b-defe-42b9-a531-55b5ccb8caa5",
+                "m_Location": "!bp_e8ce1f4bd7aa891498727c20c067f8a0",
+                "FakeDescription": false,
+                "HideInstead": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$9b7679b3-27db-4919-87d2-5c04a562e3e2"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

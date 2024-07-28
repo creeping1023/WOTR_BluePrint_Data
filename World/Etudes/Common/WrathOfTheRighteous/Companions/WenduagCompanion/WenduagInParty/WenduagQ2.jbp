@@ -1,0 +1,520 @@
+{
+  "AssetId": "bc0859271796b3b48bba85a75e8fb2b7",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$90bc64d0-c29f-4add-82d4-c9e0f84dcaf4",
+      "$EtudeBracketTriggerAction$9c46bdfb-4bb9-455d-a173-503cabd4cceb",
+      "$SummonPoolTrigger$80be7e62-a201-4c3b-9da3-d75a0cf51af8"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$90bc64d0-c29f-4add-82d4-c9e0f84dcaf4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "при попадании в Верхний город",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$aa0d757a-a067-4605-8f98-0aff3abb8d95",
+              "Not": false,
+              "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+              "MatchWhenActive": true,
+              "MatchWhenDetached": false,
+              "MatchWhenRemote": false,
+              "MatchWhenDead": false,
+              "MatchWhenEx": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$0a5cb179-56c7-46c3-90f4-a66faeb18a84",
+              "DialogueOwner": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$0068f29b-e694-480e-804b-0ae5bbd2f84d",
+                "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                "IncludeRemote": true,
+                "IncludeExCompanions": false,
+                "IncludeDettached": true
+              },
+              "m_Dialogue": "!bp_78bc2b0b77d4abe4ea6b26ed6726aac1",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "fae54e860aa242b6995ca39ee03ad184, EtudeBracketTriggerAction",
+        "m_Flags": 0,
+        "name": "$EtudeBracketTriggerAction$9c46bdfb-4bb9-455d-a173-503cabd4cceb",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "дебафы на вход\nснимание дебафов на выход\n+ завершение этюда если уже всё",
+        "OnActivated": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$cd21f715-4d52-4f50-b54e-f4b81c1c6640",
+              "Comment": "ещё не разобрались с Савой",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$735275fd-dbf6-4ac8-a0e6-391ad8f18931",
+                    "Not": true,
+                    "m_Dialog": "!bp_c4e1ca2dedb02484d98c6dd33d1aa78c"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$2082facc-e3f7-4798-99a9-0188d7448f0b",
+                    "m_Buff": "!bp_2cafedfa42d0166488092f44a424c3b2",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$eff3ab7b-3497-4808-90b1-4b3347a6ad11",
+                      "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "Duration": null,
+                    "BattleLog": false,
+                    "HasCustomBattleLogMessage": false,
+                    "CustomBattleLogMessage": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "OnDeactivated": {
+          "Actions": [
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$4ce5ad14-5632-4b57-b80b-3a205d4ad32c",
+              "m_Buff": "!bp_2cafedfa42d0166488092f44a424c3b2",
+              "Target": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$926dcabb-a8de-43bd-b6a3-a3970e85de01",
+                "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$00060c68-4bb4-4fc6-8600-6db61b8b9030",
+              "Comment": "разобрались с Савой",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$ee6905d7-a942-4bda-b2b5-8606f89c2d32",
+                    "Not": false,
+                    "m_Dialog": "!bp_c4e1ca2dedb02484d98c6dd33d1aa78c"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$95613655-4cac-4d19-b5de-f1331406c47c",
+                    "Etude": "!bp_bc0859271796b3b48bba85a75e8fb2b7",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$e0151150-6cb1-4415-9d0a-70c96a22a3d1",
+                    "Etude": "!bp_04d9659321a0c9a449399b2b610d65fe",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$efc76ccf-79be-4b95-be48-765dbca9126b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "reinf 01",
+        "Count": 11,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_063cdd1443a0f8a43a572299f933d5be",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$3e0c3418-f7fd-4a5e-847d-990882c7567c",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "Reinf01_Mighty_CorruptedMongrelmanBrute",
+                  "_entity_id": "001bf869-d60f-457c-895a-7a26b725c3f9",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                },
+                {
+                  "EntityNameInEditor": "Reinf01_Mighty_CorruptedMongrelmanDefencive",
+                  "_entity_id": "be68bfc7-9027-4c18-bce8-5487a6d8fd41",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                },
+                {
+                  "EntityNameInEditor": "Reinf01_Mighty_CorruptedMongrelmanRangedRanger",
+                  "_entity_id": "e9250e19-dc87-471b-8f2e-6b1880b2179a",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                },
+                {
+                  "EntityNameInEditor": "Reinf01_Mighty_CorruptedMongrelmanRangedRanger (1)",
+                  "_entity_id": "b090bdb6-725d-4f40-aaea-8e0d221c42c3",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                },
+                {
+                  "EntityNameInEditor": "Reinf01_Mighty_CorruptedMongrelmanRangedRanger (2)",
+                  "_entity_id": "c0f0a2d0-1a10-4472-ad0e-bf36730b455c",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$bb24f957-62c9-4a22-bdba-d46b85c8d73e",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$1b688dd8-2ded-45cc-91a2-df29bf6d68d9"
+                    },
+                    "Unit2": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$9c39e80d-04c9-4389-a640-448e91f68ad5"
+                    }
+                  }
+                ]
+              },
+              "RespawnIfDead": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$bd17872d-d103-4971-b797-75ba6e2c0cd1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "reinf 02",
+        "Count": 8,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_063cdd1443a0f8a43a572299f933d5be",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$530bb1c9-0cb9-4213-93ec-5ed11f968f42",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "Reinf02_Mighty_CorruptedMongrelmanDefencive (1)",
+                  "_entity_id": "72b5ac31-861d-4447-9da6-96009581d66d",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                },
+                {
+                  "EntityNameInEditor": "Reinf02_Mighty_CorruptedMongrelmanBrute (1)",
+                  "_entity_id": "13ee2aac-ad98-4986-882c-ce36632216f2",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                },
+                {
+                  "EntityNameInEditor": "Reinf02_Mighty_CorruptedMongrelmanDefencive (2)",
+                  "_entity_id": "a9d4fec7-2bfd-4e82-9fa1-34c9d63ec8b7",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                },
+                {
+                  "EntityNameInEditor": "Reinf02_Mighty_CorruptedMongrelmanBrute (2)",
+                  "_entity_id": "f1a10e95-580b-4230-9541-306c69c3f3f7",
+                  "SceneAssetGuid": "dfb38286cea2f3140be6131290e6a01f"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$407b0024-7a78-41f4-b59b-6207221ff3a4",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$8bebfc04-be3b-48ea-9479-d14db7e0f12d"
+                    },
+                    "Unit2": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$ebc738d5-0d41-4d3f-baad-af79ce4f4d56"
+                    }
+                  }
+                ]
+              },
+              "RespawnIfDead": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$80be7e62-a201-4c3b-9da3-d75a0cf51af8",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "final",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_063cdd1443a0f8a43a572299f933d5be",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$fccff34f-0a0a-42d6-8bcb-583f261640eb",
+              "Comment": "если Венду анрекрутнулась",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$4e2d3924-fcf5-4fb6-86e9-601d2753bc53",
+                    "Not": false,
+                    "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                    "MatchWhenActive": false,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$59cb79c3-7d88-4342-a08e-e054dd132c4b",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$27599c9e-7dc7-4329-b61c-eecaefbe60a3",
+                      "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": true,
+                      "IncludeDettached": false
+                    },
+                    "m_Faction": "!bp_72f240260881111468db610b6c37c099",
+                    "IncludeGroup": false,
+                    "ResetAllRelations": false
+                  },
+                  {
+                    "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                    "name": "$Recruit$0679c611-9ed1-4849-81e1-8756e3da16b8",
+                    "Recruited": [
+                      {
+                        "m_CompanionBlueprint": "!bp_ae766624c03058440a036de90a7f2009",
+                        "NPCUnit": null,
+                        "MustBeInParty": false
+                      }
+                    ],
+                    "AddToParty": true,
+                    "MatchPlayerXpExactly": false,
+                    "OnRecruit": {
+                      "Actions": []
+                    },
+                    "OnRecruitImmediate": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$d3afe2d0-5253-4766-bfa9-2c2c6296d653",
+              "m_Buff": "!bp_2cafedfa42d0166488092f44a424c3b2",
+              "Target": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$01c66e3d-253e-4d18-830c-f561cadde9c6",
+                "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$82244600-75cf-4c26-a9e4-61a4a376964f",
+              "m_Cutscene": "!bp_8fdb59f403f8b1b41a005d4f74ab5912",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Speaker",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$900bd904-6330-4c2c-bb62-6d08b3eb4ae7",
+                      "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    }
+                  },
+                  {
+                    "Name": "Dialogue",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$c31b5bbf-1e32-4aa3-b3d1-e05831b620d2",
+                      "m_Value": "!bp_c4e1ca2dedb02484d98c6dd33d1aa78c"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$51eea639-e746-4e55-9c57-430486f73470",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1f0b5356-a2ce-41f5-a32e-6f85658fa99c",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$0f73ac45-c8bc-4b87-82ae-db5545f28c6e",
+                    "Not": true,
+                    "m_QuestObjective": "!bp_40947278e4953444ea4f3f4d4933e3d0",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$432c5454-f1a5-45d4-b506-ec52f183f25a",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_fb9db395c9a4b14479aca8a4eef9819b",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "стартует вместе к КТС этюдом (живёт в States т.к. по ходу квеста Вендуаг может временно отваливатся от нас)",
+    "m_Parent": "!bp_53424650e26c2d145b15411edf31b089",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_8217b05e37078414981d994151f0ffb1",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_0d5b970e0224130409569e5c0e69a5e1"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "AssetId": "0cc990e90fec443288a5ebafb6e5faf0",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$1f158831-da27-4e09-a0ac-db50db60ff41",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$74e8547c-3322-4978-abf9-6bd7b586e71f",
+            "MapObject": {
+              "EntityNameInEditor": "Lamp",
+              "_entity_id": "cf8d261d-7905-4eab-9cc5-9d1673faeb77",
+              "SceneAssetGuid": "76ba2fcc446f42d4ebb7430207cc1444"
+            }
+          },
+          "Unhide": false,
+          "UseEntityFader": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0a53131f-494d-42e8-8f06-20efa652db4a",
+          "Comment": "Anyone is dead",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d00239901a4bf03408fc8b12116b4d67, CompanionIsDead",
+                "name": "$CompanionIsDead$8cac4a25-3230-4f9b-b0f3-91be63da91fb",
+                "Not": false,
+                "m_companion": null,
+                "anyCompanion": true,
+                "includeRemote": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$0451ca12-38b1-40be-aaff-34c75cee4b48",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$c637fcf4-5b8f-40fe-af1f-49c46a702544",
+                      "Comment": "Fx on dead",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                            "name": "$UnitIsDead$745363c8-212f-4328-87a1-f45fedec1189",
+                            "Not": false,
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$1b103664-cbd2-4810-ac45-19d4ab01826f"
+                            }
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                            "name": "$SpawnFx$37e38578-6044-4d8b-b95c-a8ec4d7aa639",
+                            "Target": {
+                              "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                              "name": "$UnitTransform$1f0bc199-98a5-4171-b074-41b11d670c91",
+                              "Unit": {
+                                "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                "name": "$PartyUnit$a37a11f9-03fb-4411-9859-c06b634d4692"
+                              }
+                            },
+                            "FxPrefab": {
+                              "AssetId": "0ebce62d69de8434b97fedbd696a7ae6"
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

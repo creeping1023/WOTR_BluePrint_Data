@@ -1,0 +1,223 @@
+{
+  "AssetId": "2b8ea561b38e4fb08f7d5e5f3de205fe",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+          "name": "$UnitEqual$2de81a77-a93a-4e0d-8f2f-970be308b8b9",
+          "Not": false,
+          "FirstUnit": {
+            "$type": "7092730319129374aadf8b65ceb5c42d, ScriptZoneUnit",
+            "name": "$ScriptZoneUnit$fd2d675d-5c3d-4f4a-aaa1-36addfa9aece"
+          },
+          "SecondUnit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$c9488d2f-41cd-4342-8095-87cc964c6deb"
+          }
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$788a84b2-669a-473a-bb3d-82e64e52a6f9",
+          "Comment": "First walk near crime scene",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$af3e0192-b1d9-402f-abd9-3a4d76832bec",
+                "Not": true,
+                "m_ConditionFlag": "!bp_ca8e3e7bfb4049dab8d8d34d6a9a38d6",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$734da513-9b1b-465a-a924-fea9739047da",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "f545a9edf4f83bf45b401c06c704a1db",
+                    "stringkey": "2e89cdbe-ce76-41db-a52c-c1410bdf3d28"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$9c51e121-784a-4596-b6be-78b814c5643f",
+                  "Spawner": {
+                    "EntityNameInEditor": "CamelliaCrimeSceneGuard_2",
+                    "_entity_id": "f8e6f90f-4f1c-4bf9-a834-a5f2f89eb0eb",
+                    "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                  }
+                },
+                "TargetMapObject": null
+              },
+              {
+                "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                "name": "$ScriptZoneDeactivate$7addec15-6d91-4e42-9d59-b9344f1e0c04",
+                "UseEvaluator": false,
+                "ScriptZone": {
+                  "EntityNameInEditor": "MurderOnTheFestival_SZ",
+                  "_entity_id": "d85aee1a-89bf-4b5d-aa6e-489866d79d66",
+                  "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                },
+                "ScriptZoneEvaluator": null
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$10372720-0813-4d97-948f-1975d8df40f1",
+                "m_flag": "!bp_ca8e3e7bfb4049dab8d8d34d6a9a38d6",
+                "flagValue": 1
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$2915391f-b90c-4b35-8a98-da41ace92cf7",
+                "m_Cutscene": "!bp_bec83ee17452490aae0eceb041395c62",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$57d71d8b-fa59-4723-ba92-8c041f6ca485",
+                "Comment": "Second walk near crime scene",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                      "name": "$FlagInRange$2f8e7784-4a93-4cf6-90c3-2869382b5869",
+                      "Not": false,
+                      "m_Flag": "!bp_ca8e3e7bfb4049dab8d8d34d6a9a38d6",
+                      "MinValue": 1,
+                      "MaxValue": 1
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                      "name": "$ScriptZoneDeactivate$817ecc1a-3c89-42f1-b0e9-8a922206803d",
+                      "UseEvaluator": false,
+                      "ScriptZone": {
+                        "EntityNameInEditor": "MurderOnTheFestival_SZ",
+                        "_entity_id": "d85aee1a-89bf-4b5d-aa6e-489866d79d66",
+                        "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                      },
+                      "ScriptZoneEvaluator": null
+                    },
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$7040a0f4-abeb-4db5-be12-cfe2bc42e316",
+                      "m_Flag": "!bp_ca8e3e7bfb4049dab8d8d34d6a9a38d6",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$f40e7831-e2e8-4498-b8be-506185cd38cd",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$427120c3-64d4-48d8-b203-7116c9908a96",
+                      "m_Cutscene": "!bp_7fc68f20aa5c4a9b99ee04badc585d43",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                      "name": "$ShowBark$142d5bf8-3e59-4783-8e9b-748b3b39143a",
+                      "WhatToBark": {
+                        "m_Key": "",
+                        "m_OwnerString": "",
+                        "m_OwnerPropertyPath": "",
+                        "m_JsonPath": "",
+                        "Shared": {
+                          "assetguid": "f545a9edf4f83bf45b401c06c704a1db",
+                          "stringkey": "2e89cdbe-ce76-41db-a52c-c1410bdf3d28"
+                        }
+                      },
+                      "WhatToBarkShared": null,
+                      "BarkDurationByText": true,
+                      "TargetUnit": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$e89f2ed8-f5b0-4224-ac72-aa637c04ba75",
+                        "Spawner": {
+                          "EntityNameInEditor": "CamelliaCrimeSceneGuard_2",
+                          "_entity_id": "f8e6f90f-4f1c-4bf9-a834-a5f2f89eb0eb",
+                          "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                        }
+                      },
+                      "TargetMapObject": null
+                    },
+                    {
+                      "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                      "name": "$ScriptZoneDeactivate$7f12f942-cce7-4712-b72e-80755e138f7f",
+                      "UseEvaluator": false,
+                      "ScriptZone": {
+                        "EntityNameInEditor": "MurderOnTheFestival_SZ",
+                        "_entity_id": "d85aee1a-89bf-4b5d-aa6e-489866d79d66",
+                        "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                      },
+                      "ScriptZoneEvaluator": null
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$9430e21d-f2b7-49df-a466-6cbb76376a6a",
+                      "m_Cutscene": "!bp_bec83ee17452490aae0eceb041395c62",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

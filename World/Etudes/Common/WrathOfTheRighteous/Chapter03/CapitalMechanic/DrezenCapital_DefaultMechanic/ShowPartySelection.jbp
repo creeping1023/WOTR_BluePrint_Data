@@ -1,0 +1,232 @@
+{
+  "AssetId": "cb81a7635afad1e4a9fb3a5dae1b0bb3",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$0fff734f-ce96-48c0-87bd-40744972fd1a"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0fff734f-ce96-48c0-87bd-40744972fd1a",
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+              "name": "$ShowPartySelection$3e4f7a9f-5bde-4153-934a-600e701b9e08",
+              "ActionsAfterPartySelection": {
+                "Actions": [
+                  {
+                    "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                    "name": "$PartyUnits$2d8a26e9-773e-417a-bc35-592b34e2141d",
+                    "m_UnitsList": "ActiveUnits",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                          "name": "$TranslocateUnit$2ddff79c-195e-4515-adb6-f2b5d46cc9ed",
+                          "Unit": {
+                            "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                            "name": "$PartyUnit$e710e449-1b8b-4dba-82e4-6684cce6cb6e"
+                          },
+                          "translocatePosition": {
+                            "EntityNameInEditor": "",
+                            "_entity_id": "",
+                            "SceneAssetGuid": null
+                          },
+                          "translocatePositionEvaluator": {
+                            "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                            "name": "$UnitPosition$747481ff-82ab-48cf-9477-dce4a62a3c3e",
+                            "Unit": {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$f356fa00-4eb6-432e-aff7-9aa49c5ec157"
+                            }
+                          },
+                          "m_CopyRotation": false,
+                          "translocateOrientationEvaluator": null
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                    "name": "$PartyUnits$1057bae2-a2ff-4cad-b812-d0326e17f198",
+                    "m_UnitsList": "Everyone",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$a169e753-921d-47fa-9d62-0dbf164b43dc",
+                          "Comment": "Не хайдить враждебных при выключении CapitalCompanionLogic",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "9ebbae81b66bb174b9050f3a92549ca3, IsEnemy",
+                                "name": "$IsEnemy$f0ac1086-d98f-4660-99ab-ff64d8acf968",
+                                "Not": false,
+                                "FirstUnit": {
+                                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                  "name": "$PlayerCharacter$182576e3-4f54-422d-9d9f-b425de30c639"
+                                },
+                                "SecondUnit": {
+                                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                  "name": "$PartyUnit$73ffb255-a171-4cee-a268-85325114f4fa"
+                                }
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$3d7228c0-eb52-4954-8cb6-f2c782fb4fa0",
+                                "Target": {
+                                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                  "name": "$PartyUnit$7a2b8087-6254-4e93-ab67-2f74c5861bdd"
+                                },
+                                "Unhide": true,
+                                "Fade": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "ActionsIfCanceled": {
+                "Actions": [
+                  {
+                    "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                    "name": "$PartyMembersDetachEvaluated$374eac04-f2d5-4b38-a4f9-e15b7e453b85",
+                    "DetachThese": [
+                      {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$9ce57b39-c54b-4c34-97cd-0c1590166542"
+                      }
+                    ],
+                    "AfterDetach": {
+                      "Actions": [
+                        {
+                          "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                          "name": "$PartyMembersSwapAttachedAndDetached$6efe5b78-5af6-4c43-947b-b7ba254fff42"
+                        },
+                        {
+                          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                          "name": "$PartyUnits$18b4f218-73dc-497c-bb75-aa7edf96d40a",
+                          "m_UnitsList": "AllDetachedUnits",
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$1cd7953f-b850-430a-bdcf-9d24c3dbc662",
+                                "Target": {
+                                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                  "name": "$PartyUnit$745d68bb-5d03-4a9c-89a0-8a1d2344f572"
+                                },
+                                "Unhide": false,
+                                "Fade": false
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "m_RestrictPartySize": false,
+                    "m_PartySize": -1
+                  },
+                  {
+                    "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                    "name": "$PartyUnits$08ad7607-1975-4b1e-96aa-95a794454efd",
+                    "m_UnitsList": "Everyone",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$b8265246-6dcf-43f2-b5ff-af601672b4b8",
+                          "Comment": "Не хайдить враждебных при выключении CapitalCompanionLogic",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "9ebbae81b66bb174b9050f3a92549ca3, IsEnemy",
+                                "name": "$IsEnemy$851fdb97-7db3-4051-a893-6755a72cd152",
+                                "Not": false,
+                                "FirstUnit": {
+                                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                  "name": "$PlayerCharacter$5fc70d17-d73b-41fe-9df0-7ada38077503"
+                                },
+                                "SecondUnit": {
+                                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                  "name": "$PartyUnit$b723ecdb-c0c9-4c49-8584-6ad3ee02aa2b"
+                                }
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$ad574c1c-2a87-46df-aeb6-dfb5acf9aee1",
+                                "Target": {
+                                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                  "name": "$PartyUnit$89379330-56ac-441a-b2c9-fd6fc6bea506"
+                                },
+                                "Unhide": true,
+                                "Fade": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_8649140454376084f84dbdc8a7d6a7f1",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_0f502b93e2057194f8324b7f6bbf732f",
+      "!bp_aadf9d335fe1625468cb65b8342eb983"
+    ],
+    "Priority": -200
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "AssetId": "d18344b0993c4a718cae34e4f4d45af7",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$97551ee5-08a1-4c93-bed2-57f671f89f2b",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$6990653f-5245-4df8-9ad3-5b520b24f625",
+                "m_Cutscene": "!bp_1bd5c5fa7dc243eeaf5b38dbb2eeff07",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$d493c445-3bd8-4acd-b4ec-88d9bf80adf5"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$48583868-8cee-47c5-89e9-2e21a2a51052",
+          "Status": "Complete",
+          "m_Objective": "!bp_8b3e63766266485fa628a80b6a90db18",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$7561bef4-fdaf-4693-a035-714c2d9be897",
+          "Comment": "Unfair difficulty",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "8971cb2653f412b46ba71580482c29f6, DifficultyHigherThan",
+                "name": "$DifficultyHigherThan$82d2646c-dd47-4808-9d64-34602b76dcf4",
+                "Not": false,
+                "m_Difficulty": {
+                  "guid": "c9f3dc36137793e46b3e2d97e246613e",
+                  "fileid": 11400000
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                "name": "$ActionAchievementUnlock$296e8fe1-dc53-4e76-9bce-703786c94bad",
+                "m_Achievement": "!bp_05e687ca70a240d498f7aec2e928d89b"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

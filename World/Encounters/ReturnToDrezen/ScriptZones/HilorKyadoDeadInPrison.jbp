@@ -1,0 +1,104 @@
+{
+  "AssetId": "705d22c1f6ee446cb0b7beaf6fa09468",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$9f8ce58d-f001-4fb3-a358-51b10d8343e4",
+          "Not": false,
+          "m_Etude": "!bp_48b3d1b7ac1c69343b38366e14b02709",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$a1104ecc-6503-4503-969d-098332614b77",
+          "Not": true,
+          "m_QuestObjective": "!bp_8a2958dd31ec83144a1b1343e4971856",
+          "State": "Completed"
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$1c027c77-16c9-4c40-bc89-4b6a7a9bf716",
+          "Status": "Fail",
+          "m_Objective": "!bp_8a2958dd31ec83144a1b1343e4971856",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$cfd11652-0aed-484e-b101-ca7530d207e0",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$5c1010a5-a31c-48ec-9dc8-ef34162a5200",
+            "MapObject": {
+              "EntityNameInEditor": "Hilor_corpse_info",
+              "_entity_id": "391a9944-34b4-4602-a576-ac751b665c49",
+              "SceneAssetGuid": "ed2493c7cc4f54547abfb40e12aba18d"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b8f0206b-ebc1-4c2c-bcdc-b78081f8838a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$31f15101-b63e-42ba-8a78-5940566381cc",
+                "Not": true,
+                "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$ac76f7a9-6f2f-4b09-9eeb-849c0006a3aa",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$1b4e8013-39c7-4c20-ae9a-e1a77012e321",
+                  "MapObject": {
+                    "EntityNameInEditor": "Kyado_corpse_info",
+                    "_entity_id": "3df1ee86-3f0a-4bc7-b333-bd5c1f9ec6d4",
+                    "SceneAssetGuid": "ed2493c7cc4f54547abfb40e12aba18d"
+                  }
+                },
+                "Unhide": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

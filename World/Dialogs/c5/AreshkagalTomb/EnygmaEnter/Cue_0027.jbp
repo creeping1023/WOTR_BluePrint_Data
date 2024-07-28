@@ -1,0 +1,206 @@
+{
+  "AssetId": "d840080822d64e14fac385010630d8c3",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Открыть УИ группы\n\nЕсли игрок в этом УИ не выберет Лису в активную группу - профейлить обж4 и выдать обж4а",
+    "ParentAsset": "c595e207de336f049b3c3665fbe38fb1",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "5652c5ea2ac783e4b9cf0f64951a660b",
+        "stringkey": "7119a504-0f3f-427f-92eb-81e0dc3ec3af"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+          "name": "$ShowPartySelection$0ae90bff-7a1e-4c9a-aaa1-955e01328fed",
+          "ActionsAfterPartySelection": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$fed1301b-5fc3-4c2c-852d-45e511ebf141",
+                "Comment": "Если ненио в группе",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$cd303918-cc39-4fa2-b46b-97385193f531",
+                      "Not": false,
+                      "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": false,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$2064e204-8226-4a45-9a05-6a20b08cbfd7",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_698d0de2b1f5c9140b3c14520b3674cd",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$6ae3b3e1-2dec-4ae1-b533-a771789f8891",
+                      "m_Objective": "!bp_8520259dadee1564dbc37e640400d150"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$57f6170f-6cb8-49ab-9649-8d3e91f84ed9",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_698d0de2b1f5c9140b3c14520b3674cd",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$44a37ca9-c97b-4310-ac10-171f295b8553",
+                      "m_Objective": "!bp_e2bb065f194f7cc4b8512226d8bf4fa0"
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$a9efb692-b01e-4338-b587-1fa894a4a9a8",
+                      "Etude": "!bp_96d12b37cf84da049be8587c4914a496",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$df06ab8a-e055-49f5-bfab-6d7883be8018",
+                      "m_flag": "!bp_768d015e0a920bb4a848c287f494510b",
+                      "flagValue": 0
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "ActionsIfCanceled": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$7d85ecb3-7faa-4098-8f0f-366236281753",
+                "Comment": "Если ненио в группе",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$3b7c01e5-cbf5-45d3-a30f-f83ca6ad4ae4",
+                      "Not": false,
+                      "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": false,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$a3925cd1-ebc0-48a4-9d6f-617d0f541e88",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_698d0de2b1f5c9140b3c14520b3674cd",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$348fd74d-3635-4704-a415-3827c56b7684",
+                      "m_Objective": "!bp_8520259dadee1564dbc37e640400d150"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$1b566a24-4c60-48e0-897a-3155f06222fc",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_698d0de2b1f5c9140b3c14520b3674cd",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$2b1c47e7-1c68-409e-b08e-edd511ac9b02",
+                      "m_Objective": "!bp_e2bb065f194f7cc4b8512226d8bf4fa0"
+                    },
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$1f4daff6-80a1-47b6-824e-65be42fd7613",
+                      "Etude": "!bp_96d12b37cf84da049be8587c4914a496",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$892b73ce-f603-4612-8f10-dd6d5f38fb88",
+                      "m_flag": "!bp_768d015e0a920bb4a848c287f494510b",
+                      "flagValue": 0
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "AssetId": "ae29b28dd679451d9ec05b1189341143",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$49473068-8092-44ee-b7e2-3efea4f4e068",
+          "Comment": "Spawn Camelia",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$b5f1ece8-2f37-41bd-9507-06092022f612",
+                "Not": false,
+                "m_companion": "!bp_397b090721c41044ea3220445300e1b8",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$124fb64d-2fd6-4de9-8a3c-24af5d666afb",
+                "Not": true,
+                "m_Etude": "!bp_28dded56962a0c84dae072ed3afcfd2d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$11b17959-36fd-451a-9c27-184c558d6bba",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Fake_Camelia",
+                    "_entity_id": "36013e46-1108-4556-8863-0e48e4472eac",
+                    "SceneAssetGuid": "fec7d8dfea7d2c54298d265212f485a2"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$08c56611-4557-4fa2-b0f0-3d91b918f8e8",
+                      "m_Cutscene": "!bp_128084fb914e42a48ba0f05898820468",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$7cbf2b30-9684-4fb7-b21f-511badcabc1d",
+                              "Spawner": {
+                                "EntityNameInEditor": "Fake_Camelia",
+                                "_entity_id": "36013e46-1108-4556-8863-0e48e4472eac",
+                                "SceneAssetGuid": "fec7d8dfea7d2c54298d265212f485a2"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

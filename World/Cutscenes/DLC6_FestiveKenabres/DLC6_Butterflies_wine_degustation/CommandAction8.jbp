@@ -1,0 +1,71 @@
+{
+  "AssetId": "6f2801aca30349c9972b0f694dae390b",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a634f6ab-a7c1-4268-863c-8cfc64d0ab45",
+          "Comment": "All wines degustated",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$7b23cc7c-dd8c-4ee2-b4f4-24be276d2167",
+                "Not": false,
+                "m_Flag": "!bp_ecc2e0bee1d543688274850bf122488f",
+                "MinValue": 4,
+                "MaxValue": 4
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$ac903690-d482-455f-8d6a-954e44eda665",
+                "m_Cutscene": "!bp_f4e5272a4c7a406fbbbce1ba536be17f",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$1336227b-f1e6-47be-b5f6-0cf1f31dc801",
+                "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                "TargetType": "Evaluator",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$70fcc6e8-c5ea-4808-8862-bc2ad0ae88cb"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$4cd418ad-3321-4362-861b-f2e4137f2194",
+          "Status": "Complete",
+          "m_Objective": "!bp_358ac397780f4c5a9a96bafeae91f124",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

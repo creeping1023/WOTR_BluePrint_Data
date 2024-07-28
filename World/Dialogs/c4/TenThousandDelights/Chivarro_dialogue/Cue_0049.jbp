@@ -1,0 +1,166 @@
+{
+  "AssetId": "fb24aedb699a5a246a410fa0cbe915d8",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "интерапт охранник\n\nДемон телепортирует Чиварро из борделя\n\nВыдает +3 renown",
+    "ParentAsset": "274f276f064cde842af108eb03082a28",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "5e9974ee-a7de-4714-a5ae-88ebe732c976",
+      "m_OwnerString": "fb24aedb699a5a246a410fa0cbe915d8",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/TenThousandDelights/Chivarro_dialogue/Cue_0049_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_628ecc260efcc6f4eaa01e28a880b0ac",
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$6b082d45-026e-430d-b8c5-e55e374c28b8",
+          "m_Flag": "!bp_8061fb025b4c5cf459cb81a1c96fcdc9",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$245b9a3d-33f2-4eff-8b86-3c3bbd524964",
+            "Value": 5
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$29cd15b5-cb17-47e0-b9ad-1eb7d07a9b05",
+          "Etude": "!bp_edc069aa5ab7c394dae6c1c1c43fa647",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$438ab56a-6a19-4a29-bd99-0118a537b652",
+          "Etude": "!bp_806ece7bcf18a374e9ad1f7b9e3bc580",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$f0c68fc7-df19-488b-8a11-f65cd310ab36",
+          "Etude": "!bp_065b611752b5c0045b6d1e0164b92bcc",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1eb0ebf0-240c-4532-8bfd-17923c49b98c",
+          "Comment": "Change Chivarro or Herraxa near Dyunk",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$c948bfb1-0112-4949-903e-f9f47bd542e7",
+                "Not": true,
+                "m_Dialog": "!bp_a6a672e548686624fab891c5eebd71bb"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$03200f06-c68e-4606-8623-eb79fb5fcd12",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Herraxa",
+                    "_entity_id": "9a7ec96e-ae7b-45a4-8aa0-110b011db539",
+                    "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$44db6f3b-5c33-485a-9069-bea9fce8218c",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$a90c94a0-1c4a-41eb-bdaa-1bd49890a749",
+                  "Spawner": {
+                    "EntityNameInEditor": "Chivarro",
+                    "_entity_id": "a5f8ef89-4eb9-44fa-817a-661bfc94cd23",
+                    "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$5f898ca8-852c-4845-b989-066353186463",
+          "m_Cutscene": "!bp_1c64c655222227b48a311403b04c9ad0",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$4ce1a0f2-3ac1-45e5-bd99-0ba36078f992",
+          "m_Objective": "!bp_eb1493b63ca519e45a75534c39e1e0ab"
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$3c797b74-2153-4485-941b-908d37547bb1",
+          "Status": "Complete",
+          "m_Objective": "!bp_4dd957cadff1b684d8f9441100813615",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "AssetId": "e1e2e81d18624c41aff20636b01f6fb7",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "ИНТЕГРАЦИЯ ДЛЦ3\n\nЕсли был стартован первый квест ДЛЦ3\n\nвыдаем 2 квест, если у игрока он еще не стартован, а 1 закомпличен",
+    "ParentAsset": "e120233c0ac898d40b98daa9545cb0f8",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$9aef5c1a-86e2-47cd-b9be-ccfe7b4a56cd",
+          "Not": false,
+          "m_Etude": "!bp_093db34c2e0c4f7683cc6e87bb4dfac9",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$972c32f8-25cf-414e-8669-6efadcfa618d",
+          "Not": true,
+          "m_Etude": "!bp_90a98fca882f4d91b06fb562ccd24c44",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "8ef8859a-5515-43b0-a0f8-02be76901292",
+      "m_OwnerString": "e1e2e81d18624c41aff20636b01f6fb7",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\c4\\TavernBadLuck\\InnKeeper_mainDialogue\\Cue_2_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5faf4208-ad9d-4dd8-8aed-84d036c63ae6",
+          "Comment": "Тир 1 не стартован",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$97df4291-be98-44ce-9b60-d248df979143",
+                "Not": false,
+                "m_Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$849bbde3-4ac8-4848-b328-4f117d5006a9",
+                "Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$9bdf2aef-5dd4-41c9-9583-bf6ef48decd0",
+                "Comment": "Тир 1 не завершен",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$4bb35294-e936-42b5-b5a7-8b24dd532eea",
+                      "Not": false,
+                      "m_Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$2f611398-501c-4138-906a-f8e6f5cc663e",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_4faa281533d9447f82d1bb450db04e44",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$dbf4d176-f737-490b-9381-85c274c00932",
+                      "m_Objective": "!bp_4af88488fc5142c4be58af73507d7167"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$032c583d-f493-4381-9000-13c91d913ce0",
+                      "Comment": "Тир 1 завершен",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$725ade44-728d-4631-8447-7e475d3b2b4c",
+                            "Not": false,
+                            "m_Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": false,
+                            "CompletionInProgress": false,
+                            "Completed": true
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                            "name": "$StartEtude$de96fe06-67d2-4ea7-b814-789e142a3dd5",
+                            "Etude": "!bp_0912638e3ec84ad58621fc36e5f60556",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_75b05aa95a355ad40bec91ff01fd8969"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

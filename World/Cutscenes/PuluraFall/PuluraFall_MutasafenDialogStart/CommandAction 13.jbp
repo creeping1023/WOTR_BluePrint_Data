@@ -1,0 +1,107 @@
+{
+  "AssetId": "41f5b7fb2fa5ec640b57177c17b73e17",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$61d70435-7bf7-4423-970d-a8eab71df433",
+          "Etude": "!bp_75a4fb7cf239bb14f8d7bfd29073ffaf",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$59f513b8-7e9c-4d4b-87dd-d414255445c0",
+          "Comment": "Failsafe",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                "name": "$LessThan$7cf5d03e-46f6-46f6-a3e5-12384651549d",
+                "Not": true,
+                "FloatValues": false,
+                "Value": {
+                  "$type": "0a7ef55390dc10c428693321c0e1f6d7, SummonPoolUnitsCount",
+                  "name": "$SummonPoolUnitsCount$abeeae27-7bb6-4e27-b058-ce45298e47f3",
+                  "m_SummonPool": "!bp_b7b1b23fbac92ea4bb112697b1614984"
+                },
+                "MaxValue": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$7cfd2e4d-9a94-4cfb-9da7-77669eddf556",
+                  "Value": 1
+                },
+                "FloatValue": null,
+                "FloatMaxValue": null
+              },
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$675e92f0-831b-4959-8c85-ea99c97a75a1",
+                "Not": false,
+                "m_ConditionFlag": "!bp_3abc097fa68ee9a4b80035cc08746b2f",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": [
+                  4
+                ]
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$2ee1ad6b-689a-4d77-98e5-0dff2d6ea32d",
+                "m_SummonPool": "!bp_b7b1b23fbac92ea4bb112697b1614984",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                      "name": "$DetachBuff$5babbabd-8a52-4eeb-b0de-dfeffc1536ab",
+                      "m_Buff": "!bp_4a8c0e0c1b006f442852d4e7bd29bb13",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$21aa8028-d519-4410-83a0-0da0c8483168"
+                      }
+                    },
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$fa01119e-b205-418c-a9a9-e470b158ed53",
+                      "m_Cutscene": "!bp_84f0349ab59ab1448b3da67fd484227c",
+                      "WithUnit": null
+                    },
+                    {
+                      "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                      "name": "$Kill$c262de83-4bdd-49e5-8b45-b82ebd1d56a5",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$90afe3c0-6560-4436-acec-9b6a7d53aeb9"
+                      },
+                      "Killer": null,
+                      "Critical": false,
+                      "DisableBattleLog": true,
+                      "RemoveExp": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

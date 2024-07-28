@@ -1,0 +1,166 @@
+{
+  "AssetId": "1d721ffcb5bc07e40bb403274fb26b7e",
+  "Data": {
+    "$type": "df78945bb9f434e40b897758499cb714, BlueprintAnswer",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Если Зериэкс мёртв\nДолжно быть кольцо в сумке",
+    "ParentAsset": "2e27ade158443fa41a2bb39f2632d47e",
+    "MythicRequirement": "None",
+    "AlignmentRequirement": "None",
+    "Text": {
+      "m_Key": "96f87359-8630-400e-aeef-d297fe7ba718",
+      "m_OwnerString": "1d721ffcb5bc07e40bb403274fb26b7e",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/TenThousandDelights/MorevetBrothel/Answer_0024_Text.json",
+      "Shared": null
+    },
+    "NextCue": {
+      "Cues": [
+        "!bp_69cfb23f7d8d7954e9015335f069f25b"
+      ],
+      "Strategy": "First"
+    },
+    "ShowOnce": true,
+    "ShowOnceCurrentDialog": false,
+    "ShowCheck": {
+      "Type": "Unknown",
+      "DC": 0
+    },
+    "Experience": "NoExperience",
+    "DebugMode": false,
+    "CharacterSelection": {
+      "SelectionType": "Clear",
+      "ComparisonStats": []
+    },
+    "ShowConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$d80f6cbc-8415-4e86-83c7-2dec3a840818",
+          "Not": false,
+          "m_Etude": "!bp_a79f9065eff3a5b4188dfd818b72663a",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$3b075fd8-f5e5-44fa-96e3-4b7a0f3c879f",
+          "Not": false,
+          "Comment": "One of the rings in inventory",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                "name": "$ItemsEnough$ee0d219d-b3f5-44b7-982d-398888ef8a93",
+                "Not": false,
+                "Money": false,
+                "m_ItemToCheck": "!bp_0f1307e138be01d4ba8bdeb489b98c4a",
+                "Quantity": 1
+              },
+              {
+                "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                "name": "$ItemsEnough$d51601fa-d9d9-49fd-bd0d-f7c026e55305",
+                "Not": false,
+                "Money": false,
+                "m_ItemToCheck": "!bp_073e5a57cf0359744a4db056ab481103",
+                "Quantity": 1
+              }
+            ]
+          }
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$be78b04a-53f3-4980-8bfd-5d7cb482d2ff",
+          "Not": false,
+          "m_Quest": "!bp_f83a2a5f2cddcc14b8cca315ce61015c",
+          "State": "Started"
+        }
+      ]
+    },
+    "SelectConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "RequireValidCue": false,
+    "AddToHistory": true,
+    "OnSelect": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$475b2017-c2b2-4bf8-8bfb-77b67979eea5",
+          "Comment": "Ring?",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                "name": "$ItemsEnough$713f958b-d19a-4eaa-9510-8cca49ffc76c",
+                "Not": false,
+                "Money": false,
+                "m_ItemToCheck": "!bp_0f1307e138be01d4ba8bdeb489b98c4a",
+                "Quantity": 1
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+                "name": "$RemoveItemFromPlayer$c058b3fe-ca7d-4da5-9e82-354d893dcf5f",
+                "Money": false,
+                "RemoveAll": false,
+                "m_ItemToRemove": "!bp_0f1307e138be01d4ba8bdeb489b98c4a",
+                "m_Silent": false,
+                "Quantity": 1,
+                "Percentage": 0.0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+                "name": "$RemoveItemFromPlayer$2b35d29b-765d-4477-bddc-06097cfd8a67",
+                "Money": false,
+                "RemoveAll": false,
+                "m_ItemToRemove": "!bp_073e5a57cf0359744a4db056ab481103",
+                "m_Silent": false,
+                "Quantity": 1,
+                "Percentage": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$a26d4d12-328f-4cf4-b671-07a6ef0d06b7",
+          "Status": "Complete",
+          "m_Objective": "!bp_60bf5d12e46700141b4b6d355432b95c",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    },
+    "FakeChecks": [],
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

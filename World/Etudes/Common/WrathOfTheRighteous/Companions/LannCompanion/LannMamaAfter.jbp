@@ -1,0 +1,207 @@
+{
+  "AssetId": "ef79fe4615b617c4fb166d271095b817",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$DeactivateTrigger$b5833031-3636-4505-bfed-eed8ac1ca852",
+      "$EtudePlayTrigger$01ccdc64-756a-4fe2-8d15-d26dffa24ef1",
+      "$EtudeBracketTriggerAction$12d3bba9-0e49-4039-bb73-9c203e63e2bc"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$01ccdc64-756a-4fe2-8d15-d26dffa24ef1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "показать Ланна",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$7aba82ea-4f27-421c-8221-ab2641df1779",
+              "Target": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$92a5df35-52be-4b01-8a35-6adec223a42e",
+                "m_Companion": "!bp_cb29621d99b902e4da6f5d232352fbda",
+                "IncludeRemote": true,
+                "IncludeExCompanions": false,
+                "IncludeDettached": true
+              },
+              "Unhide": true,
+              "Fade": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "m_Flags": 0,
+        "name": "$DeactivateTrigger$b5833031-3636-4505-bfed-eed8ac1ca852",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "убрать маму Ланна\nВернуть Ланна (автоматом)\nостановить котсцену\nзакомплитить этюд",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+              "name": "$False$c46b7b11-d274-4535-9e86-9ae388a3e0e1",
+              "Not": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$8fc5924b-7616-4180-bff4-9972b62d7066",
+              "m_Cutscene": "!bp_dc68a8cdc9c3eb04da40e4066edbb5ef",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$db7e9ec4-369f-4afc-aed0-0401ea7c5aa1",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$e9f8667c-2fbb-4707-963a-8d645f628d72",
+                "Spawner": {
+                  "EntityNameInEditor": "LannsMama_RiaNat",
+                  "_entity_id": "41721cc1-f1bc-4943-93a5-7e0782f6cba4",
+                  "SceneAssetGuid": "fc4e7c43b364a4c4d9806aebbf28c0f5"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$9ec8c051-8993-4468-8ba9-c3a0f78f2117",
+              "m_SummonPool": "!bp_3ec9702283d556549bff4b8997570173",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$ba631430-0dca-4949-8b74-4cc58a7d3b41",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$d599515e-5ca9-4680-91ce-61c119f63f00"
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$89bd3744-1480-445b-8b7a-a0e6420d360c",
+              "Etude": "!bp_ef79fe4615b617c4fb166d271095b817",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fae54e860aa242b6995ca39ee03ad184, EtudeBracketTriggerAction",
+        "m_Flags": 0,
+        "name": "$EtudeBracketTriggerAction$12d3bba9-0e49-4039-bb73-9c203e63e2bc",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "OnActivated": {
+          "Actions": []
+        },
+        "OnDeactivated": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$7079d5e2-8bfc-4347-a73a-82bba416a4f9",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$349c5701-5458-43ba-a604-9c85dd552afc",
+                "Spawner": {
+                  "EntityNameInEditor": "LannsMama_RiaNat",
+                  "_entity_id": "41721cc1-f1bc-4943-93a5-7e0782f6cba4",
+                  "SceneAssetGuid": "fc4e7c43b364a4c4d9806aebbf28c0f5"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$65b57db0-b969-46fd-9d82-e9d2316bf682",
+              "m_Cutscene": "!bp_dc68a8cdc9c3eb04da40e4066edbb5ef",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$e5e7d22d-8619-48e3-a361-50f3f87daf02",
+              "Etude": "!bp_ef79fe4615b617c4fb166d271095b817",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_2aed8294f29aaca44b9bdd66af11cbec",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$51b0fb42-3928-4ba0-a400-732d0bdfd51d",
+          "Not": false,
+          "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_8a076e720870a44438d13b9b939933fd",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_245e6a0643228534d9808d0b99bf9746"
+    ],
+    "Priority": 62
+  }
+}

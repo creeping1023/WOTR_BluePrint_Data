@@ -1,0 +1,123 @@
+{
+  "AssetId": "49394bbf61d38fd42961f21bbf1e19a8",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Рваный достает оружие (кинжал)\n\nстарт боя, голарионские рабы в бою не участвуют, анлокается диалог Rabble_slave",
+    "ParentAsset": "141ad0d3e3c4d4541b6b2374b3d12fe9",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "8ea673dc-e73b-4487-89c2-92675e09cee0",
+      "m_OwnerString": "49394bbf61d38fd42961f21bbf1e19a8",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/FleshMarket/RabbleSlaver_dialogue/Cue_0010_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$e1aa2e41-99ec-43e6-a403-47d8bb499adf",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$a5954150-d29d-4640-b681-63bc8a86c3a7",
+            "Spawner": {
+              "EntityNameInEditor": "Rvaniy_CR19",
+              "_entity_id": "8934b9b7-5d3e-4c03-96b1-be512f7d2cbe",
+              "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6c7a1ce5-7433-4f9c-96d6-4c5b878e512b",
+          "Comment": "Fleshmarket fight renown",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$daa8df3b-5f22-45fb-969f-e8067f4ec3f4",
+                "Not": false,
+                "m_Etude": "!bp_219332d3b701e07429f6f62b6738ac4d",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$cb71e22d-7232-4046-8305-c0aa831e4b01",
+                "Etude": "!bp_219332d3b701e07429f6f62b6738ac4d",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$782ec0be-e1ea-436f-8c31-f33844ab0105",
+                "m_Flag": "!bp_8061fb025b4c5cf459cb81a1c96fcdc9",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$5b75168c-0ae0-402d-87c9-c4a880f4d10c",
+                  "Value": 3
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_d7cb458302b68444092b9e1f6c2182dd"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

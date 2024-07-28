@@ -1,0 +1,105 @@
+{
+  "AssetId": "c4a4a57cc17d4084582aabb3d10aba34",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$260c4412-cb6b-4341-b651-6abdcd77f7ad",
+          "Not": false,
+          "m_Etude": "!bp_85f05a312d0413b4592e495439acea2b",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$545d72ab-1fa1-4719-a5be-96091cf59198",
+          "Comment": "рабы, дружественные или нет",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$7c1eb738-eb4c-49f8-a7d5-63860e39b71d",
+                "Not": false,
+                "m_Etude": "!bp_a43a5070977b4b1f9d8913d5f8eb790f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$d2a65ac7-fd86-420b-9090-486fc8649bba",
+                "Comment": "рабы с нами или против",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$344f1c64-6aa8-49f0-ad12-46fee0a3a181",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_02449e507c146594cbca1f1ccfef15a6",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                      "name": "$SpawnByUnitGroup$9dc04bd4-6224-4e23-8026-3dc4117057ca",
+                      "m_Group": {
+                        "EntityNameInEditor": "FinalFight_1stWaveOptionalF",
+                        "_entity_id": "74a0eb17-b938-445a-b9aa-3c7c7a070fc0",
+                        "SceneAssetGuid": "6d803928819be60418c391ee6cbe116e"
+                      },
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                      "name": "$SpawnByUnitGroup$6cde2aa9-b0f2-4803-b56a-b9a72785285e",
+                      "m_Group": {
+                        "EntityNameInEditor": "FinalFight_1stWaveOptionalE",
+                        "_entity_id": "300e34dc-10a0-40a3-9006-a5c87d9938f7",
+                        "SceneAssetGuid": "6d803928819be60418c391ee6cbe116e"
+                      },
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "AssetId": "f9389d22b9d141edb09398688f01fec3",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_6147558e4a97a724081ea120a9700be2",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$72b64711-975f-4b11-bdd0-57cc6640ffd8",
+          "Comment": "Если квест Аруши зафейлен, а игрок попал в сон - телепорт обратно",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$90d4573e-9fa5-4c16-ba64-db8b5e20f806",
+                "Not": false,
+                "m_Quest": "!bp_95959bdc1ff82ce4da068684e80603a0",
+                "State": "Failed"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b863a620-4189-4f47-82e8-86969e1e4fbe",
+                "Not": false,
+                "m_Etude": "!bp_973a1520d471b474283cf297d746c028",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$c263e368-3c3a-46d3-bbdb-62a548072347",
+                "m_exitPositon": "!bp_56ef7c2c19e91914e912122b7c7f3b0d",
+                "AutoSaveMode": "AfterEntry",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$e71062c8-6f5f-42cf-b722-4d3a07a0dc6b",
+                "Etude": "!bp_973a1520d471b474283cf297d746c028",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

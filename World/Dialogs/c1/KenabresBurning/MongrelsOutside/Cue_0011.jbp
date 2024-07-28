@@ -1,0 +1,114 @@
+{
+  "AssetId": "eecb202a2364a71478a708644011ce5b",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "бой, но только если у нас в группе сейчас не Вендуаг",
+    "ParentAsset": "3d1ede4d2f208724890cd7b88d41d5ff",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "8fee9292-5adb-4e83-a678-d69c8a6b892e",
+      "m_OwnerString": "eecb202a2364a71478a708644011ce5b",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c1/KenabresBurning/MongrelsOutside/Cue_0011_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a74636b1-dd5f-490d-a8bf-061f1372f100",
+          "Comment": "If Venduag present",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$a94ce54c-8352-419a-b563-534a5635a07d",
+                "Not": false,
+                "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsInUnitGroup$d4f1ac76-5fd2-4f05-b413-137df41b3184",
+                "m_Group": {
+                  "EntityNameInEditor": "MongrelmanGroup",
+                  "_entity_id": "f8630161-32eb-48bd-a391-ac977fc868a8",
+                  "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$03b870af-b349-4776-b10a-cd001513fadd",
+                      "Unit1": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$b3e1576b-274b-4bc1-847f-6e2fb393dab1"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$69a13fcd-260b-482d-9a65-eb1d653713ad"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_f7469f67d82e71a4db524fb65eb6bd42"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

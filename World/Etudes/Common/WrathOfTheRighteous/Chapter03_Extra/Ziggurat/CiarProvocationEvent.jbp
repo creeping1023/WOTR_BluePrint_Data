@@ -1,0 +1,282 @@
+{
+  "AssetId": "e8714f9ef06e9854aa4595e4e0942d9f",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$SummonPoolTrigger$c902d3af-65fd-4c1a-8d29-d7d80d646c9c",
+      "$EtudeCompleteTrigger$1ac65753-c938-493a-ad39-e4af04045d94",
+      "$EtudePlayTrigger$fb0b5d4a-5e71-402f-bd5e-53b713ac2d8c"
+    ],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$c902d3af-65fd-4c1a-8d29-d7d80d646c9c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "перебили отряд Киара",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_e3f1022619f848c4dbd1ec5a41985e84",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsInUnitGroup$920c935b-a70f-4238-8d79-3435d34eaaf4",
+              "m_Group": {
+                "EntityNameInEditor": "B02_CiarGroup",
+                "_entity_id": "2f137110-3fb1-4948-bb17-9fdd4edc35e6",
+                "SceneAssetGuid": "d243913765727bf41abc9e6e6e477183"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$d1688ab1-9e0c-4b9b-8e9b-b4aefa686c6a",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$2187d70b-7dc6-49e0-b686-5c2ede40d053"
+                    },
+                    "m_Faction": "!bp_4e1f333e518d4794bb41b025e991edb0",
+                    "IncludeGroup": true,
+                    "ResetAllRelations": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$3d00ce04-1336-4e9d-83e0-1f469721c7c3",
+              "Status": "Complete",
+              "m_Objective": "!bp_91a03e292d4c7b04d9705a683542c529",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$d45a2803-78b2-436b-b56a-39562ece8f2c",
+              "m_Objective": "!bp_216290f48449f194393b5aebcfee1e8d"
+            },
+            {
+              "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+              "name": "$Kill$0eb4a1d9-786d-4bd5-8b31-98cdf0bd1b9f",
+              "Target": {
+                "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                "name": "$PetEvaluator$aabf9632-e1d9-4c4d-b299-d517c1bbd017",
+                "Master": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$72f19562-4d97-4af2-b3d4-c99bc62f8803",
+                  "Spawner": {
+                    "EntityNameInEditor": "CiarAttack",
+                    "_entity_id": "23ec8622-5ccb-4327-b998-2bd908938f37",
+                    "SceneAssetGuid": "d243913765727bf41abc9e6e6e477183"
+                  }
+                },
+                "PetType": "AnimalCompanion"
+              },
+              "Killer": {
+                "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                "name": "$PetEvaluator$dc423e72-e723-4ec3-9698-88c37f055b96",
+                "Master": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$1dd6d7ae-04a0-4b3a-bc44-3c10aab5ba45",
+                  "Spawner": {
+                    "EntityNameInEditor": "CiarAttack",
+                    "_entity_id": "23ec8622-5ccb-4327-b998-2bd908938f37",
+                    "SceneAssetGuid": "d243913765727bf41abc9e6e6e477183"
+                  }
+                },
+                "PetType": "AnimalCompanion"
+              },
+              "Critical": false,
+              "DisableBattleLog": true,
+              "RemoveExp": true
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$14f8ca7e-2344-4e35-9a11-fd7b4abd3435",
+              "m_Cutscene": "!bp_8fdb59f403f8b1b41a005d4f74ab5912",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Speaker",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$7d3fc7be-9502-4a86-be93-06277952a870",
+                      "Spawner": {
+                        "EntityNameInEditor": "CiarAttack",
+                        "_entity_id": "23ec8622-5ccb-4327-b998-2bd908938f37",
+                        "SceneAssetGuid": "d243913765727bf41abc9e6e6e477183"
+                      }
+                    }
+                  },
+                  {
+                    "Name": "Dialogue",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$f25d3cd0-d8a2-4e1a-b50c-049edb3ec67d",
+                      "m_Value": "!bp_dbed341a759b3ff4fb7c49b7bf7fedfc"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$1ac65753-c938-493a-ad39-e4af04045d94",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "открыть дверь\nпоказываем выход",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$1eabc4e5-e944-4716-8f15-744d612f1820",
+              "m_Cutscene": "!bp_3da3026221733944f846362319d3614e",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Wall",
+                    "Type": "MapObject",
+                    "Evaluator": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$e125b47d-46b5-4c90-a615-72dc581787f5",
+                      "MapObject": {
+                        "EntityNameInEditor": "SecretDoor",
+                        "_entity_id": "567265b4-ba7f-43a2-a841-e3c8441feea4",
+                        "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$075d357a-c637-442d-8776-189f5b5584ac",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$b957db32-3abd-4c50-8f32-30c42e05c8f2",
+                "MapObject": {
+                  "EntityNameInEditor": "Transition_2DrezenCapitalZigguratExit",
+                  "_entity_id": "fec8a59a-5afe-4e98-9495-cef9ef5d1267",
+                  "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$fb0b5d4a-5e71-402f-bd5e-53b713ac2d8c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "- продолжение квеста\n- котсцена про \"все вбегают\"\n- скрываем выход",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$17afd6e8-31ae-4ebe-994b-55e7db55bc53",
+              "Status": "Complete",
+              "m_Objective": "!bp_a150206f4808f4942baac534a595db8d",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$fa4dcabf-2c71-4105-9e13-6e2a7fcc5451",
+              "m_Objective": "!bp_98d6f1899208d9c4b878ba7242b65486"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$7956af17-c707-4c6a-8c9e-2dcc296ac3bb",
+              "m_Cutscene": "!bp_0f85355039e19504aa83649d5f575ff1",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$fbb7cb82-4536-4617-817c-9b773da81cdc",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$5183e21c-7a5a-4e0e-858c-f552db1c164b",
+                "MapObject": {
+                  "EntityNameInEditor": "Transition_2DrezenCapitalZigguratExit",
+                  "_entity_id": "fec8a59a-5afe-4e98-9495-cef9ef5d1267",
+                  "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "активно нападение Ciar на зиккурат",
+    "m_Parent": "!bp_a35d8fcb9c658214d821b125b7add6c9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$cbcc223b-8418-4bc3-8dd9-f8d5679f526a",
+          "Not": false,
+          "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_e8f1160e960935344a8aa7466484506d",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

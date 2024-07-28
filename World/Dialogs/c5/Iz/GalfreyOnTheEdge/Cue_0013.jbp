@@ -1,0 +1,175 @@
+{
+  "AssetId": "fa7e4fd55f7491e459058a65c0532772",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Голфри, свита и Ирабет бегут на монстра или входят в храм к Анеморе",
+    "ParentAsset": "ea42022183b215443bdd522c799d5d0e",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "838df2a0-1e54-4834-90ab-982a0ce5c579",
+      "m_OwnerString": "fa7e4fd55f7491e459058a65c0532772",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/Iz/GalfreyOnTheEdge/Cue_0013_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "PointForward",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$76b35b2f-8c78-4e8e-a277-19c06e3bc1b2",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$55da6e49-3afc-4add-bb36-0d03f05e99ab",
+                "Not": false,
+                "m_Etude": "!bp_c6f99eb931a98e24ba3c786389ab7570",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$1711356c-8977-4a8b-ad6a-dc7a8a1b25f1",
+                "Comment": "Cutscene Galfrey fight againt Terendelev or another monster",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$e5e96b31-c88c-4958-ba3c-95595fff8bdb",
+                      "Not": false,
+                      "m_Etude": "!bp_6b98ec3e704599149b99fe70b5f793ab",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$4bcb6ca6-0d1c-410e-9946-4b287b9b7386",
+                      "m_Cutscene": "!bp_eb0ad2d2ab20aee409461529c8dd8e0c",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Monster",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$d5940580-6218-438a-b2dc-4a0198f2b45e",
+                              "Spawner": {
+                                "EntityNameInEditor": "AnotherMonster",
+                                "_entity_id": "e0419d22-62a3-4000-ad0e-6bf0a9848ffa",
+                                "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$b2216a90-f3a6-4916-a2e0-94d81e9b36e7",
+                      "m_Cutscene": "!bp_eb0ad2d2ab20aee409461529c8dd8e0c",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Monster",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$3ee2016a-6a3e-45bf-bce4-a68ce9a520ec",
+                              "Spawner": {
+                                "EntityNameInEditor": "TerendelevUndead",
+                                "_entity_id": "ba16f7fd-bbb4-4e4e-a98d-8f6ab555ae53",
+                                "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$8a5fd110-6778-4005-8133-891d51739fb8",
+                "m_Cutscene": "!bp_7cd52c3ec15c37d48b026282c0c7c622",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

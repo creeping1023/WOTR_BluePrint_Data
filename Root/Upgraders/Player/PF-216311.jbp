@@ -1,0 +1,80 @@
+{
+  "AssetId": "55fa32580cfb4da2b754f08541d2cb32",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_6147558e4a97a724081ea120a9700be2",
+    "m_SpecificMechanic": null,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$04944386-8f98-4346-84bf-7d8dfbc354f6",
+          "Comment": "если игрок во втором сне и выполнился обжектив нуры, надо заспавнить вескавор",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a9fb7d07-73d1-4fa3-9798-4c0f947f5fb2",
+                "Not": false,
+                "m_Etude": "!bp_10a65030375f1f6498dc9d60028f5000",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$2dec93a1-939b-49f5-a74f-fd99d6336a9d",
+                "Not": false,
+                "m_QuestObjective": "!bp_f2b7926771c5bfc4a871c34091cdd4ce",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$27c1666d-23c4-430c-b1c1-9404de56da7a",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Veskavor",
+                    "_entity_id": "8c351a15-e141-4d40-94be-a31dc1d9930a",
+                    "SceneAssetGuid": "d0242d8d721da92488983869bb0af596"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$09e191df-2acd-4fd1-b9e4-d4f499271736",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$7db1bd44-f229-4b30-8cde-24d3ad11cfab",
+                  "Spawner": {
+                    "EntityNameInEditor": "Veskavor",
+                    "_entity_id": "8c351a15-e141-4d40-94be-a31dc1d9930a",
+                    "SceneAssetGuid": "d0242d8d721da92488983869bb0af596"
+                  }
+                },
+                "Unhide": true,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

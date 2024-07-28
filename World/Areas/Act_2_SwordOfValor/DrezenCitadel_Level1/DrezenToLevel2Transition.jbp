@@ -1,0 +1,92 @@
+{
+  "AssetId": "a43ea93b123ff224abf1c0cf89621d4b",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": null,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "64da7ddec4b0d684fb685bc810669a23, CreaturesAround",
+              "name": "$CreaturesAround$b778429f-3a68-447b-9ea7-96cd72dbb58d",
+              "Radius": {
+                "$type": "49799ef400df6a4459812087dbf8b1d4, FloatConstant",
+                "name": "$FloatConstant$4cb8fd9a-81ee-4400-abe2-8e02730bc1df",
+                "Value": 30.0
+              },
+              "Center": {
+                "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                "name": "$UnitPosition$fe9a31bb-d3ad-4098-9532-906992fffaf2",
+                "Unit": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$e00fec71-4efc-41cd-a9a4-f7fcc82ad9bb"
+                }
+              },
+              "CheckLos": false,
+              "IncludeDead": false,
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$788d898c-7afa-4c67-8e38-c09b430c739d",
+                    "m_Buff": "!bp_1a513e7df759656429db10449c24ba4a",
+                    "Target": {
+                      "$type": "7d2406b1361c66a44966831f0f1a203f, CreaturesAroundUnit",
+                      "name": "$CreaturesAroundUnit$4d1268c2-3bc1-458e-80a2-24415a702653"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a5c97b71-9e41-44f0-830d-f484c208880d",
+              "Comment": "Regill Locked In Party?",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$0cb83300-2179-490d-87b4-524a40bb8d13",
+                    "Not": false,
+                    "m_Etude": "!bp_9079a2dd777d415d869d4b58665d200c",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$0379251e-7836-4394-a0c4-38cf7bd8cce8",
+                    "Etude": "!bp_9079a2dd777d415d869d4b58665d200c",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "5386e8e42dfb3e24d9dd5ec17c50c0c7, CapitalExit",
+              "name": "$CapitalExit$cf621cc5-fd10-422e-9c11-bab631bcf453",
+              "m_Destination": "!bp_06550a5c84df3204fa16cb7f168ed1bf",
+              "AutoSaveMode": "AfterEntry"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

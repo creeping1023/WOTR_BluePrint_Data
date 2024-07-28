@@ -1,0 +1,190 @@
+{
+  "AssetId": "143ea5bfab1b0a1429e208b3e9fdad00",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$9734264e-aef2-48b5-8d7f-caea78b09230",
+      "$EtudeBracketTriggerAction$fb9035d5-3f56-4ea8-a30b-8ff5c92cc50b"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$9734264e-aef2-48b5-8d7f-caea78b09230",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "вернуть Сула",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$3d468da1-ecd0-463c-bb10-e7d882e55d70",
+              "m_SummonPool": "!bp_fd344bef79a2f36418c0153e7f2d938a",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$0a4cf68a-71e3-499e-8d98-6d4ccbb89cf2",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$1de13b02-c060-48cc-a591-76acb265be2c"
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fae54e860aa242b6995ca39ee03ad184, EtudeBracketTriggerAction",
+        "m_Flags": 0,
+        "name": "$EtudeBracketTriggerAction$fb9035d5-3f56-4ea8-a30b-8ff5c92cc50b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "спрятать всех и выключиться",
+        "OnActivated": {
+          "Actions": []
+        },
+        "OnDeactivated": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$157378df-c60c-4550-960a-f704a79bfc0c",
+              "m_SummonPool": "!bp_e9aecdbcc4cabc248b62cbdeea2a4091",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$a029ca26-c662-4f09-b131-9ce7ade71f8a",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$f08a4968-0682-4f2d-881a-ba4a088bfed8"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$a689c2d5-6000-49f2-addb-67fc72c03f99",
+              "Etude": "!bp_143ea5bfab1b0a1429e208b3e9fdad00",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$3bc1e13d-ead7-4afe-88c9-0e8bf5be9891",
+              "Etude": "!bp_76c88c9c00369e5419d8b0c70b67eef6",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "после боя или после обвинения Вендуаг в убийстве / зональный",
+    "m_Parent": "!bp_53424650e26c2d145b15411edf31b089",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$f21e4c09-ac73-4fd9-9783-53185017add8",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+                "name": "$DayTime$cafe6e6c-4db2-4c4f-bd1b-e908cb787183",
+                "Not": false,
+                "Time": "Day"
+              },
+              {
+                "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+                "name": "$DayTime$ead1697c-9a31-42dd-b20c-1f921b2a5936",
+                "Not": false,
+                "Time": "Evening"
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$ae7b87dc-ba80-4b64-8c7e-f5130cc4df8a",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+                      "name": "$DayTime$711ff6ee-f797-4efa-b0a9-dfed79093df2",
+                      "Not": false,
+                      "Time": "Day"
+                    },
+                    {
+                      "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+                      "name": "$DayTime$2a69e1af-2d6c-46ee-8b5a-8c827de6c680",
+                      "Not": false,
+                      "Time": "Evening"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$5269f97b-407c-4a88-86a3-2397f5e3f26d",
+          "Not": false,
+          "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

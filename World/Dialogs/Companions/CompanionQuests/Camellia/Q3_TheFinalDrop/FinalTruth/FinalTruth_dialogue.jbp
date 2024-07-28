@@ -1,0 +1,94 @@
+{
+  "AssetId": "f3d23fd0fb176a54d980f42b3544c256",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_0778a83fc868f634391d495f4db8bfed",
+        "!bp_2ce631a160573cf4ba7d454f4df690c7"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$624baf13-63fa-46b1-a118-91a50b0bcf85",
+          "MusicEventStart": "MUS_HardChoice_Play",
+          "MusicEventStop": "MUS_HardChoice_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e7417fe6-78df-43cd-b26a-346eee52dc3c",
+          "Comment": "закрываем один из двух обжей",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$73a1d271-7961-4b68-a9b7-bd30b9ff13d5",
+                "Not": false,
+                "m_QuestObjective": "!bp_505db9fbe0f3b20498d6459a2b01f249",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$f0e62f45-e76a-474a-ae69-eef2be42095b",
+                "Status": "Complete",
+                "m_Objective": "!bp_505db9fbe0f3b20498d6459a2b01f249",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$84bfc3e8-6421-4132-82ea-1f42eeb198da",
+                "Status": "Complete",
+                "m_Objective": "!bp_11cced1b7dcfefb42af3538e1695cc58",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$16a46b60-29b7-41fa-9494-fb8c14aa3abd",
+          "Status": "Complete",
+          "m_Objective": "!bp_2f0522aa91d6c9d4991090d10c34c94e",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$8b87206d-86ba-4b7b-8ee5-8a4a8f4996db"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

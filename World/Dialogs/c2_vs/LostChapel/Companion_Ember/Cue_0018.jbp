@@ -1,0 +1,173 @@
+{
+  "AssetId": "782415c7cdfd46749b326fe8c27c58a2",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "590ec12de3ecd704f971937976b7b639",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "04b7a9db-099d-425e-ae77-2885a515282c",
+      "m_OwnerString": "782415c7cdfd46749b326fe8c27c58a2",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c2_vs/LostChapel/Companion_Ember/Cue_0018_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cb1a6ad2-4961-4fa9-90b8-4ccf46ba80bd",
+          "Comment": "в лагерь/ к нам",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$c505b21d-776e-407e-a90a-e878deff612a",
+                "Not": false,
+                "m_Answer": "!bp_b88a8d6679d2e4f4ab0bc03ac0822401",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                "name": "$RecruitInactive$ecccb053-f66c-4cb5-85c2-9d2819e4fed9",
+                "m_CompanionBlueprint": "!bp_2779754eecffd044fbd4842dba55312c",
+                "OnRecruit": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$4c3e9db4-e163-496c-8fd2-9629e31e4a9f",
+                      "m_Cutscene": "!bp_09ab5e8c61103db4f9c47a8dd2539a18",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$8e8995b6-7878-41fe-ac65-4be7fd76aac2",
+                              "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                              "IncludeRemote": true,
+                              "IncludeExCompanions": true,
+                              "IncludeDettached": true
+                            }
+                          },
+                          {
+                            "Name": "Position",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$0c11d114-7b98-4823-aeb2-9e25fea903e6",
+                              "Locator": {
+                                "EntityNameInEditor": "Ember_out",
+                                "_entity_id": "d2da2d67-0c0b-4b40-bb75-2998669e4281",
+                                "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                              },
+                              "Offset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                              }
+                            }
+                          },
+                          {
+                            "Name": "AneviaPosition",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$a7172272-d3c0-4375-b2ac-d24191aa9cc4",
+                              "Locator": {
+                                "EntityNameInEditor": "Ember_atAnevia",
+                                "_entity_id": "014a1542-9683-472b-81d7-72c3ddc410af",
+                                "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                              },
+                              "Offset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$5a072500-658c-4ad3-9b60-0259390071fa",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_2779754eecffd044fbd4842dba55312c",
+                    "NPCUnit": null,
+                    "MustBeInParty": false
+                  }
+                ],
+                "AddToParty": true,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": []
+                },
+                "OnRecruitImmediate": {
+                  "Actions": [
+                    null
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

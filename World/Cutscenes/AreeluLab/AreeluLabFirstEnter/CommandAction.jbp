@@ -1,0 +1,142 @@
+{
+  "AssetId": "44ce8eb267e533545bf380ae854119c1",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$d1f59fab-0717-4679-bbee-719dc8f1bf69",
+          "m_exitPositon": "!bp_318900f8c6484614a842d243af1c8822",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$7cfcfa5d-9721-480c-8365-3a3c5ddf1491",
+                "Comment": "квест Лича",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$e323d918-9650-4aa0-a7ca-ce6649e39dd4",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_511cca6b25020f840bf9b0efe11757de",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$6b3626ee-8942-46ed-9617-f54b0bce3ea8",
+                      "m_Objective": "!bp_c21721d9e5943d34abfdf0507b71f58f"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f023faf9-ae4f-4a7e-b3bb-57a8622feb39",
+                "Comment": "квест Ангела",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$2fdbba04-5bfa-4778-b98a-d8df773105b1",
+                      "Not": false,
+                      "m_Quest": "!bp_a6c08ebd49e56164da590d2f17a819c5",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$bed2c6c9-67a3-4b73-a2ea-ec07b41c95e9",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_09b0c4eaa6d78dc4ab5d3502b665c9db",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$48baf244-c8c8-470c-9589-b927e17d183e",
+                      "m_Objective": "!bp_5179d1f197d15094e8f3ebb2cb390709"
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$f52cb1a2-f20e-4b73-a077-875df3f8482d",
+                      "m_Objective": "!bp_c0dcee8087980694bacc06049a5813ca"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$d0c17946-4e55-4d5f-95c4-56641ca7b192",
+          "m_flag": "!bp_5e63744e9f1ca184ea852808e8d53ed4",
+          "flagValue": 1
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$85cce40d-1c45-446b-94e1-5283c44ded37",
+          "Comment": "Механика для Квеста Азаты",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$660e3f9e-c319-4490-8bcb-4192b1c690d3",
+                "Not": false,
+                "m_Etude": "!bp_d3b47e973d65c6c46af1cce815d1f6ce",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$e9d55c8c-348d-4562-9dc4-e857d0c284a7",
+                "m_Objective": "!bp_a81a09d5cc028384ab3974aba21c2570"
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$120dfcb7-a3d4-4287-bc29-e3be092afdf4",
+                "Etude": "!bp_62dcdc81b0a6e80418efd3e1de806a91",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

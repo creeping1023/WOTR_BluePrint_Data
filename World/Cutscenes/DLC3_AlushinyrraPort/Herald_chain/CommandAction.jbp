@@ -1,0 +1,69 @@
+{
+  "AssetId": "504bb16639c04841b76bd2f65166b104",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2f21821e-a8a7-43d2-81ae-dff16a47b5cc",
+          "Comment": "Интеграция или стэндэлон",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ebbb64c1-472a-445c-87dd-101e434e9ec9",
+                "Not": false,
+                "m_Etude": "!bp_093db34c2e0c4f7683cc6e87bb4dfac9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$88f29856-c549-4473-a6a9-9a4e02f33f9e",
+                "m_Cutscene": "!bp_1196b7b3df732a6468aa6c8758c0252e",
+                "WithUnit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$2bfeb23a-f61f-47b9-ae82-90ae6ed98c47",
+                  "Spawner": {
+                    "EntityNameInEditor": "Steersman",
+                    "_entity_id": "d59c52c5-a9ea-4d8e-90f0-b58b80e91fc3",
+                    "SceneAssetGuid": "66245b8e1e70e1340bfa15c70de35078"
+                  }
+                },
+                "m_CheckType": "Params"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$247aea99-42bf-47dd-89bf-da93090f6d8a",
+                "m_Cutscene": "!bp_a48ea00717eb4c6bae45a6761a17f9f3",
+                "WithUnit": null,
+                "m_CheckType": "Params"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

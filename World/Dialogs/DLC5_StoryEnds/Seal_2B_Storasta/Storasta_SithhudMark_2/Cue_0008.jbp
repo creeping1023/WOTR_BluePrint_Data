@@ -1,0 +1,168 @@
+{
+  "AssetId": "356ff66585aa422c886265f91f5a3058",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "daaefaed67d840f88fe154449ffc0759",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "a9df370742ccad4459bed52d4e60ff6a",
+        "stringkey": "235194ef-8050-4d4f-bf0b-6b5132cbde73"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$9fdcc4e9-91ac-4cdc-8679-96ab03e4392f",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$7a203c0d-1ba6-453a-8c78-c447b9c357ec",
+                "Comment": "Everyone except Player",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$6fd5a36d-837b-469f-818f-d497e0a92f9c",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$a76483d5-8dbf-481f-9a3e-c7aa78bb9464"
+                      },
+                      "SecondUnit": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$b50e6c40-8e5f-46ab-ac05-2b484fa466d4"
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$621c05d9-4173-47b8-ae19-831a309c12c5",
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$4701473a-66fa-41a5-ad7e-3ba95bfb44e0"
+                      },
+                      "Position": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$d5baa20a-5d76-4091-9517-330b45f8213f",
+                        "Unit": {
+                          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                          "name": "$PlayerCharacter$ac4a8674-fdee-4650-9e1b-91c071061de6"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+          "name": "$SpawnFx$249e917d-ae41-4731-9f21-0a247c524dab",
+          "Target": {
+            "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+            "name": "$UnitTransform$fe8df788-53a3-49de-802f-01aa0ca77cd6",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$d75e5093-7cce-47f3-aa83-3a2fa4ca8a2f"
+            }
+          },
+          "FxPrefab": {
+            "AssetId": "d541609d507424640a84153b89abf210"
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$ee538ebe-6a00-46dc-9750-eac73848c1b9",
+          "m_Cutscene": "!bp_366ef59de3f383344843314c35c5d5c4",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$1bf6ec5a-6c4f-49e7-a0ba-da755cb6f2df"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "efeff58c12d74f00a73213c7f3750543, GainMythicLevel",
+          "name": "$GainMythicLevel$39dda898-4321-458c-beef-805579781fe7",
+          "SpecificUnit": true,
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$e7f54310-0451-4ca0-9eb9-1b4e842d560c"
+          },
+          "Levels": 1
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_62ad379276774c8392eeb77adbaa5324"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

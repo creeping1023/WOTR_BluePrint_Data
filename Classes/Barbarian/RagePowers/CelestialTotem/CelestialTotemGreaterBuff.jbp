@@ -1,0 +1,282 @@
+{
+  "AssetId": "e31276241f875254cb102329c0b55ba7",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$SpellResistanceAgainstSpellDescriptor$c215de27-13ed-4eea-be55-8bc319a08ade",
+      "$SavingThrowBonusAgainstDescriptor$84cabecf-b19c-4acd-afbc-ab01e57d2620"
+    ],
+    "Components": [
+      {
+        "$type": "25d172d2be8f52f468b2050d14d59806, AddFactContextActions",
+        "m_Flags": 0,
+        "name": "$AddFactContextActions$6da75319-164c-49f7-ae68-0780ebf8e192",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Activated": {
+          "Actions": [
+            {
+              "$type": "fd831685a42205b4d840b97dd10faf7b, ContextActionChangeSharedValue",
+              "name": "$ContextActionChangeSharedValue$f981fd13-0e83-41a6-8edd-01f79abbec7f",
+              "SharedValue": "Damage",
+              "Type": "Set",
+              "AddValue": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "m_AbilityParameter": "Level",
+                "PropertyName": "Value1"
+              },
+              "SetValue": {
+                "ValueType": "CasterCustomProperty",
+                "Value": 5,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": "!bp_6a8e9d4b8ba547f5819354a05dd2a291",
+                "m_AbilityParameter": "Level",
+                "PropertyName": "Value1"
+              },
+              "MultiplyValue": {
+                "ValueType": "Simple",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "m_AbilityParameter": "Level",
+                "PropertyName": "Value1"
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$fc5f57ce-0a2e-4876-b75b-0c50a324486c",
+              "Comment": "Добавить уровни росомахи, если она-кастер",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "1bb7cd34a36c43bca61048eb36ae8d4b, ContextConditionTargetIsYourself",
+                    "name": "$ContextConditionTargetIsYourself$df5d0428-73c1-4ef8-a924-26f484cc88b0",
+                    "Not": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "fd831685a42205b4d840b97dd10faf7b, ContextActionChangeSharedValue",
+                    "name": "$ContextActionChangeSharedValue$fcb736e7-0ad3-422a-a4f8-a4e25a2e4e26",
+                    "SharedValue": "Damage",
+                    "Type": "Add",
+                    "AddValue": {
+                      "ValueType": "TargetCustomProperty",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "Level",
+                      "m_CustomProperty": "!bp_fddca642fd7d4b5fab836d9e27bd5b2d",
+                      "m_AbilityParameter": "Level",
+                      "PropertyName": "Value1"
+                    },
+                    "SetValue": {
+                      "ValueType": "Rank",
+                      "Value": 5,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level",
+                      "PropertyName": "Value1"
+                    },
+                    "MultiplyValue": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level",
+                      "PropertyName": "Value1"
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "Deactivated": {
+          "Actions": []
+        },
+        "NewRound": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "3c72f93c0cb3fb948a136c6e36f9531e, PropertyCalculatorComponent",
+        "m_Flags": 0,
+        "name": "$PropertyCalculatorComponent$7f315f99-07bb-4949-887e-1fd42545b564",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Name": "Value1",
+        "SaveToContext": "No",
+        "Value": {
+          "Operation": "Sum",
+          "TargetType": "CurrentEntity",
+          "Getters": [
+            {
+              "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+              "name": "$ContextValueGetter$b8e93651-be4f-4e60-a891-f2685fe75a4b",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "ValueType": "Shared",
+                "Value": 0,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "m_AbilityParameter": "Level",
+                "PropertyName": "Value1"
+              }
+            },
+            {
+              "$type": "71959818449d4891939b89c19a6d9a91, ContextValueGetter",
+              "name": "$ContextValueGetter$6aca2847-09a5-4bb7-9d7a-e16eae363b0d",
+              "Settings": {
+                "Progression": "AsIs",
+                "m_CustomProgression": [],
+                "m_StartLevel": 0,
+                "m_StepLevel": 0,
+                "Negate": false,
+                "Limit": "None",
+                "Min": 0,
+                "Max": 0
+              },
+              "Value": {
+                "ValueType": "Simple",
+                "Value": 11,
+                "ValueRank": "Default",
+                "ValueShared": "Damage",
+                "Property": "None",
+                "m_CustomProperty": null,
+                "m_AbilityParameter": "Level",
+                "PropertyName": "Value1"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "4751521a57c97b04cad26cfbcac56592, SpellResistanceAgainstSpellDescriptor",
+        "m_Flags": 0,
+        "name": "$SpellResistanceAgainstSpellDescriptor$c215de27-13ed-4eea-be55-8bc319a08ade",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "CasterNamedProperty",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level",
+          "PropertyName": "Value1"
+        },
+        "SpellDescriptor": {
+          "m_IntValue": 2048
+        }
+      },
+      {
+        "$type": "3819276ccd091df42818bb86295941c1, SavingThrowBonusAgainstDescriptor",
+        "m_Flags": 0,
+        "name": "$SavingThrowBonusAgainstDescriptor$84cabecf-b19c-4acd-afbc-ab01e57d2620",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "SpellDescriptor": {
+          "m_IntValue": 2048
+        },
+        "ModifierDescriptor": "UntypedStackable",
+        "Value": 2,
+        "Bonus": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level",
+          "PropertyName": "Value1"
+        },
+        "OnlyPositiveValue": false,
+        "m_DisablingFeature": null
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "4b3fb3c9473a00f4fa526f4bd3fc8b7a",
+      "m_OwnerPropertyPath": "m_Description",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "efafa35630dfccc4e931c07c0a8e9ef8",
+      "fileid": 21300000
+    },
+    "IsClassFeature": true,
+    "m_Flags": 0,
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

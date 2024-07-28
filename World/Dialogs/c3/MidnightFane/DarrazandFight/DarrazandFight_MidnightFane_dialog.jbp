@@ -1,0 +1,117 @@
+{
+  "AssetId": "b7130c01b120da044b126e49e601e62f",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_b9b8820003b1a754ba34851be8f5dce6"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$78b922da-934b-4bac-a1d9-c3b95e4aabc1",
+          "MusicEventStart": "MUS_PowerfulEnemy_Play",
+          "MusicEventStop": "MUS_PowerfulEnemy_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$fd1287c1-9b41-42a0-ab67-27fc198ae103",
+          "m_SummonPool": "!bp_44961e5e82339724997f0b2b3b454ea0",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$de65749f-784a-43ca-b382-3198b3f6e5be",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$ed146e8f-c6c6-406c-8fba-c91f8e5b90ea"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$638454bd-92e4-4e17-9e4b-1e90bc2f059f",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$1db9b321-6c64-4b3f-aa32-fe0951628ced"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$a125076e-cde8-4885-98ed-b303d6768ce5"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$5fe1993d-a97e-43e2-8190-08e733f0b68e"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a9eba4ec-6420-4452-bfbc-b926194ce1ec",
+          "Comment": "No Azata",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c52b8db9-9122-45db-b705-5cd6a0f8fd11",
+                "Not": true,
+                "m_Etude": "!bp_9981ea8dc2f115d4bb91b2f35fc92ec2",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$70505115-bfb0-4133-87ae-99680e775187",
+                "m_flag": "!bp_7f2d740b9ce1d9e4baf68bd4a3d43a05",
+                "flagValue": 0
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

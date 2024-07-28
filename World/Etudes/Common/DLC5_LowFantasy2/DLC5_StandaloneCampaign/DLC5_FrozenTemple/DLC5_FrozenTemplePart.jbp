@@ -1,0 +1,782 @@
+{
+  "AssetId": "ee12fc5bb7d446fdb1f2b0fb8c81a6de",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$0baed486-6a75-4733-8055-f3d3bf138155",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "First visit",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9d43ef5b-e259-4b5e-ab5f-60b362ced480",
+              "Comment": "Sendri killed the hermit",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$d3fdeee3-799a-424a-a9bb-25c03b16d028",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_ae924c84f6834f2cadcb37f109fc8b84",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$a34c90ad-702a-4106-97f4-7039322eeef3",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$d085be5c-aac8-4d97-8c5e-97d4b9e4736a",
+                      "Spawner": {
+                        "EntityNameInEditor": "Hermit",
+                        "_entity_id": "037f61a6-f0c5-43c3-ae1a-513d211757c6",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$bfd6b7a2-a0a7-47f0-a3d6-2cb6eea15463",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Sendri_ExCompanion",
+                        "_entity_id": "2837878d-d754-4514-b346-324b34c482e4",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                          "name": "$Recruit$376f0065-3165-4771-adeb-dbb8262fdf18",
+                          "Recruited": [
+                            {
+                              "m_CompanionBlueprint": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                              "NPCUnit": null,
+                              "MustBeInParty": false
+                            }
+                          ],
+                          "AddToParty": true,
+                          "MatchPlayerXpExactly": false,
+                          "OnRecruit": {
+                            "Actions": [
+                              {
+                                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                                "name": "$Conditional$4d6987f8-0a37-4d13-9985-a0a8c9139b73",
+                                "Comment": "Save imported",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "54f4be40323ede24f91ea2fd4d054abb, IsCampaignImported",
+                                      "name": "$IsCampaignImported$756ee19a-5304-4002-872f-2375098d4010",
+                                      "Not": false,
+                                      "m_BlueprintCampaign": "!bp_e6fdda2539274c1e89d236be69f5a984"
+                                    }
+                                  ]
+                                },
+                                "IfTrue": {
+                                  "Actions": [
+                                    {
+                                      "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                                      "name": "$AddFact$d052903a-4b5e-45f0-b5fb-710e1c7be3bb",
+                                      "Unit": {
+                                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                        "name": "$CompanionInParty$48f1600c-3d49-40b1-a2e3-7e0d63cd8d2e",
+                                        "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                                        "IncludeRemote": false,
+                                        "IncludeExCompanions": false,
+                                        "IncludeDettached": false
+                                      },
+                                      "m_Fact": "!bp_9eac0ee34fc34a0192285046921763fa"
+                                    }
+                                  ]
+                                },
+                                "IfFalse": {
+                                  "Actions": []
+                                }
+                              }
+                            ]
+                          },
+                          "OnRecruitImmediate": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "RespawnIfDead": false
+                  },
+                  {
+                    "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+                    "name": "$ScriptZoneActivate$02bb07de-b08b-4bfd-a517-0d0cdbc0575c",
+                    "UseEvaluator": false,
+                    "ScriptZone": {
+                      "EntityNameInEditor": "EvilSendriInTemple_SZ",
+                      "_entity_id": "1d02c291-4cfa-4a5f-96c2-a0ade6820e06",
+                      "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                    },
+                    "ScriptZoneEvaluator": null
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$98f1ed4e-9ed1-4d08-a838-541ff7440865",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$537577b4-f300-434b-80a1-e64edb376df3",
+                      "MapObject": {
+                        "EntityNameInEditor": "DeadHermitCamp_info",
+                        "_entity_id": "f1a2849e-46aa-4a04-b8e1-4fdf7d400c8e",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$15566436-4c85-44e9-bac7-f94994fb1311",
+              "Etude": "!bp_21b1609ee9e440c88c04930f5bc9116e",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$eaa6307c-bab3-4e26-8fdf-92d521cf2c30",
+              "Etude": "!bp_dcb5fd0f321a417bac383b7e0df2e671",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$881366bb-c37f-4847-a20b-673b3e765489",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Ready to remove second wall",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$8b4e313f-db4f-4b0c-af22-ca685841f2ac",
+              "Not": false,
+              "m_QuestObjective": "!bp_47abe6890d8e47f6905d2ab5695e82b3",
+              "State": "Completed"
+            },
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$d39df8c7-785d-46aa-81b7-dd0abd2e9c82",
+              "Not": false,
+              "m_QuestObjective": "!bp_0eb6a43ff9d7454ab195bf58fa36cf77",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+              "name": "$TranslocateUnit$121a02b0-78cf-41a5-94dc-15947e347bc8",
+              "Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$b8c4dde8-e9a1-4a2e-962e-0a6e913c6cb7",
+                "Spawner": {
+                  "EntityNameInEditor": "SpectatorWall",
+                  "_entity_id": "40bdc79d-666f-430a-81f7-9f6430190c51",
+                  "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                }
+              },
+              "translocatePosition": {
+                "EntityNameInEditor": "",
+                "_entity_id": "",
+                "SceneAssetGuid": ""
+              },
+              "translocatePositionEvaluator": {
+                "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                "name": "$LocatorPosition$15ac8bf3-8c5e-457d-8d50-b700e0922fe2",
+                "Locator": {
+                  "EntityNameInEditor": "Spectator_secondwall_pos",
+                  "_entity_id": "d91b77a1-82f9-4921-90c2-d1ef181d0b40",
+                  "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                },
+                "Offset": "0|0|0"
+              },
+              "m_CopyRotation": true,
+              "translocateOrientationEvaluator": {
+                "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                "name": "$LocatorOrientation$6ecbec64-d33c-4193-97e9-fd557ad2da8c",
+                "LocatorEval": null,
+                "Locator": {
+                  "EntityNameInEditor": "Spectator_secondwall_pos",
+                  "_entity_id": "d91b77a1-82f9-4921-90c2-d1ef181d0b40",
+                  "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                }
+              }
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$89fc6b89-27f6-4547-9866-5edf1839f223",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$154469bf-ca86-494e-a2e9-1c14b13ed5ec",
+                "Spawner": {
+                  "EntityNameInEditor": "SpectatorWall",
+                  "_entity_id": "40bdc79d-666f-430a-81f7-9f6430190c51",
+                  "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                }
+              },
+              "Unhide": true,
+              "Fade": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$e14280a7-6289-4db5-9564-2f94b89fddb3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Close the portal and start dialogue",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7f019101-29bb-4bb6-9098-1c06696747a0",
+              "Comment": "Giants location is completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$85996dbf-17de-4659-a367-b394b7d9fa5b",
+                    "Not": true,
+                    "m_Dialog": "!bp_c418659b39384c6190c751ddd158bce6"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$4a9edcc1-53c2-4326-8551-87c1326430e3",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_47abe6890d8e47f6905d2ab5695e82b3",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$cb8b0bc2-2248-4930-879e-d82d29e1c20e",
+                    "Etude": "!bp_0b711503bf5d4558862121caec55a788",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$74926e84-4d36-41d6-8f6e-e7848ba7bf6a",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$fdcefd77-efec-4f0b-8200-50d84ee901b3",
+                      "MapObject": {
+                        "EntityNameInEditor": "GiantsPortal",
+                        "_entity_id": "6f5912ba-d3a9-478b-8357-faae26279d7b",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$f4def109-dc8f-4ad1-81a3-5c035cfc33b7",
+                    "m_Flag": "!bp_0eb46f87fcb64408b9344e820abbf627",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$f9b1fcac-1af7-4940-94f7-505a45ee38b7",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$759ffd0b-4b24-4ea3-95f6-208dcc102e78",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$7414247e-ba7d-4fd9-9434-6fdf74ef4225"
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$3f643607-d8dc-426c-bb87-5a2c2d9cbd6a",
+                      "Locator": {
+                        "EntityNameInEditor": "Player_after_giants_pos",
+                        "_entity_id": "0477973b-b62d-4d64-8203-cca93c902473",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$471744ba-22c2-47cf-8418-1588604c1f50",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Player_after_giants_pos",
+                        "_entity_id": "0477973b-b62d-4d64-8203-cca93c902473",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$62ee26db-27f4-4e10-ad8a-74f86f407f60",
+                    "m_Cutscene": "!bp_92394e23c7bd44c69ccac2f4a0c50ee8",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$283c4d55-0fc7-43c5-8aa4-3a534c9e1896",
+              "Comment": "Goblins location is completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$2b7f758e-320e-4fa2-95a4-13d0365ab623",
+                    "Not": true,
+                    "m_Dialog": "!bp_333fee8e9554407b84b5498b1fb4ac22"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$61b3d7cd-6afe-4f9e-902e-b7c610248815",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_0eb6a43ff9d7454ab195bf58fa36cf77",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$c06ed308-daaf-4b9e-91a9-5626b891cda8",
+                    "Etude": "!bp_253f477d1aaf4252ba07406205fbd4d8",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$22233a7b-ac53-4233-828e-b0dc4f814e23",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$9c85e956-db01-4a18-81a4-32aa937ba20b",
+                      "MapObject": {
+                        "EntityNameInEditor": "GoblinsPortal",
+                        "_entity_id": "5f0e5f34-7db0-4334-8d60-e62fe220f15f",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                    "name": "$StartDialog$984fcb8a-a537-4280-b28f-423f64dbbd05",
+                    "DialogueOwner": null,
+                    "m_Dialogue": "!bp_333fee8e9554407b84b5498b1fb4ac22",
+                    "DialogEvaluator": null,
+                    "SpeakerName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$c0b82ddc-9052-436b-9849-f10f67edee82",
+                    "m_Flag": "!bp_0eb46f87fcb64408b9344e820abbf627",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$58101bfe-7ffd-4112-b098-275a0ed3146e",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$2d15762e-bf56-4ac1-8c52-46af7771dd94",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$63a2f67b-869b-4cae-a2f2-f42dacd9068a"
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$a8631e90-30f4-4cd8-8052-f7c6120e90ea",
+                      "Locator": {
+                        "EntityNameInEditor": "Player_after_goblins_pos",
+                        "_entity_id": "4805af51-4ea6-41a5-a639-760054d4cf40",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$ea0daf9c-a77a-4b2c-896d-4039fe164056",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Player_after_goblins_pos",
+                        "_entity_id": "4805af51-4ea6-41a5-a639-760054d4cf40",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3f076df7-6ff0-4d31-b545-8e83e7521abf",
+              "Comment": "Storasta location is completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$8d852579-7c7f-4bbd-b74a-b1bf46f68700",
+                    "Not": true,
+                    "m_Dialog": "!bp_7d9458ade2bb4c539f93c8f60dd1f649"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$be2b2ff0-4f4b-4682-8c2b-c0c369a34561",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_55dcd5833f1a4763b418a902f989d10b",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$d935d96f-087e-45e2-b3c3-4a43969db236",
+                    "Etude": "!bp_c17bd38556bd4b7491286fb91fd9e557",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$801b27bf-4120-44f2-8949-81da1e7b8078",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$3135d2a3-1c6b-4db8-bdba-6cc1c921eef9",
+                      "MapObject": {
+                        "EntityNameInEditor": "StorastaPortal",
+                        "_entity_id": "d3a8791b-21b2-4fac-908b-5dca7741f6b2",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$3737ce2d-83b1-4c81-af74-e893c8c8bd36",
+                    "m_Flag": "!bp_0eb46f87fcb64408b9344e820abbf627",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$4d66846c-292c-4138-9f85-f7c6012dd9ab",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$27e903d2-a002-4bb6-ba8d-16dac2494f87",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$cefb606b-f07c-4e5b-9218-b11e82a50744"
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$178bf41d-95ce-44b8-a7a7-3fa5b857da80",
+                      "Locator": {
+                        "EntityNameInEditor": "Player_after_storasta_pos",
+                        "_entity_id": "a9158594-99fb-4e2d-97db-f6960a14873e",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$bf338c9f-f55c-4f51-aa86-93e2618faff2",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Player_after_storasta_pos",
+                        "_entity_id": "a9158594-99fb-4e2d-97db-f6960a14873e",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$bbeaf860-36e3-44d2-bb3b-5b5a3a7fcc20",
+                    "m_Cutscene": "!bp_438909d924e14574b167835d14bcf956",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5472a165-c884-4fc6-ae87-cbcf8e99ea5e",
+              "Comment": "Shadow location is completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$c6d0820f-03cf-4ac6-98a9-cfa70b79486b",
+                    "Not": true,
+                    "m_Dialog": "!bp_53e1690b51c3464fa1fed5de5bd20fb4"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$19914424-0958-4af5-a527-6c323f1cee7b",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_31d031ec5d18490d940c6257da4bf113",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$7103b504-338d-41e1-9a58-2e1d607d1a69",
+                    "Etude": "!bp_4dac9eba5b5c4efabc17e15e71aa8c65",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$3687fb4c-d474-42bc-9b64-032dea06a8d3",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$b38c867c-0096-4282-b1d9-f501e57e74f0",
+                      "MapObject": {
+                        "EntityNameInEditor": "ShadowsPortal",
+                        "_entity_id": "83d90639-8294-4680-ba68-842792655a86",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                    "name": "$IncrementFlagValue$787afd8b-e183-4356-8fb6-8146bf0792d3",
+                    "m_Flag": "!bp_0eb46f87fcb64408b9344e820abbf627",
+                    "Value": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$87a9224e-1406-48fc-9cbc-ee0e3c5d0767",
+                      "Value": 1
+                    },
+                    "UnlockIfNot": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$eb4b30a7-4b9d-47ac-8d9c-366211bc2113",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$853b6d39-9baa-44ae-9cee-c4ecfb37b25d"
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$8dca6b09-8c9b-4a62-a439-200ec209319d",
+                      "Locator": {
+                        "EntityNameInEditor": "Player_after_shadows_pos",
+                        "_entity_id": "c39b3ff9-18e7-4a41-a39a-2ca3d8c3ce0e",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$efb280d6-3270-47b4-8127-9dfaa934bce1",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Player_after_shadows_pos",
+                        "_entity_id": "c39b3ff9-18e7-4a41-a39a-2ca3d8c3ce0e",
+                        "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$14c3a15a-7e80-4dca-a7e6-01e793092e20",
+                    "m_Cutscene": "!bp_5e3be58065564e9c8b4f8fc420ed81cb",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$a51465b2-c689-4369-a8e4-76b6944bd08f",
+                    "m_Cutscene": "!bp_b821903e053f18d4e909c6e7bd2edbc7",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "ShowLoc",
+                          "Type": "Locator",
+                          "Evaluator": {
+                            "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                            "name": "$LocatorReference$31bedc91-ab2a-4c20-ab6c-62e103bd96c3",
+                            "Locator": {
+                              "EntityNameInEditor": "Whole_map_revealer",
+                              "_entity_id": "816ad129-14db-49b8-8b5a-266cf73fb569",
+                              "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_4670974021d84a5999a7f94a9e7693ee",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$da456053-8c25-4736-a768-40eaa3764030",
+          "Not": true,
+          "m_Etude": "!bp_4de7a5f11df84a7a98d85e313a1ae01d",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_628b8e17ecc149a4b327d2e4505a667f",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

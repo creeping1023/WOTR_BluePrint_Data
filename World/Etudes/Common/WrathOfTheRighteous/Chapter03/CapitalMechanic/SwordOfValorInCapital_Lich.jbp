@@ -1,0 +1,176 @@
+{
+  "AssetId": "ec470f1824fb43719e85a64362432007",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$98b30dd5-fc83-46e4-b34d-20fd08414a2b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$62de93a5-94f6-400d-82ca-76aece6e9028",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$c331cc8f-c383-4c4f-9b80-391ff20b2e00",
+                "MapObject": {
+                  "EntityNameInEditor": "SwordOfValorLich",
+                  "_entity_id": "868bd882-5a5d-4d06-ab06-6929af649ea1",
+                  "SceneAssetGuid": "6ce2c3528312c234ea1fa410d5e19c00"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+              "name": "$SpawnFx$63cf2200-58a5-4435-8c84-79c9dbde7b15",
+              "Target": {
+                "$type": "5c44697f335b9a649b5169c6c9901d8d, MapObjectTransform",
+                "name": "$MapObjectTransform$6d787cb6-9f11-4f7b-9d46-b712b6ffd028",
+                "MapObject": {
+                  "EntityNameInEditor": "SwordOfValorLich",
+                  "_entity_id": "868bd882-5a5d-4d06-ab06-6929af649ea1",
+                  "SceneAssetGuid": "6ce2c3528312c234ea1fa410d5e19c00"
+                }
+              },
+              "FxPrefab": {
+                "guid": "2981830e972de2a4bb16f3ae05e9a3b6",
+                "fileid": 1648926148757308
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "name": "$DeactivateTrigger$aa7d6f7f-c04b-4443-98f6-4b4ea79dbce1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$1cc6e4d7-9ad9-449c-a243-486ae49821ed",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$b76e9bb8-354e-455a-9153-fe72bf25b54a",
+                "MapObject": {
+                  "EntityNameInEditor": "SwordOfValorLich",
+                  "_entity_id": "868bd882-5a5d-4d06-ab06-6929af649ea1",
+                  "SceneAssetGuid": "6ce2c3528312c234ea1fa410d5e19c00"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_a140c3239a464f4290dad7274d10b5cf",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$bd77152c-cd68-4311-8a72-172a17fd9fe0",
+          "Not": false,
+          "m_Etude": "!bp_11fc5662e0ce8074ea145a022282b879",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$77686af2-1063-47b8-af8e-d023cee52c20",
+          "Not": false,
+          "Comment": "3 глава или конец 5 и не потеряли баннер",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b636e9d5-a69b-4c3f-b90b-58116733d783",
+                "Not": false,
+                "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$1543b9e5-aee0-4482-b1a3-12f38d148a98",
+                "Not": false,
+                "Comment": "Вернулись из Иза и не потеряли баннер",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$394eb06a-3c61-450d-8c8f-6af4fc28867d",
+                      "Not": true,
+                      "m_Etude": "!bp_0b027e2ab242a3f4892a87f79063e0ec",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$9e74c418-3639-4667-8130-c4976a53b652",
+                      "Not": true,
+                      "m_QuestObjective": "!bp_09c503b7a398d49469b9463ee9d22fd4",
+                      "State": "None"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "AssetId": "2ce02bbc4fea4536806c36c0480a3bc5",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Если Ситххад (10-и печатный) получил слишком много урона",
+    "m_SpecificArea": "!bp_86c8a4bebef747668f5a17c0c64857d2",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0aa7d53c-2f64-4042-985f-30397eb9a319",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "61d393ff6aff61647a785e561f98ffc5, UnitFromSpawnerIsDead",
+                "name": "$UnitFromSpawnerIsDead$3bd438f8-e17a-48e4-b67b-ceec5d769601",
+                "Not": false,
+                "Target": {
+                  "EntityNameInEditor": "SithhudThePowerful",
+                  "_entity_id": "57f08677-87fd-4202-ae62-9a13b43af493",
+                  "SceneAssetGuid": "4a2cc278bdd3f6342a0b90e0baf77ca6"
+                }
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b0d0356b-f9c0-47ab-93e0-16ccf31c3b5e",
+                "Not": true,
+                "m_Etude": "!bp_be7005bf30d94d0d909d42adca036208",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$ec3b996a-2527-49c4-be9d-a179e8e2507e",
+                "Etude": "!bp_be7005bf30d94d0d909d42adca036208",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$08d73808-924a-4e1d-9d82-6e3bb8980ad2",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "FakeSithhud",
+                    "_entity_id": "03552405-3d17-4cf4-8e3b-43e7a185b3f0",
+                    "SceneAssetGuid": "4a2cc278bdd3f6342a0b90e0baf77ca6"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$1ada4cba-129c-481b-8696-ea323e8be1ea",
+                      "m_Cutscene": "!bp_6ef6ccdabba34bd79261ac2f04f32202",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                },
+                "RespawnIfDead": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$dc10c4bb-500a-494e-a1b2-46a00402195f",
+                "m_Cutscene": "!bp_b821903e053f18d4e909c6e7bd2edbc7",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "ShowLoc",
+                      "Type": "Locator",
+                      "Evaluator": {
+                        "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                        "name": "$LocatorReference$3d820914-d27d-490d-b0f1-57a1e087d7a1",
+                        "Locator": {
+                          "EntityNameInEditor": "Main_revealer",
+                          "_entity_id": "aa4234a5-402d-4748-b452-35846e78682c",
+                          "SceneAssetGuid": "4a2cc278bdd3f6342a0b90e0baf77ca6"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

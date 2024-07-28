@@ -1,0 +1,119 @@
+{
+  "AssetId": "c08ef38d6e5ec534094f99f493cd14cd",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeInvokeActionsDelayed$b0cff1ae-6087-46dc-be97-ca80ef9d6c9b"
+    ],
+    "Components": [
+      {
+        "$type": "e75e3ec07fb24b1b8146a0a83245e42f, EtudeInvokeActionsDelayed",
+        "name": "$EtudeInvokeActionsDelayed$b0cff1ae-6087-46dc-be97-ca80ef9d6c9b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Days": 12,
+        "m_ActionList": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$46e59d70-a4b7-4c73-a14e-73af62b299c4",
+              "Etude": "!bp_c08ef38d6e5ec534094f99f493cd14cd",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$8c57cb05-be56-4fab-86fb-ad37d15def0e",
+              "Etude": "!bp_7dfd4548e3ec57840b7e831fdaafcca9",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "таймер перед стартом финального квеста Камелии\nесли есть романс, то тикает только после NormalDate эвентов",
+    "m_Parent": "!bp_5523c33b20f74ca99c8c2fcb367ac4d0",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$a2e23043-f02f-4d93-ae39-550b6333bc83",
+          "Not": false,
+          "m_Quest": "!bp_880d5c0aedfe99544b3d6a7f5aaad94c",
+          "State": "Completed"
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$8f7a985b-d52b-48da-a41e-287bb0f60255",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8f759a77-f566-4dfc-a9bd-12215a47745d",
+                "Not": true,
+                "m_Etude": "!bp_e49702f590611644580f09c8f9ef0e5b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$06fe8d13-cec1-461c-a6d0-9d00a997be31",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$21071a6d-cf11-44b2-a39d-b00ad47868cf",
+                      "Not": false,
+                      "m_Etude": "!bp_e49702f590611644580f09c8f9ef0e5b",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$5a5f735e-2541-4b55-93fd-b0600faae8fc",
+                      "Not": false,
+                      "m_Dialog": "!bp_7dae73c3143f51548a92b2d96c6c6e09"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

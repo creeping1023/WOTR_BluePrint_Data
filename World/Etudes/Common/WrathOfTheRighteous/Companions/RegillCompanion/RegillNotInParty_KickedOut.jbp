@@ -1,0 +1,213 @@
+{
+  "AssetId": "2b2cfaa1727070c43b10729920112730",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$87a1b6df-fd28-471c-a86a-aa254ac1826d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Change Hellknight Camp state",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$df91439a-69c6-415a-9813-96b38e9bb4e9",
+              "Comment": "Change Hellknight Camp state",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "5d95284e3d474b5787ed8906199bfbb0, LocationRevealed",
+                    "name": "$LocationRevealed$fe3479f8-b5b4-449d-9814-0d99d41f0bc2",
+                    "Not": false,
+                    "m_Location": "!bp_3819613c13c0e9848bc0ed00d19b29cf"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$451368e7-973e-410f-b497-f084588296cb",
+                    "Etude": "!bp_6de76b8fe530a8345a306c4ea5cf6672",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$f30ff01f-5f41-4432-bf01-b621b0acb397",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Fail companion quests",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+              "name": "$RunActionHolder$ce05c1cd-7bc5-46c4-ad77-a748c2b23cf2",
+              "Comment": "Fail all companion quests - Regill",
+              "Holder": "!bp_9f886012a5ef471baa201cc3446b6eff",
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$f64b5588-6987-47f4-a6dc-8bcfcfc6d5d9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Если у игрока ХК наемники - убираем",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+              "name": "$FlagUnlocked$37195b86-6cb3-4f46-8951-2bc01b8a0512",
+              "Not": false,
+              "m_ConditionFlag": "!bp_996353b55c7644dcad2ca0c0ccf6b952",
+              "ExceptSpecifiedValues": false,
+              "SpecifiedValues": [
+                1
+              ]
+            },
+            {
+              "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+              "name": "$FlagUnlocked$8a301827-aa81-425f-9ed1-b9db083e5756",
+              "Not": true,
+              "m_ConditionFlag": "!bp_d77a2ef2b3a8412f863387f4ba322ee5",
+              "ExceptSpecifiedValues": false,
+              "SpecifiedValues": [
+                1
+              ]
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+              "name": "$LockFlag$42b0f215-63a0-476c-8f0c-29c0871953a6",
+              "m_Flag": "!bp_996353b55c7644dcad2ca0c0ccf6b952"
+            },
+            {
+              "$type": "eefbc82166334432964ffdfb993eb75d, RemoveMercenaryFromPool",
+              "name": "$RemoveMercenaryFromPool$6e61843f-16ee-4462-870f-269a7255d4c7",
+              "m_Unit": "!bp_61e12d43771a40241ac05471a60ddb38"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$385d37dc-231f-4f1d-9736-53a5e6735f65",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Завершает этюды Якера",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$12218837-a2ce-4e55-a239-602a996f80a4",
+              "Etude": "!bp_9d84c9cd919b426bb5b8f571fb67204f",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$f94cf1ff-27ac-4d52-b941-8d07c21eba42",
+              "Etude": "!bp_1bbd925ef42ac6740aba35227527ca3b",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_d6eb5e4b0fdbdcc49ab5ec1eb3929cd3",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$f0c2d3d9-cac5-4f3f-887a-2c96a5921566",
+          "Not": false,
+          "m_companion": "!bp_0d37024170b172346b3769df92a971f5",
+          "MatchWhenActive": false,
+          "MatchWhenDetached": false,
+          "MatchWhenRemote": false,
+          "MatchWhenDead": false,
+          "MatchWhenEx": true
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_4141b4c14faccf94a90dc2d6c1a4a3a6"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

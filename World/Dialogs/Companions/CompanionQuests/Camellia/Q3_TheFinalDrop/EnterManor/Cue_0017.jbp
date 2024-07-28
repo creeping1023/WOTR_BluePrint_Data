@@ -1,0 +1,166 @@
+{
+  "AssetId": "72c9addbe7b3a9246977758d87f8cb39",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Камелия\n\nотсоединить партию игрока\nзапретить выходить из зоны до конца квеста",
+    "ParentAsset": "9bff44a163c81b44c9620fae1ebdba29",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "b639205f-998b-433a-86e5-ad7517416538",
+      "m_OwnerString": "72c9addbe7b3a9246977758d87f8cb39",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Camellia/Q3_TheFinalDrop/EnterManor/Cue_0017_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_397b090721c41044ea3220445300e1b8",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$96667157-308b-41e4-a598-074e1952fe23",
+          "Status": "Complete",
+          "m_Objective": "!bp_8721b8ee06e54494196f86ff216c523f",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$4d714833-93a5-4888-996a-2fc49f760df9",
+          "m_Objective": "!bp_2668202ded4975d4c92616e4701d6c93"
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$a7804c8e-7a28-4b3f-a408-5f845426768c",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$4fa8e9a1-3070-43ae-87cf-bcaf6757db2a",
+            "MapObject": {
+              "EntityNameInEditor": "AreaTransition_Globalmap",
+              "_entity_id": "d1080d71-98b3-4d0b-bbf2-77f64a2d81d0",
+              "SceneAssetGuid": "31bce641a8880c840b0e328356f194d3"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4ee48cbd-bc5a-4cbd-9cef-ce99dbe49843",
+          "Comment": "убрать лишних",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                "name": "$GreaterThan$ebaf976a-5bcd-4b05-9ddf-eeb8315a7087",
+                "Not": false,
+                "FloatValues": false,
+                "Value": {
+                  "$type": "594eb1641121be9419363a2f68ab0d7d, CurrentPartySize",
+                  "name": "$CurrentPartySize$f9214902-6cf1-402a-970b-3fb573682fe4"
+                },
+                "MinValue": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$cf19c02c-09e0-4cf9-8bf1-23dc185a8149",
+                  "Value": 2
+                },
+                "FloatValue": null,
+                "FloatMinValue": null
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                "name": "$PartyMembersDetachEvaluated$faaefdc9-90ac-4cba-90af-f523ba9e6fec",
+                "DetachThese": [
+                  {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$ff5755e9-0e69-4e5b-b465-81bba0247cf6"
+                  },
+                  {
+                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                    "name": "$CompanionInParty$af882395-de5e-467d-b358-cfefcb4cd14a",
+                    "m_Companion": "!bp_397b090721c41044ea3220445300e1b8",
+                    "IncludeRemote": true,
+                    "IncludeExCompanions": true,
+                    "IncludeDettached": true
+                  }
+                ],
+                "AfterDetach": {
+                  "Actions": [
+                    {
+                      "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                      "name": "$PartyMembersSwapAttachedAndDetached$54ece901-eb67-46a0-b2d3-8518b3ff0acd"
+                    },
+                    {
+                      "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                      "name": "$PartyUnits$17ced3f3-7e60-4edd-ae3c-ec28b1974d16",
+                      "m_UnitsList": "AllDetachedUnits",
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$f8a70311-5300-45de-bdb7-b1739a8250a6",
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$6e95a666-9d1e-4efc-b750-b2aaa27d6cef"
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "m_RestrictPartySize": false,
+                "m_PartySize": -1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

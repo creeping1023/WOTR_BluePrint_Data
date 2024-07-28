@@ -1,0 +1,99 @@
+{
+  "AssetId": "ba3e7f1628fd8ea4f91f611de2e3302e",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_0c1e1d0ab4bbcd9498f58ef16a509545",
+        "!bp_e87027e72001f3a4f88cf23fb44dcf61"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$a7bca874-201d-41fa-9961-618cbbca0623",
+          "MusicEventStart": "MUS_PowerfulEnemy_Play",
+          "MusicEventStop": "MUS_PowerfulEnemy_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$594c6cce-76c7-4b08-a5d6-dc286f4b01f2",
+          "Comment": "если Венду не умерла",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$622315ef-5037-427f-b159-3985dce092d1",
+                "Not": false,
+                "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$aab6b7a6-2f2f-4f86-8c1e-c97d4332d6f3",
+                "Not": false,
+                "m_Etude": "!bp_4d536973db65d654dbbc17ecde4b8561",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                "name": "$SpawnByUnitGroup$0b455c2f-a220-45ac-8a09-0ee3f8e7c4b6",
+                "m_Group": {
+                  "EntityNameInEditor": "WildMongrels",
+                  "_entity_id": "fe24f329-05d8-4e47-a682-bb7fca65e13e",
+                  "SceneAssetGuid": "6d0e24e9315266b4ab0715b9d3450691"
+                },
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$53cfa6ad-67d6-4824-8b03-6c1f0a873ed8"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

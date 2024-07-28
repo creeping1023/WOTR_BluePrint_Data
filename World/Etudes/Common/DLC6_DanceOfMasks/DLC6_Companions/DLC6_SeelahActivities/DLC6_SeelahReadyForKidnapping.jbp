@@ -1,0 +1,261 @@
+{
+  "AssetId": "597cfc1b38e34bdbbf20191302763725",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$09e91f96-5f5c-432b-b534-3052b73700f8",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Show interactions",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$190338ff-80da-4737-9160-1a729f164088",
+              "Comment": "Event is completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3d5e4cbc-e3ec-48ba-82e6-3989e49d8fa0",
+                    "Not": false,
+                    "m_Etude": "!bp_4def8ef7e75e483382365a8f144afc79",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$b7e635a4-d9e5-407d-9eeb-f623a6e6f301",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_d769b84cd8ed4662bf450cffa0366f4b",
+                    "State": "Completed"
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$ed4cd494-bb05-449c-bc72-bc4dbeed1106",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_c0e40336da814953b8cbbded2ef1a34b",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$fd0ca63a-b456-4cdb-afb1-0e8b08aae7e0",
+                    "Comment": "With Sosiel or not",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                          "name": "$CueSeen$5e0c8a08-d260-4648-8240-af4944ef1326",
+                          "Not": false,
+                          "m_Cue": "!bp_2cea45e0a76848468d912b79c71854e9",
+                          "CurrentDialog": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$58c13cd7-461a-4ed1-b3aa-41e6b372ead9",
+                          "Comment": "Sosiel isn't kidnapped",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                "name": "$EtudeStatus$51704426-8d3b-4ada-8c93-3ee02d725ca1",
+                                "Not": true,
+                                "m_Etude": "!bp_334f319cebb1445dba6a47b8a40c3e59",
+                                "NotStarted": false,
+                                "Started": false,
+                                "Playing": false,
+                                "CompletionInProgress": false,
+                                "Completed": true
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                                "name": "$HideMapObject$04f3ae1e-97db-4623-a73c-6a19a2eb57ce",
+                                "MapObject": {
+                                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                                  "name": "$MapObjectFromScene$a2841050-4bfe-4927-8d1e-662f6c95d06f",
+                                  "MapObject": {
+                                    "EntityNameInEditor": "SeelahKidnappedWhileDegustating",
+                                    "_entity_id": "fef6c4ab-6d49-4b75-afb0-468b3710992a",
+                                    "SceneAssetGuid": "86c13b269d33a854583d09e1cd9ef70f"
+                                  }
+                                },
+                                "Unhide": true,
+                                "UseEntityFader": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": [
+                              {
+                                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                                "name": "$HideMapObject$93406b17-ae4a-4614-9105-b82250a9bcb7",
+                                "MapObject": {
+                                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                                  "name": "$MapObjectFromScene$7578d670-2114-45a8-9cbd-085f09a3a829",
+                                  "MapObject": {
+                                    "EntityNameInEditor": "SosielAndSeelahKidnapped",
+                                    "_entity_id": "acf3013e-f967-41ea-b8c0-f9d8ba414906",
+                                    "SceneAssetGuid": "1bf40f3edc77d1a44b12379051186ea9"
+                                  }
+                                },
+                                "Unhide": true,
+                                "UseEntityFader": false
+                              },
+                              {
+                                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                                "name": "$HideMapObject$d3b4a8a3-af2e-42bb-b42a-e27f215f02cf",
+                                "MapObject": {
+                                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                                  "name": "$MapObjectFromScene$ba2695b4-8277-443d-af75-5f1e1a4ac5d4",
+                                  "MapObject": {
+                                    "EntityNameInEditor": "SosielKidnappedWithSeelah",
+                                    "_entity_id": "f708ef26-3264-4768-97e5-59b7f89fe4d5",
+                                    "SceneAssetGuid": "1bf40f3edc77d1a44b12379051186ea9"
+                                  }
+                                },
+                                "Unhide": false,
+                                "UseEntityFader": false
+                              },
+                              {
+                                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                                "name": "$HideMapObject$cc684cc4-48a8-4f46-873c-ccf5f872c04e",
+                                "MapObject": {
+                                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                                  "name": "$MapObjectFromScene$af8f46cd-ef1a-4d26-9046-50fd22986113",
+                                  "MapObject": {
+                                    "EntityNameInEditor": "SosielKidnappedWithoutSeelah",
+                                    "_entity_id": "149461ba-2460-4e24-b0e0-ddfea6d31ecf",
+                                    "SceneAssetGuid": "1bf40f3edc77d1a44b12379051186ea9"
+                                  }
+                                },
+                                "Unhide": false,
+                                "UseEntityFader": false
+                              },
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$6d67bbdb-ef7c-4e4b-a08c-04f8527be3bf",
+                                "Target": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$5928bd82-f8af-4ce2-98b9-659637cabe8f",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "GnomeWinemaker",
+                                    "_entity_id": "396a938e-11d3-41dd-af55-1eec22b2d0fe",
+                                    "SceneAssetGuid": "1bf40f3edc77d1a44b12379051186ea9"
+                                  }
+                                },
+                                "Unhide": true,
+                                "Fade": false,
+                                "SetHideInSaves": false
+                              },
+                              {
+                                "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                                "name": "$UnitLookAt$22a5b1d2-a559-4135-bbe4-f50b8a988728",
+                                "Unit": {
+                                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                                  "name": "$UnitFromSpawner$8289adf1-d6f0-457f-b2a1-b075bf8210ca",
+                                  "Spawner": {
+                                    "EntityNameInEditor": "GnomeWinemaker",
+                                    "_entity_id": "396a938e-11d3-41dd-af55-1eec22b2d0fe",
+                                    "SceneAssetGuid": "1bf40f3edc77d1a44b12379051186ea9"
+                                  }
+                                },
+                                "Position": {
+                                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                                  "name": "$LocatorPosition$e73691c6-68b2-4c4d-8cd1-f06f997c279d",
+                                  "Locator": {
+                                    "EntityNameInEditor": "SosielDefualt_Pos",
+                                    "_entity_id": "63a85f1b-b74f-4e3a-ad62-02e54715e0ad",
+                                    "SceneAssetGuid": "1bf40f3edc77d1a44b12379051186ea9"
+                                  },
+                                  "Offset": "0|0|0"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$5107f235-e49f-4039-8480-74d645a11188",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$dcaba01f-e120-4678-b604-89634ab21fc1",
+                            "MapObject": {
+                              "EntityNameInEditor": "SeelahKidnapped",
+                              "_entity_id": "a9a77a59-bbd4-4195-a49a-0ce61a36d5d9",
+                              "SceneAssetGuid": "86c13b269d33a854583d09e1cd9ef70f"
+                            }
+                          },
+                          "Unhide": true,
+                          "UseEntityFader": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Unit is unrecruited if this etude is completed. Companion gets unrecruited in DLC6_KidnappingTime_Actions and returns to party in DLC6_ReturnAllKidnappedCompanions_Actions.",
+    "m_Parent": "!bp_f12ab415fdb341ce9ad467607f88d714",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

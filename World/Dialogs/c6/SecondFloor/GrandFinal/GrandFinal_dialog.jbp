@@ -1,0 +1,518 @@
+{
+  "AssetId": "f125dc501dc6e984385332e67f324f01",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_55f2fea01dd1cb549a0c5602dc5c93d7",
+        "!bp_d309c3051dcba12458a481eb7d5a24c9",
+        "!bp_c2121ad794b31c245b66821ab3b2775f"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$c2e8f4eb-c899-40e8-a7ad-060815c00b53",
+          "MusicEventStart": "MUS_AreeluTheme_Play",
+          "MusicEventStop": "MUS_AreeluTheme_Stop"
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$db1deddb-9f3a-4b3d-8497-a802fb5d2555",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$4cda82d1-7feb-4ca3-b694-7c3ed7da7aa4",
+            "Spawner": {
+              "EntityNameInEditor": "Areelu",
+              "_entity_id": "3efa599a-5d34-422b-855b-f31550840e0a",
+              "SceneAssetGuid": "01b913c5d0cc0b24082a74c6a6394472"
+            }
+          },
+          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$67279314-1a72-4788-89de-812db3e5450d",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$65fbccfb-2ddc-4d98-8f3a-fc40ac7bfd72",
+                "m_Buff": "!bp_cafcc72426214982bc00213d9ca41521",
+                "Target": {
+                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                  "name": "$PartyUnit$2efe13a2-13f7-45b0-b6ec-530bfa4960e5"
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "5afa2802918b3874bb6e0d611d6489cd, UpdateEtudes",
+          "name": "$UpdateEtudes$043384a6-b30c-48b8-b838-88899fa9d845"
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$efa99d59-76ec-4096-a284-0ce3f7563d95"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fc98fe0c-e962-4954-aa96-3777e5b3affa",
+          "Comment": "закрываем МЯ",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$99722c65-a83b-48d0-9757-406f041a8937",
+                "Not": false,
+                "m_Etude": "!bp_10cf0442f31a4796af8b28281f35e944",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$19375712-6f88-46d2-9c51-a3abbb4d4958",
+                "m_Cutscene": "!bp_df30ce6ab93e469faee195ee44fe1945",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "ae3ad240503b4ac4a9a505a90ff05741, DebugLog",
+                "name": "$DebugLog$dfa72c08-56ef-42ca-9c2e-475fc6782fe6",
+                "Log": "=========close true=========",
+                "Break": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "ae3ad240503b4ac4a9a505a90ff05741, DebugLog",
+                "name": "$DebugLog$deff1d44-c86a-4d29-8ae8-7eabb5509f22",
+                "Log": "=========close false=========",
+                "Break": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$13e98f05-9e5a-43be-b21a-45b477a519e7",
+          "Comment": "Локуст",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e8cd5fed-7886-4176-93fd-9b727ab0d449",
+                "Not": false,
+                "m_Etude": "!bp_26b59efa698d42479feda22120d545be",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                "name": "$SpawnByUnitGroup$b099dbc3-09dc-48ec-ad16-83d0f0f0163d",
+                "m_Group": {
+                  "EntityNameInEditor": "DescariLocustFinalFight",
+                  "_entity_id": "5885dd7f-1a09-47c6-80e4-efaaac03b7fc",
+                  "SceneAssetGuid": "01b913c5d0cc0b24082a74c6a6394472"
+                },
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$a5e58de9-3ebd-425a-b687-d55bb0bd5c4a",
+                      "Unit1": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$12ea5846-4953-456d-9509-60e6133e47a5"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$ec85379c-aec3-4ec8-b87c-c1a6c26935f5"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$22258706-1ae6-493b-bd05-8a282c2e73f8",
+                "Etude": "!bp_94cba86a701e4f4da62f4abadf12bb10",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$eaa9ce1c-5f2d-422d-9112-88be56b76d81",
+                "Etude": "!bp_e39f8ffca07e481592eb69940a96ecaa",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                "name": "$LockFlag$72fd17fc-1279-4347-822f-0cdbbd15e967",
+                "m_Flag": "!bp_d17352052a3747c0836dc0e8eb825b70"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$b22892e2-e90d-47d7-afbf-019095b244c6",
+                "Comment": "Stitch",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$c7470e3a-20ec-415b-9fac-facd9ac065d2",
+                      "Not": false,
+                      "m_Etude": "!bp_290fb46ad9f61da4a8151e8263f6cba7",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$36e7bf8a-5393-45ba-8ddf-96138ad6fe97",
+                      "Target": {
+                        "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                        "name": "$FirstUnitFromSummonPool$77f24f26-5c04-4c46-a229-1337e82e2b8b",
+                        "m_SummonPool": "!bp_629cc6c641d2cf3448048755a2ac4c89",
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        }
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$bc9bb57a-15eb-415d-a76e-e61a6b6485a8",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                      "name": "$DetachBuff$7072af66-535b-41ce-befe-52bff65ab53d",
+                      "m_Buff": "!bp_cafcc72426214982bc00213d9ca41521",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$1b314e43-a181-4a33-83af-758ff2c9642c"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4d958e4f-00cd-4e89-b55d-eb1fc5bac575",
+          "Comment": "Легенда",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$5e8f112d-2368-4d50-9154-98f466fdc0ff",
+                "Not": false,
+                "m_Etude": "!bp_97c8796e949e454fa57f184a16329b2d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$82ea12f0-a9ce-4d65-b810-c79296e69c07",
+                "m_Cutscene": "!bp_1ff81d70afbe45dfbdfae06599504426",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a66828c6-f262-407e-a17a-ee89222166d9",
+          "Comment": "Дракон",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$99d2761d-2fae-4e88-86a0-456a83f7124d",
+                "Not": false,
+                "m_Etude": "!bp_947f60333f5c4ee0905602e215e1fe64",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$d52a77f3-2285-466b-92f4-aa9466e18580",
+                "m_Cutscene": "!bp_dce73d01570d4e8f90959bc30402b962",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$480e20b8-677e-42e3-94a6-e51e323c8fa6",
+          "Comment": "Трикстер",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$173da2f2-2da5-4d63-89e3-3c118f66dc77",
+                "Not": false,
+                "m_Etude": "!bp_db5375333382d044089475d256f19582",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$2af9bb14-0f93-4016-80ea-81186413dc69",
+                "Not": false,
+                "m_Etude": "!bp_6ff418aeda24e6e48be844e6258e3c5a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$135307df-29ca-4730-ba07-de8d008570fc",
+                "m_Cutscene": "!bp_98eab3d56154411db2d6e874347bbbeb",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$62834c45-a1b5-4ee9-91b4-3d81364d3a7b",
+          "Comment": "развернулся и ушел",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f1904753-2949-4496-8ead-13b26e3c5671",
+                "Not": false,
+                "m_Etude": "!bp_9955b661dd7640b19986e453293a3e0a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$0c0230d7-e167-4cc9-bbde-03ba01e1567d",
+                "m_Cutscene": "!bp_ea9f0f703d6c4f92bbe7713178674e79",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$273522b5-050e-44cd-a7c8-2426403c95ff",
+          "Comment": "ангельский финал",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1f33c3b4-a2ea-470e-8281-b3e80e3928a6",
+                "Not": false,
+                "m_Etude": "!bp_711775078c3b4a4ebedcbea63abc8996",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$d891c43a-c532-4320-b848-bc20dc3f46c0",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$117c4ff3-9baa-4dff-9828-1c589543e40f",
+                      "m_Buff": "!bp_0106ce9e9e79dd447b638d1c0afdb62b",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$3eb5da91-b3a8-4457-9c97-ec326a5f8b97"
+                      },
+                      "Duration": null,
+                      "BattleLog": false,
+                      "HasCustomBattleLogMessage": false,
+                      "CustomBattleLogMessage": {
+                        "m_Key": "",
+                        "m_OwnerString": "",
+                        "m_OwnerPropertyPath": "",
+                        "m_JsonPath": "",
+                        "Shared": null
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+                "name": "$TimeSkip$ae900fa2-76d0-433e-a615-2aba5543a06e",
+                "m_Type": "Minutes",
+                "MinutesToSkip": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$3de810f1-9c88-41f6-a327-433a40e99a0d",
+                  "Value": 1500
+                },
+                "TimeOfDay": "Morning",
+                "NoFatigue": true,
+                "MatchTimeOfDay": false,
+                "Silent": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

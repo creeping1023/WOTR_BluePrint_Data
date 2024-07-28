@@ -1,0 +1,126 @@
+{
+  "AssetId": "f83d2a2194d94035b3a1a668a9625c1a",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Красиво трясти камерой, громыхать звуком, падать камнями, потом - темный экран. Ломаем тюрьму.\n\nВыдать игроку новый фит за ломание тюрьмы.\n\nВыкинуть игрока на глобал мапу, запретить вход в локацию Тюрьма неизбежности навсегда.\n\n(сделано) поднять флаг AlderpashFreed если Алдерпаша еще не убили\n\n(сделано, хорошо бы проверить) Стартовать этюд PrisonDestroyedByAzata для эпилогов",
+    "ParentAsset": "e5c4e400abda49a8b731f90aad404a06",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "7609b959-b310-4426-8e3b-64da723d546a",
+      "m_OwnerString": "f83d2a2194d94035b3a1a668a9625c1a",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\c5\\LabyrinthOfBaphometh\\AzataDestroy\\Cue_0005_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$938b8a40-ded3-4728-b9ae-0397f13d9b93",
+          "Comment": "Поднимаем AlderpashFreed, если он не уничтожен окончательно",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$5f86f33c-6a7a-454a-9b43-410075c5c8b0",
+                "Not": true,
+                "m_Quest": "!bp_e5df76850805c6a44bca8fe8c6c1f1d4",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$5cdcd9f9-0638-4467-ac1b-46935050f226",
+                "Etude": "!bp_b9d4c38c35eb03f4ea5940049d8cf06e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$bcadf583-e92b-4e24-aaba-9d6d9b881637",
+                "Status": "Fail",
+                "m_Objective": "!bp_3926e599432a49c4688c7c66eccedc73",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$03f5594b-f1b6-4568-ab8a-3eca11536b3a",
+          "Etude": "!bp_e0e7001763be4fc8a84949e7f9f819f7",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$bd7cce5a-964a-46e4-9a7a-0bb1bff5efd9",
+          "m_Cutscene": "!bp_ffd79becf9a64f3792f865b069cf746f",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+          "name": "$AddFact$d2b25c91-1cce-4383-9562-77d4d2e7b663",
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$8a4227ec-006d-4ee5-aaa6-8ebcb9cfae49"
+          },
+          "m_Fact": "!bp_22325988b75141d292843366648e230c"
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

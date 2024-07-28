@@ -1,0 +1,1051 @@
+{
+  "AssetId": "f8a4c3712be842a3ac45eb3c21987c29",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$4e7387c0-49fe-45fa-8832-b2f01e4f9df9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Первая кнопка (символ 3)",
+        "MapObject": {
+          "EntityNameInEditor": "P4Button3",
+          "_entity_id": "05a9d9e2-9504-45f8-8b78-14e83a5e8bd9",
+          "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b7bbf067-5c10-41eb-a447-53f62dc79897",
+              "Comment": "Первый ход на пару",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$642cfd4b-1e8b-4c2f-a991-62bcf9f9b7fe",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$d2820003-3277-4f72-b262-4a0941bd2d59",
+                    "Comment": "Если нашли пару прошлым ходом",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                          "name": "$LessThan$abd60388-123f-46d8-8688-7644ef237ded",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$4b120c64-ebad-49cd-b7ef-cfe337238982",
+                            "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d"
+                          },
+                          "MaxValue": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$38825343-f754-4407-a974-360151d4f3dc",
+                            "m_Flag": "!bp_90aa098e3d2847c89dafff60e69a98ad"
+                          },
+                          "FloatValue": null,
+                          "FloatMaxValue": null
+                        },
+                        {
+                          "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                          "name": "$GreaterThan$ab995e34-fd16-4844-a6f4-8c5f1d78dff8",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$71880a91-d75f-4c7c-ad06-62e796128ee5",
+                            "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d"
+                          },
+                          "MinValue": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$fdfc0fe8-4e63-4b6d-946d-ab25c6573c23",
+                            "m_Flag": "!bp_90aa098e3d2847c89dafff60e69a98ad"
+                          },
+                          "FloatValue": null,
+                          "FloatMinValue": null
+                        },
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$306e0fa0-bd53-47a5-b7e1-9b2fb89d473b",
+                          "Not": false,
+                          "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d",
+                          "MinValue": 1,
+                          "MaxValue": 8
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$a1948ab3-d903-413e-8141-240f9e026e66",
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$5230ba4c-94d4-4716-9388-3f61ae246e4e",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                          "name": "$RunActionHolder$fe31dcd0-4ca3-4955-8282-a98b9d860d44",
+                          "Comment": "Ресет",
+                          "Holder": "!bp_b21e752534f84ae1bbf16deadf5be800",
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$1563670e-06bd-4d33-9ed0-bc8981e836fc",
+                    "m_flag": "!bp_384bafcb0326449ba29daee6baabca3d",
+                    "flagValue": 3
+                  },
+                  {
+                    "$type": "d1d531364174e9942b14123b6f890f18, SetDeviceState",
+                    "name": "$SetDeviceState$e550befd-658f-4d08-9878-ea244744576f",
+                    "Device": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$e27d0063-68fb-4837-b8a3-4b45f83981a6",
+                      "MapObject": {
+                        "EntityNameInEditor": "areshkagal_puzzle_chip_red_devices10",
+                        "_entity_id": "b7fbed18-4ce0-4043-8cee-6fc1e76f557a",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "State": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$58291624-35a1-4f00-92cb-44ab5c3ca9f3",
+                      "Value": 1
+                    }
+                  },
+                  {
+                    "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                    "name": "$SwitchInteraction$f0716fe5-8166-4642-aef3-803b3b0bfd2e",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$90e6a976-ae3d-4ace-a099-1211e8707a00",
+                      "MapObject": {
+                        "EntityNameInEditor": "P4Button3",
+                        "_entity_id": "05a9d9e2-9504-45f8-8b78-14e83a5e8bd9",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "EnableIfAlreadyDisabled": false,
+                    "DisableIfAlreadyEnabled": true
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$2de60238-3e28-40db-9b81-3c2eafcfe535",
+                    "m_flag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$186986dd-a380-4651-915d-586f77f4b674",
+                    "m_flag": "!bp_90aa098e3d2847c89dafff60e69a98ad",
+                    "flagValue": 3
+                  },
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$2347655b-ac90-4d86-8671-9dcf4189c55c",
+                    "m_Flag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$888079e1-ec20-4547-bbbd-caafa64cba70",
+                    "Comment": "Проверка последнего хода",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$43f126f8-912b-4cb2-a96f-cc74403f21b4",
+                          "Not": false,
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "MinValue": 7,
+                          "MaxValue": 8
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$9622e256-8400-4a81-b5a6-03e4b0d84661",
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$fc03f1f9-5863-48ae-8409-bed06c12155b",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "d1d531364174e9942b14123b6f890f18, SetDeviceState",
+                    "name": "$SetDeviceState$5470c3ea-1b65-4b9a-a69c-925dd23e9124",
+                    "Device": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$72864c97-387f-4778-be9a-f466eb562c1e",
+                      "MapObject": {
+                        "EntityNameInEditor": "areshkagal_puzzle_chip_red_devices10",
+                        "_entity_id": "b7fbed18-4ce0-4043-8cee-6fc1e76f557a",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "State": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$8b79a24c-d394-479c-8e32-08a7de4a5c0e",
+                      "Value": 1
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$d2f93f92-b311-489e-a076-fb7e1d613eb5",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$3947a074-ac5d-4955-a1eb-97872d199e05",
+                "MapObject": {
+                  "EntityNameInEditor": "P4Button3",
+                  "_entity_id": "05a9d9e2-9504-45f8-8b78-14e83a5e8bd9",
+                  "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$550d5dcc-609c-42e1-917e-b75b2364842f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Вторая кнопка (символ 3)",
+        "MapObject": {
+          "EntityNameInEditor": "P4Button3 (1)",
+          "_entity_id": "d2ff6fcf-f5f8-434c-a676-8e0dac0efa66",
+          "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$82d3bd10-b637-4fed-98d0-b6819f5cbb95",
+              "Comment": "Первый ход на пару",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$dc377488-f806-43d0-8ab8-4924c7e73e49",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$1270e629-4a6a-4b22-895f-f2987aeb0b0c",
+                    "Comment": "Если нашли пару прошлым ходом",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                          "name": "$LessThan$fcd0676f-b1ee-4940-bb70-1a4a2f824056",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$6495c994-9aeb-4b01-a6d4-9c33f24b38cf",
+                            "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d"
+                          },
+                          "MaxValue": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$d8f2442e-5c72-465b-a519-1747b6e188ea",
+                            "m_Flag": "!bp_90aa098e3d2847c89dafff60e69a98ad"
+                          },
+                          "FloatValue": null,
+                          "FloatMaxValue": null
+                        },
+                        {
+                          "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                          "name": "$GreaterThan$756387f2-1c4b-45d7-a87c-4e86daef002e",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$5cd4ff80-b29f-4129-b794-b80c4a757d9c",
+                            "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d"
+                          },
+                          "MinValue": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$5b4dd0bb-6a98-4f96-9f66-38a30c8d0af6",
+                            "m_Flag": "!bp_90aa098e3d2847c89dafff60e69a98ad"
+                          },
+                          "FloatValue": null,
+                          "FloatMinValue": null
+                        },
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$d0deb44e-edd9-481a-81db-019c8361da83",
+                          "Not": false,
+                          "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d",
+                          "MinValue": 1,
+                          "MaxValue": 8
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$097395c0-4a48-48b2-aeed-5fb85c9c9add",
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$f0fe4ce6-f639-4710-a1d6-712840daa379",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                          "name": "$RunActionHolder$98a0b81d-2c91-4c10-9212-ce0ac0ee7061",
+                          "Comment": "Ресет",
+                          "Holder": "!bp_b21e752534f84ae1bbf16deadf5be800",
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$5d3ba9db-548a-41db-aa98-fba0762b5fbf",
+                    "m_flag": "!bp_384bafcb0326449ba29daee6baabca3d",
+                    "flagValue": 3
+                  },
+                  {
+                    "$type": "d1d531364174e9942b14123b6f890f18, SetDeviceState",
+                    "name": "$SetDeviceState$eeac7c7d-5ddb-4728-91b9-0669745ddc86",
+                    "Device": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$dc72a5dd-6755-43d7-a3c5-ef975d2c973a",
+                      "MapObject": {
+                        "EntityNameInEditor": "areshkagal_puzzle_chip_red_devices10 (1)",
+                        "_entity_id": "9ffa2ad7-5fbb-4aa2-925d-b7a8446d09ab",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "State": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$62dba693-ff63-4b57-bcb6-8cf0c5e1f039",
+                      "Value": 1
+                    }
+                  },
+                  {
+                    "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                    "name": "$SwitchInteraction$d3f941bb-48fa-40a9-ad4d-64f17db4a381",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$e1a6e696-f9f3-4b3c-a46b-18c1ff62b0b5",
+                      "MapObject": {
+                        "EntityNameInEditor": "P4Button3 (1)",
+                        "_entity_id": "d2ff6fcf-f5f8-434c-a676-8e0dac0efa66",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "EnableIfAlreadyDisabled": false,
+                    "DisableIfAlreadyEnabled": true
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$6ae324c0-1e74-4185-896b-210a01741dfb",
+                    "m_flag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$3023a83f-a89d-4b0d-8969-3e5b2a73486f",
+                    "m_flag": "!bp_90aa098e3d2847c89dafff60e69a98ad",
+                    "flagValue": 3
+                  },
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$6f44e69a-a273-4edb-a757-7b4197dd6e41",
+                    "m_Flag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$b21755c1-abdf-4245-8777-8533175b15b3",
+                    "Comment": "Проверка последнего хода",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$2f6a93b7-8174-4735-bedc-3f82fc601104",
+                          "Not": false,
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "MinValue": 7,
+                          "MaxValue": 8
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$375afff1-9d55-4b66-b463-64db39e8a9a2",
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$8029368f-355a-4944-bb7a-85949a6eb350",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "d1d531364174e9942b14123b6f890f18, SetDeviceState",
+                    "name": "$SetDeviceState$2a0eeb29-6c12-4c10-b1bb-75bd29248118",
+                    "Device": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$d91124a1-0ec0-4bcb-a3b4-3a1bbc133553",
+                      "MapObject": {
+                        "EntityNameInEditor": "areshkagal_puzzle_chip_red_devices10 (1)",
+                        "_entity_id": "9ffa2ad7-5fbb-4aa2-925d-b7a8446d09ab",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "State": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$202fcf53-df36-48e7-98c2-3a1fb4644b46",
+                      "Value": 1
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$7824a894-4980-4a51-9d02-0d82b4aec1dc",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$a0d5ddd3-9a54-4536-9c8c-11ba053f8e40",
+                "MapObject": {
+                  "EntityNameInEditor": "P4Button3 (1)",
+                  "_entity_id": "d2ff6fcf-f5f8-434c-a676-8e0dac0efa66",
+                  "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$090fd084-6d58-423c-a77f-33485e1d1a67",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Первая кнопка (символ 4)",
+        "MapObject": {
+          "EntityNameInEditor": "P4Button4",
+          "_entity_id": "c565ef19-2487-49f5-bce0-3a8ec0038ec7",
+          "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3d65da24-1d0d-415e-9010-0df658da8075",
+              "Comment": "Первый ход на пару",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$18622c51-0336-4e34-8545-3b8e039487aa",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$89e4c4b4-ff31-4492-b2f4-0f22a333ca3a",
+                    "Comment": "Если нашли пару прошлым ходом",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                          "name": "$LessThan$b7ee037e-788f-447e-93fe-3fa730e4cc34",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$14086745-5f36-4cd8-af09-1cce61e9b6ed",
+                            "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d"
+                          },
+                          "MaxValue": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$0dce790c-06f9-4ad6-b215-85b84be90d5e",
+                            "m_Flag": "!bp_90aa098e3d2847c89dafff60e69a98ad"
+                          },
+                          "FloatValue": null,
+                          "FloatMaxValue": null
+                        },
+                        {
+                          "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                          "name": "$GreaterThan$abdcbcbf-3991-4d4d-96a5-f7758226f2cd",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$84b0dff8-a447-470f-85c8-618ff74e4357",
+                            "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d"
+                          },
+                          "MinValue": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$eeeaacf7-b9f4-4692-97b1-3ccd5f9b82cc",
+                            "m_Flag": "!bp_90aa098e3d2847c89dafff60e69a98ad"
+                          },
+                          "FloatValue": null,
+                          "FloatMinValue": null
+                        },
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$13869846-f0f6-4ff4-8f6c-eca69fb48806",
+                          "Not": false,
+                          "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d",
+                          "MinValue": 1,
+                          "MaxValue": 8
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$2c244cb8-5991-4780-9708-bd7f0c5c134c",
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$c2dcdd53-0131-4907-beaf-f1d85ded98cf",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                          "name": "$RunActionHolder$33faac6a-1d96-4b87-8c14-35cf7c829ad0",
+                          "Comment": "Ресет",
+                          "Holder": "!bp_b21e752534f84ae1bbf16deadf5be800",
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$cf7c1492-b8c9-4d64-bfdb-ed806d4246ba",
+                    "m_flag": "!bp_384bafcb0326449ba29daee6baabca3d",
+                    "flagValue": 4
+                  },
+                  {
+                    "$type": "d1d531364174e9942b14123b6f890f18, SetDeviceState",
+                    "name": "$SetDeviceState$e126c689-10ee-4c24-afc2-df77bc793f9d",
+                    "Device": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$d90b04e6-ea67-4149-b125-077edb476451",
+                      "MapObject": {
+                        "EntityNameInEditor": "areshkagal_puzzle_chip_red_devices11",
+                        "_entity_id": "fd48a6a1-832a-4e0d-bda6-dfdc5ebb80d3",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "State": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$1ea100a3-5cb5-4ebf-94e1-95f18eece79c",
+                      "Value": 1
+                    }
+                  },
+                  {
+                    "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                    "name": "$SwitchInteraction$8337636b-70df-42d6-8e60-4fc232279599",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$580d36a9-2baa-4e8a-a0c9-73e2e3e8c610",
+                      "MapObject": {
+                        "EntityNameInEditor": "P4Button4",
+                        "_entity_id": "c565ef19-2487-49f5-bce0-3a8ec0038ec7",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "EnableIfAlreadyDisabled": false,
+                    "DisableIfAlreadyEnabled": true
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$db6ebbd5-5d3a-4b49-b4ba-cc3be159f982",
+                    "m_flag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$859f3440-e73b-4500-a577-5aacae75e9f5",
+                    "m_flag": "!bp_90aa098e3d2847c89dafff60e69a98ad",
+                    "flagValue": 4
+                  },
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$7ef2a004-a89b-4cad-ab0b-6c583a56b02a",
+                    "m_Flag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$952714f5-60c4-4342-b4ab-b310658a08b2",
+                    "Comment": "Проверка последнего хода",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$2320686a-da3e-46cb-9deb-08708a797630",
+                          "Not": false,
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "MinValue": 7,
+                          "MaxValue": 8
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$c9e5649c-d7d1-44ab-8e93-b5b47292db5c",
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$53a7eb3b-8cb1-4f0d-a5f4-27a7a8929aaa",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "d1d531364174e9942b14123b6f890f18, SetDeviceState",
+                    "name": "$SetDeviceState$7eeb8dda-c30a-4885-bf1f-8fb15fa4d844",
+                    "Device": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$efcfe506-d919-43d0-89ef-d6a2da582032",
+                      "MapObject": {
+                        "EntityNameInEditor": "areshkagal_puzzle_chip_red_devices11",
+                        "_entity_id": "fd48a6a1-832a-4e0d-bda6-dfdc5ebb80d3",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "State": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$b48f5eaf-bdc0-4e4b-ad7b-7a896bb3f318",
+                      "Value": 1
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$c1d367e0-b043-4bbb-b043-ba62fe38b571",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$7e8cb359-2757-437e-8764-1c65ed019c38",
+                "MapObject": {
+                  "EntityNameInEditor": "P4Button4",
+                  "_entity_id": "c565ef19-2487-49f5-bce0-3a8ec0038ec7",
+                  "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$0c716cc2-8dfc-44f9-b35f-202a78155a2f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Вторая кнопка (символ 4)",
+        "MapObject": {
+          "EntityNameInEditor": "P4Button4 (1)",
+          "_entity_id": "f0231257-41fb-49c0-b4b9-9a7e7c6ddcf9",
+          "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$002dfbbb-dc6a-4b57-92dd-f0a6f7bc6f39",
+              "Comment": "Первый ход на пару",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$1e78f7d2-5dbc-4982-abc7-443d9125cd4e",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$0fb805ec-6c71-4fd9-b2bf-3f5881a6d325",
+                    "Comment": "Если нашли пару прошлым ходом",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                          "name": "$LessThan$c152b4de-b26c-45ff-94d4-e7ae0744739c",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$c7780d5e-6d95-4b41-aade-820dfcd9f655",
+                            "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d"
+                          },
+                          "MaxValue": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$55bc0742-e2d5-4026-84c8-5a0c7816fea0",
+                            "m_Flag": "!bp_90aa098e3d2847c89dafff60e69a98ad"
+                          },
+                          "FloatValue": null,
+                          "FloatMaxValue": null
+                        },
+                        {
+                          "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                          "name": "$GreaterThan$594bd07b-5e89-4358-929e-c9cd073bd41d",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$bec85a30-21df-4d13-aafc-c8914e22729f",
+                            "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d"
+                          },
+                          "MinValue": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$96d6b698-a6e4-4933-b9d7-8ffc3c797d4b",
+                            "m_Flag": "!bp_90aa098e3d2847c89dafff60e69a98ad"
+                          },
+                          "FloatValue": null,
+                          "FloatMinValue": null
+                        },
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$690fb5f9-b016-44af-a76a-fb90d17cfb7e",
+                          "Not": false,
+                          "m_Flag": "!bp_384bafcb0326449ba29daee6baabca3d",
+                          "MinValue": 1,
+                          "MaxValue": 8
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$6c0921e9-dd4b-4763-aa0e-4c549c7847ba",
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$56059504-ba06-467a-9413-b9ff5d20da72",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                          "name": "$RunActionHolder$fa5a5dc6-0df5-4073-85e3-b391f492d677",
+                          "Comment": "Ресет",
+                          "Holder": "!bp_b21e752534f84ae1bbf16deadf5be800",
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$9a0da321-6a2e-4246-a0be-33010a9aa49a",
+                    "m_flag": "!bp_384bafcb0326449ba29daee6baabca3d",
+                    "flagValue": 4
+                  },
+                  {
+                    "$type": "d1d531364174e9942b14123b6f890f18, SetDeviceState",
+                    "name": "$SetDeviceState$9a08c26c-beb1-40f5-a559-2e2a0c037406",
+                    "Device": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$a03c0d6d-3fbe-4b2a-a292-dade95b80141",
+                      "MapObject": {
+                        "EntityNameInEditor": "areshkagal_puzzle_chip_red_devices11 (1)",
+                        "_entity_id": "90122843-a7e0-4457-ba6d-44ae0ff89198",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "State": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$ca1a6746-441f-4ede-b8b6-e9532a54be5e",
+                      "Value": 1
+                    }
+                  },
+                  {
+                    "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                    "name": "$SwitchInteraction$28768c93-4719-4e00-810e-20b78357a7fd",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$8fec2446-0964-4357-9bec-1fb9dcb776f4",
+                      "MapObject": {
+                        "EntityNameInEditor": "P4Button4 (1)",
+                        "_entity_id": "f0231257-41fb-49c0-b4b9-9a7e7c6ddcf9",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "EnableIfAlreadyDisabled": false,
+                    "DisableIfAlreadyEnabled": true
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$676d50c0-976b-45df-8579-f5998466e12f",
+                    "m_flag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$aa7a8831-b84d-4698-a105-c6a9767488a3",
+                    "m_flag": "!bp_90aa098e3d2847c89dafff60e69a98ad",
+                    "flagValue": 4
+                  },
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$69f4d48a-d07a-4c5f-a33a-a1768872bb34",
+                    "m_Flag": "!bp_1a1f0ab9c7bc45469fdd4bed4cd896f1"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$bd4a1249-1ba3-4cda-a70d-073db1cb31aa",
+                    "Comment": "Проверка последнего хода",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$e17caaf8-df2b-4374-a3a4-5eae4c9e2983",
+                          "Not": false,
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "MinValue": 7,
+                          "MaxValue": 8
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$943ac3ed-da09-440f-a4b2-38e4824d1793",
+                          "m_Flag": "!bp_3cb0f4a4b2c149188d12de65dcf8efb9",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$17c5dc6f-495d-46a6-9557-affa6e3d5e70",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "d1d531364174e9942b14123b6f890f18, SetDeviceState",
+                    "name": "$SetDeviceState$dcd58558-d1c6-4ba6-a5af-1161d27d7179",
+                    "Device": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$6d6254c9-2ac4-4eb5-9a58-b2e98ba1dad8",
+                      "MapObject": {
+                        "EntityNameInEditor": "areshkagal_puzzle_chip_red_devices11 (1)",
+                        "_entity_id": "90122843-a7e0-4457-ba6d-44ae0ff89198",
+                        "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                      }
+                    },
+                    "State": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$2483497f-c083-4120-a169-bda7ea61b5ca",
+                      "Value": 1
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$699f1fe4-60f4-4df9-a893-e52cfec9e574",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$90c1c332-735b-4014-9f14-dfdad3ef381d",
+                "MapObject": {
+                  "EntityNameInEditor": "P4Button4 (1)",
+                  "_entity_id": "f0231257-41fb-49c0-b4b9-9a7e7c6ddcf9",
+                  "SceneAssetGuid": "bc46b2f718823b84ba62e39fd33eeba1"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_a7a06cb5279a42aa9b0dd7d3e8596978",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

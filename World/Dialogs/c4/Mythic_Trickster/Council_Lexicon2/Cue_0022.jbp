@@ -1,0 +1,174 @@
+{
+  "AssetId": "a2a29ef10090e814a8e192b9dec60dec",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Эритрис\nвыкинуть игрока в Алушинирру, профейлить мифик квест",
+    "ParentAsset": "b46a04902e09e2d468a598eedc15f5dd",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "34e642ff-d205-49b0-894f-44e071155f7e",
+      "m_OwnerString": "a2a29ef10090e814a8e192b9dec60dec",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/Mythic_Trickster/Council_Lexicon2/Cue_0022_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_4a47d14a45ce264408a1c6a33345dd89",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$0679f0b0-264e-4492-8432-cd38fb5c70ef",
+          "m_Cutscene": "!bp_2215d935be62b57469e4d86e5e71eddb",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                  "name": "$DialogCurrentSpeaker$20d750a0-ee70-42e4-beaf-57d204567c22"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$971dcc7c-5fcd-40ba-b411-64d351cf256b",
+          "m_Cutscene": "!bp_2215d935be62b57469e4d86e5e71eddb",
+          "WithUnit": {
+            "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+            "name": "$DialogCurrentSpeaker$82dcc0b2-b4d6-4929-8370-68fff3fab2e9"
+          },
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$70d625be-2143-487a-b06d-736178a2466d",
+          "Status": "Fail",
+          "m_Objective": "!bp_cbaabfce3d98d044999e1d293d7245bb",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$760cf91c-7936-492b-973b-c38279fa9d13",
+          "m_Objective": "!bp_483191a435f3f8c468c629e568b53eb8"
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$866b84cd-a77f-4c77-8ae1-693fe31e1234",
+          "Status": "Fail",
+          "m_Objective": "!bp_483191a435f3f8c468c629e568b53eb8",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$37e9502d-1be2-4992-857d-fcada89245ca",
+          "Comment": "Телепорт в алушинирру или дрезен",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e1012e3a-415d-474b-b8e2-ebdff73a1b38",
+                "Not": false,
+                "m_Etude": "!bp_637a57423a82b044f888677c92f5d6cb",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$cd19a0ea-4f91-489d-8053-5db1e25c2ba2",
+                "m_exitPositon": "!bp_1b14857dcb26a1f4a8c881854856b43e",
+                "AutoSaveMode": "AfterEntry",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$8823a313-00a7-49db-a661-f6c3bcf23919",
+                "m_exitPositon": "!bp_d17fefb30cff7c141a31465b38ed56d7",
+                "AutoSaveMode": "AfterEntry",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$a61da524-76f2-42c2-9c90-01b364593c57",
+          "Etude": "!bp_18af27ccc6cfd8a4e9adc840bec2ad83",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$8b90fd3e-7e25-48d1-af58-cc9768be2015",
+          "Etude": "!bp_c388d0af029feb347b77886db29a59cd",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

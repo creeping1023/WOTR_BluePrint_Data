@@ -1,0 +1,200 @@
+{
+  "AssetId": "56f52d137c164c65a40afd0c02e0b782",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "ebb2957e468e6594c9b7ae0005338984, AddHealTrigger",
+        "m_Flags": "Disabled",
+        "name": "$AddHealTrigger$63589c26-3406-4721-9848-d0aad4619c79",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Action": {
+          "Actions": [
+            {
+              "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+              "name": "$ContextActionRemoveBuff$cf8fbf52-8f10-419c-8cc5-5098427dd2a3",
+              "m_Buff": "!bp_56f52d137c164c65a40afd0c02e0b782",
+              "RemoveRank": false,
+              "ToCaster": false,
+              "OnlyFromCaster": false
+            }
+          ]
+        },
+        "HealerAction": {
+          "Actions": []
+        },
+        "OnHealDamage": false,
+        "OnHealStatDamage": false,
+        "OnHealEnergyDrain": false,
+        "AllowZeroHealDamage": true,
+        "AllowZeroHealStatDamage": false,
+        "AllowZeroHealEnergyDrain": false
+      },
+      {
+        "$type": "25d4fb3470be42a1880bb8fbf0558f02, AddConditionTrigger",
+        "m_Flags": "Disabled",
+        "name": "$AddConditionTrigger$1bb59ecf-4d11-4bc0-b1c2-00fa5c1ce004",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_TriggerType": "OnConditionRemoved",
+        "Conditions": [
+          "Unconscious"
+        ],
+        "Action": {
+          "Actions": [
+            {
+              "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+              "name": "$ContextActionRemoveBuff$440eee0b-77f6-4f59-9f53-79bb62bf6d30",
+              "m_Buff": "!bp_56f52d137c164c65a40afd0c02e0b782",
+              "RemoveRank": false,
+              "ToCaster": false,
+              "OnlyFromCaster": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "6e5523c38f556614fb970220b86809a8, AddBuffActions",
+        "m_Flags": 0,
+        "name": "$AddBuffActions$7beffb7e-7f55-48aa-be8a-fb98a667178a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Activated": {
+          "Actions": []
+        },
+        "Deactivated": {
+          "Actions": []
+        },
+        "NewRound": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$ae5759e5-44ab-4603-bd88-e945ea0c70a5",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "0dc0dd7d0697abf42bf4a6bb18b13969, ContextConditionIsUnconscious",
+                    "name": "$ContextConditionIsUnconscious$e70ed738-5b3a-43b1-811b-e6e48de3ab8a",
+                    "Not": true
+                  },
+                  {
+                    "$type": "04b94f36388965b429afabdb670fdd29, ContextConditionCompareTargetHP",
+                    "name": "$ContextConditionCompareTargetHP$4fcbf8b1-73c1-47ab-8f56-b6fb5e4580fc",
+                    "Not": false,
+                    "m_CompareType": "More",
+                    "Value": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level",
+                      "PropertyName": "Value1"
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                    "name": "$ContextActionRemoveBuff$620a8e9d-62fc-4064-a38f-d45641147029",
+                    "m_Buff": "!bp_56f52d137c164c65a40afd0c02e0b782",
+                    "RemoveRank": false,
+                    "ToCaster": false,
+                    "OnlyFromCaster": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$d9df4e73-538b-4641-91e2-f0045da9709b",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "a2fb7aa7c501b6d44a622d9eaa24f1f2, ContextConditionIsInCombat",
+                          "name": "$ContextConditionIsInCombat$5b1553e5-51d5-4ff5-a3c2-eab4551b0e45",
+                          "Not": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$9b0b88b1-b9c5-4cd4-8871-0ca71d359386",
+                          "m_Buff": "!bp_56f52d137c164c65a40afd0c02e0b782",
+                          "RemoveRank": false,
+                          "ToCaster": false,
+                          "OnlyFromCaster": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "IsClassFeature": false,
+    "m_Flags": "HiddenInUi, StayOnDeath",
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

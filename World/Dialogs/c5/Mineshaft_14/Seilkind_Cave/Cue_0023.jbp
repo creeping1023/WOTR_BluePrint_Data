@@ -1,0 +1,157 @@
+{
+  "AssetId": "9bf2ebe6c0e2a97448aafd14192314bd",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "игрок сжирает Сейлкайнда своей саранчой\n+1 к каунтеру Локуста",
+    "ParentAsset": "95f392b00cec49d4eb53b85357930b71",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "3e3939a8-5757-4659-9677-28802f1cdc3a",
+      "m_OwnerString": "9bf2ebe6c0e2a97448aafd14192314bd",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/Mineshaft_14/Seilkind_Cave/Cue_0023_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+          "name": "$AddFact$d75c809c-c845-46c7-b256-a5c93c494419",
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$e8a1d292-450f-4ac5-8a0c-00aa20ed839a"
+          },
+          "m_Fact": "!bp_14c7d76c281f40e7b7d71fea158f1023"
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$d2d7a8d3-d9ba-4ce3-977b-b526a8500513",
+          "Status": "Fail",
+          "m_Objective": "!bp_f7e80d6f05108a04c8c8c67ddf76adb0",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e1597780-f614-4ffa-9e0a-aac9a54796f3",
+          "Comment": "если обж стартован - фейлим",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$730173f0-e4dc-447f-a595-f4df4b0ff681",
+                "Not": false,
+                "m_QuestObjective": "!bp_6a5ada4bf0010d84fad1dab2fe73eb2a",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e49abaf9-3a16-435e-a249-2d65dcca5f69",
+                "Status": "Fail",
+                "m_Objective": "!bp_6a5ada4bf0010d84fad1dab2fe73eb2a",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d1dd72b8-64ac-4ce8-925c-7ed07ad572f3",
+          "Comment": "если обж стартован - фейлим",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$cfaaae28-28d3-45b5-a6ce-8c31c3608e9c",
+                "Not": false,
+                "m_QuestObjective": "!bp_ab19f865cb31ced4ab6f7cd25b7ae26d",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$dc48478b-ea85-4ce4-94e5-3d3c641a5c04",
+                "Status": "Fail",
+                "m_Objective": "!bp_ab19f865cb31ced4ab6f7cd25b7ae26d",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$399c4e12-c6e6-4b43-9517-ee72b81f2b63",
+          "m_Cutscene": "!bp_379ffadc21f25f54aa878c1ef9b0d841",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Target",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+                  "name": "$DialogFirstSpeaker$d630028d-524f-4ffe-9e6e-211beed10ccc"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

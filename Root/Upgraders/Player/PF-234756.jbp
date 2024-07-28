@@ -1,0 +1,273 @@
+{
+  "AssetId": "231f7faf620347acbf16df3a9f25fa63",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c3b262a4-1be2-462b-9cd0-cc34971057e4",
+          "Comment": "если игрок видел финальный диалог, и не получил ни одной концовки, проигрываем проверку на концовки еще раз",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$facc6398-222e-4bc9-96f4-422fe94f1579",
+                "Not": false,
+                "m_Cue": "!bp_aeccec94d6e3246488d7f13577a8380d",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1af61b4d-9c50-4a7d-95f2-9d6bdf2a171d",
+                "Not": false,
+                "m_Etude": "!bp_c702a52487248224796ba18d7c6336ae",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$93a2c4fc-8e19-4978-ae48-d760488f673e",
+                "Not": false,
+                "m_Etude": "!bp_c959cc3ef25ce834090ba65cd0169588",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$cdef6db7-41ee-408c-a30e-f092fa035837",
+                "Not": false,
+                "m_Etude": "!bp_2bb1f6f30ca9bb1408f720d6f10c5c05",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$06583b3c-cbb3-400f-b997-94e147ddddc2",
+                "Not": false,
+                "m_Etude": "!bp_e438007efc4f1474eb447031d4b5a60e",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$4642c3f3-b79e-47af-90a3-ad0462601d11",
+                "Comment": "проверка на бест ендинг",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$efc3d86d-f7be-4996-9b39-ccf43eb41b2b",
+                      "Not": true,
+                      "m_Etude": "!bp_ded376ed8b73c3e42b0de967fb1d10a9",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                      "name": "$OrAndLogic$407f84cb-7a78-4e79-b005-d77ce165caf6",
+                      "Not": false,
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "Or",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$8244ec8d-cd59-4dfd-96d2-7614a3ea39a2",
+                            "Not": false,
+                            "m_Etude": "!bp_d99770b13ebc47447881d33763209b03",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          },
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$a0580146-de99-4d89-a469-586456b66275",
+                            "Not": false,
+                            "m_Etude": "!bp_46f4524cec981c544964229e3e08c847",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$7e689238-e2cb-4d91-903e-b994c279d155",
+                      "Etude": "!bp_c959cc3ef25ce834090ba65cd0169588",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$d31c24d1-7662-475a-8eec-fbdd1f915dea",
+                "Comment": "проверка на бэд ендинг",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$15bb2b60-6d6f-4b74-8213-8f649a3d43ac",
+                      "Not": false,
+                      "m_Etude": "!bp_148423f1d35917946a5ebeeb4f19246c",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$1182d2ad-a5d0-4411-a4da-0f25466d3f78",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "Or",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$ddbb4b71-1973-4747-876c-721f3a206b7a",
+                            "Not": false,
+                            "m_Etude": "!bp_f8129442feebb7c49b209c83b8ee6267",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          },
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$0368801c-7f33-4ca1-b68a-28d1b541cb96",
+                            "Not": false,
+                            "m_Etude": "!bp_699b1ad898227c943b2ee9e0cfd355aa",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                            "name": "$StartEtude$95a867f7-69d7-4512-a992-0406bb8e3f2c",
+                            "Etude": "!bp_e438007efc4f1474eb447031d4b5a60e",
+                            "EtudeEvaluator": null,
+                            "Evaluate": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$59d8eb28-0f72-48e1-9641-bbf4ebad2594",
+                "Comment": "проверка на модерейт ендинг",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$3a93bba2-0f59-45b4-8067-c66baa18ba95",
+                      "Not": false,
+                      "m_Etude": "!bp_c959cc3ef25ce834090ba65cd0169588",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$1d358a19-ca2e-44d5-b8cd-e6a0af09a145",
+                      "Not": false,
+                      "m_Etude": "!bp_e438007efc4f1474eb447031d4b5a60e",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$db6a9458-e61d-49b7-8544-1301332afade",
+                      "Etude": "!bp_2bb1f6f30ca9bb1408f720d6f10c5c05",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

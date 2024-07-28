@@ -1,0 +1,175 @@
+{
+  "AssetId": "8028479b2d1c491e9f18ac2198f459f7",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$01fcf7ef-1541-4b51-88a2-ee02a11d28f5",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "прогресс квеста по приходу",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$2d621f2b-add2-498e-b730-8a30b6f7ec4e",
+              "Status": "Complete",
+              "m_Objective": "!bp_a262481432c94059bb4317e353899d1d",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$688b014c-8f7d-41f4-81f6-a8308f0b3dce",
+              "m_Objective": "!bp_24200547f36b469896152bca9f7bddaf"
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$e1b0ae00-37ee-41f3-99bf-6efa830ef162",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "сьедаем отсатки эвакуации",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_1e3cee39b01b4cefab7c7a7fd33b7693",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "4121bfadf09dfbc4cb2c967b559d575c, SummonPoolCount",
+              "name": "$SummonPoolCount$0a854174-f25c-41ac-9cbd-70ff58bbf787",
+              "Not": true,
+              "m_SummonPoll": "!bp_8c55674d97dd43d5a63e1884d5e3887b",
+              "m_Operation": "Equal",
+              "m_Count": 0,
+              "m_AliveOnly": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$d34f6217-5d54-4a20-a446-83098b4337c0",
+              "m_Cutscene": "!bp_b9b0c02570e14d14b37f9d7d41deec99",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$46301ee7-1aa0-4d88-80d5-5d771311877c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Когда убили аддов лже-командора",
+        "Count": 1,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_d8d46b14e1ae4bb7bfc504859602169e",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$f497f2e3-d267-43ed-b493-e955e0d66c1f",
+              "m_flag": "!bp_84d7b86749884092ab6a2abbb0672a88",
+              "flagValue": 0
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitHealthTrigger$59455e2d-127f-49cb-a0e9-cdf0e560580f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Лже-командора положили",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$6c38f53a-5f56-4091-b751-7d3c4798812a",
+          "Spawner": {
+            "EntityNameInEditor": "FakeCommander",
+            "_entity_id": "0c944913-e4d2-4f13-b85b-41ab9946eff2",
+            "SceneAssetGuid": "bc4ae99ce194ba943966aee7e265f98a"
+          }
+        },
+        "Once": true,
+        "Percentage": 1,
+        "TriggerOnAlreadyLowerHeath": true,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$9133c2db-ea2c-413e-b215-8dd2bc3d6c28",
+              "m_flag": "!bp_71d638aafd814a19aeaaa96a09e08b1a",
+              "flagValue": 0
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_19267ed8253c4730aae91edccf28491f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_fdb988d2b33445c09c007a2a3a0ff9e1",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_7fc54be811314cbda7f5b2a68e4203bd"
+    ],
+    "m_StartsWith": [
+      "!bp_62de6cbb4bab4e0db6f4e3b295eeb90c"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "AssetId": "70260967f8e8efc40934a31a346221b0",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$f813cbf8-d714-4715-95c8-6f956f5e99dc",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$3ddc6521-6332-4474-a04e-41f5838c3054",
+              "m_Cutscene": "!bp_4bc0098ff38bc054e7b59984b093eca1",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$62f49b07-cb7d-4a88-bf20-d23bb2be339d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "reload mechanics",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f4932cda-9224-4663-ae4e-53b3551b429d",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                    "name": "$CurrentAreaIs$bcc5ffbd-7884-4b3a-bca6-6f85c589858d",
+                    "Not": false,
+                    "m_Area": "!bp_2570015799edf594daf2f076f2f975d8"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                    "name": "$ReloadMechanic$52d17bd9-24eb-4f95-8eea-3388fa39d597",
+                    "Desc": "Empty action",
+                    "ClearFx": true
+                  },
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$a72f088d-21e0-469b-bf31-89de9b879353",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$33e0441a-e17b-423e-8294-729b45b8e417",
+                      "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "WenduagRomance_TroublesInTheTavern",
+    "m_Parent": "!bp_0782eaebf56f4e63a67b5170c89f04e3",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$1b0fe137-a664-4803-8855-d83f80840349",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$101990c2-fcd1-4a8d-8dc2-ffe46e4def82",
+          "Not": false,
+          "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$5cffb0a7-2c01-466e-adab-2b051a5f9db7",
+          "Not": false,
+          "m_Etude": "!bp_33c4c2f66f2461e4993df21566252079",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_cc907c5146d2cfd49afa16c043f6d9b3",
+      "!bp_997d865aa6f17cc48b480bd62ba02841"
+    ],
+    "Priority": -10
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

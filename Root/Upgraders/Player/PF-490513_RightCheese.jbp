@@ -1,0 +1,85 @@
+{
+  "AssetId": "7d4ff9b3c4e840a196b05b3c07a76161",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Выдать Правильный сыр, если случайно потерял его",
+    "m_SpecificArea": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8f192265-1c8c-45df-b23f-6eacfada3e32",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                "name": "$ItemsEnough$dffbdaeb-0cf3-46de-a31c-e959deee51d2",
+                "Not": true,
+                "Money": false,
+                "m_ItemToCheck": "!bp_c812b891392843c4b9a6f696b2e153f8",
+                "Quantity": 1,
+                "IgnoreRemoteCompanions": false,
+                "CheckInPlayerHubChest": true,
+                "CheckBesmaritesChests": false,
+                "CheckMemoriesChests": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$f9e78291-e42c-4e88-9a2d-eb9ee6545f29",
+                "Not": false,
+                "m_QuestObjective": "!bp_b35eecc85a801324a8df62f99b86aad9",
+                "State": "Started"
+              },
+              {
+                "$type": "be179216bf174b808288ad7b60b70959, IsLootEmpty",
+                "name": "$IsLootEmpty$22ab21dd-a4c4-44df-bef5-81f1afe0288e",
+                "Not": false,
+                "LootObject": {
+                  "EntityNameInEditor": "RightCheese",
+                  "_entity_id": "64f1511f-1926-4d6f-85b9-6c5238b3cf83",
+                  "SceneAssetGuid": "318078db4d8f2894e99467e8c0c9ca6f"
+                },
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$cac487f8-dd26-457d-8fad-272e7bfdbfbb",
+                  "MapObject": {
+                    "EntityNameInEditor": "RightCheese",
+                    "_entity_id": "64f1511f-1926-4d6f-85b9-6c5238b3cf83",
+                    "SceneAssetGuid": "318078db4d8f2894e99467e8c0c9ca6f"
+                  }
+                },
+                "EvaluateMapObject": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                "name": "$AddItemToPlayer$eaab0656-bdb3-4490-bdd1-463b18189fba",
+                "m_ItemToGive": "!bp_c812b891392843c4b9a6f696b2e153f8",
+                "Silent": true,
+                "Quantity": 1,
+                "Identify": true,
+                "Equip": false,
+                "EquipOn": null,
+                "PreferredWeaponSet": 0,
+                "ErrorIfDidNotEquip": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "AssetId": "560a8c51650345e1909bf8dc76cf0207",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$c6334523-5694-4b50-b763-e318a7a13b31",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Disable Lower to Medium gate entrance, if not GateUnlocked_LowetToMedium",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$5e38488a-359f-421c-8250-5c3ad11b2367",
+              "Not": true,
+              "m_Etude": "!bp_e109a47bccdb4a94db3d068a1839e014",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+              "name": "$LockFlag$bd8c37f0-f0b3-4254-a0da-dd38123133c6",
+              "m_Flag": "!bp_0525866cccd219e46a1e75a1ba476143"
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$fef0b48e-9ffc-47f1-8467-4c8234c57f15",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$40061b71-c859-41b5-874f-e0d9832dc3b0",
+                "MapObject": {
+                  "EntityNameInEditor": "AlushynirraLiftGates",
+                  "_entity_id": "c8e7cf73-3dcc-43c2-96f0-706894ff65e8",
+                  "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                }
+              },
+              "UnlockIfLocked": true,
+              "CloseIfAlreadyOpen": true,
+              "OpenIfAlreadyClosed": false
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$ebfc51d7-8027-4920-9a4a-2f63374cf15e",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$bca0e270-2ee0-4db3-8982-945b9031e410",
+                "MapObject": {
+                  "EntityNameInEditor": "AlushynirraLiftPlatform",
+                  "_entity_id": "8e8a312a-7be9-4c48-ad9c-e066e35bff09",
+                  "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                }
+              },
+              "UnlockIfLocked": true,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$60a4dd01-0926-4e34-8168-a615597cb858",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Make guards neutral again",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$4503070f-e160-4b63-a5bf-9ff91f1e7b04",
+              "m_Group": {
+                "EntityNameInEditor": "GateGroup_LowerToMedium_CR20",
+                "_entity_id": "61b227dd-b544-4116-8223-cb7f33939247",
+                "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$e03d222c-c866-4d1e-a88b-2222bf82c63b",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$5795c810-88a3-4bc6-a043-a7ef08ac92e9"
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": true,
+                    "ResetAllRelations": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_deecc937a263ca24c9f1a64a4874451a",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_4f849f5683145d0489db4077e0d7eccf",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

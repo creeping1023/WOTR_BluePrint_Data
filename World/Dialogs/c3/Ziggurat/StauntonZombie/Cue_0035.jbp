@@ -1,0 +1,162 @@
+{
+  "AssetId": "77dfb3878cb86c449a5f2f5fd23b2114",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Стонтон умирает",
+    "ParentAsset": "ce2fec6b94af60e428548423ae15cc8a",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "f2faa424-b3c7-4d45-ab93-ac8059c85048",
+      "m_OwnerString": "77dfb3878cb86c449a5f2f5fd23b2114",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/Ziggurat/StauntonZombie/Cue_0035_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$64588249-97c9-45d9-9244-c27e20473be0",
+          "Comment": "послали в Зиккурат или нет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0b8da348-7f5e-461f-9bf3-cfa76ce35091",
+                "Not": false,
+                "m_Etude": "!bp_6a9fab19d4ea73a42a3ec09641fb16f0",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$6cc7e757-b6a4-4152-ae74-8fe4598b905a",
+                "m_CompanionBlueprint": "!bp_0bcf3c125a28d164191e874e3c0c52de",
+                "OnUnrecruit": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$ee3e1369-cd72-4fbf-a183-65ddba3dbf22",
+                      "Target": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$38c6fd3a-f29b-4054-bc24-e2dd616db98c"
+                      },
+                      "m_Faction": "!bp_d8de50cc80eb4dc409a983991e0b77ad",
+                      "IncludeGroup": false,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                      "name": "$Kill$66fff8cb-eec9-42a8-bae7-054acd704c7e",
+                      "Target": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$98dd234d-27b8-4683-b656-e7de2ec8ce34"
+                      },
+                      "Killer": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$eb8dd624-3327-4e4b-89b5-d38f85338558"
+                      },
+                      "Critical": false,
+                      "DisableBattleLog": true,
+                      "RemoveExp": true
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$31f25a6c-c26d-4b59-897d-6816b1fd1e82",
+                "Etude": "!bp_6a9fab19d4ea73a42a3ec09641fb16f0",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$755d1947-e14b-46ce-a57e-c243d2dffc5a",
+                "Status": "Fail",
+                "m_Objective": "!bp_5d24c1aac3be9c44cb963b2d46aae5db",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                "name": "$Kill$d5cec08b-d65b-4613-92d9-517c73c8e690",
+                "Target": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$67d8ef4c-8f83-48de-9cc8-79c6a8ed4fd4",
+                  "m_SummonPool": "!bp_fccaf63289284874380ce7fbbff2dc23",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                },
+                "Killer": {
+                  "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                  "name": "$FirstUnitFromSummonPool$f898c59b-8b11-4f0e-92ee-37bfac4d4b73",
+                  "m_SummonPool": "!bp_fccaf63289284874380ce7fbbff2dc23",
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": []
+                  }
+                },
+                "Critical": false,
+                "DisableBattleLog": true,
+                "RemoveExp": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

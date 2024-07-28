@@ -1,0 +1,373 @@
+{
+  "AssetId": "0a213252c40e98141aeff54a5bd6dc99",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "29f584d2ad1aa2743831bd46790875eb",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "73b04010-0c2a-4051-a208-b084dceabcbe",
+      "m_OwnerString": "0a213252c40e98141aeff54a5bd6dc99",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c2_vs/LostChapel/Boss_Start/Cue_0017_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": "!bp_54d59e06943b6ee46b7586644813c7d9",
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$0b48f8e9-7059-4ce4-834b-4f67b2dfde9b",
+          "m_SummonPool": "!bp_ba4f4abcb9f3b3d4eaa4e86bf261a3f6",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$6891a79b-41ff-4c70-924e-f08940c15bf1",
+                "m_Buff": "!bp_9bd6fd2dcf313c742867c505cb3b8726",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$82d6ac7c-017a-494f-8207-a5e5ece968e9"
+                },
+                "Duration": null
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$647adea2-09dd-4f02-901e-3b29c23b294c",
+          "m_SummonPool": "!bp_7e773c823b4f7a34d8bdf3d06960ca43",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$39965288-9d72-4fa7-a8a6-97392691abbe",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$b0971720-9e22-4850-8627-1c49852c8ac2"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": true
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d91ee7d8-4c01-48a5-8e8d-da6384a3b7f3",
+          "Comment": "есть ли помощь от Лича",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$ba5a7a3c-3cce-48c7-aeec-8986b8929d56",
+                "Not": false,
+                "m_ConditionFlag": "!bp_e7ee9bb8823f5df4b9dbaff01d720df2",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$962d0146-fd95-4154-9e5f-a14c7b8d1b7b",
+                "m_Cutscene": "!bp_5401d30db0e03554e891f8abd0eea01d",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$014942b8-72f7-421a-85dd-036fa2fb82a7",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$29339955-8253-4bfa-9480-55789eeb649b",
+                  "Spawner": {
+                    "EntityNameInEditor": "Nulkineth_LostChapel",
+                    "_entity_id": "1e40676d-6d09-43df-9d75-59ec7e63e9cf",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$8811357b-c8b8-46d2-b17b-11f39c2b8714"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$de2fb3e0-9911-4ba6-ad29-917aa252fc4c",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$086c7eb9-de24-4a42-ad87-2ffcedede41a",
+                  "Spawner": {
+                    "EntityNameInEditor": "Nulkineth_LostChapel",
+                    "_entity_id": "1e40676d-6d09-43df-9d75-59ec7e63e9cf",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$1a311475-fe82-4f34-abc1-a003e8239b48"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$cf0216a2-e231-470a-a5f7-7c72098521e0",
+          "m_Cutscene": "!bp_7ffcc56fe7ec7584899f15ffb113cd29",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$891eca3e-63e0-43e5-88f8-5eaee485d74e",
+                  "Spawner": {
+                    "EntityNameInEditor": "CrusadeSoldierTraitor_Plaza02",
+                    "_entity_id": "397fef5f-baab-46b1-90da-27e62ed3f4e9",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                }
+              },
+              {
+                "Name": "Locator",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$00d7dbbb-ee21-4f69-b9d6-af6d1d44b586",
+                  "Locator": {
+                    "EntityNameInEditor": "Plaza01",
+                    "_entity_id": "4d201ae3-d4ef-4e66-82b8-2bc2a2f75169",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$df669dbf-4847-41cd-a006-0f9240e9678a",
+          "m_Cutscene": "!bp_7ffcc56fe7ec7584899f15ffb113cd29",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$df1953c2-69f4-42cb-82f1-98a7f62ff71a",
+                  "Spawner": {
+                    "EntityNameInEditor": "CrusadeSoldierTraitor_Plaza01",
+                    "_entity_id": "02a58d0e-fbe1-40ed-998c-e5f3eac61c6b",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                }
+              },
+              {
+                "Name": "Locator",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$3266c486-2708-4755-aa7a-4f12e4f35ff6",
+                  "Locator": {
+                    "EntityNameInEditor": "Plaza02",
+                    "_entity_id": "cf7df1db-0ada-40b4-b8d7-7cfd53df58a4",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$638f34d9-d3b0-4c9f-b456-616352deca11",
+          "m_Cutscene": "!bp_7ffcc56fe7ec7584899f15ffb113cd29",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$a027ee82-df0c-417f-8abd-538cf016b24e",
+                  "Spawner": {
+                    "EntityNameInEditor": "CrusadeSoldierTraitor_Plaza04",
+                    "_entity_id": "03782d85-e688-4263-a833-4fd1a1d36e06",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                }
+              },
+              {
+                "Name": "Locator",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$2709236e-5bf1-47b1-a324-89af8d7c8b6e",
+                  "Locator": {
+                    "EntityNameInEditor": "Plaza03",
+                    "_entity_id": "7a44515f-9229-4bf4-be7c-a00d3d119626",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$6ed5a9dc-f5bb-4fc4-a6df-d329e1155694",
+          "m_Cutscene": "!bp_7ffcc56fe7ec7584899f15ffb113cd29",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$650481dc-3188-4e05-90e3-3050f022883a",
+                  "Spawner": {
+                    "EntityNameInEditor": "CrusadeSoldierTraitor_Plaza03",
+                    "_entity_id": "8ebc247f-ad2b-4a60-bada-5396fc3802a9",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                }
+              },
+              {
+                "Name": "Locator",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$0a5a72b1-6d2a-4e10-acdb-24c7a4eebdc5",
+                  "Locator": {
+                    "EntityNameInEditor": "Plaza04",
+                    "_entity_id": "d9e463b6-af12-4881-bcc1-821da6af4deb",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "1a0449d4049c34149a17869dd62dc64a, CameraToPosition",
+          "name": "$CameraToPosition$25252eef-fca5-4d2a-86ac-c75620b09230",
+          "Position": {
+            "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+            "name": "$UnitPosition$bc017570-d51a-4305-a484-a08539cbe8ae",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$27834bb3-29e6-479c-aad5-6217c12a2069"
+            }
+          }
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$143960f3-752e-4d0f-82ba-8d128934a22e",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$c859ac6e-35f1-4fd3-acd3-ec1570962ad0",
+            "Spawner": {
+              "EntityNameInEditor": "Nulkineth_LostChapel",
+              "_entity_id": "1e40676d-6d09-43df-9d75-59ec7e63e9cf",
+              "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$873db134-20a9-4ac0-ba80-d1cdb00e4ede"
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

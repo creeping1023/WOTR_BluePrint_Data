@@ -1,0 +1,105 @@
+{
+  "AssetId": "737833368b4f4fcea8ac59aa7d5b16c3",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$03d90e09-56d9-418f-a32b-7de50356b4d7",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fe637cd1-becc-4508-9c06-7e60b90d9d85",
+                "Not": false,
+                "m_Etude": "!bp_f11bdad1bb56ebc46859a67f02490d0a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$2f28493e-dbb5-4305-bf23-af23ec1e18ed",
+                "Etude": "!bp_32c3f24a8dadedb4696488b90b98100b",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "bed52afe8d7f45f9bb1df104cfddc793, ShowPartySelection",
+          "name": "$ShowPartySelection$341d93ad-11d4-417f-bac3-a01ee854f54b",
+          "ActionsAfterPartySelection": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$b70ef12e-4162-4598-8ca9-19fdab3b24c2",
+                "Status": "Complete",
+                "m_Objective": "!bp_e2fb9483fccb7104f8c3ea9815bdac25",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$21532d97-43db-4819-b8ed-7ee58c48f6bb",
+                "m_Objective": "!bp_bcf5a9f544fd8bb46a1562dcde735893"
+              },
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$eff7dd15-dd3d-4523-8982-b25bbd7d445f",
+                "m_exitPositon": "!bp_51ec615b45183294bb9b065d9a913e99",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$10f0b147-6606-4351-a07e-f0b5468bc497",
+                "Etude": "!bp_eadea501762ab6840b827e293790abd3",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$90610f68-ec67-404d-844d-8b3976b4eb54",
+                "Etude": "!bp_32c3f24a8dadedb4696488b90b98100b",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "ActionsIfCanceled": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$7a4ac7c5-0202-44a3-9a08-6000b812a2a5",
+                "Etude": "!bp_32c3f24a8dadedb4696488b90b98100b",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

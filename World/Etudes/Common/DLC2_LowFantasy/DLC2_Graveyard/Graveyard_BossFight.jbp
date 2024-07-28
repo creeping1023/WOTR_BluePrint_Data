@@ -1,0 +1,235 @@
+{
+  "AssetId": "064c12adb54446c6b527818d00b652ac",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$ab2878ae-a1b0-40be-8049-87e852f42ff7",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$50789d40-5c9a-40b5-97d0-2d17255c37d0",
+              "m_Buff": "!bp_6f77218015ca5da46b16b8cd66fdb347",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$446adf98-0959-4a3f-b63c-ee418042b1e5",
+                "Spawner": {
+                  "EntityNameInEditor": "(CR 10) Boss",
+                  "_entity_id": "e89bf5fc-28e5-4beb-8199-c94aced76556",
+                  "SceneAssetGuid": "ad8f4c64745b6b844addabe42f116c11"
+                }
+              },
+              "Duration": null
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$04514380-0c1e-48f6-8d3b-cd857ee083a5",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$ce8d0294-7786-4068-90b5-20593a710f35",
+          "Spawner": {
+            "EntityNameInEditor": "(CR 10) Boss",
+            "_entity_id": "e89bf5fc-28e5-4beb-8199-c94aced76556",
+            "SceneAssetGuid": "ad8f4c64745b6b844addabe42f116c11"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e87b43d3-6ac5-4d45-8550-e530e25833c2",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$d2701587-eeb9-4294-80fb-b9b76567501c",
+                    "Not": false,
+                    "m_Etude": "!bp_085643b73e5249679125e9fcebe3ae90",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                    "name": "$StartDialog$f620ecc4-2022-481d-a9a6-8086b6c002fd",
+                    "DialogueOwner": null,
+                    "m_Dialogue": "!bp_c09418d6feb34efeae8a259473183a98",
+                    "DialogEvaluator": null,
+                    "SpeakerName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$c05498ed-3957-4734-aed8-dee1b080a779",
+              "m_Cutscene": "!bp_66a13e0f5b964f1ba8d1a4d8d61dfd8f",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$a004b8f4-5862-4aa5-b888-d1c72b2371a0",
+              "Status": "Complete",
+              "m_Objective": "!bp_9634eb3be0614a8b8d565c18547d2864",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+              "name": "$GainExp$ef26918c-9394-43c0-940a-6c5768d9ccc3",
+              "Encounter": "Boss",
+              "CR": 11,
+              "Modifier": 2.397,
+              "Count": null,
+              "Dummy": false,
+              "UseCustomBattlelogMessage": true,
+              "CustomBattlelogMessage": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "facce34a94d58a847b938f774eda4262",
+                  "stringkey": "942b775a-a900-4039-9e94-645fa8bf283f"
+                }
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$e61ffe45-5b39-4363-a731-0adf29af665d",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$f42eac18-d352-45d8-b7fc-f2131ab88692",
+                "MapObject": {
+                  "EntityNameInEditor": "Exit_CallNPC",
+                  "_entity_id": "3c85f38f-bc6b-4b5b-8784-6242c5e01b91",
+                  "SceneAssetGuid": "ad8f4c64745b6b844addabe42f116c11"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$0e85d77d-67e8-46d8-8e23-1297ad6b114e",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "384e8de3cf0dc83498da2312972180fb",
+                  "stringkey": "54b831a1-adb6-4e3b-abd6-ef5610ed391d"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": true,
+              "TargetUnit": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$1afe5ea8-a2fa-4dbd-819c-b3bc3f2f4753",
+                "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              },
+              "TargetMapObject": null
+            },
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$254e0ac4-06c2-45a9-a5ce-4540d472216b",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "2fa8a436e256dc94296a085056fe97b0",
+                  "stringkey": "a635b73b-3055-41b7-947f-eaa028099d4f"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": false,
+              "TargetUnit": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$dd0c852c-2a07-42bf-8807-28c016340381",
+                "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              },
+              "TargetMapObject": null
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_7fe84b80befe47cbb65dd7b2e626cef2",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

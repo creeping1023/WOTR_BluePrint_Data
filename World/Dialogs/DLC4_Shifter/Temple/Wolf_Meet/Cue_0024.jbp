@@ -1,0 +1,126 @@
+{
+  "AssetId": "ca23d04fd3814f458d9dbb6b5eecc2f0",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "4cfaddcf05a845f7b4bd5691af828477",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "1d3aaa03-0686-474d-8b03-5f3820e182b2",
+      "m_OwnerString": "ca23d04fd3814f458d9dbb6b5eecc2f0",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC4_Shifter\\Temple\\Wolf_Meet\\Cue_0024_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_206ce366bae24c7c8da6a54e78f8392f",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f50c6cd2-eda5-4fb7-8697-18fbc5c73a14",
+          "Comment": "Выдаем эрранд до 5-ой главы",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "56dbbbbbe442d504eb6761bdca7c8066, CurrentChapter",
+                "name": "$CurrentChapter$6cd89836-7ac7-4934-8bce-c737f8203b19",
+                "Not": true,
+                "Chapter": 5
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$cad6a094-e19a-492b-9161-141038d8d74d",
+                "m_Objective": "!bp_18be6a6c0db9489a80de401ede54df4b"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$8e6c2f77-b830-418a-a2a0-8a02b23947db",
+                "Comment": "Выдаем эрранд в 5-ой главе, но только если не игралось KTC",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$70cbc86a-ef5c-486e-abfe-5de1609aab87",
+                      "Not": true,
+                      "m_Etude": "!bp_cf15af283da744128648fd080eba1b4a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$8fea7e18-2e13-42aa-a6f7-538b499b4deb",
+                      "m_Objective": "!bp_18be6a6c0db9489a80de401ede54df4b"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_95eb926033234d49b42d1dfe3dda42bf"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "AssetId": "4a7db5e616e1eb648882baee09f4d396",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_e5fb89c5813086c429bf0dd7d2591346"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$63de3c50-4ef7-4d26-b56b-773baaa1ce45",
+          "m_Buff": "!bp_6f1d9e5b1bf462642bb7e72d1ed67141",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$9e584252-1115-45c9-87a0-3d34e3aa52a0",
+            "Spawner": {
+              "EntityNameInEditor": "Jernaugh",
+              "_entity_id": "e3279406-ed11-46cd-b134-a76e00505641",
+              "SceneAssetGuid": "43f8044671deaca41a0c4455c972dbcf"
+            }
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$b02bc4e0-8054-41e4-8a3d-88fefc745386",
+          "Status": "Complete",
+          "m_Objective": "!bp_83ef582fb9a4f1f4b9da02dd3973a71e",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b2c681a2-6492-42c9-9fa2-3969a080884c",
+          "Comment": "if not attack villagers",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$557e11cb-96be-4aac-a603-858ad8dee9a8",
+                "Not": true,
+                "m_Answer": "!bp_ffde7363ecdf73b44bbe25ad51150a47",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$1e574b66-053a-4a0d-ab9d-5ceaed786557",
+                "m_Cutscene": "!bp_f9019eb0b46942149bed55bd437f875c",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

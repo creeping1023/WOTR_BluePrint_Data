@@ -1,0 +1,215 @@
+{
+  "AssetId": "48d1f9db73d14d9f8f276f8fe9d769d2",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$abd7f8de-08c2-454e-821d-8e33af55412d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$3d4209a7-af7b-4ffb-a7f5-f91c5a19afcf",
+              "UseEvaluator": false,
+              "ScriptZone": {
+                "EntityNameInEditor": "2nd_phase_trigger_zone",
+                "_entity_id": "90c74e96-ece7-48c3-bb19-fcf41e131504",
+                "SceneAssetGuid": "501daeb984dec6e4ab3437aa7650f22f"
+              },
+              "ScriptZoneEvaluator": null
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$5bfa9c3b-95f7-48a0-b389-33e70abc3a63",
+              "UseEvaluator": false,
+              "ScriptZone": {
+                "EntityNameInEditor": "3rd_phase_trigger_zone",
+                "_entity_id": "0f1ef6d4-79da-4d81-ac46-744cc1330753",
+                "SceneAssetGuid": "501daeb984dec6e4ab3437aa7650f22f"
+              },
+              "ScriptZoneEvaluator": null
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$ebc3977c-1104-4d56-9d40-776643c46c22",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$bab37be6-8ab1-4719-953b-c6dcd30eb381",
+          "Spawner": {
+            "EntityNameInEditor": "Nahyndri",
+            "_entity_id": "7ac7a1e1-26c5-4b14-a3f6-6976a44468bb",
+            "SceneAssetGuid": "501daeb984dec6e4ab3437aa7650f22f"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$354b6348-3b4c-4689-8bc2-244a8184bf3a",
+              "m_SummonPool": "!bp_54d0a09e267946938c96db646feb8cb1",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                    "name": "$Kill$8d1e0514-5ab1-4063-8845-224480459fa3",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$32eb0b28-4554-43b6-9327-6487285395dd"
+                    },
+                    "Killer": null,
+                    "Critical": false,
+                    "DisableBattleLog": true,
+                    "RemoveExp": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$0f561e62-76d3-4f32-8e34-94a20fbb1a2f",
+              "m_Cutscene": "!bp_c877866900f047fdbdc754aa6de87bc0",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$fe971fa7-308a-4f0c-b536-cb187dbd1048",
+              "m_Cutscene": "!bp_906f74b514aa405a9302e84bac504989",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1c385325-e042-432c-b714-a0b97ee18778",
+              "Comment": "Ачивка, если убили в третьей стадии",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$cf845b53-97b6-40b2-910c-d98eed17e382",
+                    "Not": false,
+                    "m_Etude": "!bp_3448a840c8c5457482d97601ed241487",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                    "name": "$ActionAchievementUnlock$88f1d583-a6a0-40a4-b66e-7f0c916ee6c8",
+                    "m_Achievement": "!bp_6e0dfbb7ca0a4c2faac19c86dbb8be44"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$af77fa87-f9ee-4353-a805-77836581a815",
+              "Comment": "Ачивка, если не стреляли с баллист",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$1802db46-935a-4c6c-a933-89e43df3c31a",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_3aedfe87b23d405d9d4808bf7adde9b7",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                    "name": "$ActionAchievementUnlock$e039b687-bd10-40f6-9a12-e11e0f88c7b2",
+                    "m_Achievement": "!bp_b5b32f2dffbe4d06a22b3b045ac34563"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$e7f58c64-ef14-447a-bf3d-7ae9f46de88b",
+              "Status": "Complete",
+              "m_Objective": "!bp_4851ecf1861142009e771b3fe6abd09d",
+              "StartObjectiveIfNone": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_6e4f94822d334d09802aa65c450f8a54",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

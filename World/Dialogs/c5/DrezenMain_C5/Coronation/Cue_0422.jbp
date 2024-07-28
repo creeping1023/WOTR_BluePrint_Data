@@ -1,0 +1,116 @@
+{
+  "AssetId": "6a0f6e11948aceb45b486ce177a3187d",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Если Ирабет была в Изе и умерла там (здесь не важно, убил ее игрок или она умерлда сама)\n\nЕсли ещё не поговорили с ней по квесту Арушалай, квест ФЕЙЛИТСЯ.\r\n",
+    "ParentAsset": "0d4b3161a3d69ea48812d682fc0560c6",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$53eb3eac-fa8e-4f7d-9676-ebb81396816f",
+          "Not": false,
+          "m_Etude": "!bp_b14e13f9359585e498fcd81ab95d4d7e",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "e4ad6c4a-ef8a-4f20-b302-fc6f46244b42",
+      "m_OwnerString": "6a0f6e11948aceb45b486ce177a3187d",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/DrezenMain_C5/Coronation/Cue_0422_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4d7bf51c-eb40-4622-aaa0-7e6742fe38d2",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$d4df81c3-045b-4583-bd46-17603858df9c",
+                "Not": false,
+                "m_QuestObjective": "!bp_1a32315f0f94f6a4588c2705f9782fee",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$c8ad076f-e828-4ced-8c1c-f4202e9ced3b",
+                "Not": true,
+                "m_QuestObjective": "!bp_1a32315f0f94f6a4588c2705f9782fee",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$264c99d2-fd33-485c-958c-124b7915addc",
+                "Status": "Fail",
+                "m_Objective": "!bp_6b9242706b8c43d49003813b869f023e",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_6dea770281b0d1d4195d2ed6a0f9f513",
+        "!bp_070e849ca16487340ae9641fcfabab53",
+        "!bp_e0f1043e5784fbb4d95f2716cbcaaead"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

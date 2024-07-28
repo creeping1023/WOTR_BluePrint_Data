@@ -1,0 +1,77 @@
+{
+  "AssetId": "31be937ff3cb42a89904eb6fa441ec83",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4a844c9a-2580-4213-ad53-bc114191ae1e",
+          "Comment": "Spawn Seelah",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$ed8bf8c1-bff0-43de-be10-0b296202a38c",
+                "Not": false,
+                "m_companion": "!bp_54be53f0b35bf3c4592a97ae335fe765",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$eb6cfdfe-f36d-40c5-9c85-9236ae15344a",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Fake_Seelah",
+                    "_entity_id": "46fb369d-7ff5-4355-9e87-af8cc87fc270",
+                    "SceneAssetGuid": "fec7d8dfea7d2c54298d265212f485a2"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$0ecece7f-af48-4820-a482-2a9851d517dd",
+                      "m_Cutscene": "!bp_b51eac1c5bb344eaa063e9886336a212",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$7a107ce5-a315-4681-832c-bd3b38115b3e"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

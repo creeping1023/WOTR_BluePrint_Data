@@ -1,0 +1,339 @@
+{
+  "AssetId": "a1300420a29a4695b657c545812930ae",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Не начался диалог с Ланном/Вендуаг по квесту Ланна",
+    "m_SpecificArea": "!bp_44fe8dd5fabba2e48b06fd714a217247",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a1f2b7c6-0d50-4782-833a-39561ec9ddf7",
+          "Comment": "All units in SummonPool are dead. Player haven't seen dialogues",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4121bfadf09dfbc4cb2c967b559d575c, SummonPoolCount",
+                "name": "$SummonPoolCount$29caf865-a40d-465f-bcc2-c222198c7f5b",
+                "Not": false,
+                "m_SummonPoll": "!bp_729e25cd1b33b524da1b0c01d438ecf0",
+                "m_Operation": "Equal",
+                "m_Count": 0,
+                "m_AliveOnly": true
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$7e886360-cf41-40bb-bdf7-77108a8d6336",
+                "Not": true,
+                "m_Dialog": "!bp_6b8b9a44bb43ce0488a8cab404013103"
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$55bf79c8-57fe-44bd-8df8-82901106aad2",
+                "Not": true,
+                "m_Dialog": "!bp_74dd0faf955f7c14a8e2423142cae858"
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$c20ee3e7-b8ee-4fe8-9094-76c9462f9864",
+                "Not": true,
+                "m_Dialog": "!bp_fbcb5d5935b6dcb4aa35a0fce382555b"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$f5498b7a-f201-40f1-90ed-e9c090decec1",
+                "m_SummonPool": "!bp_dc0334c4535cc3e4dbde002c3f2ee182",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "c436123ee6f44c75a69221bfb7d9024c, SplitUnitGroup",
+                      "name": "$SplitUnitGroup$9550c989-4c7b-4f52-b882-6f116e3862ce",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$939a5d37-cac7-44d5-8ddb-f42d334851f2"
+                      }
+                    },
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$e49c8934-48d0-443d-8bf9-f2e93e209d3f",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$2dd49936-f6d1-48d0-b9b5-cb69dbdbd579"
+                      },
+                      "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                      "IncludeGroup": false,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$e2d2ff3c-e1ca-4048-befc-b98dadeebcd9",
+                "Comment": "Квест Ланна",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$1cb837a3-493f-47b5-a0d9-d691be3c79a6",
+                      "Not": true,
+                      "m_Quest": "!bp_df19bef39c8aa6a4b9dcaf40450b94dc",
+                      "State": "None"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$e3e31774-0960-4296-b7bb-a2b3da7df18c",
+                      "Comment": "какой диалог после боя",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$3f40116e-70a4-48b1-b181-83e364030f66",
+                            "Not": false,
+                            "m_ConditionFlag": "!bp_b2136061085c410489fe762cdcbcabd2",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                            "name": "$StopCutscene$27b6176a-96e6-4df3-be41-c982ca28b89d",
+                            "m_Cutscene": "!bp_ba13f2faa41ebb643995ca5aea31ff9f",
+                            "WithUnit": null,
+                            "m_CheckType": "Params"
+                          },
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$3eef08a8-0f97-40b6-8f7b-8c2a8ce0803a",
+                            "m_Cutscene": "!bp_8fdb59f403f8b1b41a005d4f74ab5912",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": [
+                                {
+                                  "Name": "Dialogue",
+                                  "Type": "Blueprint",
+                                  "Evaluator": {
+                                    "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                                    "name": "$Dialog$fb835c70-7eb7-4549-ac87-c632e4e17dfd",
+                                    "m_Value": "!bp_6b8b9a44bb43ce0488a8cab404013103"
+                                  }
+                                },
+                                {
+                                  "Name": "Speaker",
+                                  "Type": "Unit",
+                                  "Evaluator": {
+                                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                    "name": "$CompanionInParty$b302cca0-3980-4a9b-821c-12ca9782a53b",
+                                    "m_Companion": "!bp_cb29621d99b902e4da6f5d232352fbda",
+                                    "IncludeRemote": true,
+                                    "IncludeExCompanions": true,
+                                    "IncludeDettached": true
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$fd3ee64b-801a-4c57-b87e-32e20ffe022c",
+                            "m_Cutscene": "!bp_8fdb59f403f8b1b41a005d4f74ab5912",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": [
+                                {
+                                  "Name": "Dialogue",
+                                  "Type": "Blueprint",
+                                  "Evaluator": {
+                                    "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                                    "name": "$Dialog$af3340e6-72f0-409e-b6b0-2c2fd60c65cf",
+                                    "m_Value": "!bp_74dd0faf955f7c14a8e2423142cae858"
+                                  }
+                                },
+                                {
+                                  "Name": "Speaker",
+                                  "Type": "Unit",
+                                  "Evaluator": {
+                                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                    "name": "$CompanionInParty$fd26f10c-8c77-46f8-beb1-e1abc2627656",
+                                    "m_Companion": "!bp_cb29621d99b902e4da6f5d232352fbda",
+                                    "IncludeRemote": true,
+                                    "IncludeExCompanions": true,
+                                    "IncludeDettached": true
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                      "name": "$DetachBuff$1841a054-47ee-4b68-95e7-d3b1a32cfe11",
+                      "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                      "Target": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$1cbe5e94-3c30-4efa-988e-b8af5039c430",
+                        "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$bbd5e400-829e-487c-be35-9d765dada955",
+                "Comment": "Квест Венду",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$6776a55e-e93c-4cd1-931c-ca37df06f9e2",
+                      "Not": true,
+                      "m_Quest": "!bp_5ba83bd1a6b1c884794fbb4858480e7f",
+                      "State": "None"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$938eeef1-6a12-41fd-9dc9-1087d4c21907",
+                      "m_Cutscene": "!bp_8fdb59f403f8b1b41a005d4f74ab5912",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Dialogue",
+                            "Type": "Blueprint",
+                            "Evaluator": {
+                              "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                              "name": "$Dialog$02a7b9c6-c544-4da7-b7ac-ec9d553d5a00",
+                              "m_Value": "!bp_fbcb5d5935b6dcb4aa35a0fce382555b"
+                            }
+                          },
+                          {
+                            "Name": "Speaker",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$6e8ac4b7-b8bb-4ed8-8519-c1f0232626dd",
+                              "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                              "IncludeRemote": true,
+                              "IncludeExCompanions": true,
+                              "IncludeDettached": true
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                      "name": "$DetachBuff$ea2c4e1a-3fef-4715-ba9d-c2e42ba501c0",
+                      "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                      "Target": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$ebbc0fcf-84c8-443e-a582-8c1f8cda117b",
+                        "m_Companion": "!bp_cb29621d99b902e4da6f5d232352fbda",
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$81ce5b0b-86c5-428e-a166-2d52e4d6c8ab",
+                      "Comment": "Wendu traitor",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                            "name": "$CompanionInParty$84e665ff-379b-4590-80ef-cd57b487a025",
+                            "Not": false,
+                            "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                            "MatchWhenActive": false,
+                            "MatchWhenDetached": false,
+                            "MatchWhenRemote": false,
+                            "MatchWhenDead": false,
+                            "MatchWhenEx": true
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                            "name": "$SwitchFaction$7ecfe229-5055-482c-910f-5c66cc058327",
+                            "Target": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$f3c89a1c-06a1-4c16-850d-4e1941f88074",
+                              "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                              "IncludeRemote": false,
+                              "IncludeExCompanions": true,
+                              "IncludeDettached": false
+                            },
+                            "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                            "IncludeGroup": false,
+                            "ResetAllRelations": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

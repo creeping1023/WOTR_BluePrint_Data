@@ -1,0 +1,1687 @@
+{
+  "AssetId": "a6e26159152a54c47a70ec91495499cf",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$7ba0e2df-f316-4708-b88d-b400698aa532",
+      "$EtudePlayTrigger$7b4408dc-2847-4718-ba0e-20c245854085",
+      "$EvaluatedUnitCombatTrigger$0d3a5c9d-983c-476c-913a-b764fd148cb2",
+      "$EtudePlayTrigger$1c4df56d-be4a-463f-856d-ff4004218ed2",
+      "$EtudePlayTrigger$0e0ad8ea-2637-481c-b84d-6a06a4f0d2e1",
+      "$EtudePlayTrigger$cdf6a2e0-e1e8-40b1-80d4-ff3b3f7a937c",
+      "$EtudePlayTrigger$4a6e42d9-1743-45cc-86eb-661218acf7ed"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$7ba0e2df-f316-4708-b88d-b400698aa532",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Quest progress.",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$dc33de41-3543-434f-bd03-9630baa24a1b",
+              "Comment": "Obj1_FindMutasafen",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$594d6e28-c813-48de-8ba9-b09e937ed0a5",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_4d11a0ede01ee8f4698af1d2a5089925",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$4aba1a2d-0241-4ebe-8748-87e1f3cc6e75",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_4d11a0ede01ee8f4698af1d2a5089925",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$137c33f5-668f-4b65-ba1a-a8cb5e381124",
+                    "m_Objective": "!bp_0a4665a793bd31541a9676f3ae9a07e2"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$7b4408dc-2847-4718-ba0e-20c245854085",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Undeads and Demons",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d34d8cc9-bf44-4291-a210-614a07f5c534",
+              "Comment": "Incorporeal undead ambush",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$953013b4-c1c2-40a1-bfd1-8725d77826ba",
+                    "Not": true,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "0a7ef55390dc10c428693321c0e1f6d7, SummonPoolUnitsCount",
+                      "name": "$SummonPoolUnitsCount$02d605d2-b30f-4de0-ac51-d6af3413f8eb",
+                      "m_SummonPool": "!bp_40fefcfa78fd12147b43e147dc11956f"
+                    },
+                    "MaxValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$623c810c-a587-4fc2-9a6a-774c0baf1335",
+                      "Value": 1
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$780b203b-256a-4b19-90fc-9d660573b1e1",
+                    "m_SummonPool": "!bp_40fefcfa78fd12147b43e147dc11956f",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                          "name": "$DestroyUnit$f1646bbc-7dda-4bcc-8dfb-3cf5a4e20f37",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$58de588b-2a95-4445-91f7-29d4fcb98bdb"
+                          },
+                          "FadeOut": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$820ff1db-9fc6-46ae-b727-224c3c8edbed",
+              "Comment": "Corporeal undead ambush",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$7042b199-d3ad-471a-b95c-1f5812acca9d",
+                    "Not": true,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "0a7ef55390dc10c428693321c0e1f6d7, SummonPoolUnitsCount",
+                      "name": "$SummonPoolUnitsCount$b79b1f86-16f8-4dcb-aab0-3dc241705c1e",
+                      "m_SummonPool": "!bp_ca6b79be0c0961c48a8710ca81a1c421"
+                    },
+                    "MaxValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$7a33770a-1602-4676-8261-9118e357df6d",
+                      "Value": 1
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$22f4a580-daf8-4d8c-9c87-a8c386a3d936",
+                    "m_Cutscene": "!bp_a061c49277b52174b065adcee780f493",
+                    "WithUnit": null
+                  },
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$62bbcc65-2c5b-4f0f-869e-2e46fb01f016",
+                    "m_SummonPool": "!bp_ca6b79be0c0961c48a8710ca81a1c421",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$5ad6c8ba-56a6-473b-abfa-cde06a03bc22",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$77f845cb-0689-45a1-9f33-0a43eecad4da"
+                          },
+                          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+                    "name": "$ScriptZoneActivate$c13f031d-0b4e-43c2-ba9d-c9cdceb3e195",
+                    "ScriptZone": {
+                      "EntityNameInEditor": "corporeal_undeads_fight",
+                      "_entity_id": "b096a587-4578-45a0-80d2-a49667b61877",
+                      "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$dfd2adb8-fd77-455a-807e-a83b0cfb7592",
+              "Comment": "Incorporeal undead plain",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$a75f508f-5cf1-4dfd-a4d5-98b36b9eeb57",
+                    "Not": true,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "0a7ef55390dc10c428693321c0e1f6d7, SummonPoolUnitsCount",
+                      "name": "$SummonPoolUnitsCount$42b035f6-d3a4-4966-9267-b48df940e331",
+                      "m_SummonPool": "!bp_e2ef19df0dd21584ea0a3c273a852c6b"
+                    },
+                    "MaxValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$8a59a8ef-9e8b-47ba-ad4b-c9f57825d131",
+                      "Value": 1
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$14ff4f17-93ed-4414-b71d-24c30d6995b3",
+                    "m_SummonPool": "!bp_e2ef19df0dd21584ea0a3c273a852c6b",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                          "name": "$DestroyUnit$47382433-7af1-4e1a-b9d5-cd45a1cc788b",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$3114038b-1736-4ec0-8dac-5ce440a85581"
+                          },
+                          "FadeOut": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$4238bcc7-f6a8-4e9e-b8df-1722a680ded7",
+              "ScriptZone": {
+                "EntityNameInEditor": "plain_undeads_fight",
+                "_entity_id": "4a3449b6-df2e-4589-95ea-b4c4b5e486da",
+                "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$0d3a5c9d-983c-476c-913a-b764fd148cb2",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Babau Guards trigger",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$39efe3bf-5d25-42d5-a4d2-28c23166741f",
+          "Spawner": {
+            "EntityNameInEditor": "[CR11_BabauElite] [trigger]",
+            "_entity_id": "b2e93487-b333-406a-9203-9f6f813b08fc",
+            "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$6e4b8b6f-a82d-4ab6-868f-9708bf5ee73a",
+              "m_SummonPool": "!bp_c3347edd309d77945bd21e042f13a003",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$454c88e6-e72c-4b85-9bd2-9d7e70887646",
+                    "m_Buff": "!bp_032003e0d83b5284794c90a1d094e5a9",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$565553c8-c11e-47e6-bf9f-17300c1ea487"
+                    },
+                    "Duration": null
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$1c4df56d-be4a-463f-856d-ff4004218ed2",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Spawn corpses or units",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a6faf41b-7778-41ed-870a-fc09a3fb4b9f",
+              "Comment": "Stargazers, Vendor and Wardens",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$9d8bdb6e-5a95-4860-a793-b8c3dd70a310",
+                    "Not": false,
+                    "m_Etude": "!bp_b5c05d51e5c9a6644bf17d6b0b218c01",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$16dddf5b-ae93-44bb-9ab6-c4c7048cc7ab",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$0427ae6d-4f55-4789-91c1-c1fa73349074",
+                      "MapObject": {
+                        "EntityNameInEditor": "DeadWardens",
+                        "_entity_id": "e9f2eaf9-ba9e-464f-ba81-68e1651b42e6",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$e5e63a69-f9df-4223-9c74-8d489f6b549b",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$079cd67f-3573-43bf-90f6-42eb135eb1d8",
+                      "MapObject": {
+                        "EntityNameInEditor": "VendorCorpse",
+                        "_entity_id": "a69f35eb-afcd-4c78-aad8-3d0505fbf268",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$f7387840-69de-4ff3-aec4-52aeea18375f",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$ec38bbb2-fc09-4c4a-9b36-a029549d0dc5",
+                      "MapObject": {
+                        "EntityNameInEditor": "DeadStargazer",
+                        "_entity_id": "9361f556-f3e0-4842-9f31-ba8dfe2745d5",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+                    "name": "$SwitchDoor$8af7b53b-ee1e-4285-8aa3-f79f79de80c5",
+                    "Door": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$98f8084e-a8bc-4403-936d-2bba5ee45ca3",
+                      "MapObject": {
+                        "EntityNameInEditor": "Pulura_door_02 (storage)",
+                        "_entity_id": "e9709d4b-1e12-46f6-9693-22518f8f4d19",
+                        "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                      }
+                    },
+                    "UnlockIfLocked": false,
+                    "CloseIfAlreadyOpen": false,
+                    "OpenIfAlreadyClosed": true
+                  },
+                  {
+                    "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                    "name": "$SpawnBySummonPool$102f0285-c14d-42cc-9443-0ff3c7dec80c",
+                    "m_Pool": "!bp_6b6869f9b3fb0d1428b191050bbd5f36",
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$cfd9890e-336d-4fac-b34c-292dc8d79006",
+                    "Comment": "Angel?",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                          "name": "$QuestStatus$f91af2ea-c8bf-4807-81f9-cc9c821bead8",
+                          "Not": false,
+                          "m_Quest": "!bp_5154dbc38aa2ea84a80b733a443cdca7",
+                          "State": "Completed"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$76d473ec-9e7f-4133-9797-450d1b911193",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$50621ab5-25c1-45a1-98d6-7bf69d8ea6b1",
+                            "MapObject": {
+                              "EntityNameInEditor": "DeadVendor",
+                              "_entity_id": "6c671218-ebc9-4fbc-8a9a-e12c41dcf272",
+                              "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                            }
+                          },
+                          "Unhide": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$25e62d0c-9101-4e19-bb78-2b2b3f9dcb9c",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Vendor]",
+                        "_entity_id": "e0e79ce2-31ec-4187-bf37-379c2b3708fc",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                    "name": "$SpawnByUnitGroup$ca495f6a-d6d8-40f9-97be-2c8c97678285",
+                    "m_Group": {
+                      "EntityNameInEditor": "Stargazers",
+                      "_entity_id": "89b9fb23-e16a-47d4-b5b7-b252a7903285",
+                      "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                    },
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+                    "name": "$SpawnByUnitGroup$1066cc40-cd26-4eb8-b8bc-51d41f7bda9e",
+                    "m_Group": {
+                      "EntityNameInEditor": "Wardens",
+                      "_entity_id": "0202ad9e-7ae1-44e9-97c9-3a7877b80046",
+                      "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                    },
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+                    "name": "$SwitchDoor$a8c25ddf-f33e-40b3-9410-0dd90579ac7b",
+                    "Door": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$111e2aac-e5c8-420b-8886-711d19d6706e",
+                      "MapObject": {
+                        "EntityNameInEditor": "Pulura_door_02 (storage)",
+                        "_entity_id": "e9709d4b-1e12-46f6-9693-22518f8f4d19",
+                        "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                      }
+                    },
+                    "UnlockIfLocked": false,
+                    "CloseIfAlreadyOpen": true,
+                    "OpenIfAlreadyClosed": false
+                  },
+                  {
+                    "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                    "name": "$SwitchInteraction$9972365f-95e4-4e4f-8a69-09b1342cebdb",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$dc4e1cb1-affe-4c2a-bcca-9c754f3dba3d",
+                      "MapObject": {
+                        "EntityNameInEditor": "Pulura_door_02 (storage)",
+                        "_entity_id": "e9709d4b-1e12-46f6-9693-22518f8f4d19",
+                        "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                      }
+                    },
+                    "EnableIfAlreadyDisabled": false,
+                    "DisableIfAlreadyEnabled": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$41cf65f3-55d2-4434-b434-97e22976230a",
+              "Comment": "Lovers",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$c934f624-7730-49f2-b22a-c8be1004fb08",
+                    "Not": true,
+                    "m_Etude": "!bp_53cd288f24ba47f4e885ac24bd8366cd",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$e80872b8-d09d-4d7c-93a7-c917d3f3b13a",
+                    "Comment": "Angel?",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                          "name": "$QuestStatus$470d7da3-8c44-44de-a59d-17b804083df8",
+                          "Not": false,
+                          "m_Quest": "!bp_5154dbc38aa2ea84a80b733a443cdca7",
+                          "State": "Completed"
+                        },
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$17783b30-6e42-4aff-95c1-d2520f58f818",
+                          "Not": true,
+                          "m_Etude": "!bp_70953e47b3a8c0d46915f341537430a9",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$b340e00f-e55d-4bbf-8038-1dc7952d8574",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$857818bb-f26c-4a38-9e89-306a6bfa4928",
+                            "MapObject": {
+                              "EntityNameInEditor": "DeadLovers",
+                              "_entity_id": "b3e17ff1-363a-4219-9541-87361912be5f",
+                              "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                            }
+                          },
+                          "Unhide": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$9ee2a54f-9f5f-4798-b9aa-072383c24b90",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$99281afd-11da-415e-92f1-6a298c20eef7",
+                      "MapObject": {
+                        "EntityNameInEditor": "CristryCorpse",
+                        "_entity_id": "61dd594e-2a0e-47f5-86b5-937dccccce52",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$ebf7dd00-5455-44d7-98d7-957bd3dd86e1",
+                    "Comment": "Vestari is Dead?",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$531ff658-0841-4f40-b4f1-25ac6b80e260",
+                          "Not": false,
+                          "m_Etude": "!bp_70953e47b3a8c0d46915f341537430a9",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": []
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$5272be6b-0fc9-4eb4-8727-e081ce8cc933",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$282ed9f1-1420-4002-bbe6-3e9a2c4cd780",
+                            "MapObject": {
+                              "EntityNameInEditor": "VestariCorpse",
+                              "_entity_id": "6cacdba8-376e-41ff-9728-5eeff69e5021",
+                              "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                            }
+                          },
+                          "Unhide": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$2ed73c66-5f8b-4353-a98c-bf1cd00d0aa9",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Vestari]",
+                        "_entity_id": "26aad541-cb3c-464f-8a1a-da544830b7d0",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      },
+                      {
+                        "EntityNameInEditor": "[Cristry]",
+                        "_entity_id": "4def8299-6815-4293-86c9-6d0ebe64efc4",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$26615f8b-f1a3-4b29-90bd-6bcc01af706d",
+              "Comment": "Katair",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$71c5ebee-3ea9-4c87-8fcd-f021f4b64eb7",
+                    "Not": false,
+                    "m_Etude": "!bp_ef6c0312552ab8c41ad394d1ae5e13fe",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$53ce44bb-0307-468f-99f3-b0fb9696c3f8",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Katair]",
+                        "_entity_id": "e68c115e-4dc2-45e0-b900-3c43e04e2d6d",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$ba0d3372-8cad-4414-9117-75342181d723",
+              "Comment": "Eliandra",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ee43b48f-cdd0-4421-83df-736a3161e10a",
+                    "Not": false,
+                    "m_Etude": "!bp_10f99acc6694ca94d81ec81f123b2cb0",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$f4dc3199-52e9-4178-badc-2aed43194ebb",
+                    "Not": true,
+                    "m_Etude": "!bp_3a82aba4de71b89458ac82949ed957c4",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$981f4ce3-6f34-4013-9b19-2b32e19fad88",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Eliandra]",
+                        "_entity_id": "0edd9a9b-99fb-43c7-b943-93671b799b74",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2e236f7d-8a83-4fe4-bbb9-ffd35f51abd9",
+              "Comment": "Odden",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$43cdcc3b-f599-4714-8b11-8739e454a773",
+                    "Not": false,
+                    "m_Etude": "!bp_9af1f1ed61de6a041a3ab818cd7020fb",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$22627f45-2353-4c79-ac73-145d34d6eeec",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$af65145b-500f-4686-b2ec-8e6451cc68ec",
+                      "MapObject": {
+                        "EntityNameInEditor": "OddenCorpse",
+                        "_entity_id": "8d86323b-ef77-4f4a-a5a0-0e55792aecac",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$9818ee82-67bd-485a-b979-3399bf6ce800",
+                    "Comment": "Angel?",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                          "name": "$QuestStatus$ee597f5a-edf6-4441-9571-5b737c48b2fc",
+                          "Not": false,
+                          "m_Quest": "!bp_5154dbc38aa2ea84a80b733a443cdca7",
+                          "State": "Completed"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$6bca4132-4e90-4141-8e55-b3fae96ee408",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$04ada72e-562a-4780-b985-89d9c406500d",
+                            "MapObject": {
+                              "EntityNameInEditor": "DeadOdden",
+                              "_entity_id": "3e14be8a-6b63-44ce-adca-f03bd3326ef7",
+                              "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                            }
+                          },
+                          "Unhide": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$3ab0b3a8-42e4-4ae1-8a66-c974eee2242b",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Odden]",
+                        "_entity_id": "1e0c9d74-d62a-4321-b381-4a31a5c9a4dc",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a80607dd-b4d3-415d-9d66-8c3e9e8dcb6b",
+              "Comment": "Regnard",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$f0cc38ef-a5f0-48df-bd95-332b10907b46",
+                    "Not": true,
+                    "m_Etude": "!bp_3d5a2131f79f7114abbd981caac914ef",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$297d4b35-50a4-494e-b542-60dae34cf46a",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$e4941a32-1bf4-49bf-890b-92b0abc71396",
+                      "MapObject": {
+                        "EntityNameInEditor": "DeadRegnard",
+                        "_entity_id": "36388267-9dfb-410c-ac7c-e6a96538ce7b",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$692c2e50-3c10-4d53-b55c-d61bc280606b",
+                    "Comment": "Regnard Sword",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$73cbf0d3-a2c0-4485-a38c-14d84566190b",
+                          "Not": false,
+                          "m_Etude": "!bp_e922348c874be794a9f2006fe47731b6",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$5c8a86cd-b206-4d0d-a056-16d0ea04182e",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$3a9d1449-44b6-4cbe-8b23-30924ee37c00",
+                            "MapObject": {
+                              "EntityNameInEditor": "RegnardMagicSword",
+                              "_entity_id": "ed5304a1-daa2-44bc-a3a8-acaebc8a110a",
+                              "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                            }
+                          },
+                          "Unhide": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$bca1cafa-5253-4f36-aad6-df38717c1fd6",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$4ee05443-3f6d-45b1-adda-1f2cec3a8f9f",
+                            "MapObject": {
+                              "EntityNameInEditor": "RegnardRegularSword",
+                              "_entity_id": "927c3a95-1f56-4f82-abdf-df8c0f303b84",
+                              "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                            }
+                          },
+                          "Unhide": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$a6992b75-5e63-49e3-9062-743504ca704b",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Regnard]",
+                        "_entity_id": "b57cae77-ceee-446e-b564-d0246b0c2f72",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b0e4daf5-87ab-4fb5-bf91-6bb01414f60e",
+              "Comment": "Taeril",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$8c188f14-0bff-4f2f-860a-82561d809e68",
+                    "Not": true,
+                    "m_Etude": "!bp_1b681e34ecc771f478ab95c53a474a31",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$57fb098b-ec9e-4dbd-9a43-9f9f292d035a",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$1a68f32f-3bc5-499f-9eb3-dfadac9bbeaa",
+                      "MapObject": {
+                        "EntityNameInEditor": "TaerilCorpse",
+                        "_entity_id": "8ea39933-3fd6-43fa-9d82-b1dbe03ccadf",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$3c6d6e3b-ecd2-4890-bfde-4231352ed69a",
+                    "Comment": "Angel?",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                          "name": "$QuestStatus$dbff6cde-2ef7-4332-b6ad-b6be92cfec44",
+                          "Not": false,
+                          "m_Quest": "!bp_5154dbc38aa2ea84a80b733a443cdca7",
+                          "State": "Completed"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$89247536-b3b6-47d6-afdd-59da62721d21",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$1af96587-44b2-4ba8-a357-7a69112a9d44",
+                            "MapObject": {
+                              "EntityNameInEditor": "DeadTaeril",
+                              "_entity_id": "8466aecb-19c5-4d3b-a1a8-f20478e4b31c",
+                              "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                            }
+                          },
+                          "Unhide": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$eec0ca9a-6cc5-412e-82f3-4e89d9348b74",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Taeril]",
+                        "_entity_id": "851c2334-bccc-40e0-854f-c42eec40165a",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$cbc24d26-70a2-4911-9512-701ef1890109",
+              "Comment": "Ramien",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$074e2da2-88cb-417c-b35f-ee2c65a12526",
+                    "Not": false,
+                    "m_Etude": "!bp_cd67a8711a186f74494e2574c2075f2d",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$2ccd2041-b017-4e88-85b6-95edf031c7d6",
+                    "Not": true,
+                    "m_Etude": "!bp_2971976be1b2c2e488ce4c462ef3c678",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$429e6290-35ba-4afa-b582-2e180352dc50",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Ramien]",
+                        "_entity_id": "66a5a3bc-6d6e-437b-967f-6eb21551bd44",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e1811c5f-aae3-4509-8680-7ad40c64f121",
+              "Comment": "Nurah",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$954c9956-71d9-4ac2-9b90-d5e730315c14",
+                    "Not": true,
+                    "m_Etude": "!bp_a837c3bc9cbb4e846ab5565915165c91",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$60fef07c-9af4-4818-85cc-ea21f19ead5e",
+                    "Not": true,
+                    "m_Etude": "!bp_c922e0cbe25a0cf4dad4ce7a3ca81935",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$798bdc8e-29d5-4d18-bfc9-60defb179290",
+                    "Not": true,
+                    "m_Etude": "!bp_739b9fe9b8998c641b4b3dfed40bc217",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$03431756-fae4-402a-8585-f0604f4f9b6b",
+                    "Not": true,
+                    "m_Etude": "!bp_20927a9471c00814b808fd69e88879c7",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$ad7b2123-d0c8-427f-84cd-a73fa5280315",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "[Nurah]",
+                        "_entity_id": "6fd861eb-21e0-40b5-9f56-998cf6b99d52",
+                        "SceneAssetGuid": "42332f3087ee8e34b8fd90aa34d64614"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$58bc7333-1c7f-45e2-b30e-15af44795075",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$a991bf98-d1a3-4d47-84a7-d6b9927d445c",
+                "MapObject": {
+                  "EntityNameInEditor": "LibraryFurniture",
+                  "_entity_id": "d40e45b6-3311-4c3e-9dd9-eb0790382827",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$0ac29b82-e921-4bdc-a40c-0e864f7f96fb",
+              "m_SummonPool": "!bp_b7b1b23fbac92ea4bb112697b1614984",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$2979986e-ea84-4a0b-a8df-66e985c85098",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$ee44a1ee-6fee-4891-9221-82ddcf15eaed"
+                    },
+                    "m_Faction": "!bp_5b8795a258cf0244c9ebae471e399d3a",
+                    "IncludeGroup": true,
+                    "ResetAllRelations": false
+                  },
+                  {
+                    "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                    "name": "$AddFact$5e02ce69-a6fb-4030-b520-1bee75fb15a0",
+                    "Unit": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$d527ea50-9d61-40d1-8dd9-11b31e040ea7"
+                    },
+                    "m_Fact": "!bp_0f775c7d5d8b6494197e1ce937754482"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0e0ad8ea-2637-481c-b84d-6a06a4f0d2e1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Doors",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$6cb46dad-8e31-471b-819e-fedc5afdc76c",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$057dc14b-9324-4b99-8e4a-9f7a52b5ab2a",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_09 (library)",
+                  "_entity_id": "98e36d09-f4ae-43df-ac93-2f8cee3770e3",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$3c5667c4-1c76-4e88-978b-5cb7c0371bcd",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$e3adc158-32d4-4b1c-a807-ecbb534c79ba",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_09 (library)",
+                  "_entity_id": "98e36d09-f4ae-43df-ac93-2f8cee3770e3",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$3ea6104d-394f-4c03-8eb9-3c7e524cf6d2",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$48b90f3b-7ee6-4d29-a7ef-72d865d1fb27",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_10 (library)",
+                  "_entity_id": "eb9c0a60-948d-439f-8b56-993b43fb73f1",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$fa2d7575-ab6d-4da6-8963-4e7497bad5db",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$9fa4e19c-7bb9-45ea-a431-b1cf45aa17b8",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_10 (library)",
+                  "_entity_id": "eb9c0a60-948d-439f-8b56-993b43fb73f1",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$63702a6b-00f7-43c9-ad6c-76f7ce806426",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$48620d37-e763-4cf8-86e4-020da0253a2c",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_04 (sanctuary)",
+                  "_entity_id": "4e3fab60-e564-4141-bd8b-4b431fd3b3c1",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$cc012817-000d-4952-aebb-10ce93e5ad6f",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$48df0399-be70-4086-a05a-1d78cf83bf3a",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_04 (sanctuary)",
+                  "_entity_id": "4e3fab60-e564-4141-bd8b-4b431fd3b3c1",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$d4338774-1f68-4a1b-942d-c76332d0a6cd",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$724e765e-ef9e-4cca-a9a2-049b77aa7068",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_08 (cultists)",
+                  "_entity_id": "5bbdcc2d-8d2c-464c-9f27-5df63d90c379",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": true,
+              "OpenIfAlreadyClosed": false
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$8d9ec5ff-f4f5-4549-9e03-733914470407",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$05e3d6f2-be81-49ba-9a66-805b942200f2",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_05 (cristry)",
+                  "_entity_id": "a8c0ae44-1485-463b-9a49-3998e09482c0",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$7dfba46a-cbc7-44c9-b1cc-a49146aac0b2",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$20a4e6b1-d7f6-4ffb-8fea-36861ed92930",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_07 (regnard)",
+                  "_entity_id": "0e97a800-e6e8-4c7d-a606-a3ef5fbdc4ec",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$8bb107d6-99ec-453b-8bfd-79fe9a48bfb0",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$02234794-99d7-4e1a-b4f9-197ede67456f",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_06 (taerill)",
+                  "_entity_id": "bfd60364-52b6-44f2-ae8a-437aea8b3718",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$048ce801-37da-4190-90f7-87c8c58abf50",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$2e4e2abf-eded-405c-a384-98bd98228ee0",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_03 (living_quarters)",
+                  "_entity_id": "2fb34163-8938-4701-be1a-bf62610a8179",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$212f032f-f7b7-40a1-a49d-1ece8c8207a5",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$f10d086e-ce67-4097-88e1-8b083f5253c5",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_03 (living_quarters)",
+                  "_entity_id": "2fb34163-8938-4701-be1a-bf62610a8179",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$33f10046-682b-4a85-a9e2-1f4aea16e937",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$ae1bd302-3249-4321-ba12-71d1b6e7f3d7",
+                "MapObject": {
+                  "EntityNameInEditor": "Pulura_door_02 (storage)",
+                  "_entity_id": "e9709d4b-1e12-46f6-9693-22518f8f4d19",
+                  "SceneAssetGuid": "6100779dd249dbf469a9f6c3c1b05b50"
+                }
+              },
+              "EnableIfAlreadyDisabled": true,
+              "DisableIfAlreadyEnabled": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$cdf6a2e0-e1e8-40b1-80d4-ff3b3f7a937c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Clear citizens",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+              "name": "$QuestStatus$4987192d-84fc-499c-adfd-25b42392f6cd",
+              "Not": false,
+              "m_Quest": "!bp_eb19c2e180018bc4580e7d3a5c887a44",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$05e21abf-31cf-4f9a-ad27-df810eb75b19",
+              "m_SummonPool": "!bp_b7b1b23fbac92ea4bb112697b1614984",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$79ae2244-b69c-4cb9-9ef4-cc73431c2c6b",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$590dcba7-5be8-4075-81b4-a4b57a8a4408"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$4a6e42d9-1743-45cc-86eb-661218acf7ed",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "AzataGreenMagic",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c982e864-78ed-4642-beff-2005e5db6314",
+              "Comment": "Игрок не пофейлил Азату",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$87520702-43b3-4e2a-8ac6-849bb36d160c",
+                    "Not": false,
+                    "m_Etude": "!bp_d3b47e973d65c6c46af1cce815d1f6ce",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$8701db31-498f-4d90-ac8d-d0c654b6bbaf",
+                    "Not": true,
+                    "m_Etude": "!bp_75fe973e88d36ef40ab9d7b8351981d1",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$c04d8a3e-0b4e-498d-a3c0-4118f331ef24",
+                    "Not": true,
+                    "m_Etude": "!bp_5f72b252bd7fa8d48bd04c27982a4f9c",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e0ef1300-b1ee-4c08-99c7-1cd3acdde0ae",
+                    "Not": true,
+                    "m_Etude": "!bp_0b129925567b68d4fb712b4bee6c0f9a",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$808b2e5b-bbab-45db-b9bf-1cf5cd7b3a15",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$3afbe70b-f41e-4379-8cd7-1d876ca58cc6",
+                      "MapObject": {
+                        "EntityNameInEditor": "AzataGreenStage_UseObject",
+                        "_entity_id": "9d1e80be-952c-44f0-8b03-d5fec74620c1",
+                        "SceneAssetGuid": "5e9ee9d224f2a224f91b3733acf89d2f"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_0439718217ff3b549b88530b2bbecaf8",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$1206b5e6-03a3-4257-953c-13dfe1cd56ef",
+          "Not": false,
+          "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_72672fb14139b1443a6700473cce04d7",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_33f48249993002c47b7ce816ba99f037"
+    ],
+    "m_StartsWith": [
+      "!bp_615082e2ce01e6a4ea3164d74695da41",
+      "!bp_f54aea8121864be4289c5a911f0c4bbf"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

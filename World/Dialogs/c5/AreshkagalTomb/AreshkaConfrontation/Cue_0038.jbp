@@ -1,0 +1,156 @@
+{
+  "AssetId": "29da688e71d58ea4c82a4d64860e10a9",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Выдать игроку и сразу надеть на него MaskOfNothing\n\nснять все стаки \"Отрицания Энигмы\"\n\nапдейтим квест Лисы, если он есть",
+    "ParentAsset": "88d8258d7a242f441a05d88ef9d3252c",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "9395ddff-1cbb-4970-b008-ce3794f27b7f",
+      "m_OwnerString": "29da688e71d58ea4c82a4d64860e10a9",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/AreshkagalTomb/AreshkaConfrontation/Cue_0038_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$b0736043-2313-4294-8e7c-d609a737a231",
+          "m_Buff": "!bp_0922b2a5f961fc6438a8636227622d33",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$56c1f91d-e47f-4a4f-b41c-b01b1819c45f"
+          }
+        },
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$e40d97c2-1ac8-497b-8e04-fdc8d5ce1d9c",
+          "m_Buff": "!bp_0922b2a5f961fc6438a8636227622d33",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$1d4430d6-1490-4b4a-ba30-af997ec19881"
+          }
+        },
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$56051372-8a02-46ac-97e6-7ec0ff232e8e",
+          "m_Buff": "!bp_0922b2a5f961fc6438a8636227622d33",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$e4051549-f469-4b44-b69d-d46e99204280"
+          }
+        },
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$92b08ee5-bc2c-4753-9012-2f6ffcce4592",
+          "m_Buff": "!bp_0922b2a5f961fc6438a8636227622d33",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$de389cfd-498a-4e1f-8795-52a34bb0a8a8"
+          }
+        },
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$da90cefb-4eba-46a5-84e7-c8725d5db0ec",
+          "m_Buff": "!bp_0922b2a5f961fc6438a8636227622d33",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$8ba74314-aa2a-416c-8685-06c0d9392ae5"
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$71c31cc4-0dad-4cf4-be55-549b69fb24df",
+          "m_Cutscene": "!bp_4f93600b383a4d87ae7228908c714f25",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$0b88570f-5d52-4b25-86be-acd2e44e443d",
+          "Etude": "!bp_271b1dbc6cc348cbaf4fc6d24832e37e",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1ce5f7b4-f9ac-47a0-a44a-ae2f3a9445bd",
+          "Comment": "апдейт квеста лисы?",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$a9f164fb-62e2-4bea-974f-5ef54d54c8cf",
+                "Not": false,
+                "m_Quest": "!bp_fcf68dc28a7e9df43961d067937e3935",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$fc9f91ec-4036-4df8-968e-17cbc3ac8fa0",
+                "m_Objective": "!bp_af57a842cbd1354429c28074594bf4f0"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_bd6b454d2da91ce4f9c54d67e22f4741"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

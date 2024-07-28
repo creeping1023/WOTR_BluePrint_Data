@@ -1,0 +1,104 @@
+{
+  "AssetId": "15fbf08c47b9cf34d8d535765e9a143a",
+  "Data": {
+    "$type": "df78945bb9f434e40b897758499cb714, BlueprintAnswer",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Ансвер показывается всегда, но:\n\nЕсли игрок - девушка И 4 глава еще не началась, то  стартовать романс",
+    "ParentAsset": "0b5bd6c6d8b3a784387c97b899b8a685",
+    "MythicRequirement": "None",
+    "AlignmentRequirement": "None",
+    "Text": {
+      "m_Key": "f5a991ed-1345-4848-ad24-c8d452f1cc4d",
+      "m_OwnerString": "15fbf08c47b9cf34d8d535765e9a143a",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionDialogues/Lann/Answer_0052_Text.json",
+      "Shared": null
+    },
+    "NextCue": {
+      "Cues": [
+        "!bp_625e9d99ce7c2a2449efdc282623c302"
+      ],
+      "Strategy": "First"
+    },
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "ShowCheck": {
+      "Type": "Unknown",
+      "DC": 0
+    },
+    "Experience": "NoExperience",
+    "DebugMode": false,
+    "CharacterSelection": {
+      "SelectionType": "Clear",
+      "ComparisonStats": []
+    },
+    "ShowConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "SelectConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "RequireValidCue": false,
+    "AddToHistory": true,
+    "OnSelect": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b31eefae-c9c1-4d97-ab72-1fe2cba58d58",
+          "Comment": "игрок - тетка, и 4 глава еще не началась",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ec87819d5ee193c489e1ceda52cfc9c1, PcFemale",
+                "name": "$PcFemale$af06e779-86d9-4790-9275-2758a4d577d7",
+                "Not": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d52d3379-746c-450c-9d41-493a570ad9a9",
+                "Not": true,
+                "m_Etude": "!bp_0b51051031abb4e4a818928b9cd181ee",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$febaafb8-ccf7-4c46-940f-0767ba679adf",
+                "Etude": "!bp_af394a43ba7c1314bb31aea74a5e4c0e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "FakeChecks": [],
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    }
+  }
+}

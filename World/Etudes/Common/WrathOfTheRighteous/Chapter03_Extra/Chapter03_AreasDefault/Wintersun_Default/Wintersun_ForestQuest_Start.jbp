@@ -1,0 +1,195 @@
+{
+  "AssetId": "245ad0732c0f97b449481fdaa0b85cf7",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$0776d930-072f-48ff-b149-beaa0a54f986",
+      "$EvaluatedUnitDeathTrigger$a67ed84f-ddfc-4413-b367-8386f668e5f9",
+      "$EvaluatedUnitHealthTrigger$8712e986-ca1e-4508-8a2b-010c14f880e2",
+      "$EvaluatedUnitDeathTrigger$79848d33-a732-4c7e-954a-a3b26e87cfa1"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0776d930-072f-48ff-b149-beaa0a54f986",
+        "m_Overrides": [],
+        "Comment": "Первый обжектив \"Найти медведя\"",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$cd269ee3-a2fa-4609-ba38-21531bb4ba95",
+              "m_Objective": "!bp_fa27a340fdb4cb94f97c726c1cfa4d05"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$26a5222c-f3a6-4a9f-83e7-28dcfeb3a497",
+              "m_Cutscene": "!bp_ddbb3816e57262b4db52373293d92a88",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$a67ed84f-ddfc-4413-b367-8386f668e5f9",
+        "m_Overrides": [],
+        "Comment": "Если убили бабку",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$c95acb1f-5630-41c5-b8f9-d629f340763e",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [Soana_Wintersun]",
+            "_entity_id": "8f576b8a-4c79-4f42-a575-d0b27b0f5bb1",
+            "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$24282647-8c2d-4395-9452-127ad90905d4",
+              "Etude": "!bp_d4b624463e52e21438da6f4870320fee",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$811e58d7-96cb-4072-a50c-063cef43c3c5",
+              "Etude": "!bp_ff0d7227c56b2b0488b006893b96040e",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$8712e986-ca1e-4508-8a2b-010c14f880e2",
+        "m_Overrides": [],
+        "Comment": "Побили медведа",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$c7ef2271-b4f0-443f-b870-5f30af61567f",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [WintersunBear]_Fight",
+            "_entity_id": "0b9f79f0-01b9-4855-b43e-41e69b26061d",
+            "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+          }
+        },
+        "Once": false,
+        "Percentage": 5,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$614f34c2-ecf3-4f67-9b35-0e7027c7623b",
+              "Comment": "Еще не говорили с медведем",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$10b3d3cb-e16b-4274-a647-86f4a37fb7aa",
+                    "Not": false,
+                    "m_Etude": "!bp_0e12a434a8fd3844a93337e6e8f5c577",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$b5901380-7f82-436c-8c67-80b3f4e4f3e4",
+                    "m_Cutscene": "!bp_e77ca1c75da1e1d499aa573fb5cdbd31",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$79848d33-a732-4c7e-954a-a3b26e87cfa1",
+        "m_Overrides": [],
+        "Comment": "Убили медведя",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$9834d1a5-39a8-4328-83db-9b23314d0504",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [WintersunBear]_Fight",
+            "_entity_id": "0b9f79f0-01b9-4855-b43e-41e69b26061d",
+            "SceneAssetGuid": "5f4ad31583f5c284ab3889c7c5d9cd26"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$2ae175db-c5cc-4b1c-9261-544db68e4209",
+              "Etude": "!bp_0e12a434a8fd3844a93337e6e8f5c577",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$6878ecc7-b604-4d25-a0f2-526e8732de98",
+              "Etude": "!bp_995f0ac2951bbb041b062806c163fbf1",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_87839550c801db944b102f61084fd245",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_0a5654e7dc18f074d9356009d55eb51b",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_0e12a434a8fd3844a93337e6e8f5c577"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

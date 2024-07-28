@@ -1,0 +1,79 @@
+{
+  "AssetId": "9ea132abbbf1456f95f529f9dc4440ee",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$22f361c8-9953-4fd9-91f9-796f47862921",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "Nocticula",
+              "_entity_id": "e64e52a8-4de5-4344-8ebf-cdde6399a68f",
+              "SceneAssetGuid": "01b913c5d0cc0b24082a74c6a6394472"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f3866793-a49f-4e16-87c3-2cde50bf2020",
+                "Comment": "умирала или нет",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$3bf708fd-07d1-4ddb-b3d3-843a8030d42d",
+                      "Not": false,
+                      "m_Etude": "!bp_e581f609dc0f44a481e7e88824ac39da",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$1f388974-420a-409c-8bad-3646e2b0870e",
+                      "m_Buff": "!bp_c057f62e21250dc4fa809edd8dce6e1b",
+                      "Target": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$7bca9703-c044-4881-aa77-b55f28255909"
+                      },
+                      "Duration": null
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$b5c55cc9-05d4-4ce8-83e7-016b434ff043",
+                "Target": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$a582f9bf-df32-4a97-8922-242d62cbdbd9"
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "AssetId": "c0c97d9a2dd34814db4db56fafaee273",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Гримбор атакует игрока",
+    "ParentAsset": "7fba94d10c82c0b428b4dcb381c2da76",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "cd37d117-28c2-44fd-97d7-708ba45b2856",
+      "m_OwnerString": "c0c97d9a2dd34814db4db56fafaee273",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Grimbor/DragonHunt/GrimborSanctum/Cue_0028_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$62a15c03-5da0-4ce7-b922-db5e1cb41c23",
+          "Comment": "Анрекрут, если Грейбор в партии",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$7aefd7de-e250-4a45-b284-ac047b899691",
+                "Not": false,
+                "m_companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$703366d1-46a5-40a4-b2e5-b541e5cfada6",
+                "m_CompanionBlueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                "OnUnrecruit": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$0f278361-2937-41ac-b4eb-68d9aab54a4f",
+                      "Target": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$660e65e0-6f7d-44a6-9c48-b4448316deb0",
+                        "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": false
+                      },
+                      "Unhide": true,
+                      "Fade": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$717b1955-0e6f-4570-a8dc-7ec9e0a47adc",
+                "Etude": "!bp_dd138e723bf3dd94caddc127a23788ad",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$29f6758f-c6fa-42fc-a0fd-2077365ad570",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$9f613e8e-54ef-4689-b86e-55adb2a90e3d",
+            "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+            "IncludeRemote": true,
+            "IncludeExCompanions": true,
+            "IncludeDettached": false
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": false,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "b11087d255ac9374199c175829073bd4, SwitchToEnemy",
+          "name": "$SwitchToEnemy$92011b65-cd24-4ad0-8787-a25b32a11858",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$8419105d-631a-4fc8-a93b-8446ae353a8e",
+            "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+            "IncludeRemote": true,
+            "IncludeExCompanions": true,
+            "IncludeDettached": false
+          },
+          "m_FactionToAttack": "!bp_72f240260881111468db610b6c37c099"
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$d22013a9-b996-48b2-88a3-ee830a4c5cd2",
+          "Unit1": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$1837af5b-6185-4d65-95e5-41351384b5c8",
+            "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+            "IncludeRemote": true,
+            "IncludeExCompanions": true,
+            "IncludeDettached": false
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$7ce04a30-34c9-4a9d-a8e8-806f8c7a18f0"
+          }
+        },
+        {
+          "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+          "name": "$AddItemsToCollection$24a2cb7f-92f6-4c29-aa00-9fa406414098",
+          "ItemsCollection": {
+            "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+            "name": "$UnitInventory$5ed1bf57-cee6-49f3-b53d-7144b2707d91",
+            "Unit": {
+              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+              "name": "$CompanionInParty$6be7ed8e-4243-46e2-9fd0-985d709caa76",
+              "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+              "IncludeRemote": false,
+              "IncludeExCompanions": true,
+              "IncludeDettached": false
+            }
+          },
+          "UseBlueprintUnitLoot": false,
+          "Loot": [
+            {
+              "m_Item": "!bp_8e06a71897126184d9a88e1afc8914e6",
+              "Count": 1
+            },
+            {
+              "m_Item": "!bp_d92348a92ffbc3c42967851203f6e4e3",
+              "Count": 1
+            }
+          ],
+          "m_BlueprintLoot": null,
+          "Silent": true,
+          "Identify": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$8e80b4fb-746a-465b-b5c6-a51bc978064c",
+          "Etude": "!bp_eb652bfc81c21ff4ab2c8446a309bdef",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,364 @@
+{
+  "AssetId": "6716edd224e0d4049a55030f4d01c8ed",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$3c2692b7-6028-432a-b1fc-9bd0e3c6db4d"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$3c2692b7-6028-432a-b1fc-9bd0e3c6db4d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "многоразовые:\n- Terendelev In Ziggurat\n- убрать советника после личевания",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$19ee7472-44ba-43c0-bec3-ff1c99289627",
+              "Comment": "TerendelevInZiggurat",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$daa5d870-8240-459f-aa69-a153e96e42fe",
+                    "Not": false,
+                    "m_Etude": "!bp_85a90025d84c2b34ab7abfcfebf7a363",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$532d5ece-233f-4dc1-bfa7-810fa8e5df97",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "TerendelevUndead",
+                        "_entity_id": "add1316e-26fe-43c3-b5f7-dca655aca4a5",
+                        "SceneAssetGuid": "d243913765727bf41abc9e6e6e477183"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2e625632-5f66-4311-b700-b15700a683e9",
+              "Comment": "убрать советника ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$e348851c-5446-41c3-b1d3-e32b342aa241",
+                    "Not": false,
+                    "m_Dialog": "!bp_7c8cfe1a40d5c3c4f991e4977acd5bc3"
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$ff20ab17-5c5e-4115-9029-41ca5efd8ff9",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_fc3bdc578e8a36f4a8f579436987ed9c",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$7dd1ec18-8769-4bc6-b4f5-3b965edb459a",
+                    "m_flag": "!bp_fc3bdc578e8a36f4a8f579436987ed9c",
+                    "flagValue": 1
+                  },
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$317ad798-8252-4299-9f43-c782e8eb4bb2",
+                    "m_SummonPool": "!bp_3ab757793e915ea4497a2373661c609f",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$dc8e4d7b-cdec-4a2c-a973-3a95728383b3",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$95eea7d0-a4ad-495b-9049-3a451e5f8d38"
+                          },
+                          "Unhide": false,
+                          "Fade": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3cc58a5e-7a44-45e6-a496-e58e808f2d3e",
+              "Comment": "советник - Элянка",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b2f8739b-1352-4a2c-b701-a44c2fdcf267",
+                    "Not": false,
+                    "m_Etude": "!bp_8059bb777e0d77b46af5374c5f574ca9",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$7d28b378-150b-4c14-90cd-b0123d41ba37",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$aa98f4cf-6ce6-4517-b0e1-054520ac4b77",
+                      "Spawner": {
+                        "EntityNameInEditor": "Elyanka",
+                        "_entity_id": "759c05c4-6b46-4459-8882-3bbe4848848a",
+                        "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                      }
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$5e7ce1a8-65a9-43c6-bfae-41a06436a3bd",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$429b18f7-199f-43e4-ab4d-d2e2b2ad0e43",
+                      "Spawner": {
+                        "EntityNameInEditor": "Elyanka",
+                        "_entity_id": "759c05c4-6b46-4459-8882-3bbe4848848a",
+                        "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                      }
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "AllyLoc",
+                      "_entity_id": "024e570d-649a-4295-938a-f429e45ea4e9",
+                      "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": null
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$336e0bba-4648-41d2-a37f-fc0ac2762db1",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$9baddb87-f1b4-46b2-8b77-dc4f5174617c",
+                      "Spawner": {
+                        "EntityNameInEditor": "Elyanka",
+                        "_entity_id": "759c05c4-6b46-4459-8882-3bbe4848848a",
+                        "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e4e5e5dc-9069-4874-83f9-8fbd5ebb9c07",
+              "Comment": "советник - Септимус",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$fedcdf69-3d22-4da6-9052-353815d71dcb",
+                    "Not": false,
+                    "m_Etude": "!bp_e82134af9b46b56498c51c44028a8593",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$d0608a3d-555f-4388-ae61-c535af75bed0",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$920c8c2d-8659-4d8c-9c21-1ce820471433",
+                      "Spawner": {
+                        "EntityNameInEditor": "Septimus",
+                        "_entity_id": "08f91919-5988-4fc0-bae4-98270a55b3cb",
+                        "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                      }
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$67df9f39-3734-43da-88d4-dadf61c0791d",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$4e7e794a-d079-45fa-a157-5424e2e6ba74",
+                      "Spawner": {
+                        "EntityNameInEditor": "Septimus",
+                        "_entity_id": "08f91919-5988-4fc0-bae4-98270a55b3cb",
+                        "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                      }
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "AllyLoc",
+                      "_entity_id": "024e570d-649a-4295-938a-f429e45ea4e9",
+                      "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": null
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$15ce258e-49d5-4395-82a1-df39dfd3412b",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$4eccd900-8bfc-4a3c-be90-a01f8fc81ee5",
+                      "Spawner": {
+                        "EntityNameInEditor": "Septimus",
+                        "_entity_id": "08f91919-5988-4fc0-bae4-98270a55b3cb",
+                        "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$ce86869f-7f67-40a3-b7f0-7dfca823784b",
+              "Comment": "Атака Фаразмы",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$59d8290e-c835-464f-8677-8d06dd516816",
+                    "Not": false,
+                    "m_Etude": "!bp_1a148459a88027748871914bab15a541",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$d55c28aa-9cdf-4b54-b17d-185471884ee3",
+                    "Etude": "!bp_eb5170b8dab426f46acd4b68bb8d914f",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$cb31f4f9-686e-4162-801c-ca81cd875031",
+                    "Etude": "!bp_e231cde27cb7f444e9db9f53dad0731e",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$6d268539-8d17-4d7c-bec0-bd7a0c500770",
+                    "Etude": "!bp_1e47d742a1644c3587f96ee1681a51c2",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_076e009eee6637c48b544072063fb6bd",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_e8f1160e960935344a8aa7466484506d",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

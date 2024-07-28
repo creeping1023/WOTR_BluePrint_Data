@@ -1,0 +1,131 @@
+{
+  "AssetId": "b04fc3749f7e97a4bb5e5c42b7a3440b",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "После диалога:\nЕсли шаманка еще жива - выдать второй обжектив квеста\nЕсли шаманка уже мертва - выдать и закрыть хидденКомплит квеста (и это закрое квест)\n\nЕсли шаманка уже мертва - поставить флаг \"Соана: Лес умер\"",
+    "FirstCue": {
+      "Cues": [
+        "!bp_4ff985d136873214d9d1a630698f618e"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$6afff6fc-aa07-493e-afb7-747e53fb59b5",
+          "Status": "Complete",
+          "m_Objective": "!bp_fa27a340fdb4cb94f97c726c1cfa4d05",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3aef23a8-ab3c-4263-a7cc-a8227ddfac6a",
+          "Comment": "Если Соана Жива",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$7423a5a0-ef7c-433e-be4f-13f434518043",
+                "Not": true,
+                "m_Etude": "!bp_d4b624463e52e21438da6f4870320fee",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$ab79d070-f8a2-463d-b947-0238c5a08f5f",
+                "m_Objective": "!bp_dd1b3a09ebc3f7d40adf973fec9917ce"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3419167f-0e2e-49e1-afef-a7a3406eaada",
+          "Comment": "Если Соана убита",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4a42b118-3772-488d-9059-6d3653e4eb8e",
+                "Not": false,
+                "m_Etude": "!bp_d4b624463e52e21438da6f4870320fee",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$4e217e67-a714-41c5-b21d-e93163f5ea4f",
+                "m_Objective": "!bp_ea45e512de452eb489efc8a03a7f7980"
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$777b3468-0dc5-4e16-baaf-53cfeb2b94f8",
+                "Status": "Complete",
+                "m_Objective": "!bp_ea45e512de452eb489efc8a03a7f7980",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$6c384b10-27ec-431f-b590-82aad5eee39e",
+                "Etude": "!bp_ff0d7227c56b2b0488b006893b96040e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+          "name": "$LockFlag$2e791a74-17b6-4967-aff1-6b715c306d7f",
+          "m_Flag": "!bp_b923477c9a9dd3f4ba2b2d98eb6ae3af"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

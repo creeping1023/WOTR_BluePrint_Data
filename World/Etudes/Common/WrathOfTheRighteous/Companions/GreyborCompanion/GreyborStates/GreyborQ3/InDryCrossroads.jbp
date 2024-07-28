@@ -1,0 +1,573 @@
+{
+  "AssetId": "40b5380f6a7421d4dabbcd0026c608b9",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$daf5d346-8b6d-4be6-a597-1ff32faa28d9"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$daf5d346-8b6d-4be6-a597-1ff32faa28d9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$0d25aae7-dba3-43c5-b6d7-51dadee4bc83",
+              "Comment": "Грейбор в гильдии и предатель",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$24a136a0-7f4c-4229-b840-b9cd195630ae",
+                    "Not": false,
+                    "m_companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$531964c0-f0f3-45c7-a742-65932e2f2709",
+                    "Not": false,
+                    "m_Etude": "!bp_d0ad50849dd14d5418f648f08473768c",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$00ce71c7-5ddc-4cbc-b530-3d6fbe1c9670",
+                    "Not": false,
+                    "m_Etude": "!bp_39268c915bae4c64996f70fb21e30c0e",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$0a35def6-359c-4f01-bb5a-950b62ad8c8e",
+                    "m_Objective": "!bp_a078a0313d0a69f43ba160e6fcfd323c"
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$943ebeee-767a-4a8c-9235-abaa29bb985c",
+                    "m_Cutscene": "!bp_39d0126988154378932d14d220b130d4",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$eb1c6308-3fb2-421a-905b-02700618d926",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                          "name": "$GreaterThan$5d498b3c-4f8b-408d-8341-878974a53118",
+                          "Not": false,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "594eb1641121be9419363a2f68ab0d7d, CurrentPartySize",
+                            "name": "$CurrentPartySize$d1091dba-a6bb-486b-a309-d2e4ff99b90e"
+                          },
+                          "MinValue": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$9afa4010-b8d4-45e4-8dcf-816af8fbb80c",
+                            "Value": 2
+                          },
+                          "FloatValue": null,
+                          "FloatMinValue": null
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                          "name": "$PartyMembersDetachEvaluated$9fbf2d4f-fe17-44e3-8adc-0407f70f197a",
+                          "DetachThese": [
+                            {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$2e19d6be-3412-4c4b-88a9-f988495a4f2e"
+                            },
+                            {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$11bfdc12-487d-4dbd-a444-f673838bca5b",
+                              "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                              "IncludeRemote": false,
+                              "IncludeExCompanions": false,
+                              "IncludeDettached": false
+                            }
+                          ],
+                          "AfterDetach": {
+                            "Actions": [
+                              {
+                                "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                                "name": "$PartyMembersSwapAttachedAndDetached$0b95c788-9ba9-4830-b616-b4f940087e1a"
+                              },
+                              {
+                                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                                "name": "$PartyUnits$47c5b2d3-6f05-46bd-8587-0d2b995ab1f3",
+                                "m_UnitsList": "AllDetachedUnits",
+                                "Actions": {
+                                  "Actions": [
+                                    {
+                                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                      "name": "$HideUnit$2179218a-5b16-4a0a-95c5-253cd4412277",
+                                      "Target": {
+                                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                        "name": "$PartyUnit$ad1781dc-71f4-40db-a82c-8030e27b4e4f"
+                                      },
+                                      "Unhide": false,
+                                      "Fade": false
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "m_RestrictPartySize": false,
+                          "m_PartySize": -1
+                        },
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$362eb8ad-ea28-4a7e-b7cf-ebc84437e474",
+                          "Etude": "!bp_f74dca5a45b44d018ce568be38f3b883",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$ba97adbc-b925-4a99-bc40-16bed4097eda",
+                    "Comment": "Грейбор в гильдии и лоялен",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$5e1f0228-be26-4232-8dc7-f63d7f0e29d9",
+                          "Not": false,
+                          "m_Etude": "!bp_39268c915bae4c64996f70fb21e30c0e",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$9b8db23b-d5ba-4894-8468-2872fad21be2",
+                          "m_Cutscene": "!bp_39d0126988154378932d14d220b130d4",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        },
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$5f1196fe-cfe4-417a-9ea0-fd1a4babb6de",
+                          "Comment": "",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                                "name": "$GreaterThan$86a1a42f-c35a-4c9e-9a9e-fd1ecf95f153",
+                                "Not": false,
+                                "FloatValues": false,
+                                "Value": {
+                                  "$type": "594eb1641121be9419363a2f68ab0d7d, CurrentPartySize",
+                                  "name": "$CurrentPartySize$b6007ea0-944a-44ab-afa7-94e70c66239e"
+                                },
+                                "MinValue": {
+                                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                                  "name": "$IntConstant$d02d6a41-0133-4762-92f6-cd9934d7f92b",
+                                  "Value": 2
+                                },
+                                "FloatValue": null,
+                                "FloatMinValue": null
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                                "name": "$PartyMembersDetachEvaluated$12877b0a-9e92-4b48-823c-649fe201b5fb",
+                                "DetachThese": [
+                                  {
+                                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                    "name": "$PlayerCharacter$a961ae8c-a17c-4269-b429-c15de0e5dffc"
+                                  },
+                                  {
+                                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                    "name": "$CompanionInParty$643159a7-1c74-47a9-beb2-2ad7fd8cf837",
+                                    "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                                    "IncludeRemote": false,
+                                    "IncludeExCompanions": false,
+                                    "IncludeDettached": false
+                                  }
+                                ],
+                                "AfterDetach": {
+                                  "Actions": [
+                                    {
+                                      "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                                      "name": "$PartyMembersSwapAttachedAndDetached$0b7fc04f-8e26-4d4d-9b89-59b7e7cddcc0"
+                                    },
+                                    {
+                                      "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                                      "name": "$PartyUnits$33304645-ab5c-4b51-a880-a89d5e55bfa6",
+                                      "m_UnitsList": "AllDetachedUnits",
+                                      "Actions": {
+                                        "Actions": [
+                                          {
+                                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                            "name": "$HideUnit$e2393a62-5c37-47ff-b692-6475270a4952",
+                                            "Target": {
+                                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                              "name": "$PartyUnit$3f9b1a11-68ad-482b-bd47-20fb9b299e4b"
+                                            },
+                                            "Unhide": false,
+                                            "Fade": false
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                },
+                                "m_RestrictPartySize": false,
+                                "m_PartySize": -1
+                              },
+                              {
+                                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                "name": "$StartEtude$744425e6-443f-4b66-8fbd-9b41e31c4b3d",
+                                "Etude": "!bp_f74dca5a45b44d018ce568be38f3b883",
+                                "EtudeEvaluator": null,
+                                "Evaluate": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7faa12a5-bc7d-4f26-a259-b91e2f84ef22",
+              "Comment": "Грейбор не в гильдии",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$4ac1bef9-8c44-41b1-90c6-aa8d893d138b",
+                    "Not": false,
+                    "m_companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$81b531f3-fe40-41ae-9aae-3eb9a0fa2efe",
+                    "Not": false,
+                    "m_Etude": "!bp_39c54e21dc7da2c4aafe28f94e76c238",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$88c53a03-d272-42c0-83d5-2cb5c6867ee0",
+                    "m_Cutscene": "!bp_39d0126988154378932d14d220b130d4",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$fd51fcb5-98bb-40f8-a787-b97b6ecea369",
+                    "m_Objective": "!bp_7b72bfdae4c1f044da5827b4a9357886"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$66ab0b7c-b918-4a67-8358-8dbadc47eb94",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                          "name": "$GreaterThan$3b78e9f2-aede-4e9b-bc6b-152a71839370",
+                          "Not": false,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "594eb1641121be9419363a2f68ab0d7d, CurrentPartySize",
+                            "name": "$CurrentPartySize$88d8c045-6cad-421e-83ce-b02237eeef44"
+                          },
+                          "MinValue": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$cec6e60c-c271-4d2c-a9d7-572b88b76760",
+                            "Value": 2
+                          },
+                          "FloatValue": null,
+                          "FloatMinValue": null
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                          "name": "$PartyMembersDetachEvaluated$3de9329f-319a-4b33-932b-c7799cf18f3b",
+                          "DetachThese": [
+                            {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$79e900c5-f584-4e2a-ae1e-3a08e5e85dc0"
+                            },
+                            {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$bbb50397-57b3-4f36-b6e8-e6a7582c2e69",
+                              "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                              "IncludeRemote": false,
+                              "IncludeExCompanions": false,
+                              "IncludeDettached": false
+                            }
+                          ],
+                          "AfterDetach": {
+                            "Actions": [
+                              {
+                                "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                                "name": "$PartyMembersSwapAttachedAndDetached$e01b70d0-3a3e-4507-ab56-d0fbf9d1b78a"
+                              },
+                              {
+                                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                                "name": "$PartyUnits$e2628774-c6f1-408f-8272-e15f0d7c6949",
+                                "m_UnitsList": "AllDetachedUnits",
+                                "Actions": {
+                                  "Actions": [
+                                    {
+                                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                      "name": "$HideUnit$5522a92f-28b9-4bc4-b32d-3d03f8b54315",
+                                      "Target": {
+                                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                        "name": "$PartyUnit$59a4b1de-978a-43d6-b4c2-025c543a5ac6"
+                                      },
+                                      "Unhide": false,
+                                      "Fade": false
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "m_RestrictPartySize": false,
+                          "m_PartySize": -1
+                        },
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$5ff9127c-ddec-40a3-b2b3-61b3998f1771",
+                          "Etude": "!bp_f74dca5a45b44d018ce568be38f3b883",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "7d9dc37dd50d49e1bfe8001119168464, EtudeIgnorePartyEncumbrance",
+        "m_Flags": 0,
+        "name": "$EtudeIgnorePartyEncumbrance$629d6c57-6e07-4ab6-b7de-e19b6a91ffd2",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "f905ab8b4c014637b79eae5da34c6fd5, EtudeIgnorePersonalEncumbrance",
+        "m_Flags": 0,
+        "name": "$EtudeIgnorePersonalEncumbrance$8e3053a7-bd75-40d2-86cf-e72e59a9296a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$9d3aaab4-4687-4b99-810f-ffbe27f41bf3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Анхайд выходов для конверта по таске PF-219774",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$28de38fc-5d51-44f0-b73a-99388406a19d",
+              "Not": false,
+              "m_QuestObjective": "!bp_b83e7301c9b2bb54181b408a5ab2bf6d",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$1c8f870d-68d4-4002-ba70-0e6a3b202620",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$3a71f095-236e-43f9-a883-f11ea3f3b0f9",
+                "MapObject": {
+                  "EntityNameInEditor": "AreaExit",
+                  "_entity_id": "ed921f62-43d9-4e68-b35f-2a4a53c80ac4",
+                  "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$d33b7ef0-6a8e-46da-a270-af3bd7d31fc5",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$253212b5-04a4-4994-9891-1869573ffd77",
+                "MapObject": {
+                  "EntityNameInEditor": "AreaExit (1)",
+                  "_entity_id": "22fa9311-eeb7-45fe-8cc5-6215f934e5ea",
+                  "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$46223d0e-c33f-41f1-ad1f-4ee41fc46498",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$4677c464-371d-48cd-8274-21276e318fe0",
+                "MapObject": {
+                  "EntityNameInEditor": "AreaExit (2)",
+                  "_entity_id": "f85d8b76-931d-4863-baed-f9cf69313b75",
+                  "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_64d73b3a70d545d480046eb74dab43fb",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_26d33f4a884c1764fa0d10fa864ed4b5",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_3ebecf77443e2a041a29ee56f6f3ce41",
+      "!bp_d4a046d38f8abf44786a4311a58e8382"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "AssetId": "0785a4ada4c1cf94b9e6a82adc76a1ca",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Финнеан апегрйдится со спецэффектами\n\nРевил локации Мастерская Оружейника\n\nНужен еще экшн: если уже был диалог с Аневией в 5 главе KTC_AneviaStart_Dialogue, то надо тут же закрыть обж1 и выдать обж2 (я пока соберу это на куесине)",
+    "ParentAsset": "b98fe65a9109dcb47b4a1c09dc8097d3",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "2e88c177-52b6-408a-99b7-fb8e15d45aea",
+      "m_OwnerString": "0785a4ada4c1cf94b9e6a82adc76a1ca",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionDialogues/Finnean/Cue_0050_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": "!bp_ea8034769ab7d584e97b5227cbc03296"
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$7ee9e519-e1e6-4e5d-90bf-86dca24b51ec",
+          "Status": "Complete",
+          "m_Objective": "!bp_1f2c60fdb357cfc4883b0a51f4bd15e9",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$4fb986b7-2fb8-496b-9509-82c9ab9916b9",
+          "m_Objective": "!bp_44d6f38ed8b15d146bedc15f191ba0f8"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3b7d0bfb-e056-4aab-b1a4-f1abd88e632b",
+          "Comment": "Апдейт квеста во 2 обж, если у нас уже 5 глава вовсю пошла - был диалог с Аневией)",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$693cd4d6-8437-4f18-82f2-c81ca68a8fe9",
+                "Not": false,
+                "m_Etude": "!bp_1bbeffed922bfff408ca18782357795d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$d0fb556c-4cb8-479c-80c2-3f621413c4b1",
+                "Status": "Complete",
+                "m_Objective": "!bp_44d6f38ed8b15d146bedc15f191ba0f8",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$a7de0f92-b2b5-4e63-9528-4b13d5f78541",
+                "m_Objective": "!bp_1b1c1a24a934ef740a49bc9ce9656c3d"
+              },
+              {
+                "$type": "283706d83f2b5a8418f90b318819b1ae, UnlockLocation",
+                "name": "$UnlockLocation$0d0b806d-3739-4915-b786-349a0f0578c9",
+                "m_Location": "!bp_e8ce1f4bd7aa891498727c20c067f8a0",
+                "FakeDescription": false,
+                "HideInstead": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$745d1031-eebd-4636-939f-39e89e338cfb",
+          "Etude": "!bp_4b4ac9276eff5ce48a52d65e09806ca9",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_615ef80243cfc184ba42286395880b0e"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

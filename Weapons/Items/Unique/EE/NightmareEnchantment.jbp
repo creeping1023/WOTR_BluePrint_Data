@@ -1,0 +1,190 @@
+{
+  "AssetId": "e3727a6bef144d342b1d40c480be3924",
+  "Data": {
+    "$type": "ca24785c24384d142a6c22d7585bb3a6, BlueprintWeaponEnchantment",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$AddInitiatorAttackRollTrigger$2d9bba84-217e-44c6-8c61-2f68cd08360a",
+      "$ContextSetAbilityParams$a6abb82f-2c5b-4563-a49b-db8d6b588dde"
+    ],
+    "Components": [
+      {
+        "$type": "228c903689cdcf94f8d0665fb9a69757, AddInitiatorAttackRollTrigger",
+        "name": "$AddInitiatorAttackRollTrigger$2d9bba84-217e-44c6-8c61-2f68cd08360a",
+        "m_Overrides": [],
+        "OnlyHit": true,
+        "CriticalHit": false,
+        "SneakAttack": false,
+        "OnOwner": false,
+        "CheckWeapon": false,
+        "WeaponCategory": "UnarmedStrike",
+        "AffectFriendlyTouchSpells": false,
+        "Action": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$60d2b92e-b2e9-499a-bb27-355bd211bc98",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "b0c4370c781db0142b035f14ca13a6a5, ContextConditionIsEnemy",
+                    "name": "$ContextConditionIsEnemy$430af5cd-8a79-42cf-942a-530e0a0c56f3",
+                    "Not": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5e2f2046f3bd6984c8833bf019c8e8ad, ContextActionSavingThrow",
+                    "name": "$ContextActionSavingThrow$63ba2765-4bc0-4464-baa1-57c4f929cc28",
+                    "Type": "Will",
+                    "FromBuff": false,
+                    "m_ConditionalDCIncrease": [],
+                    "HasCustomDC": false,
+                    "CustomDC": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "d61949c589ee885458c9439b2aa202b6, ContextActionConditionalSaved",
+                          "name": "$ContextActionConditionalSaved$c9b0294d-6a62-47b4-93e2-39dcf3496ec0",
+                          "Succeed": {
+                            "Actions": []
+                          },
+                          "Failed": {
+                            "Actions": [
+                              {
+                                "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                                "name": "$ContextActionApplyBuff$c33f5b46-d28f-442c-95c2-78f09cae3fce",
+                                "m_Buff": "!bp_f08a7239aa961f34c8301518e71d4cdf",
+                                "Permanent": false,
+                                "UseDurationSeconds": false,
+                                "DurationValue": {
+                                  "Rate": "Rounds",
+                                  "DiceType": "D3",
+                                  "DiceCountValue": {
+                                    "ValueType": "Simple",
+                                    "Value": 1,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "Damage",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  },
+                                  "BonusValue": {
+                                    "ValueType": "Simple",
+                                    "Value": 0,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "Damage",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  },
+                                  "m_IsExtendable": true
+                                },
+                                "DurationSeconds": 0.0,
+                                "IsFromSpell": false,
+                                "IsNotDispelable": false,
+                                "ToCaster": false,
+                                "AsChild": true,
+                                "SameDuration": false
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "c5e4f1f8df4efb84dac8de636b9e8c7b, ContextSetAbilityParams",
+        "name": "$ContextSetAbilityParams$a6abb82f-2c5b-4563-a49b-db8d6b588dde",
+        "m_Overrides": [],
+        "Add10ToDC": false,
+        "DC": {
+          "ValueType": "Simple",
+          "Value": 16,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null
+        },
+        "CasterLevel": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null
+        },
+        "Concentration": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null
+        },
+        "SpellLevel": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null
+        }
+      }
+    ],
+    "Comment": "Each time this +4 trident lands a hit, the enemy has to pass Will Saving Throw or be frightened for 1d3 rounds. (DC 16)",
+    "m_AllowNonContextActions": false,
+    "m_EnchantName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "d61823e192edf81429d71632c0c3ec22",
+        "stringkey": "7bba2b2d-fcae-45c0-a258-f8175a20b79d"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Prefix": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Suffix": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_EnchantmentCost": 1,
+    "m_IdentifyDC": 5,
+    "WeaponFxPrefab": null
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "AssetId": "8f018a95bbddcfb4b9e87b1a03ae084a",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$ada768b2-04d0-4610-9f44-b9543d132c8f",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$fab5eca3-b30e-4145-be19-4554607b4668",
+            "Spawner": {
+              "EntityNameInEditor": "[Kestoglyr]",
+              "_entity_id": "253210fc-6f6e-4edf-9153-6728d3743e72",
+              "SceneAssetGuid": "401816e14e23d214087b91a76ccf3533"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$048ea144-0b4f-45c3-a07c-5c5d5372164d"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$60a05c3e-2fa4-40ca-b7a1-76140ef7245f",
+          "Comment": "Demons starg fight",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$7772a2ea-1cd9-4949-92db-cb2a0770f604",
+                "Not": true,
+                "m_Cue": "!bp_cd3d7efc81c15194f8145aabd7b53d8a",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$6adaae58-4c0e-4465-8425-6d1f6d5f7425",
+                "m_SummonPool": "!bp_0f4032458cac0e246aedc82a309d535a",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$f1d96040-6966-41b4-8c31-b72b09d241bd",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$50266cec-28df-4254-9c29-4eca6917cd97"
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$1ccacd05-caae-424e-9cd7-7d8db8358aa7",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$233205af-6a19-46f4-bf72-9a5f8d6bda13"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$34762f26-2b14-4571-b7f4-437315ce8ea4"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

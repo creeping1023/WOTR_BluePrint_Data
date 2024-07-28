@@ -1,0 +1,188 @@
+{
+  "AssetId": "dbdd41502a1a6de43a6b17cfd7bf9461",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "минус 100 000 если выбрали ансвер 19 (25000 новая цена)\nминус 200 000 если выбрали ансвер 20 (50000 новая цена)\nГримбор присоединяется к игроку в ростер",
+    "ParentAsset": "8fd083f29e0faac42929ecea5c232724",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "05d04577731490c43b231e46c4aa3a2d",
+        "stringkey": "46fb3dfb-c590-4c6b-a832-2f46be881b8b"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3fe61cb6-a25a-4f41-a91d-0ea3fd43c1f8",
+          "Comment": "Разные суммы",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$9c959e7b-ea9b-4660-94c2-1731758cd557",
+                "Not": false,
+                "m_Answer": "!bp_8fd083f29e0faac42929ecea5c232724",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+                "name": "$RemoveItemFromPlayer$fcfc8346-e55c-4e39-8a5b-c28b0468a78e",
+                "Money": true,
+                "RemoveAll": false,
+                "m_ItemToRemove": null,
+                "m_Silent": false,
+                "Quantity": 25000,
+                "Percentage": 0.0
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$1847012b-bcd6-463d-a096-5e623f8e6525",
+                "Etude": "!bp_f00bd00ec67e36f46b098f2ef94dd29c",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+                "name": "$RemoveItemFromPlayer$f2a890de-a4d6-4735-96fd-a1ef3a6d9c1a",
+                "Money": true,
+                "RemoveAll": false,
+                "m_ItemToRemove": null,
+                "m_Silent": false,
+                "Quantity": 50000,
+                "Percentage": 0.0
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$f4e3cb37-0455-43d3-83bf-f1b1dc1dc873",
+                "Etude": "!bp_d82234d1db2cd3d43b548518da0d4de2",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$27574763-f1cf-46f2-8492-f42ac16bd3a9",
+          "Comment": "Грейбор Екс",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$3071080d-3cff-4ab5-9708-50291f1f87a7",
+                "Not": false,
+                "m_companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                "MatchWhenActive": false,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$5cb24a3b-72d4-4da6-849b-e456ad18aab5",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                    "NPCUnit": null,
+                    "MustBeInParty": false
+                  }
+                ],
+                "AddToParty": true,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": []
+                },
+                "OnRecruitImmediate": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$e7f90b8e-569d-474e-9b05-b6ca3683272a",
+          "Etude": "!bp_65f308dff0c932c419b7535df264a854",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$c49c8e67-7dcd-45b8-adee-631a8fa7630c",
+          "m_Flag": "!bp_34f0f22738c283240af69dabf825dd21",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$29134547-a6c3-4cf0-b50f-b6baa8cc1479",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_82c0da8d0863e3142a2febe1c639a833"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

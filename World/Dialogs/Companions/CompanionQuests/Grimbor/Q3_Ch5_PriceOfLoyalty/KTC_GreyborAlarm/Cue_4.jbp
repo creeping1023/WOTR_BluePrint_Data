@@ -1,0 +1,114 @@
+{
+  "AssetId": "0adcc7436420407b9c2a8f16a265db91",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Ставим флаг GreyborLoyalPerContract\nМеняем флаг GreyborTraitor на GreyborLoyal, если он стоит",
+    "ParentAsset": "f3148c5433d842f5bcb31302d59c819e",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "09898a19-e356-4fbf-bc32-64fff1a78de9",
+      "m_OwnerString": "0adcc7436420407b9c2a8f16a265db91",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\Companions\\CompanionQuests\\Grimbor\\Q3_Ch5_PriceOfLoyalty\\KTC_GreyborAlarm\\Cue_4_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$d3c77cd8-ccaf-49c6-89a6-aadf0d6f1b0a",
+          "Etude": "!bp_b70916a19edb4448b84d40836f6ce32f",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$10bdfa32-2632-433d-a066-f09c2d25c433",
+          "Comment": "закрывает трейтора если он активен",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ebf102e2-eae6-43aa-9385-6e34efe459c6",
+                "Not": false,
+                "m_Etude": "!bp_d0ad50849dd14d5418f648f08473768c",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$96687779-fff8-4940-a47a-83b47f46cc00",
+                "Etude": "!bp_d0ad50849dd14d5418f648f08473768c",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$ea862b24-8fc0-4345-a7a1-bcb62002bc7e",
+                "Etude": "!bp_130007ace09c9034989035d77b4b1564",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_4134e4898dc778447bb1afff0264b70a",
+      "!bp_5e4e9e140cfd5ab47abed5242ee09702"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

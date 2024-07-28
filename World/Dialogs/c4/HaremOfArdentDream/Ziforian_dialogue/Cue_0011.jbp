@@ -1,0 +1,142 @@
+{
+  "AssetId": "cad19390791df2f448789748154bab49",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "старт файт\n\nЕсли игрок не видел куй 42, тут должен закрыться аддендум 5 и открыться аддендум 6 квеста FriendshipWithShamira",
+    "ParentAsset": "7c30d639e96685f4ca5176b1ed68ea6b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "9a9a8729-2873-4d6f-bfea-144edbaab13d",
+      "m_OwnerString": "cad19390791df2f448789748154bab49",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/HaremOfArdentDream/Ziforian_dialogue/Cue_0011_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$284afd78-e04b-4a64-b34a-07733c83e8a0",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$f23650e4-a115-40ea-8336-5ce7ff995f8d",
+            "Spawner": {
+              "EntityNameInEditor": "ZiforianBeggar",
+              "_entity_id": "5db39d6b-c93b-49bb-9ef8-aca69683fae4",
+              "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$83890ab3-9119-4434-a87b-b16eaebddbb7"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bb198a31-557f-4c7f-9b61-e711e4ec804a",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$4929092d-e6c5-4f9f-a6f8-039c4d21c74b",
+                "Not": true,
+                "m_Cue": "!bp_c3788b699280de94d9b4e98384d767e4",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$40fd717c-6583-4588-982f-f18a3f3abb95",
+                "Status": "Complete",
+                "m_Objective": "!bp_6a03f9335f56c11438989318aafc4bb6",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$87b64f80-6242-4e7d-aa71-f41f5c0005ab",
+                "m_Objective": "!bp_2d967014a7dc6724f90ec989e94e1a1f"
+              },
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$80457efe-5745-474e-9701-08a7a1b3a768",
+                "ItemsCollection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$633934cc-dc66-4670-b663-7650645606cc",
+                  "Unit": {
+                    "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+                    "name": "$DialogFirstSpeaker$6517a8bd-14e1-4f0a-979b-b6570fae9046"
+                  }
+                },
+                "UseBlueprintUnitLoot": false,
+                "Loot": [
+                  {
+                    "m_Item": "!bp_fa40105cc9180d640aa8c26835af3436",
+                    "Count": 1
+                  }
+                ],
+                "m_BlueprintLoot": null,
+                "Silent": false,
+                "Identify": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$fdc3011d-1aaf-417f-abcc-0b76fde79861",
+          "Etude": "!bp_b5c98c84e20f9b24eb74db09baf6f3c7",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

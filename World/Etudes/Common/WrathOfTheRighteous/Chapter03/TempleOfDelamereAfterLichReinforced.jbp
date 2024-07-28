@@ -1,0 +1,342 @@
+{
+  "AssetId": "88c2fcef4b22b5547902ca50fa16bbce",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$d933a66d-8a67-4e63-8a67-55b4cc9968d0"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$d933a66d-8a67-4e63-8a67-55b4cc9968d0",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Если игрок оставил Деламер в крипте до того, как победил в Санктуме, после Санктума локация выглядит следующим образом – она совершенно пустая, в крипте стоит Деламер, возле нее трупы двух демонов, Занедры и Кьядо – барки DelamereWatchZanedra, DelamereWatchDeadDemon1, DelamereWatchDeadDemon2, DelamereWatchKyado. Деламер форсит свой диалог, в котором объясняет, что в крипту ворвалась эта компашка, и она всех перебила.",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$230c6784-81ce-4999-b6d7-3ba0e0204c61",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "DelamereReinf",
+                  "_entity_id": "437f871b-8bd9-4738-a581-e39c847cbbeb",
+                  "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                },
+                {
+                  "EntityNameInEditor": "Zanedra_dead",
+                  "_entity_id": "9acc121b-a8b6-4e9b-a9d7-a5bdaebd44fb",
+                  "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+              "name": "$DestroyUnit$3802e8c2-e63b-481c-98de-91b8d3f6b174",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$9f29996d-7d94-448b-be9b-e5faa92ad687",
+                "Spawner": {
+                  "EntityNameInEditor": "Delamere",
+                  "_entity_id": "c5762c4d-6473-45c3-8ba5-3d1b23315381",
+                  "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                }
+              },
+              "FadeOut": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b77c6ec6-7c03-46c7-9ef5-1ad12e768aa1",
+              "Comment": "Kyado",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$99e6f675-4d32-4ba6-a19a-1a5ccf6aee79",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$9ff17ac8-b412-4f5a-9b3f-a2bdfc89007b",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Kyado_dead",
+                        "_entity_id": "982665bb-13a5-4b92-8064-f7f0eb21f264",
+                        "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$9c1d5fad-73a4-4a36-8d31-8c8e114389b7",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$d135bedb-5cf6-4aa5-9166-7734b6403e4b",
+                      "MapObject": {
+                        "EntityNameInEditor": "KyadoDeadBark",
+                        "_entity_id": "55fb80d5-88a3-4820-bff7-aec09936463d",
+                        "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$2b26889e-e43c-4ecf-9889-462597196d1d",
+                    "m_flag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                    "flagValue": 1
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f5f972df-25ce-49db-817d-50b1905be34f",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$61c56209-f615-4f92-b9c0-400c39ef6c71",
+                "MapObject": {
+                  "EntityNameInEditor": "ZenedraDeadBark",
+                  "_entity_id": "39df9d3d-3fd2-4896-aa94-79a683f0d84e",
+                  "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f9011c4e-aa65-42ba-a655-697bee2b94fb",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$6423eef2-371c-4c45-b5f1-dde080aeb9b9",
+                "MapObject": {
+                  "EntityNameInEditor": "Demon1DeadBark",
+                  "_entity_id": "d419638e-fbb1-47b6-9173-e4c0e3544b5d",
+                  "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$9afaea16-0538-4fb4-8531-e94cdd058435",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$73f1a9bf-5434-459b-a251-a4b644b9ce64",
+                "MapObject": {
+                  "EntityNameInEditor": "Demon2DeadBark",
+                  "_entity_id": "ea4ef315-ad70-4b97-bfe1-3517d77123b8",
+                  "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$a37f9feb-b0d5-477c-ad98-1f3ebceabb08",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$a59f1f3d-2aeb-4e30-81b7-f6cb7f22cb43",
+                "MapObject": {
+                  "EntityNameInEditor": "Altar",
+                  "_entity_id": "a832d9d6-a5e6-4109-b945-688ccabeac0d",
+                  "SceneAssetGuid": "8d20ccf3de968ec45b1183fae2531782"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$d0b9ac96-ee2c-4bb0-8bed-7918801f54f2",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$f183387d-97bf-4ff8-995a-faa733760dd6",
+                "MapObject": {
+                  "EntityNameInEditor": "2Crypt",
+                  "_entity_id": "685c99d8-d003-4bec-8d71-1efbee84f09c",
+                  "SceneAssetGuid": "8d20ccf3de968ec45b1183fae2531782"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$7aac35d7-84ba-4f93-a1fe-9c0b7675c873",
+              "m_SummonPool": "!bp_ebfd7071f73e3914981c2b20706f12ba",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$a0575f28-1c31-4a91-8b71-e633b2d8866f",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$8c71909d-566e-412a-bdf3-def0163637cd"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$350370a4-0c57-4cfa-97d3-82dce26c2a72",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$9779d170-e9d2-4985-924e-342a29611e30",
+                "MapObject": {
+                  "EntityNameInEditor": "SarkorisFloorSecretPlate",
+                  "_entity_id": "6abcd283-2223-421a-96cf-93cce3f3c73c",
+                  "SceneAssetGuid": "fbe532a4255c833499f7201acb847e58"
+                }
+              },
+              "UnlockIfLocked": true,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$2db8f962-8b9d-4fdd-a3a2-18e4a0019d47",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$30b5decd-409a-4951-b34b-7bc658f66190",
+                "MapObject": {
+                  "EntityNameInEditor": "DoorNavmeshCut",
+                  "_entity_id": "a12941ad-78f0-4380-b94b-5ef9e4d0246e",
+                  "SceneAssetGuid": "fbe532a4255c833499f7201acb847e58"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$ddaa7c75-424e-4831-8578-69bdfff1203a",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$d99aea27-1709-4fb0-8bd8-e842bab7c103",
+                "Spawner": {
+                  "EntityNameInEditor": "Zanedra_After",
+                  "_entity_id": "c913181a-287e-46a6-8819-a8d4c40908a6",
+                  "SceneAssetGuid": "a9899a896371e834f9477e56ee9c86a1"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$c82ab927-4c98-4aca-95da-511e71a1a306",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "завершить альтернативный этюд",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$7bdab29d-0906-44c1-8056-2e600bca2648",
+              "Not": false,
+              "m_QuestObjective": "!bp_22ced87618f7c6445ba5028d88408312",
+              "State": "Started"
+            },
+            {
+              "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+              "name": "$FlagUnlocked$e1f3ba93-24a2-4ccc-8182-a574692a04dd",
+              "Not": false,
+              "m_ConditionFlag": "!bp_623c506062c8bad4090adfe619fa0b27",
+              "ExceptSpecifiedValues": false,
+              "SpecifiedValues": []
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$a46997e6-3fbe-4a09-b499-61c1cb7965c5",
+              "Etude": "!bp_bfdb7a140dcf4cd45a4c2f918084ea82",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "TempleOfDelamereAfter и TempleOfDelamereAfterLichReinforced - взаимоисключающие, должны стартовать после Санктума в зависимости от того есть флаг DelamereLeftInTomb или нет",
+    "m_Parent": "!bp_af2d7c4c43c248e4e9f2a4b7b263f7c9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$b75d73b5-8585-4642-b4b9-e3534b003e80",
+          "Not": false,
+          "m_ConditionFlag": "!bp_623c506062c8bad4090adfe619fa0b27",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_bb6d82794aae9d94d9cc94d1a05e5f20",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_950bf501da421b846be77d9907015e3e",
+      "!bp_2bf25d0d3086d18419a12831441f5227",
+      "!bp_5f30a5512dd822e4e824276a69eb6bb7"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

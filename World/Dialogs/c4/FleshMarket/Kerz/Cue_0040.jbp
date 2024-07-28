@@ -1,0 +1,178 @@
+{
+  "AssetId": "0f3f07cc80de9f9489c095209c02f437",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "старт боя",
+    "ParentAsset": "75869bc81181fc34eb8c8b85bbe2f349",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "da1f4174-6509-4828-85bb-28866c34cdd1",
+      "m_OwnerString": "0f3f07cc80de9f9489c095209c02f437",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/FleshMarket/Kerz/Cue_0040_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a576d00c-3013-498a-b4c9-83be90cdfb43",
+          "Comment": "Fly Price 2",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e407aa6f-7b07-4486-b97d-5c18054b8008",
+                "Not": false,
+                "m_Etude": "!bp_570656f860f44268a53932585781c037",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$068ffbe4-efa2-4f9c-9bcd-2b8c5cebce4a",
+                "ItemsCollection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$530d22a3-ec98-48da-adbf-6930870d4dfd",
+                  "Unit": {
+                    "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+                    "name": "$DialogFirstSpeaker$89d37557-c6b5-4803-be61-624b5048bf9a"
+                  }
+                },
+                "UseBlueprintUnitLoot": false,
+                "Loot": [
+                  {
+                    "m_Item": "!bp_f2bc0997c24e573448c6c91d2be88afa",
+                    "Count": 110000
+                  }
+                ],
+                "m_BlueprintLoot": null,
+                "Silent": true,
+                "Identify": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$9f8c9d0c-7873-4e3a-98be-204c9af445bc",
+                "ItemsCollection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$8082b502-5de2-41ce-b4a9-5265f343dbcb",
+                  "Unit": {
+                    "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+                    "name": "$DialogFirstSpeaker$4e54dedb-6faa-49ec-88a7-0fc94552d63f"
+                  }
+                },
+                "UseBlueprintUnitLoot": false,
+                "Loot": [
+                  {
+                    "m_Item": "!bp_f2bc0997c24e573448c6c91d2be88afa",
+                    "Count": 80000
+                  }
+                ],
+                "m_BlueprintLoot": null,
+                "Silent": true,
+                "Identify": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$47213c21-3082-4814-bfce-f378e79581e3",
+          "Unit1": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$e2c67f03-562b-4f5a-8aa0-ffb991ae10c0"
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$072c5600-c104-4b89-9cdf-32b36ba58d61"
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$71c46bca-fcfc-4cd8-a50f-db05a98e89c1",
+          "m_SummonPool": "!bp_d034b3eb16651f94eaf2d2225c2c901a",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$e6df4d6b-aab8-457d-95bd-35d8336ed83b",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$db6d2b3e-8e9a-4961-b7cd-71536fcf3838"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+          "name": "$ScriptZoneDeactivate$f06d7820-080f-4ba4-9ee7-b541bc8ac1a2",
+          "ScriptZone": {
+            "EntityNameInEditor": "KerzDialogue",
+            "_entity_id": "0b6c1183-dc47-4be6-a97b-706859fd81ad",
+            "SceneAssetGuid": "682028449dfdd5244969f623cba0e482"
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

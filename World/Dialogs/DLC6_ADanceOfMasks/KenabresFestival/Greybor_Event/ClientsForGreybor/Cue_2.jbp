@@ -1,0 +1,206 @@
+{
+  "AssetId": "7a44bea4e9844251bab0318ef3a3290d",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "выход",
+    "ParentAsset": "b75d34fc29c44f6a87949dd9d758850c",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "9f464304-f59f-47d4-8941-8e7f6fcf6cff",
+      "m_OwnerString": "7a44bea4e9844251bab0318ef3a3290d",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC6_ADanceOfMasks\\KenabresFestival\\Greybor_Event\\ClientsForGreybor\\Cue_2_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_14c31733699648ee89cd6d1b2e528676",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "HeadYes",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$8484b52d-e705-4cb0-90e2-ce2dec0a6e0d",
+          "Status": "Complete",
+          "m_Objective": "!bp_d5f279f72b6c4f83becde48a577e596e",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a4f69205-c38b-4285-b54a-861b8f5d6813",
+          "Comment": "Everyone knows about Greybor",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$a851e70d-cf88-4f05-b0c8-75fcdc6af5f8",
+                "Not": false,
+                "m_QuestObjective": "!bp_7cd376ecbca840f58cc9b9a9b87f3695",
+                "State": "Completed"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$af73fa0d-c415-4b16-8dd6-8043933ccc66",
+                "Not": false,
+                "m_QuestObjective": "!bp_77501411e3f843c289d3b1fdc7f0a516",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$024ff07a-4de9-42e2-b3c0-f427c3186a91",
+                "m_Cutscene": "!bp_f54977c8fa47404b948cd1460ec4462b",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$c585bc5c-9ea0-498a-a7d4-ab27a787793b",
+                        "Spawner": {
+                          "EntityNameInEditor": "ClientArtist",
+                          "_entity_id": "bc9d9e44-ca74-46a4-a1d4-67ab330c431f",
+                          "SceneAssetGuid": "60eca8e65de84cc438ec15df7a4cd9f7"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$5cd78f7d-efed-467f-b996-aa05a0f7f01a",
+                        "Locator": {
+                          "EntityNameInEditor": "Client_artist_near_Greybor_pos",
+                          "_entity_id": "836e2917-c21f-4329-914f-de6b654adc68",
+                          "SceneAssetGuid": "60eca8e65de84cc438ec15df7a4cd9f7"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    },
+                    {
+                      "Name": "Rotation",
+                      "Type": "Float",
+                      "Evaluator": {
+                        "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                        "name": "$LocatorOrientation$67db407f-32e7-434b-b59a-0db1261bce99",
+                        "LocatorEval": null,
+                        "Locator": {
+                          "EntityNameInEditor": "Client_artist_near_Greybor_pos",
+                          "_entity_id": "836e2917-c21f-4329-914f-de6b654adc68",
+                          "SceneAssetGuid": "60eca8e65de84cc438ec15df7a4cd9f7"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$229fbe27-ac1a-4e23-b60c-8ba971d0894d",
+                "m_Cutscene": "!bp_aab526e671c14731b0ad9ae1b5a55ee1",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$42fa25f4-9091-456e-9beb-451e0d98d6af",
+                        "Spawner": {
+                          "EntityNameInEditor": "ClientArtist",
+                          "_entity_id": "bc9d9e44-ca74-46a4-a1d4-67ab330c431f",
+                          "SceneAssetGuid": "60eca8e65de84cc438ec15df7a4cd9f7"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$7668a5f0-d8b2-4de8-8993-ff50262980c3",
+                        "Locator": {
+                          "EntityNameInEditor": "Client_artist_approaches_to_Greybor_pos",
+                          "_entity_id": "b1d37ad5-f25f-4454-853c-14a11018e528",
+                          "SceneAssetGuid": "60eca8e65de84cc438ec15df7a4cd9f7"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    },
+                    {
+                      "Name": "Rotation",
+                      "Type": "Float",
+                      "Evaluator": {
+                        "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                        "name": "$LocatorOrientation$5922fce4-c3f6-4c11-88e5-d5d12722a8e9",
+                        "LocatorEval": null,
+                        "Locator": {
+                          "EntityNameInEditor": "Client_artist_approaches_to_Greybor_pos",
+                          "_entity_id": "b1d37ad5-f25f-4454-853c-14a11018e528",
+                          "SceneAssetGuid": "60eca8e65de84cc438ec15df7a4cd9f7"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "AssetId": "f49a627e89394a7bae6b5fd0d8da641a",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$9ab398a7-ce0d-4c34-aaf3-67c1c7111104",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$f4ebe29b-8df1-4afc-b60d-348e095ad6a5",
+              "UseEvaluator": false,
+              "ScriptZone": {
+                "EntityNameInEditor": "2nd_phase_trigger_zone",
+                "_entity_id": "90c74e96-ece7-48c3-bb19-fcf41e131504",
+                "SceneAssetGuid": "501daeb984dec6e4ab3437aa7650f22f"
+              },
+              "ScriptZoneEvaluator": null
+            },
+            {
+              "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+              "name": "$ScriptZoneActivate$4e573a39-c0a4-4379-aa34-7abf1fda59dd",
+              "UseEvaluator": false,
+              "ScriptZone": {
+                "EntityNameInEditor": "3rd_phase_trigger_zone",
+                "_entity_id": "0f1ef6d4-79da-4d81-ac46-744cc1330753",
+                "SceneAssetGuid": "501daeb984dec6e4ab3437aa7650f22f"
+              },
+              "ScriptZoneEvaluator": null
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$56877f02-fcb6-47ca-9b49-d6786a2db1e5",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$a6b7ec04-57fa-4ad0-b633-344c0d44ddc7",
+          "Spawner": {
+            "EntityNameInEditor": "Nahyndri",
+            "_entity_id": "7ac7a1e1-26c5-4b14-a3f6-6976a44468bb",
+            "SceneAssetGuid": "501daeb984dec6e4ab3437aa7650f22f"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$4b6e3a8a-e225-4e72-8149-b033478ba62a",
+              "m_SummonPool": "!bp_54d0a09e267946938c96db646feb8cb1",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                    "name": "$Kill$10044e5b-e8b7-4fa2-bf3b-231cca27f5b8",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$ccfd99b1-4cbb-48db-b3c8-b2adbe795f01"
+                    },
+                    "Killer": null,
+                    "Critical": false,
+                    "DisableBattleLog": true,
+                    "RemoveExp": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$1da01792-40ff-4590-a914-8adf48ec261d",
+              "m_Cutscene": "!bp_c877866900f047fdbdc754aa6de87bc0",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$66113e60-555a-4c2c-b91b-60e6d6b610bd",
+              "m_Cutscene": "!bp_906f74b514aa405a9302e84bac504989",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$6756e9e0-f42c-469d-b329-8496c7bdd4db",
+              "Comment": "Ачивка, если убили в третьей стадии",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ac770df8-d99f-44c7-9390-79e35e7e26cc",
+                    "Not": false,
+                    "m_Etude": "!bp_3448a840c8c5457482d97601ed241487",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                    "name": "$ActionAchievementUnlock$55b04f8b-0c23-432e-9ebd-032de95c3fe2",
+                    "m_Achievement": "!bp_6e0dfbb7ca0a4c2faac19c86dbb8be44"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$88bdc928-6dd4-42ac-97b0-ac3a0a68caeb",
+              "Comment": "Ачивка, если не стреляли с баллист",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$048c73f9-d763-4b01-ba2b-4a17cd7951e8",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_3aedfe87b23d405d9d4808bf7adde9b7",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                    "name": "$ActionAchievementUnlock$90630713-6982-4bef-94db-a4126b74e73a",
+                    "m_Achievement": "!bp_b5b32f2dffbe4d06a22b3b045ac34563"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e28d33d7-0791-464d-af4a-4bd2eab41458",
+              "Comment": "Ачивка, если не имеем мифик",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$a34e5c24-796c-4eec-b8e1-006a46cd5884",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_266b3bde422741a980c3e7796e6d667c",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                    "name": "$ActionAchievementUnlock$7468670d-49cb-49c2-b9e8-b16a73cdd4ad",
+                    "m_Achievement": "!bp_ec1df64345574156955feb2ed3e4ae1a"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$44df3518-0d17-4b24-afe0-6327584a043d",
+              "Status": "Complete",
+              "m_Objective": "!bp_0f6e8bd743f94cd7a78204e0266d84ec",
+              "StartObjectiveIfNone": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_15cc71ca8c954bdb97ed5bf2b140fcb6",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$20e7746d-4b22-42c4-b88a-cdb93fc46879",
+          "Not": false,
+          "m_ConditionFlag": "!bp_5d8d1ea08f2d4aec856d9fb9f67d49c7",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_13a3e091b83649709e90b2dca9eb626a",
+      "!bp_3448a840c8c5457482d97601ed241487"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

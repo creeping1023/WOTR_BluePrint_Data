@@ -1,0 +1,62 @@
+{
+  "AssetId": "eb9db31ea06848e6b86d2bf14fd899cf",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Чиним обрыв диалога с Мефистофелем",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2c97e0f2-703b-49a3-b753-751a2c306c75",
+          "Comment": "Комплитим квест, если обрыв был.",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$88d5c402-9ab2-4cbd-8a9d-df0e98b5936a",
+                "Not": false,
+                "m_Cue": "!bp_3af997ff048a03945bca0ba6a691c0a4",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$ea55e972-e97d-4791-a045-5b5736bf38cf",
+                "Not": true,
+                "m_Cue": "!bp_a0f11febd0d516c499c74b1138023419",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e345dfce-e143-4da9-92ad-a7b9b3f9f9dd",
+                "Status": "Complete",
+                "m_Objective": "!bp_6ac5895c8ead0c24286e0d4b4211b48a",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$433bb462-d318-43e0-ae2c-b78480e86708",
+                "Status": "Complete",
+                "m_Objective": "!bp_cd3c2daa826f24f4ebf73da3158d8692",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

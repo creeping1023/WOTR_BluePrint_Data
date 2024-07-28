@@ -1,0 +1,163 @@
+{
+  "AssetId": "52c5ed8b094e471fbe4eba0b4397082f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Перезапускает KTC-роман в нексусе\nВыдает дефолтный этюд романа, если у игрока его не было",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$52d8e77c-0086-42b1-94fc-c20a7f5bcfa6",
+          "Comment": "перезапуск",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$20bf0796-1ab1-4b40-b0b0-10c8506940fc",
+                "Not": true,
+                "m_Cue": "!bp_4f31194bb4d9afe4ba2b7dd1f60552b4",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$977f4cb0-0826-48f2-bb9d-5401e654e84a",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$09fb1903-0dc8-41ef-b1da-b04ae40d8fec",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_21a21fd3d4b2fd041a6e8afb5af95d25",
+                      "State": "Started"
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$d0475128-2855-4314-adf5-e8c11ea00ad7",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_21a21fd3d4b2fd041a6e8afb5af95d25",
+                      "State": "Completed"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$691a81b9-ec60-4403-ab5c-0ecb8cd75e93",
+                "Etude": "!bp_369d8e98334b462429b71585a50ed420"
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$3cfc6d3a-ecc5-4e4f-842c-0a9d6dd40e0f",
+                "Etude": "!bp_369d8e98334b462429b71585a50ed420",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$648702e3-50ce-4e8a-842d-d3849f3ab7a5",
+          "Comment": "Деф этюд",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$6ab21c22-97d3-4bb0-a379-544ef2fea69c",
+                "Not": false,
+                "m_Etude": "!bp_efb130b8a22c9534ca40a1e41ef8e931",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "56dbbbbbe442d504eb6761bdca7c8066, CurrentChapter",
+                "name": "$CurrentChapter$bb9ae821-d8d4-4c91-b43e-20b6eec9cc7b",
+                "Not": false,
+                "Chapter": 4
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$4b20fe45-5352-42a8-a34c-5c10fadfe1ce",
+                "Not": true,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$61b9d0c3-67f2-4234-bbae-bcd343ab2b6f",
+                      "Not": false,
+                      "m_Etude": "!bp_09d99fd3083443cbb9c5069533abfc36",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$a413797d-ac47-4c60-93bd-c6273e8dcb4a",
+                      "Not": false,
+                      "m_Etude": "!bp_368795ce16c9f6944b7b89cc74bdb3c4",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$046597d3-9db8-48bd-a39c-1648fcfaf8e4",
+                      "Not": false,
+                      "m_Etude": "!bp_098da620a2d87d448a9238f76d43d378",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$e18df90a-ba1d-4456-9ae9-3a19d2aaeaf2",
+                "Etude": "!bp_484b609084d15ea4db46e7410c1392c9",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

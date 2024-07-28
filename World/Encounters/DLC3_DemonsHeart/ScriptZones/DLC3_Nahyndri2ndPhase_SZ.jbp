@@ -1,0 +1,102 @@
+{
+  "AssetId": "715a608a028942439ac34180997c0f0a",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$cd2fb8c1-67f3-4153-9a9e-f6fbcf211a22",
+          "Comment": "Босс зашел",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                "name": "$UnitEqual$6a9b53cb-5d1a-44a3-84fc-c557cbf30d23",
+                "Not": false,
+                "FirstUnit": {
+                  "$type": "7092730319129374aadf8b65ceb5c42d, ScriptZoneUnit",
+                  "name": "$ScriptZoneUnit$569ed3d5-c139-4daa-88ca-08888246f388"
+                },
+                "SecondUnit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$0f833756-f716-4595-aeaa-7c65fb3448d4",
+                  "Spawner": {
+                    "EntityNameInEditor": "Nahyndri",
+                    "_entity_id": "7ac7a1e1-26c5-4b14-a3f6-6976a44468bb",
+                    "SceneAssetGuid": "501daeb984dec6e4ab3437aa7650f22f"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$824b04a0-6e59-4d38-a672-d6bde8c871ea",
+                "Comment": "Стэндэлон или интеграция",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$e719a09d-d67a-4bc8-abce-f7fb70619da3",
+                      "Not": false,
+                      "m_Etude": "!bp_995ba39f45f44e1dba01e18efc55b0ec",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$bdf42143-9168-4ddc-8bc7-1ec748fbc246",
+                      "m_flag": "!bp_5e4277fa1ce14549bcd58c9468d488ca",
+                      "flagValue": 0
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$1302f9b5-6afa-4640-a24d-efa4b8d64441",
+                      "Etude": "!bp_354f826d974a4f4fb10701685473db28",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

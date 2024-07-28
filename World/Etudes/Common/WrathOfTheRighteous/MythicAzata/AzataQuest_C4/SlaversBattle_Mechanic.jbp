@@ -1,0 +1,174 @@
+{
+  "AssetId": "55f1233fd98a41ec898ca2fecf4e6524",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$14fb379b-6b04-4671-8df5-0df0a18c36e8",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "После битвы  с работорговцами. Диалог с Рамисой",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_6884d139189547f2933ee9780e59ad28",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+              "name": "$CueSeen$5f64e67a-fcae-4fb1-a334-199bfea0004d",
+              "Not": false,
+              "m_Cue": "!bp_db7e61b01701061428913aba27eaa230",
+              "CurrentDialog": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$34a57834-2983-4ccf-9376-870a74dc9714",
+              "m_Cutscene": "!bp_a0b8c1b80461470482646468f818d813",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$999cc81c-d999-44d9-8d7d-a28d1b86fdb6",
+              "Comment": "Дракон мертв?",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                    "name": "$UnitIsDead$1829c110-51ff-43b2-8c3b-0f016f69f282",
+                    "Not": false,
+                    "Target": {
+                      "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                      "name": "$PetEvaluator$caf815ea-d41d-41b1-8a8f-76fc076e7f3d",
+                      "Master": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$8c045484-e99d-481d-98cb-8a6f76c5bdcb"
+                      },
+                      "PetType": "AzataHavocDragon"
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+                    "name": "$RaiseDead$be475808-3cc3-4051-b894-9ab226214c9c",
+                    "m_companion": "!bp_32a037e97c3d5c54b85da8f639616c57",
+                    "riseAllCompanions": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$a5418b7f-0fad-49de-b094-d856bbede68c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$b0003c65-16a3-4950-ac8c-36073d2d5637",
+              "m_SummonPool": "!bp_7bd686014ce0415dbeba5e1371d8f51f",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$38eb241a-0090-4b7b-af70-8d7d2e180c71",
+                    "m_Cutscene": "!bp_efb5a7426b31436caf71573099c00c94",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$26d63091-5253-46ef-b7d1-4541260d3adc"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$842e232a-75cd-4288-a9b1-fe1fe56b6335",
+              "ScriptZone": {
+                "EntityNameInEditor": "HepzamirahSlaveTrading",
+                "_entity_id": "d51d1a47-c57d-49ea-a687-fef6bdbf5451",
+                "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_a3d9a3409ae6d6143a1b3c100447a50c",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_180cdb4b48d561f4cb4ef9a066727960",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_04d58fb7f243b2e47affc7d3bda7070b"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "AssetId": "b9f5018c11fde954d88cffb7defb1de5",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Форн\nесли Кайлесса сдохла и тут диалог обрывается, комплитим квест через хидден обж, иначе выдаем обж6",
+    "ParentAsset": "c54377befa1508a439ed43c819e5d262",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "d151564d-cca7-4d27-971c-b7cb2ee9502b",
+      "m_OwnerString": "b9f5018c11fde954d88cffb7defb1de5",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/NPC_Common/Kaylessa/Kaylessa_Reveal/Cue_0012_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$26ec9299-89f1-4651-957c-f7685482504c",
+          "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$b74d54ea-0ebf-45a2-8779-e8b272d4252c",
+            "Spawner": {
+              "EntityNameInEditor": "Forn",
+              "_entity_id": "82f091e4-70ce-43ae-8388-5723ccc4e394",
+              "SceneAssetGuid": "cc1be2040994ea84dab2b11a11557c3f"
+            }
+          }
+        },
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$faa4810a-026b-4b0d-bdda-8ad4ab5b4113",
+          "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$e7061523-2410-40e1-8788-edf9d2b85eae",
+            "Spawner": {
+              "EntityNameInEditor": "Forn",
+              "_entity_id": "82f091e4-70ce-43ae-8388-5723ccc4e394",
+              "SceneAssetGuid": "cc1be2040994ea84dab2b11a11557c3f"
+            }
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$655d8454-910e-4500-a41d-7158d9d24871",
+          "Comment": "при поднятом флаге Kaylessa_dead комплит обжа 5 и квеста через хидден обж",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$08263d5f-3bd3-4456-ba0a-887961dd7ea0",
+                "Not": false,
+                "m_Etude": "!bp_4dd373d7c9954b6419adf920cca9231f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$8f0d3368-c2d6-45b3-8a86-51eaac0b9ed4",
+                "Status": "Complete",
+                "m_Objective": "!bp_465ac192b9025d948811242ecb5224ee",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$4ffa18f1-067c-462c-bec7-5b69c109cbaa",
+                "m_Objective": "!bp_e4b225860f1f1c947a6df5c80acf9872"
+              },
+              {
+                "$type": "062924fe653b9df4ab8b8789fc1ff422, KingdomActionStartEvent",
+                "name": "$KingdomActionStartEvent$c950d5da-ed53-468c-9750-af2cb54ba0db",
+                "m_Event": "!bp_472666a07cd05b441b0d8c57f50de13d",
+                "m_Region": null,
+                "RandomRegion": false,
+                "DelayDays": 0,
+                "StartNextMonth": false,
+                "CheckTriggerImmediately": false,
+                "CheckTriggerOnStart": false
+              },
+              {
+                "$type": "062924fe653b9df4ab8b8789fc1ff422, KingdomActionStartEvent",
+                "name": "$KingdomActionStartEvent$b0da714a-2e1c-4a42-8efd-57853d03910a",
+                "m_Event": "!bp_522283d432a29e84596bb05fae99287e",
+                "m_Region": null,
+                "RandomRegion": false,
+                "DelayDays": 0,
+                "StartNextMonth": false,
+                "CheckTriggerImmediately": false,
+                "CheckTriggerOnStart": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$117de683-0883-457d-9384-768c2032217b",
+          "m_flag": "!bp_38029ab9db3f49a582b04abb618e264a",
+          "flagValue": 0
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_143544cb15e28454da43291ebf59ae2e"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

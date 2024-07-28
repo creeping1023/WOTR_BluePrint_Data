@@ -1,0 +1,80 @@
+{
+  "AssetId": "403f8687be754fe39430819391be0c73",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Выдат бонуса варианта 3_5 для прошедших через непокрытый экшенами вариант",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3c7adc18-e804-480e-81d5-2e081785f883",
+          "Comment": "Fix for those who selected Answer_0065 in Diplomacy 3",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$f0f1a916-b855-4e61-ba61-b0110f26e5a4",
+                "Not": false,
+                "m_Answer": "!bp_29d83aee43a538d42ba9004ed86fd9be",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4ccd1dbe71ca4eadb6067c854495d13b, KingdomStatCheck",
+                "name": "$KingdomStatCheck$378beffc-8f12-46cd-bac2-5d89d4d84635",
+                "Not": false,
+                "StatType": "Diplomacy",
+                "Value": 2,
+                "AtMost": true,
+                "CheckRank": true
+              },
+              {
+                "$type": "4ccd1dbe71ca4eadb6067c854495d13b, KingdomStatCheck",
+                "name": "$KingdomStatCheck$ceb0eee3-b262-40d1-9687-8c8f4e16d4c7",
+                "Not": false,
+                "StatType": "Diplomacy",
+                "Value": 2,
+                "AtMost": false,
+                "CheckRank": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6fa6e405db8147baa4985eece5301e5a, KingdomActionImproveStat",
+                "name": "$KingdomActionImproveStat$4a5fd3ef-62a4-47f1-aa33-b9ef89f28166",
+                "StatType": "Diplomacy"
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$17424a9b-9bb1-4912-9d46-a84dd50ab359",
+                "Etude": "!bp_82d51811eb6c43769187f1378cfa82ff",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "8afc3d0555fe6694191e8b029223e71d, KingdomActionAddBuff",
+                "name": "$KingdomActionAddBuff$2f8f2b03-ce23-41b5-9061-e19ea0ff85b2",
+                "m_Blueprint": "!bp_134d0591270b4427bc36a20bba6b8b9e",
+                "OverrideDuration": 0,
+                "ApplyToRegion": false,
+                "CopyToAdjacentRegions": false,
+                "m_Region": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

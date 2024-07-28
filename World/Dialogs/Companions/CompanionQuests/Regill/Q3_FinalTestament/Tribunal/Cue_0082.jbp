@@ -1,0 +1,139 @@
+{
+  "AssetId": "07578ddee8498cd4384228ba3ffe41d1",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Аминас",
+    "ParentAsset": "abaffc388cafbea459e4efb49d5a0dfc",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "42406e17-f3ea-4d48-9f67-b3ecd6ab339a",
+      "m_OwnerString": "07578ddee8498cd4384228ba3ffe41d1",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Regill/Q3_FinalTestament/Tribunal/Cue_0082_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_fd7e497d06121824bbbaf8409c0478dc",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+          "name": "$UnitLookAt$1bec4b4e-261a-4551-8871-387744b74bd9",
+          "Unit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$ffa9c307-ca25-481d-87a9-43bcf37a50a0",
+            "Spawner": {
+              "EntityNameInEditor": "Aminas",
+              "_entity_id": "78ade88c-be83-4147-bdaa-f8d9f65ab0fc",
+              "SceneAssetGuid": "d56ceb4049b84c045bbfb8fa978a11c8"
+            }
+          },
+          "Position": {
+            "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+            "name": "$UnitPosition$36c09cfa-67a7-48ca-af33-22a44f5ea7e4",
+            "Unit": {
+              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+              "name": "$CompanionInParty$6ae43604-9208-4a05-874d-c9f8483a9c8d",
+              "m_Companion": "!bp_0d37024170b172346b3769df92a971f5",
+              "IncludeRemote": false,
+              "IncludeExCompanions": true,
+              "IncludeDettached": true
+            }
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$9ba3df76-468c-4887-ac5e-e5104f60ee1c",
+          "Etude": "!bp_ef362069432264c49bc7b0610090c59f",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$0e3241f0-79fe-490a-be1f-040b8be11d72",
+          "m_flag": "!bp_d77a2ef2b3a8412f863387f4ba322ee5",
+          "flagValue": 1
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$01a16ce7-ada8-4482-9081-8fa43eb30770",
+          "Comment": "Если нет ХК в наемниках - добавляем",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$513926c4-a330-4b42-8f0b-e7d55870d8ed",
+                "Not": false,
+                "m_ConditionFlag": "!bp_996353b55c7644dcad2ca0c0ccf6b952",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": [
+                  1
+                ]
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$bef3a928-f71e-4c4e-a04d-9b8a5c790bef",
+                "m_flag": "!bp_996353b55c7644dcad2ca0c0ccf6b952",
+                "flagValue": 1
+              },
+              {
+                "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+                "name": "$AddMercenaryToPool$f082ab67-c00e-4939-bc47-a25fb0763d2a",
+                "m_Unit": "!bp_61e12d43771a40241ac05471a60ddb38",
+                "m_Weight": 1.0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_8ed83e1e386086240851bd721e909b81"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

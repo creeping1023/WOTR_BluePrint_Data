@@ -1,0 +1,160 @@
+{
+  "AssetId": "1c368728c690494e82465ff65d8260b0",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "2692cd97dff261b40b530d7b25e425cd, PartyInventoryTrigger",
+        "m_Flags": 0,
+        "name": "$PartyInventoryTrigger$9edaccd5-f87b-4fdc-83eb-cc446d9bc82f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Item": "!bp_c091dfe19cd44c6eb8ec6e3ea7e5c67c",
+        "OnAddActions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$c6e09e36-d2ec-496a-9dcc-a10f7a606f9b",
+              "m_Cutscene": "!bp_2adb6af4042240c29fe7fb5fb9fbd30a",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$fc17caef-ded1-45da-83c6-ea272c42d53e",
+              "Etude": "!bp_1c368728c690494e82465ff65d8260b0",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$d3d4e2cb-5d03-4d68-9544-0cf671844a6c",
+              "Etude": "!bp_1b940eb6ff7b4fb89574636aec65e752",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "e60bfa43ae7049838a9f657e48030f84, DungeonRunActionHolderForNextParty",
+              "name": "$DungeonRunActionHolderForNextParty$9b04f639-5271-4f9d-aeea-719d1263e15c",
+              "Comment": "",
+              "Holder": "!bp_665e7ba4157944239cf969f42f298aaf"
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$2dd909ca-ecda-49b0-b875-b453145e16f5",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$3505ad0d-cdf1-43e1-8981-610f053676a6",
+                "MapObject": {
+                  "EntityNameInEditor": "BossTutorial",
+                  "_entity_id": "389ffe36-3904-44b3-b33c-034a3c3f63f2",
+                  "SceneAssetGuid": "da4f06a48dda26241ae5de12bc5046d1"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        },
+        "OnRemoveActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": "Disabled",
+        "name": "$EtudePlayTrigger$36827ff7-d38c-4e47-8da6-318ba0288d06",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$24369deb-f8f3-4492-a986-4c28fd4c785c",
+              "Not": false,
+              "m_Etude": "!bp_3964ed959f554763bbe951818b34aead",
+              "NotStarted": false,
+              "Started": true,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$dbf7a037-912b-4182-a514-4d3121762a19",
+              "m_SummonPool": "!bp_737e168d4b2841cebfd27333d9860402",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                    "name": "$AddFact$82b848f4-a9de-4365-b99a-0de93ae82898",
+                    "Unit": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$38f60d87-559e-4b75-a007-1c70c6cf3514"
+                    },
+                    "m_Fact": "!bp_0d170380c070495b9f55f2a2fe559559"
+                  },
+                  {
+                    "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                    "name": "$AddFact$7e4806a1-93e3-4751-aa05-da419e227696",
+                    "Unit": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$f433d59a-da75-4500-988f-99f391a826b5"
+                    },
+                    "m_Fact": "!bp_e523829082564272afd0ad7c1bf80dbb"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_2d730fb5aee84e80af77c474d50252ad",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_f4d583a4f0b8433da6fe7a7d8ae91433",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

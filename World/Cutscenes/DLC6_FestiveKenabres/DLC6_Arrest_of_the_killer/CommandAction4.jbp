@@ -1,0 +1,129 @@
+{
+  "AssetId": "f2abc3a796634eedb3065c0534604979",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$74496a76-1c1c-4528-99eb-866b96d137ef",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "CamelliaWithoutEvent",
+              "_entity_id": "8e507564-9a70-41d5-8d5b-e74fa7f84dd6",
+              "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": []
+          },
+          "RespawnIfDead": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4a49ce7e-7777-4b6a-828f-abdc1d2518c9",
+          "Comment": "Cosplayer exists",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$b1520796-9461-4552-9172-568eb2f2c8cd",
+                "Not": true,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$ef3d0b9b-78ff-49b0-960b-4c202bd0ca9f",
+                  "Spawner": {
+                    "EntityNameInEditor": "CamelliaCosplayer_1",
+                    "_entity_id": "466d43a7-5e66-4a2a-af29-a248f908000f",
+                    "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$f074fd47-8d0f-4737-be27-ae26da225146",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$bb9a4ca5-077f-4cb2-b695-4ac3fa8bed72",
+                  "Spawner": {
+                    "EntityNameInEditor": "CamelliaCosplayer_1",
+                    "_entity_id": "466d43a7-5e66-4a2a-af29-a248f908000f",
+                    "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                  }
+                },
+                "FadeOut": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e1bbd38e-d20d-45fa-9ef6-ba3f7ebafe4b",
+          "Comment": "There is trouble with cart",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b8584779-cb8d-43e2-adfc-30673e265329",
+                "Not": false,
+                "m_Etude": "!bp_690c11c30d64454ab880b61e5922dd72",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$6cdf4e58-0072-4b1e-99ff-86a8b1c2d87b",
+                "Not": true,
+                "m_Dialog": "!bp_07509853875d40188f4e2fce67bf783d"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$e1a15422-3e01-47a1-bc9a-ca5f8047bb14",
+                "m_Cutscene": "!bp_b3569d3dec904a53afe1ea3ee804a59a",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$27d86ef0-7849-4f64-846e-031e1b51c7b3",
+          "Etude": "!bp_b1c8d21c171d4546ad481f7fc904f922",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

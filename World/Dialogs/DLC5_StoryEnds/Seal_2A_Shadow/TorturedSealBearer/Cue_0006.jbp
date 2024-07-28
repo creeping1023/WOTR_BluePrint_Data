@@ -1,0 +1,196 @@
+{
+  "AssetId": "0fa15cb52dfb4be0baef486453034f6f",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "у игрока меньше трех осколков",
+    "ParentAsset": "c16d91f4db3a4967bd8795a58ea3c8ff",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+          "name": "$FlagInRange$e7f24ca8-4ff5-4ca9-9312-e11be00dc53d",
+          "Not": false,
+          "m_Flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+          "MinValue": 1,
+          "MaxValue": 2
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "8f151517-c0b0-4067-a9ae-499e17d2c73b",
+      "m_OwnerString": "0fa15cb52dfb4be0baef486453034f6f",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC5_StoryEnds\\Seal_2A_Shadow\\TorturedSealBearer\\Cue_0006_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$984eb209-d832-4870-b6f5-d0f185816fa7",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$218a3a1f-4ae2-4baf-8791-e40ddec27b7d",
+                "Comment": "Everyone except Player",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$b38eec1a-04d1-41b3-bb9c-4308e87b295f",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$b85d2fec-71b5-43c3-a0f2-96b949f15f9d"
+                      },
+                      "SecondUnit": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$a6a1ead8-dd2a-4dc3-a2d4-93a3a75aa44a"
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$83d6c2a5-15ba-480a-9dd5-33ff413ff34f",
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$193a91af-96b6-41d3-bb45-eeb1016ea8a5"
+                      },
+                      "Position": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$1da378a6-347a-4bab-9d72-d9b548f4212e",
+                        "Unit": {
+                          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                          "name": "$PlayerCharacter$eaed9b35-160c-45c5-b141-374e3b8a00c4"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+          "name": "$SpawnFx$bae076da-418b-4206-bb08-8f6a7cbc898f",
+          "Target": {
+            "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+            "name": "$UnitTransform$5f0584b3-da44-4e21-aee9-b7d4d8892623",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$c9c79da5-6214-4c76-b0c4-389e18fc89a3"
+            }
+          },
+          "FxPrefab": {
+            "AssetId": "274fbd84b4c9d794bb5fe677472292b1"
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$5d71206e-ecb8-4b9c-b710-2bbebd07543b",
+          "m_Cutscene": "!bp_366ef59de3f383344843314c35c5d5c4",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$6df03281-3346-45c9-83b6-8f5e09c6cc25"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$a1a504dd-c774-4253-85c6-e1b04e2f3fac",
+          "m_Cutscene": "!bp_ab5349fee7de46189ed7291319c5e739",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$064dca46-d8a8-4bbf-9bb0-8f3b3c2de3e2",
+          "m_Flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$82b51aa4-ac59-4cb0-8927-bfa34a481443",
+            "Value": 1
+          },
+          "UnlockIfNot": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "efeff58c12d74f00a73213c7f3750543, GainMythicLevel",
+          "name": "$GainMythicLevel$54251d29-3c18-4c40-b378-292eb55c484c",
+          "SpecificUnit": true,
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$03586d18-08e7-4094-ad34-8efa7900aa7c"
+          },
+          "Levels": 1
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_2c2d40cd9cf54ae3beb563eebc437ca9",
+        "!bp_ba8b74c55c574a58a1ec7667ea09efa4"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

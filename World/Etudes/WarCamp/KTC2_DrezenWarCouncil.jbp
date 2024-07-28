@@ -1,0 +1,442 @@
+{
+  "AssetId": "4c9f51b03e409d74a80e2c7550ccd925",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$5e1334c2-0ced-45af-a967-3a7c5be48cb5",
+      "$EtudePlayTrigger$c6051cfc-9003-4024-a16f-2cdb4e50bf02",
+      "$EtudeCompleteTrigger$5b8c0dcd-8fa2-4da9-8119-5fdc85d6cf99"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$5e1334c2-0ced-45af-a967-3a7c5be48cb5",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Block Default HQ",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$e82035a1-8c20-4479-be77-8d4c35450715",
+              "m_flag": "!bp_8cad0e238ce167d4dab033100ff5e878",
+              "flagValue": 0
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$74d13f68-9d32-4003-9cc7-7f5b72a1a92e",
+              "Comment": "Fail Ulbrig romance event",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$b0aa3b09-b542-42ab-b0e9-435eae7e14c8",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_1ccd6c0894394ec099e007687d3e0ece",
+                    "State": "Completed"
+                  },
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$d00c03a0-8051-4fe8-a0b1-360952bb0de0",
+                    "Not": true,
+                    "m_Dialog": "!bp_105b0cd94a6e46bfbff400d926a81965"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$b19af132-7b15-41ab-835b-02bb39c65366",
+                    "Etude": "!bp_88c8214588f444e09e4a03bbe6d30531",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$c6051cfc-9003-4024-a16f-2cdb4e50bf02",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$4f228f51-c7dc-43a0-988d-8f7b4a1bed35",
+              "m_exitPositon": "!bp_0d9a913184628e7468f022cba761451f",
+              "AutoSaveMode": "None",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": [
+                  {
+                    "$type": "28f3698ba62041e09a5abcbe59a14725, MakeAutoSave",
+                    "name": "$MakeAutoSave$14da9972-5f1b-4595-8d4c-99740415b338",
+                    "AskConfirmation": false,
+                    "SaveForImport": false
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$76073a91-1b3f-48db-9cbf-9e4687e1b422",
+                    "m_Cutscene": "!bp_067600a56913aa844a38112736aac23a",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$5b8c0dcd-8fa2-4da9-8119-5fdc85d6cf99",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$f885d3a2-4f25-46db-8cce-5a8fd5286923",
+              "Etude": "!bp_612020f1cc154ff47a5d87571b2d1b06",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+              "name": "$LockFlag$edf1264e-28d5-4ad8-9628-588df4081f09",
+              "m_Flag": "!bp_8cad0e238ce167d4dab033100ff5e878"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b94a72d8-5c25-4c49-8a80-b98c7b62781d",
+              "Comment": "Nenio in party",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$ac3a08f0-2ba1-4430-8a5b-b95fcd8187ca",
+                    "Not": false,
+                    "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$db506b89-c254-45c3-879d-f7173b8d3b54",
+                    "m_Cutscene": "!bp_0c1121cfc24f484fbf4d7020083bb54f",
+                    "WithUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$f8fe3794-5c66-44ea-a8bf-229bde591ee6",
+                      "m_Companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c9eb501f-a8f5-46c1-9891-a5de60dc6d93",
+              "Comment": "Daeran in party",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$949626c8-0b79-41c1-8275-b8a6ab04de92",
+                    "Not": false,
+                    "m_companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$b13a0a4a-4f02-41d4-b062-d0c7d77acf04",
+                    "m_Cutscene": "!bp_00f015c7c0fb45ed9599b848ff1143f1",
+                    "WithUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$d4792cdf-765e-48df-98b8-97e49747ac9a",
+                      "m_Companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$b07f478e-a830-4b3f-9a0b-48eeebf6bc0d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_54be53f0b35bf3c4592a97ae335fe765",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Seelah_CouncilKTC",
+          "_entity_id": "f666c341-f2a7-4acb-bb86-40c7f5456a90",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$ba8152a9-cd25-4815-87bd-e977c27ff350",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Sosiel_CouncilKTC",
+          "_entity_id": "1af41a1a-bf34-4dfd-90a3-ab5c4817d3ed",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$6e812eb7-76a0-4d21-985c-9c0764eafd53",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_cb29621d99b902e4da6f5d232352fbda",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Lann_Wenduag_CouncilKTC",
+          "_entity_id": "5ff59239-cfce-4e15-85e2-f315570e46a3",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$c9c875cc-97df-4f51-9d4d-c638de327ff7",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Lann_Wenduag_CouncilKTC",
+          "_entity_id": "5ff59239-cfce-4e15-85e2-f315570e46a3",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$d402cfb3-1b1b-48b9-bf5a-ff870279ace4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_0d37024170b172346b3769df92a971f5",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Regill_CouncilKTC",
+          "_entity_id": "f57e0286-db4d-4ad8-8624-ea5e4c95d093",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$05e47fe7-c381-496b-b715-d337c26a41e0",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Daeran_CouncilKTC",
+          "_entity_id": "f1983af4-8e31-4e12-892c-0e95540622cf",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$3dd7517e-eca8-4d52-97d0-95ba5f509b85",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_397b090721c41044ea3220445300e1b8",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Cemellia_CouncilKTC",
+          "_entity_id": "53391cbc-b2b7-4ca8-a3d4-4edb4f8d7ff6",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$d071df9f-5f2c-497c-9b3a-554fd6997cd2",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Ember_CouncilKTC",
+          "_entity_id": "94461e7a-3cda-4ed4-8003-b30616acba3e",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      },
+      {
+        "$type": "17f9b9146d80ccc4ab1852112658570e, EtudeBracketSetCompanionPosition",
+        "m_Flags": 0,
+        "name": "$EtudeBracketSetCompanionPosition$e764b453-63c8-4599-a58a-6860c4c9cd1e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Companion": "!bp_42f0d5ec3dc844feb44b04507a7c1bfc",
+        "m_IgnoreWhenEx": true,
+        "m_Locator": {
+          "EntityNameInEditor": "Ulbrig_CouncilKTC",
+          "_entity_id": "976e26ca-e24d-48b4-b8da-19083c70ee79",
+          "SceneAssetGuid": "ce405686047a326428789b18e809cfa4"
+        }
+      }
+    ],
+    "Comment": "Военный совет вперед Дрезеном",
+    "m_Parent": "!bp_5144e0a0ebfde23448c319d53fdc6ea7",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_7a25c101fe6f7aa46b192db13373d03b",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_0dacbe04caa10b74baddef71b5902f40"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_d72e34f9356bab84f9ab9dd1c04fbc81",
+      "!bp_50feb4acf24662a488db5de8fc140116",
+      "!bp_c6d8fcd04c188fe448cb6c7785139677",
+      "!bp_97f93ca69139f394a9e97f7254517111",
+      "!bp_49616c3c080672748a0958fc447efd77",
+      "!bp_632348712249945419c68d84fae267cc",
+      "!bp_c4a6bf88f5ba5d14b918e94ce9856974",
+      "!bp_821c3dad41f62464ea31e257ebc2cb48",
+      "!bp_f35a24ba90abfa04496abd5a8c072d88",
+      "!bp_25d1001221e42344da6ddcaa28e0b67a",
+      "!bp_f92f88f0f96439a4dab76d08e1419f50",
+      "!bp_5e2de61084ec24e4c98df73a2728bd63",
+      "!bp_d309f62a74572404a9020d3be8184d2d",
+      "!bp_c1baaea83e5945d8810d9b8587dce648",
+      "!bp_eff294b4aac848b6af94ffc3928ce0c3"
+    ],
+    "Priority": 20
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "AssetId": "953d001457113a84cb9e22f62bca3d38",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "хил партии, снятие с каждого одного дебафа",
+    "ParentAsset": "d828024862e5d2144bdef79928eea4ae",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "f40da3fe595e435780ba1f1b01dee3a6, CheckFailed",
+          "name": "$CheckFailed$76260743-553d-44f5-8ab4-828a8776090d",
+          "Not": true,
+          "m_Check": "!bp_2f2523cb38588874c8720c8b46d2c043"
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "51b7aa68-0f95-4e33-901c-a5f124d82c2c",
+      "m_OwnerString": "953d001457113a84cb9e22f62bca3d38",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Grimbor/Q2_Ch4_QuestionOfReputation/BE_Manor/Cue_0270_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "c4bd35a6e76bcf848a4f1530926a8fee, HealParty",
+          "name": "$HealParty$53351868-fc12-4fa1-8733-896bba09af6a",
+          "HealSource": null
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$d350011b-5d24-4402-b0a9-c34ddba6f0c7",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$affacf63-5dd7-4d17-81db-9b5176192a08",
+                "Comment": "has poison",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                      "name": "$HasBuff$406ac4bb-0c59-48b2-bf0d-29aeea2c30f5",
+                      "Not": false,
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$16f4d913-4640-4abf-84fb-d935842f1234"
+                      },
+                      "m_Buff": "!bp_ba1ae42c58e228c4da28328ea6b4ae34"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                      "name": "$DetachBuff$1b2db41a-0da7-4946-92bd-eca5e264eb30",
+                      "m_Buff": "!bp_ba1ae42c58e228c4da28328ea6b4ae34",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$1277a542-7597-4c6d-b7c0-616977c2402c"
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$98a71e94-9133-414f-84d1-54e994ce8e0d",
+                      "Comment": "has fatigues",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                            "name": "$HasBuff$b59ddfe0-165a-4ddb-91d2-132917d3fee4",
+                            "Not": false,
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$d5c7f872-db35-40ce-8d95-5652a322d658"
+                            },
+                            "m_Buff": "!bp_e6f2fc5d73d88064583cb828801212f4"
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                            "name": "$DetachBuff$0f007a30-5542-4464-9b22-97ac6771d61a",
+                            "m_Buff": "!bp_e6f2fc5d73d88064583cb828801212f4",
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$c6634335-3fe6-40b2-964f-a9c8deb676ec"
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$5749ce3f-e229-4c2b-8453-89210b90b051",
+                            "Comment": "has DiseaseBubonicPlagueBuff",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                                  "name": "$HasBuff$0b38c7a1-bbea-4e3f-bb3a-3dbfb985de46",
+                                  "Not": false,
+                                  "Target": {
+                                    "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                    "name": "$PartyUnit$fe2b6ebe-4deb-487f-800c-84f7f0c16560"
+                                  },
+                                  "m_Buff": "!bp_103aac6bc1cfd454492cee1fd680db05"
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                                  "name": "$DetachBuff$b439d099-da20-43a3-9d99-89acbf5c6e0f",
+                                  "m_Buff": "!bp_103aac6bc1cfd454492cee1fd680db05",
+                                  "Target": {
+                                    "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                    "name": "$PartyUnit$c271be9e-3447-4a41-9119-5a72ba45c5c7"
+                                  }
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": [
+                                {
+                                  "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                                  "name": "$Conditional$010aae56-8efd-40be-992b-03b49bd69669",
+                                  "Comment": "has BurnFireBuff ",
+                                  "ConditionsChecker": {
+                                    "Operation": "And",
+                                    "Conditions": [
+                                      {
+                                        "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                                        "name": "$HasBuff$a5f5504c-48ae-46ee-8bde-faad013a3a10",
+                                        "Not": false,
+                                        "Target": {
+                                          "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                          "name": "$PartyUnit$328e1447-9d5c-45c7-93e6-e3043a413ab1"
+                                        },
+                                        "m_Buff": "!bp_55ed3454d637b074e829ae664452a412"
+                                      }
+                                    ]
+                                  },
+                                  "IfTrue": {
+                                    "Actions": [
+                                      {
+                                        "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                                        "name": "$DetachBuff$94f4a2fa-95f0-482d-828e-e4c3658d1971",
+                                        "m_Buff": "!bp_55ed3454d637b074e829ae664452a412",
+                                        "Target": {
+                                          "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                          "name": "$PartyUnit$0d890135-3d89-4617-8fea-0a4f7130ed07"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  "IfFalse": {
+                                    "Actions": []
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

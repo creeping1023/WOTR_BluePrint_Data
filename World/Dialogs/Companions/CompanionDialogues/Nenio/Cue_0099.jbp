@@ -1,0 +1,330 @@
+{
+  "AssetId": "35cbec7dd5acba046b6dd7d72f6b878f",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "анрекрутить лису\n\nпрофейлить ее квест (он может быть только на этапе 2 или 3 обже)",
+    "ParentAsset": "680a8827197257044afa02a5326a3b35",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "08b4535f-620b-4882-939c-63561a34b61d",
+      "m_OwnerString": "35cbec7dd5acba046b6dd7d72f6b878f",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionDialogues/Nenio/Cue_0099_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2915515b-fcee-46bd-9a12-f6d2f85d5cf4",
+          "Comment": "фейлим квест если он есть, 2 этап",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$369de007-d58d-4173-9b73-fac1b9b8309c",
+                "Not": false,
+                "m_QuestObjective": "!bp_f40469db3ed9e0d4d898630b0eab4008",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$c7271f95-f782-4712-ab83-217d1fdf6b31",
+                "Status": "Fail",
+                "m_Objective": "!bp_f40469db3ed9e0d4d898630b0eab4008",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$35d320d6-edc3-4d25-ad99-3e732b05133c",
+                "Status": "Fail",
+                "m_Objective": "!bp_742d817f61d92a643b80e9b1c2851a9e",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1d2d9385-6c61-4fe4-9c01-7ec846fd627e",
+          "Comment": "фейлим квест если он есть, 3 этап",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$6d12a4bd-32e0-4809-ae19-72f026ad46fc",
+                "Not": false,
+                "m_QuestObjective": "!bp_698d0de2b1f5c9140b3c14520b3674cd",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$c2e4257f-e56b-4412-985e-ea04f0c68a42",
+                "Status": "Fail",
+                "m_Objective": "!bp_698d0de2b1f5c9140b3c14520b3674cd",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$74041d87-6196-438b-be9d-3d119bb3a004",
+                "Status": "Fail",
+                "m_Objective": "!bp_742d817f61d92a643b80e9b1c2851a9e",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$cd26b70e-662f-4a69-8fc3-bf5f2d9ccbec",
+          "m_CompanionBlueprint": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+          "OnUnrecruit": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$852534b9-628d-4aee-8ddb-6f723a18a65c",
+          "Etude": "!bp_e9efc34083d087941bf9242388c258c3",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$943ebc4f-179a-47bc-b588-afea9444daee",
+          "Comment": "1 глава (Катсцена убегания)",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f219fa79-89eb-4dc7-8911-0591297be409",
+                "Not": false,
+                "m_Etude": "!bp_df17ab913c348644b9bd3fe3f9781a84",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$10c8778f-6c06-47d2-a162-8f9b5212bfc0",
+                "Target": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$785e9bee-5f8d-4a5d-a280-932a9a00b9d1",
+                  "Master": {
+                    "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                    "name": "$UnitFromSpawner$8799b55f-5102-4a56-aa1a-54c71b38f739",
+                    "Spawner": {
+                      "EntityNameInEditor": "Nenio",
+                      "_entity_id": "96de6229-4844-40b6-98b6-38bdd10a866d",
+                      "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                    }
+                  },
+                  "PetType": "AnimalCompanion"
+                },
+                "Unhide": false,
+                "Fade": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$a46bb9fb-7b2b-4198-9727-4919946e46eb",
+                "m_Cutscene": "!bp_65463a3de90a73a44dbba6b2e071c5cc",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$e16947d4-e95e-4837-809c-e6ef38abb188",
+                        "Spawner": {
+                          "EntityNameInEditor": "Nenio",
+                          "_entity_id": "96de6229-4844-40b6-98b6-38bdd10a866d",
+                          "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$4de67dc7-0780-41cd-9b21-330ceb0e65d9",
+                        "Locator": {
+                          "EntityNameInEditor": "HorgusGoAway",
+                          "_entity_id": "e9643b89-2ae8-4148-916e-b032dbc76f3e",
+                          "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c45e7c05-6da3-4693-9df6-a5db22ee6b38",
+          "Comment": "3 глава (Катсцена убегания)",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d1f8e632-6068-479f-87ff-84040c2eb89e",
+                "Not": false,
+                "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$386409f7-c098-4757-a7e1-1343e2d943a7",
+                "Target": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$9320909b-2e66-4c7b-8385-1a81a16fca83",
+                  "Master": {
+                    "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                    "name": "$UnitFromSpawner$4272ad62-0c3a-40f1-ba17-d2d86c38a3c0",
+                    "Spawner": {
+                      "EntityNameInEditor": "Nenio",
+                      "_entity_id": "96de6229-4844-40b6-98b6-38bdd10a866d",
+                      "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                    }
+                  },
+                  "PetType": "AnimalCompanion"
+                },
+                "Unhide": false,
+                "Fade": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$bf4ad39e-0d85-4846-b267-6827b5842c05",
+                "m_Cutscene": "!bp_65463a3de90a73a44dbba6b2e071c5cc",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$812b0ef7-d657-49b6-b5db-a6057dd96e67",
+                        "Spawner": {
+                          "EntityNameInEditor": "NenioDefaultPosition",
+                          "_entity_id": "a2f190bc-651b-46c5-9356-f73a14fb9d52",
+                          "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$dc69e46b-b076-4d46-8482-418829f53221",
+                        "Locator": {
+                          "EntityNameInEditor": "NeniorGoAway_Locator",
+                          "_entity_id": "820f15c0-00a9-42e7-97bb-524def284591",
+                          "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

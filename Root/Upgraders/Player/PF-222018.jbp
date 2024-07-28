@@ -1,0 +1,55 @@
+{
+  "AssetId": "c9d5dee61d1b4587b99da9caa3e238df",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c123dd75-c957-4b88-9770-79f1c51c9f72",
+          "Comment": "если этюд на вход закомпличен, стартовать его снова",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1bf58d5f-8f29-49b6-b79f-52326b6e23bf",
+                "Not": false,
+                "m_Etude": "!bp_0f2781bfa5ddd2f4aa9aa049e129f4b1",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$42d0bc39-ca94-4d8e-b5b7-095b94f1a255",
+                "Etude": "!bp_0f2781bfa5ddd2f4aa9aa049e129f4b1"
+              },
+              {
+                "$type": "546c217ec8c177f4cb25b4b4b6ca35e8, StartEtudeForced",
+                "name": "$StartEtudeForced$e80ff9ae-5b0c-4bd3-b1ec-4335d6e11cc3",
+                "Etude": "!bp_0f2781bfa5ddd2f4aa9aa049e129f4b1"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

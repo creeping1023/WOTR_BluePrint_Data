@@ -1,0 +1,91 @@
+{
+  "AssetId": "556303fa1fdd4d01ada5ffeb4bf790bb",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Баг с дубильщиками",
+    "m_SpecificArea": "!bp_3798d2cffc724eb79db3bfefe66fde2c",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c3aac9bb-5ca4-4347-bd4c-5ae154df5cff",
+          "Comment": "Проверяем живы ли дубильщики",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "61d393ff6aff61647a785e561f98ffc5, UnitFromSpawnerIsDead",
+                "name": "$UnitFromSpawnerIsDead$064bec76-e787-4654-b01e-39c3438e5c61",
+                "Not": false,
+                "Target": {
+                  "EntityNameInEditor": "ButcherGiant",
+                  "_entity_id": "a101bab1-6725-42ff-a67a-7a563bcceafc",
+                  "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                }
+              },
+              {
+                "$type": "61d393ff6aff61647a785e561f98ffc5, UnitFromSpawnerIsDead",
+                "name": "$UnitFromSpawnerIsDead$18f795f1-6921-43eb-931a-e27ac88127b7",
+                "Not": false,
+                "Target": {
+                  "EntityNameInEditor": "ButcherGiantGuardian",
+                  "_entity_id": "b90cfb10-c715-4d53-8bc2-a0a9e6dee234",
+                  "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$a9563c8f-f620-45e5-a17e-3dbdf5099b6b",
+                "m_flag": "!bp_6099ec4044ac425faa94ff6167633dbb",
+                "flagValue": 0
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$dcc5ef9c-3f65-4118-9b4b-04041588b86d",
+                "Comment": "Проверяем состояние квеста",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$751977ac-e2b1-483a-9a63-20b80609c03a",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_583350b170724ecb967328cfa2e92edc",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$e4e22353-817a-41cc-bd08-2c9c335bb959",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_583350b170724ecb967328cfa2e92edc",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

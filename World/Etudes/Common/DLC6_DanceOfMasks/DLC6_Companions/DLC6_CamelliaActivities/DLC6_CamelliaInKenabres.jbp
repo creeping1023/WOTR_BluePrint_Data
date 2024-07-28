@@ -1,0 +1,498 @@
+{
+  "AssetId": "f25c603080364a85857f0607d45396a0",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$771b4956-53a4-490a-942a-f8e755f2091e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$19434017-e9e5-4012-a749-bdce4309b71a",
+          "m_Companion": "!bp_397b090721c41044ea3220445300e1b8",
+          "IncludeRemote": true,
+          "IncludeExCompanions": false,
+          "IncludeDettached": false
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$87b1f573-dfe9-40bd-b48e-b9bcc89ba7bf",
+              "m_flag": "!bp_c0e40336da814953b8cbbded2ef1a34b",
+              "flagValue": 0
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$0127aa5b-98c1-43ea-be66-2a57be6f0b23",
+              "Comment": "Addendum is started",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$ef2ee3c4-a39b-4404-bf04-67ae0f041a7e",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_d6296dd91f7f4e7998f47ccfa244db84",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$a4cfba6e-89f6-43aa-87f6-4783e383169c",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_d6296dd91f7f4e7998f47ccfa244db84",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$40eb27a9-fdcf-405a-adab-bb49961e01f6",
+              "Comment": "Event is playing",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$cbdca07b-2221-47b8-a02e-4014ef3354a5",
+                    "Not": false,
+                    "m_Etude": "!bp_b1c8d21c171d4546ad481f7fc904f922",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$75fe6bef-a6bc-4610-97bb-f8dde120d1fb",
+                    "m_Cutscene": "!bp_7434ddf3c85e471f83fd0327e1f639b1",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "EventEtude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$03de6c8a-30f4-473c-9469-bddd4990ee1e",
+                            "m_Value": "!bp_b1c8d21c171d4546ad481f7fc904f922"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$efa17925-4a96-452c-a480-2d2373c535eb",
+              "Comment": "Quest is started",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$3c8ff562-862f-4884-902d-f5f653b4ba85",
+                    "Not": false,
+                    "m_Quest": "!bp_eaed396cf1e14e76a21daf77beb7f14e",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$8701ac6b-5b71-4834-9778-eb848b2bc6e1",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_c731f253100c4da181ed3f79ca114151",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "6083d09a91ef9b340ba326bff905e131, FadeoutCommand",
+              "name": "$FadeoutCommand$f0af2e7f-e669-44b5-8f95-0e6fe2dbc893",
+              "m_Time": 1.0,
+              "m_OverrideAnimTime": true,
+              "m_AnimTime": 1.0,
+              "m_InFadeActions": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$6c3f66e8-4031-45c8-8df9-d1aa7bfcbb46",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$e608558d-778a-4861-a52b-ceed27b87f1d",
+                      "MapObject": {
+                        "EntityNameInEditor": "GuardsWithStretcher",
+                        "_entity_id": "7417892f-87ba-4898-b262-01e9a800ccf4",
+                        "SceneAssetGuid": "39e6ab0a37fec9247b4b1e7bde899df3"
+                      }
+                    },
+                    "Unhide": true,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$03205728-52e7-45e6-808e-ee7c1eea8c41",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$b063fff4-42de-4455-9812-0742d4bd6811"
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$079e0419-87ec-4b07-a4c6-455e251331a8",
+                      "Locator": {
+                        "EntityNameInEditor": "Player_wounded_companion_pos",
+                        "_entity_id": "2dd18419-cc68-44ba-b366-08a53bee795f",
+                        "SceneAssetGuid": "39e6ab0a37fec9247b4b1e7bde899df3"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$bd4b67fb-44a3-4dd3-ae31-b6290b80cb4c",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Player_wounded_companion_pos",
+                        "_entity_id": "2dd18419-cc68-44ba-b366-08a53bee795f",
+                        "SceneAssetGuid": "39e6ab0a37fec9247b4b1e7bde899df3"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+                    "name": "$RaiseDead$1f2bca24-fef6-40a2-ac60-840e902dae71",
+                    "m_companion": "!bp_397b090721c41044ea3220445300e1b8",
+                    "riseAllCompanions": false,
+                    "activeAndRemote": false
+                  },
+                  {
+                    "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                    "name": "$ScriptZoneDeactivate$714bdb20-294c-4c8b-8f92-a59dcb966fe4",
+                    "UseEvaluator": false,
+                    "ScriptZone": {
+                      "EntityNameInEditor": "CamelliaSetsAmbush_SZ",
+                      "_entity_id": "07ff9a63-8925-4b88-9580-0f10ae4c5042",
+                      "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                    },
+                    "ScriptZoneEvaluator": null
+                  },
+                  {
+                    "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                    "name": "$ScriptZoneDeactivate$3153e8d9-09ea-4edd-afe6-e6060161823d",
+                    "UseEvaluator": false,
+                    "ScriptZone": {
+                      "EntityNameInEditor": "PlayerLeftCrimeScene_SZ",
+                      "_entity_id": "5003e6e2-ecb6-4c01-8feb-014cdec12c60",
+                      "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                    },
+                    "ScriptZoneEvaluator": null
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$6c1c5e4c-1992-4c9a-aed3-460d037a5bb3",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$c7b96fd4-3bdf-480e-ac46-8589b408d33e",
+                      "MapObject": {
+                        "EntityNameInEditor": "CamelliaCrimeScene",
+                        "_entity_id": "12f8b43f-965a-4338-956e-111bee1111f0",
+                        "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                      }
+                    },
+                    "Unhide": false,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$dac03344-735b-431d-8f45-d150e9872764",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$777e0c9e-6299-48fc-9971-148ffb4326da",
+                      "MapObject": {
+                        "EntityNameInEditor": "CorpseOnStretches",
+                        "_entity_id": "35ecdb65-1453-4b32-9709-87508535ada8",
+                        "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                      }
+                    },
+                    "Unhide": false,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                    "name": "$UnitsFromSpawnersInUnitGroup$f8492360-39eb-42f6-b957-d126cfaae6bd",
+                    "m_Group": {
+                      "EntityNameInEditor": "Cosplayers",
+                      "_entity_id": "8b7c3491-d5e7-4ede-9b57-ccae59b6439d",
+                      "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                          "name": "$DestroyUnit$3de1acdb-ce4c-42be-bbdc-7bb34245e7c3",
+                          "Target": {
+                            "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                            "name": "$UnitGroupUnit$8b6e1255-294c-4434-bb21-49d4b6004d40"
+                          },
+                          "FadeOut": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$9bcc07be-cc8c-477b-9604-2b931c719a4d",
+                    "Comment": "Unit exists",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                          "name": "$UnitIsNull$5fdce56b-f894-4125-9412-3c8e30c3b349",
+                          "Not": true,
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$37aca233-e260-4756-a04e-3c866b881f91",
+                            "Spawner": {
+                              "EntityNameInEditor": "CamelliaCrimeSceneGuard_1",
+                              "_entity_id": "3d73ef65-d45f-4082-a548-aaed9afcc841",
+                              "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                          "name": "$DestroyUnit$d71148fa-a487-45ef-be06-c6ff807ff68f",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$48644148-91f7-43e6-985e-44abfc19a4c6",
+                            "Spawner": {
+                              "EntityNameInEditor": "CamelliaCrimeSceneGuard_1",
+                              "_entity_id": "3d73ef65-d45f-4082-a548-aaed9afcc841",
+                              "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                            }
+                          },
+                          "FadeOut": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$6ad0d23d-4b84-42b7-99fb-db3aa13ed8df",
+                    "Comment": "Unit exists",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                          "name": "$UnitIsNull$abb0d0b3-e2c6-417d-bce4-5a22c124591a",
+                          "Not": true,
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$036b05c6-a89a-47aa-952e-446734c97985",
+                            "Spawner": {
+                              "EntityNameInEditor": "CamelliaCrimeSceneGuard_2",
+                              "_entity_id": "f8e6f90f-4f1c-4bf9-a834-a5f2f89eb0eb",
+                              "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                          "name": "$DestroyUnit$961e8f4d-20a1-4e31-aaa2-382c8177d2b2",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$fc1be2c8-7f52-43ab-bdfc-cbbe83a9c056",
+                            "Spawner": {
+                              "EntityNameInEditor": "CamelliaCrimeSceneGuard_2",
+                              "_entity_id": "f8e6f90f-4f1c-4bf9-a834-a5f2f89eb0eb",
+                              "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                            }
+                          },
+                          "FadeOut": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$a7bf8687-e6aa-4ab7-abb4-de4059638111",
+                    "Comment": "Unit exists and is alive",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                          "name": "$UnitIsNull$a62badb1-4bfc-4fbe-9fd5-2c127d98f448",
+                          "Not": true,
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$5b2e3924-fc4d-4418-a856-985ade682d7f",
+                            "Spawner": {
+                              "EntityNameInEditor": "CamelliaKiller",
+                              "_entity_id": "b845bd85-8cf9-4793-b272-9e4bef819c96",
+                              "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                            }
+                          }
+                        },
+                        {
+                          "$type": "61d393ff6aff61647a785e561f98ffc5, UnitFromSpawnerIsDead",
+                          "name": "$UnitFromSpawnerIsDead$afbe018a-208d-48bb-8e91-1235a6320425",
+                          "Not": true,
+                          "Target": {
+                            "EntityNameInEditor": "CamelliaKiller",
+                            "_entity_id": "b845bd85-8cf9-4793-b272-9e4bef819c96",
+                            "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                          "name": "$DestroyUnit$da9427c6-edba-4c65-b278-cce9515fc037",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$8b9382c7-308d-48e6-8da6-0ef93dfa39ab",
+                            "Spawner": {
+                              "EntityNameInEditor": "CamelliaKiller",
+                              "_entity_id": "b845bd85-8cf9-4793-b272-9e4bef819c96",
+                              "SceneAssetGuid": "ef0c9be9ba35ed649b7a7fc31276b684"
+                            }
+                          },
+                          "FadeOut": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$07783c82-0c00-4e91-b379-c3122dba6042",
+              "m_Cutscene": "!bp_091dcd18e8c943d18afe9fc9d4dd82cf",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$707932d9-0b1a-486b-9c66-f0a270af113f",
+                      "m_Companion": "!bp_397b090721c41044ea3220445300e1b8",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$6a0d81d4-0bf9-44b5-979b-1b6cec449e9b",
+                      "m_Value": "!bp_85a7fdf68a2441f28aee6190c3beed1d"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_c77408a3181a4e96b9c485a76e5f51e5",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_8faa6a4a12bd42da92e5c46287824ec5",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_01ab47ea3e30442c8666a1d52e70ca5f"
+    ],
+    "m_StartsWith": [
+      "!bp_b1c8d21c171d4546ad481f7fc904f922",
+      "!bp_b75a1ef46e2f4e28b9991911183f6f7c"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

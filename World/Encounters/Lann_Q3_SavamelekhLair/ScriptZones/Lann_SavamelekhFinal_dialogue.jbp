@@ -1,0 +1,213 @@
+{
+  "AssetId": "73f983ea3b85ccf47a589ca4258d00d5",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+          "name": "$ScriptZoneDeactivate$f8b0b72d-4f5f-4464-8ab3-f7ce4baa9a53",
+          "ScriptZone": {
+            "EntityNameInEditor": "Lann_SavamelekhFinal_dialogue",
+            "_entity_id": "7e1f330c-7300-46a1-935c-583f952e4131",
+            "SceneAssetGuid": "101e8d47c0bb412419eca54118ade932"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$605f91c5-40f1-4ea0-b81b-7b934bd06ff4",
+          "Comment": "квест Ланна",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$5602844b-ea73-43f8-8676-3afcfbe45b2e",
+                "Not": true,
+                "m_Quest": "!bp_df19bef39c8aa6a4b9dcaf40450b94dc",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$44960b54-4ab1-4e40-8cb7-4bfb44061b95",
+                "Comment": "доверяем Ланну или нет",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$60db8f6b-b692-4f99-862a-0d4a78f680be",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_c885b1c80275e8c4e96e4dfc9908808b",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$4ef51bb7-e88b-4c6a-b2b0-6c99d8af9c4f",
+                      "Comment": "Романс или LannLovesMama  + LannLovesMongrels",
+                      "ConditionsChecker": {
+                        "Operation": "Or",
+                        "Conditions": [
+                          {
+                            "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                            "name": "$OrAndLogic$82e668ff-c6dc-4943-80ff-2ca4ac483c1f",
+                            "Not": false,
+                            "Comment": "",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                  "name": "$EtudeStatus$b02817ee-ced0-42ae-a3d8-566b9596dd91",
+                                  "Not": false,
+                                  "m_Etude": "!bp_94d9b1d3a56829640ab649f65fe5c893",
+                                  "NotStarted": false,
+                                  "Started": false,
+                                  "Playing": true,
+                                  "CompletionInProgress": false,
+                                  "Completed": false
+                                },
+                                {
+                                  "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                  "name": "$EtudeStatus$17926290-8e98-489a-b1e2-c432815be55c",
+                                  "Not": false,
+                                  "m_Etude": "!bp_30d30b2160efd0d40a787a72dedddf41",
+                                  "NotStarted": false,
+                                  "Started": false,
+                                  "Playing": true,
+                                  "CompletionInProgress": false,
+                                  "Completed": false
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$c6c1777c-07ba-4550-8342-16a7cde56f0a",
+                            "Not": false,
+                            "m_Etude": "!bp_af394a43ba7c1314bb31aea74a5e4c0e",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$7b33eb91-98d3-4934-a433-0406cbfce3cf",
+                            "m_Cutscene": "!bp_ccd9444403ad6894eb95e518bdd91665",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": []
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$c3aa4bc7-9f6c-4081-bb26-d78427ac3a2e",
+                            "m_Cutscene": "!bp_ccd9444403ad6894eb95e518bdd91665",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": []
+                            }
+                          },
+                          {
+                            "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                            "name": "$UnlockFlag$1e9ffc0e-097d-404a-bcd8-8efdde89f693",
+                            "m_flag": "!bp_b2136061085c410489fe762cdcbcabd2",
+                            "flagValue": 1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$f3da9655-7805-4553-97ee-76bd8b2b429a",
+                      "m_Cutscene": "!bp_b7fef8e365e632a47931e30e665eb179",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$364c83c3-1aed-4de6-9f59-3812452b5bf9",
+          "Comment": "квест Венду",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$6d5b1ebf-0142-4c30-b265-5a627a8adfbb",
+                "Not": true,
+                "m_Quest": "!bp_5ba83bd1a6b1c884794fbb4858480e7f",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$12a3c049-7feb-4f28-8ea5-ae7d51bab85d",
+                "m_Cutscene": "!bp_b7fef8e365e632a47931e30e665eb179",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "AssetId": "d7c9978eec6c4235b328d54a7407f5b5",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Goblin boss is dead but the dialogue hasn't started",
+    "m_SpecificArea": "!bp_5b25aa352cf34d3ca5e5e598ec88b908",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$211ffe28-e240-4e12-bbb1-4d020d9d2b7e",
+          "Comment": "Goblin boss is dead but the dialogue hasn't started",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "61d393ff6aff61647a785e561f98ffc5, UnitFromSpawnerIsDead",
+                "name": "$UnitFromSpawnerIsDead$0be1225c-f38b-4188-8edd-f4e059a977e2",
+                "Not": false,
+                "Target": {
+                  "EntityNameInEditor": "GoblinBoss",
+                  "_entity_id": "ddeebc4a-dcca-4af0-903b-6596d5c7adbf",
+                  "SceneAssetGuid": "e4a68b2e9b147f4428f015811d2629ae"
+                }
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$de5bd6e5-ab3c-41b6-a135-74f8288af5ad",
+                "Not": true,
+                "m_Dialog": "!bp_a078b2708fba466196bf2e03ca295fce"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$26a5a485-cecf-4027-a1b9-b410e12c54af",
+                "m_SummonPool": "!bp_b2fe4157fe91409bae91e0389e2530cb",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d47f198683f34b0f8e13012d2a635017, UnitIsHidden",
+                      "name": "$UnitIsHidden$7581b2a4-ee50-4e58-b93e-c5e1ae62bc12",
+                      "Not": false,
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$971e08c7-4152-4500-b140-3cc79b0abc26"
+                      }
+                    }
+                  ]
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "34705b1b862f3334aa6499153fbefaf4, DeleteUnitFromSummonPool",
+                      "name": "$DeleteUnitFromSummonPool$2f35eb83-428d-4903-9e14-695bd1240f89",
+                      "m_SummonPool": "!bp_b2fe4157fe91409bae91e0389e2530cb",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$8f3f95d0-608d-45ca-b6ea-cdf3a8c61072"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$5ea72cd1-9013-4965-b2c3-2feb9bce6709",
+                "Comment": "Party is on the roof",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "3fc1a5c092d010144a97f0c119b23864, UnitIsInAreaPart",
+                      "name": "$UnitIsInAreaPart$34d4b160-4e7c-45cc-9b94-989622042ac8",
+                      "Not": false,
+                      "m_AreaPart": "!bp_4b2b22af1019423381da2c8d5f5c8325",
+                      "Unit": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$c9c21137-29b7-497f-a6ee-422abe9a35df"
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$df2f450c-f032-49fb-96d5-615ec9dd4a20",
+                      "m_Cutscene": "!bp_b8ebd7ad719b439faa7257534b09a229",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$2b63ba9a-f5be-4e67-aa91-925b0206d710",
+                      "m_exitPositon": "!bp_fe885f50671241a2bcc77b1bb6f8fec9",
+                      "AutoSaveMode": "None",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": [
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$c235dd3a-18ff-42b3-9718-a1c97c851da2",
+                            "m_Cutscene": "!bp_b8ebd7ad719b439faa7257534b09a229",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": []
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

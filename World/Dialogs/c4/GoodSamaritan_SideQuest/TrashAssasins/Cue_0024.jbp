@@ -1,0 +1,112 @@
+{
+  "AssetId": "b4c158579d08d6e478a1d6a276515cd8",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "раненый демон убирается\nИли, если обошлись, без драки, убирается вся банда",
+    "ParentAsset": "3e1038d4d59b3484eab13b069f23a869",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "69ed34ec-70ae-47bb-b129-2fe5203282c3",
+      "m_OwnerString": "b4c158579d08d6e478a1d6a276515cd8",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/GoodSamaritan_SideQuest/TrashAssasins/Cue_0024_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a7f1c02c-51d5-40c5-accc-19c04d78fe34",
+          "Comment": "exp if no fight",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$166c79ac-f1f7-4fc3-b9d1-afdb0cf8eadc",
+                "Not": false,
+                "m_Cue": "!bp_917afca1605942e46862c00db75f9398",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$0dcfda50-c655-4c5e-a12c-c7cb298146e2",
+                "Not": false,
+                "m_Cue": "!bp_2eddcf58ba8675647b01710884a5b575",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$193a195d-bc47-407d-9ace-68ce49293455",
+                "Encounter": "Mob",
+                "CR": 23,
+                "Modifier": 0.9,
+                "Count": null,
+                "Dummy": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$6741b52c-8cdc-41c2-9f21-b55ef171c6c3",
+          "m_Cutscene": "!bp_bb157d8c04716df4eb1263a0f750c664",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_c1fc7d57a317ebe4da02d4be2344db69"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

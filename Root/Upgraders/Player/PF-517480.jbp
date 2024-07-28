@@ -1,0 +1,87 @@
+{
+  "AssetId": "626abff1db58440d9a4838b04978c690",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Скрываает Афву на улице и спаунит по новой Айву в тронном зале. Так как спаеныр уже немного поломались. Анхайд не помогал.",
+    "m_SpecificArea": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$13e8c1bf-563e-4d93-b47c-9f64dae55728",
+          "Comment": "Игрок Азата и коронация уже прошла",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$276a3578-b41d-4431-b61d-2fa3d3f27ecb",
+                "Not": false,
+                "m_Etude": "!bp_a30fa65c287ebb8418736a544797b7f4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ae2e8b92-dcfe-4eca-abba-c9b0c7dc1b4a",
+                "Not": false,
+                "m_Etude": "!bp_d3b47e973d65c6c46af1cce815d1f6ce",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$588c94f9-d393-4e20-bac4-ba4f3f26f658",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$4a612407-1350-4698-8180-95bad2936b74",
+                  "Spawner": {
+                    "EntityNameInEditor": "AzataDragon_Coronation",
+                    "_entity_id": "2f5801d8-770a-4cdf-bed5-9d731f63897f",
+                    "SceneAssetGuid": "828e4d2ac7dffa9429c4d6721e7728c2"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false,
+                "SetHideInSaves": false
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$b81f99c5-1e1d-493a-8de7-1be76ff36383",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "AzataDragon_ThroneRoom",
+                    "_entity_id": "5f0e977b-e342-4a4d-a52c-0beced8ffc87",
+                    "SceneAssetGuid": "828e4d2ac7dffa9429c4d6721e7728c2"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                },
+                "RespawnIfDead": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,783 @@
+{
+  "AssetId": "bfdb7a140dcf4cd45a4c2f918084ea82",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$8ffc0f15-e5f5-47ec-90bc-ed5a182ef854",
+      "$EvaluatedUnitCombatTrigger$d1d8768e-074b-4b26-bdcc-439d644ea7a4",
+      "$EvaluatedUnitCombatTrigger$ca1f7f2f-b184-4775-8eec-61f3abc79664",
+      "$EvaluatedUnitCombatTrigger$c0be18fc-8f4e-433a-be55-341a7c0ba9bb",
+      "$SummonPoolTrigger$490970e9-1183-483c-8eea-c7793137367c",
+      "$SummonPoolTrigger$9f9e7acd-bd90-4aad-bb24-c07c2482c0a6"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$8ffc0f15-e5f5-47ec-90bc-ed5a182ef854",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "где спавнить Кьядо\nотключать интеракт с Алтаря\n! открывать дверку в крипт\nспавним Занедру в крипте если небыло реинфорсов Лича и Ангела (или трупы аддов)",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d38de41d-a4fb-4db7-891e-f0ce7d5c3568",
+              "Comment": "не юзали реинфорс Ангела",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$9b1876ce-3eb3-4ed2-a094-248f80014c4e",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_11f3537509219444483b22f3eb152d1e",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$e06a65d4-9adf-4cc8-befc-397dba860f82",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$be866a3e-542f-4fe9-a34a-c5dedf44dd07",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Kyado_AfterCrying",
+                        "_entity_id": "0af837b8-8fe2-446a-b453-1f1040c9dcbf",
+                        "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$24c4eedb-30fc-4905-9020-1dc7bff137d2",
+              "Comment": "трупы в крипте, если выбирал реинфорс Ангела / или спавн Занеды",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$ec4235f8-f714-40ad-8260-c07e39b9c5b1",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_11f3537509219444483b22f3eb152d1e",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$547005e9-07df-4752-a379-decc3359496c",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$82340e46-a487-4cdd-a344-b2e849aa6611",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$b4f33e23-b3e0-40e0-8001-3ac52707af81",
+                      "MapObject": {
+                        "EntityNameInEditor": "Demon1DeadBark",
+                        "_entity_id": "c24e6e9e-f22b-4174-a1fe-2ade739187b4",
+                        "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$b38d3c85-229e-42fd-8942-e05ed0ba8f68",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$90ece666-1945-481c-80e3-f88cdfe33211",
+                      "MapObject": {
+                        "EntityNameInEditor": "Demon2DeadBark",
+                        "_entity_id": "2134cf88-ebea-4446-a203-7c065b6eb87e",
+                        "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                      }
+                    },
+                    "Unhide": true
+                  },
+                  {
+                    "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                    "name": "$SwitchInteraction$c53f3962-07b0-47f4-8a62-05be33a50184",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$1524994d-363e-420d-afeb-ff09dcb25a98",
+                      "MapObject": {
+                        "EntityNameInEditor": "Sarcophagus",
+                        "_entity_id": "4576ac76-8c7f-4b37-af54-027f6a28fc13",
+                        "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                      }
+                    },
+                    "EnableIfAlreadyDisabled": false,
+                    "DisableIfAlreadyEnabled": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$ebc9851b-af00-4019-a17e-fee87fd65273",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Zanedra",
+                        "_entity_id": "c59e1449-fe42-485f-bd50-1f9b6842237d",
+                        "SceneAssetGuid": "d4ab36610de02294abd1b38782d583ea"
+                      },
+                      {
+                        "EntityNameInEditor": "DemonAdd01",
+                        "_entity_id": "21408da2-5d5f-4f6f-8a32-90555e30d6ca",
+                        "SceneAssetGuid": "d4ab36610de02294abd1b38782d583ea"
+                      },
+                      {
+                        "EntityNameInEditor": "DemonAdd02",
+                        "_entity_id": "5636f968-973e-45f7-9dff-8ab5012b458b",
+                        "SceneAssetGuid": "d4ab36610de02294abd1b38782d583ea"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$fdd8b0af-71a9-4caf-8037-db219597793e",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$5e4fd57b-792a-450b-bf68-70dd4a5527e3",
+                "MapObject": {
+                  "EntityNameInEditor": "Altar",
+                  "_entity_id": "a832d9d6-a5e6-4109-b945-688ccabeac0d",
+                  "SceneAssetGuid": "8d20ccf3de968ec45b1183fae2531782"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$fe085ed9-0e30-4ca4-98fb-736a1069a800",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$1c60b3ab-741a-4003-a34e-a9a1706379b9",
+                "MapObject": {
+                  "EntityNameInEditor": "2Crypt",
+                  "_entity_id": "685c99d8-d003-4bec-8d71-1efbee84f09c",
+                  "SceneAssetGuid": "8d20ccf3de968ec45b1183fae2531782"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$3cba3f87-2121-4402-91ea-fe500ecbd183",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$6e5e74b1-c448-42f6-a7e6-cb88604a49f1",
+                "MapObject": {
+                  "EntityNameInEditor": "SarkorisFloorSecretPlate",
+                  "_entity_id": "6abcd283-2223-421a-96cf-93cce3f3c73c",
+                  "SceneAssetGuid": "fbe532a4255c833499f7201acb847e58"
+                }
+              },
+              "UnlockIfLocked": true,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f4bfb683-9833-4e6c-930a-438a2519032d",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$3a4dc605-e870-499c-9e25-86898867c8ba",
+                "MapObject": {
+                  "EntityNameInEditor": "DoorNavmeshCut",
+                  "_entity_id": "a12941ad-78f0-4380-b94b-5ef9e4d0246e",
+                  "SceneAssetGuid": "fbe532a4255c833499f7201acb847e58"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$d1d8768e-074b-4b26-bdcc-439d644ea7a4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "барк культистов 1",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$ccf61972-f111-44a2-b841-a9bb56101035",
+          "Spawner": {
+            "EntityNameInEditor": "CR6_Cultist_Baphomet_MeleeCaster_wBark",
+            "_entity_id": "d33742b5-3bec-451d-993c-1ff4c44c5e07",
+            "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2458af40-c15a-4503-831a-8e697143266e",
+              "Comment": "барки Кьядо",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$0d460074-b813-497f-a898-f0a7e92bda5e",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_38e30de9e1057aa4ba7038ffc807734d",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$83513121-801c-40c0-bbe1-7d35df8d9e00",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$c1fe6d83-fc93-4d50-b8a1-3e025043f726",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "fe3ecb5e2b986574cadc49acd18f0839",
+                        "stringkey": "3416ce0d-3e6e-4c52-866c-67d9517fd9ec"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": true,
+                    "TargetUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$1701eb5b-e579-41fc-9bd3-d407e4bb46c4",
+                      "Spawner": {
+                        "EntityNameInEditor": "Kyado_AfterCrying",
+                        "_entity_id": "0af837b8-8fe2-446a-b453-1f1040c9dcbf",
+                        "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+                      }
+                    },
+                    "TargetMapObject": null
+                  },
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$affe0187-1ef1-46a9-8a37-5ea7a7cc20d2",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "fac0a56492a2f2345bbe21df60577912",
+                        "stringkey": "d3996115-4f59-4e59-93b2-3b8b290836d5"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": true,
+                    "TargetUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$4b185e98-9487-4bf7-8e0d-419e32b82c0b",
+                      "Spawner": {
+                        "EntityNameInEditor": "CR6_Cultist_Baphomet_MeleeCaster_wBark",
+                        "_entity_id": "d33742b5-3bec-451d-993c-1ff4c44c5e07",
+                        "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+                      }
+                    },
+                    "TargetMapObject": null
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$115d2004-d295-4a93-80bb-636abb6c12ea",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "36fa27d35de26a84e8e85c226eac8298",
+                        "stringkey": "9eec01d0-0393-4129-b339-37de9beaca68"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": true,
+                    "TargetUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$685d0438-f1a9-47aa-a08c-6a1581e903ab",
+                      "Spawner": {
+                        "EntityNameInEditor": "CR6_Cultist_Baphomet_MeleeCaster_wBark",
+                        "_entity_id": "d33742b5-3bec-451d-993c-1ff4c44c5e07",
+                        "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+                      }
+                    },
+                    "TargetMapObject": null
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$ca1f7f2f-b184-4775-8eec-61f3abc79664",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "барк культистов 2",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$04a25189-f2fb-4aa4-b3f7-9683d76a100a",
+          "Spawner": {
+            "EntityNameInEditor": "CR8_Cultist_Baphomet_MeleeCaster_wBark",
+            "_entity_id": "bb55bb43-33fd-4809-aa68-f52451e4a6be",
+            "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$dcec9b91-e3ca-490e-9b63-ed5a29ec7cfc",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "c8aed6e9d6a1e864f89274cccf212ce2",
+                  "stringkey": "229b3987-c2c3-4765-b3c7-1efd64d18df1"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": true,
+              "TargetUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$3e701854-5e11-4984-a5be-b64cd4a101a2",
+                "Spawner": {
+                  "EntityNameInEditor": "CR8_Cultist_Baphomet_MeleeCaster_wBark",
+                  "_entity_id": "bb55bb43-33fd-4809-aa68-f52451e4a6be",
+                  "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+                }
+              },
+              "TargetMapObject": null
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7b6846a3-73fc-4dc0-9cbe-a3ecf2b4a987",
+              "Comment": "барки Кьядо",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$efc81a12-95a5-4ef8-8bd1-4f68c12414f6",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_38e30de9e1057aa4ba7038ffc807734d",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$f0635a05-a757-49ae-b56b-b42ebc897a96",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$629e2a3b-1769-4aa1-ad1b-b44ca3fe649a",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "fe3ecb5e2b986574cadc49acd18f0839",
+                        "stringkey": "3416ce0d-3e6e-4c52-866c-67d9517fd9ec"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": true,
+                    "TargetUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$812d2e54-9735-42be-80fd-52968ea6bd65",
+                      "Spawner": {
+                        "EntityNameInEditor": "Kyado_AfterCrying",
+                        "_entity_id": "0af837b8-8fe2-446a-b453-1f1040c9dcbf",
+                        "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+                      }
+                    },
+                    "TargetMapObject": null
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$c0be18fc-8f4e-433a-be55-341a7c0ba9bb",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "барк культистов 3",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$d6f623bb-aa7b-4bb8-83ec-6d8c00663df0",
+          "Spawner": {
+            "EntityNameInEditor": "CR10_AbrikandiluSunderer_Melee1_wBark",
+            "_entity_id": "e9b6ee65-9451-4c42-ad6f-031fe3b2fe18",
+            "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$63706283-cadf-41f1-8648-1a7ce919f0ff",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "e30f791fd69bf974c942673d042d7ea7",
+                  "stringkey": "304bb4ed-7157-41e5-9248-2b28277db4f3"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": true,
+              "TargetUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$dfde1d96-541d-4568-8121-44e3da62c0a7",
+                "Spawner": {
+                  "EntityNameInEditor": "CR10_AbrikandiluSunderer_Melee1_wBark",
+                  "_entity_id": "e9b6ee65-9451-4c42-ad6f-031fe3b2fe18",
+                  "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+                }
+              },
+              "TargetMapObject": null
+            },
+            {
+              "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+              "name": "$ShowBark$5b1b8a8d-f522-4f98-a30b-0398639103d2",
+              "WhatToBark": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "fe3ecb5e2b986574cadc49acd18f0839",
+                  "stringkey": "3416ce0d-3e6e-4c52-866c-67d9517fd9ec"
+                }
+              },
+              "WhatToBarkShared": null,
+              "BarkDurationByText": true,
+              "TargetUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$6667e449-aad2-47e7-b7f1-930d70d2977e",
+                "Spawner": {
+                  "EntityNameInEditor": "Kyado_AfterCrying",
+                  "_entity_id": "0af837b8-8fe2-446a-b453-1f1040c9dcbf",
+                  "SceneAssetGuid": "47ce13f55cf158c47aa0adee2750302e"
+                }
+              },
+              "TargetMapObject": null
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$490970e9-1183-483c-8eea-c7793137367c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "бой с Занедрой закончился",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_4db73e881d9603140bd20c2436fe450c",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$4ee7d2c0-6312-42ba-8687-1e22e3679264",
+              "m_SummonPool": "!bp_21189b2c6c651894cb94941420031d0d",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$5d834e44-a764-41f7-b520-e51053ebdec3",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$9115a02a-2288-4520-a647-4b575db1ffb8",
+                    "m_Cutscene": "!bp_ad7a8b535943ea6488d6d63a698fe5a3",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$891fe753-3771-42bd-a389-2b5ab42f2794",
+              "m_flag": "!bp_d2b8c3609b202124fb39a364e20ae76b",
+              "flagValue": 1
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e67e16f1-4fdb-4e5e-94bc-f974c38e54bc",
+              "Comment": "если есть квест Zanedra Escape",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$4bafe1cd-f489-4c12-b076-8684c56a8091",
+                    "Not": false,
+                    "m_Quest": "!bp_62689e32325839e40b9ee3fc6a110f10",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$cecaf278-86f0-4b90-af56-e5771057b9cb",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_22ced87618f7c6445ba5028d88408312",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$5c99a4bc-22ad-4b05-a4fa-904337ac04b9",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_32ec81725a1f42e468d419f795e1b01c",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$9f9e7acd-bd90-4aad-bb24-c07c2482c0a6",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "смерть Кьядо",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_21189b2c6c651894cb94941420031d0d",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+              "name": "$FlagUnlocked$1fb065bd-158c-4e1b-8791-cd07b4ea4260",
+              "Not": true,
+              "m_ConditionFlag": "!bp_38e30de9e1057aa4ba7038ffc807734d",
+              "ExceptSpecifiedValues": false,
+              "SpecifiedValues": []
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$4178494d-4e7b-4364-ab73-c19ac3965331",
+              "m_flag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+              "flagValue": 1
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$84901c31-3f46-4f4e-aaa3-9b58324f2b0e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "завершить альтернативный этюд",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$32bb1b21-b2e8-4d6e-80f2-5e60438190b0",
+              "Not": false,
+              "m_QuestObjective": "!bp_22ced87618f7c6445ba5028d88408312",
+              "State": "Started"
+            },
+            {
+              "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+              "name": "$FlagUnlocked$c6c70992-a4ea-4632-bb1a-0887329d6a25",
+              "Not": true,
+              "m_ConditionFlag": "!bp_623c506062c8bad4090adfe619fa0b27",
+              "ExceptSpecifiedValues": false,
+              "SpecifiedValues": []
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$a3368193-4245-4d20-9e88-f664cb28d965",
+              "Etude": "!bp_88c2fcef4b22b5547902ca50fa16bbce",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "TempleOfDelamereAfter и TempleOfDelamereAfterLichReinforced - взаимоисключающие, должны стартовать после Санктума в зависимости от того есть флаг DelamereLeftInTomb или нет",
+    "m_Parent": "!bp_af2d7c4c43c248e4e9f2a4b7b263f7c9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$f6d90aa8-0f6e-4284-bb85-5003f1f93e9f",
+          "Not": true,
+          "m_ConditionFlag": "!bp_623c506062c8bad4090adfe619fa0b27",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_bb6d82794aae9d94d9cc94d1a05e5f20",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_950bf501da421b846be77d9907015e3e",
+      "!bp_5f30a5512dd822e4e824276a69eb6bb7",
+      "!bp_2bf25d0d3086d18419a12831441f5227"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

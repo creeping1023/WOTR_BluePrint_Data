@@ -1,0 +1,68 @@
+{
+  "AssetId": "ec18e1329d7d457d8d49c85a4f600c64",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Фейлит квест \"A Refuge from the Present\" если тот начался если игрок не был в Mineshaft14",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$13ca40de-931b-4213-85b5-732f4fc4d8c8",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "21eaf44b8e5b8004f8ec912dc94b92bf, AreaVisited",
+                "name": "$AreaVisited$92479745-27d5-4f8e-9664-bd920abad0e3",
+                "Not": true,
+                "m_Area": "!bp_670387c5cdf6c7e4889f69502a36ff1a"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$0b821a06-7eb7-461d-9549-4321a095b911",
+                "Not": false,
+                "m_QuestObjective": "!bp_6a5ada4bf0010d84fad1dab2fe73eb2a",
+                "State": "Started"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$432cce43-ad60-46b2-9858-8bf729ed2a2c",
+                "Not": false,
+                "m_Quest": "!bp_c8d40d04e462a594f90e26a465f394af",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$343c7a9a-d430-4a25-b867-fdc9411aa4c8",
+                "Status": "Fail",
+                "m_Objective": "!bp_6a5ada4bf0010d84fad1dab2fe73eb2a",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$d39c1009-c67d-4c50-a02d-d8485eb5fde9",
+                "Status": "Fail",
+                "m_Objective": "!bp_f7e80d6f05108a04c8c8c67ddf76adb0",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

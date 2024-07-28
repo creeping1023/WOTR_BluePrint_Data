@@ -1,0 +1,214 @@
+{
+  "AssetId": "bbf332c93f8f4f85b5a861c802fed2e0",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "ИНТЕГРАЦИЯ\n\nКатсцена с вплывающим кораблем. Кормций перемещается на корабль.\n\nдаем квест тир1",
+    "ParentAsset": "00d679b5ce5d4c049e17cd363d5b25ba",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "7929a6c98c8f0df45bb6b4c37ac1e6aa, IsCampaign",
+          "name": "$IsCampaign$5e503913-3219-4f22-9201-b86894235d22",
+          "Not": false,
+          "m_BlueprintCampaign": "!bp_fd2e11ebb8a14d6599450fc27f03486a"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$2084c838-bf2b-4fdc-b3f5-a9ce7da84f63",
+          "Not": false,
+          "m_Etude": "!bp_b5779a222f98475b87ffb13337cdffda",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "7edc8869ea7e5304696e3a070781c614",
+        "stringkey": "007ad9e8-5ae6-4bc9-bdf9-abc9b08112ed"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_b13fa6c6d2b54d86875eb1e853455e98",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6f192184-2d70-4260-bc03-43c7828ccd71",
+          "Comment": "Мы в 3 главе",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$00c31546-0090-4c0a-aa47-cf54644f1f52",
+                "Not": false,
+                "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$6cf229d7-7912-4b19-8fee-e4a8bd6ea70b",
+                "Status": "Complete",
+                "m_Objective": "!bp_59f00719f62246e98effd6c0cf1095ae",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$071e1929-509b-4768-8354-42bb8657940f",
+                "Comment": "Мы в 5 главе",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$1d477ae1-ed53-4f35-86b4-956e9be293bc",
+                      "Not": false,
+                      "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$4fc478b2-360d-4bbb-9176-313336398456",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_9dddc4ab45ad4e0aa1565089bae27b8a",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$163fcfc5-e952-4e9c-9f53-0c1b16bc1824",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_7b6a7c76f26b493c9cd0acac48c92d81",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8c036cce-f64e-4ce5-ac1f-855ccdcbf227",
+          "Comment": "первый тир не стартован",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4e1c703c-11c6-464e-bd7b-24ed2a51a344",
+                "Not": false,
+                "m_Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$68d153cb-1945-4c3b-a9ad-89faed4ed716",
+                "Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$33e513f6-1444-4016-8dbb-b9dd0f08f94d",
+                "m_Objective": "!bp_b389236e664e41b48a69b8e907fbd634"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$0b52d7f3-504c-47e7-a61c-572a0f85a307",
+          "m_exitPositon": "!bp_8f6337157f97448c85e6ebb9aca02631",
+          "AutoSaveMode": "AfterEntry",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

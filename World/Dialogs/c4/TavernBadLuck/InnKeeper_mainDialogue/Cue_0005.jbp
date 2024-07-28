@@ -1,0 +1,102 @@
+{
+  "AssetId": "24a5d563a936bc246b3b0f092d7bb5cd",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "демон открывает стоящий рядом сундук с итемами",
+    "ParentAsset": "08545384e196b6f42899b2bc563a3baf",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "cd6b8f2f-bca8-4bf2-bdec-6f8a67b619f5",
+      "m_OwnerString": "24a5d563a936bc246b3b0f092d7bb5cd",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/TavernBadLuck/InnKeeper_mainDialogue/Cue_0005_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$58a2bbd9-7ba6-4c9a-913a-a93a9f849549",
+          "Comment": "если видели куй 64 - запуск вендора",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$3074b329-d294-409e-ab95-618d19865ea0",
+                "Not": false,
+                "m_Etude": "!bp_d791ec97d11c8be4fa56ed27cdf21ba9",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "63f4331f2b9d14b4cbdca44a66b1bd43, StartTrade",
+                "name": "$StartTrade$1217f32d-c783-433b-a00d-1cb7d2c9b098",
+                "Vendor": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$9597745d-1ba0-4270-9d32-e317de4b8861",
+                  "Spawner": {
+                    "EntityNameInEditor": "Innkeeper",
+                    "_entity_id": "65559450-626a-4a09-91d2-7f0c2e18ea55",
+                    "SceneAssetGuid": "bab944a97e5a05a43bfadcb44961434d"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_0dd0757516d02944698dd29c3daa9a01"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

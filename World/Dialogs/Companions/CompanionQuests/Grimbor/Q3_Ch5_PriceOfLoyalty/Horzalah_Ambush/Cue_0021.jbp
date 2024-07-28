@@ -1,0 +1,420 @@
+{
+  "AssetId": "39fbfc751ccbee843b958610461419a9",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Грейбор",
+    "ParentAsset": "62ee0fb18f56767458d25ad3548aa57d",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "e66af9b6-1b8d-4c95-bbcc-a6fb1a368e5d",
+      "m_OwnerString": "39fbfc751ccbee843b958610461419a9",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Grimbor/Q3_Ch5_PriceOfLoyalty/Horzalah_Ambush/Cue_0021_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$c171b6b5-491b-4785-bdd1-a35bfc54176d",
+          "m_Buff": "!bp_cafcc72426214982bc00213d9ca41521",
+          "TargetType": "Evaluator",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$22a527d1-4c6a-49f2-8d7b-819511e57186",
+            "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+            "IncludeRemote": false,
+            "IncludeExCompanions": false,
+            "IncludeDettached": false
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$a1f033c6-2dea-4445-8f72-d5b6a63e0dc8",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$857d9cb3-8884-4d37-8f52-19d612a32679",
+                "m_Buff": "!bp_cafcc72426214982bc00213d9ca41521",
+                "TargetType": "Evaluator",
+                "Target": {
+                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                  "name": "$PartyUnit$2583ef1d-573d-4978-b92b-3023ee0d392b"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$82d77c86-b308-4c47-95a6-06208de7bf46",
+          "Comment": "Если стартован обж1А (поднятые флаги GreyborInTheGuild и GreyborTraitor) - комплитим обж и выдаем обж всех убить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$59ec561f-963c-47cd-bb99-305cf5c5009d",
+                "Not": false,
+                "m_QuestObjective": "!bp_be55247e23a03f24eab27000ea45af83",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$cc71ae37-1b2f-404c-9afe-63c082d9acfe",
+                "m_Objective": "!bp_b83e7301c9b2bb54181b408a5ab2bf6d"
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e5f5bebd-408d-4c21-8a56-a580dfda45a0",
+                "Status": "Complete",
+                "m_Objective": "!bp_be55247e23a03f24eab27000ea45af83",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$be76d78e-63a1-428b-a1a5-ca1308e7b788",
+          "Comment": "Если стартован обж2B (поднятые флаги GreyborNotInTheGuild и GreyborTraitor) - комплитим обж и выдаем обж всех убить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$25f13858-20b3-4a9b-88c7-eed37b744156",
+                "Not": false,
+                "m_QuestObjective": "!bp_c97b7f369e21024478e315fad2b55963",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$c4f74fa5-7860-4878-a79f-e6a869d22168",
+                "Status": "Complete",
+                "m_Objective": "!bp_c97b7f369e21024478e315fad2b55963",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$295d451c-e0b4-4f4e-8874-a3e6919219f6",
+                "m_Objective": "!bp_b83e7301c9b2bb54181b408a5ab2bf6d"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$87c48d08-ea75-4cde-8aff-766b6fb9087e",
+          "Etude": "!bp_76c10ecb02b7a9442b79aaabd0e6c13c",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+          "name": "$PartyMembersDetachEvaluated$5514fa2f-76bc-4440-8423-f884d817beeb",
+          "DetachThese": [
+            {
+              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+              "name": "$CompanionInParty$1d030d03-e96e-485b-9e0e-52e0cabea4e8",
+              "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+              "IncludeRemote": false,
+              "IncludeExCompanions": false,
+              "IncludeDettached": false
+            }
+          ],
+          "AfterDetach": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$3ba9381a-eaf9-4a92-ab37-9bacb99b57ae",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$3a1157dd-572b-443b-82e2-75c399ed8578",
+                  "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": true
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": false,
+                "ChangePetsFaction": true
+              }
+            ]
+          },
+          "m_RestrictPartySize": false,
+          "m_PartySize": -1
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$1cc06016-6b39-4d18-bd39-7d0d4266bd56",
+          "m_Cutscene": "!bp_b821903e053f18d4e909c6e7bd2edbc7",
+          "m_AllCutscenesFromUnit": false,
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5650c99b-c0e2-48ea-beff-22e3b63db784",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$a9f5bd67-79b8-4e33-90e6-e37b75e41840",
+                "Not": false,
+                "m_ConditionFlag": "!bp_bc6198c857c64c05866ea722dd2096ae",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$f68dea3a-0301-47f5-bf32-6a069f4c495e",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$0037c859-598c-4d9b-a498-3553f44c5952",
+                  "Spawner": {
+                    "EntityNameInEditor": "Horzalah",
+                    "_entity_id": "0d078956-26ef-4b56-9fa3-085620a1b3b3",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$ead594c5-5245-42e5-8569-39ed09dca031",
+                "m_SummonPool": "!bp_704d89e9e6442734b87f959bb5260efa",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$37cb2bc3-d131-403d-a0cc-723fb7a73833",
+                      "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$f17e7a73-4476-4713-b7cf-301c60f93577"
+                      },
+                      "Duration": null,
+                      "BattleLog": false,
+                      "HasCustomBattleLogMessage": false,
+                      "CustomBattleLogMessage": {
+                        "m_Key": "",
+                        "m_OwnerString": "",
+                        "m_OwnerPropertyPath": "",
+                        "m_JsonPath": "",
+                        "Shared": null
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$287870a2-805d-4e56-a1e7-a64974893e58",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$3a3ae176-2127-4672-8bf2-16fa94fcbe6f",
+                  "Spawner": {
+                    "EntityNameInEditor": "Yozz",
+                    "_entity_id": "dbdff481-44d8-4443-a2fc-b3aa7c209325",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$159089e9-34ec-40db-a827-8c4799c417f1",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$8b5437af-5b34-4c37-a7c6-86b2b195de0d",
+                  "Spawner": {
+                    "EntityNameInEditor": "Assassin4",
+                    "_entity_id": "a58750b9-ac2a-41f0-a891-3f3b08ed380a",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$97676ea2-2f1f-477d-8b92-e46916917d34",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$21873164-befb-44a1-9f81-5cf4b1727188",
+                  "Spawner": {
+                    "EntityNameInEditor": "Assassin5",
+                    "_entity_id": "562a8676-9327-4ce8-826a-ca8524762818",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$c0104f72-e74c-46fe-a399-3f3a87fe3eb9",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$8e57577a-c73c-498a-a1d8-2c79ad368db9",
+                  "Spawner": {
+                    "EntityNameInEditor": "Assassin3 (1)",
+                    "_entity_id": "6b9dbc6e-7814-430f-a4e5-6a6c92933183",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$6892a294-81ea-4c98-bd6e-fe130e733ba9",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$65ae13bc-7c0d-4d95-93f6-26a82421e71e",
+                  "Spawner": {
+                    "EntityNameInEditor": "Assassin2 (1)",
+                    "_entity_id": "8439f0f1-515e-4b22-9be2-7190a6ac53e6",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

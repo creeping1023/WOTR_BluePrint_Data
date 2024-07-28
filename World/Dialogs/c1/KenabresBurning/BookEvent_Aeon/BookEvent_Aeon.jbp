@@ -1,0 +1,153 @@
+{
+  "AssetId": "226437fa02e7ad34c928c2bf5efba6eb",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_ffd65d469961ff74c822be943a521775"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$8d0707b4-181a-4300-8765-40c6d9b50e8c",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$fde07e07-d3b4-426d-9fe9-c1f6baa76a86",
+            "MapObject": {
+              "EntityNameInEditor": "AeonBE",
+              "_entity_id": "f329bf81-9f1f-41ac-9b3c-51f7cb5069d4",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$3ef33b01-bae6-45fb-99f1-d6c7116e1a1b",
+          "Etude": "!bp_d85f7367b453b7b468b77e5e708297ae",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$6aea29a4-1814-4c1d-bb18-0324cd29cc12",
+          "MusicEventStart": "MUS_AeonTheme_Full_Play",
+          "MusicEventStop": "MUS_AeonTheme_Full_Stop"
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$d9271189-b518-4113-9531-9c80da18d017",
+          "m_State": {
+            "Value": "Interior",
+            "Group": "GlobalAmbienceState"
+          }
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$df7956ac-c26c-45e3-8bd4-38f73c8439cf",
+          "m_State": {
+            "Value": "Minus_10dB",
+            "Group": "HDRVolumeControl"
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5288e33f-c006-4f6c-8404-a1679bf16bb3",
+          "Comment": "Если не приняли глаз айона",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$d7f1c735-d92d-4448-a809-df9a3b004f01",
+                "Not": true,
+                "m_Answer": "!bp_75478710b3ba0e14b9083f34a239c363",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$978ae967-6218-41ce-80bc-3815af5646b7",
+                "Etude": "!bp_d85f7367b453b7b468b77e5e708297ae",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$46c59ffe-319b-4dd8-b58f-f63ee756004c",
+          "m_Cutscene": "!bp_35ec45a9a8879bf4fb1af304d2bdad40",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$5d63f5ff-9d7a-4b4b-8d47-d8f416ff0487"
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$8312f825-fcd4-4f88-a91a-6377ebb354ca",
+          "m_State": {
+            "Value": "Normal",
+            "Group": "GlobalAmbienceState"
+          }
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$be1cdd7e-ec76-4751-a89d-15bf451dabcb",
+          "m_State": {
+            "Value": "Normal",
+            "Group": "HDRVolumeControl"
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$96854886-ad67-42ac-8ee6-ed1209ea5e11",
+          "Status": "Complete",
+          "m_Objective": "!bp_8d0f6d17250b23d43b4a2f80790968bc",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$f2650f00-f12f-4e8d-83a3-696823bc9ddd",
+          "m_Objective": "!bp_6628ec82e02ed1640922a4d2297fef65"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Book",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "AssetId": "bd029c92957c84b4797961775ae3e223",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "даем в инвентарь но с другим описанием",
+    "ParentAsset": "dbf6695999d744747aeb2d4f20b21b50",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "b357616e-02dd-4402-805a-0ec20f76f4e7",
+      "m_OwnerString": "bd029c92957c84b4797961775ae3e223",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/AreeluLaboratory/SoulJar/Cue_0011_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+          "name": "$AddItemToPlayer$1cd80e04-9b8f-46d2-8935-adb6aafd96df",
+          "m_ItemToGive": "!bp_f0641f67501a4084897d9bcbc00ddc99",
+          "Silent": false,
+          "Quantity": 1,
+          "Identify": true,
+          "Equip": false,
+          "EquipOn": null,
+          "PreferredWeaponSet": 0,
+          "ErrorIfDidNotEquip": true
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$f0026b58-f755-43a4-a858-0552c1258e65",
+          "m_Cutscene": "!bp_30f29fe6bee29864397a768fd98fca61",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$ea085b06-3f2c-411c-9716-05b891d1895c",
+          "Status": "Complete",
+          "m_Objective": "!bp_addfa5122bb8f7c4293782b9b91f4e61",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$943121aa-7385-4feb-98ea-1788f1a96949",
+          "Comment": "Если Табердин жив - выдать 4 обжектив. если мертв - проверить надо ли закывать квест полностью",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$687fc82e-57db-449c-b9ce-0220b652ce06",
+                "Not": true,
+                "m_Dialog": "!bp_3505f2d3e00f78f4e80f35965174e283"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$403c471b-7085-4e77-a917-2783ffa96da5",
+                "m_Objective": "!bp_31bc301db7d6c664cbff1db6bccbcd3a"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$1a644b7f-6bb7-44d7-bc2c-cea10c04be11",
+                "Comment": "надо ли закрыть квест?",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$a3d06326-14e1-4b85-a2a7-1677cd4e3c56",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_93700470a2360d642b19b023f67b3bce",
+                      "State": "Completed"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$1c72ee3a-14d9-43ed-9986-79c14302f0ad",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_ce1334ee2ee136749826974e677488b4",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

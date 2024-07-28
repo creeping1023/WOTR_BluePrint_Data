@@ -1,0 +1,74 @@
+{
+  "AssetId": "6d02a6ede5a9de94d9227e841e05ef77",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$f231e170-6126-4807-aafa-ea54694dc710",
+          "Status": "Complete",
+          "m_Objective": "!bp_1cb3fee7c28c92b42b329443df1faee2",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$911a680d-43a7-487e-8326-18fdac3ff8ab",
+          "m_Flag": "!bp_d295d1719937e9c488d9e8b11b9f88cb",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$bcceb2a5-203e-4b54-b084-b5dbf6635930",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$71ee5082-3288-49ad-9b92-95f7e07cce10",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$05bd5c53-994a-409e-8ea5-00542298abf6",
+                "Not": false,
+                "m_ConditionFlag": "!bp_d295d1719937e9c488d9e8b11b9f88cb",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": [
+                  2
+                ]
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$41e4d0f2-9801-40d0-b657-dbaf81aecfc8",
+                "Status": "Complete",
+                "m_Objective": "!bp_c45dd2a8c06ebb145b79447db69a94e4",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$79386f18-0a0a-4cd0-9179-f9b99b372bfb",
+                "Etude": "!bp_afe506c9eae129f42aa2dbf33cd0383e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

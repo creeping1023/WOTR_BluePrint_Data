@@ -1,0 +1,253 @@
+{
+  "AssetId": "c4c960fad64c46e9b6a3b629f516c133",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "DLC3 quests stucked",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b04e3eae-8acf-4076-84b9-bbfc6d0d4ca2",
+          "Comment": "Player has talked to Steersman in Ch4",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$602db489-222a-46da-9e38-93773fa6fb36",
+                "Not": false,
+                "m_Cue": "!bp_03af7a628f2b46cab83fab9137d8e9d9",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$2a9bf5ce-6683-4367-a8b4-55031ef952d3",
+                "Not": false,
+                "m_Cue": "!bp_e1e2e81d18624c41aff20636b01f6fb7",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$b7834bf1-9d45-4485-9f82-9e64b8acd0cc",
+                "Comment": "Tier2_Objective2 isn't started",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$10b494cb-e791-4844-a85c-10edf93f1b5f",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_39d4d41ea5e24bc7b831aa8752dd70ce",
+                      "State": "None"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$ad324483-c869-4632-a220-989e9ea106c7",
+                      "m_Objective": "!bp_39d4d41ea5e24bc7b831aa8752dd70ce"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f2bab665-778c-44eb-bfc0-73700fede87e",
+                "Comment": "Tier2 is completed",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$6fe0bf41-3b7f-4318-85a2-b5b14a1d8fe1",
+                      "Not": false,
+                      "m_Etude": "!bp_0912638e3ec84ad58621fc36e5f60556",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$9c3405c7-b264-47f3-af9b-1e2de258ede4",
+                      "Comment": "Tier2_Objective2 isn't completed yet",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                            "name": "$ObjectiveStatus$22815a63-4250-461a-8b97-36e9304d9fb7",
+                            "Not": false,
+                            "m_QuestObjective": "!bp_39d4d41ea5e24bc7b831aa8752dd70ce",
+                            "State": "Started"
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                            "name": "$SetObjectiveStatus$1566f31d-95ba-4f74-a1d4-67eff5144352",
+                            "Status": "Complete",
+                            "m_Objective": "!bp_39d4d41ea5e24bc7b831aa8752dd70ce",
+                            "StartObjectiveIfNone": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$27c171eb-ef1e-4c84-b6e4-92f19abd1df4",
+                      "Comment": "Tier3 is started",
+                      "ConditionsChecker": {
+                        "Operation": "Or",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$ec10843a-2fa8-4a5e-bd54-343a396c20fa",
+                            "Not": false,
+                            "m_Etude": "!bp_833a793a9b4e4fc9a540b0d51bbe40cf",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          },
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$b08d0561-d994-4fc6-8510-f43c87774135",
+                            "Not": false,
+                            "m_Etude": "!bp_833a793a9b4e4fc9a540b0d51bbe40cf",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": false,
+                            "CompletionInProgress": false,
+                            "Completed": true
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$58e96671-54e0-4dba-a38a-cdbb9ae444cb",
+                            "Comment": "Tier3_Objective2 isn't started",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                  "name": "$ObjectiveStatus$081454a0-eaa4-459b-8ac1-e9ce81bbeafa",
+                                  "Not": false,
+                                  "m_QuestObjective": "!bp_143b2297169a4827afec40a41f0814f9",
+                                  "State": "None"
+                                },
+                                {
+                                  "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                                  "name": "$CueSeen$4fa5f67f-1910-49c3-93d0-3c062a4b2b24",
+                                  "Not": false,
+                                  "m_Cue": "!bp_e0f7880d13be41c39d37cf8898874c18",
+                                  "CurrentDialog": false
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                                  "name": "$GiveObjective$48476b3d-567a-4c25-8c3b-f12d1e7a743c",
+                                  "m_Objective": "!bp_143b2297169a4827afec40a41f0814f9"
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": []
+                            }
+                          },
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$02d6fd47-2eec-4e4b-9ac4-14145a85ddee",
+                            "Comment": "Tier3 is completed",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                  "name": "$EtudeStatus$8f112e2e-5389-4756-bc06-de57ccbd2e18",
+                                  "Not": false,
+                                  "m_Etude": "!bp_833a793a9b4e4fc9a540b0d51bbe40cf",
+                                  "NotStarted": false,
+                                  "Started": false,
+                                  "Playing": false,
+                                  "CompletionInProgress": false,
+                                  "Completed": true
+                                },
+                                {
+                                  "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                  "name": "$ObjectiveStatus$765d01e7-c127-4784-8aa6-4f7f9adbe67a",
+                                  "Not": true,
+                                  "m_QuestObjective": "!bp_143b2297169a4827afec40a41f0814f9",
+                                  "State": "Completed"
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                                  "name": "$SetObjectiveStatus$71f161cc-3aab-4c4c-b807-932eb9c814ae",
+                                  "Status": "Complete",
+                                  "m_Objective": "!bp_143b2297169a4827afec40a41f0814f9",
+                                  "StartObjectiveIfNone": false
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": []
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

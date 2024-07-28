@@ -1,0 +1,227 @@
+{
+  "AssetId": "64af5d4ba0b8eeb43be64c8f00b499b0",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Поднят флаг GreyborLoyal\nГрейбор говорит куй и активируются ловушки\n\nГрейбор переходит под управление игрока",
+    "ParentAsset": "62ee0fb18f56767458d25ad3548aa57d",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$07737d8a-a550-40b8-a492-cc55ba99ba5d",
+          "Not": false,
+          "m_Etude": "!bp_130007ace09c9034989035d77b4b1564",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "c8ce647d-8179-451a-bb41-0176e0263a3a",
+      "m_OwnerString": "64af5d4ba0b8eeb43be64c8f00b499b0",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Grimbor/Q3_Ch5_PriceOfLoyalty/Horzalah_Ambush/Cue_0057_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$1b0ec7bd-bf39-465e-8065-9533c9f9c8de",
+          "m_Objective": "!bp_b83e7301c9b2bb54181b408a5ab2bf6d"
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$d086cee4-1f41-448a-9077-42366274ff4c",
+          "m_Cutscene": "!bp_bbad2ac0737d38145ab84980077bd22a",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$345eb158-f9fa-4de2-9a73-db8d3d5873dd",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$5c7d7ab0-5a84-4bf0-953a-3b36dd920435",
+                "Not": false,
+                "m_ConditionFlag": "!bp_bc6198c857c64c05866ea722dd2096ae",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$25721974-ccc9-4982-b6ab-d1e28494d6b9",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$963c050b-0684-49f4-bfde-42cc4189b0bd",
+                  "Spawner": {
+                    "EntityNameInEditor": "Horzalah",
+                    "_entity_id": "0d078956-26ef-4b56-9fa3-085620a1b3b3",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$718c2d6d-499e-420f-a13f-a674dcdd7d41",
+                "m_SummonPool": "!bp_704d89e9e6442734b87f959bb5260efa",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$090086f2-0bbb-4e0a-b868-51efcc718751",
+                      "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$e0cd9592-3037-4d15-8ba0-6839fb221bb3"
+                      },
+                      "Duration": null
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$e297cd7d-9468-472d-bf12-39cec7f3dabe",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$83fb7dea-5b70-4135-9a5a-35907dff7f6b",
+                  "Spawner": {
+                    "EntityNameInEditor": "Yozz",
+                    "_entity_id": "dbdff481-44d8-4443-a2fc-b3aa7c209325",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$542047e8-1bdf-4ff4-bf71-ca5afeb287b0",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$adb4416c-7e6c-458b-a57d-8707ad63a47d",
+                  "Spawner": {
+                    "EntityNameInEditor": "Assassin4",
+                    "_entity_id": "a58750b9-ac2a-41f0-a891-3f3b08ed380a",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$89f4d7b7-2611-44f6-8868-8154c30daf17",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$cf047eaa-db47-409d-9e49-4de70e66e1d3",
+                  "Spawner": {
+                    "EntityNameInEditor": "Assassin5",
+                    "_entity_id": "562a8676-9327-4ce8-826a-ca8524762818",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$2d7e79f9-ae95-4a27-a93e-277336c112b8",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$79ed15d7-fe51-4562-99d2-4edc154ebcf0",
+                  "Spawner": {
+                    "EntityNameInEditor": "Assassin3 (1)",
+                    "_entity_id": "6b9dbc6e-7814-430f-a4e5-6a6c92933183",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$f0a5711a-f0d2-4c59-8d23-e6ba09c7ab47",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$11a0e432-f677-49a5-be89-83cbd934ffff",
+                  "Spawner": {
+                    "EntityNameInEditor": "Assassin2 (1)",
+                    "_entity_id": "8439f0f1-515e-4b22-9be2-7190a6ac53e6",
+                    "SceneAssetGuid": "4bcd1a97621ab4e4ba44066b40ade12b"
+                  }
+                },
+                "Duration": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "AssetId": "4cbf7a7691cd3c2499dd7554de92113c",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Начало боя",
+    "ParentAsset": "6fe6b915acdbb4e41ab735b01a18e2d9",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "0a2e8e5475e2c1541a65b6a4af13cbe4",
+        "stringkey": "a67a0a86-7000-4b9c-a961-8ea316aaf852"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$344c48de-d468-4aa2-ad99-1e93e81a7757",
+          "Status": "Complete",
+          "m_Objective": "!bp_e1a3adf1157fef84ca174c8a9c7ae1de",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$41c9bb59-bf15-4ff7-bfb5-dbc0a98740ca",
+          "m_Objective": "!bp_cb7232e1a1d01394aa7c10af5e19032a"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$afb7ff9b-15a6-4e82-b58a-66228c7aa3d0",
+          "Comment": "если выдан обж на Хурлана - профейлить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$85718ef7-b70f-4498-a2c6-a550f4a1640f",
+                "Not": false,
+                "m_QuestObjective": "!bp_aa1569db29477a14bbe95548fe94a515",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$cc49706d-0945-43c8-b5f8-20145b231b6c",
+                "Status": "Fail",
+                "m_Objective": "!bp_aa1569db29477a14bbe95548fe94a515",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$58e231e2-a80e-4c45-b9b4-9a6700625910",
+          "Etude": "!bp_81037254dcdfb5441902e9b23f65aee4",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$6ba1fffa-8364-4649-9a22-87762c9413e1",
+          "m_Cutscene": "!bp_cf7d64202da20fe4cee5b6c11ddf6c37",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$d9e5a5fb-0ccf-4239-9e69-3ee5517680a8",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$44df3ba7-00fc-491d-b681-d58f38f154b7",
+            "Spawner": {
+              "EntityNameInEditor": "RamienEarly",
+              "_entity_id": "95753d0b-38e8-4bc5-9ef9-db786269ed82",
+              "SceneAssetGuid": "1965cd68e37f04645834c10c1164aad2"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$9893ea6d-3460-45fa-bc05-0db2d5c66e5b"
+          }
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$982c0051-aa2a-4f0e-807c-6437f6a79cb1",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$8b30c602-880c-4690-9371-b28017248518",
+            "Spawner": {
+              "EntityNameInEditor": "RamienNearTemple",
+              "_entity_id": "4d017d51-9208-44d4-b776-268cfb943e58",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$dbe32daa-5a84-4aee-9c71-081d74a1f0d8"
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$fb04f32b-63f2-406b-a029-d4d92fa8cfc1",
+          "Status": "Fail",
+          "m_Objective": "!bp_927f4e4b06f741c4c862210c4c8c7f2e",
+          "StartObjectiveIfNone": true
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$d4fa9c0a-8b03-4069-b14f-c252e11c7e29",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$cf03bc54-f570-4445-8f04-b99657495bff",
+            "Spawner": {
+              "EntityNameInEditor": "IleksInTemple",
+              "_entity_id": "93ccc790-53a1-4bfb-ae80-756328ce0bfa",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false,
+          "Fade": false,
+          "SetHideInSaves": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$c0cf4fbc-ad32-457c-9a3d-b92284c49e73",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$4e03e597-79d7-4677-8879-b56b3237f009",
+            "Spawner": {
+              "EntityNameInEditor": "Tall",
+              "_entity_id": "3b1ab143-73ea-497a-b7e1-48cedcb55f61",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false,
+          "Fade": false,
+          "SetHideInSaves": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$6ad5c5dc-fe47-4fd4-a9b5-4a520c39fd76",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$20ccc724-501b-4428-a158-bb4daff91e1e",
+            "Spawner": {
+              "EntityNameInEditor": "Aranka",
+              "_entity_id": "061a0316-d9d7-4071-8fb0-57f522189e57",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false,
+          "Fade": false,
+          "SetHideInSaves": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$0730bcff-0e56-4023-b573-6670cfda2d3f",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$fc8b846a-57f3-43d6-9211-4d095676d4e4",
+            "Spawner": {
+              "EntityNameInEditor": "Tall_DesnaAdept",
+              "_entity_id": "c52499e3-404b-4b08-9162-47b49c5258ab",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false,
+          "Fade": false,
+          "SetHideInSaves": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1477fa8c-544d-48a8-bfbd-0739090d3b0a",
+          "Comment": "если выдан сказать о смерти Хурлана - профейлить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$ece0ae5d-1f99-4ffa-b978-9539887bc3c8",
+                "Not": false,
+                "m_QuestObjective": "!bp_f95a0c06ab3b81b49a1c5894f96e0996",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$f2994927-e75a-44eb-b592-d6ab0764cfc9",
+                "Status": "Fail",
+                "m_Objective": "!bp_f95a0c06ab3b81b49a1c5894f96e0996",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$82338e31-cad1-4c33-8918-7ab1bfcb1f3e",
+          "Comment": "если выдан сказать о решении Хурлана - профейлить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$c416f3f7-d60c-49e4-96b9-02ee7c51172a",
+                "Not": false,
+                "m_QuestObjective": "!bp_e9c2b8b489b8d2e49b199ce787aa7bf4",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$19a1b74e-1a33-456d-8cd5-7e555ab9dc9f",
+                "Status": "Fail",
+                "m_Objective": "!bp_e9c2b8b489b8d2e49b199ce787aa7bf4",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

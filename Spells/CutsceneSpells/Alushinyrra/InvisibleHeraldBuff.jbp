@@ -1,0 +1,570 @@
+{
+  "AssetId": "a4c2090e76ed6834ab12e1d27c021d93",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EvaluatedUnitCombatTrigger$1221ea92-37e6-46f8-a3e1-e31793f5eda5",
+      "$EvaluatedUnitHealthTrigger$82d03028-83f6-4ed4-9d24-feb0d42243cd"
+    ],
+    "Components": [
+      {
+        "$type": "91216784d99a12e428bf782c8a8c7f5c, SpellDescriptorComponent",
+        "m_Flags": 0,
+        "name": "$SpellDescriptorComponent$2d6dbbc0-f1b8-4ade-9ad5-b19550496790",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": {
+          "m_IntValue": 0
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitHealthTrigger$82d03028-83f6-4ed4-9d24-feb0d42243cd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Summon herald into fight",
+        "Unit": {
+          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+          "name": "$PlayerCharacter$6bb22b66-53a7-4849-9eb5-1e26c1245fba"
+        },
+        "Once": false,
+        "Percentage": 20,
+        "TriggerOnAlreadyLowerHeath": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$596982fe-c86a-4880-9529-69763c3fd994",
+              "Comment": "Give gate renown",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$864f7f3b-c4bf-4f25-aa1e-ab2252c138b2",
+                    "Not": true,
+                    "m_Etude": "!bp_610407a470a521e42acf10533698a2ff",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$5c04b9a0-7c36-48db-beae-685ad49935c0",
+                    "Etude": "!bp_610407a470a521e42acf10533698a2ff",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4ef64d0f-eff0-428c-a8bd-da4407671cea",
+              "Comment": "Herald not beaten",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$1c281600-d38a-4e9e-9916-921424baa6fe",
+                    "Not": true,
+                    "m_Etude": "!bp_924ae98df0770e34c99f1466370eb688",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$9941ff77-b01f-49a5-96e1-81a0621a72a2",
+                    "Not": true,
+                    "m_Etude": "!bp_ae9fa853562f9a54e9b9b65af68f1136",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$3529537a-5ec6-44e7-9b04-f0f51e8d019f",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_51f7b6af031313741b12dc5c842e960d",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$82a66f49-947e-4f17-9418-51a78f238e19",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_8afa4bde4e644470923c082925e55182",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  },
+                  {
+                    "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+                    "name": "$IsInCombat$c60865f8-2707-48b5-91c8-d304f86a283a",
+                    "Not": false,
+                    "Unit": null,
+                    "Player": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$5e60269f-89c9-40c3-ba28-ab75f146cf4d",
+                    "Comment": "It's the last time",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                          "name": "$FlagInRange$f07ccc63-f64c-46b2-a25b-536f93667282",
+                          "Not": false,
+                          "m_Flag": "!bp_8e568bc0b3ce04041a1065ebafeba271",
+                          "MinValue": 2,
+                          "MaxValue": 10000
+                        },
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$a997fd41-a0e0-4807-bfe5-c6acb5d038ef",
+                          "Not": false,
+                          "m_Etude": "!bp_6058edc67bafcc140a178a9ce914f21b",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": false,
+                          "CompletionInProgress": false,
+                          "Completed": true
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$45fa8c1e-e6c0-43f0-bdb0-7c4f6bfe5024",
+                          "Etude": "!bp_ae9fa853562f9a54e9b9b65af68f1136",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        },
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$dd5d38d3-25da-4be1-83e6-d086e1be7a3e",
+                          "Etude": "!bp_ba3346aa0035da54c98a6b5f59eceb81",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$33e76927-5636-4fb2-9d33-859161e15bb5",
+                          "m_Cutscene": "!bp_62c5eff49c746954eaf94f16842a25ce",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        },
+                        {
+                          "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                          "name": "$Summon$4c38c0b6-09b1-43b6-935c-788a2c0316e6",
+                          "m_Unit": "!bp_ba4d057e32bd2984f969bc781da523ba",
+                          "m_SummonPool": "!bp_f3598d6420b280d43b19062add36f546",
+                          "GroupBySummonPool": false,
+                          "m_PlaceNearWhenBusy": true,
+                          "Transform": {
+                            "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                            "name": "$UnitTransform$60ceec6f-94d0-4645-a3b7-ccebe4717cc2",
+                            "Unit": {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$c96c374d-86e9-440e-8d8c-915c0f072a4e"
+                            }
+                          },
+                          "Offset": "-100|0|-100",
+                          "OnSummmon": {
+                            "Actions": [
+                              {
+                                "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                "name": "$SpawnFx$e24e8bc2-c920-4d9d-988c-24bd227dd016",
+                                "Target": {
+                                  "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                                  "name": "$UnitTransform$70745c80-cb73-4eed-a6cf-379ad12da14f",
+                                  "Unit": {
+                                    "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                    "name": "$SpawnedUnit$76f8aa11-e633-4e37-81c9-477e30e0777c"
+                                  }
+                                },
+                                "FxPrefab": {
+                                  "AssetId": "5771e86af2ccb5e438ad366aa308159f"
+                                }
+                              },
+                              {
+                                "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                "name": "$SpawnFx$3a34f880-99e8-4093-ac02-b0de6859249d",
+                                "Target": {
+                                  "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                                  "name": "$UnitTransform$6ea39939-dc66-4313-b880-5f341c039b67",
+                                  "Unit": {
+                                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                    "name": "$PlayerCharacter$5dbeaea9-8f76-433f-bee9-95ea137f3f92"
+                                  }
+                                },
+                                "FxPrefab": {
+                                  "AssetId": "ee0c5b9397ffec54d86acf56c94f4b06"
+                                }
+                              },
+                              {
+                                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                                "name": "$AttachBuff$14c72982-76c6-4417-aa6b-8911ffa51ada",
+                                "m_Buff": "!bp_0f775c7d5d8b6494197e1ce937754482",
+                                "Target": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$a0ad5ac0-fb69-4d2b-9b85-b2a75b629813"
+                                },
+                                "Duration": null,
+                                "BattleLog": false,
+                                "HasCustomBattleLogMessage": false,
+                                "CustomBattleLogMessage": {
+                                  "m_Key": "",
+                                  "m_OwnerString": "",
+                                  "m_OwnerPropertyPath": "",
+                                  "m_JsonPath": "",
+                                  "Shared": null
+                                }
+                              },
+                              {
+                                "$type": "c4bd35a6e76bcf848a4f1530926a8fee, HealParty",
+                                "name": "$HealParty$7f612ddd-bbab-48e7-9171-2dcc9e45a22a",
+                                "HealSource": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$3a057870-08aa-480c-93d3-913b4b2b6888"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$66410525-a184-44f8-bcb7-8b590a8640cc",
+                          "m_Flag": "!bp_8e568bc0b3ce04041a1065ebafeba271",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$b5cba17a-a589-441d-b2e2-c3a16b9afef2",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": true
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$5d94205c-057f-4568-a532-99ca7eb67723",
+                          "m_flag": "!bp_51f7b6af031313741b12dc5c842e960d",
+                          "flagValue": 0
+                        },
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$27ab8b65-8829-4fc0-883d-aef5751ceb66",
+                          "m_flag": "!bp_8afa4bde4e644470923c082925e55182",
+                          "flagValue": 0
+                        },
+                        {
+                          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                          "name": "$IncrementFlagValue$e69c6900-eeb9-4343-999d-7127c261df4b",
+                          "m_Flag": "!bp_8e568bc0b3ce04041a1065ebafeba271",
+                          "Value": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$0f9a2aed-9e3c-4698-9832-981599a4f723",
+                            "Value": 1
+                          },
+                          "UnlockIfNot": true
+                        },
+                        {
+                          "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                          "name": "$Summon$f1afa62b-728a-4869-a890-acbe25936278",
+                          "m_Unit": "!bp_ba4d057e32bd2984f969bc781da523ba",
+                          "m_SummonPool": "!bp_f3598d6420b280d43b19062add36f546",
+                          "GroupBySummonPool": false,
+                          "m_PlaceNearWhenBusy": true,
+                          "Transform": {
+                            "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                            "name": "$UnitTransform$3e512ef2-98ac-41ca-9b14-f56c027496c5",
+                            "Unit": {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$627b054d-537a-4573-8973-32b1b9ee1b57"
+                            }
+                          },
+                          "Offset": "-100|0|-100",
+                          "OnSummmon": {
+                            "Actions": [
+                              {
+                                "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                "name": "$SpawnFx$bbc61131-ba7c-4df2-91ca-c2df18352edc",
+                                "Target": {
+                                  "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                                  "name": "$UnitTransform$6ac70339-0b3f-4f8d-ade5-ca6c5594f996",
+                                  "Unit": {
+                                    "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                    "name": "$SpawnedUnit$972239e7-5629-4202-8017-c0e2452f3da6"
+                                  }
+                                },
+                                "FxPrefab": {
+                                  "AssetId": "5771e86af2ccb5e438ad366aa308159f"
+                                }
+                              },
+                              {
+                                "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                "name": "$SpawnFx$b98f200d-1242-4736-9c16-14e9bc6eb2ed",
+                                "Target": {
+                                  "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+                                  "name": "$UnitTransform$4ea0114c-0c34-4751-bc0e-a8b1e43faf9c",
+                                  "Unit": {
+                                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                    "name": "$PlayerCharacter$50042b23-dc29-4743-a993-7cbc3553bcb6"
+                                  }
+                                },
+                                "FxPrefab": {
+                                  "AssetId": "ee0c5b9397ffec54d86acf56c94f4b06"
+                                }
+                              },
+                              {
+                                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                                "name": "$AttachBuff$8e4a9cb1-8171-4a07-b905-b8140f9f132b",
+                                "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+                                "Target": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$5b8d2feb-9fa3-43b4-830e-f4b6150fa5cf"
+                                },
+                                "Duration": null,
+                                "BattleLog": false,
+                                "HasCustomBattleLogMessage": false,
+                                "CustomBattleLogMessage": {
+                                  "m_Key": "",
+                                  "m_OwnerString": "",
+                                  "m_OwnerPropertyPath": "",
+                                  "m_JsonPath": "",
+                                  "Shared": null
+                                }
+                              },
+                              {
+                                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                                "name": "$AttachBuff$1f769abc-945a-4026-ac99-0d2a1624ebcc",
+                                "m_Buff": "!bp_620651073cab404baf68bb5876b8671a",
+                                "Target": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$7212db89-f4dd-41e3-9449-37af83d4a69b"
+                                },
+                                "Duration": null,
+                                "BattleLog": false,
+                                "HasCustomBattleLogMessage": false,
+                                "CustomBattleLogMessage": {
+                                  "m_Key": "",
+                                  "m_OwnerString": "",
+                                  "m_OwnerPropertyPath": "",
+                                  "m_JsonPath": "",
+                                  "Shared": null
+                                }
+                              },
+                              {
+                                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                                "name": "$PlayCutscene$090cd8e4-9102-43e5-97ac-8faecb4dca1d",
+                                "m_Cutscene": "!bp_6653af494a6249438b622a61da693b0d",
+                                "PutInQueue": false,
+                                "CheckExistence": true,
+                                "Parameters": {
+                                  "Parameters": []
+                                }
+                              },
+                              {
+                                "$type": "c4bd35a6e76bcf848a4f1530926a8fee, HealParty",
+                                "name": "$HealParty$133488eb-e127-4d71-9358-5ad538a0a57e",
+                                "HealSource": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$d9858e84-c236-45ba-89fc-e3bf99f0726d"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$1221ea92-37e6-46f8-a3e1-e31793f5eda5",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Remove Herald after fight",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$779a47fd-6db5-41bb-b945-1f0b628f910a",
+          "m_SummonPool": "!bp_f3598d6420b280d43b19062add36f546",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$94e35ea7-53ac-410e-8dbe-7bc9dab152ae",
+              "m_Cutscene": "!bp_2521374ed22a4ad79c9261067f7af038",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+              "name": "$LockFlag$5f84f2bc-85a2-429e-834c-c3285e792f81",
+              "m_Flag": "!bp_51f7b6af031313741b12dc5c842e960d"
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitCombatTrigger$39d5859e-5e36-4ced-b0f5-0f74ad710a1b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Don't let Herald summon again in the same combat",
+        "Unit": {
+          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+          "name": "$PlayerCharacter$b09b9ceb-0048-49e6-acc1-d882b0091012"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4bbe3a76-483a-4d54-8157-1647d545fa29",
+              "Comment": "Herald was summoned",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$87aabbe5-4e92-4ce9-8b53-658145f7f8ca",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_8afa4bde4e644470923c082925e55182",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$9b32162d-e647-44aa-9759-7f5015a82c00",
+                    "m_Flag": "!bp_8afa4bde4e644470923c082925e55182"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$cf3955e9-b725-43c2-ae79-661fb3808e81",
+              "m_Cutscene": "!bp_250bcbf116ed42fcad62aaea3a431dda",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": true,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "0d92c904dabc1274a94c8ba44f169904",
+        "stringkey": "4c51f897-96b5-485c-ac33-45e1059c8c54"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "eaddcb8cda9f35a4d846e2338d045901",
+        "stringkey": "150e323a-0978-49ab-835c-05143fd8b06a"
+      }
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "d74d5e7327ec1254bbf959124c8014eb",
+      "fileid": 21300000
+    },
+    "IsClassFeature": false,
+    "m_Flags": "StayOnDeath",
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

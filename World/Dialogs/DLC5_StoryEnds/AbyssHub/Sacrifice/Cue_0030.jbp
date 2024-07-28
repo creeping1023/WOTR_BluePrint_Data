@@ -1,0 +1,182 @@
+{
+  "AssetId": "d4b6dee2e672480aad6adb89af949ded",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "8c92b134141e488d88b14590ef860af6",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "683b7353-81c3-4f87-b862-92dcd91f69ff",
+      "m_OwnerString": "d4b6dee2e672480aad6adb89af949ded",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC5_StoryEnds\\AbyssHub\\Sacrifice\\Cue_0030_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_3e0014e4be454482a2797fd81123d7b4",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$e3579cfc-59b9-4886-8d42-5ff4ddadfb24",
+          "m_Cutscene": "!bp_aab526e671c14731b0ad9ae1b5a55ee1",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$9c2c56a9-db51-4fbb-808f-b4309229ef26",
+                  "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": false
+                }
+              },
+              {
+                "Name": "Position",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$93c7ced1-06e8-4b5b-a918-0645153a13d5",
+                  "Locator": {
+                    "EntityNameInEditor": "Light_fx_pos",
+                    "_entity_id": "2eca632f-e7dc-44b2-8ab1-007c2465238d",
+                    "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                  },
+                  "Offset": "0|0|0"
+                }
+              },
+              {
+                "Name": "Rotation",
+                "Type": "Float",
+                "Evaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$ea510525-467b-49d1-adb5-79e85a29343d",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "Light_fx_pos",
+                    "_entity_id": "2eca632f-e7dc-44b2-8ab1-007c2465238d",
+                    "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$22cf25f8-3835-4de4-93d2-9b84445a187a",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$ddbb143c-7c4a-4d68-8500-ec4d0cd9e243",
+                "Comment": "Everyone except",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$b1056e78-0caa-4755-8bea-bb70a4390ad9",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$2336176e-0cb3-4747-bd3a-bbdad5a03389"
+                      },
+                      "SecondUnit": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$80add771-7ec4-4b42-9ed5-42c69c659e60",
+                        "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$f000eea6-d4c6-4ad0-bfe2-afabd3a439b1",
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$5cf8a300-f001-4201-b409-7d984b0f0e55"
+                      },
+                      "Position": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$40e64cff-fb2e-4e2f-b319-7f7d71091d99",
+                        "Locator": {
+                          "EntityNameInEditor": "Light_fx_pos",
+                          "_entity_id": "2eca632f-e7dc-44b2-8ab1-007c2465238d",
+                          "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+          "name": "$ActionAchievementUnlock$6754131b-33de-44a4-90d1-0b5aac134083",
+          "m_Achievement": "!bp_0e20f542a3be455297f76637cb8a2404"
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_d99326e8912145d3aefc867629e9d72a"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

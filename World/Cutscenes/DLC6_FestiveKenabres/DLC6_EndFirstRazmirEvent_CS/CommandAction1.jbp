@@ -1,0 +1,124 @@
+{
+  "AssetId": "9c2450d568594a2fb1838438c8792bb4",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$818dfa8c-9853-4770-99dc-b354cc1f9250",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "DLC6_MasterOfArena",
+              "_entity_id": "26ca257c-be94-4e4d-9a21-3fa61e16a510",
+              "SceneAssetGuid": "df22be9674373a349ba6a71db1d5ec97"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": []
+          },
+          "RespawnIfDead": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1a037a7f-c501-447d-a682-8d015f026180",
+          "Comment": "Regill is near the stage",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ad6f15c5-41fb-49ee-8182-3d8b8170aa99",
+                "Not": false,
+                "m_Etude": "!bp_382c50cdab974d499ca39e7edfc84a4c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$3590bbb8-6413-490e-be14-b4d0d5124919",
+                "Not": false,
+                "m_Dialog": "!bp_4c938a7852bb4927a1ae01f3a342bf84"
+              },
+              {
+                "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                "name": "$DialogSeen$70106611-a1b0-411b-83fa-f5cf432c36ff",
+                "Not": true,
+                "m_Dialog": "!bp_94f00c085f9e45f883514a1d2d675330"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$ba91645a-e35f-4f85-8ace-d381f3ea49b0",
+                "m_Cutscene": "!bp_f54977c8fa47404b948cd1460ec4462b",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$61e17d7b-c0b6-4eb4-aea2-c2cf375e4a89",
+                        "m_Companion": "!bp_0d37024170b172346b3769df92a971f5",
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": false,
+                        "IncludeDettached": false
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$677e2228-07ed-44d6-8af5-ab7c5d9dd302",
+                        "Locator": {
+                          "EntityNameInEditor": "Regill_stage_inspection_pos",
+                          "_entity_id": "370de5b9-958c-41dd-9593-d13c8fa6d5a9",
+                          "SceneAssetGuid": "93d8bcf5f2d493f45ace4cd751f30d9b"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    },
+                    {
+                      "Name": "Rotation",
+                      "Type": "Float",
+                      "Evaluator": {
+                        "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                        "name": "$LocatorOrientation$b3ab0665-bc59-4bf2-aeed-fcdfae302207",
+                        "LocatorEval": null,
+                        "Locator": {
+                          "EntityNameInEditor": "Regill_stage_inspection_pos",
+                          "_entity_id": "370de5b9-958c-41dd-9593-d13c8fa6d5a9",
+                          "SceneAssetGuid": "93d8bcf5f2d493f45ace4cd751f30d9b"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,377 @@
+{
+  "AssetId": "aa37c90952083964fa2d91ae2f54503a",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EvaluatedUnitDeathTrigger$b114d79d-3e0d-4516-b545-387067285c92",
+      "$EtudeBracketMarkUnitEssential$59399366-aa8a-4293-a82d-a2602ac7f9bb",
+      "$GenericInteractionTrigger$b207fb8c-8b21-4dfd-8c0d-0cca53f2e4e8"
+    ],
+    "Components": [
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$b114d79d-3e0d-4516-b545-387067285c92",
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$f284471f-d3d5-4401-bf01-47771b3d0ad0",
+          "Spawner": {
+            "EntityNameInEditor": "Sosiel_Q2_PurpleWormBoss",
+            "_entity_id": "2c622cc6-0241-4b96-b0b6-d0ad701023c2",
+            "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$b6cc5301-7e77-4d7d-8fce-a2917672e567",
+              "Etude": "!bp_e29fa1aed38b89b409335bb99bef1428",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "2631f5df3cb69464399dcdbcbbd803d8, EtudeBracketMarkUnitEssential",
+        "name": "$EtudeBracketMarkUnitEssential$59399366-aa8a-4293-a82d-a2602ac7f9bb",
+        "m_Overrides": [],
+        "Comment": "",
+        "Target": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$59607cee-5375-4354-80fd-fc8c2055f884",
+          "m_Companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+          "IncludeRemote": false,
+          "IncludeExCompanions": false,
+          "IncludeDettached": false
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$b207fb8c-8b21-4dfd-8c0d-0cca53f2e4e8",
+        "m_Overrides": [],
+        "Comment": "",
+        "MapObject": {
+          "EntityNameInEditor": "GoodLootHidden",
+          "_entity_id": "60ebde6f-2e65-495b-8938-743b93cea854",
+          "SceneAssetGuid": "31bd84d19c1f6a9459da8e26cbe98ade"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$9780bcb1-8cc4-4f50-bd3f-57f02bb770dc",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "[miniboss] [SosielQ2_ShadowGreater]",
+                  "_entity_id": "d4dd8022-1292-491d-a950-dcc0af93804d",
+                  "SceneAssetGuid": "31bd84d19c1f6a9459da8e26cbe98ade"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$50529f08-a541-4f5b-bdf2-8a2ffa567bdf",
+                    "Comment": "Night?",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+                          "name": "$DayTime$9e6c9c0a-054e-4a29-8255-b56ed6dde84d",
+                          "Not": false,
+                          "Time": "Night"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                          "name": "$AddFact$edf06d1a-fddb-4074-b339-b1237f1b244e",
+                          "Unit": {
+                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                            "name": "$SpawnedUnit$de019a6d-2fcd-43a4-832b-3c7db70396fd"
+                          },
+                          "m_Fact": "!bp_f6051b7061a445946a31b269088521f7"
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$98819b1d-4811-43ee-950c-744b05770c81",
+                          "Comment": "Dusk or Dawn?",
+                          "ConditionsChecker": {
+                            "Operation": "Or",
+                            "Conditions": [
+                              {
+                                "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+                                "name": "$DayTime$35661140-196d-41ea-a4fc-a3a53d9e37f7",
+                                "Not": false,
+                                "Time": "Morning"
+                              },
+                              {
+                                "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+                                "name": "$DayTime$8dbd366f-52a9-4918-aa95-67a68fbc9fd3",
+                                "Not": false,
+                                "Time": "Evening"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+                                "name": "$AddFact$a4bd9566-10fa-4358-8a18-cf89a00fd136",
+                                "Unit": {
+                                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                  "name": "$SpawnedUnit$544ed657-4220-4f10-b5b3-7404496a59ee"
+                                },
+                                "m_Fact": "!bp_a389201c410d31c478e1704462922d52"
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$9a440d61-0dd7-4732-af33-050dd1577c57",
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$03eca24f-1250-4bc5-a541-5f07d633fb95",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$5ca0111b-0135-4709-9356-86b59c467dab",
+                "MapObject": {
+                  "EntityNameInEditor": "GoodLoot",
+                  "_entity_id": "9dfa523d-1ee6-49ad-b66e-90f1dad6379b",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$02661d77-a802-48e1-bf1b-badeb8c55169",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$83e1dae2-0bf3-42d0-9c4e-a6919ca38a7b",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (1)",
+                  "_entity_id": "73ec9372-91bc-4c68-9a6b-d13fbc7e2d09",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$59934cf3-34ec-45dc-9882-9e994b768092",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$bb276134-4158-4e19-b4ef-5fb81bcddc1e",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (2)",
+                  "_entity_id": "238aa7a0-f7e0-40c1-b73a-b33f99afe1b0",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$863b1e8a-3c54-40a1-b30c-0f41d6e15704",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$b6cf2ad9-8dc1-4982-9ef0-432510bf2140",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (4)",
+                  "_entity_id": "8640440c-ae3e-4c47-80ae-bc1c8bae76dd",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$52339d50-f03b-4ead-945d-68c7ad367cf7",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$064aa8e5-c6a2-4a8f-a2b7-47d0adf4f8e6",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (5)",
+                  "_entity_id": "6066724a-bd42-4d45-a8da-e80cfd524b1f",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$bc73ea91-ad55-4aa3-a079-80fc694782c2",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$0d032756-eaf0-44fa-a252-cfb1848c010a",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (6)",
+                  "_entity_id": "4f3e0337-2c30-4e82-902c-5ee7404b154c",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$2bb48a39-61b3-4e56-a208-5c9e23b139f5",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$6b6cba85-c29f-4b6c-815d-0850c65d8770",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (7)",
+                  "_entity_id": "3b9fa82c-6265-47ee-aaef-aad2fea9407d",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$0e8a11f7-482a-4d4e-9271-c095e01bfc7d",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$ef97864f-14e8-43e9-a30c-5860f5fc3269",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (8)",
+                  "_entity_id": "89674f5a-c739-4b5e-8a40-0ea2fa746cc0",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$4b7c284b-3326-49f4-895e-6e2d3f553ea9",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$1ae52d76-4647-428a-bd90-4b090f53849f",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (9)",
+                  "_entity_id": "6d5c3b0c-7a41-4557-aa3f-39352974d704",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$19f096ca-bd6a-4286-882f-0ff391841b82",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$b6d9c586-6374-4441-914d-df0852b04f9f",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (10)",
+                  "_entity_id": "cfaa7a1f-bc56-4868-8550-00969629c4ba",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$45b77d32-4c5f-4ffc-9436-1b535471922c",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$bad72f88-9053-499f-aa5b-0e5735559cfd",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (11)",
+                  "_entity_id": "58521544-494c-4f32-a244-f24a803f1740",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            },
+            {
+              "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+              "name": "$SwitchInteraction$a8b2e72f-8aba-47c6-b6e5-60806e846e02",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$dc40f774-8cc3-41fa-a450-64669e3ad2b7",
+                "MapObject": {
+                  "EntityNameInEditor": "PoorLoot (12)",
+                  "_entity_id": "eca5f342-38cf-40f2-8aa3-b77feb79cbfe",
+                  "SceneAssetGuid": "5d45afc1179d55545a277459b42c77a7"
+                }
+              },
+              "EnableIfAlreadyDisabled": false,
+              "DisableIfAlreadyEnabled": true
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_fcc41c54a183a5a4b9851e255500700c",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_3873633d3c856d249bcb6598aa1606ed",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_9f376f701e8dc294bbc3dd7b47fc7aaa"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

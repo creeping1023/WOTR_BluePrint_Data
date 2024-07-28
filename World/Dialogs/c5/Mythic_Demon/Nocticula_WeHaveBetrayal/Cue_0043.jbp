@@ -1,0 +1,125 @@
+{
+  "AssetId": "0239cc87eef840043a5e4abc970ac5da",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "если куесиквенс не запустится, потому что ни одно из условий в нем не выполняется - на этом куе заканчиваем диалог и начинаем драку\n\nШамира",
+    "ParentAsset": "23b94a64a6519a748954602c9f23930e",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "85deba4c431b669449f5ff8c2e6c4ee5",
+        "stringkey": "d4b139bb-9fbe-476b-8b87-8c0e05238fa2"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_66e12264eaf6bf74196e20a9d7619cd2",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": "!bp_59e13b5f3020b5e4aa05e4bf7bde18ad",
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$37ea8ac7-0503-40d1-b5ab-9f23f5f4dba0",
+          "m_Objective": "!bp_4572916ee72b01646a9b517a58d52862"
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$d83ebb37-6708-4229-b14b-a85b8864201e",
+          "m_Objective": "!bp_c0bc420c78ecf1640a3af1d2447a39af"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$18064836-0e55-4e75-b209-ad6ad1c4692f",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b702a307-5a5d-46c3-acd5-dc30ec349a9f",
+                "Not": false,
+                "m_Etude": "!bp_3687443919e01b343b9eb4a32efe0084",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$da17a9e9-9aea-4bd5-a3da-4ee0cc20f337",
+                "Etude": "!bp_762fcfb3d917a744abec838b8f6a9c8e",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$4edf66f0-6456-4db3-9c4e-cec97050e71d",
+                "m_Cutscene": "!bp_558d2dafded79fa47aa160002c58c94f",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$3be6a940-f1de-453b-9ba1-2767bb38e3c4",
+                "Etude": "!bp_88b73c81a60f4a045a6fcb5057c0aaac",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

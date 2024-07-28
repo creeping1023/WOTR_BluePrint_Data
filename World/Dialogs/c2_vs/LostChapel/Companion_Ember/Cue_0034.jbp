@@ -1,0 +1,184 @@
+{
+  "AssetId": "8a3ef162c19329e4e9f322a6c4c0f875",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "574d71409b36b4543926eae1acc02ce5",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "083f8026-5679-4b7a-b941-2589dc0145ce",
+      "m_OwnerString": "8a3ef162c19329e4e9f322a6c4c0f875",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c2_vs/LostChapel/Companion_Ember/Cue_0034_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$97b4f0c2-5ff9-4d1f-aed1-26df673ed93d",
+          "Comment": "Даеран к нам/в лагерь",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$8540b49d-f6d5-4e21-86ba-1dead803f272",
+                "Not": false,
+                "m_Answer": "!bp_574d71409b36b4543926eae1acc02ce5",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$d0b9e3da-897b-4744-99b0-be6ce6839135",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                    "NPCUnit": null,
+                    "MustBeInParty": false
+                  }
+                ],
+                "AddToParty": true,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": [
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$684ea784-fc0b-42cb-a465-5547b9524429",
+                      "m_flag": "!bp_ba756ef0ee9dcf34c8c02b10d6b774b2",
+                      "flagValue": 1
+                    },
+                    {
+                      "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                      "name": "$ReloadMechanic$1d77cf35-f3cf-4946-b7f9-3361aa7909d3",
+                      "Desc": "Empty action",
+                      "ClearFx": false
+                    }
+                  ]
+                },
+                "OnRecruitImmediate": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+                "name": "$RecruitInactive$bf436251-bf07-49d5-b7b8-0107505d7963",
+                "m_CompanionBlueprint": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                "OnRecruit": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$fa7a7e25-405b-4b11-8fc6-c768983fe430",
+                      "m_Cutscene": "!bp_09ab5e8c61103db4f9c47a8dd2539a18",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$5d417e6f-d24f-4802-bfc0-860cf0622a6b",
+                              "m_Companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                              "IncludeRemote": true,
+                              "IncludeExCompanions": true,
+                              "IncludeDettached": true
+                            }
+                          },
+                          {
+                            "Name": "Position",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$57525105-7972-4abf-8171-59dbb8f7e552",
+                              "Locator": {
+                                "EntityNameInEditor": "Daeran_out",
+                                "_entity_id": "34a31769-737f-4e6f-83b8-b79e11c9aad6",
+                                "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                              },
+                              "Offset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                              }
+                            }
+                          },
+                          {
+                            "Name": "AneviaPosition",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$fe2c1fe3-58fa-4ad3-840c-34a7cfb06309",
+                              "Locator": {
+                                "EntityNameInEditor": "Daeran_atAnevia",
+                                "_entity_id": "963616f9-3dff-48ec-8f17-f0bc17209b9b",
+                                "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                              },
+                              "Offset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

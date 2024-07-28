@@ -1,0 +1,142 @@
+{
+  "AssetId": "62d54f591bc9d3a45b3d5ab50b9fc08d",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Секс и дрейн левелов",
+    "ParentAsset": "9c222717eaffb3a4bb142e8bb6b4deeb",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "8ea12441-69c5-4d63-9538-b2b268524f0a",
+      "m_OwnerString": "62d54f591bc9d3a45b3d5ab50b9fc08d",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Arueshalae/Evil/EvilArueshalaeCompanion/Cue_0035_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$7545d3b2-2232-439e-b7c5-c46837d0250b",
+          "Comment": "Etude is not started",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f07d25c2-4139-480f-b848-4021e5010285",
+                "Not": false,
+                "m_Etude": "!bp_153f4fa2087d53545ae3ade0f4db81bd",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$3697f61c-4bf8-4264-a0ee-9f83e91c1b46",
+                "Etude": "!bp_153f4fa2087d53545ae3ade0f4db81bd",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$888d41ab-1d4d-443b-8f62-fab6bc7695cb",
+          "m_flag": "!bp_9dac70e5ac8de9f4f923d5ac73fb5ca7",
+          "flagValue": 1
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$0c915287-19f6-4acc-9115-ea4a97a0c16b",
+          "m_exitPositon": "!bp_ab3b5c105893562488ae5bb6e7b0cba7",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "199cf8242201447a8ca422e86181ea05, DrainEnergy",
+                "name": "$DrainEnergy$794eab07-4e1b-42b1-85aa-ae799ac657b5",
+                "NoSource": false,
+                "Source": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$040febab-631c-4665-b462-f6b79d52af27",
+                  "m_Companion": "!bp_e3bc95db7e2181d41847b3a1d858258d",
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": true
+                },
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$282d697b-3e47-4cf7-bcb8-1c93cbd6b8f3"
+                },
+                "Type": "Permanent",
+                "Duration": {
+                  "m_Value": 0
+                },
+                "DamageDice": {
+                  "m_Rolls": 1,
+                  "m_Dice": "One"
+                },
+                "DamageBonus": 0,
+                "DisableBattleLog": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

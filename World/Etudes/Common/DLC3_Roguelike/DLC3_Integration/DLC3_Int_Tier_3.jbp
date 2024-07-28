@@ -1,0 +1,210 @@
+{
+  "AssetId": "833a793a9b4e4fc9a540b0d51bbe40cf",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$8c50e59d-70fe-42f5-bf74-f69f5fe1f4e9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2b401a04-57cb-4a79-8525-6df712df59ba",
+              "Comment": "Мы в гроте или на корабле",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$088fc3bc-62d1-4c14-9383-e9db35952538",
+                    "Not": false,
+                    "m_Etude": "!bp_b5779a222f98475b87ffb13337cdffda",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$6928b729-2a23-4dcf-946e-a726b734f1e6",
+                    "Not": false,
+                    "m_Etude": "!bp_a1c5e95889ce40d9945a32171fefb962",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$6737f182-db51-422e-983d-af02c29a5ac7",
+                    "m_Objective": "!bp_143b2297169a4827afec40a41f0814f9"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$8e896eb5-2429-426a-94d6-d2ccf92f3d2f",
+                    "m_Objective": "!bp_a9be243fe22346459baeda658d38d2de"
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$5eb4c4b6-272e-4a15-b715-055913193a0c",
+              "m_flag": "!bp_3897c6a29efe4f85aa94489c9ebe65cb",
+              "flagValue": 0
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f31c9abf-8bc6-4219-a4a1-b679ed54ac0a",
+              "Comment": "Был обж на ожидание от первого тира",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$1d107736-cbc8-453d-9639-477052ade8ed",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_9dddc4ab45ad4e0aa1565089bae27b8a",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$23ecbfef-d7eb-447f-9fad-22ebb8b9db71",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_9dddc4ab45ad4e0aa1565089bae27b8a",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$70a7cb50-5fc3-481e-8b60-6fbf9e0592e2",
+                    "Comment": "Был обж на ожидание от второго тира",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                          "name": "$ObjectiveStatus$51d958ac-ba3d-42c0-88cd-dc5be2a9327b",
+                          "Not": false,
+                          "m_QuestObjective": "!bp_5c8d10cedf6a4000bb6a24e415cafc95",
+                          "State": "Started"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                          "name": "$SetObjectiveStatus$0b7d0af1-51ee-48cf-bbf8-5d95dc76f8fb",
+                          "Status": "Complete",
+                          "m_Objective": "!bp_5c8d10cedf6a4000bb6a24e415cafc95",
+                          "StartObjectiveIfNone": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_093db34c2e0c4f7683cc6e87bb4dfac9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$d8a8a62a-a622-4f18-8878-451bbe0ba59c",
+          "Not": false,
+          "m_Etude": "!bp_0912638e3ec84ad58621fc36e5f60556",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$8879ef1d-e901-4440-b7b8-bd3b08233326",
+          "Not": false,
+          "m_Etude": "!bp_9cea64c4096145b9801b042811a83158",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$13b7cb56-bb31-47d0-ba4c-83c9992c2cea",
+          "Not": true,
+          "m_Etude": "!bp_90a98fca882f4d91b06fb562ccd24c44",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_e79a85f5987c4f5881acb357c19b9c89"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "AssetId": "584fc0042a197c84f8410aa2137a394b",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "старт боя",
+    "ParentAsset": "b3bf587f3b9f15e4ab2d476b5018cccb",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "2b9238a0-c11f-49f3-a714-d80e0a4bb99d",
+      "m_OwnerString": "584fc0042a197c84f8410aa2137a394b",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/NoctikulaPalaceGuards/Cue_0010_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$a526abbe-e895-4310-9490-219bcb3686c4",
+          "Target": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$fe16b94b-2a7e-4772-aaa7-d5794c4c78f9"
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": true
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$7d5aa8b4-9163-4f0a-a034-0435ae5eb921",
+          "m_flag": "!bp_e95ad14220a09594698a6b570bf87285",
+          "flagValue": 0
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$03287e4c-afbe-4bba-a8f8-83f1edc51443",
+          "Comment": "Renown gain",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e074f47f-b636-4e4a-8a6b-58a2d81f0d3d",
+                "Not": true,
+                "m_Etude": "!bp_4a1fcf156a064a445ae85d0d56f8e335",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$0f8b6a24-47d8-4032-a812-b7816f51bc84",
+                "m_Flag": "!bp_8061fb025b4c5cf459cb81a1c96fcdc9",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$582b1cf7-fe78-40e5-aeff-69833c18b79d",
+                  "Value": 5
+                },
+                "UnlockIfNot": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$1dc5c26a-a602-44a6-867b-3b3ccc52606f",
+          "Etude": "!bp_4a1fcf156a064a445ae85d0d56f8e335",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

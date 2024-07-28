@@ -1,0 +1,180 @@
+{
+  "AssetId": "dcd4f7ac09eb6d14ea6b8e74c40b3865",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "уходит из локации\nЕсли мы отпустили ее до 5 главы, то она нападет в 5 главе\nЕсли мы отпустили ее после 5 главы, про нее будет эпилог",
+    "ParentAsset": "53dd9b8957aa9d2498f7dbcc23af9fc4",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "f8421624-768e-4d2b-87c1-729cc6de3a71",
+      "m_OwnerString": "dcd4f7ac09eb6d14ea6b8e74c40b3865",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/TempleOfDelamere/DelamereInTomb/Cue_0029_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ecf5c7b6-bf70-477c-805c-d8dfb90b113c",
+          "Comment": "в Зиккурате или нет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1f154fb9-7f3b-4d19-95dd-c049dcb85709",
+                "Not": false,
+                "m_Etude": "!bp_c7858be60f1d5da4fad9a366b63f6443",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$3a0316a7-6bf2-445f-bdb6-077bab84cfb0",
+                "m_CompanionBlueprint": "!bp_6b1f599497f5cfa42853d095bda6dafd",
+                "OnUnrecruit": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$ffcc9190-c964-470c-a850-1482304b3ed6",
+                "m_Cutscene": "!bp_96c2eac8c1002f34e5030a329b6704f3",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                        "name": "$DialogCurrentSpeaker$9ecab285-34bd-4f92-bc53-090a3808d0be"
+                      }
+                    },
+                    {
+                      "Name": "Locator",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$277c0af7-6fbc-4b69-b61b-4de9789032d8",
+                        "Locator": {
+                          "EntityNameInEditor": "CryptOut",
+                          "_entity_id": "a2228f65-5a09-4cc4-812b-60f02beff74e",
+                          "SceneAssetGuid": "e6e7851b25333e24db5cf94f9b403b08"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2bb2fd7e-4100-4d58-bcee-72fae296d46b",
+          "Comment": "до пятой главы или после",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b4d23252-8779-4440-b029-4b2069c6d539",
+                "Not": false,
+                "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$165cba7b-7e6a-41fd-95d4-18a1b31ef646",
+                "Etude": "!bp_d2c6a424737d62a4f97f7f96341ba1c4",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$897ef65c-4dfc-4195-8c34-27d901c38a16",
+                "Etude": "!bp_2b79bf13827a0d946879e0ab87f56868",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+          "name": "$LockFlag$2406d280-b333-4fac-903a-2ccd4c2c778f",
+          "m_Flag": "!bp_623c506062c8bad4090adfe619fa0b27"
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

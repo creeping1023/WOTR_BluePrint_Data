@@ -1,0 +1,236 @@
+{
+  "AssetId": "c3a3bd48258020747a20adcdac65d53d",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Йозз телепортирует игрока на стартовую точку текущей зоны",
+    "ParentAsset": "7da69749d23ae5448a8034b435f0f11b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "a853e72d-92f9-4351-ae05-455bc5c2fb0f",
+      "m_OwnerString": "c3a3bd48258020747a20adcdac65d53d",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/Mythic_Demon/Alushinyrra/Yozz/Cue_0097_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+          "name": "$LockFlag$28af41f2-9936-47b4-83c2-3cb2c2b5b3cd",
+          "m_Flag": "!bp_4b6e143e237b60e48a031b7d65ca3e5f"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$68fbd99e-8d65-4b52-b5d3-8f0dd3e2c774",
+          "Comment": "Vault of Graves",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                "name": "$CurrentAreaIs$93d21d36-c210-4807-8d76-8b43f8759dce",
+                "Not": false,
+                "m_Area": "!bp_ed0861453c93d8a45ad007c94370476e"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6981071bc74236f4293f1a19ed2ebb32, TranslocatePlayer",
+                "name": "$TranslocatePlayer$7f988d42-ee1e-4021-9d5d-2c779747e172",
+                "transolcatePosition": {
+                  "EntityNameInEditor": "YozzTeleports_PlayerDefault",
+                  "_entity_id": "51357980-02cc-4c5e-819a-4fd8e6fbb89a",
+                  "SceneAssetGuid": "44542125d6b4d33408e3245d539c5449"
+                },
+                "ByFormationAndWithPets": true,
+                "ScrollCameraToPlayer": true
+              },
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$00c2bcb5-a29d-41fc-b0e0-487f2da44d68",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$2a2ad65e-8821-4ce2-8fd5-5d575c76fe33",
+                  "Spawner": {
+                    "EntityNameInEditor": "Yozz",
+                    "_entity_id": "c7a9dd5b-d910-4f3b-a766-b70c86539289",
+                    "SceneAssetGuid": "44542125d6b4d33408e3245d539c5449"
+                  }
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "",
+                  "_entity_id": "",
+                  "SceneAssetGuid": null
+                },
+                "translocatePositionEvaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$06b5a1a8-96bf-4cc5-99ac-b46b0907d623",
+                  "Locator": {
+                    "EntityNameInEditor": "YozzTeleports_YozzDefault",
+                    "_entity_id": "380eb3d2-69ba-46b1-bc4f-352beff8c39d",
+                    "SceneAssetGuid": "44542125d6b4d33408e3245d539c5449"
+                  },
+                  "Offset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                },
+                "m_CopyRotation": true,
+                "translocateOrientationEvaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$942b2b4f-c884-47ea-868f-5f9b2c19a1bd",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "YozzTeleports_YozzDefault",
+                    "_entity_id": "380eb3d2-69ba-46b1-bc4f-352beff8c39d",
+                    "SceneAssetGuid": "44542125d6b4d33408e3245d539c5449"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6254ebe2-950c-4b57-8fc9-4e4e1ede72d0",
+          "Comment": "Brothel",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                "name": "$CurrentAreaIs$bdd26f59-427d-4841-897f-33b2e55a7ce9",
+                "Not": false,
+                "m_Area": "!bp_180cdb4b48d561f4cb4ef9a066727960"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$264646c0-7596-47b2-8261-84c47934a85c",
+                "m_Cutscene": "!bp_bbe22856e1976bb429e073825f4b2543",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$635ec080-9d23-41f8-888f-260c42c39feb",
+                        "Spawner": {
+                          "EntityNameInEditor": "Yozz",
+                          "_entity_id": "5648c2a3-e75b-413a-ae0d-f09c6cb9085f",
+                          "SceneAssetGuid": "4f90dd8abb0fbbb45831d94b250fe7c7"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Point1",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$70d74f8d-f987-4471-a47b-c7bf95864ab0",
+                        "Locator": {
+                          "EntityNameInEditor": "PlayerIntercepted",
+                          "_entity_id": "6c3e73b1-ee71-4016-90f6-833170108457",
+                          "SceneAssetGuid": "4f90dd8abb0fbbb45831d94b250fe7c7"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Point2",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$c2db2f37-3ff6-42f8-9972-f929271388cf",
+                        "Locator": {
+                          "EntityNameInEditor": "YozzIntercepted",
+                          "_entity_id": "5067678f-b9bf-4fa8-803e-40d58c7aa8f2",
+                          "SceneAssetGuid": "4f90dd8abb0fbbb45831d94b250fe7c7"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "1a0449d4049c34149a17869dd62dc64a, CameraToPosition",
+          "name": "$CameraToPosition$f674afb8-8c0b-4816-a208-1ea83eb2c54f",
+          "Position": {
+            "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+            "name": "$UnitPosition$20bcd63c-62d0-40a6-8d0d-5b913c1e6764",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$4e8b2322-112f-4f91-8f81-878151c0e4c9"
+            }
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

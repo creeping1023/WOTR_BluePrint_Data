@@ -1,0 +1,508 @@
+{
+  "AssetId": "78d1192512994d14a8d89a145a4f52e9",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EvaluatedUnitDeathTrigger$ef7bde2d-71ea-4cf6-bbbc-3defc4c5378a"
+    ],
+    "Components": [
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$ef7bde2d-71ea-4cf6-bbbc-3defc4c5378a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$6fe18393-f6f0-45a9-9077-4220e04c0c4a",
+          "m_SummonPool": "!bp_79e0b16b3fd0452694725e7736330c88",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5afa2802918b3874bb6e0d611d6489cd, UpdateEtudes",
+              "name": "$UpdateEtudes$c9c4dcc5-4627-427b-95f4-aa112c5b74f4"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$acfcd735-f8c5-40fb-81fb-8dec54252aef",
+              "Comment": "GalfreyGoesToMonsterLair",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ab0ae632-145d-4277-ba38-50c8bd303d2c",
+                    "Not": false,
+                    "m_Etude": "!bp_c6f99eb931a98e24ba3c786389ab7570",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$07efed81-da7e-4d31-a822-fd39b294dd1f",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$1da34164-0a4e-4fcc-97b1-fd1dcbd74fa7",
+                          "Not": false,
+                          "m_Etude": "!bp_93c1917c50bed95409c0757728ade766",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$03e367bc-660a-46c7-b4d8-1d11262e76b0",
+                          "m_Cutscene": "!bp_1154ffca3f694a9a9f2de75b61fad190",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$00066bb8-5869-4878-a678-2f705f6b63fe",
+                          "Etude": "!bp_4585c1dd1365b78408b71fed41887269",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        },
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$acc2b2b5-9eaa-4fa5-85de-35bc93dc19cc",
+                          "Etude": "!bp_5774ab41f3836e54e892da2e2d88679b",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        },
+                        {
+                          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                          "name": "$PartyUnits$9123d989-04fe-4f2c-bccc-de6b3627860e",
+                          "m_UnitsList": "PartyCharacters",
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                                "name": "$StopCutscene$1bd06980-acca-4c8c-9b88-dea9cddc3bcd",
+                                "m_Cutscene": "!bp_5c1778357d812ee4ca31dbb957a9904e",
+                                "WithUnit": {
+                                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                  "name": "$PartyUnit$319fb0ae-c363-4fa4-90ad-7028d1781dcf"
+                                },
+                                "m_CheckType": "Params"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "$type": "ae3ad240503b4ac4a9a505a90ff05741, DebugLog",
+                          "name": "$DebugLog$084a57e6-5944-4c98-9a14-fcbf0b4b3917",
+                          "Log": "+++++log not alone",
+                          "Break": false
+                        },
+                        {
+                          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                          "name": "$DetachBuff$57ed94a1-2124-4cf6-8c4d-4b04e34b1c38",
+                          "m_Buff": "!bp_bd9d11c630f645443b8a1061044d5cf0",
+                          "Target": {
+                            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                            "name": "$FirstUnitFromSummonPool$88246d7a-c339-4734-94fb-fbf01e13b0fb",
+                            "m_SummonPool": "!bp_1a67d1abc593405ab67cede0bc242224",
+                            "Conditions": {
+                              "Operation": "And",
+                              "Conditions": []
+                            }
+                          }
+                        },
+                        {
+                          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                          "name": "$DetachBuff$211eb693-5c6e-45de-a494-68349e9fdabe",
+                          "m_Buff": "!bp_bd9d11c630f645443b8a1061044d5cf0",
+                          "Target": {
+                            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                            "name": "$FirstUnitFromSummonPool$5347e8b4-0470-449b-8102-4fdae1f388c2",
+                            "m_SummonPool": "!bp_58ea82467325434db7e499cba419c865",
+                            "Conditions": {
+                              "Operation": "And",
+                              "Conditions": []
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "ae3ad240503b4ac4a9a505a90ff05741, DebugLog",
+                    "name": "$DebugLog$978c482d-b156-44f7-8a0b-3c2cb9c5d16b",
+                    "Log": "+++++log not monster lair",
+                    "Break": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$45e872dc-7209-441b-9381-80b56d486744",
+              "Etude": "!bp_42e220d5dadc4dfd8bb3ef23cae832eb",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$73818720-00b5-4211-ad7b-40963330cede",
+              "m_Buff": "!bp_89e35c5e00538c44f98b2af5c196a623",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$51b0c4c6-e597-4611-b94f-91842da97099",
+                "m_SummonPool": "!bp_1a67d1abc593405ab67cede0bc242224",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              }
+            },
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$3180f97d-7d59-4bb7-8071-9bb92e89cf76",
+              "m_Buff": "!bp_89e35c5e00538c44f98b2af5c196a623",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$0246fe7b-eb39-4a73-8336-80e5ffd394d1",
+                "m_SummonPool": "!bp_58ea82467325434db7e499cba419c865",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$4e3c004a-5944-46c9-8c00-4c9360d39fc9",
+              "m_Cutscene": "!bp_436babd748b94e3c9aaae67a27f5852e",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$dbcc4517-f66d-47a3-8335-419d66ccd95c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Смерть Анеморы",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_8bbebf2addf54c8ea68694c5f00ecd42",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$35937a6f-f7cd-4bbf-9519-fec63d5176c8",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$795c19cf-e1c8-405b-873c-7494c447ce6e",
+                    "Not": false,
+                    "m_Etude": "!bp_4b3f1b15817e2034f85d7fa7b2a6f20a",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$29bf4a51-8d80-499a-8679-bfa61d2fe49f",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$6890ad16-f481-4d7f-97bb-fa82f8150143",
+                          "Not": false,
+                          "m_Etude": "!bp_93c1917c50bed95409c0757728ade766",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$77d124fc-603e-497b-8e21-65f6f6eac773",
+                          "m_Cutscene": "!bp_dff682ec85834fd8bee15c90214081e7",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$9d0c2070-aa70-4ef0-a4fa-a98a719ad590",
+                          "Etude": "!bp_4585c1dd1365b78408b71fed41887269",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        },
+                        {
+                          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                          "name": "$DetachBuff$8fb82f61-c36d-4af9-b5c4-bc243b1b4602",
+                          "m_Buff": "!bp_bd9d11c630f645443b8a1061044d5cf0",
+                          "Target": {
+                            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                            "name": "$FirstUnitFromSummonPool$38efcb96-dde8-4a64-87b1-8dbab38ad498",
+                            "m_SummonPool": "!bp_1a67d1abc593405ab67cede0bc242224",
+                            "Conditions": {
+                              "Operation": "And",
+                              "Conditions": []
+                            }
+                          }
+                        },
+                        {
+                          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                          "name": "$DetachBuff$2162aa73-4a8f-4e54-a1f3-a00443c81899",
+                          "m_Buff": "!bp_bd9d11c630f645443b8a1061044d5cf0",
+                          "Target": {
+                            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                            "name": "$FirstUnitFromSummonPool$06530431-91f0-4f3f-97e1-d9d5268db8eb",
+                            "m_SummonPool": "!bp_58ea82467325434db7e499cba419c865",
+                            "Conditions": {
+                              "Operation": "And",
+                              "Conditions": []
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$1b7049df-c959-4bdd-9821-5d75ffcbfd9b",
+              "Etude": "!bp_5774ab41f3836e54e892da2e2d88679b",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$85e0cce5-7ff9-4d54-bb1f-f80a21286666",
+              "Status": "Complete",
+              "m_Objective": "!bp_488fca11fba5c474d84426de33db987f",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$2d8e65cf-c231-4dad-bef2-84aea94431d9",
+              "Etude": "!bp_8c2fdd760cc54b4bb874d2832ff14695",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$b53c11f7-5899-4d79-a55b-49f49a9b6af7",
+              "m_Buff": "!bp_89e35c5e00538c44f98b2af5c196a623",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$3d112354-a955-40cb-97de-80747b43444b",
+                "m_SummonPool": "!bp_1a67d1abc593405ab67cede0bc242224",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              }
+            },
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$0d233026-f5c1-43a1-a3fb-ec386cdc2a55",
+              "m_Buff": "!bp_89e35c5e00538c44f98b2af5c196a623",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$b3934b7a-4c2d-42ef-9425-fa741de6f9c8",
+                "m_SummonPool": "!bp_58ea82467325434db7e499cba419c865",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitHealthTrigger$e818fd5a-14b4-46fb-a7b2-6dbd00da0f33",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Galfrey \"death\" in combat",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$3fe886a2-a6c3-4f99-a8e0-b8ccf1ddca14",
+          "m_SummonPool": "!bp_1a67d1abc593405ab67cede0bc242224",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Once": true,
+        "Percentage": 11,
+        "TriggerOnAlreadyLowerHeath": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$f707823c-e18a-42e3-b521-22d6d32dbc6f",
+              "m_Buff": "!bp_bd9d11c630f645443b8a1061044d5cf0",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$1212d83f-3ef8-4905-bcaf-ea5a57a3c0ae",
+                "m_SummonPool": "!bp_1a67d1abc593405ab67cede0bc242224",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Duration": null
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitHealthTrigger$7f960281-eb01-45b1-9740-732cf6e714aa",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Irabeth \"death\" in combat",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$c43f8b09-9f2c-4332-88e0-7ea9a54d34f5",
+          "m_SummonPool": "!bp_58ea82467325434db7e499cba419c865",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Once": true,
+        "Percentage": 11,
+        "TriggerOnAlreadyLowerHeath": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$4a48d023-4e3d-4c04-926c-ed468d76cff6",
+              "m_Buff": "!bp_bd9d11c630f645443b8a1061044d5cf0",
+              "Target": {
+                "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                "name": "$FirstUnitFromSummonPool$f0b863a3-e689-44af-9abb-0ebd340a5807",
+                "m_SummonPool": "!bp_58ea82467325434db7e499cba419c865",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                }
+              },
+              "Duration": null
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Запускаем диалог Иры/Голфри после смерти монстра",
+    "m_Parent": "!bp_d44c5bb992ad6d74aa5efeabbca3444d",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

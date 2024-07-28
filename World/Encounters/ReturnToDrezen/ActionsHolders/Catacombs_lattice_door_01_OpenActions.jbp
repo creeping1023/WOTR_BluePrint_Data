@@ -1,0 +1,126 @@
+{
+  "AssetId": "53ad1ba96a1642d4939ccc3369f20254",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+          "name": "$SwitchDoor$5bda0314-ed08-4b29-a999-2131671347f2",
+          "Door": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$c7fcd5f1-0a44-4c74-b108-22e06fc43b9f",
+            "MapObject": {
+              "EntityNameInEditor": "Catacombs_lattice_door_01 (1)",
+              "_entity_id": "df5b1daf-6c3a-423e-b9c8-153bed9b8ecb",
+              "SceneAssetGuid": "ed2493c7cc4f54547abfb40e12aba18d"
+            }
+          },
+          "UnlockIfLocked": false,
+          "CloseIfAlreadyOpen": false,
+          "OpenIfAlreadyClosed": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$850dd70c-f9bf-46a5-b883-aa4799a30dc1",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c69431ed-b603-4175-a561-cf0d99ea3e4f",
+                "Not": true,
+                "m_Etude": "!bp_48b3d1b7ac1c69343b38366e14b02709",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$325b00c0-d7ac-474e-bfc7-de6df07b027b",
+                "m_Cutscene": "!bp_36249bd2cd0c40e9a6187d1370937784",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$ed450c64-a416-4809-9d59-fb80fedba9bf",
+                "Etude": "!bp_7306ad00a50043338069c53b9a450f39",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d3575bb0-6999-408c-b4c4-344607323d6f",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$02575f73-cf7a-4ff8-85f2-7caec3154c3d",
+                "Not": false,
+                "m_Etude": "!bp_e7a4047b90f5480c920c5429f5316390",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$704587b6-5123-49c6-be65-1ea9631e1746",
+                "Not": true,
+                "m_Etude": "!bp_48b3d1b7ac1c69343b38366e14b02709",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$9a2a3054-bd1e-4259-ac18-4e7c06e64e40",
+                "Status": "Complete",
+                "m_Objective": "!bp_8a2958dd31ec83144a1b1343e4971856",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+                "name": "$ScriptZoneActivate$7e1a71cf-acf8-469d-82a1-5cb5815a67a7",
+                "ScriptZone": {
+                  "EntityNameInEditor": "HilorThanksBark",
+                  "_entity_id": "d07cee51-22a3-4e1a-85f6-1861ba6c9a7f",
+                  "SceneAssetGuid": "ed2493c7cc4f54547abfb40e12aba18d"
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

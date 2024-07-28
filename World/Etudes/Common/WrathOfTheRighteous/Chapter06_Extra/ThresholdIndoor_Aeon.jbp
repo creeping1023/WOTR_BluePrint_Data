@@ -1,0 +1,148 @@
+{
+  "AssetId": "69b99780078539c4bb88c3dfe5d34ce4",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$0b40cb80-814a-47e9-aff6-4303f31013af",
+      "$SummonPoolTrigger$7010424d-3726-4d32-bd48-a4ff9154ce58"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$0b40cb80-814a-47e9-aff6-4303f31013af",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "- квест\n- автосэйв для импорта",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$9ece4242-9f45-49bc-b165-d5e53f6ae871",
+              "m_Objective": "!bp_20873a576e0b6464cbef6a10a5ac58cc"
+            },
+            {
+              "$type": "28f3698ba62041e09a5abcbe59a14725, MakeAutoSave",
+              "name": "$MakeAutoSave$830bf9bd-38c2-4934-bbb7-7196358842c9",
+              "SaveForImport": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$7010424d-3726-4d32-bd48-a4ff9154ce58",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_b0f2e97a0a1e64048b4c0687526922ef",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$bf9d86c7-6c4f-47f1-ac1f-9d7f0640de86",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$b1e85c01-68fb-4789-ac12-2f2b8fe3f619",
+                "Spawner": {
+                  "EntityNameInEditor": "Areelu",
+                  "_entity_id": "b6c9b5bd-b3b0-49e3-bce3-5fccadaf2db1",
+                  "SceneAssetGuid": "c4fcd4688875e0c4b878c11a7f9346d9"
+                }
+              },
+              "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+              "IncludeGroup": true,
+              "ResetAllRelations": true
+            },
+            {
+              "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+              "name": "$TimeSkip$dfb87a8e-ff0c-437a-906c-f6eaba04127a",
+              "m_Type": "Minutes",
+              "MinutesToSkip": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$4e998581-fd8b-4342-8f6a-711efd82acfb",
+                "Value": 5
+              },
+              "TimeOfDay": "Morning",
+              "NoFatigue": true,
+              "MatchTimeOfDay": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$9a32baf5-6a85-42b9-9bac-6d3d151faa59",
+              "m_Cutscene": "!bp_8fdb59f403f8b1b41a005d4f74ab5912",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Speaker",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$892b56b5-e751-4732-9a11-4c16cbb1b340",
+                      "Spawner": {
+                        "EntityNameInEditor": "Areelu",
+                        "_entity_id": "b6c9b5bd-b3b0-49e3-bce3-5fccadaf2db1",
+                        "SceneAssetGuid": "c4fcd4688875e0c4b878c11a7f9346d9"
+                      }
+                    }
+                  },
+                  {
+                    "Name": "Dialogue",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$06854971-4133-4844-84e2-aadb3f8842c3",
+                      "m_Value": "!bp_2d608dbec3dc7904aad1ba57f84a61d1"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_d44763472a4034145a590e3de949ca24",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_e5aacf9462760ac40812186e6f34a8f2",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

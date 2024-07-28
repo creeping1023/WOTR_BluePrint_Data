@@ -1,0 +1,278 @@
+{
+  "AssetId": "221a84b823692474a81271435f041241",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": {
+          "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+          "name": "$False$5ba09fad-6247-459d-be62-2d22bf049922",
+          "Not": true
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$608f38cc-1822-46cb-978e-5fdc9930f51e",
+              "Comment": "Диалог с аневией если уходим перед атакой",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$97bb22f3-c10c-4306-a59c-e0ef29ac3a97",
+                    "Not": false,
+                    "m_Etude": "!bp_897cefd681c79c54fa70f2dcfac47a64",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$e9fba8b5-ab9d-42f4-a8db-755e9bcc9525",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_7d7e1a02c27c123469dd1b12d48aa32a",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$ad6c52ef-2801-47d0-9b1d-d473d9acef9f",
+                    "m_Cutscene": "!bp_f4d668c97e6eece43b4a985f96a1bbd2",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$ce3c5e23-ab77-47b7-8a0f-109b36b28c47",
+              "Comment": "Если уходим - таверна разрушена",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$be9bbf97-1a54-4c84-a80a-5498e52617a5",
+                    "Not": false,
+                    "m_Etude": "!bp_897cefd681c79c54fa70f2dcfac47a64",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$31e52730-56a9-429e-b58a-ee4e40160e3c",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_7d7e1a02c27c123469dd1b12d48aa32a",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$6d266c18-2235-4292-aeeb-d3d38fe9844b",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_83894889c7dc2b64e901a17078b800c0",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$619870c7-9660-4019-9113-27eeba1cc5a2",
+                    "m_Objective": "!bp_63f40582cba7e064986288f92e09d04a"
+                  },
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$e707a416-e8d3-4324-9e95-52d5bbd6da2c",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_63f40582cba7e064986288f92e09d04a",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$30961b03-4e2e-4e60-98af-b43a922d9022",
+                    "Etude": "!bp_b88474e01fe20524ba9d3361ac78469c",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$300ee59c-b33c-4128-822d-69a6a2037941",
+                    "Etude": "!bp_11f47a92b8a99bf47a2a9a487433befd",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "5386e8e42dfb3e24d9dd5ec17c50c0c7, CapitalExit",
+                    "name": "$CapitalExit$37014da6-f304-44be-9151-ba0884d93372",
+                    "m_Destination": "!bp_353560945f61c5446906f13b42b7c043",
+                    "AutoSaveMode": "BeforeExit"
+                  },
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$3396b00f-2578-414b-a365-fd845a4867e6",
+                    "Etude": "!bp_3a6a5a69121d2124a9a92f4385a9fe46",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$f64107c2-98be-4bda-90c0-109d0ef5622f",
+                    "m_flag": "!bp_8652c5895c841914297b032952fb20ac",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$348105cf-32ef-4154-a039-bcaee2a405e9",
+              "Comment": "Стандартный выход на глобальную карту",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$94e8b475-5162-436e-aac3-40e2576ebb1c",
+                    "Not": true,
+                    "m_Etude": "!bp_897cefd681c79c54fa70f2dcfac47a64",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5386e8e42dfb3e24d9dd5ec17c50c0c7, CapitalExit",
+                    "name": "$CapitalExit$62e09ea7-463e-4fcb-a164-0d67d179a928",
+                    "m_Destination": "!bp_353560945f61c5446906f13b42b7c043",
+                    "AutoSaveMode": "BeforeExit"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$ed507e79-5e66-44fb-98fa-7f08fc1227f4",
+              "Comment": "Убираем коллайдеры разрушенных ворот",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$07299cdf-87e8-46db-80f6-5febfe827520",
+                    "Not": false,
+                    "m_Etude": "!bp_e01b24b5cc99f7e49942356fbc33267c",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$6fbeb9ce-37f6-4a21-b518-28ca8c36601d",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$5c4b931f-219f-4dc5-9236-bedc0f27d8b2",
+                      "MapObject": {
+                        "EntityNameInEditor": "CollisionGate1 (1)",
+                        "_entity_id": "a63be58e-7df0-44b9-87c9-b7b3ea589438",
+                        "SceneAssetGuid": "76fd9bd06db7fe94ca783ea99d327650"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$3fc90b9e-0c9b-408f-92a3-c9b1f0d076e0",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$f1c94e96-bc07-4e68-877e-8416168affb0",
+                      "MapObject": {
+                        "EntityNameInEditor": "CollisionGate2 (1)",
+                        "_entity_id": "6c55e8fd-8c02-4cfa-9235-67a333023fd9",
+                        "SceneAssetGuid": "76fd9bd06db7fe94ca783ea99d327650"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$a3eaf5ec-4ed9-4f04-87bc-06e00a26edee",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$796787e8-4e93-4e49-acb4-28a40a6cf61b",
+                      "MapObject": {
+                        "EntityNameInEditor": "CollisionGate1",
+                        "_entity_id": "0aa4dfbd-9290-44f5-ab02-e72363e6da73",
+                        "SceneAssetGuid": "76fd9bd06db7fe94ca783ea99d327650"
+                      }
+                    },
+                    "Unhide": false
+                  },
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$f1367192-e836-4b1c-a71b-f454a1fe0ef8",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$f4ac5edc-5d61-4158-9cd1-03e02ad9f3dd",
+                      "MapObject": {
+                        "EntityNameInEditor": "CollisionGate2",
+                        "_entity_id": "e483599b-e479-4ce0-b1a8-cb79c7a93e46",
+                        "SceneAssetGuid": "76fd9bd06db7fe94ca783ea99d327650"
+                      }
+                    },
+                    "Unhide": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

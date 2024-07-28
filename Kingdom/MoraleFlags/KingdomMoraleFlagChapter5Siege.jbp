@@ -1,0 +1,903 @@
+{
+  "AssetId": "97f654fb595348b4a492ef17baf2af04",
+  "Data": {
+    "$type": "91a969d9ff86cca42aa864b54cbb424f, BlueprintKingdomMoraleFlag",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$ea877591-ea91-47a1-b9d6-9380c53f0c47",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": false,
+        "m_SettlementLocation": null,
+        "m_OnSiegeStart": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$5d3b4509-9ff4-4858-8811-227eda119dab",
+              "m_Flag": "!bp_78ff0d1964224bbc84d7f96c00d40359",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$00cea0a7-ad91-4cb3-89a4-8c77141e4c6b",
+                "Value": 1
+              },
+              "UnlockIfNot": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f4e51a6c-d9e6-4883-953f-257a7c6c5e75",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "733156d0f0c6b83499127498d864135f, IsEqual",
+                    "name": "$IsEqual$76526cdd-aeca-4e08-9a00-fe3e7c695aab",
+                    "Not": false,
+                    "FirstValue": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$0fb57d10-40ea-4680-ab20-2f757f95ec37",
+                      "m_Flag": "!bp_78ff0d1964224bbc84d7f96c00d40359"
+                    },
+                    "SecondValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$61d9aec6-c82d-449a-8783-2c81fbc602f1",
+                      "Value": 1
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "1ef656583af2cc1409523556103d567c, KingdomSetFlagState",
+                    "name": "$KingdomSetFlagState$4de3cd8a-44ef-401c-b9de-fb4c00beb6fc",
+                    "m_TargetFlag": "!bp_97f654fb595348b4a492ef17baf2af04",
+                    "m_State": "Neutral",
+                    "m_MaxDays": 3
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "m_OnSiegeEnd": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$f2863ed6-8cee-40b7-a891-515fefecaacb",
+              "m_Flag": "!bp_78ff0d1964224bbc84d7f96c00d40359",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$aecf9291-089e-4e5b-b0dc-b5acb41cfadb",
+                "Value": -1
+              },
+              "UnlockIfNot": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$981ed827-9072-482e-b4b2-2405c7a91bed",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "733156d0f0c6b83499127498d864135f, IsEqual",
+                    "name": "$IsEqual$36a4840f-6bad-4ac0-a926-d25d2e9c9466",
+                    "Not": false,
+                    "FirstValue": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$6b4b2ca7-1ad6-4ea9-8e2f-0410116d28ff",
+                      "m_Flag": "!bp_78ff0d1964224bbc84d7f96c00d40359"
+                    },
+                    "SecondValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$e4ca0741-83e9-4639-93a4-bb54613c56cb",
+                      "Value": 0
+                    }
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "1ef656583af2cc1409523556103d567c, KingdomSetFlagState",
+                    "name": "$KingdomSetFlagState$26f4efef-c0c0-4dfd-914e-b9c63c3c5cae",
+                    "m_TargetFlag": "!bp_97f654fb595348b4a492ef17baf2af04",
+                    "m_State": "Positive",
+                    "m_MaxDays": 7
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "199dfa602f5f40d09bd44cc2f844b5f9, AddMorale",
+              "name": "$AddMorale$c846d7a7-c166-4481-b9bb-0bd89b32fb70",
+              "Substract": true,
+              "Bonus": 20,
+              "Change": {
+                "m_Rolls": 0,
+                "m_Dice": "Zero"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$efefacdd-ab00-4ff5-8af6-1d8c45295a92",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_37ca70b7b61f69b4391a7e97913c83f1",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$c1718817-6fd4-4fe2-8c33-9e59e39cf7d9",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_37ca70b7b61f69b4391a7e97913c83f1",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$32738b84-5f41-4b8e-ac3e-51fc33a2ecff",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_5049d14867467bf40be09c3b568a4f1f",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$d9b1ec50-d914-4757-a54c-36a5d0449dfc",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_5049d14867467bf40be09c3b568a4f1f",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$0fc49ddb-40fe-469b-9b67-f4b7ff3c3e40",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_00ee9232cb0b57c4ab9ffdb324464bb8",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$1d08e5e0-c0fa-4ed3-96b9-eaf86b3a5d54",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_00ee9232cb0b57c4ab9ffdb324464bb8",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$25cea068-5e8a-48ee-aaf6-1ea9c2f2db18",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_7f62fb536400c4b40a88ace49e696cea",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$f5961546-02d9-4a1e-aae3-ad7063a8e94b",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_7f62fb536400c4b40a88ace49e696cea",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$9890d4cb-60d2-4ace-935a-fee8d6527f86",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_8f2f2fac2da4b5748b9a34629ff44056",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$b7a0a1f9-735a-4518-94bc-4b9df37fa0bb",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_8f2f2fac2da4b5748b9a34629ff44056",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$94d96adf-75ec-413a-9ae5-c8d3a8789cba",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_b6514043ef287be4ab0b5dc6d501883c",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$79762fcf-160e-4384-bf51-95a667c15228",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_b6514043ef287be4ab0b5dc6d501883c",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$34803cd4-538c-43ff-ade3-37525b8c6eae",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_cd0ce31c48a2d3d4eb64647e9b7518f1",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$80de3080-4a7e-4747-bc04-71b90a1fc50c",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_cd0ce31c48a2d3d4eb64647e9b7518f1",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$f6b20fed-e20f-4f9a-9f3f-09dc4a107b94",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_18e378a36a8522046bbe2d2d9d6d47b1",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$aefed871-7070-4a74-b5e4-29e48e0f5a78",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_18e378a36a8522046bbe2d2d9d6d47b1",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$bf8f423f-2da7-48f5-9370-f62738bb2a23",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_40bf57992d9a3f94a8b09a9b3489dffc",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$7951d466-467e-49a6-a9d5-d1ac4c7b3341",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_40bf57992d9a3f94a8b09a9b3489dffc",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$101461da-badc-4add-99ee-afe72aae547a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": null,
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$29adb3a3-a05c-4016-aa92-e48f3e82575e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_0cb5401dec90397418b61699d7278f3c",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$679c345b-196a-49fe-a7f3-8b5896fdfe25",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_0cb5401dec90397418b61699d7278f3c",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$e88aa819-ff20-4b68-b89b-35ca0d7f13de",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_adbea8821af851e4bbf5cffe56abf273",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$d4c29caf-b96e-40cd-9356-6d4d60b34828",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_987331a7fb682c5479b22e76188d7203",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$7596d605-0c4b-4667-aa6e-9161228cdc16",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_862d3b64b3ad5c941b15242ccf43787f",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$185317a2-24a3-42d6-998c-da93eaf0b63c",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_862d3b64b3ad5c941b15242ccf43787f",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$255bdb5c-84e4-473f-8636-0497088d3e7d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_987331a7fb682c5479b22e76188d7203",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$a860ac8c-3a30-4930-a525-f66f58e0479b",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_dba69161fc8dbd84087ad97c54f4a1b5",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$d235cb9b-06b3-431c-b83b-de416661c99c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_dba69161fc8dbd84087ad97c54f4a1b5",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$711c7ca9-ce13-450e-ad7a-ab71d98aebd5",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_dba69161fc8dbd84087ad97c54f4a1b5",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$5edc0686-c7ef-45a1-b088-ae8598cbfa56",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_96e408661baad644887416372051c70a",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$e1cfde18-0923-4807-9011-4bbd21838c55",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_96e408661baad644887416372051c70a",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$29a6e45d-6484-41cf-9fb8-2d4fedff9ec6",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_2de81fd886bb7524395e9c79b2450c1f",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$51f5081f-94aa-4927-a0b8-eb82b0d88232",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_2de81fd886bb7524395e9c79b2450c1f",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$78deb191-5408-4318-bba5-bffd354e557f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_d9fde08569f863944ba6c93fa74a5417",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$8a339b10-5120-4586-a9a3-dce92f8fce7c",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_d9fde08569f863944ba6c93fa74a5417",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$d9305b76-a5cd-4ee6-9988-0ba46b710845",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_e7e424f51342cf74d9c68cb4eface339",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$a89bfb14-f1d4-40c7-949f-3f4ce433d94f",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_e7e424f51342cf74d9c68cb4eface339",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$6d2fc0be-40df-4de0-8df4-ea4f4a31e02a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_b5b20be380f866245a5e29b3123f6ee2",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$bfb34074-073f-4773-aba4-8223f43bac04",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_b5b20be380f866245a5e29b3123f6ee2",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$85dc1233-1208-42d1-9372-bb5327e06678",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_190d1e65ec2e23f4497a15af251ac21a",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$f3dd9d97-e0d5-47ed-b074-76b2e6676f68",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_190d1e65ec2e23f4497a15af251ac21a",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$0c6bd377-afc5-41b1-baaf-6ccf236950c9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_46ddda2ee440e71499718e79e37890ac",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "afe552ff91c747438eac5944770a4c2d, CreateGarrison",
+              "name": "$CreateGarrison$13445f19-a377-4c9d-9eb5-6367013aae21",
+              "Preset": "!bp_fb6ff1c6d65e472a8b64fd7083e3ac96",
+              "Location": "!bp_46ddda2ee440e71499718e79e37890ac",
+              "WithLeader": false,
+              "ArmyLeader": null,
+              "HasNoReward": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b9e35659093ed544c86d1a2b9503ef49, SettlementSiegeTrigger",
+        "m_Flags": 0,
+        "name": "$SettlementSiegeTrigger$7d675b37-f530-4cd3-b1d8-468fb8f9902c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_SpecificLocation": true,
+        "m_SettlementLocation": "!bp_70990a0f7010447478e68b8e16ae52b2",
+        "m_OnSiegeStart": {
+          "Actions": []
+        },
+        "m_OnSiegeEnd": {
+          "Actions": []
+        },
+        "m_OnSettlementDestroyed": {
+          "Actions": [
+            {
+              "$type": "14e3d6fb8a5e2c44bbb4108898baa436, KingdomActionChangeToAutoCrusade",
+              "name": "$KingdomActionChangeToAutoCrusade$142af0f0-7f4e-4df5-9c1b-3d1a1a38715d"
+            },
+            {
+              "$type": "603b5218c76141dd8dcae6e3f4a52162, ShowMessageBox",
+              "name": "$ShowMessageBox$7886c28c-2411-4a7b-b279-0fc28d3b8ef4",
+              "Text": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": {
+                  "assetguid": "1c89d510865d0424581a6e90de3a2f9e",
+                  "stringkey": "f586b514-94f1-4966-8bef-feb3669d0ec6"
+                }
+              },
+              "OnClose": {
+                "Actions": []
+              },
+              "WaitTime": 3
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$f6df47b4-e4ac-4ebe-ab3a-675f5218d313",
+              "m_flag": "!bp_f65e2db6803e40c8b4d0ef890a1e9edd",
+              "flagValue": 1
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$4f53273b-4668-4426-bb1e-92ba9d94bb4d",
+              "Etude": "!bp_097f3d1fbf454accb35528ed4e50e348",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "e68a153bca6f9bd4e91c96c4ae28e9a0",
+        "stringkey": "9dc06817-adab-4690-933b-716efd9d5042"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "c6c02a5bb293f8546aa3efccb5d5ded4",
+        "stringkey": "2bc3224c-7366-43da-a537-759f7f403d25"
+      }
+    },
+    "m_NeutralDuration": 3,
+    "m_NegativeWarningDuration": 1,
+    "m_PerDayBonus": 1,
+    "m_PerDayPenalty": 3,
+    "m_FlagType": "Defence",
+    "m_CounterDecrementPerDay": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

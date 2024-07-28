@@ -1,0 +1,121 @@
+{
+  "AssetId": "702c279ce66c4caf8f0588bf5d351b49",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$358348e9-7047-4624-8131-a62e152a191a",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$3288b8c0-4123-4082-b635-3b3429e4b320",
+            "MapObject": {
+              "EntityNameInEditor": "HideObjects",
+              "_entity_id": "d4a29c99-fd21-4be2-8207-56051dd16eee",
+              "SceneAssetGuid": "45700229f2def2d4abb4896151116a62"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$2c992e6b-356f-4ffa-8723-541513f4b44d",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$092456ed-24a0-4f71-ada2-81082a66be0e",
+            "MapObject": {
+              "EntityNameInEditor": "UnhideObjects",
+              "_entity_id": "d1f97f48-13ea-4f5e-9362-bb0ab680ec3e",
+              "SceneAssetGuid": "45700229f2def2d4abb4896151116a62"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$8423fc27-3227-4a41-9602-0a383e294297",
+          "m_SummonPool": "!bp_5c9c3573866767a419d1ce31d81115fc",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                "name": "$UnitLookAt$8669a00d-f24b-4ef0-bf67-c172edae160f",
+                "Unit": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$2eb02910-acea-4c5d-b4ab-c22f95717f91"
+                },
+                "Position": {
+                  "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                  "name": "$UnitPosition$0d668f57-7ac1-456c-b262-97ad3385ff3e",
+                  "Unit": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$a28ff057-0926-406e-a55a-5598f01f5e2a"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e5b7f62b-b7f5-43f0-90a4-855685a02778",
+          "Comment": "Stitch not in Mines?",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$661b18e3-fe73-4f00-9e2f-8cf255b58470",
+                "Not": true,
+                "m_Etude": "!bp_c71d4a29b7426c64197ffe64377e3def",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d70ec50f-6790-461e-b48c-4dcaff6ea8b7",
+                "Not": true,
+                "m_Etude": "!bp_290fb46ad9f61da4a8151e8263f6cba7",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$a3d380f6-9dfc-4621-96bb-d1825334daa3",
+                "Etude": "!bp_e23510700bc741647a05c4fd04084414",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

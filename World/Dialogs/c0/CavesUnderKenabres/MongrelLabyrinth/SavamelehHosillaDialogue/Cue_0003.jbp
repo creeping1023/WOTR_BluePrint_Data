@@ -1,0 +1,171 @@
+{
+  "AssetId": "f915184d21a2fa442b5f750926884c7e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "наполнить все царским ФХ, пронзит демона светом\n\nминус хп - как при использовании мифика",
+    "ParentAsset": "0ae484afd791dd44da046701c7a650b7",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "79d53312-5009-4b58-93ba-9c2ed2f70edd",
+      "m_OwnerString": "f915184d21a2fa442b5f750926884c7e",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c0/CavesUnderKenabres/MongrelLabyrinth/SavamelehHosillaDialogue/Cue_0003_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$4d235e92-5c51-4770-96ea-877ffd003427",
+          "Etude": "!bp_1dff6917701d5f44c9073efc3ab25b32",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+          "name": "$SpawnFx$00c4e4ef-9316-475e-a0dc-dcdd20bf00cf",
+          "Target": {
+            "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+            "name": "$UnitTransform$b81d9311-dcbc-4c49-b58a-70b54b43e297",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$587a9ac3-941f-4910-bda3-6540578f8b36"
+            }
+          },
+          "FxPrefab": {
+            "guid": "20d09afcf976cc4439ed4825d11b16da",
+            "fileid": 1712686945573820
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$7dbb20e5-429f-44ce-9fe3-01dd200c7387",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                "name": "$LessThan$3e31d75e-aa75-42b8-8902-da63321292bd",
+                "Not": true,
+                "FloatValues": false,
+                "Value": {
+                  "$type": "6d36de660d10e7e4387bd84c1435daaa, UnitCurrentHP",
+                  "name": "$UnitCurrentHP$d661c877-f7d0-4c51-b15a-1cab483d2889",
+                  "Unit": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$47f12f1f-ef5e-409b-a631-1ac4607f9e25"
+                  }
+                },
+                "MaxValue": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$090c544f-11a8-4ff3-aba2-ff6c06a36dac",
+                  "Value": 20
+                },
+                "FloatValue": null,
+                "FloatMaxValue": null
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5242e40ba3d06fb469bcf2cc11ed020d, DealDamage",
+                "name": "$DealDamage$97e19f23-abf7-47c8-b901-081eba624746",
+                "NoSource": true,
+                "Source": null,
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$1f5f94e6-37f9-4d27-ae16-844a0dfcb85a"
+                },
+                "Damage": {
+                  "Dice": {
+                    "m_Rolls": 1,
+                    "m_Dice": "D6"
+                  },
+                  "Bonus": 0,
+                  "TypeDescription": {
+                    "Type": "Physical",
+                    "Common": {
+                      "Reality": 0,
+                      "Alignment": 0,
+                      "Precision": false
+                    },
+                    "Physical": {
+                      "Material": 0,
+                      "Form": "Slashing",
+                      "Enhancement": 0,
+                      "EnhancementTotal": 0
+                    },
+                    "Energy": "Fire"
+                  },
+                  "IgnoreReduction": true,
+                  "IgnoreImmunities": true,
+                  "EvaluatedBonus": null,
+                  "CausedByCheckFail": false
+                },
+                "DisableBattleLog": true,
+                "DisableFxAndSound": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$00986e60-a5ea-4979-b66e-eb45f98da7d4",
+          "m_Cutscene": "!bp_be851224c1d5aee4e93fea1c27031659",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_07482db5a784d074cbdc63d7d2e2f0f2"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

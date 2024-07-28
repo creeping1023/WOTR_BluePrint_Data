@@ -1,0 +1,891 @@
+{
+  "AssetId": "a5a61ef3563441544bc2763003c9e653",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e1700cc0-33df-497c-a7d6-8089477490cf",
+          "Comment": "If player has quest",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7d43cf0c-9790-4147-8c4a-d9b3ef0c9097",
+                "Not": false,
+                "m_QuestObjective": "!bp_c9f043c4902ce6d4a8bfdef8c442bb6c",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c6b27407-2ab9-47ea-a01e-3422707dc689",
+                "Not": true,
+                "m_Etude": "!bp_fb6c6744ef73e48459e123b079e136ff",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$2ca20c77-c1d8-4369-bc20-f458e21bb6d6",
+                "Comment": "If first dialogue not seen - show dialogue",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$e504b8a2-231d-4056-8f73-64bf7c9c11d6",
+                      "Not": false,
+                      "m_Etude": "!bp_32c2fe8301f9f9046aedcb859f69279f",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$68f0196e-b757-4fab-a7b0-00dc57f080a1",
+                      "m_flag": "!bp_506e24ef81ee36d4b8a9f3750f27ff04",
+                      "flagValue": 0
+                    },
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$ae74f64a-52ad-4065-98de-2ad5887e5d73",
+                      "Comment": "If beggar doesn't have cooldown buff",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                            "name": "$HasBuff$673d6047-4ede-4011-834b-7e762a147207",
+                            "Not": true,
+                            "Target": {
+                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                              "name": "$ClickedUnit$c45dbd01-8bf1-4d24-9e99-112fc858519b"
+                            },
+                            "m_Buff": "!bp_d4fe4b361568cbf4c816fcd6f39b79be"
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                            "name": "$AttachBuff$71d68849-f57b-437f-b209-a8d0095c3975",
+                            "m_Buff": "!bp_d4fe4b361568cbf4c816fcd6f39b79be",
+                            "Target": {
+                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                              "name": "$ClickedUnit$72d3853e-3fe3-4953-b618-e168dcc78e3d"
+                            },
+                            "Duration": {
+                              "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                              "name": "$IntConstant$cdce9be2-24fd-4041-b9cc-560b2ca918da",
+                              "Value": 30
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                      "name": "$StartDialog$b7418e69-3655-4366-9891-9bdcc018f0b1",
+                      "DialogueOwner": {
+                        "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                        "name": "$ClickedUnit$92a1b0f7-4ab4-497b-b0df-c51569eda424"
+                      },
+                      "m_Dialogue": "!bp_710cef94b64ff9340941db2a6be6b8b4",
+                      "DialogEvaluator": null,
+                      "SpeakerName": {
+                        "m_Key": "",
+                        "m_OwnerString": "",
+                        "m_OwnerPropertyPath": "",
+                        "m_JsonPath": "",
+                        "Shared": null
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$9d9f971e-1fa8-4a3e-be5f-7a2a04e04d90",
+                      "Comment": "If 10 barks not seen - show bark",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                            "name": "$FlagInRange$d9d47d0b-1b9a-4c37-8fed-e72fb2f6a397",
+                            "Not": false,
+                            "m_Flag": "!bp_506e24ef81ee36d4b8a9f3750f27ff04",
+                            "MinValue": 0,
+                            "MaxValue": 9
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$c8178af9-07e9-4625-b6d2-d52ff0a4bf21",
+                            "Comment": "If beggar doesn't have cooldown buff",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                                  "name": "$HasBuff$90e93dd3-eec1-4fdd-b8d6-16d005a4fc66",
+                                  "Not": true,
+                                  "Target": {
+                                    "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                    "name": "$ClickedUnit$fc47211d-a707-4198-89fa-7d010b38dc65"
+                                  },
+                                  "m_Buff": "!bp_d4fe4b361568cbf4c816fcd6f39b79be"
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                                  "name": "$AttachBuff$cca278a1-fe8c-4b08-b4a7-741a11e5af29",
+                                  "m_Buff": "!bp_d4fe4b361568cbf4c816fcd6f39b79be",
+                                  "Target": {
+                                    "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                    "name": "$ClickedUnit$a000a459-f679-4aee-8fdf-1f7b4c6c5c97"
+                                  },
+                                  "Duration": {
+                                    "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                                    "name": "$IntConstant$6ad85aca-e4e0-49e6-b6cf-a8e9823eeb2a",
+                                    "Value": 30
+                                  }
+                                },
+                                {
+                                  "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                                  "name": "$IncrementFlagValue$0a9f9ca3-7ac1-4c08-b088-7901b34517cd",
+                                  "m_Flag": "!bp_506e24ef81ee36d4b8a9f3750f27ff04",
+                                  "Value": {
+                                    "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                                    "name": "$IntConstant$3fc85eb2-c2a4-4b7e-bbd4-f47388f72f47",
+                                    "Value": 1
+                                  },
+                                  "UnlockIfNot": true
+                                },
+                                {
+                                  "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                                  "name": "$RandomAction$cf465b5f-4acb-4b34-9aa5-b3addbebda25",
+                                  "Actions": [
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$1291c5b3-c23e-4a75-b8df-dea5d19c6944",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "f5dec98fc39196e48aacc63f8487f41a",
+                                                "stringkey": "b9dfd701-6837-4733-b907-c358668205ac"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$e0c32041-95d6-4bf8-95bc-2a59db01c08c"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$8feae855-d742-45e4-93a1-0525eeb418e9",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "2d56d44de92e0af4690a88b13e5f640d",
+                                                "stringkey": "8c56816c-7c91-4287-9e49-c5c43ab55e4d"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$7b356a6e-fbcf-4fb5-bbca-837cbff3c0e9"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$0a5ae1e4-c185-4bc1-8646-46871fcf8368",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "d89d1e8b2d6ac1e4bae4913dd92cccf4",
+                                                "stringkey": "de37acfb-3bc1-4b32-aeab-3a8978450c29"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$46b901f2-bbc9-4449-84da-0a142b66f436"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$e30bdfc4-017a-4859-a511-dc1b54a701c3",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "34f3b67815b730c4e919405045e161a4",
+                                                "stringkey": "3bc2d4fe-1b8d-4a4b-841f-f84f6e9b9e30"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$c54f444e-79f3-4fe6-abf9-a3354199c194"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$b12db3fb-0abb-43c6-847f-da151c665ad4",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "40c869353f8b5644b842592e2aed5562",
+                                                "stringkey": "d4a9b364-9c6e-4ea3-b64f-e764fb441fed"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$8c9cc0d6-efa2-42d1-b3c1-fe176826feb1"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$7fef299b-d76e-48ab-b042-3959a1487693",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "11bfcca1bc8ce8944915e8a8e8e8538a",
+                                                "stringkey": "4b4853c2-4653-45dc-b608-5521f2da6d5d"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$3e7041b3-05a5-43b5-b339-399670e0c6d2"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$3953c830-7e6f-4c5d-8dcd-798f00be1e8b",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "c3621bc29d2dd3443bfb3cf8cc094dad",
+                                                "stringkey": "66a59008-1a9b-4eb4-82a4-01f47a5c6597"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$f26f755a-5db0-4563-94f0-d85b0bf569c1"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$66d95dc1-69a7-48ac-bd6a-0a57ef5b8a9b",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "beb001e0764fc2d41a65e557e0ffa6cf",
+                                                "stringkey": "e121b511-9a63-4eb5-97c9-680c4553d919"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$e5385ba8-07fd-4246-b32b-82fbce5625ff"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": [
+                                {
+                                  "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                                  "name": "$RandomAction$516819be-5c76-4ae2-8406-7ce9a3a05126",
+                                  "Actions": [
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$9ef267e6-fe5f-4043-a141-2807149da175",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "22068bc8002c4a9428c003bc36ca2170",
+                                                "stringkey": "11581a92-4e0a-4a42-a85d-aa7d0f62f466"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$4fa3c071-6079-4f90-a2fd-0a87e5f466b8"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$934755f6-9916-4ffe-b6da-857f8bc5486b",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "66f42ce3ca0dc024bbfac8e3dacc6350",
+                                                "stringkey": "0a607e6b-dfe5-43b1-a2b1-96d113e571ac"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$803f9bf7-4c22-4b7d-afc5-36d5f031418f"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$69c40646-2a96-4421-8e8d-f9e0781e8aa2",
+                            "Comment": "If second dialogue not seen - show dialogue",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                  "name": "$EtudeStatus$05de9c62-419c-428b-8f5e-8045b8d48225",
+                                  "Not": false,
+                                  "m_Etude": "!bp_116481306f847e74a9d6f13598412fee",
+                                  "NotStarted": true,
+                                  "Started": false,
+                                  "Playing": false,
+                                  "CompletionInProgress": false,
+                                  "Completed": false
+                                },
+                                {
+                                  "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                                  "name": "$HasBuff$33f82548-ff3e-4954-aadb-770cd39759ed",
+                                  "Not": true,
+                                  "Target": {
+                                    "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                    "name": "$ClickedUnit$71a63a57-ff5d-48bf-9d8e-e4682a8c6773"
+                                  },
+                                  "m_Buff": "!bp_d4fe4b361568cbf4c816fcd6f39b79be"
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                                  "name": "$StartDialog$40092f4b-f7b6-4959-a52d-e984ab441cbe",
+                                  "DialogueOwner": {
+                                    "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                    "name": "$ClickedUnit$dede8dc0-013a-45bb-b4a8-ff5d8be9498f"
+                                  },
+                                  "m_Dialogue": "!bp_a37bb323f0afaf34a9f40f0f05113a96",
+                                  "DialogEvaluator": null,
+                                  "SpeakerName": {
+                                    "m_Key": "",
+                                    "m_OwnerString": "",
+                                    "m_OwnerPropertyPath": "",
+                                    "m_JsonPath": "",
+                                    "Shared": null
+                                  }
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": [
+                                {
+                                  "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                                  "name": "$IncrementFlagValue$a3aac382-d1f6-4d0c-97be-b286746ff58c",
+                                  "m_Flag": "!bp_506e24ef81ee36d4b8a9f3750f27ff04",
+                                  "Value": {
+                                    "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                                    "name": "$IntConstant$bd910484-abd6-4b5e-8dbf-be7b961021e7",
+                                    "Value": 1
+                                  },
+                                  "UnlockIfNot": true
+                                },
+                                {
+                                  "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                                  "name": "$RandomAction$89a0b646-95a9-4689-98c1-9f014d0ff249",
+                                  "Actions": [
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$e945a1f7-e346-426b-9c2f-b7530adc75e1",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "f5dec98fc39196e48aacc63f8487f41a",
+                                                "stringkey": "b9dfd701-6837-4733-b907-c358668205ac"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$a241b7c6-f049-40af-b325-aa4bf5676c17"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$072d5d6f-3da7-4ffa-9fe1-b7341ef659f4",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "2d56d44de92e0af4690a88b13e5f640d",
+                                                "stringkey": "8c56816c-7c91-4287-9e49-c5c43ab55e4d"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$61110037-7ec9-4498-ba88-6e042e0fa776"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$8dbeefbe-699e-4382-827a-6b7bff5bef18",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "d89d1e8b2d6ac1e4bae4913dd92cccf4",
+                                                "stringkey": "de37acfb-3bc1-4b32-aeab-3a8978450c29"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$d905556a-50a6-422d-9e8c-3e77fde5a76b"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$a144891f-11d2-47d0-8625-b454904f3150",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "34f3b67815b730c4e919405045e161a4",
+                                                "stringkey": "3bc2d4fe-1b8d-4a4b-841f-f84f6e9b9e30"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$f406fa83-cb22-4679-ad08-ca3fec9a612d"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$827b8050-36ad-47b9-a363-9e208c673013",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "40c869353f8b5644b842592e2aed5562",
+                                                "stringkey": "d4a9b364-9c6e-4ea3-b64f-e764fb441fed"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$b7cc6f27-3a51-400f-a88d-c4c570116f94"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$eaf0f9dc-e51a-4650-b1ef-fe958f3b2ee7",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "11bfcca1bc8ce8944915e8a8e8e8538a",
+                                                "stringkey": "4b4853c2-4653-45dc-b608-5521f2da6d5d"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$b7bbedfa-f760-410d-9d56-8ca0adc13a17"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$f43164dc-512d-41b2-b12c-f0277af803f0",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "c3621bc29d2dd3443bfb3cf8cc094dad",
+                                                "stringkey": "66a59008-1a9b-4eb4-82a4-01f47a5c6597"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$42fdd272-2cb1-4b95-b5dd-4e5c97723866"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Weight": 1,
+                                      "Conditions": {
+                                        "Operation": "And",
+                                        "Conditions": []
+                                      },
+                                      "Action": {
+                                        "Actions": [
+                                          {
+                                            "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                                            "name": "$ShowBark$2bad28c0-06b4-4668-af67-954433821f85",
+                                            "WhatToBark": {
+                                              "m_Key": "",
+                                              "m_OwnerString": "",
+                                              "m_OwnerPropertyPath": "",
+                                              "m_JsonPath": "",
+                                              "Shared": {
+                                                "assetguid": "beb001e0764fc2d41a65e557e0ffa6cf",
+                                                "stringkey": "e121b511-9a63-4eb5-97c9-680c4553d919"
+                                              }
+                                            },
+                                            "WhatToBarkShared": null,
+                                            "BarkDurationByText": true,
+                                            "TargetUnit": {
+                                              "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                                              "name": "$ClickedUnit$e4958dbc-bea3-424a-bd46-682fa0655a05"
+                                            },
+                                            "TargetMapObject": null
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+                "name": "$RunActionHolder$09626cca-1991-46f2-935d-f84c3dd439a8",
+                "Comment": "Common barks",
+                "Holder": "!bp_87e4026245b6b8d4b85f8c04a853fd9c",
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

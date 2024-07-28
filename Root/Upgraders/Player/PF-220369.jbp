@@ -1,0 +1,87 @@
+{
+  "AssetId": "1ab343fa09d54ce0a481f71c211c23ef",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Рестарт КТЦ Ирабет стронг если она прервалась из за катсцены регила",
+    "m_SpecificArea": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a71ff5a5-e40b-482b-b154-c64bbb3ede18",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$3e976b37-aa86-4b61-b4ca-a8b4668e9b7d",
+                "Not": false,
+                "m_Etude": "!bp_62e4052cdad273e4b9b6617d2fad8029",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$89b2636c-5b2f-4b05-9b2a-761675572e9e",
+                "Not": true,
+                "m_Cue": "!bp_77f3050d7daa92b45974c6a70678db39",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1ed18191-7a98-477d-81ee-4e520fd96985",
+                "Not": false,
+                "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$68dd8643-827c-446d-8254-07f8e4748514",
+                "Etude": "!bp_67e20b66a294b0a43b8638c0fbf11e3a"
+              },
+              {
+                "$type": "9834963f1a257bc4e9134d8ed2ffe2c2, UnStartEtude",
+                "name": "$UnStartEtude$0d7ceac0-b479-4ab7-80e5-71314b9a391f",
+                "Etude": "!bp_62e4052cdad273e4b9b6617d2fad8029"
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$0aca68f2-ad01-443d-866e-05e880e0ad90",
+                "Etude": "!bp_62e4052cdad273e4b9b6617d2fad8029",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$53887ad2-cb6a-4c6c-8bd8-b99317d8613e",
+          "m_Cutscene": "!bp_eb28941077eac264caa905b83bfdb115",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

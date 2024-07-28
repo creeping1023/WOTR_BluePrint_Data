@@ -1,0 +1,205 @@
+{
+  "AssetId": "7611d43c009441e0ab0e93edc8db44dd",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$d81dfb98-21cc-40d3-98e8-d921b904d03b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Remove mystic slaves",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "Or",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$3d67533d-f595-4345-b1b5-15fa1156d3b6",
+              "Not": false,
+              "m_Etude": "!bp_6811866dee56b1446b9e58207b33c2d3",
+              "NotStarted": false,
+              "Started": true,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$56aa1a15-7a08-42f1-945e-e4000a50f225",
+              "Not": false,
+              "m_Etude": "!bp_554c990d2e1b119448ef79b38429c617",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$7424d0a2-4f7c-48ee-be90-429637dc3a5a",
+              "m_SummonPool": "!bp_f1f9b7eebec347e4a8381bb41043c929",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$3878cad6-ab42-4b48-9c20-a1814cbb43db",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$68750c3d-95d7-44ff-b37f-a5d23b984cd9"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$db8294c0-a044-43db-b06b-4103a51022eb",
+              "Comment": "Nexus?",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3237c34b-5489-4a78-8ce7-226bb68fe8c8",
+                    "Not": true,
+                    "m_Etude": "!bp_eab5a01ef60a4ca2aaa161278243f63d",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$7360e659-3d05-4635-b298-14a25d52c2a4",
+                    "Etude": "!bp_6811866dee56b1446b9e58207b33c2d3",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$3b9bf400-cefa-4168-bdab-61e42107f327",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "смерть Кребуса",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$242679b1-3d04-4f96-8eb9-cdf9685a2f56",
+          "Spawner": {
+            "EntityNameInEditor": "Krebus",
+            "_entity_id": "282c416a-1498-4258-8cce-ef3ea7c03902",
+            "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$5937afdd-ebfc-4ac2-9159-9bd3622e6ad8",
+              "Etude": "!bp_554c990d2e1b119448ef79b38429c617",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$4f737676-725b-4e23-b1b3-bb6a386b4417",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Give him a coin",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+              "name": "$AddItemsToCollection$455dd223-0ba4-4bee-ae2f-b62bcb28514f",
+              "ItemsCollection": {
+                "$type": "424c082e5648c164ebd1000e96ef8e10, SharedVendorTable",
+                "name": "$SharedVendorTable$ec9dc2c2-feab-48e6-b864-acb51126daca",
+                "m_SharedVendor": "!bp_d43baa8b603f4604f8e36b048072e759"
+              },
+              "UseBlueprintUnitLoot": false,
+              "Loot": [
+                {
+                  "m_Item": "!bp_6210ba9b808803547a9ddc292db502fe",
+                  "Count": 1
+                }
+              ],
+              "m_BlueprintLoot": null,
+              "Silent": true,
+              "Identify": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_c9e64ecd28a6f6c429786c97fc9cd189",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_180cdb4b48d561f4cb4ef9a066727960",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

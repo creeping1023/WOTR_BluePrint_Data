@@ -1,0 +1,165 @@
+{
+  "AssetId": "2d5236c9c51ac1c4aa2d1591e4bc6634",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeCompleteTrigger$07be7149-47a3-4b32-b0e7-f36d9bf2a461",
+      "$EtudePlayTrigger$498380fe-2e99-4eef-8359-d4fa3dc59ee3"
+    ],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$07be7149-47a3-4b32-b0e7-f36d9bf2a461",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$67322169-59c8-4141-bc3f-55d17da13552",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                    "name": "$CurrentAreaIs$24c8333d-2e61-4cd2-ad88-2ddea99a9747",
+                    "Not": false,
+                    "m_Area": "!bp_2570015799edf594daf2f076f2f975d8"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                    "name": "$ReloadMechanic$65460eca-1388-48e0-9482-07554a30a287",
+                    "Desc": "Empty action",
+                    "ClearFx": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "7ca48b69cfcb37e4a9c23345171e23df, KingdomActionResolveEvent",
+              "name": "$KingdomActionResolveEvent$cbb67811-d85e-4507-9978-8cea69005d2b",
+              "m_EventBlueprint": "!bp_a51e73aab4663be45a9f6d57f551ed71",
+              "Result": "Success",
+              "Alignment": 0,
+              "FinalResolve": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$498380fe-2e99-4eef-8359-d4fa3dc59ee3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$5e8fc1ce-2483-4fc8-866c-3e84acf755a0",
+              "m_Cutscene": "!bp_27ff5c0cb011d90494457744b8b70c3c",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$565a9df9-72df-4972-8f7d-ccda27b4356c",
+                      "Spawner": {
+                        "EntityNameInEditor": "Inquisitor_Liotr",
+                        "_entity_id": "5c772235-bc6e-4d26-86e1-448338d4ba02",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    }
+                  },
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$0ee7c8f7-06b4-46d5-9ff1-aeed655cfdbc",
+                      "m_Value": "!bp_0c7bde1ff0e68204bb7a8e4f01fc9028"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$a49fa1eb-48b9-46d4-b839-73bdf02449d7",
+                      "m_Value": "!bp_2d5236c9c51ac1c4aa2d1591e4bc6634"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_327a2ada660d8844abecc5e15d33dc2d",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$c8a2c7d5-bd81-44f1-b4f2-79e43f39f34d",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$5cf11304-35e9-4089-b565-be162516c5d7",
+          "Not": false,
+          "m_Quest": "!bp_0dc8893421712824d813d6bae3a9493c",
+          "State": "Completed"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_67328ea86f900a84f8d083d697b94d3a"
+    ],
+    "Priority": 50
+  }
+}

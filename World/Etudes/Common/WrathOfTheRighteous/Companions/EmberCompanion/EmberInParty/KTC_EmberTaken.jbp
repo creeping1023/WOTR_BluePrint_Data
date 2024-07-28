@@ -1,0 +1,189 @@
+{
+  "AssetId": "e978ec7abf4c6f340bdc96e99578f813",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$0a67dd4b-93ae-4ec4-9b6b-ae2da2fa0e59",
+      "$EtudeCompleteTrigger$b558de50-2687-410a-99aa-ae137e913143"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0a67dd4b-93ae-4ec4-9b6b-ae2da2fa0e59",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$3226b2d6-b3ee-47b0-9057-eb8152b18fef",
+              "m_Cutscene": "!bp_78ed4711c09b76d4cef609943cecf193",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$05f16380-948e-47c5-898c-2ad7e4dbcbc7",
+                      "Spawner": {
+                        "EntityNameInEditor": "EmberQ1_KTC_Cultist",
+                        "_entity_id": "bb112675-fdbc-43f9-8228-965b2c5561a8",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    }
+                  },
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$dd058f5b-061f-4ff8-8d30-5a6247896047",
+                      "m_Value": "!bp_b7870bda1fdc1a545a7c5132b2cee7bd"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$bd24eb5e-b7fb-46e9-8643-9e451df7d6dd",
+                      "m_Value": "!bp_e978ec7abf4c6f340bdc96e99578f813"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$d1d9bdb8-c7c2-461c-a41b-9cb0e1016fbc",
+              "m_Buff": "!bp_a474c827d6e1bfd46956b8d841a496c7",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$69566e7e-b7ab-471e-a989-40bc08b55a78"
+              },
+              "Duration": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$9fdc23ca-43e4-422d-9c47-23759f32407b",
+                "Value": 30000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$b558de50-2687-410a-99aa-ae137e913143",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$20f5fdae-86df-4951-ac5d-15c2c9f01b48",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                    "name": "$CurrentAreaIs$274230ac-c098-449d-b40c-a6d10a48b76e",
+                    "Not": false,
+                    "m_Area": "!bp_2570015799edf594daf2f076f2f975d8"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$9afa74c0-c686-4e3e-8048-99e0ea9bf56f",
+                    "Etude": "!bp_666e12ba2ccee8b4b866d2fb1dae970f",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                    "name": "$Unrecruit$cea76eaf-7df3-4bdb-a1b4-0bf85d7415f3",
+                    "m_CompanionBlueprint": "!bp_2779754eecffd044fbd4842dba55312c",
+                    "OnUnrecruit": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                    "name": "$ReloadMechanic$b0d4caf5-3953-4987-b025-0325725bb01e",
+                    "Desc": "Empty action",
+                    "ClearFx": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "KTC про похищение Эмбер. Вызывается по времени в механике столицы",
+    "m_Parent": "!bp_3a708ad53771a2d44ac506361fb7aafc",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$98a89afb-4bde-4dd4-b078-f3de8dd4d1bd",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$05ceff90-5549-4a01-9f96-188b120504ca",
+          "Not": false,
+          "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_c29fbdd3e4c4ed246961335987a327be",
+      "!bp_d1f94807db273c644b6b12b423e0d270"
+    ],
+    "Priority": 0
+  }
+}

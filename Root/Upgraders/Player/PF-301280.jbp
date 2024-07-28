@@ -1,0 +1,863 @@
+{
+  "AssetId": "677c0d4640db4f17b0bba21496cc99ef",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "ВЫдать новый крзуейдовский обджектив в 3ей главе, перевести квест в 5ой главе на новый счетчик",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bf160048-f267-413b-8534-07eea1420fd9",
+          "Comment": "Crusade Chapter 3 quest update",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$79dd8e44-02d9-4fa4-b9d6-f7c63517bcce",
+                "Not": false,
+                "m_Quest": "!bp_7e082ef8e28348d18e4bf2c803da3143",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$1a004237-cf05-459e-a9a9-48e4969771c5",
+                "Comment": "Give 3_2  if 3_1 already completed",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$fca90a0c-afe1-4d34-9718-9636ce285855",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_f3221c1913fb45c7834251cd014501b9",
+                      "State": "Completed"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$52e99811-eee8-4937-87af-51827bafce77",
+                      "m_Objective": "!bp_11c11dac1a2a41b893d74a4b1fdaba77"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$06b360cb-bcda-41bf-9a1a-41d8b5ce5709",
+                "Comment": "Check military",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$f493c0d5-04f2-4d1c-8e30-ebdd111b2eb2",
+                      "Not": false,
+                      "m_Dialog": "!bp_eb5b7cf3368511f47a507a330d730619"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$6cb165a9-2dbb-4e7e-b491-68e0460bb043",
+                      "m_Flag": "!bp_509ba904119d4d198c89a359d68ed4f4",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$58ba8db9-5a78-48f8-8583-69bd8bb3839d",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$680d21a9-8196-4fa4-b9f1-15242621e59d",
+                "Comment": "Check diplomacy",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$4af8be98-cd40-4f23-a04e-83e8ca8db807",
+                      "Not": false,
+                      "m_Dialog": "!bp_d0ff753a2bf21be49b31386d37f13b16"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$3599fbba-ead6-42f9-909e-97ac97369757",
+                      "m_Flag": "!bp_509ba904119d4d198c89a359d68ed4f4",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$04d72eda-8840-4e4d-84c7-25d37960dd6b",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$6d1044db-b21f-49f4-9332-74a81df4d4cd",
+                "Comment": "Check leadership",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$535ec1b3-0512-4a80-989a-3370d90cad6a",
+                      "Not": false,
+                      "m_Dialog": "!bp_be8225eef04e41e4a889db73c486794c"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$694d5c5d-2da2-4ab1-8ccc-2321c29c2c26",
+                      "m_Flag": "!bp_509ba904119d4d198c89a359d68ed4f4",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$b7639ef0-8b4d-4cb3-a404-a889bc7a3aeb",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$77496537-edee-4aca-8e39-81cc46e5867b",
+                "Comment": "Check logistics",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$76195b40-1d54-48b4-b605-118906c7e9f1",
+                      "Not": false,
+                      "m_Dialog": "!bp_18e4ed8e24585aa42ac4803ced33b892"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$38d22542-c142-4203-831c-cd2912c78b6a",
+                      "m_Flag": "!bp_509ba904119d4d198c89a359d68ed4f4",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$d26a6e59-3ae9-4626-a60c-b64eb30b725e",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$72d4e93e-a87c-4104-8c72-152e50e5b814",
+                "Comment": "Complete objective if all ranks are 5",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                      "name": "$FlagInRange$00b4f1bf-de12-41aa-860d-422500e8ae45",
+                      "Not": false,
+                      "m_Flag": "!bp_509ba904119d4d198c89a359d68ed4f4",
+                      "MinValue": 4,
+                      "MaxValue": 4
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$613d5873-1318-4601-a758-df162779bf11",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_11c11dac1a2a41b893d74a4b1fdaba77",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fea97868-35cf-4f07-a1ce-265fc5245f8b",
+          "Comment": "Set counter to 16 if crusade main quest was completed in ch3",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$2b006805-397c-4860-970d-a8367f7f0da6",
+                "Not": false,
+                "m_Quest": "!bp_7e082ef8e28348d18e4bf2c803da3143",
+                "State": "Completed"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$165ac35d-771b-4fb8-bee1-c47ed01dc4e6",
+                "Not": false,
+                "m_Etude": "!bp_637a57423a82b044f888677c92f5d6cb",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$9a22598b-5b97-4c92-8ad6-718887ddf2e3",
+                "m_flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                "flagValue": 16
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c06c3581-d0f7-4416-aa50-008e6d9e079a",
+          "Comment": "Crusade Chapter 5 quest update",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$1e7336a3-40e3-4df6-8faf-507cfb2bda24",
+                "Not": false,
+                "m_Quest": "!bp_f6ca127e37fb4eb1bcc9d0f9a431bd72",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$dd70a6be-3535-4cad-a9e0-5619cfff7142",
+                "m_flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                "flagValue": 16
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$c9d88f46-e364-486e-a35f-e83e34a40810",
+                "Comment": "Check military 6",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$df5986dc-8211-487c-84b6-a200fb4e286c",
+                      "Not": false,
+                      "m_Dialog": "!bp_89596aca3ff8d184a9ac09a57274a78b"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$71e9541b-27ad-4f03-9962-43ace1d80a5a",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$2cf030f1-b3a5-4391-a424-ff86cb13db79",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a7f4719b-f35d-4612-8b34-4f101a49f197",
+                "Comment": "Check diplomacy 6 special",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$e020beef-28e6-480c-b080-c9f50539d686",
+                      "Not": false,
+                      "m_Answer": "!bp_73c5728c4c6658344bedcc1b666e598c",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$82f7e97d-3216-499e-b4ec-3786812dd4c9",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$06f76ce2-4e94-4abf-9a16-ebec3d35653d",
+                        "Value": 2
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a3fc2f93-a232-47bd-9555-e166077881c4",
+                "Comment": "Check diplomacy 6",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$83db815f-b5cf-41ef-8ffc-ed1916a7f7e7",
+                      "Not": false,
+                      "m_Dialog": "!bp_30333438aac8d3647bef882fa87e978e"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$60cd0336-76cc-451c-9e0f-1241c898f08f",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$d983fa9a-9a92-4bcf-82e0-491284e6be80",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$df350fcb-6c54-4e4b-8097-fe01bb2ee163",
+                "Comment": "Check leadership 6",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$49cc2527-cf73-477a-b52d-46400e20ed62",
+                      "Not": false,
+                      "m_Dialog": "!bp_9622447375eb69543aa28e2bc7142402"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$2979a044-4c80-4a9f-98d3-4d00c2985703",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$3b5e4d87-f825-4590-8014-7be862686da6",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$36df989d-d0b6-446f-ba9c-c4b8dd6eb6f8",
+                "Comment": "Check logistics 6",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$f02fb434-c50a-43b7-85d8-2a0f8737332b",
+                      "Not": false,
+                      "m_Dialog": "!bp_18630c1d1fcf10340b8ca0b278667c43"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$ecd10f52-7fba-465b-9e32-2f9d2df697f2",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$d30a257e-1997-449b-aede-30ac032c3423",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$008f9d4c-70e2-49aa-b5e5-f311a542b84c",
+                "Comment": "Check military 7",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$597d0e00-112c-4d18-bfc6-b0d37bfb048c",
+                      "Not": false,
+                      "m_Dialog": "!bp_42f42305973cc63409a5c405feb42c47"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$188f3cb7-dd5f-45ca-8ddb-cad5f1acbd8e",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$af17db08-c694-4655-973f-23cd74854dca",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a4a3ec88-ce82-460c-a0ee-131f72519f36",
+                "Comment": "Check diplomacy 7",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$1b9fa5e0-aebe-45e0-9a26-baa4910a29a7",
+                      "Not": false,
+                      "m_Dialog": "!bp_4b26f21580bd88047b96e06e759de650"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$cbff97f4-2d38-442c-8980-ba1c499d93cc",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$05c1b42a-9a9c-4c3f-88c8-3cf6a3cf79ae",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$6de092ac-31fd-4b53-a0c7-349ab5703306",
+                "Comment": "Check leadership 7",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$7702ff2c-5eb7-4443-94f1-c8e3a65eb5a3",
+                      "Not": false,
+                      "m_Dialog": "!bp_1088ee904be010a459b6f84a06dac4c1"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$9fc48099-fa48-43c5-bbb1-e6c8caf54ef9",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$7619a2ea-02d7-44e8-a422-c2b02acb05cc",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$c934dd93-f6c0-447b-bc88-d37ee1fb3d80",
+                "Comment": "Check logistics 7",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$7e30a8df-c20b-40a0-839d-15f8021dfe66",
+                      "Not": false,
+                      "m_Dialog": "!bp_822a204a885d4ec4288f6bac4ae00b61"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$3c20f58b-0fed-493c-b077-3dac879e8fd8",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$18b0e5d7-cd0c-47ff-8804-01686f80cd19",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$dc12fd21-52da-4eb3-97ed-df45388b6b3b",
+                "Comment": "Check military 8",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$3d621069-4e26-4aae-aa96-1671aa5e762f",
+                      "Not": false,
+                      "m_Dialog": "!bp_f9d9cb5bfb54c1b48b88aed8fb5cc37a"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$8bf8413c-7c50-48b2-bbcf-94c8f2affb2a",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$f57fef84-889a-4206-8a80-1460b0bb12e0",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    },
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$e5e7dcbb-3aba-4af9-96a1-5ddf77fc364a",
+                      "m_Flag": "!bp_d2eab6bfd8f64055938bf3be5770aabe",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$88baf23c-ccd6-4f56-abde-f2b3b8caad13",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$2e9e7407-1ea9-47ac-8f73-7cabeafbc22e",
+                "Comment": "Check diplomacy 8",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$6f4c09f5-6df5-40b2-94b4-5a8fd3a66f49",
+                      "Not": false,
+                      "m_Dialog": "!bp_6178470b05c75484085753b821a6a614"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$0b471232-1c26-411e-8e52-27479a17f3ec",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$06e05fe3-bcc6-4520-855a-e6ae9ebb1047",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    },
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$9d66e234-e5c5-47fb-b5b6-97f804cd1541",
+                      "m_Flag": "!bp_d2eab6bfd8f64055938bf3be5770aabe",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$0b8c9ec8-a77b-45d9-ab3a-657feb9a46e6",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$fedb180d-ea45-473f-9552-f34598c4041e",
+                "Comment": "Check leadership 8",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$4b91ecf7-5c1b-495a-a68a-b41318fda46f",
+                      "Not": false,
+                      "m_Dialog": "!bp_98839956abf4fc84db3149f21445f32e"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$3b3e4d9a-b3fc-463b-9332-ec193987c954",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$43ceb116-df2d-463d-bdfb-02d539148153",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    },
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$e24acb77-7879-48a6-b961-41adb7c48f28",
+                      "m_Flag": "!bp_d2eab6bfd8f64055938bf3be5770aabe",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$74772639-a149-494d-afe1-b4e9dfaeb578",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$eb21cecd-d9bf-4faf-951b-92e12851fe24",
+                "Comment": "Check logistics 8",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$43316584-e104-4c65-be19-1aa9068722a4",
+                      "Not": false,
+                      "m_Dialog": "!bp_2532865a5c95c3d4ba2510417762ebbd"
+                    },
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$8fddcf47-71de-4d5c-89a0-599be09ac3bd",
+                      "Not": false,
+                      "m_Answer": "!bp_2eb5d08ecfb5bdf4489b8b08763d7062",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$e3c9ccd2-cff6-486e-834c-7181998115f6",
+                      "Not": false,
+                      "m_Answer": "!bp_8f51dc2f43b7e494cac0de0b46794696",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$5e0b5af7-7c9a-4f22-8bcd-25ff3a3a6b6a",
+                      "Not": false,
+                      "m_Answer": "!bp_1873d8aea2d6fe94fb2559b0c28b0240",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$e587e771-cff5-4192-9771-22fd7decbf7b",
+                      "Not": false,
+                      "m_Answer": "!bp_6ae0c782ae4fa0c49b2e86809b50d705",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$b5cd8f40-0d68-491c-915c-fb9b75eb1125",
+                      "Not": false,
+                      "m_Answer": "!bp_293ea252629e3b340806b3f47e8c0780",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$958f835f-39fb-4f14-ac03-a68f2ec7a8f7",
+                      "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$cd811442-cb4e-420d-901f-9b85d9ace565",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": false
+                    },
+                    {
+                      "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                      "name": "$IncrementFlagValue$76686a13-bc6c-45b6-ae47-ad01feaddde9",
+                      "m_Flag": "!bp_d2eab6bfd8f64055938bf3be5770aabe",
+                      "Value": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$23826015-5087-4b90-888a-9e870fa89c74",
+                        "Value": 1
+                      },
+                      "UnlockIfNot": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f9823ed0-acad-4ed3-afa2-c278eda9f404",
+                "Comment": "Complete objective if all ranks are 8",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                      "name": "$FlagInRange$7d11bce7-dfe9-429f-9bae-e7d43fde25d5",
+                      "Not": false,
+                      "m_Flag": "!bp_d2eab6bfd8f64055938bf3be5770aabe",
+                      "MinValue": 4,
+                      "MaxValue": 4
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$fb590425-dabc-40e8-88d2-b693a964422c",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_7664bd68a68741808a1282ad23804efc",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "AssetId": "56decf72879da4245a32fcec39671ca9",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+          "name": "$TranslocateUnit$96dd6105-a56b-4e57-8b09-24d492484189",
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$14e1fdc3-7033-4bf9-bdf0-c6243c282674"
+          },
+          "translocatePosition": {
+            "EntityNameInEditor": "p1_player_position",
+            "_entity_id": "5eb2b4d6-f5ec-4ee6-9dca-b70a273199d2",
+            "SceneAssetGuid": "f9f2037488a8ba44eacaba2d4ad0b8a4"
+          },
+          "translocatePositionEvaluator": null,
+          "m_CopyRotation": true,
+          "translocateOrientationEvaluator": null
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$786ad17a-e4f1-436f-82b9-62399db76f2f",
+          "Comment": "Player has pet",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$36fa8c9f-cba6-4219-a44d-e1ba2c6ab51a",
+                "Not": true,
+                "Target": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$822c2b0c-4a47-4e86-9bc5-c3986a77b942",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$f6534cb7-5102-41d5-9b72-95290531528f"
+                  },
+                  "PetType": "AnimalCompanion"
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$7658ce45-c8d6-4c0a-92c8-43e834224a05",
+                "Unit": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$bdb7a429-7514-49fe-8140-1fc3a5b3e1be",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$d5333475-b08b-48b9-8eab-393459e360ee"
+                  },
+                  "PetType": "AnimalCompanion"
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "p3_companion_position",
+                  "_entity_id": "0ca799a0-e8d5-42a0-b86b-a63b9f10e870",
+                  "SceneAssetGuid": "f9f2037488a8ba44eacaba2d4ad0b8a4"
+                },
+                "translocatePositionEvaluator": null,
+                "m_CopyRotation": false,
+                "translocateOrientationEvaluator": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

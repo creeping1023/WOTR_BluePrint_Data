@@ -1,0 +1,127 @@
+{
+  "AssetId": "520b607622f44c18b124d3aab44b0e04",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1be25bea-6415-4240-8e02-0fcc3363c102",
+          "Comment": "Фейлит эрранд Могильщика, если мы его не делали",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$b173bd29-3891-40fd-9291-e6d738e3495d",
+                "Not": false,
+                "m_QuestObjective": "!bp_a251c832de9944c684e28b465d15f3b4",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$2c203c9b-e1e5-4cc4-a3e5-cf262b1083a2",
+                "Status": "Fail",
+                "m_Objective": "!bp_a251c832de9944c684e28b465d15f3b4",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fed2eb23-ea02-4b1b-a711-364997b91df6",
+          "Comment": "Фейлит кв Ланграта, если мы его не делали",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$e0999f71-d7b3-4320-b7bc-375b80dff402",
+                "Not": false,
+                "m_QuestObjective": "!bp_5d20b0f079bc4599bffda9fee09a00ba",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$7fe7144d-5454-487f-8c82-47bfbd2c9b6d",
+                "Status": "Fail",
+                "m_Objective": "!bp_c509db4859534e6d8b401c3ba5cb9ec9",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$66cb7db5-cc1c-4291-9669-b29222351326",
+          "Comment": "Выдает ачивку за непопадание в испарения",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$81732584-2237-43ee-8c73-ddfc44ce3394",
+                "Not": false,
+                "m_Etude": "!bp_acb2f3c151054321b9b18525cec16325",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                "name": "$ActionAchievementUnlock$adf85b26-ba42-416a-986a-cb8a2ffe8b55",
+                "m_Achievement": "!bp_9c69dee0631a4f15bc3ac17f0282292a"
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$62d408bb-6874-4d4a-9098-c12b9afdda8c",
+                "Etude": "!bp_acb2f3c151054321b9b18525cec16325",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$32bdf789-c48d-49a1-9619-56163ece6ec7",
+          "Status": "Complete",
+          "m_Objective": "!bp_e58796b6d6814e538bae58b664e8bfa9",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

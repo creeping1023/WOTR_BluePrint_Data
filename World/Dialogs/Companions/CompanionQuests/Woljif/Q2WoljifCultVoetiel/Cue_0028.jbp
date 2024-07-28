@@ -1,0 +1,270 @@
+{
+  "AssetId": "4d89e9f6501df8d4daa557b8031f7beb",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Культисты переходят на сторону Воэтила",
+    "ParentAsset": "537848911bf8f54478407c3ca30215e3",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "b4aac75babb31d146b306469b48a6136",
+        "stringkey": "e68a41a7-2fd9-4442-b677-6ca9d0d60d75"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_b05012d6b7e703248a6d160cd9c07ad9",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$3ee8fb13-13cf-4afb-8e49-9a92b727477e",
+          "m_SummonPool": "!bp_f62a83c161c9ae2418ed04cf0a0b07c9",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$97f18fd6-378b-4c21-a243-56fcf39aa69b",
+                "m_Cutscene": "!bp_5c1778357d812ee4ca31dbb957a9904e",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit1",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$dd5837fc-84a3-48e0-8ba5-a97e40c38191"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8f16e253-320a-4693-ba57-176493c6ed87",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$73387818-7644-487a-bca4-b69bfd93d6e0",
+                "Not": false,
+                "m_Etude": "!bp_543c40087671b6941856f8f75c15af01",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$2184f2cc-7eef-490d-bcc8-b6413a5b33ca",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$e815aac2-360e-4e7a-a75e-5caa74d21f77",
+                  "Spawner": {
+                    "EntityNameInEditor": "Voetiel",
+                    "_entity_id": "82d12722-8ef3-4edf-985d-91aa0b200db5",
+                    "SceneAssetGuid": "84e436f7bbf8ff8479b656f81a45bb46"
+                  }
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$3aed7e9a-5ded-44a4-b782-64e5f9dffcbe",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$472035b4-7938-43d1-898d-c97085bc9b63",
+                  "Spawner": {
+                    "EntityNameInEditor": "Voetiel",
+                    "_entity_id": "82d12722-8ef3-4edf-985d-91aa0b200db5",
+                    "SceneAssetGuid": "84e436f7bbf8ff8479b656f81a45bb46"
+                  }
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$9add5394-a53e-4212-871a-dee4db2c0811"
+                }
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$fc4df49f-122f-4084-8c91-f09b15362af3",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$748689ad-162c-4709-b25f-cc104eefd426",
+                  "Spawner": {
+                    "EntityNameInEditor": "Merloun",
+                    "_entity_id": "3f0706cf-880d-41c9-9f47-bf0d1349f433",
+                    "SceneAssetGuid": "84e436f7bbf8ff8479b656f81a45bb46"
+                  }
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$26d8e485-e021-48a8-be4d-e1146db06546",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$df505d33-2eaf-4636-b23c-5c3fb76b4710",
+                      "Not": false,
+                      "m_Etude": "!bp_56305509e10c6c344a467541a8e1c896",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$c17e9b07-1ecf-4d7a-a035-c63a9938810a",
+                      "Unit1": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$630ebe6d-78a3-485c-bbcd-33abf7cf2ad9",
+                        "Spawner": {
+                          "EntityNameInEditor": "Merloun",
+                          "_entity_id": "3f0706cf-880d-41c9-9f47-bf0d1349f433",
+                          "SceneAssetGuid": "84e436f7bbf8ff8479b656f81a45bb46"
+                        }
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$8e653204-d419-4ca3-b1f7-ed913cbcd240"
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$f75dd2cc-8b79-47b4-9112-08df1ba4141f",
+                "m_SummonPool": "!bp_f62a83c161c9ae2418ed04cf0a0b07c9",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$de7480c0-e3c9-4d91-918a-85d87db16b50",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$88d71b45-512e-4308-b08b-8924ad0ea8f5"
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$3b191ca2-3cb8-4a80-a1a9-8e03ecb1f423",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$5f47c1bd-831c-41f7-a35b-1b9bb0998ddc"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$3f7147e4-99c0-41a1-994e-35d16b38f34f"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$3494a814-0c93-4e51-8b75-3ca569835f07",
+                "m_Cutscene": "!bp_2d707c94934669b499dc84e80564f930",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$21c3ef08-6d00-48f6-b185-7074392fcb73",
+                "m_flag": "!bp_b4f82347e26ec0f448d5c12f869ce1f5",
+                "flagValue": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

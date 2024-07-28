@@ -1,0 +1,107 @@
+{
+  "AssetId": "3f424e07060a4029810a8d9324843bcc",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$5ba99192-9edf-4226-8f22-99ef43bf1398",
+          "Not": true,
+          "m_Etude": "!bp_8500cd50653044db993749421e510aa3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$24c6530a-faae-4459-9ff2-e18312ea5520",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d00239901a4bf03408fc8b12116b4d67, CompanionIsDead",
+                "name": "$CompanionIsDead$8ed82cfa-319e-47a0-9d61-3aec3612e1a0",
+                "Not": false,
+                "m_companion": "!bp_42f0d5ec3dc844feb44b04507a7c1bfc",
+                "anyCompanion": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$1485a7a3-1fc3-4273-ab2a-6b1fc843e2c3",
+                "Status": "Complete",
+                "m_Objective": "!bp_a66b482600ac44c49da42505aea919bf",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$34084596-a3ac-4393-955c-d522801e701f",
+                "m_Objective": "!bp_1ccd6c0894394ec099e007687d3e0ece"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$c7e7975e-7f32-43ab-aa7a-113803815271",
+                "m_Cutscene": "!bp_0b4f390c5a9e4cfeb46768870d5e7426",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$dc586477-c0f7-4845-8d80-923d7a55b020",
+                "m_Buff": "!bp_96e6b51b60a24557ae7b81e47b88ece0",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$f72167c5-1775-4635-a0c4-c2ae826d8d4a",
+                  "m_Companion": "!bp_42f0d5ec3dc844feb44b04507a7c1bfc",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": false
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

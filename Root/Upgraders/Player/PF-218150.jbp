@@ -1,0 +1,215 @@
+{
+  "AssetId": "d7696062df7c4b948e1ce3e1b769fc9a",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Повесить удорожание наемников в соответствии с временем в главе 3 или 5",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d2971db8-b23a-4f80-a839-f855bb800b25",
+          "Comment": "Switch chapter to 5th for kingdom and restart weeks, start merc cost increase",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$11543d80-d6d2-426c-804a-f7823a6a498f",
+                "Not": false,
+                "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "22fa9bfd5b294f40ad481a39d95648f8, KingdomActionNextChapter",
+                "name": "$KingdomActionNextChapter$b8fd44f7-74a4-402a-8bd7-554c7a0422b7",
+                "ChapterNumber": 5
+              },
+              {
+                "$type": "8afc3d0555fe6694191e8b029223e71d, KingdomActionAddBuff",
+                "name": "$KingdomActionAddBuff$930793a8-dfde-4cad-b8d7-8101fd191716",
+                "m_Blueprint": "!bp_5bc55b04f7744a47b275d13d7e5e8d9f",
+                "OverrideDuration": 0,
+                "ApplyToRegion": false,
+                "CopyToAdjacentRegions": false,
+                "m_Region": null
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$cdb3a9ef-c1db-420e-822a-387714346d17",
+                "Etude": "!bp_df864e37c5644a0688154d3e249a6949",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$0c34ee8c-f532-4963-b52f-a6c98027188b",
+                "Comment": "Chapter 3 merc cost increase",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$2200486f-5acd-4751-967d-9af1b5db0d39",
+                      "Not": false,
+                      "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$4f31ef0c-fe59-4234-b416-80ac7387cb60",
+                      "Comment": "At least 17th week",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "204cf74f8565487b97a17a56f51f8a43, KingdomChapterWeek",
+                            "name": "$KingdomChapterWeek$e06091f3-18be-4f22-ac91-a3186a5522dc",
+                            "Not": false,
+                            "Week": 17
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "8afc3d0555fe6694191e8b029223e71d, KingdomActionAddBuff",
+                            "name": "$KingdomActionAddBuff$90a5359c-760f-4a1c-b854-8a87309ea29d",
+                            "m_Blueprint": "!bp_5bc55b04f7744a47b275d13d7e5e8d9f",
+                            "OverrideDuration": 0,
+                            "ApplyToRegion": false,
+                            "CopyToAdjacentRegions": false,
+                            "m_Region": null
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$f31dc850-55ce-435f-b591-0423f35754d7",
+                            "Comment": "At least 12th week",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "204cf74f8565487b97a17a56f51f8a43, KingdomChapterWeek",
+                                  "name": "$KingdomChapterWeek$e3da510a-a12b-499e-bd3c-9643589d2292",
+                                  "Not": false,
+                                  "Week": 12
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "8afc3d0555fe6694191e8b029223e71d, KingdomActionAddBuff",
+                                  "name": "$KingdomActionAddBuff$078781ef-e6a5-42b7-8ca9-2fe2c30afc6a",
+                                  "m_Blueprint": "!bp_a02128b6143c4947bd619af096194b64",
+                                  "OverrideDuration": 0,
+                                  "ApplyToRegion": false,
+                                  "CopyToAdjacentRegions": false,
+                                  "m_Region": null
+                                },
+                                {
+                                  "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                  "name": "$StartEtude$b587a0b0-6bd1-494b-b790-2da69139d008",
+                                  "Etude": "!bp_96e6245eaddd4cda8f4ed83ddee3b085",
+                                  "EtudeEvaluator": null,
+                                  "Evaluate": false
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": [
+                                {
+                                  "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                                  "name": "$Conditional$febe0c35-9cd5-4946-8bd4-b54a48327643",
+                                  "Comment": "At least 6th week",
+                                  "ConditionsChecker": {
+                                    "Operation": "And",
+                                    "Conditions": [
+                                      {
+                                        "$type": "204cf74f8565487b97a17a56f51f8a43, KingdomChapterWeek",
+                                        "name": "$KingdomChapterWeek$b85c11f8-f7cd-41df-8d2e-47c39521396f",
+                                        "Not": false,
+                                        "Week": 6
+                                      }
+                                    ]
+                                  },
+                                  "IfTrue": {
+                                    "Actions": [
+                                      {
+                                        "$type": "8afc3d0555fe6694191e8b029223e71d, KingdomActionAddBuff",
+                                        "name": "$KingdomActionAddBuff$735675a7-6440-4cd0-9d1d-1321c81c5558",
+                                        "m_Blueprint": "!bp_d48d79e1fbde499fbfa826e8a2a17346",
+                                        "OverrideDuration": 0,
+                                        "ApplyToRegion": false,
+                                        "CopyToAdjacentRegions": false,
+                                        "m_Region": null
+                                      },
+                                      {
+                                        "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                        "name": "$StartEtude$e107affc-f31f-47f6-9c11-3652f05cd701",
+                                        "Etude": "!bp_f0fbc1580f604eb0acd0d84ed0c2d7b6",
+                                        "EtudeEvaluator": null,
+                                        "Evaluate": false
+                                      }
+                                    ]
+                                  },
+                                  "IfFalse": {
+                                    "Actions": [
+                                      {
+                                        "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                        "name": "$StartEtude$639562a0-b70f-4b88-8bca-1421b353db09",
+                                        "Etude": "!bp_4e24cf8b271b4c10aa769a78dfd868bb",
+                                        "EtudeEvaluator": null,
+                                        "Evaluate": false
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

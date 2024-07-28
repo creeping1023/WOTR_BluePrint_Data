@@ -1,0 +1,231 @@
+{
+  "AssetId": "1eaa212465f72954aaac5539215481c0",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$b71b77ac-d173-467a-9227-525558d924cb",
+      "$EtudeCompleteTrigger$5e32fb00-e187-40db-a6c1-9681dcdb56a2",
+      "$CapitalCompanionLogic$eff8be92-5c9b-4a47-b39a-bfca8ad56952",
+      "$EtudeIgnorePartyEncumbrance$cfe110b6-1268-4b77-972e-dc681f4a3c0d",
+      "$EtudeIgnorePersonalEncumbrance$5345d1c4-2db9-4d0b-922b-d2bc68467930"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$b71b77ac-d173-467a-9227-525558d924cb",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$64399a79-1475-436a-9bba-c4cf63a893b9",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "Arueshalae",
+                  "_entity_id": "ec69605b-acff-42fb-a354-f528322a03f6",
+                  "SceneAssetGuid": "fec7d8dfea7d2c54298d265212f485a2"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$3f25daad-5cc9-482a-8363-8ba254c8b367",
+              "DialogueOwner": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$8cca29f3-71ab-4d8b-b521-61fec7edad2f",
+                "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              },
+              "m_Dialogue": "!bp_7a959b57d98a30546be6177faa8f99d0",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$5e32fb00-e187-40db-a6c1-9681dcdb56a2",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$f5bdade8-16f5-45a5-938a-50e6155ca0aa",
+              "m_exitPositon": "!bp_5b8bce57024562741a60e66562704bbf",
+              "AutoSaveMode": "None",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$b0806e32-d04b-4e30-9bee-5ecf00c9fc79",
+                    "Comment": "если активен романс",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$87b258a3-77c7-4f74-a1fc-539d44febbb5",
+                          "Not": false,
+                          "m_Etude": "!bp_6a3fdd0758fe78d4aa2c3b26d7614fbc",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                          "name": "$Spawn$3d40e2f8-3343-42a2-8a9c-30e878bb8d78",
+                          "Spawners": [
+                            {
+                              "EntityNameInEditor": "ArueshalaeQuestPosition",
+                              "_entity_id": "9dd81a9d-8338-456c-b5c3-cee8762b5496",
+                              "SceneAssetGuid": "6e23c8287f8530142bc17b0f0d48c36b"
+                            }
+                          ],
+                          "ActionsOnSpawn": {
+                            "Actions": []
+                          }
+                        },
+                        {
+                          "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                          "name": "$StartDialog$2103505b-3377-49fe-b310-63dbf3379b14",
+                          "DialogueOwner": {
+                            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                            "name": "$CompanionInParty$62676572-b8be-4412-8b4d-86f5c8e6b584",
+                            "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                            "IncludeRemote": true,
+                            "IncludeExCompanions": false,
+                            "IncludeDettached": true
+                          },
+                          "m_Dialogue": "!bp_0c936c1816d88004b83fc3d5340361ec",
+                          "DialogEvaluator": null,
+                          "SpeakerName": {
+                            "m_Key": "",
+                            "m_OwnerString": "",
+                            "m_OwnerPropertyPath": "",
+                            "m_JsonPath": "",
+                            "Shared": null
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1862eb457738a6a4d908e20172213f3a, CapitalCompanionLogic",
+        "m_Flags": 0,
+        "name": "$CapitalCompanionLogic$eff8be92-5c9b-4a47-b39a-bfca8ad56952",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_RestAllRemoteCompanions": true
+      },
+      {
+        "$type": "7d9dc37dd50d49e1bfe8001119168464, EtudeIgnorePartyEncumbrance",
+        "m_Flags": 0,
+        "name": "$EtudeIgnorePartyEncumbrance$cfe110b6-1268-4b77-972e-dc681f4a3c0d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "f905ab8b4c014637b79eae5da34c6fd5, EtudeIgnorePersonalEncumbrance",
+        "m_Flags": 0,
+        "name": "$EtudeIgnorePersonalEncumbrance$5345d1c4-2db9-4d0b-922b-d2bc68467930",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "16b3c6e1a243b7a4fb57b056ddf4f99d, HideAllPets",
+        "m_Flags": 0,
+        "name": "$HideAllPets$364db4b2-4b7d-4b28-946c-10965ad1f837",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "LeaveAzataDragon": false
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_23d32a1489a5b0e418008e2a28a08246",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_1d71d060e97cc4c41916c81ea2d9cca8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_b0b3840e571ef2d4c84ce34a2c532aa1"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

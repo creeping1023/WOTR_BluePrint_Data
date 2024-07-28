@@ -1,0 +1,182 @@
+{
+  "AssetId": "9b53e1400c646954b9ccac6614140fe6",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "встает на колени, зтм",
+    "ParentAsset": "7acf7da3c0988ed45be74b0e5c5d5856",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "3ab30d35-622d-47ec-a144-3ba50182f479",
+      "m_OwnerString": "9b53e1400c646954b9ccac6614140fe6",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionRomances/Wenduag/PersonalPunishment/Cue_0019_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6083d09a91ef9b340ba326bff905e131, FadeoutCommand",
+          "name": "$FadeoutCommand$9a2fc67f-2d94-4f60-b4dc-ac16029a6fa7",
+          "m_Time": 2.0,
+          "m_OverrideAnimTime": false,
+          "m_AnimTime": 2.0,
+          "m_InFadeActions": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$b33bb031-0dd4-40d7-9b98-7bf78f5f3294",
+                "m_Cutscene": "!bp_1637b3c27e381f546a8c6270c69e3dfb",
+                "m_AllCutscenesFromUnit": false,
+                "WithUnit": null,
+                "m_CheckType": "Params"
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$a2499b0e-fa3d-43a8-b979-1c32d1e8bac4",
+                "m_flag": "!bp_6692ad1d0a9883b4bb0a1997fed5624b",
+                "flagValue": 1
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$5a2c72dc-0046-4702-8b9f-f0cf721b5fcb",
+                "Comment": "Etude is not started",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$187cf0ea-5969-47da-ab2f-c6fa572e0520",
+                      "Not": false,
+                      "m_Etude": "!bp_e3049ea03e2f80a42b5b2dab02c75e78",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$141c543e-cafc-488a-8b52-7b22a6e85b05",
+                      "Etude": "!bp_e3049ea03e2f80a42b5b2dab02c75e78",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$dbdd72ea-fc80-4dd4-be35-7b0e1a36bb13",
+                "Comment": "если поднят флаг 1 или 2",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$8f8c472c-ad09-47b1-a713-0bc3b5d26c21",
+                      "Not": true,
+                      "m_Etude": "!bp_614d72079c850aa4f848815b8a043f6a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$7d2c5d7c-afae-4673-b1d3-7acdfffc63f9",
+                      "Not": true,
+                      "m_Etude": "!bp_77dfb12f8d41f34419ef0cd09882c316",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$08a5590c-aa90-4ebf-9c11-a41a6ec9c4b8",
+                      "Etude": "!bp_a7a87e58fd8328c46b0a5880e15770aa",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$51ef3b32-b34c-469f-b5b8-d59d2382ed97",
+                      "Etude": "!bp_d92bf7ee993f1c6419f35fa97f28ab74",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$4796e3c5-fab9-4c40-be0b-3073c0c640cd",
+                      "Etude": "!bp_70260967f8e8efc40934a31a346221b0",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

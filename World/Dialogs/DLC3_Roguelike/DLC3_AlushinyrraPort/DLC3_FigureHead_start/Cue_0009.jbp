@@ -1,0 +1,197 @@
+{
+  "AssetId": "8185d7eca07f4264a5bad9f59fed3dc7",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "00d679b5ce5d4c049e17cd363d5b25ba",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "7929a6c98c8f0df45bb6b4c37ac1e6aa, IsCampaign",
+          "name": "$IsCampaign$cc4d52c9-ae46-42fa-bdaa-7ee859880fec",
+          "Not": false,
+          "m_BlueprintCampaign": "!bp_fd2e11ebb8a14d6599450fc27f03486a"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$3e947164-1967-4955-9280-c786a1d17113",
+          "Not": false,
+          "m_Etude": "!bp_ce451df625b64df38d61a9d2bba57811",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "496f2349-fc56-4a5d-9497-7948ce4127d9",
+      "m_OwnerString": "8185d7eca07f4264a5bad9f59fed3dc7",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC3_Roguelike\\DLC3_AlushinyrraPort\\DLC3_FigureHead_start\\Cue_0009_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_b13fa6c6d2b54d86875eb1e853455e98",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fb304d14-321c-4369-99a6-1e133fe8764f",
+          "Comment": "первый тир не стартован",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$48bb7e3c-cf01-4b9f-8f36-f4fc9bc2cace",
+                "Not": false,
+                "m_Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$548f62da-2383-45ee-9a1c-2c5eba506a91",
+                "Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$14ad0080-8805-4aa7-ad78-10cc68dcebdc",
+                "m_Objective": "!bp_b389236e664e41b48a69b8e907fbd634"
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$97d3fac9-065b-4258-86da-bf31f44523e2",
+                "Status": "Complete",
+                "m_Objective": "!bp_4af88488fc5142c4be58af73507d7167",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$6163f362-3294-4eb9-a74a-3091626a0d50",
+                "Status": "Complete",
+                "m_Objective": "!bp_4faa281533d9447f82d1bb450db04e44",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$6c4f6ffe-78a2-4cd7-925c-703ba6409372",
+          "Status": "Complete",
+          "m_Objective": "!bp_671284b8f9b54146b58691cecb7afc57",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$c10e8694-4d9a-4924-a1be-a85f8257d202",
+          "m_exitPositon": "!bp_d2712a27192d4397b9735597d3cf35d5",
+          "AutoSaveMode": "AfterEntry",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$ebc925a2-17af-4872-9c1b-33ad05218209",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$ca027c8d-0ece-4deb-abcf-acc24c2effb7",
+            "MapObject": {
+              "EntityNameInEditor": "Shit_translocate (1)",
+              "_entity_id": "8151d89e-9019-4463-8216-1acbe507553d",
+              "SceneAssetGuid": "5769f56e620d89f44887182c79c5107b"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$d6579ee0-d21e-4e80-a2f6-4430964ff205",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$904ef081-189a-45d0-adc4-6af57a69ce91",
+            "Spawner": {
+              "EntityNameInEditor": "Herald start",
+              "_entity_id": "6408ec58-a5ba-4b24-ba3d-c306b25109a7",
+              "SceneAssetGuid": "5769f56e620d89f44887182c79c5107b"
+            }
+          },
+          "Unhide": false,
+          "Fade": true
+        },
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$8a6430d5-7c1e-40b6-8db2-9573aff131dd",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "Herald",
+              "_entity_id": "83ffd8d7-a7cd-4abc-acba-f37af0600fe6",
+              "SceneAssetGuid": "5769f56e620d89f44887182c79c5107b"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": []
+          },
+          "RespawnIfDead": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "AssetId": "037c6ab7548083f49bc43b1195cf05ac",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "b720b1397a2d8914580e1589f7f4e3db",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "f3cc8248-a1fe-470c-81b7-9536f3531b56",
+      "m_OwnerString": "037c6ab7548083f49bc43b1195cf05ac",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Regill/Q3_FinalTestament/Avowal/Cue_0033_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_0d37024170b172346b3769df92a971f5",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$01e99949-f4a0-4cef-bd5e-fe302f3dd97f",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_0d37024170b172346b3769df92a971f5",
+              "NPCUnit": null,
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "cdaf4f23bba50a044a00da97d652575b, PartyMembersAttach",
+                "name": "$PartyMembersAttach$5c977080-d79b-45e4-bfc5-1e63839a8610"
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$da80406c-cbe1-4b20-83c1-486d9ffe055d",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$41d7b715-a022-4834-b7f0-66c98035fa6c",
+                  "m_Companion": "!bp_0d37024170b172346b3769df92a971f5",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": false
+                },
+                "m_Faction": "!bp_72f240260881111468db610b6c37c099",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          },
+          "OnRecruitImmediate": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+          "name": "$UnlockCompanionStory$196bab0f-c162-405f-9b3f-68d166fd837b",
+          "m_Story": "!bp_2e8a0504b3bd6d24fa6011b09c2aec14"
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$7e2c90df-3cea-41ea-b67a-fa1e320cd1f6",
+          "Etude": "!bp_49d56e18a3d4f1c4aa81c9f5af0ce63b",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$aa501135-8c78-4ffb-b8e3-09536e9ad7b0",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$7c7c97aa-0a66-433b-a900-846f4c6097fc",
+                "Not": false,
+                "m_Etude": "!bp_cddee8b9dabe81e4fa76418ca4698124",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$e232578b-3397-4221-849e-5b4b8cfd8c07",
+                "Etude": "!bp_cddee8b9dabe81e4fa76418ca4698124",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f7046e05-dde3-40e1-b18c-b438bedf9f0a",
+          "Comment": "Анхайд Пета регилла",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$b63b017b-2422-4472-91e7-e36c3afcde6a",
+                "Not": true,
+                "Target": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$95d9dc09-8235-4a92-a9c1-c3cfcf11f073",
+                  "Master": {
+                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                    "name": "$CompanionInParty$13fed3ca-1567-4ecf-8cc0-a43194e4dd42",
+                    "m_Companion": "!bp_0d37024170b172346b3769df92a971f5",
+                    "IncludeRemote": false,
+                    "IncludeExCompanions": true,
+                    "IncludeDettached": false
+                  },
+                  "PetType": "AnimalCompanion"
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$2a28e42d-c431-4230-a643-8a34c5f6bc5a",
+                "Target": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$46899e8f-4f5c-470e-8689-5f10613a0713",
+                  "Master": {
+                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                    "name": "$CompanionInParty$130a10c0-cee7-4993-af5c-4e74163e0cd7",
+                    "m_Companion": "!bp_0d37024170b172346b3769df92a971f5",
+                    "IncludeRemote": false,
+                    "IncludeExCompanions": true,
+                    "IncludeDettached": false
+                  },
+                  "PetType": "AnimalCompanion"
+                },
+                "Unhide": true,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

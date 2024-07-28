@@ -1,0 +1,287 @@
+{
+  "AssetId": "1250a237480836a41b9ea8cf3c2b557d",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$270f19d3-7846-494b-b5e9-6868cada7f93",
+      "$EtudePlayTrigger$a23d71d9-5242-41ff-a006-53246f3a79e3"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$270f19d3-7846-494b-b5e9-6868cada7f93",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+              "name": "$TeleportParty$da163c0f-2d25-4f9e-b68f-cfc5644df267",
+              "m_exitPositon": "!bp_0d9a913184628e7468f022cba761451f",
+              "AutoSaveMode": "None",
+              "ForcePauseAfterTeleport": false,
+              "AfterTeleport": {
+                "Actions": [
+                  {
+                    "$type": "28f3698ba62041e09a5abcbe59a14725, MakeAutoSave",
+                    "name": "$MakeAutoSave$8a4b261e-cccc-461c-98ba-f90f80cce28b",
+                    "AskConfirmation": false,
+                    "SaveForImport": false
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$1b6a71d7-b478-4f68-9672-59680b2fa921",
+                    "m_Cutscene": "!bp_32137a1497a51ea4e8ec7d5c1879cc81",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$3d708b4a-6d8e-4944-9ca8-18366fa40c4a",
+              "Etude": "!bp_891ff8c5ecb51694ba43746ebe966268",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$a23d71d9-5242-41ff-a006-53246f3a79e3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Block Default HQ",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$980bbae9-ee74-4b17-ab5c-d9aa3f4d0ff9",
+              "m_flag": "!bp_8cad0e238ce167d4dab033100ff5e878",
+              "flagValue": 0
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$ea8b80c0-75f3-48ec-a03d-9097fc3e17ea",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Lift Block",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+              "name": "$LockFlag$53acaf31-5e19-4dd5-a432-4a781816d881",
+              "m_Flag": "!bp_8cad0e238ce167d4dab033100ff5e878"
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$4a15bb01-8413-4301-a378-27a2fb33133f",
+              "m_flag": "!bp_3fbb9ff07cd8c3249be7c0124250f693",
+              "flagValue": 1
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c0e2748d-e913-4407-b961-a9dd81e2e30b",
+              "Comment": "Nenio in party",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$2a30e794-f5cd-442c-9a52-d2847493d9ca",
+                    "Not": false,
+                    "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$3ba43a68-1ac4-4cbe-9dfd-e1e562bfbfe6",
+                    "m_Cutscene": "!bp_b48670a01658467999f33f7d17445914",
+                    "WithUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$17bc79f8-96de-4d5c-8cb4-ef25762852ed",
+                      "m_Companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c8b3c323-f54f-40eb-bc62-91141234ab17",
+              "Comment": "Daeran in party",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$69894a0f-b19a-4f59-80c2-6ebb69560047",
+                    "Not": false,
+                    "m_companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$456a5361-2423-44e6-8662-5f78e27552b8",
+                    "m_Cutscene": "!bp_00f015c7c0fb45ed9599b848ff1143f1",
+                    "WithUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$c75c21e5-ad66-41fd-8259-f814d50cb4c2",
+                      "m_Companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$eace069c-b166-49cd-b0f0-beff60de35cf",
+              "Comment": "Woljif in party",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$b232fd9d-6252-41ea-a952-879f3591c60f",
+                    "Not": false,
+                    "m_companion": "!bp_766435873b1361c4287c351de194e5f9",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$3a324c15-445a-4224-a65f-ae6f0a2ca119",
+                    "m_Cutscene": "!bp_5eab9663c9fa4218acfe9bd76b6969dc",
+                    "WithUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$c1165817-7805-4591-b757-2c0b8bb87a5f",
+                      "m_Companion": "!bp_766435873b1361c4287c351de194e5f9",
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Первый визит Якера в варкэмп.\nСтартует на данный момент экшном из GlobalmapBeforeSwarm",
+    "m_Parent": "!bp_62c6357a93f3fe64a9402aa1bb5acb41",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_7a25c101fe6f7aa46b192db13373d03b",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_0dacbe04caa10b74baddef71b5902f40"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_97f93ca69139f394a9e97f7254517111",
+      "!bp_d72e34f9356bab84f9ab9dd1c04fbc81",
+      "!bp_50feb4acf24662a488db5de8fc140116",
+      "!bp_c6d8fcd04c188fe448cb6c7785139677",
+      "!bp_632348712249945419c68d84fae267cc",
+      "!bp_c4a6bf88f5ba5d14b918e94ce9856974",
+      "!bp_821c3dad41f62464ea31e257ebc2cb48",
+      "!bp_f35a24ba90abfa04496abd5a8c072d88",
+      "!bp_25d1001221e42344da6ddcaa28e0b67a",
+      "!bp_f92f88f0f96439a4dab76d08e1419f50",
+      "!bp_eff294b4aac848b6af94ffc3928ce0c3",
+      "!bp_c1baaea83e5945d8810d9b8587dce648"
+    ],
+    "Priority": 10
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

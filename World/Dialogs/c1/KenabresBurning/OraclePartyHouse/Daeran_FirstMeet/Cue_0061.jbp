@@ -1,0 +1,190 @@
+{
+  "AssetId": "40107676e3c23004780289706af3eae0",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "здесь надо чтобы все гости тоже стали красными, и квест адептов дезны зафейлился, если мы его еще не сделали.",
+    "ParentAsset": "af9857b882442634eac5e5c77e5c052f",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "97527a63-9af0-45bb-8bd8-377af46654aa",
+      "m_OwnerString": "40107676e3c23004780289706af3eae0",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c1/KenabresBurning/OraclePartyHouse/Daeran_FirstMeet/Cue_0061_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$7492fae2-4c4f-41bd-8881-3f3bd1fd633e",
+          "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+          "Target": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$bc440579-8b87-4182-8432-9a4401bc46cb"
+          }
+        },
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$f17ecf91-ea6c-4d12-97a8-63d811950d2b",
+          "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$00cf3356-fae0-4a61-a02b-47b624dacea9",
+            "Spawner": {
+              "EntityNameInEditor": "Aranka",
+              "_entity_id": "b6e22ffa-5da3-4a15-8b21-36fac9489207",
+              "SceneAssetGuid": "298c1bf5ca43493499fe9dcfcfde688e"
+            }
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$36f79693-f5a0-4dee-882e-41c4cf9d9a8f",
+          "Comment": "Fail Quest",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$3b301bdb-5854-4b6e-ab53-07d89dbfac34",
+                "Not": false,
+                "m_Quest": "!bp_a6b56e71584a8714eb19eba0245139af",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$c1659b75-bfd5-48ac-8d8d-f28e1ec4b1a9",
+                "Status": "Fail",
+                "m_Objective": "!bp_927f4e4b06f741c4c862210c4c8c7f2e",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$49c9be98-8cad-4123-a286-ed499a220ab5",
+          "Unit1": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$47d8a243-5980-4515-b9ef-51fce3c7fe50"
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$0518e51c-449d-4732-9d40-2806b2ccc183"
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$49980ae0-a4b3-4a6c-aaa7-5f117d1ffaf9",
+          "m_SummonPool": "!bp_fd40aad5ce8a973479907d40540ea132",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$34fee083-0d9b-48b1-8607-f28db61d03f6",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$0fce89a0-f90f-460a-956c-f17ec0d45d3d"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$12fd3f20-2007-4c75-a246-6f9456936c13",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$7d1593d2-3ac2-4a58-94bf-5c299ecbe1d0",
+            "Spawner": {
+              "EntityNameInEditor": "Aranka",
+              "_entity_id": "b6e22ffa-5da3-4a15-8b21-36fac9489207",
+              "SceneAssetGuid": "298c1bf5ca43493499fe9dcfcfde688e"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$647a2898-4699-4dfd-87cb-8927e97189ee"
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$0017b1f5-e64b-4a19-964b-1063aea2fe44",
+          "m_SummonPool": "!bp_37043570ce06ea04ca104c3c52a6b98a",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$399972f1-c314-4258-996d-a6affaa496b7",
+                "m_Buff": "!bp_c710d4abe08060c4e9111a64332697ae",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$4f0adc77-18a2-4aef-a350-8b5005ee155e"
+                },
+                "Duration": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

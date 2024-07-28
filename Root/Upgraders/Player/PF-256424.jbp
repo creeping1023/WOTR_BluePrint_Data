@@ -1,0 +1,97 @@
+{
+  "AssetId": "0d6e8fd2eef240f58e998d662aa774ae",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Фейл ангельских квестов (эрранд в Нексусе и эрранд в Паларе) у тех, кто зафейлил мифическую цепочку ангела и случайно его получил.",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a8b871b9-0d81-46e5-8a4a-f3cf178f56bc",
+          "Comment": "Angelic Path Failed",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$2adbb398-5235-4037-95d3-62a5a849976d",
+                "Not": false,
+                "m_Etude": "!bp_3a25b1f2a81f84a40b4fb658f4d2fe0f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$bfeeb437-ee79-4630-9068-adb4988ab2c8",
+                "Not": false,
+                "m_Quest": "!bp_eb200bff3ec0cb04c82623a4f77657fd",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "efe90dcd2b77dfa4bbcad5f00b4d486d, ResetQuest",
+                "name": "$ResetQuest$7d8f80b3-9843-454e-9d6a-7fd769828e19",
+                "m_Quest": "!bp_eb200bff3ec0cb04c82623a4f77657fd",
+                "m_ObjectiveToStart": null,
+                "m_ObjectivesToReset": []
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9db2e142-f3c0-4b44-aa82-234e7dceb686",
+          "Comment": "Twenty-One Ceremonial Daggers",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$a5725c89-5ea7-4737-84d0-4a014861b555",
+                "Not": false,
+                "m_Quest": "!bp_e8543cd1c0afa7845b5527e88a8da5a7",
+                "State": "Started"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$95a6c0bf-b4fe-4387-ba97-896867615503",
+                "Not": false,
+                "m_Quest": "!bp_5154dbc38aa2ea84a80b733a443cdca7",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$8ed83f18-92b6-4303-94ba-4d4dc174b635",
+                "Status": "Fail",
+                "m_Objective": "!bp_1bf3f21e655ac1341ac188d9468d5bfe",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "AssetId": "0f51cd1312db49a46997d0c16246cc36",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "старт боя",
+    "ParentAsset": "1bd44e41f10a4b048bfba2757ab8d41f",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "fd7acb51-6ccd-4a7e-96d4-07f42c44cc12",
+      "m_OwnerString": "0f51cd1312db49a46997d0c16246cc36",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/FinalDungeon_Colyphyr/FulsomeQueen/Cue_0061_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$4d40e47e-b92f-42b7-a9aa-dd241de01204",
+          "Target": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$de6b6a30-2e90-4936-b5a7-a315f6368837"
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$f08eea02-cbe8-4075-9c06-1985cd863ab0",
+          "Unit1": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$f4fe43c2-efd9-4bea-89c1-e3a338b53fbd"
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$9934d3b8-af72-44ac-932d-7871347f65a4"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$32628aa5-fab0-41ab-80ba-2d477591e94f",
+          "Comment": "give additional loot",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$a33bccf2-659b-4b9c-a723-93d0a65e5ebe",
+                "Not": true,
+                "m_Cue": "!bp_129514f26b8c701489cd9c7163d58ece",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$5ff968c1-0d26-4732-ae93-6f2be0b8aee7",
+                "ItemsCollection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$35651087-6f6d-47bc-9455-c7227ff0abf4",
+                  "Unit": {
+                    "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                    "name": "$UnitFromSpawner$01623a40-976b-46f6-85a0-9cc1e8786775",
+                    "Spawner": {
+                      "EntityNameInEditor": "[FulsomeQueen]",
+                      "_entity_id": "159d39a9-99f4-46af-8ea4-907ee445a88b",
+                      "SceneAssetGuid": "682028449dfdd5244969f623cba0e482"
+                    }
+                  }
+                },
+                "UseBlueprintUnitLoot": false,
+                "Loot": [
+                  {
+                    "m_Item": "!bp_a1bc9bf104a3c614391eccdcdf37d4ad",
+                    "Count": 1
+                  },
+                  {
+                    "m_Item": "!bp_59840ceb20f19fe498c843ce4c1297b7",
+                    "Count": 1
+                  },
+                  {
+                    "m_Item": "!bp_c55f4b9d51b26074b8672c5d02a582a9",
+                    "Count": 1
+                  },
+                  {
+                    "m_Item": "!bp_34c9ccb85771fcb448dac03c5df1f014",
+                    "Count": 1
+                  },
+                  {
+                    "m_Item": "!bp_ecd7efc465dbbac44a07c7e9bbd06be2",
+                    "Count": 1
+                  }
+                ],
+                "m_BlueprintLoot": null,
+                "Silent": true,
+                "Identify": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

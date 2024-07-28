@@ -1,0 +1,196 @@
+{
+  "AssetId": "44402c7a7cb328f449ece31cbf10107b",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "анимация - Калеб и миньоны (если живы) уходят с локации\n\nподнимает флаги GreyGarnison_BasementUndermined и GreyGarnison_CalebInTheStock",
+    "ParentAsset": "a970efff02874624b857bc4a052b77d1",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "a2d4c8243fe1c5a4587a64a6ffe4c82f",
+        "stringkey": "3a33f7a0-1a6f-4f15-b541-cf2e06b1c6fd"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+          "name": "$GainExp$81d0c967-9d73-4a54-a6a5-383a01038be0",
+          "Encounter": "ChallengeMinor",
+          "CR": 4,
+          "Modifier": 1.0,
+          "Count": null,
+          "Dummy": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$a3345659-ab00-4932-a8f7-ae7fd81cf026",
+          "Etude": "!bp_93ef394a1e57bfc4cba574abff863998",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$d9995ed0-1f2c-49bd-b147-d39c5e2e1d3b",
+          "Etude": "!bp_93ef394a1e57bfc4cba574abff863998",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$5eff39e8-b037-428b-8fea-f7b1b1548e70",
+          "m_Cutscene": "!bp_89ea362cf898ecf4ab6d325ffdf67d5e",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$107d5ae3-070d-4d1e-a016-44fa1a6e09eb",
+          "m_Cutscene": "!bp_cb3d95a860409354da46e031b38c0894",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+          "name": "$ScriptZoneDeactivate$d675a356-2c4a-4a34-b114-bed8c960037f",
+          "ScriptZone": {
+            "EntityNameInEditor": "FireDmg",
+            "_entity_id": "370c5d45-52a1-40d7-9d8d-f0b1a5f7256a",
+            "SceneAssetGuid": "458866ff4eb445c4fba4f0a6d1cc0f17"
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$d24f9bf3-76b1-43c0-a2a1-161538651466",
+          "m_Cutscene": "!bp_ae6d9d15925fa434288db028d4984245",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$79a6e95a-7628-42b1-b1e2-b36d57cb9063",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$dc920279-c6a4-4bf3-9bf9-107a2b3536a6",
+                "Not": false,
+                "m_Etude": "!bp_c4d1dde003a19134fa0e8b64b5d1e951",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$07ce5435-a645-4b4f-8ff7-35a61091f77f",
+                "Not": false,
+                "m_Etude": "!bp_8f9d84eb996e24e459b513d6c48a8e44",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$5d30260c-bfa8-4e6d-a3da-c23b71257a27",
+                "Not": false,
+                "m_Etude": "!bp_e1fa2038efd5c11469d78febd1aed194",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$770b6eb3-ec3c-4725-b44f-49949d0f4fc5",
+                "m_Cutscene": "!bp_3e790580ce7871c4891daf64cec32bde",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$b5022f03-2c13-420d-84ba-399c1e64bb17",
+          "m_Cutscene": "!bp_a52130ae6d9139f42af086f594aed2f2",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$d4aac058-0e4d-41b4-a6df-55efd6181f9a",
+          "Etude": "!bp_fcdaf4248c16418da12c7014d3d28847",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

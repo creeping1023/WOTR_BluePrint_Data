@@ -1,0 +1,939 @@
+{
+  "AssetId": "dd2c3125e3a46534aba92ecbb378601e",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$AddFactContextActions$1aee687b-5bb1-4148-92cd-80685ad60b39"
+    ],
+    "Components": [
+      {
+        "$type": "25d172d2be8f52f468b2050d14d59806, AddFactContextActions",
+        "name": "$AddFactContextActions$1aee687b-5bb1-4148-92cd-80685ad60b39",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Activated": {
+          "Actions": []
+        },
+        "Deactivated": {
+          "Actions": []
+        },
+        "NewRound": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$576b506f-e15b-4bee-b5f7-ae4e306460e1",
+              "m_Flag": "!bp_fab07d8fbd624ac49bc9ffac77f3255b",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$22b7d2c2-65ce-4f27-a920-ab569a029a64",
+                "Value": 1
+              },
+              "UnlockIfNot": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$11ab7b0c-7945-4dd5-946e-cd0af0c9d4a4",
+              "Comment": "Round Counter",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$3436baf0-fbdd-471f-adab-4bca8991ece0",
+                    "Not": true,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$b686251b-703a-4da8-9453-27b92e1ab1e9",
+                      "m_Flag": "!bp_fab07d8fbd624ac49bc9ffac77f3255b"
+                    },
+                    "MaxValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$36a691d3-3a78-480f-be52-0cc50a2888ac",
+                      "Value": 3
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$bd215ee5-46c6-4b8a-80ea-9de4d6268e57",
+                    "Comment": "Melee",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                          "name": "$LessThan$c5b0727a-ced7-47a0-a454-d27b4e25c4eb",
+                          "Not": false,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "0a7ef55390dc10c428693321c0e1f6d7, SummonPoolUnitsCount",
+                            "name": "$SummonPoolUnitsCount$236b3733-5166-447a-8f01-687d53e6b4b0",
+                            "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9"
+                          },
+                          "MaxValue": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$1ff1c104-d4a5-4556-a4d9-69faaa08f164",
+                            "Value": 4
+                          },
+                          "FloatValue": null,
+                          "FloatMaxValue": null
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                          "name": "$RandomAction$3ed51c15-a89f-4f69-826a-10295528c3eb",
+                          "Actions": [
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$a84cba57-2e8b-4302-bd1a-17edb3b43265",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$e517ebb6-4b0a-44f7-908c-bf6bd880a548",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (2) melee",
+                                        "_entity_id": "6797365a-1e09-49b5-b9ff-94fa4c1bfbb0",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$3be7566d-5ad8-43da-be7a-c8f272289d8a",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$01d4eadd-5474-4b9c-b6b6-9d056b807659",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (2) melee",
+                                        "_entity_id": "6797365a-1e09-49b5-b9ff-94fa4c1bfbb0",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$66443b96-29a2-43bc-b754-ee2cf90fe4d8",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$63cf3d1b-d61e-4fbb-bc69-55255172c733"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$af021b33-87d1-47c9-acd6-0c5fd0bbceba"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$8c6d7703-753d-4b7f-97b2-70c178a869ff",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$cdee22de-26bf-4741-899d-8bc966c92a72"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$d5ed3a86-eaa6-4f61-87fd-e6472feb7931",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$15db63b7-09e9-423d-a88f-0ca3e4c9bd88",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (11) melee",
+                                        "_entity_id": "dbf8e349-2817-42fb-82d2-485882b6ae74",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$2c659019-5e86-4c20-aea6-ff0ac1120b46",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$3e72ffc4-b31f-4563-b3cd-287dd5fffafb",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (11) melee",
+                                        "_entity_id": "dbf8e349-2817-42fb-82d2-485882b6ae74",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$61463076-9a5f-47e0-b95f-371ddfd16f7f",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$71d8fc39-dd2c-4889-b048-c85dc6a356fd"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$d403fbd9-6458-4ffb-87a8-4f21fc807356"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$e6995698-b5c4-480b-9609-41cb72d28852",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$196c3a6e-fd32-43eb-ba82-b790c6122f90"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$046768e6-d090-467d-b205-3c628e28a485",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$4f0b4286-bf37-4b6a-92df-aba0f0c5631f",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (13) melee",
+                                        "_entity_id": "860a7d53-dddc-4522-8fb0-34dade9dbc63",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$5a084946-7a45-413a-b4e8-cfc06b4476fb",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$57d8ad1f-53eb-42e2-a0df-8a7f7445b12d",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (13) melee",
+                                        "_entity_id": "860a7d53-dddc-4522-8fb0-34dade9dbc63",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$9ae24fba-88e3-4d6d-9bcd-48c5f30d8fa5",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$8ecd950c-95a5-4da9-928a-4e76de4af8ee"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$1f96e8a8-a7c6-405d-9e4a-20c8bacd50c9"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$31e02237-cf6c-4ad2-a4ae-777e0340a45f",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$0396696f-6cdf-485c-9783-2f0bec953c6d"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$811b01cc-deeb-4f66-9d7f-5d7008fb4210",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$c9379dd4-c82a-4ef6-9a0d-a3c66e65843f",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (18) melee",
+                                        "_entity_id": "320eabde-a8c9-4edd-8a24-b4c6836e0a97",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$f5516a27-3556-477a-91f0-9b01070486ad",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$517ef93f-5715-4abf-a0d2-821667f100f8",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (18) melee",
+                                        "_entity_id": "320eabde-a8c9-4edd-8a24-b4c6836e0a97",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$ff86950b-95c2-4f14-8fe2-50bebe3b3700",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$7f15775c-404d-460c-a3ab-589ee1e3307f"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$63915917-5a10-4196-a42e-583223f93373"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$e1cca217-6b3b-499c-baca-b9dd0c2e19e6",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$0d45388c-3368-41c4-99b3-9e1ebcdef8bb"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$1a291f40-ddbb-49a0-b07f-6b8775f146e4",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$3a6a05ed-c589-4053-b997-36c77ec08b58",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (22) melee",
+                                        "_entity_id": "3154b5ee-0b39-4264-9fa7-d88056358179",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$94847c6a-2093-47e6-929a-3fc17943a8e0",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$1513c269-99f8-4cee-a713-8e26594d4dc9",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (22) melee",
+                                        "_entity_id": "3154b5ee-0b39-4264-9fa7-d88056358179",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$87d57e61-720c-4822-9e7b-d7abac35eb76",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$33c9943e-c263-4729-ab74-ca237b52d167"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$d4e37ddc-04dd-4448-8ab6-e621c86bf6e2"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$d0f7cf3a-6b35-4658-9ae7-e6ad600ab0a3",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$b44c0fc6-d5de-4a09-bd6d-09a83d77314b"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$9d46357e-046a-49f8-9308-234774614f03",
+                          "m_flag": "!bp_fab07d8fbd624ac49bc9ffac77f3255b",
+                          "flagValue": 0
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$200b6c0a-14e4-45bf-a335-3f4bd68aa173",
+                    "Comment": "Melee",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                          "name": "$LessThan$a5950605-6e30-4bad-82c3-7ffde3634586",
+                          "Not": false,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "0a7ef55390dc10c428693321c0e1f6d7, SummonPoolUnitsCount",
+                            "name": "$SummonPoolUnitsCount$2b103279-194f-4cc4-a77c-a8f48dbbd962",
+                            "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9"
+                          },
+                          "MaxValue": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$8566d6eb-6979-4db3-84fc-fe68bbb63a6c",
+                            "Value": 1
+                          },
+                          "FloatValue": null,
+                          "FloatMaxValue": null
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                          "name": "$RandomAction$ad6d205f-2f1d-4d26-a7a6-afd99473f361",
+                          "Actions": [
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$2d7525fa-2fde-45b7-8e4c-dbcb3c89ed4b",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$257aed13-b219-4881-a81f-ac80bf5386bb",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (2) melee",
+                                        "_entity_id": "6797365a-1e09-49b5-b9ff-94fa4c1bfbb0",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$10daebb5-51ce-44ce-9a55-f4551a505e22",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$ad1e03bd-4848-4213-9ba3-2a2d1d1ab1da",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (2) melee",
+                                        "_entity_id": "6797365a-1e09-49b5-b9ff-94fa4c1bfbb0",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$9143a99a-4f47-4c64-a50e-8a112ea17995",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$bc225a09-9840-49a9-9561-3b9db1e46ad5"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$6008ce69-89d9-4ad8-a1c0-ed0a46f37679"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$63a56d81-7468-49ee-8746-e81059a25272",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$ade099df-8f98-4912-8766-9afbbfc42e67"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$a1ca2520-4c4d-44d5-af94-92026b0ba19d",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$5df2c60b-2106-473d-a48d-2b726f867c07",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (11) melee",
+                                        "_entity_id": "dbf8e349-2817-42fb-82d2-485882b6ae74",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$d76d9f45-64c3-4281-91d5-e1a53f00d034",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$f8946ee8-10cd-4f4a-8c30-b0670a7f7ca2",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (11) melee",
+                                        "_entity_id": "dbf8e349-2817-42fb-82d2-485882b6ae74",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$94e17879-92a2-439b-ac44-2266878b6e4c",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$865cfa2c-046a-4032-8a41-9fabff3ab40f"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$500fa162-eb62-4ded-a340-399cf0dc1838"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$8724ac29-1c9c-4cef-8d4a-c5e5041cf5b6",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$9cbd3835-abf4-41d5-9802-aa836d3857f8"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$d1947352-d43c-42dc-909b-092791b008b0",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$ecbdc89d-447b-433c-8769-a22d4352b030",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (13) melee",
+                                        "_entity_id": "860a7d53-dddc-4522-8fb0-34dade9dbc63",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$58b7b002-8d44-42d9-8741-923ade6f55fa",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$48730eff-0b83-4e86-a9cf-af649d016099",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (13) melee",
+                                        "_entity_id": "860a7d53-dddc-4522-8fb0-34dade9dbc63",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$e46209db-1718-4f2b-b6f9-66489ff1b459",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$5697af79-e403-4495-abc8-31d31f58fd09"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$defeeb75-2798-458b-a038-a5e837b0ad71"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$7e3a488b-8dac-4779-98e6-d37e34a1c6aa",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$b9ccf4da-57e7-490a-aaad-844c0342b6cc"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$4b7fc119-f523-4c0f-b7c8-2d629b27ca24",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$e67cbd9b-41ac-4db0-ba47-234eecb5ceb3",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (18) melee",
+                                        "_entity_id": "320eabde-a8c9-4edd-8a24-b4c6836e0a97",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$5e43274c-a080-4a18-a770-7ce0f495c672",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$060f4fb8-c7fb-4ccd-b1f5-d6026c3b09c6",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (18) melee",
+                                        "_entity_id": "320eabde-a8c9-4edd-8a24-b4c6836e0a97",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$c5b58a6e-93d6-4b94-836b-2cde3af8d340",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$41eca507-22ed-445b-91ee-19f776ef19cb"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$cb8db6f5-094a-43a6-9154-fe5860610b49"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$0c471d39-b257-46a4-9351-69b78f933ff9",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$7823ed6d-3bde-400e-aa09-4dd5dc603502"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Weight": 1,
+                              "Conditions": {
+                                "Operation": "And",
+                                "Conditions": []
+                              },
+                              "Action": {
+                                "Actions": [
+                                  {
+                                    "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+                                    "name": "$SpawnFx$76945c70-d661-4800-9655-feea00629761",
+                                    "Target": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$2f52d166-fbd2-4724-a4da-fa0badada71a",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (22) melee",
+                                        "_entity_id": "3154b5ee-0b39-4264-9fa7-d88056358179",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "FxPrefab": {
+                                      "guid": "14ba08b903ee28b41a779a616d905397",
+                                      "fileid": 1511495040840276
+                                    }
+                                  },
+                                  {
+                                    "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+                                    "name": "$Summon$4028955d-fdc7-44ce-b8cb-4071d79c7517",
+                                    "m_Unit": "!bp_239dafccadeb194488fc61ed15a89a22",
+                                    "m_SummonPool": "!bp_2b6b2a8247ce72941873dd498a29aaa9",
+                                    "GroupBySummonPool": true,
+                                    "Transform": {
+                                      "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                                      "name": "$LocatorTransform$a0baad54-408a-4729-ba9c-4f1ee9a82ed9",
+                                      "Locator": {
+                                        "EntityNameInEditor": "Spawn Point (22) melee",
+                                        "_entity_id": "3154b5ee-0b39-4264-9fa7-d88056358179",
+                                        "SceneAssetGuid": "6c7f8ec18dfed224baa7ae9a6a465dad"
+                                      }
+                                    },
+                                    "Offset": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0
+                                    },
+                                    "OnSummmon": {
+                                      "Actions": [
+                                        {
+                                          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                                          "name": "$StartCombat$faf91d84-d106-4bbb-9d3a-8a7e1a9b6fb3",
+                                          "Unit1": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$6fbd28a1-f988-4c79-b4b8-2e8897031522"
+                                          },
+                                          "Unit2": {
+                                            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                            "name": "$PlayerCharacter$0ca71674-4d40-435c-93de-1fee308881c2"
+                                          }
+                                        },
+                                        {
+                                          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                                          "name": "$AddUnitToSummonPool$04317493-f821-4693-a1da-35974ca0fa83",
+                                          "m_SummonPool": "!bp_0edcbcc8fe0a120459a6d4952162fb35",
+                                          "Unit": {
+                                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                                            "name": "$SpawnedUnit$f20d2e47-5b1c-4127-85f5-089751c5b0a2"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": true,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "IsClassFeature": false,
+    "m_Flags": "HiddenInUi, StayOnDeath",
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  }
+}

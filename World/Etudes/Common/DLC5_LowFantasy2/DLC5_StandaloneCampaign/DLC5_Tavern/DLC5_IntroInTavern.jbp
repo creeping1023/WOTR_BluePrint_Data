@@ -1,0 +1,233 @@
+{
+  "AssetId": "db55c21f7efb4899bbe72a6e91d56a91",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$8260803f-56a6-4b67-9454-f7d106735773",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Intro start",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$2a8f5274-a425-4215-82ac-5272a4b2d407",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$34805c7a-3c52-4472-834e-3cd0ed2613a5",
+                "Spawner": {
+                  "EntityNameInEditor": "Venerad",
+                  "_entity_id": "ea7f6647-2663-49fc-904d-c9df33fd48ac",
+                  "SceneAssetGuid": "e86e4f59083b4e84297669e0913073af"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$b43f6417-9963-471e-8421-4a9a1affd924",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$ad90550f-20bc-45b1-a21e-378bf39f132b",
+                "Spawner": {
+                  "EntityNameInEditor": "Kerismei",
+                  "_entity_id": "0a9689f6-086e-4e4d-8371-1fb25df41ad4",
+                  "SceneAssetGuid": "e86e4f59083b4e84297669e0913073af"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+              "name": "$Unrecruit$9dd600f1-4b91-4469-8798-417d57b1f962",
+              "m_UseEvaluator": false,
+              "m_CompanionEvaluator": null,
+              "m_CompanionBlueprint": "!bp_561036c882a640089b1d42f03ebe3a6c",
+              "OnUnrecruit": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$40abfe05-5719-438b-8b24-b7934e1b7fc9",
+              "Comment": "Player has mercenaries",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                    "name": "$GreaterThan$2b547f76-85b5-4626-99ae-c7775b6c8809",
+                    "Not": false,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "594eb1641121be9419363a2f68ab0d7d, CurrentPartySize",
+                      "name": "$CurrentPartySize$37578aa9-e3df-43f2-90c8-508ae8d23294"
+                    },
+                    "MinValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$29a5df13-48ff-4e31-8fa3-19c8a4ef02aa",
+                      "Value": 2
+                    },
+                    "FloatValue": null,
+                    "FloatMinValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                    "name": "$PartyMembersDetachEvaluated$d7ecf4ef-061b-4284-8e4e-93f14da206bb",
+                    "DetachThese": [
+                      {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$a9dc4589-216a-4334-8ddb-2a0d33a81048"
+                      },
+                      {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$aa1dc4d5-4fa2-494e-a92c-f529cf50bc16",
+                        "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": false,
+                        "IncludeDettached": false
+                      }
+                    ],
+                    "AfterDetach": {
+                      "Actions": [
+                        {
+                          "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                          "name": "$PartyMembersSwapAttachedAndDetached$3f9ffba7-2e06-46a5-9dcc-cf43a87f8d11"
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$7cba8096-d827-4ef9-a9e1-615452728ecd",
+                          "m_Cutscene": "!bp_51b823a2349d4d6b9fba2247be16aa31",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "m_RestrictPartySize": false,
+                    "m_PartySize": -1
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$4cb86419-c37a-49de-a550-b13c1fdcb830",
+                    "m_Cutscene": "!bp_51b823a2349d4d6b9fba2247be16aa31",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  },
+                  {
+                    "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                    "name": "$ScriptZoneDeactivate$38a40158-057d-4e6a-bc6b-e5523a6afe43",
+                    "UseEvaluator": false,
+                    "ScriptZone": {
+                      "EntityNameInEditor": "MercenariesJoining_SZ",
+                      "_entity_id": "3bb7691a-ee58-4448-b385-f9d3cc841e71",
+                      "SceneAssetGuid": "e86e4f59083b4e84297669e0913073af"
+                    },
+                    "ScriptZoneEvaluator": null
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$210ae4ee-7248-4675-89f8-48693aeaf63d",
+              "m_flag": "!bp_7716aeb81bec4e76bfd81b57edc42014",
+              "flagValue": 3
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$ff4587d2-880a-4973-9e4c-c90ead400f3a",
+              "m_flag": "!bp_d00d4746f368447295e917967a67fe71",
+              "flagValue": 0
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$25bd06f3-caaf-44b6-9cb7-dc05528b8035",
+              "m_flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+              "flagValue": 0
+            },
+            {
+              "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+              "name": "$AddFact$2b288e7d-7b4f-4d8c-beda-a9778a06463c",
+              "Unit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$5cbf5fff-a650-4ed4-be77-e5fbc5cef381",
+                "Spawner": {
+                  "EntityNameInEditor": "Gemil",
+                  "_entity_id": "00b0cb84-3c3f-42d9-9edc-6ec7f60537ac",
+                  "SceneAssetGuid": "e86e4f59083b4e84297669e0913073af"
+                }
+              },
+              "m_Fact": "!bp_5cfb78f4b2034846a714ba3ff524906b"
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_6605df48ac824dc5b0139bfe3f2dedfb",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$b3485004-fbb2-4253-9748-8c1030151355",
+          "Not": false,
+          "m_ConditionFlag": "!bp_ae924c84f6834f2cadcb37f109fc8b84",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_7614ceb9e98642f8a969df98d006e670"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

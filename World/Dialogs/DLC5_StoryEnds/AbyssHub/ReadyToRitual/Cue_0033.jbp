@@ -1,0 +1,248 @@
+{
+  "AssetId": "27dc080f618f446eb17392ac2c5e37dc",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Показывать, если у игрока 3 осколка\nИГРОК ПОД КОНТРОЛЕМ",
+    "ParentAsset": "c0514843060c4960b746ddd01eb049b9",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+          "name": "$FlagInRange$32652941-3110-4fb3-a667-b4eed7628bb5",
+          "Not": false,
+          "m_Flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+          "MinValue": 3,
+          "MaxValue": 3
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "06711886-4455-435e-ae5a-6b9950ad68c3",
+      "m_OwnerString": "27dc080f618f446eb17392ac2c5e37dc",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC5_StoryEnds\\AbyssHub\\ReadyToRitual\\Cue_0033_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "c116651d4278e1143af7f7e9b229de90, SpawnFx",
+          "name": "$SpawnFx$c0c76766-107d-4219-90cc-83d047c2d9ad",
+          "Target": {
+            "$type": "93a8e117c084af945a2d44ce45cfa786, UnitTransform",
+            "name": "$UnitTransform$3d9ca59f-b53c-469b-878a-8b05cd69d428",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$caaa395d-cc02-44b6-8fab-74a0b8e83727"
+            }
+          },
+          "FxPrefab": {
+            "AssetId": "c14a2f46018cb0e41bfeed61463510ff"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$58c40ae7-b0f9-4a9f-a5f2-a934c9adac5d",
+          "Comment": "Hermit wasn't murdered",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$f9d29c39-30f1-459f-b6d3-183e7700d2b5",
+                "Not": true,
+                "m_QuestObjective": "!bp_f6c82fb8ff2c4eb18823fb7c32b9354a",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$99ba7acf-1c1c-42e7-8764-96a1ffd08a73",
+                "Comment": "Only player is controlled",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$10086cd1-5027-48db-8395-302b40b393d7",
+                      "Not": true,
+                      "m_Cue": "!bp_bf56d18db53d4b65b905ce05b9855652",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$f7d68326-d914-46fa-8744-df6a10176ba3",
+                      "Not": true,
+                      "m_Cue": "!bp_da2b4320002b415985325d544bf3e95b",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$0d77b73b-6fc6-44d5-9185-940e86b81923",
+                      "m_Cutscene": "!bp_aab526e671c14731b0ad9ae1b5a55ee1",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$10c63431-636c-463e-845a-5033ddc9dfcc"
+                            }
+                          },
+                          {
+                            "Name": "Position",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$61b7624f-a85a-4ab6-9728-46094724bb46",
+                              "Locator": {
+                                "EntityNameInEditor": "Controlled_character_pos_1",
+                                "_entity_id": "da147e5b-2445-4b9c-a35c-3de94b8fdc10",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              },
+                              "Offset": "0|0|0"
+                            }
+                          },
+                          {
+                            "Name": "Rotation",
+                            "Type": "Float",
+                            "Evaluator": {
+                              "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                              "name": "$LocatorOrientation$654815cb-a33d-4757-8c78-239c24df6331",
+                              "LocatorEval": null,
+                              "Locator": {
+                                "EntityNameInEditor": "Controlled_character_pos_1",
+                                "_entity_id": "da147e5b-2445-4b9c-a35c-3de94b8fdc10",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$d0b84f87-609c-4b3e-9c25-08934b1c39d3",
+                      "m_flag": "!bp_ec4409bd31d54bb1b991686aaf5d97f0",
+                      "flagValue": 1
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$664c11f0-eb7f-4584-b799-6c1614bb1410",
+                      "m_Cutscene": "!bp_aab526e671c14731b0ad9ae1b5a55ee1",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$5ae44b7f-b6b6-434d-b366-300cd7286bb1"
+                            }
+                          },
+                          {
+                            "Name": "Position",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$99f7a537-cca1-486e-adb7-b7b78a717419",
+                              "Locator": {
+                                "EntityNameInEditor": "Controlled_character_pos_2",
+                                "_entity_id": "b18e88c2-2f6e-4540-9942-25a7802f8955",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              },
+                              "Offset": "0|0|0"
+                            }
+                          },
+                          {
+                            "Name": "Rotation",
+                            "Type": "Float",
+                            "Evaluator": {
+                              "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                              "name": "$LocatorOrientation$d571626a-cad9-46fa-979f-ddd7bd615039",
+                              "LocatorEval": null,
+                              "Locator": {
+                                "EntityNameInEditor": "Controlled_character_pos_2",
+                                "_entity_id": "b18e88c2-2f6e-4540-9942-25a7802f8955",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$eef4b4c4-461c-4685-a9c3-e5e32e45caf8",
+                      "m_flag": "!bp_ec4409bd31d54bb1b991686aaf5d97f0",
+                      "flagValue": 2
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

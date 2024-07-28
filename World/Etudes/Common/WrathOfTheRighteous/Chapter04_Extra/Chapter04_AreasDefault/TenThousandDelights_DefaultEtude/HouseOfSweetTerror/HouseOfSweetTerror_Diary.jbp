@@ -1,0 +1,187 @@
+{
+  "AssetId": "33674f7c690197544a3cc4b7bc5ecee6",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$246ff3be-687d-4afc-bb37-bc00c427e1f1",
+      "$EtudeCompleteTrigger$287e30f3-2a68-4cbd-b043-060f4e14f381",
+      "$ItemTrigger$93c22300-c489-4a72-8fa7-7c1bb61bacbe"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$246ff3be-687d-4afc-bb37-bc00c427e1f1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$fc1c50f3-ba75-4406-9dae-de59d6756f0f",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$fa574f22-1f87-461c-8e5d-e3a737c5634a",
+                "MapObject": {
+                  "EntityNameInEditor": "Painting",
+                  "_entity_id": "b039b5b0-dafd-419e-ad07-ee3c60c9b9d8",
+                  "SceneAssetGuid": "23fa60595aa2b624290e98a5336ecae2"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "2692cd97dff261b40b530d7b25e425cd, PartyInventoryTrigger",
+        "m_Flags": 0,
+        "name": "$ItemTrigger$93c22300-c489-4a72-8fa7-7c1bb61bacbe",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "m_Item": "!bp_db68da24cfb5cff4592d16683c36ff38",
+        "OnAddActions": {
+          "Actions": [
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$aa1e237a-7816-4128-b56f-2785b1ba363d",
+              "Etude": "!bp_33674f7c690197544a3cc4b7bc5ecee6",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        },
+        "OnRemoveActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$287e30f3-2a68-4cbd-b043-060f4e14f381",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$f7cdc94f-1c93-4ebb-ac06-45c1dd4b04a5",
+              "Status": "Complete",
+              "m_Objective": "!bp_2c2cb148f6e12304ea6741e2b4cc4968",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$ebe103c3-84b4-4761-83d3-68b69251e4b4",
+              "Status": "Complete",
+              "m_Objective": "!bp_5dedf0f8e99952c46a908d236277075e",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$120a6e3a-75e0-49d0-852e-5943354cb87b",
+              "m_Objective": "!bp_f2f59e28f4e72b34b97dcc1238e0164c"
+            },
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$ba7ae5d7-e954-4e46-9eb8-08d6797e214c",
+              "m_Flag": "!bp_8061fb025b4c5cf459cb81a1c96fcdc9",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$68201c1f-4912-4305-b3fc-3f121e9848e7",
+                "Value": 5
+              },
+              "UnlockIfNot": true
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_0997559556f549c4f89870dcd0541cb7",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$3f2af0b6-c09c-443c-8805-c6590c60c019",
+          "Not": false,
+          "m_Etude": "!bp_3e85b9f6b0cec7645a99a64464f756ac",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$e66ec568-55c3-435c-99bd-802685b55772",
+          "Not": false,
+          "m_Etude": "!bp_fc54858fa3bbbc0429a4f8085589d7d5",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$8727ec1d-f496-4c11-9910-832e999275c2",
+          "Not": false,
+          "m_Etude": "!bp_c0160b252d4ff3f4f98ca4dec4aed09c",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$06a8b38b-264b-43de-aa51-434311287fef",
+          "Not": false,
+          "m_Etude": "!bp_5d09590991579334c9e16bcbbc434c7f",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_27b0684aedfca0a4ca1eb437e77abb3f",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

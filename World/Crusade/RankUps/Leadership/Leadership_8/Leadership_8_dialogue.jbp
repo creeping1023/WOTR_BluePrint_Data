@@ -1,0 +1,100 @@
+{
+  "AssetId": "98839956abf4fc84db3149f21445f32e",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "внимание - мейнспикер другой, не капитан Хартман",
+    "FirstCue": {
+      "Cues": [
+        "!bp_6f059fee781ade546906861a096342e9"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$c7a21a6c-0add-440e-8753-6c9a1305a99a",
+          "m_Flag": "!bp_6377a60beb684d8a9453b49c0f3b2f7a",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$4df90e04-eeb5-4f06-81f9-e01822ab6564",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$f6cc51f7-28fd-45f4-8e8b-c3daad8ae706",
+          "m_Flag": "!bp_d2eab6bfd8f64055938bf3be5770aabe",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$5b4a9b12-483f-4ffc-b8e2-8624f70cdad5",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ee95d1dd-3602-46b6-8a9e-810521c42c7b",
+          "Comment": "Check for 2_1 objective of Ch5 main crusader quest completion",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$f71742df-759b-4728-a662-550003e073e6",
+                "Not": false,
+                "m_Flag": "!bp_d2eab6bfd8f64055938bf3be5770aabe",
+                "MinValue": 4,
+                "MaxValue": 4
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$c63b7db8-475b-4d1d-b56b-0593df579573",
+                "Not": true,
+                "m_QuestObjective": "!bp_c6ffc2b19f314f55b78ed9eb97efebcf",
+                "State": "Failed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$8702b378-d17e-4f1b-afb3-02a9d7bf632f",
+                "Status": "Complete",
+                "m_Objective": "!bp_7664bd68a68741808a1282ad23804efc",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

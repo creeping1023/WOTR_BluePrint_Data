@@ -1,0 +1,97 @@
+{
+  "AssetId": "553125bc9e5ea9f4a9747cfec8845b52",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$95c0a7bf-e21c-4d2e-93c1-3df669f3e94c",
+          "m_SummonPool": "!bp_96c43208192622f4c8593ca17d4c2e26",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$e61be7a3-fad7-41fc-8818-a1eb0a9c4522",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$3b5eb750-48e2-4f9f-97af-be4c2a39d34a"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2cde3550-c5f7-4dbe-923d-d7c71ee69f46",
+          "Comment": "angels",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4164a27d-299f-4274-b683-4e8d98849c05",
+                "Not": false,
+                "m_Etude": "!bp_ee5fd8cebd5343945a5e062bcf622511",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$a46d7789-b25c-4319-894e-74e8c44fe01a",
+                "m_SummonPool": "!bp_a832a45cf2bd4ff6aa5c7cc8d468eb85",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$2e9be10b-a8c0-435e-bcf6-1df038f5d174",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$3845dcbd-84c7-44ba-8cfa-f31cc97f1d64"
+                      },
+                      "Unit2": {
+                        "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                        "name": "$FirstUnitFromSummonPool$4aca8949-7012-43f1-8fd7-989f2aa11505",
+                        "m_SummonPool": "!bp_96c43208192622f4c8593ca17d4c2e26",
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

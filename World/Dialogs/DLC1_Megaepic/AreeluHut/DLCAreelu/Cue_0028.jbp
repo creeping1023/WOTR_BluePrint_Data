@@ -1,0 +1,140 @@
+{
+  "AssetId": "6051bc4e387b430391b4d9a3078dc6c3",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Здесь же - провести чек на каунтеры. Закрыть обжектив (один или даже оба) - вдруг игрок уже пришел с нужным лимитом на каунтерах? Выдать аддендумы NoMoreLaw и NoMoreChaos в соответствующие обжективы, если обжективы уже закрыты.\nЕсли же игрок уже имеет 8/8 на счетчиках - сразу закрыть квест",
+    "ParentAsset": "c7e33edbc5d241089f0ffc6705b06938",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "5123d70c-d52b-495e-b2c6-e76d0ad95cb5",
+      "m_OwnerString": "6051bc4e387b430391b4d9a3078dc6c3",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC1_Megaepic\\AreeluHut\\DLCAreelu\\Cue_0028_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_92f29ae2c49edb74f8943d30ea788dd0",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$3a4e61d8-4b61-453d-9d14-31246cdc325f",
+          "m_Objective": "!bp_707a2ba924b941f8b43b7122e3804b86"
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$59842fb8-f3e0-4ef2-9fe1-8a5dae9ee19d",
+          "m_Objective": "!bp_7989d28aa8cf47f4a7d86692fe139e92"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8e171336-a7da-410d-98ff-279ee515076f",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$d7e2008c-6614-4b0d-96ce-0f98a91bf578",
+                "Not": false,
+                "m_Flag": "!bp_f2c890b235b54905805646597fe8013a",
+                "MinValue": 8,
+                "MaxValue": 8
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$7339d7c9-51ad-43b0-a740-327cbb7fde61",
+                "Status": "Complete",
+                "m_Objective": "!bp_707a2ba924b941f8b43b7122e3804b86",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$56bbe072-b858-4722-ac8e-3a60217b4a47",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$f7d32222-1157-4431-9007-cde9f54d83ba",
+                "Not": false,
+                "m_Flag": "!bp_4b786e48c3e34f9c8ff982ec28b97715",
+                "MinValue": 8,
+                "MaxValue": 8
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$9d0e6434-5fc3-4da6-8a13-b233b2d6cc9b",
+                "Status": "Complete",
+                "m_Objective": "!bp_7989d28aa8cf47f4a7d86692fe139e92",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_cd24eab0c4464deeb7cc8b17d5129f79"
+    ],
+    "Continue": {
+      "Cues": [
+        "!bp_bbd9605a381a46b9be39dcb1442e1732"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

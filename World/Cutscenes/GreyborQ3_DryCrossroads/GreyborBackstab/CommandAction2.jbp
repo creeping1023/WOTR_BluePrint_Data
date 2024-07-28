@@ -1,0 +1,108 @@
+{
+  "AssetId": "36a97593d5af4275954534d4cea9b50f",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "cdaf4f23bba50a044a00da97d652575b, PartyMembersAttach",
+          "name": "$PartyMembersAttach$23775332-c9e7-4499-8f6d-796a20ea62a2"
+        },
+        {
+          "$type": "c4bd35a6e76bcf848a4f1530926a8fee, HealParty",
+          "name": "$HealParty$801ccaae-f82e-4368-abf6-d2f45257046a",
+          "HealSource": null
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$98dd50e2-eb99-4189-b9dd-b3e2eab731ee",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                "name": "$GreaterThan$36578b49-ef5c-483b-a3e3-16e85b84ddb7",
+                "Not": false,
+                "FloatValues": false,
+                "Value": {
+                  "$type": "594eb1641121be9419363a2f68ab0d7d, CurrentPartySize",
+                  "name": "$CurrentPartySize$21cd0e11-86a8-43ea-8fa9-941f12c01960"
+                },
+                "MinValue": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$42370905-8480-4fef-a1fa-69b44c7eda5d",
+                  "Value": 2
+                },
+                "FloatValue": null,
+                "FloatMinValue": null
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                "name": "$PartyMembersDetachEvaluated$6f5af835-dd5b-4242-a7af-4d59d2a0b04e",
+                "DetachThese": [
+                  {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$e612d9f5-500a-4127-9267-ffccf151932e"
+                  },
+                  {
+                    "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                    "name": "$CompanionInParty$d976ba99-d8da-4a76-9c3f-0d0106337e8f",
+                    "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                    "IncludeRemote": false,
+                    "IncludeExCompanions": false,
+                    "IncludeDettached": true
+                  }
+                ],
+                "AfterDetach": {
+                  "Actions": [
+                    {
+                      "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                      "name": "$PartyMembersSwapAttachedAndDetached$ecf6de65-582c-4d39-adc0-74e113670dbd"
+                    },
+                    {
+                      "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                      "name": "$PartyUnits$06f88e6e-906c-4d56-8bd8-0195d32023a3",
+                      "m_UnitsList": "AllDetachedUnits",
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$7242c511-e628-47fc-8411-dac7853e6684",
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$7c13fcea-aa45-4711-9da5-3e3c2102058e"
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "m_RestrictPartySize": false,
+                "m_PartySize": -1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

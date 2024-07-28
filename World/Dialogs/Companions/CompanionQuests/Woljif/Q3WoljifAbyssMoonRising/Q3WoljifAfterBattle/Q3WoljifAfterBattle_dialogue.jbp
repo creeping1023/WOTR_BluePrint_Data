@@ -1,0 +1,115 @@
+{
+  "AssetId": "4f7796b1008ede5488aa6fb35f800fb4",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_5e364e37b0023f142bac35984c2b836e",
+        "!bp_a6e51fa0e1eae144bbb8b32a3819a6e1"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$286145c7-e790-47ce-8968-6a2c039d91e1",
+          "Status": "Complete",
+          "m_Objective": "!bp_90d77db9a414a1b48a2e17b0509e5ed1",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9639038b-86c9-4285-9574-8559e02b104d",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$dab607ef-b28f-4626-8eed-6f3158c3091a",
+                "Not": true,
+                "m_Etude": "!bp_ac0c13558e448cb45aa07b268b9149c9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                "name": "$Recruit$b0fa0b03-89ca-486d-9477-c8f1cf56eb1d",
+                "Recruited": [
+                  {
+                    "m_CompanionBlueprint": "!bp_766435873b1361c4287c351de194e5f9",
+                    "NPCUnit": {
+                      "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                      "name": "$DialogCurrentSpeaker$8514d05e-339e-4ec4-acfb-ce9d4ec55adb"
+                    },
+                    "MustBeInParty": false
+                  }
+                ],
+                "AddToParty": true,
+                "MatchPlayerXpExactly": false,
+                "OnRecruit": {
+                  "Actions": [
+                    {
+                      "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                      "name": "$DetachBuff$d790ccaf-dce2-4aaf-8f86-035864ddcef7",
+                      "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+                      "Target": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$48a1a2fa-45f9-40c3-972d-e3944df76c69",
+                        "m_Companion": "!bp_766435873b1361c4287c351de194e5f9",
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    }
+                  ]
+                },
+                "OnRecruitImmediate": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$361b46ad-dff0-4e7a-801b-50573152cf6d"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

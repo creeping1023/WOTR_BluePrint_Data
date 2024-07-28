@@ -1,0 +1,130 @@
+{
+  "AssetId": "c6dd2fbfaf7606546bf1365a8ece5a2b",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "анимация. \nВсе важные НПЦ портуются из зоны, зрители разбегаются\nстарт боя с набегающими стражниками",
+    "ParentAsset": "371229c50622f694aa31061a8aaf7c5d",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "a8782bf7-e7e8-4597-88b9-576cba615b65",
+      "m_OwnerString": "c6dd2fbfaf7606546bf1365a8ece5a2b",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/BattleBliss/Zeklex_dialogue/Cue_0037_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$48f4db95-b89b-4848-b0d2-8da51bd9ff78",
+          "m_flag": "!bp_08b516199ca06e042a7f7e2a36b2991e",
+          "flagValue": 1
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$e28ca8b0-388c-41ba-8958-3571fee78ba9",
+          "m_Cutscene": "!bp_f0a3903453f802445a89a40a97563f8c",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$a32a247d-fe8f-4418-a8b0-4d700a36b78b",
+          "m_SummonPool": "!bp_958afb8835cb3644a9bac6635e776af0",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$3f735fb2-f5ba-4ceb-a70c-be459288e6b7",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$409c0e7d-f62a-4752-a59d-d9a9b061af62"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$25abb945-ea5a-44d7-84af-9e8e73350b83",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$da9c2aa1-c1e4-422c-9ff6-c325e5988bb2"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$3305b808-4e53-4fe2-be2b-f1775480f17d"
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$b9cf2caa-81a6-450f-a541-515629efd820",
+                "m_Buff": "!bp_0f775c7d5d8b6494197e1ce937754482",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$904d8600-233b-46ee-8ae6-0534351fd343"
+                },
+                "Duration": null
+              },
+              {
+                "$type": "9b554d5fe6a9f3643aff4c8925dd7ab5, DisableExperienceFromUnit",
+                "name": "$DisableExperienceFromUnit$a653663e-112e-4f13-8e62-8dbfb723249b",
+                "Unit": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$8b5837f9-3e41-46ac-be82-80ed1c50d00f"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

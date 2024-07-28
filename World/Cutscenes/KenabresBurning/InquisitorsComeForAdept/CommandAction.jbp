@@ -1,0 +1,69 @@
+{
+  "AssetId": "7138bba7399348a4990dcba38bf5dfc1",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+          "name": "$SpawnByUnitGroup$ca7fa079-29cd-4c33-94fc-cec5840f84f0",
+          "m_Group": {
+            "EntityNameInEditor": "InquisitorsAndAdept",
+            "_entity_id": "df9b6e88-41cc-430e-ae4e-1cda747d834c",
+            "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+          },
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2d18b982-965a-44be-9549-591ded0c12fc",
+          "Comment": "If Hurlun dead - destroy unit",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1dd2009e-3176-4bb1-8287-a735b623db25",
+                "Not": false,
+                "m_Etude": "!bp_d7169995e449fdc4db861ddf0b9beff8",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$975bb20b-edfb-4ea9-b1d1-beeab08d7086",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$26732b0c-d05c-4d87-b162-22eb0945aa4d",
+                  "Spawner": {
+                    "EntityNameInEditor": "Hurlun",
+                    "_entity_id": "8cb43e92-17dd-4f61-8180-2fa4bb12b8fe",
+                    "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+                  }
+                },
+                "FadeOut": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

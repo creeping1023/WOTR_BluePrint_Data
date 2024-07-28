@@ -1,0 +1,95 @@
+{
+  "AssetId": "0b88f1c3156a49e5a79c26da2cfa542b",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "64da7ddec4b0d684fb685bc810669a23, CreaturesAround",
+          "name": "$CreaturesAround$bf9b8ccc-260c-4b0c-ae23-efe1577f034f",
+          "Radius": {
+            "$type": "f21f7bc3861096d45b4081cd1c1a55c3, IntToFloat",
+            "name": "$IntToFloat$21784c0c-5c19-4986-9962-8c8f0073d8fa",
+            "Value": {
+              "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+              "name": "$IntConstant$386dba79-7293-4097-b471-81e21127f8d4",
+              "Value": 25
+            }
+          },
+          "Center": {
+            "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+            "name": "$UnitPosition$20dbc792-3401-4fb4-9be9-21a8f3e4e3f9",
+            "Unit": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$0d5113ee-60f8-40b1-8508-128a03170d44"
+            },
+            "Offset": "0|0|0"
+          },
+          "CheckLos": false,
+          "IncludeDead": false,
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$415fc576-4fe1-4732-b22e-687260497942",
+                "Comment": "Except player character",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$9545f9bb-28c7-4444-a1ea-16c3b28f0c98",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "7d2406b1361c66a44966831f0f1a203f, CreaturesAroundUnit",
+                        "name": "$CreaturesAroundUnit$83361909-72a2-4a7a-88cf-472024cca776"
+                      },
+                      "SecondUnit": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$3e1bc4ab-bce3-4ba0-b680-1c6817c8ecf9"
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$ff35b05c-5484-4bec-9d8f-0973bcafcaff",
+                      "m_Buff": "!bp_00402bae4442a854081264e498e7a833",
+                      "Target": {
+                        "$type": "7d2406b1361c66a44966831f0f1a203f, CreaturesAroundUnit",
+                        "name": "$CreaturesAroundUnit$4a4f3bba-7aca-410a-b5ff-d049ec9a76cf"
+                      },
+                      "Duration": null,
+                      "BattleLog": false,
+                      "HasCustomBattleLogMessage": false,
+                      "CustomBattleLogMessage": {
+                        "m_Key": "",
+                        "m_OwnerString": "",
+                        "m_OwnerPropertyPath": "",
+                        "m_JsonPath": "",
+                        "Shared": null
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

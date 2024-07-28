@@ -1,0 +1,213 @@
+{
+  "AssetId": "48e16ea006bcff24cb738b67a6e82ba2",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$685a091c-9e5c-4a3f-8f01-1fa4ff20b354",
+      "$EtudeCompleteTrigger$2ea0a275-4154-4434-8cf5-777469b8c01f"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$685a091c-9e5c-4a3f-8f01-1fa4ff20b354",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$d5cb7ba6-7fa9-4c06-bb24-7771a2710647",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$0f8b95a7-b84e-47e5-a93d-4cf49c8dc7b5",
+                "MapObject": {
+                  "EntityNameInEditor": "MillionRedRoses",
+                  "_entity_id": "c790875a-c491-4cdb-ac92-0ecf480c489a",
+                  "SceneAssetGuid": "c895635a854e2374d9d76390d77edb2c"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$5229429b-8206-483b-8f1c-50e2428cf374",
+              "m_Cutscene": "!bp_59db39ccfbcd75e4d6e064e48df8b699",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "2284267c23c69d442a9c3b9e9954283b, HideWeapons",
+              "name": "$HideWeapons$f9baaf61-ccba-47fd-ad22-d05c6d50e68b",
+              "Target": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$2f16ff40-431a-4512-a6fa-74482814d54a",
+                "m_Companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              },
+              "Hide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$2ea0a275-4154-4434-8cf5-777469b8c01f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9c89486f-a626-46a5-94fb-727b336df259",
+              "Comment": "Refuse",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                    "name": "$AnswerSelected$b8f5ca6f-fcc1-4129-bd94-663bd8169ffb",
+                    "Not": false,
+                    "m_Answer": "!bp_c662e9e6b772e1e4c98089b38fdfabfe",
+                    "CurrentDialog": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$0df48223-914b-471c-ae14-c1317f07c911",
+                    "m_flag": "!bp_4dadf10380fd58f4690c7acc7d8d94a7",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$70dad7c3-7b9c-4af5-8e19-17a661056ee7",
+              "Comment": "Counter based romance break",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$807ab667-9788-4deb-9ef8-51ea239d3c93",
+                    "Not": true,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$b032d894-d9cf-4160-837e-d067dea8c4e9",
+                      "m_Flag": "!bp_07f1d46e5e4d6444988d10f97c68da88"
+                    },
+                    "MaxValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$01f59056-c8e5-4a75-a33a-329ed2c6e36e",
+                      "Value": 3
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$a4021996-9929-4610-9f61-2ef3ca2e677e",
+                    "Etude": "!bp_8541453b31379964e834cf2309444388",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_37ec9651b7f4f154eba81dacd3bfdf71",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$c68c8c72-ae07-48af-a43b-929a33047a57",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$cbad6147-e90a-48a3-b750-5b1b3b9a549e",
+          "Not": false,
+          "m_Etude": "!bp_8541453b31379964e834cf2309444388",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$622adba7-6711-495b-ba74-6ae064dc8be1",
+          "Not": false,
+          "m_companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+          "MatchWhenActive": true,
+          "MatchWhenDetached": false,
+          "MatchWhenRemote": true,
+          "MatchWhenDead": false,
+          "MatchWhenEx": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_da75ca00a6458164fa270d09dfe00586"
+    ],
+    "Priority": 50
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,452 @@
+{
+  "AssetId": "7113ba09e0d338b4c906346cd5d988aa",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeBracketTriggerAction$a4e2b458-c1ae-4134-bead-9c892c24332a",
+      "$EvaluatedUnitDeathTrigger$2a886d23-3175-444f-9454-919fe7a984b1"
+    ],
+    "Components": [
+      {
+        "$type": "fae54e860aa242b6995ca39ee03ad184, EtudeBracketTriggerAction",
+        "name": "$EtudeBracketTriggerAction$a4e2b458-c1ae-4134-bead-9c892c24332a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "OnActivated": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$52310ed3-937d-4f2e-879f-74f32c25df86",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                    "name": "$HasBuff$12eff3a1-06b5-4876-9c17-41745ee53cf0",
+                    "Not": true,
+                    "Target": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$027dafdc-0f58-4bf1-a074-f5c0e1bb96f8"
+                    },
+                    "m_Buff": "!bp_cd5f79b21d254013bcd583d30be25f96"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                    "name": "$PartyUnits$bdda33ea-52ce-45ca-bc57-e933a9845e1c",
+                    "m_UnitsList": "ActiveUnits",
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                          "name": "$AttachBuff$1f9fe22b-9a32-499c-bc48-bb146b75e46b",
+                          "m_Buff": "!bp_cd5f79b21d254013bcd583d30be25f96",
+                          "Target": {
+                            "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                            "name": "$PartyUnit$33365794-b03c-4d50-959a-ab0ec6d4eebb"
+                          },
+                          "Duration": null
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "OnDeactivated": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$a3226d58-d197-4a07-85ca-a4ee6091f2c7",
+              "m_UnitsList": "Everyone",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$52e5915e-4e1d-4bcf-b1cd-fdc5d6381058",
+                    "m_Buff": "!bp_cd5f79b21d254013bcd583d30be25f96",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$6b715134-9c3c-4f95-9627-57cd541cdac8"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5ccfd6ad-806d-4169-99c6-7284a3e49882",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$8802e5bb-f8af-49c2-9ecf-5b515bf9e52e",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_97ac27d7798e02c4f9205fbaa76ff977",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$2262e565-7798-4d50-9b97-65157e4ea438",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_97ac27d7798e02c4f9205fbaa76ff977",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$4c33c5ae-1c4c-419a-aa03-d8e645d71c77",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_efacfcbdf148c5848be0917a7baa9388",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$a8a7c2ff-d378-401e-96b3-c76f67378015",
+                    "m_Objective": "!bp_a16d3bcb6aa03a64d9c94009fe21d924"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$6561f37e-55d9-4b71-ac16-063f9b8f866b",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                          "name": "$ObjectiveStatus$77426304-ec7f-433a-8c3f-e2573870795a",
+                          "Not": true,
+                          "m_QuestObjective": "!bp_6529437789605114e89500fd2fda9e5f",
+                          "State": "Completed"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                          "name": "$SetObjectiveStatus$fb2852d0-b272-41b9-96dd-27a49cd4a5c3",
+                          "Status": "Fail",
+                          "m_Objective": "!bp_6529437789605114e89500fd2fda9e5f",
+                          "StartObjectiveIfNone": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$881971fd-c934-42c6-92f2-0f2bc94a5094",
+                    "Etude": "!bp_b0dc8d16767419943aa0b6ba2ea5c22c",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$2a886d23-3175-444f-9454-919fe7a984b1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "смерть обычной шамиры",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$464909ca-26bf-4a80-a483-021f35d8855b",
+          "Spawner": {
+            "EntityNameInEditor": "Shamira",
+            "_entity_id": "32aefc0f-e981-4820-bc63-5f36a23a8081",
+            "SceneAssetGuid": "d6e96d5768d31604f87957f8c81e9408"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$c8fba681-f2de-4ddb-92f5-4189f1b5ef37",
+              "Etude": "!bp_dd6731e2cb230694f9c394fa32391ad5",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$29959789-ff62-452f-abd3-ddc0313ac1f6",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                    "name": "$ItemsEnough$deeec314-b856-4410-8a2c-672f46b00348",
+                    "Not": false,
+                    "Money": false,
+                    "m_ItemToCheck": "!bp_d66b1fdc9d313784ca51712640e210c7",
+                    "Quantity": 1
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$fdb85840-dcb3-4bd2-bd6c-1a2af2b23913",
+                    "MapObject": {
+                      "$type": "90fe1cd67265f0249a38caef02130066, CorpseInteractionEvaluator",
+                      "name": "$CorpseInteractionEvaluator$73cedabe-d2f7-41e6-956b-6ae26886d73e",
+                      "m_UnitSpawner": {
+                        "EntityNameInEditor": "Shamira",
+                        "_entity_id": "32aefc0f-e981-4820-bc63-5f36a23a8081",
+                        "SceneAssetGuid": "d6e96d5768d31604f87957f8c81e9408"
+                      }
+                    },
+                    "Unhide": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$9cdc8002-3c9d-4088-a6b3-487b478c3d3a",
+              "m_Objective": "!bp_62920c1a061578143b4106fc456e6075"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$b31f9270-f46b-45ff-89fb-af3bd13fd70f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$158ce9ad-be2b-40ef-b63a-cdaf65df6f1e",
+              "Not": false,
+              "m_Etude": "!bp_dd6731e2cb230694f9c394fa32391ad5",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            },
+            {
+              "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+              "name": "$ItemsEnough$5240948a-3751-4da1-a2e5-c5e467ba8291",
+              "Not": false,
+              "Money": false,
+              "m_ItemToCheck": "!bp_d66b1fdc9d313784ca51712640e210c7",
+              "Quantity": 1
+            },
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$b753b095-3eda-4616-b37e-9d4b8a783ed2",
+              "Not": false,
+              "m_QuestObjective": "!bp_efacfcbdf148c5848be0917a7baa9388",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1ad380ca-838c-4103-8af3-b3f8882b9397",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$068cf94a-9908-42a9-8077-6015aeb043df",
+                    "Not": false,
+                    "m_Etude": "!bp_14a0d1887eeab174dbe3a77382123899",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$265d49ce-50df-4f3f-ba99-9e2271e0e68c",
+                    "MapObject": {
+                      "$type": "90fe1cd67265f0249a38caef02130066, CorpseInteractionEvaluator",
+                      "name": "$CorpseInteractionEvaluator$b18de7d2-a658-4382-b9d7-229055a4fe4a",
+                      "m_UnitSpawner": {
+                        "EntityNameInEditor": "ShamiraMythic",
+                        "_entity_id": "0b08dd3d-e85e-4455-8fb2-51c3a7fd70e3",
+                        "SceneAssetGuid": "d6e96d5768d31604f87957f8c81e9408"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$2a722fd0-0a97-484e-92fa-f7f255ea91fd",
+                    "MapObject": {
+                      "$type": "90fe1cd67265f0249a38caef02130066, CorpseInteractionEvaluator",
+                      "name": "$CorpseInteractionEvaluator$b5918b49-5ce1-48fa-8fc1-0cffcc9d036a",
+                      "m_UnitSpawner": {
+                        "EntityNameInEditor": "Shamira",
+                        "_entity_id": "32aefc0f-e981-4820-bc63-5f36a23a8081",
+                        "SceneAssetGuid": "d6e96d5768d31604f87957f8c81e9408"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "name": "$EvaluatedUnitDeathTrigger$7c175de5-852f-4307-a855-153cd04c987b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "смерть мифичной шамиры",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$8acddfa3-863d-4987-948e-64174f8c207e",
+          "Spawner": {
+            "EntityNameInEditor": "ShamiraMythic",
+            "_entity_id": "0b08dd3d-e85e-4455-8fb2-51c3a7fd70e3",
+            "SceneAssetGuid": "d6e96d5768d31604f87957f8c81e9408"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$69a66ead-00a9-4331-bce2-c256b831a348",
+              "Etude": "!bp_dd6731e2cb230694f9c394fa32391ad5",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2da7bba1-a36a-41d3-a9bb-78d522d5bcb7",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                    "name": "$ItemsEnough$1ff39f78-6645-43bf-9975-eff52a61d687",
+                    "Not": false,
+                    "Money": false,
+                    "m_ItemToCheck": "!bp_d66b1fdc9d313784ca51712640e210c7",
+                    "Quantity": 1
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$de2bb5e5-61fe-418f-9bc0-08180f8ecfed",
+                    "MapObject": {
+                      "$type": "90fe1cd67265f0249a38caef02130066, CorpseInteractionEvaluator",
+                      "name": "$CorpseInteractionEvaluator$51969f0c-9655-4841-826b-8c6c75397af7",
+                      "m_UnitSpawner": {
+                        "EntityNameInEditor": "ShamiraMythic",
+                        "_entity_id": "0b08dd3d-e85e-4455-8fb2-51c3a7fd70e3",
+                        "SceneAssetGuid": "d6e96d5768d31604f87957f8c81e9408"
+                      }
+                    },
+                    "Unhide": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$60160698-85e2-40fa-8871-1e78714b007e",
+              "m_Objective": "!bp_62920c1a061578143b4106fc456e6075"
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_1a091ecf62337f84bab795aefafcb38d",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_6b4f62d2d32f82345b7f9beae65831f6",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_65acf2c8afad14a4d842f325ede8d714"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

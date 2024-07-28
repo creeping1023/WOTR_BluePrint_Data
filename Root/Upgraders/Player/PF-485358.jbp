@@ -1,0 +1,72 @@
+{
+  "AssetId": "791901b38c004919b15ad8f4a4615f6c",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Fail ghosthunters quest if they were killed by smilodon",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$79dd8cfe-003d-4c1a-a6f6-303b2e001c30",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$eff7e8be-43d9-4913-bc13-c90d5e2d5419",
+                "Not": false,
+                "m_Answer": "!bp_3261ca7f724b4cd59ffb9d19a4a68563",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$c9d620fb-e2ef-4195-a8f9-713c33aa9ec8",
+                "Comment": "Pony quest is started",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$5698ae03-a0d5-405e-aa2b-c1f428744d8e",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_ff1e6ff270f34889b9aa4e3eb2ebc56b",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$8a0f375c-5f65-49f7-9212-36698ebc7cd7",
+                      "Status": "Fail",
+                      "m_Objective": "!bp_ff1e6ff270f34889b9aa4e3eb2ebc56b",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "AssetId": "e0f7880d13be41c39d37cf8898874c18",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "уже как минимум 5 глава",
+    "ParentAsset": "9341f8a53a0941e481f18c9433a1ec59",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$2826533f-f211-456e-a6ec-678deb847f91",
+          "Not": false,
+          "m_Etude": "!bp_1bbeffed922bfff408ca18782357795d",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "73c5d8e3-f381-4b74-9377-d7c99375ccde",
+      "m_OwnerString": "e0f7880d13be41c39d37cf8898874c18",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC3_Roguelike\\Figurehead\\Cue_20_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_b13fa6c6d2b54d86875eb1e853455e98",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$e3eb04d0-c17a-44b5-8fed-34a34a673a83",
+          "Etude": "!bp_833a793a9b4e4fc9a540b0d51bbe40cf",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$31d29905-cb71-4c58-8bfa-6fd0f6a52842",
+          "Comment": "Мы на корабле",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$42e93ba0-585b-4a79-ac26-542b170314f2",
+                "Not": false,
+                "m_Etude": "!bp_a1c5e95889ce40d9945a32171fefb962",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$6b224c77-f7f1-46cf-b3c8-e2c83eda985e",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$cd87abe2-7805-4d17-9422-85a22ce66cd4",
+                  "MapObject": {
+                    "EntityNameInEditor": "Int_NoNextIsland",
+                    "_entity_id": "4ff85881-5f11-4002-bcce-6b0661acddd5",
+                    "SceneAssetGuid": "66245b8e1e70e1340bfa15c70de35078"
+                  }
+                },
+                "Unhide": false
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$5633a900-ea70-4a52-a6fd-af1b4a5c4500",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$94856b4a-6b4e-4389-aaed-90c9e09a2fbb",
+                  "MapObject": {
+                    "EntityNameInEditor": "Int_NextIsland_3",
+                    "_entity_id": "1b6c77a3-ab7d-4905-9e8f-e256e3071cf8",
+                    "SceneAssetGuid": "66245b8e1e70e1340bfa15c70de35078"
+                  }
+                },
+                "Unhide": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$972b3779-4501-4560-b6b5-87733271ea58",
+          "Comment": "If player hasn't got the objective",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$0207a1b7-27b5-4b10-a7df-0eee40575dfd",
+                "Not": false,
+                "m_QuestObjective": "!bp_143b2297169a4827afec40a41f0814f9",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$ef1ffe65-0dea-48e8-a95f-656f4badee1f",
+                "m_Objective": "!bp_143b2297169a4827afec40a41f0814f9"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_cfcea78b308a436390247b7a65522f3c"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "AssetId": "7cc85d5725a748b4ac7ccfe94124f76c",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "мейнспикер - Грейбор\n\nво втором входе будут дополнительные спикеры нпс",
+    "FirstCue": {
+      "Cues": [
+        "!bp_c2e4f2346d9f4f60bd3838c34c09d064",
+        "!bp_896d77db24684a0e828ed59c5fad3fd3"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$bcd71f1e-4d05-45e9-86a3-d4d77005668b",
+          "Not": false,
+          "m_Etude": "!bp_2b8f133de2144cf4bbdb99279c2b56e3",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$f21c6491-aaeb-4e86-a465-fd52581733c6",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7b131920-aeb5-4160-b80b-bdc32ea0cb74",
+                "Not": false,
+                "m_QuestObjective": "!bp_bbd8639b04714840828bdfddecb3f1be",
+                "State": "None"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$bd275402-f586-4b7e-b974-4f460ff9ebd3",
+                "Not": false,
+                "m_QuestObjective": "!bp_412b8e284d9b4888a9092c36635fc47a",
+                "State": "Started"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$e262dfde-a4af-4fc2-ad15-f47bdd873598",
+          "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$2b0a3227-d006-43d0-aa27-ab5c94b10708"
+          },
+          "Duration": null,
+          "BattleLog": false,
+          "HasCustomBattleLogMessage": false,
+          "CustomBattleLogMessage": {
+            "m_Key": "",
+            "m_OwnerString": "",
+            "m_OwnerPropertyPath": "",
+            "m_JsonPath": "",
+            "Shared": null
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$1623f2be-f177-4fd6-b697-829abcebf74e",
+          "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+          "TargetType": "Evaluator",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$95ce401f-f166-4e73-b2c0-e342c2a455fa"
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$43cf0a41-0436-478d-9220-bb65f7f9fbda",
+          "Comment": "There is no event or event was cancelled",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$70bf8436-3794-4699-a4f1-2039e5f11be1",
+                "Not": false,
+                "m_Etude": "!bp_23dadedcbc5a42e2bd595a31715b6f4b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$b93d3068-a581-425b-93cc-52751fc16ef4",
+                "Not": true,
+                "m_Answer": "!bp_455941d773f447fca6e2bf050eed562d",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$4464957d-daf2-406c-bce8-20c241827fff",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "8a279712ec28832458ef9606ae03a43e",
+                    "stringkey": "cfe24914-def9-4b7b-bfb7-d673ad018ef0"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                  "name": "$ClickedUnit$595ac50a-f330-425f-aa8c-4a7fac7b4a1d"
+                },
+                "TargetMapObject": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6e93127e-fc27-4ca8-99c4-2b14b49b5b16",
+          "Comment": "Greybor is waiting",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$a52e05b9-eaee-4d74-99f6-17d4b6079dbc",
+                "Not": false,
+                "m_QuestObjective": "!bp_bbd8639b04714840828bdfddecb3f1be",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$14c91399-ec12-4752-9358-742ec76757ee",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "d5b09aa1c29bdd44fadcd3f6090f61f3",
+                    "stringkey": "5dbcde90-3c4f-459c-9586-0481c28b127e"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                  "name": "$ClickedUnit$c6c4375f-0ea7-487b-af26-4a35fa2b2fa5"
+                },
+                "TargetMapObject": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "AssetId": "7c8cfe1a40d5c3c4f991e4977acd5bc3",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Для функционирования диалога:\nВсегда поднимаем флаг Counselor_Talk\nЕсли поднят флаг NalfeshneePunishment - поднимаем флаг Demons_Talk\nЕсли поднят флаг CiarEnemy - поднимаем флаг Crusaders_Talk\n",
+    "FirstCue": {
+      "Cues": [
+        "!bp_f093457053ae4664b996fd17f5c2e648"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9268dcbd-c4de-4330-a644-a9f01672eade",
+          "Comment": "друзья Киара",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$3bf96f1e-90d6-4a0e-a2ce-4a6acb6fd596",
+                "Not": false,
+                "m_Etude": "!bp_77c766860d063104b9600a50976dca0a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$ed519767-eaf4-4b40-ab3e-27185e17863c",
+                "m_flag": "!bp_22f133db584b077458cfab6a0f2edca3",
+                "flagValue": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ad411af8-21cb-4837-a570-1578b533facb",
+          "Comment": "Налфешни",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$6c8b3c7e-9b67-4d83-bddb-6b20c20d05d9",
+                "Not": false,
+                "m_Etude": "!bp_0263017cbe9572f4fbc610f82c125366",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$ccf44240-c275-43db-8735-84ef59157523",
+                "m_flag": "!bp_423aa8ce43639104e8f4c66f99216ef9",
+                "flagValue": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$7586895b-32ed-44dd-8263-e79ceca08d0f",
+          "m_flag": "!bp_2a67b3ce6fabeb84dbde5dc4cfb90a80",
+          "flagValue": 1
+        },
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$8b31362a-a200-41f1-947b-944771748921",
+          "MusicEventStart": "MUS_LichTheme_Full_Play",
+          "MusicEventStop": "MUS_LichTheme_Full_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$9cd84fcd-8dee-464d-b84a-50d02b34f208"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$63a231d8-3822-4ba6-930d-2018f8a2d546",
+          "Comment": "если \"валите отсюда все\"",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$c3df6553-6011-4670-a2b3-10f6a7cadfe3",
+                "Not": false,
+                "m_Cue": "!bp_91ddcce3bc815444cbb886f0bad6d089",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$ae8f11ab-9b68-4361-b751-f9625229bcbf",
+                "m_Cutscene": "!bp_8fdb59f403f8b1b41a005d4f74ab5912",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Speaker",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+                        "name": "$FirstUnitFromSummonPool$9d88aae4-7642-473e-8381-56a3f237ff51",
+                        "m_SummonPool": "!bp_217c00fa4f8fe7243a0bfedd60a8f106",
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Dialogue",
+                      "Type": "Blueprint",
+                      "Evaluator": {
+                        "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                        "name": "$Dialog$3ee42919-9cd5-4c9a-8d1a-e2fd9a07bd31",
+                        "m_Value": "!bp_5ec3e47a05de18c46b36f08c8dfbeafb"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

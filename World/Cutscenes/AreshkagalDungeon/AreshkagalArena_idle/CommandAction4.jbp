@@ -1,0 +1,156 @@
+{
+  "AssetId": "650c5f3982be40f59f9cb3ae465b1312",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$8137bb1a-be83-4a4e-850f-a46fc897eaf3",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$f9e22a49-9334-476e-b1d9-da6764dc7291",
+            "Spawner": {
+              "EntityNameInEditor": "Spawner [CR30_AreshkagalBoss]_stage1",
+              "_entity_id": "7bb2e57a-9b88-4162-85c0-ba9c48d773c2",
+              "SceneAssetGuid": "78814cba048aca646810593e96e67a20"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$98ad3002-d24a-43ee-92b4-3dd5a8c0457c"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4af926b1-5c24-452c-84d7-fea97cf9996f",
+          "Comment": "Если лиса в партии, она важная.",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$09087fb2-d74a-441a-a7ad-bd9fb14d39d7",
+                "Not": false,
+                "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$5ad6bae7-5198-4788-929d-f2d26ba393d5",
+                "Not": true,
+                "m_Etude": "!bp_96d12b37cf84da049be8587c4914a496",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c343938f-822b-4d32-8ce6-c390e33f8cbd",
+          "Comment": "Если лиса не в партии, она пасивная игнор комбат",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$2d4c2173-100e-4c41-b25e-acf8363213b2",
+                "Not": false,
+                "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                "MatchWhenActive": false,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": true
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$53b78090-7728-4204-8b15-bff0650ccc9a",
+                "Not": false,
+                "m_Etude": "!bp_96d12b37cf84da049be8587c4914a496",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$846af204-f41b-4b42-bdbc-96c30e5e3224",
+                "Etude": "!bp_35399489cd494583af28e059e5726d6c",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$692615b9-9a57-4ddd-ba0c-b1be2b7be95f",
+          "m_Buff": "!bp_bb8efbb38b744625a87574d4968abbdb",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$8137a140-791b-4497-b14b-2b32f240dd9e",
+            "Spawner": {
+              "EntityNameInEditor": "Spawner [CR30_AreshkagalBoss]_stage1",
+              "_entity_id": "7bb2e57a-9b88-4162-85c0-ba9c48d773c2",
+              "SceneAssetGuid": "78814cba048aca646810593e96e67a20"
+            }
+          },
+          "Duration": null
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$d89f6396-b0e4-40c2-8d72-6c6e5a210826",
+          "m_Cutscene": "!bp_92a9a67d928f4aae85ba5aaf9b0bf773",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$a762a585-9155-4104-ae88-c168ea3fde54",
+          "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$7c35b575-ba66-4f41-af5c-4b8a4f6f5b58",
+            "Spawner": {
+              "EntityNameInEditor": "Spawner [CR30_AreshkagalBoss]_stage1",
+              "_entity_id": "7bb2e57a-9b88-4162-85c0-ba9c48d773c2",
+              "SceneAssetGuid": "78814cba048aca646810593e96e67a20"
+            }
+          },
+          "Duration": null
+        }
+      ]
+    }
+  }
+}

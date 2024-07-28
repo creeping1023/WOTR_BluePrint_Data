@@ -1,0 +1,70 @@
+{
+  "AssetId": "9b970fdfa38643808691bb3acacee763",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Если игрок видел Cue_0023 (3413a50dfe1d72048b8f72ceb774c2c8) или Cue_0025 (5b37cb97a12cf7f4db4b52c3d0e23d79), и при этом у него started обжектив Obj3_BecomeALich (53ba01c0927cc404da2c32f908e0c5c0), ему нужно выдать аддендум Add1_TalkToSkullPillar (79ab0438f32114d41b18a388c9293f33)",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$eb5a3398-fdee-4fb9-9fa7-69a375d54505",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$c57324d7-e237-4544-910d-f210025c1a4f",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$1453eeb1-afd2-4581-b57d-552a32a757e7",
+                      "Not": false,
+                      "m_Cue": "!bp_3413a50dfe1d72048b8f72ceb774c2c8",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$3f0e971f-1676-476b-963f-18f1bc970335",
+                      "Not": false,
+                      "m_Cue": "!bp_5b37cb97a12cf7f4db4b52c3d0e23d79",
+                      "CurrentDialog": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$2404a8e4-9322-44e3-8882-a22f7c8f1815",
+                "Not": false,
+                "m_QuestObjective": "!bp_53ba01c0927cc404da2c32f908e0c5c0",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$7e1d4577-8769-489d-9505-b08c3730bf89",
+                "m_Objective": "!bp_79ab0438f32114d41b18a388c9293f33"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

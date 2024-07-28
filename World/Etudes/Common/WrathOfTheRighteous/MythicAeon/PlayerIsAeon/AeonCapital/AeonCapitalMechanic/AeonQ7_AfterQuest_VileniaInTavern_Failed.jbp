@@ -1,0 +1,251 @@
+{
+  "AssetId": "0a4734c8d8214e99ac2ef69206b84939",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeBracketOverrideBark$d9a65462-ace1-4558-ac14-ce5be8b949d4"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$1758cd21-e645-4473-a240-bba72c5f3b42",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+              "name": "$DetachBuff$5dac88ac-726e-4c43-8f66-47d980985bb5",
+              "m_Buff": "!bp_cf2f65c16e02826428f32be045f8523d",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$0b64250a-8c5b-4afa-bcd7-81c66d889ec3",
+                "Spawner": {
+                  "EntityNameInEditor": "Vilenia",
+                  "_entity_id": "e050a2fc-0826-4453-b717-a3c51d6a1929",
+                  "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+                }
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$286e46bc-5358-431b-9191-792e0aa47557",
+              "Comment": "только в 3 главе",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b2f9f206-8a40-4fd9-9ccb-43bebf64c651",
+                    "Not": false,
+                    "m_Etude": "!bp_15e0048c7daf0ac4999c2313b58df0e3",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$415ec64e-e777-4300-bc3a-fdd9153a3600",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$4147fd63-34c8-4ba0-a529-ceca56234465",
+                      "Spawner": {
+                        "EntityNameInEditor": "Vilenia",
+                        "_entity_id": "e050a2fc-0826-4453-b717-a3c51d6a1929",
+                        "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+                      }
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$0e451cec-d89a-4d65-935a-8b59c82189b2",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$aa34c0cb-c46f-48db-a491-1ffaaa822b5e",
+                      "Spawner": {
+                        "EntityNameInEditor": "Vilenia",
+                        "_entity_id": "e050a2fc-0826-4453-b717-a3c51d6a1929",
+                        "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+                      }
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$86168922-bd92-4395-85b7-31e86d28778c",
+                      "Locator": {
+                        "EntityNameInEditor": "VileniaInTavern",
+                        "_entity_id": "fab43209-1e02-4c4c-917c-051fe7e7c200",
+                        "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$def47521-009b-4879-af1d-27c58371fd2b",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "VileniaInTavern",
+                        "_entity_id": "fab43209-1e02-4c4c-917c-051fe7e7c200",
+                        "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$8c61d61c-9130-43e7-ab08-6dae46a2a4a7",
+                    "m_Cutscene": "!bp_02c9b508081b1954e4329af6db335091",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$6d9148bf-d257-4748-a594-2adc8d8c4666",
+                            "Spawner": {
+                              "EntityNameInEditor": "Vilenia",
+                              "_entity_id": "e050a2fc-0826-4453-b717-a3c51d6a1929",
+                              "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$63a53a9f-d6db-4706-8b4c-5cdc6e6775fb",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$df8328b6-1c6e-4ed1-b4f6-9f7f28d1d5f6",
+                      "Spawner": {
+                        "EntityNameInEditor": "Vilenia",
+                        "_entity_id": "e050a2fc-0826-4453-b717-a3c51d6a1929",
+                        "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "m_Flags": 0,
+        "name": "$DeactivateTrigger$6e4aab47-e73c-4881-ba3a-b86718505727",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$e1b72481-296f-466a-b17e-98c73d353d33",
+              "m_Cutscene": "!bp_02c9b508081b1954e4329af6db335091",
+              "WithUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$453b4646-c604-4c54-b4ed-003e7f2980bc",
+                "Spawner": {
+                  "EntityNameInEditor": "Vilenia",
+                  "_entity_id": "e050a2fc-0826-4453-b717-a3c51d6a1929",
+                  "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+                }
+              },
+              "m_CheckType": "Params"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1db2a7f1e66ae3d47b9e16af07f04a25, EtudeBracketOverrideBark",
+        "m_Flags": 0,
+        "name": "$EtudeBracketOverrideBark$d9a65462-ace1-4558-ac14-ce5be8b949d4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Distance": 2.0,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$f04b6ea1-f79f-4aa2-b302-6b59db49cd98",
+          "Spawner": {
+            "EntityNameInEditor": "Vilenia",
+            "_entity_id": "e050a2fc-0826-4453-b717-a3c51d6a1929",
+            "SceneAssetGuid": "36dc783323f11cb4c9b6b800bb3b3178"
+          }
+        },
+        "WhatToBarkShared": {
+          "assetguid": "444082f152166db4593e72d7f9a4234e",
+          "stringkey": "baf2fbff-9fe1-48e3-ac89-d9f2a047b24b"
+        },
+        "BarkDurationByText": true
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_e72ab7f23c93467bb8ea42731906c861",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_b89f6e4a60f39b54e9a37903aa2719ea"
+    ],
+    "Priority": 0
+  }
+}

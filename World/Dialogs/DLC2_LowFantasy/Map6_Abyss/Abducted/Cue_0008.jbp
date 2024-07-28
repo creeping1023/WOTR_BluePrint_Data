@@ -1,0 +1,159 @@
+{
+  "AssetId": "cf8202cf0b614e0d944a4f9e99eeecf9",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Портал закрывается",
+    "ParentAsset": "ed12b21b7e8848c2bf198ff0d09bc3a2",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "d37cb103-34e1-4b6e-b247-c9b9f56932a3",
+      "m_OwnerString": "cf8202cf0b614e0d944a4f9e99eeecf9",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC2_LowFantasy\\Map5_Abyss\\Abducted\\Cue_0008_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_561036c882a640089b1d42f03ebe3a6c",
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+          "name": "$ToggleObjectFx$8ba32e3c-51e4-4cda-8318-8d74f427b3d1",
+          "Target": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$fbd08548-3030-44e3-b410-854559fdc22d",
+            "MapObject": {
+              "EntityNameInEditor": "Portal",
+              "_entity_id": "1c2423e9-c771-4e06-b3cc-8a53cb092b2a",
+              "SceneAssetGuid": "4ff51390d344d574e8dc66cb7ac8b4cf"
+            }
+          },
+          "ToggleOn": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$96502677-d979-4ccb-aa1b-e240b6bc30b5",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_561036c882a640089b1d42f03ebe3a6c",
+              "NPCUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$ac74d3b4-1539-43ec-9e4d-50f387d8cec9",
+                "Spawner": {
+                  "EntityNameInEditor": "Sendri",
+                  "_entity_id": "92f9bede-0f66-463c-83fc-8ee1c3d0f3e5",
+                  "SceneAssetGuid": "4ff51390d344d574e8dc66cb7ac8b4cf"
+                }
+              },
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$fd178b95-449a-423d-8097-2b655bf8f77b",
+                "m_Cutscene": "!bp_87491020842248499fc67764a1f1c218",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "OnRecruitImmediate": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5d495d09-851b-409a-9f6b-c9e87cb3f310",
+          "Comment": "Ачивка за прохождение длц без наемников",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$feb2a1b8-2677-4152-88df-3a4fea65539d",
+                "Not": true,
+                "m_Etude": "!bp_5e72af75ff9d4a70814a2db6d45307e9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+                "name": "$ActionAchievementUnlock$3f329410-c3cd-4050-b2c1-9c6ce128c00a",
+                "m_Achievement": "!bp_e2eeca6ac5fe4c168d31383b472aa72b"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "597bbe9e03eb8fd4eafc4a740a217f1c, ActionAchievementUnlock",
+          "name": "$ActionAchievementUnlock$3257670b-34b6-41d4-b709-335438acd8b2",
+          "m_Achievement": "!bp_9f17986786294578b357a0247e25e675"
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$1c74729e-ea7e-46f6-922d-3582b26d5a66",
+          "m_flag": "!bp_067c44bfd67a4d0d86d351effc54fade",
+          "flagValue": 0
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

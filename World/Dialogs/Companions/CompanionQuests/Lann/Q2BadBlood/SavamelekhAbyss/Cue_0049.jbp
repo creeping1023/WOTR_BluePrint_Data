@@ -1,0 +1,159 @@
+{
+  "AssetId": "87aeabd05d4de3e4c881930088c729ce",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Савамелех",
+    "ParentAsset": "858a4b0350aac054984292afc08e37c1",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "a606e866-e3b5-41c8-a808-e3f2febd8632",
+      "m_OwnerString": "87aeabd05d4de3e4c881930088c729ce",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Lann/Q2BadBlood/SavamelekhAbyss/Cue_0049_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$39ce8b13-3cb0-477b-9b71-f459861f1b43",
+          "Comment": "if WEendu in roster & not active",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$04bef844-fdde-4f82-976c-26cc826c5d79",
+                "Not": false,
+                "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                "MatchWhenActive": false,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$e2228ca0-578c-4680-bdfd-47610d86e207",
+                "m_Cutscene": "!bp_4db4639a27ce20a43962369aff70c023",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$93e8aed4-827d-444f-a258-d08c80abbadb",
+          "Comment": "didnt try to resist",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$3b5ec059-577a-4c12-af61-3fa8747c2623",
+                "Not": true,
+                "m_Cue": "!bp_e77f56e572202ae4a8adcafaa933ab71",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$058fd21c-918c-46eb-9854-50c39e8d9806",
+                "m_Buff": "!bp_956331dba5125ef48afe41875a00ca0e",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$13aee675-27d4-4451-8c8e-c397adbe6198",
+                  "m_Companion": "!bp_cb29621d99b902e4da6f5d232352fbda",
+                  "IncludeRemote": true,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": true
+                },
+                "Duration": null
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$0168fab4-5ec1-4863-b82f-371be0eb84d4",
+                "m_flag": "!bp_e5f98440f41a0694584555ffc57e8446",
+                "flagValue": 1
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$0413595f-e019-4e99-bcf2-3f9f9f1de3e6",
+          "m_Objective": "!bp_08c75bce764870e468f563e65a4b20f1"
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$1fd3adcc-00f7-4fa1-bf76-ce375028ce48",
+          "Status": "Complete",
+          "m_Objective": "!bp_5a3d36c1806449549b7e7a092fc77cde",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_36fc9bfef246def4192b22240286ffe7",
+        "!bp_2cbbc2e25d025f942938445dc9d86cd4"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

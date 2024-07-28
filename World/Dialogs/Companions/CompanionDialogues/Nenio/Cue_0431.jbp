@@ -1,0 +1,150 @@
+{
+  "AssetId": "34e1f2ec1e7f5e141b0628f7f448e63f",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "анрекрут\n\n\nпрофейлить ее квест (он может быть только на этапе 2 или 3 обже)",
+    "ParentAsset": "bbd0608933bf95449a070bc967dbda45",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "2df22737-a7cd-4ead-a236-919344671b53",
+      "m_OwnerString": "34e1f2ec1e7f5e141b0628f7f448e63f",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionDialogues/Nenio/Cue_0431_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$aa3b30c3-bcd8-431a-bdba-03746c6a7ffb",
+          "Comment": "фейлим квест если он есть, 2 этап",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$54aa4142-aede-4a79-a5fa-edb6990d80c6",
+                "Not": false,
+                "m_QuestObjective": "!bp_f40469db3ed9e0d4d898630b0eab4008",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$05dd91a2-6402-4df5-a4a9-904fe3a5f9be",
+                "Status": "Fail",
+                "m_Objective": "!bp_f40469db3ed9e0d4d898630b0eab4008",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$dc5f7344-2737-4f46-9dbf-05cecf4457d2",
+                "Status": "Fail",
+                "m_Objective": "!bp_742d817f61d92a643b80e9b1c2851a9e",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0c1bf9b9-4265-410c-b41b-f0015e2efea8",
+          "Comment": "фейлим квест если он есть, 3 этап",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$2eb8abdc-bfb0-4a6c-ad30-eca8ab882a88",
+                "Not": false,
+                "m_QuestObjective": "!bp_698d0de2b1f5c9140b3c14520b3674cd",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$ff048451-a278-49d3-8710-a349e7f93bc0",
+                "Status": "Fail",
+                "m_Objective": "!bp_698d0de2b1f5c9140b3c14520b3674cd",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$05e0c26c-5afa-4f54-9960-5d91f68303d2",
+                "Status": "Fail",
+                "m_Objective": "!bp_742d817f61d92a643b80e9b1c2851a9e",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$fbe014a1-26b8-486e-8dc1-2f6d812e0756",
+          "m_CompanionBlueprint": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+          "OnUnrecruit": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$f67575ba-d117-4693-a603-4ee821698b4e",
+          "Etude": "!bp_e9efc34083d087941bf9242388c258c3",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

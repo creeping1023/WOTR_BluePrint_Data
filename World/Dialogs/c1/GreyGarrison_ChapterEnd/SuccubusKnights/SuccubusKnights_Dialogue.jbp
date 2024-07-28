@@ -1,0 +1,203 @@
+{
+  "AssetId": "3dc9ebf6f266c7d4abc8dbbc9bc0a4d0",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Диалог с суккубой",
+    "FirstCue": {
+      "Cues": [
+        "!bp_7442eeef0eb65c942a028f175f16a4b9"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$33b2c2df-e6f8-442a-8ecd-0b353c739dab",
+          "m_Cutscene": "!bp_3de90f9319e4b9c4c9f4c2a27d500042",
+          "WithUnit": null
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$d49f5d66-ea3e-46aa-a984-8022de4f8adc",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$6d5139fc-0b0f-4517-9977-7e0f2b5b6c7a",
+            "Spawner": {
+              "EntityNameInEditor": "CR7_SuccubusStandard",
+              "_entity_id": "ab2cf972-c46a-4d5c-8afa-3118323abf00",
+              "SceneAssetGuid": "8fc7e5577957b47408ed6483164a52ff"
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$88d77954-329a-4b5f-8e26-6f16b0322d9f",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$567c5397-5548-4bd3-92cc-193b66e4e026",
+            "Spawner": {
+              "EntityNameInEditor": "CR7_SuccubusStandard",
+              "_entity_id": "ab2cf972-c46a-4d5c-8afa-3118323abf00",
+              "SceneAssetGuid": "8fc7e5577957b47408ed6483164a52ff"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$27ad8e07-a2ab-4e10-afd3-06aa46dbeda3"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d7ac6228-84cc-4ddb-90ef-062287177778",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$cca13a46-7619-4470-9fc9-8373fca53860",
+                "Not": false,
+                "m_ConditionFlag": "!bp_6a7d713ae09893c4cb0728977beb46aa",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$e40b719d-32ca-44bf-bdf2-025abc071143",
+                "m_SummonPool": "!bp_919d685e2f172a240a79151b402a538e",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$f88d544a-7e40-4d73-9f3e-3d7dd860da4a",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$2bccb438-9baa-4fbe-a301-29712b2781f9"
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$83876b78-e2f3-4442-852b-b9d90a328642",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$80f60a4a-a920-47b2-a973-b7dd3ac71807"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$e639c2f2-8e31-46d4-b570-0d509d95c6af"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$b754f71b-1664-4d3c-8618-54f3895a8610",
+                "m_SummonPool": "!bp_c765a11a8d98c544b9358d148f78e138",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$d4dfda67-7ba5-4f13-851f-c7b78e6c0156",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$db10a7f6-ab7a-4241-8e59-ee8028f6fffa"
+                      },
+                      "Unit2": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$aa7b032d-420b-43b9-ad38-7047aedeaaa0",
+                        "Spawner": {
+                          "EntityNameInEditor": "CR7_SuccubusStandard",
+                          "_entity_id": "ab2cf972-c46a-4d5c-8afa-3118323abf00",
+                          "SceneAssetGuid": "8fc7e5577957b47408ed6483164a52ff"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$49c1999d-16b6-47ce-9aab-922fab0a0410",
+                "m_SummonPool": "!bp_1fe8e41636d6e1344807982f24608958",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$5f9eb55a-f72c-4c5f-9c62-4ea9e090f9cb",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$3f0fc42a-4d2a-4a20-857e-cd5cfd9116ce"
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$5d2a5ff7-404c-4560-a940-a8c9226c90fa",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$d69e820e-bd92-40d3-8e76-47110763ab59"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$459a4ea5-a7c1-4e2d-a4ba-9a789ef57b90"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": false,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

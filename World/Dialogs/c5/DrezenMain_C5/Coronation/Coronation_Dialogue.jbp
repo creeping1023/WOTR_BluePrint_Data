@@ -1,0 +1,188 @@
+{
+  "AssetId": "799827d0a35405b499e0e2f84fcf08be",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_51128f04106ac674ba06b81cebfe76bc"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$56bfdcf9-5aa5-478e-8c39-4fa1858f3c15",
+          "Comment": "Запустить музыку Crusade если я не Demon / Locust / Lich",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$bb87615d-8189-485f-b162-fefff3b60141",
+                "Not": true,
+                "m_Etude": "!bp_439e63fed37f52048887d98f99255e40",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$24b4a71a-21ae-480e-bea2-39ffa3e59ff7",
+                "Not": true,
+                "m_Etude": "!bp_9a3739370f84b0b4196d0e4d326ea3a8",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f50aee07-bbbc-4e49-a832-3105ef220b3d",
+                "Not": true,
+                "m_Etude": "!bp_11fc5662e0ce8074ea145a022282b879",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+                "name": "$PlayCustomMusic$08e91a60-795c-4ae5-b6e5-b124417e4854",
+                "MusicEventStart": "MUS_CrusadeTheme_Play",
+                "MusicEventStop": "MUS_CrusadeTheme_Stop"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+                "name": "$PlayCustomMusic$3d0fe63c-5e33-4c1a-ae59-5034b0c904e1",
+                "MusicEventStart": "MUS_HardChoice_Play",
+                "MusicEventStop": "MUS_HardChoice_Stop"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$2c440c25-6fe6-4ec0-9273-e22d2bc82e00",
+          "Status": "Complete",
+          "m_Objective": "!bp_09c503b7a398d49469b9463ee9d22fd4",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$9d53a96e-e338-40cd-b006-1f5b0ec81d38",
+          "m_Objective": "!bp_5f0fa112e73203947a3717db16d3106e"
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$0534d1c3-187c-4a50-9a6d-6cfb399131c2",
+          "Etude": "!bp_7ec62eceb8fcac5479fbd4900be1fd49",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$7838a568-ae72-416c-86e5-0cc0a64a8d45",
+          "Etude": "!bp_dfb625b2fb584c3d995186153c248022",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$743bb32f-66ad-4ca5-a5b5-b2d279d677c8",
+          "m_Cutscene": "!bp_0d290f166fe84053aa5a995841a8dff6",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1191dbee-09d2-4423-b7f4-41f298a708c5",
+          "Comment": "при НЕподнятом флаге CrusadersGone - выдаем остатки армии Голфри",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$3aff1b02-fb96-412d-9e1b-20d10c33dfab",
+                "Not": true,
+                "m_ConditionFlag": "!bp_b4817fa3e2fa8d54a9c9281ef67386cd",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                "name": "$CreateArmy$438b67b9-ff8a-4908-b7c4-0693f82d943e",
+                "Faction": "Crusaders",
+                "Preset": "!bp_0f0706b872d64dfc8017643b99d616e0",
+                "Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+                "WithLeader": false,
+                "ArmyLeader": null,
+                "MovementPoints": 60,
+                "m_MoveTarget": "None",
+                "m_TargetLocation": null,
+                "m_CompleteActions": null,
+                "m_ArmySpeed": 1.0,
+                "m_DaysToDestination": 7,
+                "m_ApplyRecruitIncrease": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$4cb0d652-7327-428e-baad-4940fe71b077"
+        },
+        {
+          "$type": "283706d83f2b5a8418f90b318819b1ae, UnlockLocation",
+          "name": "$UnlockLocation$7edc59d8-658a-404e-9f0d-3a5da579ebfa",
+          "m_Location": "!bp_4e43f2e05241536408268467bfdfde86",
+          "FakeDescription": false,
+          "HideInstead": false
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

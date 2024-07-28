@@ -1,0 +1,559 @@
+{
+  "AssetId": "b3e081bc5a2e4b06ab77209e2965883b",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$85585b9c-8204-4b69-be87-f44f1f811e66",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Immidietly",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$a791a868-54b1-4f5f-9fd6-a9c4ea6aace3",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "WoundedSoldier_1",
+                  "_entity_id": "3ee97563-1309-41eb-89b0-d9688ab4d51d",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                },
+                {
+                  "EntityNameInEditor": "WoundedSoldier_2",
+                  "_entity_id": "a73aedb0-8ec0-4cf9-ab4f-f9e13261c9d9",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                },
+                {
+                  "EntityNameInEditor": "HealingSoldier",
+                  "_entity_id": "26ac1070-37ac-459a-a972-989d34e878f8",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              },
+              "RespawnIfDead": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$4dcace91-3cd4-4a7b-b444-8544362ce1e3",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$7e858adf-d080-4454-8d33-2ff506aecaa8",
+                "MapObject": {
+                  "EntityNameInEditor": "Battle_casualties",
+                  "_entity_id": "62ea1d0c-781a-4185-8006-2c828fb67824",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$cdd47e90-4775-4f9c-9766-242176a7721c",
+              "m_Group": {
+                "EntityNameInEditor": "SupportSquad",
+                "_entity_id": "83802577-1ef9-46ef-9d63-e530b5522810",
+                "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$9914d41a-e7ab-4c1b-9733-24dfeefaeb1f",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$e1fab62a-59d3-4257-b635-0eda42d16952"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$f69798ee-dd21-4645-aa9b-c5d618c70d39",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$d1a80f04-5b7a-44a2-bdf4-b9a6f818fa1b",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [DLC4_Negociant]",
+                  "_entity_id": "ec7c9bf2-a2ad-4b77-98a0-e824881050b3",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$0e3827f2-20c2-4267-a110-f3180c969cf0",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "When the story is completed",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$105d9ec1-d875-4c9a-a0c1-fbe66f850717",
+              "Not": false,
+              "m_QuestObjective": "!bp_59c735cfe3674c8680132cfc830c646f",
+              "State": "Completed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$6feaf2b7-cacc-4b85-a245-43c89291b5b7",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "Civilian_hammer_3",
+                  "_entity_id": "e620053f-c446-4338-8921-efc4d31b5d4d",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                },
+                {
+                  "EntityNameInEditor": "Civilian_hammer_4",
+                  "_entity_id": "695990d1-faae-4caf-b64e-d32cc3a8f365",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                },
+                {
+                  "EntityNameInEditor": "Civilian_hammer_5",
+                  "_entity_id": "e788f447-4620-4241-bd6b-c2c129087ef3",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              },
+              "RespawnIfDead": false
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$c81c3a13-4e2e-48d3-80cf-a28fc0e98704",
+              "m_Group": {
+                "EntityNameInEditor": "CorpsesToBurn",
+                "_entity_id": "2e6dfdec-34aa-4632-a466-fd855e60d99b",
+                "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$05579344-dd1d-4178-90d4-3299dc5dd150",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$fe31dfc4-8060-411d-91e1-c6df25afac27"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$0486ab22-06f5-4141-aa0f-23a61064708b",
+              "m_Group": {
+                "EntityNameInEditor": "Wave_1",
+                "_entity_id": "08dfb4c8-83ec-480e-a089-c1c75a1da5d3",
+                "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$f5c7bd81-2f38-4442-a850-4f15b0cb36cd",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$5309dc76-0500-4f62-b5fa-a9e10568496c"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$7e27d756-9621-4082-8fb9-d7c27bcb13dc",
+              "m_Group": {
+                "EntityNameInEditor": "Wave_2",
+                "_entity_id": "83e0052a-cc24-4ce0-a085-754af8cb8e23",
+                "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$b2368505-7362-4988-a21d-1830cd1897b8",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$373797b6-be65-4d0b-b86d-cdadeb4225c8"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$f389ed45-a4ef-421c-9862-e4278d92280d",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$9e1b547c-3bc9-4dcc-981e-f60c0445fae9",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [DLC4_Negociant]",
+                  "_entity_id": "ec7c9bf2-a2ad-4b77-98a0-e824881050b3",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "75003f4b0930efd448d535eced5885b7, ClearBlood",
+              "name": "$ClearBlood$4c2d2213-af85-4f72-83e5-5cad43e7f10f"
+            },
+            {
+              "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+              "name": "$DestroyUnit$5e527031-e431-4de2-91a9-8c311acb2d92",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$05048041-60ec-469d-a0c3-57b266f3f87b",
+                "Spawner": {
+                  "EntityNameInEditor": "1",
+                  "_entity_id": "feab538d-f8aa-4c76-9671-bbccbe32edd3",
+                  "SceneAssetGuid": "b41819e6c0a247e44944c77711949659"
+                }
+              },
+              "FadeOut": false
+            },
+            {
+              "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+              "name": "$DestroyUnit$abaae15a-4635-4d8f-ad41-7ce3f6b0c407",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$c179c4f1-a9f6-40c3-975f-c4a3dcd19553",
+                "Spawner": {
+                  "EntityNameInEditor": "2",
+                  "_entity_id": "e4542dfe-61e1-4b13-81df-1b9a187e05cc",
+                  "SceneAssetGuid": "b41819e6c0a247e44944c77711949659"
+                }
+              },
+              "FadeOut": false
+            },
+            {
+              "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+              "name": "$DestroyUnit$fbbe87f8-f5ef-4c0a-8b25-6f4c653f0ec7",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$e9cf61fd-c7d0-4bc9-a15e-0e5ff7b37c07",
+                "Spawner": {
+                  "EntityNameInEditor": "3",
+                  "_entity_id": "aaf946f5-fe53-4ce7-983a-bddac415469e",
+                  "SceneAssetGuid": "b41819e6c0a247e44944c77711949659"
+                }
+              },
+              "FadeOut": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$595be445-d5f5-422b-a71a-5fca8d77a827",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$1ca2e160-af74-4c77-a03b-602c0de82ed6",
+                "MapObject": {
+                  "EntityNameInEditor": "Guards",
+                  "_entity_id": "42981694-2743-4e37-a6b6-d19ce082221f",
+                  "SceneAssetGuid": "b41819e6c0a247e44944c77711949659"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$969f4779-7bf9-4f2c-a337-81364fe7e934",
+              "Etude": "!bp_c2d30d8ab71a455a8fc1f76fb522a999",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$324e4fe0-a774-4978-8e90-d0104b3b6794",
+              "Comment": "Warlords ending was chosen",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$53baa600-7518-4220-b2bd-a2a775c1cd3d",
+                    "Not": false,
+                    "m_Etude": "!bp_25c5e64600ff464db8611a2218968e25",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$db503e78-c055-4ab1-9ce9-60b564a44d73",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$509a7039-420d-47b2-ac23-2f537988e48b",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [DLC4_Shaman]",
+                        "_entity_id": "7ede665d-e523-4d7b-a4f8-b0e838cb97b5",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$a902b871-2a09-4b40-993e-13a87e51545a",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$4970823c-4b31-4cb0-b95f-b06a74856a77",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [DLC4_Warlord]",
+                        "_entity_id": "4f419cef-a327-464e-a5c1-5814281d46b0",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$7b827405-8b70-4022-aa50-eee8333d6b60",
+                      "Locator": {
+                        "EntityNameInEditor": "Outside_Warlord_Pos",
+                        "_entity_id": "ef6a6c9d-a1ee-454d-b946-6b4682da2749",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$586e15b3-4936-4e2e-b09c-d730a4fcd301",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Outside_Warlord_Pos",
+                        "_entity_id": "ef6a6c9d-a1ee-454d-b946-6b4682da2749",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$695834c4-0098-4e76-99fb-7de8072a966d",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$de26f05b-3f8e-4948-bd83-011d28e4ae45",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [DLC4_Warlord]",
+                        "_entity_id": "4f419cef-a327-464e-a5c1-5814281d46b0",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$0ce9594a-8650-4b4d-b038-b5c55383892c",
+                      "Locator": {
+                        "EntityNameInEditor": "Ustalav_fighter2_pos",
+                        "_entity_id": "bc0d9bb7-27f1-445f-95df-4275f04b6f94",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$d353c8e8-371f-4b9a-9878-6221e7b8341f",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Ustalav_fighter2_pos",
+                        "_entity_id": "bc0d9bb7-27f1-445f-95df-4275f04b6f94",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$a42ee859-a1e9-4041-a744-155b770a6fa5",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$717cbd85-e27b-4625-9b07-aa5a498b95ec",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [DLC4_Shaman]",
+                        "_entity_id": "7ede665d-e523-4d7b-a4f8-b0e838cb97b5",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$9566d519-d300-4cde-a2f2-4de343908d94",
+                      "Locator": {
+                        "EntityNameInEditor": "Ustalav_fighter4_pos",
+                        "_entity_id": "229ea273-7d73-41ec-9f0f-5212b3f261e2",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$d5a2c00b-6159-4faf-bf13-358ae2c724ae",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Ustalav_fighter4_pos",
+                        "_entity_id": "229ea273-7d73-41ec-9f0f-5212b3f261e2",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                    "name": "$UnitLookAt$078aba61-5680-4241-8b45-015ba1c8014f",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$a5549f6e-094c-4fee-a8f8-8db6f56ac149",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [DLC4_Warlord]",
+                        "_entity_id": "4f419cef-a327-464e-a5c1-5814281d46b0",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    },
+                    "Position": {
+                      "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                      "name": "$UnitPosition$eb031e2e-c24c-4efa-a91e-cf17a8438f7b",
+                      "Unit": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$7ac47229-5d0d-4db6-a61c-c97830675a14",
+                        "Spawner": {
+                          "EntityNameInEditor": "Spawner [DLC4_Shaman]",
+                          "_entity_id": "7ede665d-e523-4d7b-a4f8-b0e838cb97b5",
+                          "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                    "name": "$UnitLookAt$742b6043-c66f-441a-9ab0-9889b14bd07b",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$b2cc2c27-e5af-47a3-af7e-33b289866f0f",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [DLC4_Shaman]",
+                        "_entity_id": "7ede665d-e523-4d7b-a4f8-b0e838cb97b5",
+                        "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                      }
+                    },
+                    "Position": {
+                      "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                      "name": "$UnitPosition$d71446d0-08b5-41a0-8f1a-46f694e4be5a",
+                      "Unit": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$43b8448a-1927-44c9-8bf6-a7a2b8b88dc9",
+                        "Spawner": {
+                          "EntityNameInEditor": "Spawner [DLC4_Warlord]",
+                          "_entity_id": "4f419cef-a327-464e-a5c1-5814281d46b0",
+                          "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_b82979ee83cc49b79168e9e199593b0e",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$3709853b-2f72-49f8-9b2e-4d0431606993",
+          "Not": false,
+          "m_Etude": "!bp_a6c19bae85a44830b10c9feb27b3c5e6",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

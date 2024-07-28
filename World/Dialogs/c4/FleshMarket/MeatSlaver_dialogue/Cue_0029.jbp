@@ -1,0 +1,125 @@
+{
+  "AssetId": "493d287e4af3e7649b6b8adc1a8e4ca7",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "старт боя, демон атакует игрока, анлокает диалоги MeatSlaves_dialogue и AasimarSlaves_dialogue\n\nтопает ногой",
+    "ParentAsset": "5ec7afce0158a504189a5027027dbfae",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "76e33086-f3ff-4510-a4db-1313f5ee8118",
+      "m_OwnerString": "493d287e4af3e7649b6b8adc1a8e4ca7",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/FleshMarket/MeatSlaver_dialogue/Cue_0029_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$67756777-4d9d-4f18-8776-94449312c80d",
+          "Etude": "!bp_73a24e4ca2e4ea14aa638aad95ad9d5d",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c42be458-b048-47b0-80b7-9fd15e34e760",
+          "Comment": "Если игрок еще не видел аддендум - сейчас увидит",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$41f2a315-6ff6-4ed6-a102-42dc8546595f",
+                "Not": false,
+                "m_QuestObjective": "!bp_eefa61e11df0e5a4eb765bf2b0f16c53",
+                "State": "None"
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$6d6e751e-ffdd-4396-81b3-e8fb4a67a495",
+                "Not": false,
+                "m_Quest": "!bp_d5ed08ffe12d99a4e944cd70ae661c61",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$001a57b7-a387-4e13-a188-5e04dea059ab",
+                "m_Objective": "!bp_eefa61e11df0e5a4eb765bf2b0f16c53"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$9c68f6a7-86ce-4498-932e-680a76ff7dc8",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$11184a30-8ae6-4095-97b9-bec951b05813",
+            "Spawner": {
+              "EntityNameInEditor": "Dyunk",
+              "_entity_id": "ee1d254c-dd42-42fd-87db-dfe1b866226a",
+              "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": true
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$b92476a7-3811-41bd-8b6f-a419f646f829",
+          "Etude": "!bp_219332d3b701e07429f6f62b6738ac4d",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

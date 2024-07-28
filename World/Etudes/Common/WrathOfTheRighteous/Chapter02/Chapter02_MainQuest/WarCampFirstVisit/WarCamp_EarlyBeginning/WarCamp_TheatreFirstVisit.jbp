@@ -1,0 +1,368 @@
+{
+  "AssetId": "f546a7d95bfda0e4f9cb798f00b69db3",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$DeactivateTrigger$7e1f99ba-4935-4b10-8bef-a075eb73d385",
+      "$EtudePlayTrigger$641a09d6-d1d9-427a-8073-7e80aa6bf1fc",
+      "$EtudePlayTrigger$09dd97c8-c3f7-446c-9cbb-92d2f7cbec27"
+    ],
+    "Components": [
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "m_Flags": 0,
+        "name": "$DeactivateTrigger$7e1f99ba-4935-4b10-8bef-a075eb73d385",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$641a09d6-d1d9-427a-8073-7e80aa6bf1fc",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "PC race check",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$319c37da-48ab-4afe-bcc2-b289e95f4055",
+              "Comment": "Halfling || Gnome",
+              "ConditionsChecker": {
+                "Operation": "Or",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$f4da090d-56d5-4193-9e3a-df9a66a4521c",
+                    "Not": false,
+                    "Race": "Halfling"
+                  },
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$dcc10cfb-2b1b-43f9-aeb1-3c2dcf151589",
+                    "Not": false,
+                    "Race": "Gnome"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$b5c21e33-5ca6-4813-ae98-e55e32aa6bce",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$be5d2d1e-0abe-495a-aac8-f0a8987be618",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [Theatre_HalfOrcActress]",
+                        "_entity_id": "e4a23667-ecd5-41ec-a3bd-082e4b3dfcc7",
+                        "SceneAssetGuid": "857a8b6aa6f3fa741afd8e1554796e98"
+                      }
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$469b9a16-2444-4789-b8bb-7245490d90af",
+                    "m_SummonPool": "!bp_0535134b92c71224db89e2b598ebc008",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$1e030672-5ac4-452f-bc65-b90d7a905286",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$c59cf84e-3bb0-43fc-8ddc-9bd7d86f7932"
+                          },
+                          "Unhide": false,
+                          "Fade": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$9e3e5131-7ac4-4173-a81a-b78940f157ae",
+                    "Comment": "Dwarf || Half-Orc || Tiefling || Oread",
+                    "ConditionsChecker": {
+                      "Operation": "Or",
+                      "Conditions": [
+                        {
+                          "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                          "name": "$PcRace$1da12e22-0ac7-491f-a7e9-3d72b6de7f63",
+                          "Not": false,
+                          "Race": "Dwarf"
+                        },
+                        {
+                          "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                          "name": "$PcRace$19f144fa-a3ef-4e06-80ea-f1f6de9a220e",
+                          "Not": false,
+                          "Race": "HalfOrc"
+                        },
+                        {
+                          "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                          "name": "$PcRace$7170428e-355d-41f7-aed5-7830aa0299b4",
+                          "Not": false,
+                          "Race": "Tiefling"
+                        },
+                        {
+                          "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                          "name": "$PcRace$7a0d8a74-cc03-4c6a-9eb7-c9a1fede6ccb",
+                          "Not": false,
+                          "Race": "Oread"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$ce2f9d8b-356a-46ad-a7a2-5f975c0eb87e",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$58d4c64d-64eb-45eb-a0b1-93f3e8ab0a4a",
+                            "Spawner": {
+                              "EntityNameInEditor": "Spawner [Theatre_HalfElfDancer]",
+                              "_entity_id": "ecff6f21-232c-46c0-98b1-f7144ec1146d",
+                              "SceneAssetGuid": "857a8b6aa6f3fa741afd8e1554796e98"
+                            }
+                          },
+                          "Unhide": true,
+                          "Fade": false
+                        },
+                        {
+                          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                          "name": "$SummonPoolUnits$f6d87029-ee9a-4431-88a0-37d21c098beb",
+                          "m_SummonPool": "!bp_0984403a17bc9c64b92462d01b03442e",
+                          "Conditions": {
+                            "Operation": "And",
+                            "Conditions": []
+                          },
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$ec220b08-bd2b-49a1-ab88-f103ef90b3ad",
+                                "Target": {
+                                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                                  "name": "$SummonPoolUnit$39da065d-497a-4e46-a490-abcad7b0fc61"
+                                },
+                                "Unhide": false,
+                                "Fade": false
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$7e73d5f8-59dc-49c8-a3a8-4d3b29472a91",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$7fcb7110-7415-404c-8b13-0e16bec9b3c6",
+                            "Spawner": {
+                              "EntityNameInEditor": "Spawner [Theatre_GnomeTwin1]",
+                              "_entity_id": "e9333b0b-94d5-4384-9322-b8e5395bb922",
+                              "SceneAssetGuid": "857a8b6aa6f3fa741afd8e1554796e98"
+                            }
+                          },
+                          "Unhide": true,
+                          "Fade": false
+                        },
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$a02a64b3-ab56-4358-aa53-eca9ee788417",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$d45f2c45-fe88-4f64-ad23-d75ca03d5ec4",
+                            "Spawner": {
+                              "EntityNameInEditor": "Spawner [Theatre_GnomeTwin2]",
+                              "_entity_id": "1c9d089e-fde8-4e40-acab-2a748a8377f7",
+                              "SceneAssetGuid": "857a8b6aa6f3fa741afd8e1554796e98"
+                            }
+                          },
+                          "Unhide": true,
+                          "Fade": false
+                        },
+                        {
+                          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                          "name": "$SummonPoolUnits$e8f38773-8079-4cd3-b1dd-c5046dcd341e",
+                          "m_SummonPool": "!bp_cbf45ac5b401389469c862f08e189eae",
+                          "Conditions": {
+                            "Operation": "And",
+                            "Conditions": []
+                          },
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                                "name": "$HideUnit$a2a01b3e-60b1-4572-83be-46ef84bb0c8b",
+                                "Target": {
+                                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                                  "name": "$SummonPoolUnit$920c49d3-ab6b-44fb-b2d5-27aea985b410"
+                                },
+                                "Unhide": false,
+                                "Fade": false
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$09dd97c8-c3f7-446c-9cbb-92d2f7cbec27",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Ambience",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$61cad1bf-9406-424e-8501-beacf1a9f11a",
+              "m_Cutscene": "!bp_280eb46fcbff66743aa40ae7f60ace0f",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$27c5f9cd-977a-4dbe-8048-a57e9a87ebc4",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawner [Theatre_Director]",
+                        "_entity_id": "29f8b53b-afb0-463e-99f3-4b7455670e80",
+                        "SceneAssetGuid": "857a8b6aa6f3fa741afd8e1554796e98"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Труппа неудачливого театра, которых мы спасем в Кенабресе и которые потом потащатся за нами в поход. Они ставят представление про командора и будут раз в главу приходит спрашивать совета. Их надо воткнуть в варкамп и желательно так, чтобы игрок мимо них не прошел. Если игрок пропустил этот диалог в главе 2, они с ним же появятся в Дрезене. После диалога труппа всегда сваливает и больше не стоит в кэмпе/Дрезене - до следующего момента, когда им придет пора появляться.",
+    "m_Parent": "!bp_534fb3d025f6f3d4789caa141a0fc1ce",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$bf87370e-1fb2-4669-be78-acfab70d72e9",
+          "Not": false,
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8f2c0109-b0c7-4312-afba-8fa725de013f",
+                "Not": false,
+                "m_Etude": "!bp_4be1dcbb5f0a05f43b8915e14251b76c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$4539c89b-dd1d-4d10-ae11-c18a16155b40",
+                "Not": false,
+                "m_Etude": "!bp_c95a46e880547214f84a639033089c4b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$d64e621d-2268-48f6-b11c-3b2ba173557c",
+          "Not": false,
+          "m_Etude": "!bp_aab9c43ab26c9dc4787ac792ef2ed012",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_7a25c101fe6f7aa46b192db13373d03b",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_1291d8d9eadf31b46864242b8266495f"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

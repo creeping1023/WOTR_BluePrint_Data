@@ -1,0 +1,174 @@
+{
+  "AssetId": "574abc7435e8dc140a9f218aee41846c",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "бЕРЕМ 9 МИФИК\n(но только если не предавали своих)\nнабигают все ВК",
+    "ParentAsset": "580c55ac3229355438de32dd610f4250",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "24f42267-4623-4934-9e8b-18030ab98930",
+      "m_OwnerString": "574abc7435e8dc140a9f218aee41846c",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/Mythic_Azata/AgainstMentor/Cue_0014_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "efeff58c12d74f00a73213c7f3750543, GainMythicLevel",
+          "name": "$GainMythicLevel$bd25a9a4-9142-44b6-aedf-1044709c5505",
+          "SpecificUnit": false,
+          "Unit": null,
+          "Levels": 1
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$073848a3-4dcd-49fe-84c9-5651d0ad753a",
+          "m_SummonPool": "!bp_57893cf0f978c6a4c8a38454fc4a0d39",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$8b185e93-91ce-4b98-b9d2-f30c1b8974e0",
+                "m_Buff": "!bp_d77b4982cc0d8eb4f9210d1350199e91",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$3afc9cab-ff20-42aa-815a-d4bcffb8a236"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$ad64f937-2fec-4bb0-a035-15af8ab594a1",
+          "m_flag": "!bp_1357ec699dab7b64da003e49215a3044",
+          "flagValue": 0
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$f25011d7-b93d-4038-8705-4fdb03a5eda4",
+          "m_flag": "!bp_6cc1e897b089483d86aa7df485306d51",
+          "flagValue": 0
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bcb0467f-9454-49da-93a7-db35a792b30e",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$8fdd9fed-ce8f-4c18-bd6d-64d93f15a9ba",
+                "Not": false,
+                "m_Flag": "!bp_b221ec9ba1cb4d3989c6426431a1e4e6",
+                "MinValue": 0,
+                "MaxValue": 0
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$958cd133-728b-4865-ab3b-b09a01433c91",
+                "m_Flag": "!bp_b221ec9ba1cb4d3989c6426431a1e4e6",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$2f411435-16b1-4540-8261-d089fb8ed008",
+                  "Value": 1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$0a24f58a-00a5-4760-a649-4589034e371f",
+          "m_Cutscene": "!bp_bee163ae96484f778e88cc445f1a4d00",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$e8f56159-c9de-43a6-b68c-7d39c3338f8d",
+          "Status": "Complete",
+          "m_Objective": "!bp_64e90dd283e39cd4d87167c839e9cc04",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$07ab3840-c9a1-4d17-94c5-6f6faf36acfe",
+          "Etude": "!bp_0a3b3ea192c8422daf41c70302afa639",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$0edede65-6ef5-4736-9d82-078d83546aca",
+          "Etude": "!bp_2d8dc72cd55439646adb2eda73ab1829",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_ad28f466d6be67141bf621e84e58130b",
+        "!bp_621cb99315bc9304185f727cc5a04e15"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

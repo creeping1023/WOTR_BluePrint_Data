@@ -1,0 +1,227 @@
+{
+  "AssetId": "6d77995881f93844b9ef074bb2710afe",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Регилл идет в ростер (но не в пати)",
+    "ParentAsset": "1fc7835d837cce34289e473ee3f557b0",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "af4d6213-610c-44c2-af80-bef62e64792e",
+      "m_OwnerString": "6d77995881f93844b9ef074bb2710afe",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c2_vs/LostChapel/IrabethRegill/Cue_0038_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_68d4a5b150c7c2c42aeea6f24044113a",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$a6a59391-21dd-42ec-8bd5-78613bc2db83",
+          "m_Cutscene": "!bp_38b461be5bccd8d4a902c0d18b9486a0",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$12cb5f92-877a-4376-b971-c2cf73c0e986",
+                  "Spawner": {
+                    "EntityNameInEditor": "Regill_InStorage",
+                    "_entity_id": "6a08e967-e643-40d0-899b-01d43f32d54a",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                }
+              },
+              {
+                "Name": "Position",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$affe6d87-228c-4a56-bf46-83fbb2438383",
+                  "Locator": {
+                    "EntityNameInEditor": "StorageOut02",
+                    "_entity_id": "5f44b812-4998-4272-9a85-8456743700c3",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  "Offset": "0|0|0"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$beeb1ec5-ec7c-485b-a654-af33507a5d95",
+          "m_Objective": "!bp_bf4a957c4e7545c8aa0728c0a4e7499b"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b2c21f51-aa80-4f03-b785-865fe74f6ecf",
+          "Comment": "Если ХК не в наемниках - добавляем",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$4bc3d501-c564-4a18-94be-749bfc225992",
+                "Not": false,
+                "m_ConditionFlag": "!bp_996353b55c7644dcad2ca0c0ccf6b952",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": [
+                  1
+                ]
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$2bed4fb6-68bb-4fca-b793-24fc948399d8",
+                "m_flag": "!bp_996353b55c7644dcad2ca0c0ccf6b952",
+                "flagValue": 1
+              },
+              {
+                "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+                "name": "$AddMercenaryToPool$8c3ded23-768f-4451-8a77-59d4a2b25666",
+                "m_Unit": "!bp_61e12d43771a40241ac05471a60ddb38",
+                "m_Weight": 1.0
+              }
+            ]
+          }
+        },
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$5ece0426-8017-4449-8ed8-59faaf8b41e7",
+          "m_Cutscene": "!bp_09ab5e8c61103db4f9c47a8dd2539a18",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$3c0c3995-da92-41f8-8aaa-e681bdd58197",
+                  "Spawner": {
+                    "EntityNameInEditor": "IrabethTirabade_LostChapel_InStorage",
+                    "_entity_id": "4c3a5aac-99b1-45c9-b9c7-2b55569e0be1",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                }
+              },
+              {
+                "Name": "Position",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$bb339714-0524-4af7-94ec-b695d936c209",
+                  "Locator": {
+                    "EntityNameInEditor": "StorageOut01",
+                    "_entity_id": "84e7a703-1f37-4051-8b2c-4cda96fcb056",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  "Offset": "0|0|0"
+                }
+              },
+              {
+                "Name": "AneviaPosition",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$8b39bb26-22fb-41d8-9a2d-1afcdc9374ba",
+                  "Locator": {
+                    "EntityNameInEditor": "Irabeth_atAnevia",
+                    "_entity_id": "e936f216-3b44-460a-a50b-3e565593a15a",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  },
+                  "Offset": "0|0|0"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+          "name": "$RecruitInactive$b71467f8-38be-484d-8af6-25704e482fe4",
+          "m_CompanionBlueprint": "!bp_0d37024170b172346b3769df92a971f5",
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$77c9eee1-cd1a-42fb-818b-c3e00705b7e8",
+                "m_flag": "!bp_4d033699483fde24ba8400f2166e8dba",
+                "flagValue": 1
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$1a1439c1-4c31-4645-87a6-134576a3e036",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Regill_AtCamp",
+                    "_entity_id": "58552408-e1ba-4637-ac0a-99d41dc72fcc",
+                    "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                },
+                "RespawnIfDead": false
+              }
+            ]
+          },
+          "AvailableDelay": true
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

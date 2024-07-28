@@ -1,0 +1,186 @@
+{
+  "AssetId": "dd8a4cd4dfd882945b53cd30bcfd7378",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_9cdd55cd76002b941b352b844d68c2d5"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$51c60583-9d75-4ffa-a933-bb9c4e385c99",
+          "Comment": "если взяли квест",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$959f7382-b94c-4fea-a0e2-b39081cebb96",
+                "Not": false,
+                "m_QuestObjective": "!bp_56e2b0ddf949cef48a2353134afca5b6",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$753453a6-b51a-4ff1-a39c-451b7685bef9",
+                "Not": false,
+                "m_QuestObjective": "!bp_7dc1d1fd591369e4086b58771d34b5fc",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$a7e432d8-7ef0-4251-899d-6e33fb35aa24",
+                "Comment": "отводим Сулла",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$a2700ae9-e8b2-4b78-8ce5-4b92c039b5d0",
+                      "Not": false,
+                      "m_Answer": "!bp_0e63a26de6e62fc498e5fe8f5513432b",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "2326a4042cfc94e428a670cabea6a13a, GlobalMapTeleport",
+                      "name": "$GlobalMapTeleport$140b149f-7f2e-4459-90a5-f6fc95f16819",
+                      "Destination": {
+                        "$type": "1764a2502dd662840b7e4a80a216114e, LocationBlueprint",
+                        "name": "$LocationBlueprint$04083596-4957-4d20-9609-7f67e3e3495d",
+                        "m_Location": "!bp_70990a0f7010447478e68b8e16ae52b2"
+                      },
+                      "SkipHours": {
+                        "$type": "49799ef400df6a4459812087dbf8b1d4, FloatConstant",
+                        "name": "$FloatConstant$908585bf-ac03-44f4-af24-fba74461a2c0",
+                        "Value": 2.0
+                      },
+                      "UpdateLocationVisitedTime": true
+                    },
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$e5b39188-029d-44e5-bf8d-77ff371052e9",
+                      "m_exitPositon": "!bp_cdaba43118a82ff429b803ae846b35b0",
+                      "AutoSaveMode": "AfterEntry",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$236a842f-7655-4051-98dc-ca95a903f7c5",
+                      "m_exitPositon": "!bp_7e85b0956750d9546b9d8c2a7542fbe6",
+                      "AutoSaveMode": "None",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$2d6532c9-0d2f-4e3f-be1f-497994470bbe",
+          "Etude": "!bp_94407ec1c80ae0040b6ec58721ef0317",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$9023c16a-9b22-4f8b-b92e-1fc5d36c7776",
+          "Etude": "!bp_75a0b2ee104466e44b94f6851f602ada",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$2ae6efbe-a300-4f83-b15c-f13ffe9f1186",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$087c6d89-1256-43dd-9130-5abc073b508b",
+            "MapObject": {
+              "EntityNameInEditor": "AreaExit",
+              "_entity_id": "ed921f62-43d9-4e68-b35f-2a4a53c80ac4",
+              "SceneAssetGuid": "7b700e75dfac788479c6874536d2caa0"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$e81c0745-f916-4c3d-882f-86ac5c57b47a",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$80a69509-4a1b-444c-b4cc-0822761d62c6",
+            "MapObject": {
+              "EntityNameInEditor": "AreaExit (1)",
+              "_entity_id": "8090b3d0-c2cd-4e72-950b-50ae61392f9f",
+              "SceneAssetGuid": "7b700e75dfac788479c6874536d2caa0"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$71ea47e3-a922-4da8-b4fc-b77ee8df1839",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$3cb8e8c1-3b06-4c05-b6a6-ffb7ed273043",
+            "MapObject": {
+              "EntityNameInEditor": "AreaExit (2)",
+              "_entity_id": "3faf4cae-aa67-4cc3-8525-918ba186eb89",
+              "SceneAssetGuid": "7b700e75dfac788479c6874536d2caa0"
+            }
+          },
+          "Unhide": true
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

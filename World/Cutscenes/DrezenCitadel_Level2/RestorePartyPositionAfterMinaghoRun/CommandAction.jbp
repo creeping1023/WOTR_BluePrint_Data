@@ -1,0 +1,154 @@
+{
+  "AssetId": "09170a6f8e6b79047914e92d98036bd4",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+          "name": "$StopCutscene$1d31d389-829e-4be0-af79-dbc0c9305e8e",
+          "m_Cutscene": "!bp_bc249594fad280d4c8657482454d8346",
+          "WithUnit": null,
+          "m_CheckType": "Params"
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$e0882ec1-7767-4e9f-bbe3-805c15505c46",
+          "m_Group": {
+            "EntityNameInEditor": "BossGroup-buff",
+            "_entity_id": "36b871e0-5310-47cb-b181-56d9b076f6eb",
+            "SceneAssetGuid": "4261bc2876c654341b3dd44e9d614a06"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$68353c33-6614-419f-a5d3-4fa3015977ef",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$8ef8ddd7-43e5-43d6-b565-455cf2ab043e"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$9c9b1c84-e84c-4495-a06c-f011513d842d",
+                "Unit1": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$369dc1bc-fb2a-4ffd-8367-c2981c4288fd"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$1b5629fe-f86c-451a-ab26-d1248027cd21"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e91d7519-4541-4d89-b247-904b9abbddc3",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$95eec31d-86ec-4772-a37f-a0c0f07ee327",
+                "Not": false,
+                "m_ConditionFlag": "!bp_5301ffc448e34dcab1e04daa63e7cc53",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$fe533ee5-9928-43d4-b869-df5af44f5328",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$20bfbffa-6a56-49e4-931a-92e230348131",
+                  "Spawner": {
+                    "EntityNameInEditor": "Nura",
+                    "_entity_id": "258c159c-20ec-4104-a8d4-9e92d67657b2",
+                    "SceneAssetGuid": "4261bc2876c654341b3dd44e9d614a06"
+                  }
+                },
+                "m_Faction": "!bp_4e1f333e518d4794bb41b025e991edb0",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$8aa93ff3-3269-4485-b503-502312a21631",
+          "Comment": "If Nurah not yet defeated",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b53e48f4-d3ea-4768-b6f1-8e8f9b996c57",
+                "Not": false,
+                "m_Etude": "!bp_ef24ca786d455e34fbdbf484f0437993",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$5a844202-7767-4a65-a2e9-e0fee24bc288",
+                "m_Buff": "!bp_b4027a834204042409248889cc8abf67",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$e79d7407-f572-494e-9c86-14d54626b138",
+                  "Spawner": {
+                    "EntityNameInEditor": "Nura",
+                    "_entity_id": "258c159c-20ec-4104-a8d4-9e92d67657b2",
+                    "SceneAssetGuid": "4261bc2876c654341b3dd44e9d614a06"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

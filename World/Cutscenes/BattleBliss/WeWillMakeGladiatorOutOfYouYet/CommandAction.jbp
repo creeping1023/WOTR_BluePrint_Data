@@ -1,0 +1,110 @@
+{
+  "AssetId": "647f571153c63de409b9537a68ab1156",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$a1145f4a-9541-4d10-b05d-8f4cb6fa9b67",
+          "m_exitPositon": "!bp_54e292b6854aa1c499e017d944aa2c17",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "6981071bc74236f4293f1a19ed2ebb32, TranslocatePlayer",
+                "name": "$TranslocatePlayer$4702d01d-73c6-477b-a699-646a1a33672b",
+                "transolcatePosition": {
+                  "EntityNameInEditor": "SecondHalf_Loc",
+                  "_entity_id": "a2443d84-2881-4d02-9d5c-9c13f4be4b6a",
+                  "SceneAssetGuid": "8856e6e52d2120148a475feaf200e3e7"
+                },
+                "ByFormationAndWithPets": true,
+                "ScrollCameraToPlayer": true
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$9b9f5109-f5b4-4b96-ba20-e7816ab3b2a1",
+                "Comment": "Подпирает детач пати от игрока, если ",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "733156d0f0c6b83499127498d864135f, IsEqual",
+                      "name": "$IsEqual$bbd36431-919c-45c9-9286-40f3e164a24d",
+                      "Not": false,
+                      "FirstValue": {
+                        "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                        "name": "$IntConstant$57c78097-9e7d-4852-bac0-2951c65e1d7d",
+                        "Value": 1
+                      },
+                      "SecondValue": {
+                        "$type": "594eb1641121be9419363a2f68ab0d7d, CurrentPartySize",
+                        "name": "$CurrentPartySize$b7c26bb0-8b81-458d-921a-0a738b00485b"
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+                      "name": "$PartyMembersDetachEvaluated$67591029-2f50-4a9f-94f1-2b439483ebc8",
+                      "DetachThese": [
+                        {
+                          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                          "name": "$PlayerCharacter$6f90713a-0465-4ddb-9290-044ba1897fcd"
+                        }
+                      ],
+                      "AfterDetach": {
+                        "Actions": [
+                          {
+                            "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                            "name": "$PartyMembersSwapAttachedAndDetached$0a671e2d-4ed8-463b-ab25-d27eedb19f88"
+                          }
+                        ]
+                      },
+                      "m_RestrictPartySize": false,
+                      "m_PartySize": -1
+                    },
+                    {
+                      "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                      "name": "$PartyUnits$930d425e-81bc-4889-8e03-8a9f9252aa25",
+                      "m_UnitsList": "AllDetachedUnits",
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$235b4d84-05ae-4d45-913a-cc11aebbd878",
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$ba72f23a-d472-4a3d-8ccd-bf9e2afb8801"
+                            },
+                            "Unhide": false,
+                            "Fade": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

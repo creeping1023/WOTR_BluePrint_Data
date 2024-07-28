@@ -1,0 +1,95 @@
+{
+  "AssetId": "47a32b920c7242e4192351a8cf3de6d9",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "49e3105a0ea5eb9499b86c72c715c140, RollPartySkillCheck",
+          "name": "$RollPartySkillCheck$90804f73-b7a0-470b-ac6b-2c13d65b6dbd",
+          "Stat": "SkillPerception",
+          "DC": 22,
+          "LogSuccess": true,
+          "LogFailure": true,
+          "OnSuccess": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$414105f1-75b5-4da3-b0ef-e4f88922c20e",
+                "m_exitPositon": "!bp_fdddc28b923b4884298ce855630ca078",
+                "AutoSaveMode": "None",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+                "name": "$TimeSkip$3f02695a-2f03-4d4c-8a56-46facaf596f6",
+                "m_Type": "Minutes",
+                "MinutesToSkip": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$9183cba3-b458-4434-8555-8268852ed518",
+                  "Value": 60
+                },
+                "TimeOfDay": "Morning",
+                "NoFatigue": false,
+                "MatchTimeOfDay": false
+              }
+            ]
+          },
+          "OnFailure": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$697904ee-b921-4f85-966c-a2cab43f89ed",
+                "m_exitPositon": "!bp_0c4dfecc4ad5b5d40bfd7bc77c2c675c",
+                "AutoSaveMode": "None",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$9a7d5713-f0c5-47f6-ba21-658093b42613",
+                      "Unit1": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$f0e30b53-e45b-473c-b8a3-92613a753f5b"
+                      },
+                      "Unit2": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$496a1a65-6efd-4e02-8422-9602e409e0d2",
+                        "Spawner": {
+                          "EntityNameInEditor": "Retriver",
+                          "_entity_id": "84e8d947-441e-4b5e-a230-67067eef111a",
+                          "SceneAssetGuid": "980ea854dc0068d49b61d9b55840b3b1"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+                "name": "$TimeSkip$5008534d-9662-4cc6-8734-7e2fe0e3ec24",
+                "m_Type": "Minutes",
+                "MinutesToSkip": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$f57dbf45-76bf-4663-b731-8271fdfb6137",
+                  "Value": 60
+                },
+                "TimeOfDay": "Morning",
+                "NoFatigue": false,
+                "MatchTimeOfDay": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

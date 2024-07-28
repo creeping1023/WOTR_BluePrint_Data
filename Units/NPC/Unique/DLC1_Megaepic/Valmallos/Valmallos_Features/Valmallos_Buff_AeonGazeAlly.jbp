@@ -1,0 +1,678 @@
+{
+  "AssetId": "67e8a3dd2d6a47a2bcf20e059a01fc72",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "f08844ce14d498a45a9fc64582489a2a, AddContextStatBonus",
+        "m_Flags": 0,
+        "name": "$AddContextStatBonus$26d997ba-ee69-4458-a4d5-b25742bcbd64",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": "None",
+        "Stat": "AdditionalAttackBonus",
+        "Multiplier": 1,
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 6,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "HasMinimal": false,
+        "Minimal": 0
+      },
+      {
+        "$type": "44ea038011e497c43969a3804919a183, AttackOfOpportunityDamageBonus",
+        "m_Flags": 0,
+        "name": "$AttackOfOpportunityDamageBonus$97465642-e926-4362-90b4-987afd38a3f6",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "DamageBonus": {
+          "ValueType": "Simple",
+          "Value": 10,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "CheckWeaponRangeType": false,
+        "WeaponType": "Normal"
+      },
+      {
+        "$type": "6955f9c2e0424e7aa8c028b732d7809a, AttackOfOpportunityAttackBonus",
+        "m_Flags": 0,
+        "name": "$AttackOfOpportunityAttackBonus$a309ccc8-40ab-4831-8533-46b197ec383c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "NotAttackOfOpportunity": false,
+        "Descriptor": "UntypedStackable",
+        "Bonus": {
+          "ValueType": "Simple",
+          "Value": 10,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        }
+      },
+      {
+        "$type": "25d172d2be8f52f468b2050d14d59806, AddFactContextActions",
+        "m_Flags": 0,
+        "name": "$AddFactContextActions$d04f8373-9466-423f-b13e-29e7b996aaa1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Activated": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3a458b3a-73e5-4931-8656-5f44ae558f84",
+              "Comment": "2orMoreAoO",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "99982e1799202b94a8e5fc95d52696e7, ContextConditionStatValue",
+                    "name": "$ContextConditionStatValue$68ee4e93-a29d-478c-acd0-2b1d445da21a",
+                    "Not": false,
+                    "N": 2,
+                    "Stat": "AttackOfOpportunityCount"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$c90d5fd8-590d-46ab-a712-f4e0e1d4ac29",
+                    "m_Buff": "!bp_3eff337b32084f85b89cfcb1e3f66dd3",
+                    "Permanent": true,
+                    "UseDurationSeconds": false,
+                    "DurationValue": {
+                      "Rate": "Rounds",
+                      "DiceType": "Zero",
+                      "DiceCountValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "m_IsExtendable": true
+                    },
+                    "DurationSeconds": 0.0,
+                    "IsFromSpell": false,
+                    "IsNotDispelable": false,
+                    "ToCaster": false,
+                    "AsChild": true,
+                    "SameDuration": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "Deactivated": {
+          "Actions": [
+            {
+              "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+              "name": "$ContextActionRemoveBuff$895df60f-ee9e-487c-ac83-dd748895c293",
+              "m_Buff": "!bp_3eff337b32084f85b89cfcb1e3f66dd3",
+              "RemoveRank": false,
+              "ToCaster": false,
+              "OnlyFromCaster": false
+            }
+          ]
+        },
+        "NewRound": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "640382a0d0a443c49c3286af29271619, AreaEffectImmunity",
+        "m_Flags": 0,
+        "name": "$AreaEffectImmunity$d18fa441-94ae-4767-a093-e0c0e90d01be",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_CasterType": "Ally",
+        "m_SpecificAreaEffects": false,
+        "m_AreaEffects": []
+      },
+      {
+        "$type": "0abe56dd36394ebf9ae0b7da6c9232b6, AreaEffectEnterTrigger",
+        "m_Flags": 0,
+        "name": "$AreaEffectEnterTrigger$8f13267b-8e64-4fa1-aa7b-078a9483c5e0",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_CasterType": "Enemy",
+        "m_SpecificAreaEffects": false,
+        "m_AreaEffects": [],
+        "m_ActionsOnOwner": {
+          "Actions": [
+            {
+              "$type": "3975048ed4374410abe0a78e20cf4059, ContextActionOnTargetPoint",
+              "name": "$ContextActionOnTargetPoint$882d1cb2-6c4f-4440-b62f-7c5498304a4d",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "920d409ea2c340eea999f494c1d51cb7, ContextActionDispelMagic",
+                    "name": "$ContextActionDispelMagic$abc269ef-7bab-4363-9111-3e2ef5ffccc2",
+                    "m_StopAfterCountRemoved": false,
+                    "m_CountToRemove": {
+                      "ValueType": "Simple",
+                      "Value": 1,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level"
+                    },
+                    "m_BuffType": "FromSpells",
+                    "m_MaxSpellLevel": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level"
+                    },
+                    "m_UseMaxCasterLevel": false,
+                    "m_MaxCasterLevel": {
+                      "ValueType": "Simple",
+                      "Value": 0,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null,
+                      "m_AbilityParameter": "Level"
+                    },
+                    "m_CheckType": "CasterLevel",
+                    "m_Skill": "Unknown",
+                    "CheckBonus": 0,
+                    "ContextBonus": {
+                      "ValueType": "Simple",
+                      "Value": 20,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": "!bp_f363c368c37546c3a4793b348963dc28",
+                      "m_AbilityParameter": "Level"
+                    },
+                    "Schools": [],
+                    "Descriptor": {
+                      "m_IntValue": 0
+                    },
+                    "OnSuccess": {
+                      "Actions": []
+                    },
+                    "OnFail": {
+                      "Actions": []
+                    },
+                    "OnlyTargetEnemyBuffs": false,
+                    "OnlyEnemyAreaEffects": true,
+                    "CheckSchoolOrDescriptor": false,
+                    "OneRollForAll": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f08844ce14d498a45a9fc64582489a2a, AddContextStatBonus",
+        "m_Flags": 0,
+        "name": "$AddContextStatBonus$6042e762-a734-40f1-af23-f09b3307216e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": "None",
+        "Stat": "AdditionalCMB",
+        "Multiplier": 1,
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 6,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "HasMinimal": false,
+        "Minimal": 0
+      },
+      {
+        "$type": "f4eba19e9bc376b4aad27b2007fd217a, ConcentrationBonus",
+        "m_Flags": 0,
+        "name": "$ConcentrationBonus$03dc6aef-879a-4520-bff5-669510a136e3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 10,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "CheckFact": false,
+        "m_RequiredFact": null
+      },
+      {
+        "$type": "f08844ce14d498a45a9fc64582489a2a, AddContextStatBonus",
+        "m_Flags": 0,
+        "name": "$AddContextStatBonus$a9efc696-9023-47f0-8499-05476493e5e3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": "None",
+        "Stat": "AdditionalDamage",
+        "Multiplier": 1,
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 6,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "HasMinimal": false,
+        "Minimal": 0
+      },
+      {
+        "$type": "08137319680ee4b4b876e93e04fd3595, IncreaseAllSpellsDC",
+        "m_Flags": 0,
+        "name": "$IncreaseAllSpellsDC$2b61979d-382e-4a8d-b873-dcbe71614bf9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 4,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "Descriptor": "UntypedStackable",
+        "SpellsOnly": false
+      },
+      {
+        "$type": "c4475440f92900445aefbb18cfd9215e, AddDamageResistancePhysical",
+        "m_Flags": 0,
+        "name": "$AddDamageResistancePhysical$c4ce6fb5-c16f-4f7e-9764-b407cc671bcd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 20,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "UsePool": false,
+        "Pool": {
+          "ValueType": "Simple",
+          "Value": 12,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "Or": false,
+        "BypassedByMaterial": false,
+        "Material": "Adamantite",
+        "BypassedByForm": false,
+        "Form": 0,
+        "BypassedByMagic": false,
+        "MinEnhancementBonus": 1,
+        "BypassedByAlignment": true,
+        "Alignment": "Chaotic",
+        "BypassedByReality": false,
+        "Reality": "Ghost",
+        "BypassedByWeaponType": false,
+        "m_WeaponType": null,
+        "BypassedByMeleeWeapon": false,
+        "BypassedByEpic": false,
+        "m_CheckedFactMythic": null
+      },
+      {
+        "$type": "28c478c0c3f715e43bef94a3a6f8b8bc, AddDamageResistanceEnergy",
+        "m_Flags": 0,
+        "name": "$AddDamageResistanceEnergy$53015348-4f05-45c1-9248-db4a85b82ba3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 50,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "UsePool": false,
+        "Pool": {
+          "ValueType": "Simple",
+          "Value": 12,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "Type": "Fire",
+        "UseValueMultiplier": false,
+        "ValueMultiplier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        }
+      },
+      {
+        "$type": "28c478c0c3f715e43bef94a3a6f8b8bc, AddDamageResistanceEnergy",
+        "m_Flags": 0,
+        "name": "$AddDamageResistanceEnergy$6dcc0d5c-9e2c-40dc-9a88-f0ba2f092587",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 50,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "UsePool": false,
+        "Pool": {
+          "ValueType": "Simple",
+          "Value": 12,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "Type": "Cold",
+        "UseValueMultiplier": false,
+        "ValueMultiplier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        }
+      },
+      {
+        "$type": "28c478c0c3f715e43bef94a3a6f8b8bc, AddDamageResistanceEnergy",
+        "m_Flags": 0,
+        "name": "$AddDamageResistanceEnergy$0c90ac45-deb0-403e-b060-f94b498ff9ae",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 50,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "UsePool": false,
+        "Pool": {
+          "ValueType": "Simple",
+          "Value": 12,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "Type": "Sonic",
+        "UseValueMultiplier": false,
+        "ValueMultiplier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        }
+      },
+      {
+        "$type": "28c478c0c3f715e43bef94a3a6f8b8bc, AddDamageResistanceEnergy",
+        "m_Flags": 0,
+        "name": "$AddDamageResistanceEnergy$9112da33-695f-43de-bdf8-08528ea62676",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 50,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "UsePool": false,
+        "Pool": {
+          "ValueType": "Simple",
+          "Value": 12,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "Type": "Electricity",
+        "UseValueMultiplier": false,
+        "ValueMultiplier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        }
+      },
+      {
+        "$type": "28c478c0c3f715e43bef94a3a6f8b8bc, AddDamageResistanceEnergy",
+        "m_Flags": 0,
+        "name": "$AddDamageResistanceEnergy$5f25bf9f-2f6b-4deb-8f4b-ffe3ce47944b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 50,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "UsePool": false,
+        "Pool": {
+          "ValueType": "Simple",
+          "Value": 12,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "Type": "Acid",
+        "UseValueMultiplier": false,
+        "ValueMultiplier": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        }
+      },
+      {
+        "$type": "0ce9229398e1f634eb9e1a105594968d, TemporaryHitPointsFromAbilityValue",
+        "m_Flags": 0,
+        "name": "$TemporaryHitPointsFromAbilityValue$bffaa59c-6536-4c16-960a-b1380c82b10f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": "None",
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 20,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "RemoveWhenHitPointsEnd": false
+      },
+      {
+        "$type": "a2844c135c0324e439072bd3cc2f9260, AddStatBonus",
+        "m_Flags": 0,
+        "name": "$AddStatBonus$08468361-5a84-48f4-b372-5bcd6b562815",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": "UntypedStackable",
+        "Stat": "BonusCasterLevel",
+        "Value": 4,
+        "ScaleByBasicAttackBonus": false
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "5ac69df3d97628748895e8d90294118c",
+        "stringkey": "207cfb50-0b37-45d2-93e1-03d51e73f937"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "491d31aa871acbd4596806bae8505c89",
+        "stringkey": "05e49a58-e081-4040-a9de-5644ca694b85"
+      }
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "f1474b19f506ee7438951cc5025fdb97",
+      "fileid": 21300000
+    },
+    "IsClassFeature": false,
+    "m_Flags": 0,
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

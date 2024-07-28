@@ -1,0 +1,86 @@
+{
+  "AssetId": "26880637f3e04a2a8404ed9ad4faf52a",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$17f59f54-33fc-4d41-a442-a73e3dda2860",
+          "Comment": "All wines degustated",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$b5bb9951-1289-49d3-a49c-d1b8113be1c6",
+                "Not": false,
+                "m_Flag": "!bp_ecc2e0bee1d543688274850bf122488f",
+                "MinValue": 4,
+                "MaxValue": 4
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$5c31e591-8001-4f05-98b2-aa85b6e53cbf",
+                "m_Cutscene": "!bp_f4e5272a4c7a406fbbbce1ba536be17f",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$c29609bf-ef10-450a-abfb-48c3e82b087f",
+                "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                "TargetType": "Evaluator",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$12374744-1056-4aae-8389-5fd52c58ffe5"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$6fdbefe1-edbb-44d3-be95-0f42f73bffea",
+          "Status": "Complete",
+          "m_Objective": "!bp_3858d3ba65674480bbc59812545969d7",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$7e4b977b-e24e-4653-83e8-b2918b885d11",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$82bfca75-cf7f-4c57-b8c8-12b4fab77f24",
+            "MapObject": {
+              "EntityNameInEditor": "BlurAndDistortion",
+              "_entity_id": "3f2242f5-f90c-483a-a089-9ffa2d2e05c7",
+              "SceneAssetGuid": "1bf40f3edc77d1a44b12379051186ea9"
+            }
+          },
+          "Unhide": false,
+          "UseEntityFader": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

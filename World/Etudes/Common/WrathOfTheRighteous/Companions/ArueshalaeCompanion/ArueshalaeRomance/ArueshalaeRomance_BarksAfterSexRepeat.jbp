@@ -1,0 +1,820 @@
+{
+  "AssetId": "153f4fa2087d53545ae3ade0f4db81bd",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$6a640005-2bff-4969-b92e-765acaafc1c5",
+      "$DeactivateTrigger$6003646a-818f-4cba-8f72-8a018b506257",
+      "$RestTrigger$fb78b48f-9bd7-4f90-a60a-9bd7e6cf43a1"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$6a640005-2bff-4969-b92e-765acaafc1c5",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+              "name": "$TranslocateUnit$51c1d419-4065-4a4c-96f9-454c62990c65",
+              "Unit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$c462bc17-c21e-4812-9a2f-d555d989bc8a"
+              },
+              "translocatePosition": {
+                "EntityNameInEditor": "PC_AfterSex",
+                "_entity_id": "b96b7f3e-3754-46be-b573-9c46af44f353",
+                "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+              },
+              "translocatePositionEvaluator": null,
+              "m_CopyRotation": true,
+              "translocateOrientationEvaluator": null
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$98e3564c-b964-4761-a25b-4cde18502b96",
+              "m_Cutscene": "!bp_2e0c26f481e34365ab88b7ab66079f32",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Move",
+                    "Type": "Position",
+                    "Evaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$a7922176-f162-4337-9f96-22e062e6308b",
+                      "Locator": {
+                        "EntityNameInEditor": "Camera_AfterSex",
+                        "_entity_id": "174c0573-03ab-4525-aa22-1b20fb8b8334",
+                        "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+                      },
+                      "Offset": "0|0|0"
+                    }
+                  },
+                  {
+                    "Name": "Rotate",
+                    "Type": "Float",
+                    "Evaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$a1f99b73-db0d-4e1e-932c-6284bba1996c",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Camera_AfterSex",
+                        "_entity_id": "174c0573-03ab-4525-aa22-1b20fb8b8334",
+                        "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$149c530f-5b1c-4b44-aa09-cc7a61040ff4",
+              "Comment": "добрая или злая Аруша",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$dcfcf846-9bfd-4694-90c6-155875eda628",
+                    "Not": false,
+                    "m_companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": true,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": true,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$43c8d6f4-5b82-4cb9-8eb4-5b95ef62e27f",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$8b902ab8-522c-4f3a-81cb-0b2565a29da8",
+                      "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "Unhide": true,
+                    "Fade": false,
+                    "SetHideInSaves": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$f60cc454-ebd0-4f51-ab55-b5df597f304e",
+                    "Unit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$9d791979-2649-4d2c-bd24-31f8c58b842b",
+                      "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "Arusha_AfterSex",
+                      "_entity_id": "6107168c-344f-4a23-948f-8262ea1df1f2",
+                      "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": null
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$929eaf25-2cc2-45ba-be2c-31bc74a4cb9b",
+                    "Comment": "best ending",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                          "name": "$DialogSeen$b45efd4b-6ec7-49c2-a8d0-3c05ffc01c26",
+                          "Not": true,
+                          "m_Dialog": "!bp_3edf6ac1aefa1e3429ca04c60cb8565c"
+                        },
+                        {
+                          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                          "name": "$OrAndLogic$e565440a-3881-41a3-85d2-e7daecec0750",
+                          "Not": false,
+                          "Comment": "",
+                          "ConditionsChecker": {
+                            "Operation": "Or",
+                            "Conditions": [
+                              {
+                                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                                "name": "$OrAndLogic$c11cc007-6e8a-4219-ba0f-a64f37e07b8a",
+                                "Not": false,
+                                "Comment": "",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$0de448ef-727b-482c-bd58-b1fdf96bad65",
+                                      "Not": false,
+                                      "m_Etude": "!bp_fc5622515e16c3a40abdae8080cb8c16",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    },
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$50f5d841-c7d5-4707-830b-54e0589a9b7d",
+                                      "Not": false,
+                                      "m_Etude": "!bp_4f2a4e63f3884c940b8e09428457f2d3",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                                "name": "$OrAndLogic$f567340c-29ad-4efb-83df-7543dd043b16",
+                                "Not": false,
+                                "Comment": "",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$c4126bb0-c73e-4aa5-83c0-1f89a8a7f4fb",
+                                      "Not": false,
+                                      "m_Etude": "!bp_fc5622515e16c3a40abdae8080cb8c16",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    },
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$cdee8faf-2419-48c0-8456-aeacddc9f7ad",
+                                      "Not": false,
+                                      "m_Etude": "!bp_4856c9eea070068469f8ed723b954d7a",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                                "name": "$OrAndLogic$7eda89b0-1858-4e86-8e6f-b3c1fa7bf444",
+                                "Not": false,
+                                "Comment": "",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$3a77033f-3e17-4932-acb5-b1efe66e61de",
+                                      "Not": false,
+                                      "m_Etude": "!bp_fc5622515e16c3a40abdae8080cb8c16",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    },
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$6569efe3-553b-4fa6-8a58-64a9934f30c9",
+                                      "Not": false,
+                                      "m_Etude": "!bp_40d5729eadbe2484a822f9e417add3f4",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                                "name": "$OrAndLogic$f8e490bd-e9ad-475f-a9d5-f99adeb335bf",
+                                "Not": false,
+                                "Comment": "",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$8666aa91-4066-465d-ab63-860f2325b850",
+                                      "Not": false,
+                                      "m_Etude": "!bp_4f2a4e63f3884c940b8e09428457f2d3",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    },
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$3c1094cd-109d-48f3-a4fc-e73d2135fe84",
+                                      "Not": false,
+                                      "m_Etude": "!bp_4856c9eea070068469f8ed723b954d7a",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                                "name": "$OrAndLogic$ffba5da3-dffa-45ca-a788-75a7e1f57baa",
+                                "Not": false,
+                                "Comment": "",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$c1b51708-1855-44c4-870d-c8933fda8752",
+                                      "Not": false,
+                                      "m_Etude": "!bp_4f2a4e63f3884c940b8e09428457f2d3",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    },
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$ca689581-be6e-4aac-aca2-fd48015dccb0",
+                                      "Not": false,
+                                      "m_Etude": "!bp_40d5729eadbe2484a822f9e417add3f4",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                                "name": "$OrAndLogic$5331499c-8f97-4f2f-b59b-18a65b41114e",
+                                "Not": false,
+                                "Comment": "",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$786d7ccf-d0e4-4455-9f20-36783f888b89",
+                                      "Not": false,
+                                      "m_Etude": "!bp_4856c9eea070068469f8ed723b954d7a",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    },
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$d671389f-2182-4d3b-8664-4f71b5ed9622",
+                                      "Not": false,
+                                      "m_Etude": "!bp_40d5729eadbe2484a822f9e417add3f4",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$ed8f8b09-0f4e-4af1-b598-518ca8990446",
+                          "m_Cutscene": "!bp_83d88c438bd2443585c25ada7c077528",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$19c3dc76-5aee-40ef-8f6c-500588ebb3a3",
+                          "m_Cutscene": "!bp_219b9de5cd534decb714ee76a30c692e",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": [
+                              {
+                                "Name": "Unit",
+                                "Type": "Unit",
+                                "Evaluator": {
+                                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                  "name": "$CompanionInParty$226908a1-736f-4bcc-b184-025570fe0090",
+                                  "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                                  "IncludeRemote": true,
+                                  "IncludeExCompanions": false,
+                                  "IncludeDettached": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$e8473bc5-6cc8-4c39-8eb5-c48e78b8f784",
+                    "Comment": "злая",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                          "name": "$CompanionInParty$d2503d79-31b6-4cf9-aadf-5453f1b39786",
+                          "Not": false,
+                          "m_companion": "!bp_e3bc95db7e2181d41847b3a1d858258d",
+                          "MatchWhenActive": true,
+                          "MatchWhenDetached": true,
+                          "MatchWhenRemote": true,
+                          "MatchWhenDead": true,
+                          "MatchWhenEx": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                          "name": "$HideUnit$9d8d8760-aee9-4f9c-bb5c-4c8e848f437e",
+                          "Target": {
+                            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                            "name": "$CompanionInParty$281d9cde-a14c-4b1e-9746-1263eed23eac",
+                            "m_Companion": "!bp_e3bc95db7e2181d41847b3a1d858258d",
+                            "IncludeRemote": true,
+                            "IncludeExCompanions": false,
+                            "IncludeDettached": true
+                          },
+                          "Unhide": true,
+                          "Fade": false,
+                          "SetHideInSaves": false
+                        },
+                        {
+                          "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                          "name": "$TranslocateUnit$98048d62-08fa-4f26-a484-48bb69f20227",
+                          "Unit": {
+                            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                            "name": "$CompanionInParty$cefe37c7-be2a-47ad-b014-3aab679d02f9",
+                            "m_Companion": "!bp_e3bc95db7e2181d41847b3a1d858258d",
+                            "IncludeRemote": true,
+                            "IncludeExCompanions": false,
+                            "IncludeDettached": true
+                          },
+                          "translocatePosition": {
+                            "EntityNameInEditor": "Arusha_AfterSex",
+                            "_entity_id": "6107168c-344f-4a23-948f-8262ea1df1f2",
+                            "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+                          },
+                          "translocatePositionEvaluator": null,
+                          "m_CopyRotation": true,
+                          "translocateOrientationEvaluator": null
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$b98d2b6a-5cbf-44f1-9b3c-6cd464c5b9bb",
+                          "m_Cutscene": "!bp_219b9de5cd534decb714ee76a30c692e",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": [
+                              {
+                                "Name": "Unit",
+                                "Type": "Unit",
+                                "Evaluator": {
+                                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                  "name": "$CompanionInParty$b945e18a-3fd3-45e1-be49-6b0dfb52515b",
+                                  "m_Companion": "!bp_e3bc95db7e2181d41847b3a1d858258d",
+                                  "IncludeRemote": true,
+                                  "IncludeExCompanions": false,
+                                  "IncludeDettached": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "m_Flags": 0,
+        "name": "$DeactivateTrigger$6003646a-818f-4cba-8f72-8a018b506257",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+              "name": "$LockFlag$84d66e9d-21fb-450b-a9dc-3c54a343bb07",
+              "m_Flag": "!bp_9dac70e5ac8de9f4f923d5ac73fb5ca7"
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b346b31b-719e-4e10-864c-6c9d9325fefa",
+              "Comment": "Which Arueshalae",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$521c3771-31f6-417c-87b7-377d1d6e6b95",
+                    "Not": false,
+                    "m_companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": true,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": true,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$893514c6-7516-49c2-82c8-e2c1f85f5480",
+                    "m_Buff": "!bp_b42dadff1b1b41c1a3b424348da16a8e",
+                    "TargetType": "Evaluator",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$36338e06-b376-4753-a1ec-fc290d242770",
+                      "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    }
+                  },
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$8e4c460a-396d-4c4a-ab42-360e31f61a6e",
+                    "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                    "TargetType": "Evaluator",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$e710b3fc-430b-4abf-97a1-9c3ec2d2cf38",
+                      "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    }
+                  },
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$52283e80-3f4f-4f75-99fd-1d01c1e9d970",
+                    "m_Cutscene": "!bp_b7ac8303727d4d758e292a225d7a0b9c",
+                    "m_AllCutscenesFromUnit": false,
+                    "WithUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$24f91f47-acbc-42c3-9fef-9dbb3158adbc",
+                      "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$7d082478-756e-4561-9758-2676dda2c066",
+                    "m_Buff": "!bp_d8427c4321f24ffa9ddb292892447c81",
+                    "TargetType": "Evaluator",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$bacd19b2-9cc1-4997-82fc-88aec5ed57ef",
+                      "m_Companion": "!bp_e3bc95db7e2181d41847b3a1d858258d",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    }
+                  },
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$293477c5-9cfa-4bc8-9e3d-058ea59b8533",
+                    "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                    "TargetType": "Evaluator",
+                    "Target": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$fab3a500-d6a7-4880-9008-fd2a6eb6ab16",
+                      "m_Companion": "!bp_e3bc95db7e2181d41847b3a1d858258d",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "c75ee4e1acb84f96b01f36cb06b2b5aa, RestTrigger",
+        "m_Flags": 0,
+        "name": "$RestTrigger$fb78b48f-9bd7-4f90-a60a-9bd7e6cf43a1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Once": false,
+        "RestResults": 31,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+              "name": "$LockFlag$31a3644f-b96e-4f60-979e-862ab0c90b06",
+              "m_Flag": "!bp_9dac70e5ac8de9f4f923d5ac73fb5ca7"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "d3e4fc9142494f99a469c1dd43abe255, AreaDidLoadTrigger",
+        "m_Flags": 0,
+        "name": "$AreaDidLoadTrigger$178f4710-a53a-40b7-a994-97863b9a3f08",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$26ea8655-b45e-41f9-b8e4-2a6f5df6fdf7",
+              "Comment": "Which Arueshalae",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$40d55d00-d2a4-4610-a084-6bc74571c511",
+                    "Not": false,
+                    "m_companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": true,
+                    "MatchWhenRemote": true,
+                    "MatchWhenDead": true,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$900640f0-bcc9-44a4-8a0e-42cd8daf76bb",
+                    "Unit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$7cd353c3-ded3-483c-bc74-73a81b15885a",
+                      "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$75c7b4dc-764d-4506-8aff-d207819dc3d2",
+                      "Locator": {
+                        "EntityNameInEditor": "Arusha_AfterSex_Default",
+                        "_entity_id": "43ab345a-d697-4786-9453-a9998ab7b6f5",
+                        "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$b467030f-48d8-4dd3-a9b6-bd0b902ad4fb",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Arusha_AfterSex_Default",
+                        "_entity_id": "43ab345a-d697-4786-9453-a9998ab7b6f5",
+                        "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$c0caf9ec-176e-444f-8d90-c9729b379dbb",
+                    "Unit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$65c241a5-e856-48b4-b061-3da1905fe4b6",
+                      "m_Companion": "!bp_e3bc95db7e2181d41847b3a1d858258d",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$3a6dcae0-e31d-4012-b83e-8a0072aedc95",
+                      "Locator": {
+                        "EntityNameInEditor": "ArushaEvil_AfterSex_2",
+                        "_entity_id": "00fa3bdf-c369-43c1-9532-fc7f606a0f71",
+                        "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$b5380a56-fef4-4f0f-9fc3-ada9470a8ce3",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "ArushaEvil_AfterSex_2",
+                        "_entity_id": "00fa3bdf-c369-43c1-9532-fc7f606a0f71",
+                        "SceneAssetGuid": "a18ca87efcb4ecf4ca80629cb2b73b8e"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        }
+      }
+    ],
+    "Comment": "после финала романса / в тронном зале (спальне)\nт.к. юзается в Злой Аруше - живёт в стэйтах",
+    "m_Parent": "!bp_c2425898a677dc1458882573c6ec5875",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$6ede5e0e-a308-4613-9687-f868ccb8803c",
+          "Not": false,
+          "m_ConditionFlag": "!bp_9dac70e5ac8de9f4f923d5ac73fb5ca7",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [
+      "!bp_c7b51ac4d31ec0d44a9bf247970392d9"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_e9b90bde9363c0043a08ff370725741d",
+      "!bp_6399271177af93444bc9bf1635ae971d",
+      "!bp_70fbd75d9a34cca42a39225789af3afb"
+    ],
+    "Priority": 500
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

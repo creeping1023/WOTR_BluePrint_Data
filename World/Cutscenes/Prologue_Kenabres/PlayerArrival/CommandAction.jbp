@@ -1,0 +1,105 @@
+{
+  "AssetId": "3b32898dbee47f44e89683623e41411d",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "6981071bc74236f4293f1a19ed2ebb32, TranslocatePlayer",
+          "name": "$TranslocatePlayer$7b044927-e3b1-401f-a725-b56847e9e0d0",
+          "transolcatePosition": {
+            "EntityNameInEditor": "PlayerLocator",
+            "_entity_id": "41f5e93c-7480-4ecf-be7c-96ec38bc1aa5",
+            "SceneAssetGuid": "02141b6ae66c6524094d4876d57ec7e0"
+          },
+          "ByFormationAndWithPets": false,
+          "ScrollCameraToPlayer": false
+        },
+        {
+          "$type": "2284267c23c69d442a9c3b9e9954283b, HideWeapons",
+          "name": "$HideWeapons$b8e96149-f514-4171-899d-99c6cc6bf9c9",
+          "Target": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$874902ae-dde2-4807-95a3-716da3db5985"
+          },
+          "Hide": true
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$01b57d03-7b4e-41e3-b06a-c8f1228f69bb",
+          "Comment": "Есть пет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                "name": "$UnitIsNull$69e2aa95-62da-4b84-ac90-67ce97823d3d",
+                "Not": true,
+                "Target": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$1098eef5-1004-4e81-9e76-26b773e8e905",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$29990c29-9738-4b97-8f1e-5f16c1f3b0ea"
+                  },
+                  "PetType": "AnimalCompanion"
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$65d9ab93-aa4e-470c-a16e-f8811e5727d8",
+                "Unit": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$36b66552-df92-413a-a6ef-a5505044ddaf",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$c0bb4f00-71c5-48fa-b4aa-507c1d6a9e42"
+                  },
+                  "PetType": "AnimalCompanion"
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "",
+                  "_entity_id": "",
+                  "SceneAssetGuid": ""
+                },
+                "translocatePositionEvaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$757249e3-4fbf-4631-8359-49479e84e410",
+                  "Locator": {
+                    "EntityNameInEditor": "PlayerPetLocator",
+                    "_entity_id": "08dce338-16f4-40e5-b98f-a532428f5c7a",
+                    "SceneAssetGuid": "02141b6ae66c6524094d4876d57ec7e0"
+                  },
+                  "Offset": "0|0|0"
+                },
+                "m_CopyRotation": true,
+                "translocateOrientationEvaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$71508b3c-90fb-493a-92c0-dd73658489d6",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "PlayerPetLocator",
+                    "_entity_id": "08dce338-16f4-40e5-b98f-a532428f5c7a",
+                    "SceneAssetGuid": "02141b6ae66c6524094d4876d57ec7e0"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

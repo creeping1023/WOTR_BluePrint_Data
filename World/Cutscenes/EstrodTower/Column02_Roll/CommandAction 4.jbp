@@ -1,0 +1,153 @@
+{
+  "AssetId": "bbf0fe40f981cc14e9f025af824b7cbb",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9d9a9972-48e4-452c-a486-6b5b865f7606",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b5891016-0b94-49c9-b3d4-0510f05e85a4",
+                "Not": false,
+                "m_Etude": "!bp_aa6f4ded36ce40346af5b83ba900fe83",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$6df5db25-ae0c-41c9-a8f9-ad2f42e3abae",
+                "Not": true,
+                "m_QuestObjective": "!bp_28e8dc7bc381f7f4bb5f8dc32404cbec",
+                "State": "Completed"
+              },
+              {
+                "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+                "name": "$IsInCombat$a4dbccfa-025b-4892-8088-bee73d260be6",
+                "Not": true,
+                "Unit": null,
+                "Player": true
+              },
+              {
+                "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                "name": "$UnitIsDead$3028543d-5774-442e-8a76-6a909eedeba5",
+                "Not": true,
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$fa549393-c50e-4270-8f32-21efed42ca85",
+                  "Spawner": {
+                    "EntityNameInEditor": "Kilas",
+                    "_entity_id": "6c2139f6-0598-4a5f-b2a6-e650b428537f",
+                    "SceneAssetGuid": "6bf5314a39ac0c645a8f2b0209eecac2"
+                  }
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$9546488d-4c91-4d67-88b6-099f5e45335b",
+                "m_SummonPool": "!bp_570e96ca9467e39428b99f24825970ba",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$e0cf1a5c-551c-4bb8-9880-9130d8b786df",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$9c728897-04e6-4460-89e9-7bba49bae527"
+                      },
+                      "Position": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$6853983c-e9aa-45c9-8566-cce743574d28",
+                        "Unit": {
+                          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                          "name": "$PlayerCharacter$e6d755fb-c208-4df7-9ee3-502415733bb6"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$7b64830e-8c39-4238-ac3d-b6d89591fdfc",
+                "m_Cutscene": "!bp_14abb6868a4463441a21f0c3260ade1b",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$38c6f53a-fdb8-44a8-99a2-4750644eebf0",
+                "m_SummonPool": "!bp_570e96ca9467e39428b99f24825970ba",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$914cdfa0-f0fc-4285-bcb1-238dfe3427cb",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$fc6a6dc4-c951-43fa-a899-fdf9a4f5ceb5"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$ec36ba3a-f513-408f-ab2e-b6e06af811f9"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$91d85e81-4a5b-46c6-a6a7-43ce286e3918",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$7730aed2-0aaf-4e7b-be2b-4b3bc099a2ee",
+            "MapObject": {
+              "EntityNameInEditor": "Column02_Navmeshcut",
+              "_entity_id": "89b75399-36ba-4282-8e2a-5ed6931c8a1f",
+              "SceneAssetGuid": "b082a51db4f09614db0aafb3d23e60a3"
+            }
+          },
+          "Unhide": false
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

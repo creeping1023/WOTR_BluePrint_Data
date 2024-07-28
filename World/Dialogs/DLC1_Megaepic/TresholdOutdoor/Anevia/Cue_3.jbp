@@ -1,0 +1,205 @@
+{
+  "AssetId": "fef6956e176645d2a3f1539ffdaa98dc",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Локуст - пожирает Аневию\nЕсли выбирал Answer_36 - то же делается и с Ирабет, опускаем флаг DLC1_IrabethSaved, поднимаем флаг DLC1_IrabethDead\n\nЕсли поднят флаг DLC1_State_Broken -гибнут обе Аневии",
+    "ParentAsset": "eeaf650e656740e3b441b5f72807523e",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "6e20573416c63074b8ed6ccaa8f25ee1",
+        "stringkey": "5fdd0a0c-4df7-4c55-8b44-91109cf2fa4d"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$721b40d3-c453-4df4-9fc4-092e9ae2c6fc",
+          "Comment": "Irabeth",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a5a1727f-4fd7-43be-9e21-82faec743f9c",
+                "Not": false,
+                "m_Etude": "!bp_9257bf7b8e2746319319939d48db0ef0",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$80fa3c09-1b72-40f9-93bd-9c1b909910c0",
+                "Etude": "!bp_9257bf7b8e2746319319939d48db0ef0",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$39e7fd6f-8505-4f19-9ca2-d8c4a0816bde",
+                "Etude": "!bp_35f603a78d02426397959b1a03af12f0",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$a3cc2a10-8eea-4170-a27e-4dda443f186e",
+                "Etude": "!bp_72bf85a3db9b4ef2b7f335920e39c6a6",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$6cb084d9-c118-4710-ab5c-9019587c878f",
+          "m_SummonPool": "!bp_bf8fb00ba10b453181b19b32d4f5bf0a",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$ee233e7a-5b34-4040-94cc-5c2d12b02790",
+                "m_Cutscene": "!bp_379ffadc21f25f54aa878c1ef9b0d841",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Target",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$29b8923e-5989-45a6-b161-b0f6a1b01879"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$2fc69e04-b108-48dd-8e30-8ce48c5e9b08",
+          "m_SummonPool": "!bp_6ac9976eabf8486eac94d654cefad641",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$30f3d81b-36cd-4ff6-b468-e6b49b7580ae",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                      "name": "$AnswerSelected$f5f8a828-b2d2-47b0-bd9b-97b7fc2f7cd8",
+                      "Not": false,
+                      "m_Answer": "!bp_e21f28c66e07477d919798ed2c0240e5",
+                      "CurrentDialog": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$72aa4d57-5c41-4cb8-a1f2-2fe89dc3d2ff",
+                      "m_Cutscene": "!bp_379ffadc21f25f54aa878c1ef9b0d841",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Target",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$38c7127d-c386-4f50-9984-56b1780adbf9"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_323cb2d6e8cd4d6eb070c09ffc90c49a"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

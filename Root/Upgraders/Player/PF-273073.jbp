@@ -1,0 +1,297 @@
+{
+  "AssetId": "91e746a5b168467bb9bd4719409b5cca",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Правка зависшего 6 ранга в милитари. Если этюд на 6 милитари ранкап завершен, а обджектива на эрранд 6_1 нет - выдаем. ",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9f886be5-e76e-4aca-a182-56e2e5aa0da8",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8eb4d044-f036-4ed2-94c4-5cbdbf2a0547",
+                "Not": false,
+                "m_Etude": "!bp_92990290b00d44359fcda442d9689c7f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$3356353c-28a6-4dd7-bc02-262de7d12886",
+                "Not": false,
+                "m_QuestObjective": "!bp_06153d7a3a974ef790f9afbd438569dc",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "062924fe653b9df4ab8b8789fc1ff422, KingdomActionStartEvent",
+                "name": "$KingdomActionStartEvent$fa990854-4785-420d-b1a8-37b89dbff69e",
+                "m_Event": "!bp_38edb282fb704175b404dd8193083b42",
+                "m_Region": null,
+                "RandomRegion": false,
+                "DelayDays": 0,
+                "StartNextMonth": false,
+                "CheckTriggerImmediately": false,
+                "CheckTriggerOnStart": false
+              },
+              {
+                "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                "name": "$CreateArmy$8132539a-56a0-4fcc-8cd6-e275ff2be9c5",
+                "Faction": "Demons",
+                "Preset": "!bp_e0108465b1954cd6a11ec3848fc2eb36",
+                "Location": "!bp_42db1887231111b41b690e22fbe1bd0a",
+                "WithLeader": false,
+                "ArmyLeader": null,
+                "MovementPoints": 60,
+                "m_MoveTarget": "None",
+                "m_TargetLocation": null,
+                "m_CompleteActions": null,
+                "m_ArmySpeed": 1.0,
+                "m_DaysToDestination": 7,
+                "m_ApplyRecruitIncrease": false
+              },
+              {
+                "$type": "8afc3d0555fe6694191e8b029223e71d, KingdomActionAddBuff",
+                "name": "$KingdomActionAddBuff$89766b8f-44df-4ef9-91af-2a8848ec56c5",
+                "m_Blueprint": "!bp_e0600a746cd44bb9bdefa61df0cdeebb",
+                "OverrideDuration": 0,
+                "ApplyToRegion": false,
+                "CopyToAdjacentRegions": false,
+                "m_Region": null
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$9a345539-67c8-4c3b-9adb-2a28b7df62f2",
+                "Comment": "Army depends on selection in mil 6",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "05ea82fce60e4569be1a5e10dfb125b5, KingdomBuffIsActive",
+                      "name": "$KingdomBuffIsActive$d42470ce-ecc5-4b8c-88c5-e97fc4e06100",
+                      "Not": false,
+                      "m_Blueprint": "!bp_211c85e41b8b4351b02a8b2d5926fd34",
+                      "m_Region": null
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                      "name": "$CreateArmy$42df0a86-1cf3-4e5d-b39c-11a8df5643ff",
+                      "Faction": "Crusaders",
+                      "Preset": "!bp_65516b49399f439e8fa98ea72636d7b2",
+                      "Location": "!bp_3cc3af23f67c51843bd5252227074e63",
+                      "WithLeader": false,
+                      "ArmyLeader": null,
+                      "MovementPoints": 60,
+                      "m_MoveTarget": "None",
+                      "m_TargetLocation": null,
+                      "m_CompleteActions": null,
+                      "m_ArmySpeed": 1.0,
+                      "m_DaysToDestination": 7,
+                      "m_ApplyRecruitIncrease": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$33ef56a5-3336-4fef-9e46-1d64ce46138a",
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "05ea82fce60e4569be1a5e10dfb125b5, KingdomBuffIsActive",
+                            "name": "$KingdomBuffIsActive$f83d6880-9da2-43a3-9b8f-57c924f59c3a",
+                            "Not": false,
+                            "m_Blueprint": "!bp_1706f6d8022c473c9a67995416aa3622",
+                            "m_Region": null
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                            "name": "$CreateArmy$d91ec7f6-3e03-4063-8b72-38cbeef0d320",
+                            "Faction": "Crusaders",
+                            "Preset": "!bp_bbf77680266540b1b06ad4c9ec226457",
+                            "Location": "!bp_3cc3af23f67c51843bd5252227074e63",
+                            "WithLeader": false,
+                            "ArmyLeader": null,
+                            "MovementPoints": 60,
+                            "m_MoveTarget": "None",
+                            "m_TargetLocation": null,
+                            "m_CompleteActions": null,
+                            "m_ArmySpeed": 1.0,
+                            "m_DaysToDestination": 7,
+                            "m_ApplyRecruitIncrease": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$f4a31996-2bd4-4da8-bb3e-89cc4d3062df",
+                            "Comment": "",
+                            "ConditionsChecker": {
+                              "Operation": "And",
+                              "Conditions": [
+                                {
+                                  "$type": "05ea82fce60e4569be1a5e10dfb125b5, KingdomBuffIsActive",
+                                  "name": "$KingdomBuffIsActive$636ab74b-1891-4551-bcc5-e985c5b15593",
+                                  "Not": false,
+                                  "m_Blueprint": "!bp_158162894c2b4decbb92f7382747df04",
+                                  "m_Region": null
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                                  "name": "$CreateArmy$b6879865-d1e5-42c6-aca9-2dcaf2036933",
+                                  "Faction": "Crusaders",
+                                  "Preset": "!bp_fc607d9464b34977ae919f646e215022",
+                                  "Location": "!bp_3cc3af23f67c51843bd5252227074e63",
+                                  "WithLeader": false,
+                                  "ArmyLeader": null,
+                                  "MovementPoints": 60,
+                                  "m_MoveTarget": "None",
+                                  "m_TargetLocation": null,
+                                  "m_CompleteActions": null,
+                                  "m_ArmySpeed": 1.0,
+                                  "m_DaysToDestination": 7,
+                                  "m_ApplyRecruitIncrease": false
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": [
+                                {
+                                  "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                                  "name": "$Conditional$63b911e1-fc9d-48ac-8562-1af1307f9287",
+                                  "Comment": "",
+                                  "ConditionsChecker": {
+                                    "Operation": "And",
+                                    "Conditions": [
+                                      {
+                                        "$type": "05ea82fce60e4569be1a5e10dfb125b5, KingdomBuffIsActive",
+                                        "name": "$KingdomBuffIsActive$f815ea27-bdbb-42a6-be81-ce6c088f9e7c",
+                                        "Not": false,
+                                        "m_Blueprint": "!bp_788b0cf37df54317aa28e118d6306e57",
+                                        "m_Region": null
+                                      }
+                                    ]
+                                  },
+                                  "IfTrue": {
+                                    "Actions": [
+                                      {
+                                        "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                                        "name": "$CreateArmy$b39fba73-2aa2-48ea-9c87-6c9a97301751",
+                                        "Faction": "Crusaders",
+                                        "Preset": "!bp_dc4da98a0d524fb8ae9ff9dc63b19779",
+                                        "Location": "!bp_3cc3af23f67c51843bd5252227074e63",
+                                        "WithLeader": false,
+                                        "ArmyLeader": null,
+                                        "MovementPoints": 60,
+                                        "m_MoveTarget": "None",
+                                        "m_TargetLocation": null,
+                                        "m_CompleteActions": null,
+                                        "m_ArmySpeed": 1.0,
+                                        "m_DaysToDestination": 7,
+                                        "m_ApplyRecruitIncrease": false
+                                      }
+                                    ]
+                                  },
+                                  "IfFalse": {
+                                    "Actions": [
+                                      {
+                                        "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                                        "name": "$Conditional$47b724be-6188-4992-b250-759e1dfaadc4",
+                                        "Comment": "",
+                                        "ConditionsChecker": {
+                                          "Operation": "And",
+                                          "Conditions": [
+                                            {
+                                              "$type": "05ea82fce60e4569be1a5e10dfb125b5, KingdomBuffIsActive",
+                                              "name": "$KingdomBuffIsActive$7118f0bd-8396-4c34-b0cb-eac51a396c24",
+                                              "Not": false,
+                                              "m_Blueprint": "!bp_f468c8def48f42b28abb6b11074c44d6",
+                                              "m_Region": null
+                                            }
+                                          ]
+                                        },
+                                        "IfTrue": {
+                                          "Actions": [
+                                            {
+                                              "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                                              "name": "$CreateArmy$337e3838-3a6a-4aae-be65-030ff488642b",
+                                              "Faction": "Crusaders",
+                                              "Preset": "!bp_12ec64ecf64b4da2b0e70d9041900758",
+                                              "Location": "!bp_3cc3af23f67c51843bd5252227074e63",
+                                              "WithLeader": false,
+                                              "ArmyLeader": null,
+                                              "MovementPoints": 60,
+                                              "m_MoveTarget": "None",
+                                              "m_TargetLocation": null,
+                                              "m_CompleteActions": null,
+                                              "m_ArmySpeed": 1.0,
+                                              "m_DaysToDestination": 7,
+                                              "m_ApplyRecruitIncrease": false
+                                            }
+                                          ]
+                                        },
+                                        "IfFalse": {
+                                          "Actions": []
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$89551b35-8b78-4a24-a88d-b87f075c224c",
+                "m_Objective": "!bp_06153d7a3a974ef790f9afbd438569dc"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

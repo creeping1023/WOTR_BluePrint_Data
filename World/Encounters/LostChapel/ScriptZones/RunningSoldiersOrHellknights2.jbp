@@ -1,0 +1,257 @@
+{
+  "AssetId": "9284aa5546f272947a51e6b7cbfc44a0",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "только убегающие солдаты / остальное в этом месте - в этюде",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "494b2e62fc3ee4b40956216331fc6de6, IsPartyMember",
+          "name": "$IsPartyMember$112545b9-cb8b-4096-a552-35aa2c3b9a2d",
+          "Not": false,
+          "Unit": {
+            "$type": "7092730319129374aadf8b65ceb5c42d, ScriptZoneUnit",
+            "name": "$ScriptZoneUnit$3ca23377-2326-436e-b7aa-dcd0182a4d03"
+          }
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d8786d71-1576-43bf-a00b-034d468b39bc",
+          "Comment": "Wounded Yaker or ...",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$191ac4b4-a98f-4bd7-b774-725ffbefc248",
+                "Not": true,
+                "m_Etude": "!bp_8ea908cfc8178844b95a202022db9957",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$62b7311f-791e-45ae-8d56-678c32fadeb5",
+                "Not": true,
+                "m_Etude": "!bp_e74866d50da079f44a868f0433cf77ff",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ba895789-4ac5-44d0-81d9-892b44d55a92",
+                "Not": true,
+                "m_Etude": "!bp_3022259a5ffd80c4c86baaf6dcb35faa",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$fc470597-662b-458b-88bb-0575fada7918",
+                "Comment": "Yaker Executed?",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$f1fe49d7-05c6-4063-a80c-ed5f6d54c88d",
+                      "Not": false,
+                      "m_Etude": "!bp_ef84d77bd6b09514cb3ee2fc022fa3eb",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": []
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$bea4b1b3-57fb-4d0e-b3b5-90ec155204e7",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Case1_YakerAnkelli_Hellknight_Wounded",
+                          "_entity_id": "6ee45f0b-f0b1-43f2-b8c0-698379fe3ade",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Case1_DeadGhoul",
+                          "_entity_id": "0b70b2b8-8841-4432-b4c8-89e381a21c73",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$c50e7d3d-58b4-4c74-a3c1-91a508db37a5",
+                "Comment": "Regill and Hellknights with us / not (in scriptzone)",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$9aa5451a-62f5-4d70-a1b1-326b9eeb3808",
+                      "Not": false,
+                      "m_Etude": "!bp_e74866d50da079f44a868f0433cf77ff",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$f0a34c6e-2d74-4240-826a-770ae6a77d89",
+                      "Not": true,
+                      "m_Etude": "!bp_8ea908cfc8178844b95a202022db9957",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$86150689-23da-48fa-8a22-74774b90030b",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "YakerAnkelli_Hellknight",
+                          "_entity_id": "ee88780e-e820-4ddc-a964-13577d4cd64b",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Hellknight1",
+                          "_entity_id": "e546ee9b-db8e-46d1-afd8-ae73b0075342",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Hellknight2",
+                          "_entity_id": "19197aa8-b7e9-4e4b-86c4-13bff0851684",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "CrusadeSoldier1",
+                          "_entity_id": "90e8fff7-c153-45da-ab39-240b39451e28",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "CrusadeSoldier2",
+                          "_entity_id": "a3fb5033-34b6-46a9-8947-b24def3cd96a",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "CrusadeSoldier3",
+                          "_entity_id": "eec283cf-071d-4b92-9fbf-531e35b02675",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "CrusadeSoldier4",
+                          "_entity_id": "946dc5c7-9e66-431f-8bdd-1f0f2238486d",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$4d529046-db4c-44fa-bc93-0cd2aa82fbab",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Ghoul1",
+                          "_entity_id": "e56197a0-01b7-4d50-8c78-d7bcd2a8a315",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Ghoul2",
+                          "_entity_id": "b3e908ce-dcd4-41d6-b951-3e2dce6fc2e5",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Ghoul3",
+                          "_entity_id": "b19aaa0a-a03e-4a66-bcc2-e8333d13954c",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Ghoul4",
+                          "_entity_id": "f0f85bc0-03ff-4bb3-a424-83ae91609a4f",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Ghoul5",
+                          "_entity_id": "e1e845e6-2ae4-49b4-a390-041d85226768",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Ghoul6",
+                          "_entity_id": "5194687e-81a7-488d-bec7-681864943d62",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        },
+                        {
+                          "EntityNameInEditor": "Ghoul7",
+                          "_entity_id": "34ea4a14-136b-4a12-8328-af9e1d1b87de",
+                          "SceneAssetGuid": "9aff0aa1c8b2d91409411e5018f64a7d"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  }
+}

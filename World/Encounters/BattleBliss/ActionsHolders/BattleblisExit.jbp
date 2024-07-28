@@ -1,0 +1,147 @@
+{
+  "AssetId": "a91b43d4f62f3ba48bff66143ee4ba4d",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": {
+          "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+          "name": "$False$93e96cae-69d5-4cbf-a47a-d70e839ccf18",
+          "Not": true
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9e15e229-63d5-4d5c-8198-e1e6e30e1dfc",
+              "Comment": "Daeran In Party",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$d00041e7-5fbc-4117-807f-ba8fd4b7d47b",
+                    "Not": false,
+                    "m_companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$7bc7ffdf-3f66-429b-a853-30f27f24a113",
+                    "Comment": "Daeran Romance & Daeran in Party",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$bc20a8aa-3677-471b-91e5-64a1f3fbd34e",
+                          "Not": false,
+                          "m_Etude": "!bp_8d2624cb46440c14b998e082bdca9d91",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$9e1733da-e35f-4402-a765-0ef637025223",
+                          "m_Cutscene": "!bp_64854b5106544604e82a37bf35eaa792",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$6f7273da-dd02-4a33-979b-0602bd53c816",
+                          "m_exitPositon": "!bp_833fad0027c7e904eb77938bc4bdc39d",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$aea71d1e-6504-4f3f-98d8-202dafe054f4",
+                    "Comment": "Daeran Romance & Daeran not in Party",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$7f8d5a97-8f5a-435e-98d0-aba081b02b0a",
+                          "Not": false,
+                          "m_Etude": "!bp_8d2624cb46440c14b998e082bdca9d91",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                          "name": "$CompleteEtude$8acd73e3-8624-472b-9a0a-80fd354ac1ed",
+                          "Etude": "!bp_8d2624cb46440c14b998e082bdca9d91",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$bc715347-12f0-4eb2-9840-5ac442792659",
+                          "m_exitPositon": "!bp_833fad0027c7e904eb77938bc4bdc39d",
+                          "AutoSaveMode": "BeforeExit",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

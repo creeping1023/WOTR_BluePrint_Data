@@ -1,0 +1,2722 @@
+{
+  "AssetId": "a577aa18875538744a5a0cf8df38e582",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$28510297-1425-494a-8af5-353b59c484ac",
+      "$EvaluatedUnitCombatTrigger$56c4d2c7-28a5-40a1-aae3-91c67e568c54",
+      "$SummonPoolTrigger$42cafaa3-0815-44af-a7c6-999dabb9637a",
+      "$EtudePlayTrigger$094557c5-3253-42fc-9034-08c046c7cb7b",
+      "$EvaluatedUnitCombatTrigger$c39ee7f5-9f8e-4700-9e2d-c2731be58522",
+      "$GenericInteractionTrigger$92e10893-cbf7-4de3-85be-67ddb52a40e1",
+      "$GenericInteractionTrigger$203ac982-2918-4891-8c70-ff32261d2cee",
+      "$GenericInteractionTrigger$ae57952e-df08-4873-bdda-b6dff40f9a5d",
+      "$GenericInteractionTrigger$5cde0e5c-b07f-444b-b69b-72ae09081650",
+      "$GenericInteractionTrigger$306feb78-fdf2-4bfb-86ea-575fe0fd320a",
+      "$GenericInteractionTrigger$0f2a4b83-48fb-44c2-9861-d2d9d5b1397e"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$28510297-1425-494a-8af5-353b59c484ac",
+        "m_Overrides": [],
+        "Comment": "Проверяем - с нами ли лиса (для куя в ее диалоге, о том, что игрок уже побывал в этой локации))",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$42928e93-019a-4a85-ab08-ad29f63112b4",
+              "Not": true,
+              "m_Etude": "!bp_05a75b586b0444f4187632af57afaae5",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$613b7998-307c-4365-839b-7096f63726bd",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$d6ca2bcb-7fc1-491c-87ea-53b4291bd98e",
+                    "Not": false,
+                    "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$36f73459-7ec3-4ee7-ae32-86f78f080c35",
+                    "Etude": "!bp_05a75b586b0444f4187632af57afaae5",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$3d9f28da-363f-4092-8503-a70b1639520f",
+                    "Etude": "!bp_05a75b586b0444f4187632af57afaae5",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$094557c5-3253-42fc-9034-08c046c7cb7b",
+        "m_Overrides": [],
+        "Comment": "General",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$a0821276-ceb1-4e46-a57f-0b528c0a2705",
+              "m_Cutscene": "!bp_b4464ddbdf1f62440b245754c930b9d7",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$56c4d2c7-28a5-40a1-aae3-91c67e568c54",
+        "m_Overrides": [],
+        "Comment": "Пак гулей",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$5329f4e1-3d6c-4362-a51a-63db26b9b883",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [CR6_GhoulCreeper_RogueMelee]1",
+            "_entity_id": "11dcf169-e439-4d61-b2c8-524747733f4e",
+            "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$22ca6eda-b7b8-44cc-a4ea-608a3b55b2cb",
+              "m_Cutscene": "!bp_97dc8d6bde539084eb19db0a07c57627",
+              "WithUnit": null
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$42cafaa3-0815-44af-a7c6-999dabb9637a",
+        "m_Overrides": [],
+        "Comment": "Подкрепление Гаргулий (Core+)",
+        "Count": 1,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_b3eb7de5dd06dbb4ea81a69d02d5adf7",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$e342ea4c-77a9-4b41-a454-2835d60abf80",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "Spawner [CR4_GargoyleStandard] (4) core+",
+                  "_entity_id": "4401b08f-19e7-40ae-b599-541208da3b78",
+                  "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                },
+                {
+                  "EntityNameInEditor": "Spawner [CR4_GargoyleStandard] (5) core+",
+                  "_entity_id": "59987747-f175-42e7-8c17-0dc0a8b368ba",
+                  "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                },
+                {
+                  "EntityNameInEditor": "Spawner [CR4_GargoyleStandard] (6) core+",
+                  "_entity_id": "ebf70b5c-20b5-4ac4-867d-9af6af56adb1",
+                  "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$4fed59a6-05da-4315-b532-a95e75857ad7",
+                    "Unit1": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$8dc3fb80-dcef-46df-b377-b48ba6589066"
+                    },
+                    "Unit2": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$552f4462-1f6c-4d01-b603-94dafa0ab6de"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$c39ee7f5-9f8e-4700-9e2d-c2731be58522",
+        "m_Overrides": [],
+        "Comment": "Стоп сцены поедания в Пещере",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$e3e7cd33-a89c-4b02-9d5d-5964c52a8344",
+          "Spawner": {
+            "EntityNameInEditor": "Spawner [GhoulCreeper3_RogueMelee_Var]",
+            "_entity_id": "96f2bdcf-66c3-41da-917c-29500cdb7409",
+            "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$72bff9ce-e933-4ab0-bff2-fdf71de80cd9",
+              "m_Cutscene": "!bp_b4464ddbdf1f62440b245754c930b9d7",
+              "WithUnit": null
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$92e10893-cbf7-4de3-85be-67ddb52a40e1",
+        "m_Overrides": [],
+        "Comment": "Torus_big",
+        "MapObject": {
+          "EntityNameInEditor": "Torus_big",
+          "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+          "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9c3bc803-c416-46f0-8c15-8eb42cfc6110",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$eb07ae8e-b6ca-4251-a363-63122be2c98e",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$a07a8bd8-c9f2-4551-a8b4-2feb474dd66b",
+                    "m_Flag": "!bp_14be5e45de55f454e86519e0aee406ec"
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$0a570f1d-a188-45fa-b254-9d463680651f",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$3a7097af-6536-4bb6-9d68-ec1c1cac62ee",
+                      "MapObject": {
+                        "EntityNameInEditor": "Torus_big",
+                        "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$0efe0181-d91e-42be-8864-e21973d4c374",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$4b0342de-509f-4bfd-b1cb-314b390e86d9",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$b92dc324-a7f2-4c5e-9b2a-43b52ada3829",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$703ce20c-9047-4545-af4b-abd5b2db7a24",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$68168c17-f2d1-4790-b3b5-0631ceeedf6b",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$3d82c836-073c-4416-a6b2-5a75625d088c",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$fdf6c95e-c793-4d7b-9cd4-2121fcb57926",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$d5a348ce-5299-4b6c-b280-2a76a8e19869",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$bc60ef0a-f616-46d7-b350-d938b8e1c5ff",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$5effe770-3cb2-4c13-a833-5b09b964c39a",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$13290809-87b1-42b6-8f90-6f15a2678b5e",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$373568b6-626a-4716-9007-f91e3d6545cd",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$6b72fde8-7dfa-47b2-b03b-83e0299c108c",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$711eee4e-9d77-40ba-aa51-5031b35ee582",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$8e565671-8049-4a37-8ebe-09963b1e4690",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$149ab5c1-0438-486f-8026-bbd7ed07c0e7",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$6d1502fa-4108-4980-8228-e29d19aa439a",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$fde75bce-385c-4175-9998-403ef5c63fe8",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$185fc394-3983-4891-991e-2d49be37d049",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$37b07493-697d-4ffa-80fe-f6907e4d8e98",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$96842e08-c1d1-45df-9d27-2c7d6d207e5f",
+                    "m_flag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                    "flagValue": 0
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$b7b67b91-cc04-4afc-9f05-86afbfba75ef",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$a7556a4a-c544-460c-a469-6d1894082326",
+                      "MapObject": {
+                        "EntityNameInEditor": "Torus_big",
+                        "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$060817e2-b515-43be-be2d-70dcf1a721e1",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$2a086f66-06f3-482b-a9b8-dbef604c4b78",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$33a39f83-a002-430c-9e75-f5f201746c2c",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$df35a607-6b49-408e-9452-5ec7adec886c",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$56ce97d8-944f-44ff-adc2-25c4241cda80",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$f51b1bbe-3991-4318-bb3b-f7eb711ab983",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$e7fd7c4e-c6a9-42b8-94db-2eb3316b8349",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$2096fa5a-c5d4-41f5-a3e2-11e4d4ca3197",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$f887f6f8-36b0-4847-b742-ae297c08b73b",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$20617a9d-6b8d-4e38-8ee4-a959fc877171",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$57006ba5-53d6-42d5-bd2d-c0ddfae7404e",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$60b58218-f7b1-425c-b262-5d24b0e89c51",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$6643a7fa-89c1-4980-b8b1-5d86102e22b5",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$19d71915-e9af-41be-98dd-05d9d1251584",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$7d6d07fa-0135-485d-9bb3-9035b49e25ce",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$296de543-1624-4f85-a552-14caf51f7e58",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$8479ddeb-6089-4c0c-bc73-5a15d43e5d60",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$b583926a-fd88-438a-ad84-a6327d45fcc3",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$c9fa229c-800e-406c-87e9-6386ce7d0910",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$041ac045-3ec9-45a3-a85c-4d537ba073e1",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$203ac982-2918-4891-8c70-ff32261d2cee",
+        "m_Overrides": [],
+        "Comment": "Torus_small",
+        "MapObject": {
+          "EntityNameInEditor": "Torus_small",
+          "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+          "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f432b269-6182-474d-b75d-20fea1d59dc8",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$33018856-0466-4335-aed5-b7783bff69f9",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$58cef434-2337-4063-9289-840518b9bc76",
+                    "m_Flag": "!bp_b316a846d74004843be262826740a2e2"
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$611a11fd-d07e-4760-8276-dbf18106aa22",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$cef81667-26cc-4c24-b793-de51ad8095b3",
+                      "MapObject": {
+                        "EntityNameInEditor": "Torus_small",
+                        "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$8e8b697e-9029-42ce-97a8-319e7490acbd",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$09b7a50c-3a59-404e-97c5-50077539e1dd",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$c6da3eca-f5eb-4fd0-b48e-183f3e5cb4b6",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$493bb364-bbea-48f9-860e-a2dca5e1ab42",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$2d81b783-0385-496d-94e7-7867ebb2e1f9",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$c4daa5d3-d5ed-4668-9148-36a5eb13b11e",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$8f94108c-7f0a-4b24-a610-5ccfaaafa25d",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$ee479117-e33d-41a7-afb4-d1b1f704a4d8",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$ca6d29eb-175a-46c3-91ba-b0001d65d542",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$cc1babec-0e67-4afc-a0e4-e21a10a662ef",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$bdd96850-1f79-4fd3-aaf1-e6b9effb5e55",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$895ae2ab-1314-40dd-8d33-254129b7c871",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$5fd74e20-7af7-43a6-8350-d4f47ae1ae01",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$0898ab28-de58-4bd6-9bb6-3658ea393b08",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$228b8b1b-f891-4946-af2d-b2621b02f543",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$3174a664-ba79-4ae9-9d47-7eea4b247bd8",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$ddf60bc6-82ae-4687-9ca3-c1b8545556ce",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$7ed42f27-265f-490f-8865-f67aa21aabf3",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$7440d165-a272-4992-bc25-973022f403bc",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$6eeb89cc-eb90-4f00-bb7e-67d96055a88d",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$602d0490-f05a-4083-9f01-0bf932146616",
+                    "m_flag": "!bp_b316a846d74004843be262826740a2e2",
+                    "flagValue": 0
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$7688db81-80f8-40cc-8305-cf178de63d7b",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$1e1e22bc-1898-4799-a14a-ecec794f2bf1",
+                      "MapObject": {
+                        "EntityNameInEditor": "Torus_small",
+                        "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$0ad7f012-c381-4bca-818c-222f91089059",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$a400b432-aad8-4c26-a469-d5e2ff34c831",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$ecd463fa-8a7e-4407-9d25-484a515e2455",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$74abd000-d1d4-496e-a6e8-fba846a25fc5",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$56a4f93a-6f83-464e-af19-636f3885c93a",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$4dc4967e-211b-43bb-ad30-05bc40dcf3db",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$caeb7806-24e2-4b9c-807c-6dc20e72e1ce",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$0a956706-e609-4e79-9006-e25f2326d374",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$84af86c5-298b-4eda-bb75-498411866031",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$d857006e-0dcf-43f3-a499-628ad65ba392",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$44e77ada-b6d3-4b56-aa7d-820eaadb1370",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$30f83aad-2090-4c9a-a679-4d85ed09a8ce",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$edf7c60e-e4ff-4cc0-bce5-09a20d62334c",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$054afeeb-d12d-478a-a484-8a017c63555e",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$8bae8faf-6e9c-463d-b1fd-07fe43835715",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$bb7386d7-c15e-44b1-a912-4f7e9bade579",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$017f124a-098c-42fd-a120-19120892723d",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$d5d2ef8e-1587-4af2-b08e-81d2da9f220f",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$d378a153-7bab-4537-916d-30dd4d33905a",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$169de54f-ab97-4374-b363-acf2f8a76fa9",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$ae57952e-df08-4873-bdda-b6dff40f9a5d",
+        "m_Overrides": [],
+        "Comment": "Cylinder_1",
+        "MapObject": {
+          "EntityNameInEditor": "Cylinder_1",
+          "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+          "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d7363b1e-8953-489d-9e59-c47b5b095163",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$530dab76-70e1-42a3-a21e-8b59894c80bc",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$fca2047b-ca8c-4b43-beff-efdcfcb11c0e",
+                    "m_Flag": "!bp_f0dcdd7e3a636f041981daddc3f24689"
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$3287d7e0-8747-4034-b918-6db447128575",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$bf1c56e3-642f-4f67-a096-c184d081c03f",
+                      "MapObject": {
+                        "EntityNameInEditor": "Cylinder_1",
+                        "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$c00e48fe-68bf-468a-8819-91001374c658",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$93b4de76-9ad6-4ec8-aa79-13e16b785637",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$94f698e2-4792-4877-9b4a-5783c283a70e",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$13841939-64f3-4b1f-ab06-ddcc526faad4",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$f256cf0c-b579-4439-b0cb-d9e87e5a9035",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$4ae60508-07ca-44c8-86fc-25b055700d33",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$2b1fc8bd-2afc-4882-9f35-00795ee3b74c",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$1eb14d27-0ba1-42d9-88a8-f1a49f5d6399",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$8074ff54-f602-43f6-90f2-1a3baf8abf86",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$98900033-4cdb-4509-b85c-795c1c6caaf9",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$6745ff1e-9264-4fa0-bf06-f096851557b0",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$3890e8d5-bb86-4de7-a0a2-2053bf0cd046",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$3cbf6ccc-25f5-4fbc-b778-be5d33bd95ce",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$d7bfe19f-7082-4aaa-ae2b-283697a4ccf9",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$113ab024-8a8d-47a7-8506-8feab2b673b0",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$d4f020cc-bd00-48c0-a780-5592c1abb286",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$bf437121-7327-480b-8629-d7ed515a2d9f",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$e592b053-e7e4-42d9-88e7-b19c8e700d92",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$1060fd20-dfae-43eb-ba00-e0908990326a",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$af639bc3-65cc-4aa2-b271-3ee359dfa48f",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$555af391-c199-4be5-aeb6-bd9ddc9d8304",
+                    "m_flag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                    "flagValue": 0
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$0efc4da1-d382-404f-9018-bc47bc8fef77",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$0f366fca-3e74-40a8-ac35-12083c627505",
+                      "MapObject": {
+                        "EntityNameInEditor": "Cylinder_1",
+                        "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$f62ae096-689d-4fc9-b5f5-470df34b06de",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$5a528ff1-20e0-45bc-9425-031edee1df9e",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$3a3c1de5-8a24-4fc5-bd2a-d17a31977cee",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$4e58362f-dda0-448b-a9a7-9e9197a42e95",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$75656046-29d0-4bbd-95f3-c9a7bd71b2d7",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$9087c49f-777d-4991-a1ee-cbe999b487e7",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$53dfdc9f-d7fe-4aae-b527-7f2f12390e62",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$b78688fd-54a6-474f-b331-daf8931f1046",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$d76fb342-f39a-487b-a50b-07755ba48263",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$2253437a-3fb6-456b-a426-1e22a47a9f4f",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$f8a60224-d04d-4dfd-b09b-15c39957f794",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$951f5d57-27c6-433c-9574-3e285bcb5443",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$11fc4e04-0916-421d-bc39-ab1f4ea5684d",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$b5339e12-ae7b-488d-88c8-fc2f2b017218",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$ca62b3a9-cad7-4c98-89c7-e87954aff699",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$0fa36f29-95da-4a3f-babb-a8f067b90d31",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$4edfcc07-103d-41c9-bf75-0e3871002192",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$0259bbc6-2429-4d39-8f6d-f2213813d3bb",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$884f624b-2073-481f-8c77-367c20fded17",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$1e1472a1-e192-4220-b9e2-58caedd595cd",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$5cde0e5c-b07f-444b-b69b-72ae09081650",
+        "m_Overrides": [],
+        "Comment": "Cylinder_2",
+        "MapObject": {
+          "EntityNameInEditor": "Cylinder_2",
+          "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+          "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$55ffb403-c1ae-41fd-994c-51d8b4d626e4",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$fa64cf83-9141-4011-9753-a16d9389f9a2",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$9de2e65c-b6ca-4572-a476-886aff8dc36e",
+                    "m_Flag": "!bp_b8589a5e99718a74ba555685245bd048"
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$08c51beb-fb86-427c-ad48-da96e5bb39d2",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$55694029-3149-4dc3-ae00-404c8c0b8d91",
+                      "MapObject": {
+                        "EntityNameInEditor": "Cylinder_2",
+                        "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$11f78715-8c02-4700-ad09-9b49f8935b3c",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$d9dbac2f-eb54-49fa-9bef-872f5ae5f4c2",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$cc4de69a-0af3-44c7-a275-dc45b2a66670",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$a9a603a1-7134-43d3-b76b-920c6bcac1cb",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$773fc502-85a3-422b-9228-2a46960d0056",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$d85bf4ec-b7b7-4387-8089-0ad3796dccd1",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$2a68d80d-8556-41f7-b396-adfa48cfdcb6",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$8966300b-380a-4012-90ff-42bb6c5e6cd6",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$f21b63af-5ef5-4c37-84f6-8e8e87b01efe",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$f2eab1ba-ac3a-48fc-a23f-da6aa3774fd5",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$03934001-583a-41e8-a2d1-9e34910d783e",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$682eb242-5fe6-4d9b-a21e-a4c2220238ee",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$f09def52-8481-4614-80b3-a37c5b4b1012",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$a8443252-32a6-41f1-92d2-d0ed6aa57c96",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$b0bd7f4b-3b55-4a29-b3b6-5fc912d851f0",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$667e5709-791d-46cc-9809-e2682f1ef7b4",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$dccb00ae-bfae-45c2-8848-07ba0514323d",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$769e6f72-2745-4fb3-9785-325da501b036",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$ae521eec-c3b5-43eb-8c97-8ceebd8ec615",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$916ccf7b-7739-4e87-8e44-310c9d689eb0",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$0d1ad880-73ea-48af-802b-a44aea430bea",
+                    "m_flag": "!bp_b8589a5e99718a74ba555685245bd048",
+                    "flagValue": 0
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$28c1aa12-321e-4ce0-b360-ce3d2d6c8b06",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$841e713f-2ee4-45bc-9365-a87b88687428",
+                      "MapObject": {
+                        "EntityNameInEditor": "Cylinder_2",
+                        "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$470f9542-2376-4c7a-ad48-0b65bf5b740f",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$6787e3e2-2e42-4e7a-a513-e6a5b7c2db73",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$d1a42822-4e9b-44a8-b7cf-4fac9128955e",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$7bbbd3c9-fdd9-495b-ba83-3e75522e421f",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$357c92ac-ff88-439d-aade-13ce0453d7d3",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$a95a6b9b-5df4-4e08-9d34-eeb5d3960aae",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$68460ee9-dd05-4ed2-a451-408c282fad83",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$aeb598ab-5709-4774-ae94-a7018d3ebdb3",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$084acf96-3995-40b0-84a0-77b3141d2bf6",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$36470efd-4909-41b7-a49b-0caff543b362",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$5a36baf4-4d26-4619-a283-d8ee27a9deec",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$18223bc6-bae3-4da6-ab83-5fda2c891f82",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$4dae1952-696e-4a2f-bbef-555554b9a450",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$fba32f4d-403f-4a7f-bbf4-bd4bd961e078",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$eb3c4689-1104-4df9-abda-4ce887abd253",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$61105b3f-4c6f-4535-b7bc-0229384609f9",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$ff5df866-ca69-4386-b645-c8573665ce1b",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$74516374-326a-4857-af70-7a5e8f23d0e2",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$a7250d3e-abf3-4cda-948e-c9e5318a6819",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$84fca80b-ef7f-472f-888b-37a10f8e7483",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$306feb78-fdf2-4bfb-86ea-575fe0fd320a",
+        "m_Overrides": [],
+        "Comment": "Cylinder_3",
+        "MapObject": {
+          "EntityNameInEditor": "Cylinder_3",
+          "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+          "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$450bc8eb-dc9c-4075-86ed-9b148ad80fc1",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$6c3025e6-c764-43a0-b931-32291220fcb2",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$30372705-4279-42ef-8503-6491a61cbaa8",
+                    "m_Flag": "!bp_6521a17fa74b23d4c90f2671b808996a"
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$5019e336-9d7c-4189-84a2-178578af7e44",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$0c82950c-bb74-45fd-8340-7ef70339f200",
+                      "MapObject": {
+                        "EntityNameInEditor": "Cylinder_3",
+                        "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$9be4f463-3e45-4b25-ad00-3b1d4b4b7990",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$f1c87c91-3913-4469-891a-66f8428598a3",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$c0554250-f511-4dfc-a27b-6ed91044b7f4",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$fef7d7ad-4ad2-419e-a721-a457d4e13edc",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$cb392942-958f-4bc2-a0bf-4dd028c442fb",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$1dca09a6-a2fa-4df7-b62d-ce258ffe08c3",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$4829fca8-dfe2-4c67-9b04-fe9e2ed02890",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$1fb4f480-79d6-4130-ba43-acb3b7c69388",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$fd68d945-3738-4624-bb98-3606a21b19bf",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$4235043c-1356-4e31-8fc3-55c12bacc027",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$a6a3d1aa-1cb5-410c-bd3a-33ecc06bd4f2",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$dafd6b59-d555-44ee-946e-7362170ca58f",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$abc688b2-3357-4355-b714-13a543de5481",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$3e172626-efc2-4545-a35d-1570a9a269e5",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$4330bd9e-caa8-4b15-beb8-64f74a8ac4ae",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$bc36ab56-f45e-4840-8993-4d3aae964bf4",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$de91519c-7d7b-4022-9eda-67fc3a19dd26",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$d0f00d59-8c36-4d51-a686-378bf1b91f34",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$996f03c4-1cab-4a98-b832-6d234acf6c49",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$5e57959f-55cc-44dd-81cd-a06318dcb33a",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$88aadeae-54cd-46d7-ad7e-cb2898890d78",
+                    "m_flag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                    "flagValue": 0
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$477d6b33-71d2-4675-a685-4075354d118e",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$1a1259f1-53e6-4c51-b6b9-6ab32be2924c",
+                      "MapObject": {
+                        "EntityNameInEditor": "Cylinder_3",
+                        "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$6477fb21-a1bb-471c-b645-f76cd3e23b43",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$d7b471a4-8389-4d00-96db-0b4df526d58e",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$1931ac50-ff63-44e4-8694-43dbeb101fbe",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$fe47fbfb-238b-47b3-af33-82522e4cfb69",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$f0e8e4d5-b737-4cfc-80b9-2e9827184f72",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$3342cf27-3887-4e98-aec1-8b0aea80d571",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$c396c48a-dd5c-4472-9fb0-ea951b0917a4",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$c123aa7a-a00a-4fb0-b417-de2fd968a4b8",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$a8364f8d-8da7-41b8-b697-692d727db2a0",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$10a8e124-15a7-4cc8-98b1-df5f67669f81",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$8afb7566-ef69-443b-87c2-f1aadeb69e99",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$87ae93a3-0596-42a2-8f82-6df0824b98fa",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$141c8993-4b74-4118-9d0d-b88c1addb0b3",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$222b504d-f2d2-411a-8cf4-291b217e3230",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$9c8d2dab-eb2d-4627-b71c-1d60febd7863",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$3532837f-2b5a-4c1c-a552-d92008f0d120",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$59c4f452-50b8-4e0f-88e3-9e19941d551e",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$ae04feca-5672-4831-bf3d-38cf5acb1d54",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$225390fe-0789-421f-90d1-ebce4f5a9271",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$6f3a9a51-2426-48c7-b550-be33964d7211",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "name": "$GenericInteractionTrigger$0f2a4b83-48fb-44c2-9861-d2d9d5b1397e",
+        "m_Overrides": [],
+        "Comment": "Cylinder_4",
+        "MapObject": {
+          "EntityNameInEditor": "Cylinder_4",
+          "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+          "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8a13a347-41ea-4f33-a15b-5ab31ae650ce",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$b8902ba8-4d2a-46b6-a7a9-782a4a2273e2",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$12ac842c-f02d-40d5-b3f8-ae2bbe301208",
+                    "m_Flag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7"
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$d21fcc8a-7f47-422b-ad80-6e1546c91605",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$af9633f0-550d-4013-bcbe-e338eb7733b7",
+                      "MapObject": {
+                        "EntityNameInEditor": "Cylinder_4",
+                        "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": false
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$35f7d05b-4210-4e55-b938-14ec276c4bf3",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$2ba1d462-2a9c-484f-9958-ad520448d4a4",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$e0cd7202-cf11-405b-b3cc-da7530482fea",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$a8d793d8-59ce-49ae-a0e4-66d6f8f9e312",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$b69eb72f-2c04-4dfa-8c35-39f1c6dd2700",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$927cfaae-9c4a-44c3-a5bb-7a2fd5faa9d2",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$b301ef7f-e879-4029-83c9-4e922a3acf85",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$ea5a01d2-b4db-48b8-83de-a26acdb56eb4",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$8c6db9bb-f307-4b3e-8dfe-91125ee05953",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$8e55d7f9-0017-4a2d-8314-b89a73c24b42",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$65a0bfd1-de8c-4f1f-9e0d-334167cf5f34",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$354d7f0b-4e35-447f-88a0-7f6d3c3c699a",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$1a6c84a4-b066-4bac-a1b6-c3e1447ef88c",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$0e4157ac-ffc2-4bd6-8ab5-9cb900caabcc",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$325ece1c-1380-428c-b1a6-9575b5f73dac",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$0b07ddd4-995e-434c-a5c3-af02c341387c",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$31febaad-2e3a-400f-a9fa-df00856d5849",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$2c8e267c-64cc-4286-9729-1c16b215e914",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$7872114c-b130-4912-9b84-5f894003ac12",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$2e8b41c7-99c5-4a11-b355-8ea3aab28efb",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$a4198cb8-e052-4628-b55b-42b0c95742c7",
+                    "m_flag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                    "flagValue": 0
+                  },
+                  {
+                    "$type": "bf4b7db0186cac54189211f9684889a1, ToggleObjectFx",
+                    "name": "$ToggleObjectFx$e15127b3-8cf4-44fe-ab12-d059ed5d48eb",
+                    "Target": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$4bf3402a-58dc-4b2a-9249-2faf51196610",
+                      "MapObject": {
+                        "EntityNameInEditor": "Cylinder_4",
+                        "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                        "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                      }
+                    },
+                    "ToggleOn": true
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$dfb3aadd-9cf4-4dcf-b940-18061d51d91a",
+                    "Comment": "Решение",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$5d84f8f3-7c22-4226-a172-e8a8e4197896",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_6521a17fa74b23d4c90f2671b808996a",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$2e47e47c-9bed-4315-ac19-394eda135855",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_0c8efcab9dc3b3245827a4e98574b4e7",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$59f14113-c85b-4f5e-8374-147a44b747ca",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_14be5e45de55f454e86519e0aee406ec",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$0b956399-2745-43d5-8428-bfe4db2d16e0",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_b316a846d74004843be262826740a2e2",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$546d1288-512b-4c7b-9a9c-4ae5304bac54",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_f0dcdd7e3a636f041981daddc3f24689",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$80014240-7e36-4d8f-8d9a-5406303c0e71",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_b8589a5e99718a74ba555685245bd048",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$0d83464d-f0fd-43f3-a412-aad77b75ee41",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$8cbfb561-6283-443c-9fdc-502cbc620a4d",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_small",
+                              "_entity_id": "952b6c57-759c-4617-9f10-f7c0b114ca2e",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$53ebbb63-d274-4a47-a67c-987a95f308aa",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$68690b33-c0cd-4ab8-9191-329d45b4b618",
+                            "MapObject": {
+                              "EntityNameInEditor": "Torus_big",
+                              "_entity_id": "4987a96e-de3c-4579-bc0a-498eb6d78b19",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$51caa05b-516b-40a9-b1cf-9b3d1a22208a",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$58c357c7-a749-4d1c-80ac-6e12cafc0526",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_1",
+                              "_entity_id": "8959af24-1ee6-43ea-b8f7-5249e54c6b6b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$93b79a63-d144-4714-a435-7dcd30c39d26",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$ceacc909-dc8e-4847-9dbb-3da31a354fab",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_2",
+                              "_entity_id": "d70ef0fd-cac5-4ea3-b5e2-1cf28c1d730c",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$5ada2da1-7260-45d0-959a-1ab46d946498",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$b0d1e0c7-fb16-4ff6-878b-67aa5da6959c",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_3",
+                              "_entity_id": "067702a0-268d-469c-8262-b904d830a2cf",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+                          "name": "$SwitchInteraction$1c3f635d-9a24-48a6-a645-aee71b658a3d",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$417387b1-6cbd-484f-b63b-13423d64c652",
+                            "MapObject": {
+                              "EntityNameInEditor": "Cylinder_4",
+                              "_entity_id": "3dfbe949-8be2-4057-abca-996692a3a69b",
+                              "SceneAssetGuid": "2e67ffc07af44aa44afcf6db829e3aa2"
+                            }
+                          },
+                          "EnableIfAlreadyDisabled": false,
+                          "DisableIfAlreadyEnabled": true
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$3ab501e1-0566-484c-8faa-e97d2187d9d7",
+                          "m_Cutscene": "!bp_b7e670ef0dac90a47be4611f8548e3b2",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_0de22b7b685a73d459995f6e30ad4959",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_ba23093a8a7162a4b812209e0fb5bf5b",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

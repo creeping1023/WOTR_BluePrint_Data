@@ -1,0 +1,313 @@
+{
+  "AssetId": "2844d387f27a0bb468f72603dd15eda2",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudeBracketOverrideDialog$65826026-96a9-49bd-9145-47d8714ad030",
+      "$DeactivateTrigger$01b5dad1-4747-4fde-8d70-4aa9aedd4890"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$a6d64ccd-46ab-4f79-840d-4540cd5ecbcd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "убирает труп, ставит нового Закариуса",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$18894592-c123-446c-8148-0883622de273",
+              "Not": true,
+              "m_Etude": "!bp_244fc34bba8b7d241b46fc0f39151261",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$d5791a2b-42e2-4c5c-86a0-9c0a9700ef50",
+              "m_SummonPool": "!bp_00aedf4f872553444a43b4fe3cab22ea",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$84000f56-85c3-4ceb-a575-ea670509d18f",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$40dbd649-8f63-4675-b337-6b95fe72f054"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "ccb0fb0efcf797442840443865ee40bd, Summon",
+              "name": "$Summon$165d8f72-b2b4-4b2d-90e1-ae93903b23d5",
+              "m_Unit": "!bp_babbc46e076b78f408d8d87643daea3e",
+              "m_SummonPool": "!bp_217c00fa4f8fe7243a0bfedd60a8f106",
+              "GroupBySummonPool": false,
+              "Transform": {
+                "$type": "df903088c314c0349ab3b5dda20abb9c, LocatorTransform",
+                "name": "$LocatorTransform$592298dc-db1b-4749-8055-7a077400a263",
+                "Locator": {
+                  "EntityNameInEditor": "ZachariusLoc",
+                  "_entity_id": "df490149-993f-4434-ba9a-48fb101f8a0d",
+                  "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                }
+              },
+              "Offset": "0|0|0",
+              "OnSummmon": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$84204c3e-c63f-4451-9bb8-d7e3b752cc07",
+                    "Target": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$3d25910c-5219-4528-a9b2-944ad72a4049"
+                    },
+                    "m_Faction": "!bp_4e1f333e518d4794bb41b025e991edb0",
+                    "IncludeGroup": true,
+                    "ResetAllRelations": true
+                  },
+                  {
+                    "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                    "name": "$AddUnitToSummonPool$50ee4781-c60e-4a89-a0bd-6770b4b17978",
+                    "m_SummonPool": "!bp_00aedf4f872553444a43b4fe3cab22ea",
+                    "Unit": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$5599130d-1b7a-41d1-96d2-99a0fd5945eb"
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$861dce1d-8d10-42ad-a157-e183787c558f",
+                    "Comment": "убрать лут если это не 5-ая глава",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$d4815bbf-8901-4e61-a1f5-9eac67fb9d4d",
+                          "Not": true,
+                          "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                          "name": "$AttachBuff$ed552d65-474b-42d9-a15a-cba1d85b7ad0",
+                          "m_Buff": "!bp_0f775c7d5d8b6494197e1ce937754482",
+                          "Target": {
+                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                            "name": "$SpawnedUnit$0aaa519f-528a-421a-9924-0ee66b3896e6"
+                          },
+                          "Duration": null
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "8b4c3a5898712654596bc06311e73737, EtudeBracketOverrideDialog",
+        "m_Flags": 0,
+        "name": "$EtudeBracketOverrideDialog$65826026-96a9-49bd-9145-47d8714ad030",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "выдаёт закариусу диалог",
+        "m_Distance": 2.0,
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$0071cd35-2952-4623-abbc-f24ba23cd8d6",
+          "m_SummonPool": "!bp_217c00fa4f8fe7243a0bfedd60a8f106",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Dialog": "!bp_7bf63a70f56759b489889a3d408dc3a3"
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "m_Flags": 0,
+        "name": "$DeactivateTrigger$01b5dad1-4747-4fde-8d70-4aa9aedd4890",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "Закариус обиделся и свалил",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$3fd36bc9-91ab-4722-8916-a92d1ebda37e",
+              "Not": false,
+              "m_Etude": "!bp_f5b94006cf94aca41ae4546367775468",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$9acd5dd9-b4cc-405a-991e-015fb571e8b2",
+              "m_SummonPool": "!bp_217c00fa4f8fe7243a0bfedd60a8f106",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$a61f88f6-e831-4d26-86ba-d5b3313e0645",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$b9bd5844-beeb-40fd-a184-4e5fefc349a2"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "выставляет Закариуса в Зиккурат",
+    "m_Parent": "!bp_a35d8fcb9c658214d821b125b7add6c9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$d2522141-15ee-4ed3-8a6b-7c65b98839f1",
+          "Not": true,
+          "m_Etude": "!bp_ef0c98bcce6201f4dbf17e141ffa4e44",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$a8718f73-1ce7-4dc0-9472-465f142fe333",
+          "Not": false,
+          "Comment": "пятая глава или не сошёл с пути",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$71c87628-d68d-469f-8234-e6d27fbae504",
+                "Not": false,
+                "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$f72b9065-e03e-4290-abf6-2444133a0fdf",
+                "Not": false,
+                "Comment": "не пятая глава и остался на пути",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$87290bf7-a9e6-4326-84eb-7b94e03c58c5",
+                      "Not": false,
+                      "m_Etude": "!bp_7b80ec84c75e76e4e9c8a45fefca34b3",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$03ec5b9f-3683-451f-935c-c6b6e15a9c03",
+                      "Not": true,
+                      "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_e8f1160e960935344a8aa7466484506d",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

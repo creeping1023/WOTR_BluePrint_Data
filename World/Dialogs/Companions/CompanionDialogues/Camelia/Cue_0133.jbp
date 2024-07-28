@@ -1,0 +1,147 @@
+{
+  "AssetId": "5d8b37196d7906746bdcadf53ae89028",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Фейд аут, Камелия пропадает с локации до следующей загрузки, +1 к каунтеру убийств Камелии\nУбрать Рамьена из Дрезена навсегда, положить КУДА_НИБУДЬ труп Рамьена (в незаметный подвал, никто кроме нас его не может найти), выставить флаг про то, что Рамьен теперь мертв",
+    "ParentAsset": "e230db3a8ed466d45902f7d2429a9d9c",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "ae47e9ee-53eb-4d41-8e89-da2bd3a0fda4",
+      "m_OwnerString": "5d8b37196d7906746bdcadf53ae89028",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionDialogues/Camelia/Cue_0133_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$ce984dd7-99ca-4726-a510-5185c02f68f8",
+          "Etude": "!bp_2971976be1b2c2e488ce4c462ef3c678",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$5f4e79f2-44c0-4f98-aefe-6b83c88b51b3",
+          "m_Flag": "!bp_9ce1c1b234ea3154da554aa32904d475",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$9b0cbcbd-bd95-4e82-828a-46685452db3d",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$c181eec5-0e3b-44ab-9358-f2a7bdefadab",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$0f087faa-9597-437b-b0e0-068f811f48b1",
+            "Spawner": {
+              "EntityNameInEditor": "Ramien",
+              "_entity_id": "69947a63-e445-4adb-abf6-35db365b4ab4",
+              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$88d03d4d-beef-4dae-8913-737028676ee7",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "Ramien_dead",
+              "_entity_id": "bbe8511d-cb5d-412d-8572-58519a53d37f",
+              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": [
+              {
+                "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                "name": "$Kill$557860e2-5e28-4e8a-8c39-2cd29177202f",
+                "Target": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$36e8cdc0-72ed-4946-ac68-49d66e3d03cd"
+                },
+                "Killer": {
+                  "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                  "name": "$SpawnedUnit$c9407805-348f-418c-8b31-2d704c178c3d"
+                },
+                "Critical": false,
+                "DisableBattleLog": true,
+                "RemoveExp": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$14513958-4ed2-4055-b72e-2efbc402197b",
+          "m_Cutscene": "!bp_4d0821789698d264bad86ac40bf785d2",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$525e7d28-4865-4e4b-94e7-8307b86119dd",
+          "Target": {
+            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+            "name": "$CompanionInParty$9356c45d-e451-4675-9a11-305c0b2a5d5e",
+            "m_Companion": "!bp_397b090721c41044ea3220445300e1b8",
+            "IncludeRemote": true,
+            "IncludeExCompanions": false,
+            "IncludeDettached": true
+          },
+          "Unhide": false,
+          "Fade": true
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

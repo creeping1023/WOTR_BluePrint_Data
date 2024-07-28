@@ -1,0 +1,310 @@
+{
+  "AssetId": "207fad718f41237449b0acf414cc991a",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$d57cb5a0-103c-48c8-9ebc-d463abb1c6b2",
+      "$SummonPoolTrigger$6e8b57f5-af83-4d08-a4a3-9f38949c4fdc"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$d57cb5a0-103c-48c8-9ebc-d463abb1c6b2",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "события на входе в аутдор",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f4fbc6f6-30ef-4497-a675-51024fe4fb2a",
+              "Comment": "interchapter",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$2ae7b15e-44c0-4713-a508-98eda7b133c9",
+                    "Not": false,
+                    "m_Etude": "!bp_d2db33e73492f984bb387aa0dd15fd8a",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                    "name": "$StartDialog$b49efcef-91b8-4193-9a6e-f3b9a4ad7800",
+                    "DialogueOwner": null,
+                    "m_Dialogue": "!bp_2ef45598b1c6e5c48924c409b62483b7",
+                    "DialogEvaluator": null,
+                    "SpeakerName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$6e8b57f5-af83-4d08-a4a3-9f38949c4fdc",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "конец финально битвы аутдора\nпоявление Арилу",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_fff544a68026ad7498ca0cff65acbd51",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$b7521730-268e-4060-a7d7-35e2f811a370",
+              "m_Cutscene": "!bp_d1096e90739586f458269e5eab66c356",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$c69fd026-021a-4f77-b35f-a1aa545c43d3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "выход из боевой анимации после боя",
+        "Unit": {
+          "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+          "name": "$PlayerCharacter$ef9205c6-bc4e-4db2-aa49-a21677817416"
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$83018342-8ee3-4612-955a-dd1babcba420",
+              "m_SummonPool": "!bp_4696314ab3bb4154d96f0b18c7db0dd6",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$d20ac48f-0a83-4918-a895-cb039f12c1d1",
+                    "m_Cutscene": "!bp_cfc9865f591e441da3450fe0fcca97a3",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$715d9f00-682b-4e13-9b38-af7cc02daccb"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$46423958-4bf4-44e7-9699-2077c5cf6178",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "3ий бой, адды 1",
+        "Count": 2,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_a90edb638b05438a9b6c363831df152d",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+              "name": "$SpawnBySummonPool$7d6c8fc8-29e6-40db-aea6-c9aaede2c420",
+              "m_Pool": "!bp_d7ccae9f61af4281a0c2b520a7fd0eaf",
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$7075c39c-0913-45be-a844-a12d6012ddcd",
+                    "Target": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$01e3a26c-1805-4f79-818b-db3ce3a614a8"
+                    },
+                    "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                    "IncludeGroup": true,
+                    "ResetAllRelations": false
+                  },
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$6c1a0335-f9d4-4ae3-8574-13b637dd4c55",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$bebb406b-ebec-4f54-84e9-02829ccddfab"
+                    },
+                    "Unit2": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$8c3c9380-fb1c-41b2-9e1e-2a604f7fb84b"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$a28b5d91-c3f3-4989-954c-359444dc87fe",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "3ий бой, адды 2",
+        "Count": 1,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_d7ccae9f61af4281a0c2b520a7fd0eaf",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+              "name": "$SpawnBySummonPool$d5a0dc01-8cff-4d86-b0f7-e484d303b2c3",
+              "m_Pool": "!bp_61b61e16d96d4f649cfc5f1dd9e053c4",
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$fffd8d04-f029-481b-a7e0-e1055eea9e87",
+                    "Target": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$f9e2d0ea-d0f6-4312-b91d-7260e7ce58a4"
+                    },
+                    "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                    "IncludeGroup": true,
+                    "ResetAllRelations": false
+                  },
+                  {
+                    "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                    "name": "$StartCombat$a55ab03a-ea29-4970-89a4-84849bf64e30",
+                    "Unit1": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$20b48d9e-d371-48f3-871e-b1d60423afe8"
+                    },
+                    "Unit2": {
+                      "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                      "name": "$SpawnedUnit$ed1384b9-423c-4b6f-941d-03def092854c"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "58eb7a4ecbe04eb19a187aecf8f92faa, EtudeBracketCampingAction",
+        "name": "$EtudeBracketCampingAction$3013ac3e-168c-4ba5-99ca-7ab03ccb004e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "rest disabled",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "904a91540b4d40128c59ce26c864705e, ShowUIWarning",
+              "name": "$ShowUIWarning$673c3e91-1a64-41cb-bb78-21b7cb5c11fe",
+              "Type": "RestOnThisZoneImpossible",
+              "String": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        },
+        "SkipRest": true
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_d44763472a4034145a590e3de949ca24",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_10c4b0e2af186ba46ab4d238d00a40a8",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "AssetId": "ab35ca31925d46f6b57db8eaabf2e0d5",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$51053e8f-67fd-45c5-a72e-95758bc7817b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$5396e471-9869-4cff-b329-73cc672c7120",
+              "m_Cutscene": "!bp_1545fe184fcc4b29b6b3606cc33bfd97",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$aaca20b9-2192-41a3-8ffa-f5147e60df77",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$47bf853c-c1e3-40b5-8a99-147d4e3455ad",
+              "Status": "Complete",
+              "m_Objective": "!bp_c55fd375d95528447af2165a77146ca8",
+              "StartObjectiveIfNone": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$956d5914-fd07-4194-b45d-b699e1237025",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$faa2fed4-2fa8-41d4-863e-6d7aee01ecce",
+              "Comment": "One Wing?",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$8c16ceb6-ffcd-4deb-95fa-e88398e166e2",
+                    "Not": false,
+                    "m_Etude": "!bp_1aaee57d670b0494e9d8662bffbf4f6a",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$dbd9c108-5168-43ab-be25-2844eb98ad26",
+                    "m_Buff": "!bp_950a4f38e4d2402cb25382fe10d286c1",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$13c5dd70-18cb-4856-a5d9-ca0e311dbb63",
+                      "Spawner": {
+                        "EntityNameInEditor": "Targona",
+                        "_entity_id": "2a27abe5-0d42-4a94-b564-7a406f406d44",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$40d97ec0-c2e1-46be-9016-24e4abcae9b0",
+                    "m_Buff": "!bp_ed6be0c3e0c54f51bb1e4b61807784ae",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$b31b7117-8155-4da4-b2e0-356de42cef9a",
+                      "Spawner": {
+                        "EntityNameInEditor": "Targona",
+                        "_entity_id": "2a27abe5-0d42-4a94-b564-7a406f406d44",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Duration": null
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$7c92e1ef-0142-4e37-a98b-bdc37cce949e",
+                    "Comment": "Two Good Wings?",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$f664a0ba-de16-49e5-87ae-9a2e0444541f",
+                          "Not": false,
+                          "m_Etude": "!bp_cbbc0bda343244f9ac373df52f9e60dc",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                          "name": "$DetachBuff$bf510b1c-bc48-46c4-9649-f2774c5008ec",
+                          "m_Buff": "!bp_ed6be0c3e0c54f51bb1e4b61807784ae",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$bd74b5e1-ad28-4a4b-8fe9-c0317504470e",
+                            "Spawner": {
+                              "EntityNameInEditor": "Targona",
+                              "_entity_id": "2a27abe5-0d42-4a94-b564-7a406f406d44",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                          "name": "$AttachBuff$5bbbd796-68b3-4164-b291-8e3e629d7b36",
+                          "m_Buff": "!bp_950a4f38e4d2402cb25382fe10d286c1",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$d763acc4-4403-40d7-aebd-efbd904323e4",
+                            "Spawner": {
+                              "EntityNameInEditor": "Targona",
+                              "_entity_id": "2a27abe5-0d42-4a94-b564-7a406f406d44",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "Duration": null
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_7052d0655b9249ca85c13f38264c9c3a",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$209c733a-3c6a-4741-8d47-bb54ddbf5f34",
+          "Not": false,
+          "m_QuestObjective": "!bp_c55fd375d95528447af2165a77146ca8",
+          "State": "Started"
+        },
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$e378725b-8bb3-49ba-a066-3586942d7193",
+          "Not": true,
+          "m_Group": "!bp_09bcb0ca88c8a394f8601179a094905a"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_8a076e720870a44438d13b9b939933fd",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [
+      "!bp_180f90478de040aa97d9cc3356974588"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_09bcb0ca88c8a394f8601179a094905a",
+      "!bp_d0af7ba1e61b1574aaedac7fe4683339",
+      "!bp_da75ca00a6458164fa270d09dfe00586",
+      "!bp_245e6a0643228534d9808d0b99bf9746",
+      "!bp_6253b142ed0489e44abeb5b2fc11f623",
+      "!bp_09bcb0ca88c8a394f8601179a094905a",
+      "!bp_a6e86e82fe61f5c45a3901fc805a287d",
+      "!bp_dc1780f567f29b44b840eae225575cf5",
+      "!bp_1c2c710d1b9e4fb9a53b501ceb6b14ce",
+      "!bp_167cb2e4ea9a4cf8b6467c40953c44c9",
+      "!bp_5d632f2f01132ba4faabb2017ecfb547",
+      "!bp_b849602e4fa6406eb3146d18da5bfb15",
+      "!bp_2e74178ce12c09740919a3941178c2dc",
+      "!bp_997d865aa6f17cc48b480bd62ba02841",
+      "!bp_8c6eaa00ad574294ebd5401b704764fe"
+    ],
+    "Priority": 1000
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

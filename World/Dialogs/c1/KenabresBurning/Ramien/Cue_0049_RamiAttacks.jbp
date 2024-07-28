@@ -1,0 +1,282 @@
+{
+  "AssetId": "32916dbf48b7fce4f87b2e194c800925",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "играется если убили Илкеса или трех адептов\nпосле него Рамьен нападает\nможно отрепортить Халрану его смерть как если б напали сами",
+    "ParentAsset": "d22f811fd7ebc9143bfa1383198d5208",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$de1729a3-f5d0-4d17-b972-efb220e49b7a",
+          "Not": false,
+          "m_Etude": "!bp_49b91c97c60b73a4d974ec8c28a04401",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "81f29033c6965ec439d98a2a56136942",
+        "stringkey": "a6519c86-8935-42c7-b2ae-697f8d8d3602"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$2b4f98a1-6074-4d62-8dd1-0079f0d448c9",
+          "Etude": "!bp_81037254dcdfb5441902e9b23f65aee4",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$4e007216-0d9c-44ea-8a70-d2cab41d34d5",
+          "Etude": "!bp_e6669aad304206c4d969f6602e6b412e",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$663b3a0d-9e05-48ad-b5eb-545ddc528a8f",
+          "Unit1": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$97b459d5-1fcc-4843-aba4-d89be7063d5c"
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$ae1f8e1c-1fd4-4cdb-83d4-c0958413b015"
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$07eeafcf-fb12-4e82-9928-31747b5a977a",
+          "Status": "Complete",
+          "m_Objective": "!bp_e1a3adf1157fef84ca174c8a9c7ae1de",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$75ef4583-e440-4338-a593-b91ca82564ce",
+          "m_Objective": "!bp_cb7232e1a1d01394aa7c10af5e19032a"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c00eaf01-a7fb-4cc6-820b-7c114a831a48",
+          "Comment": "если выдан обж на Хурлана - профейлить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$9912307b-50a7-4038-8a6d-f90bcdb49d0c",
+                "Not": false,
+                "m_QuestObjective": "!bp_aa1569db29477a14bbe95548fe94a515",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$e2dd6ffa-1324-4f7b-aa59-1ef7e08c6d52",
+                "Status": "Fail",
+                "m_Objective": "!bp_aa1569db29477a14bbe95548fe94a515",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$bbcf7772-6f93-4da8-a1e6-6bc9d9a49962",
+          "Etude": "!bp_81037254dcdfb5441902e9b23f65aee4",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$213e7931-5172-4645-80dd-17a71209ba76",
+          "Status": "Fail",
+          "m_Objective": "!bp_927f4e4b06f741c4c862210c4c8c7f2e",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$ef5c89d9-5d56-44ee-95d9-908030fbe3f7",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$000b7861-e294-4c1f-b729-7d99ef8f9094",
+            "Spawner": {
+              "EntityNameInEditor": "IleksInTemple",
+              "_entity_id": "93ccc790-53a1-4bfb-ae80-756328ce0bfa",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$31fe90b5-9d65-4d1b-8284-e2f989d88a8f",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$99a0ce56-e600-4cec-a4db-0b7c0a64a42a",
+            "Spawner": {
+              "EntityNameInEditor": "Tall",
+              "_entity_id": "3b1ab143-73ea-497a-b7e1-48cedcb55f61",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$d41094e9-7655-4853-938c-b795fdce40c2",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$3ddcbbb3-a276-47a8-9db6-c5a8f333cc5d",
+            "Spawner": {
+              "EntityNameInEditor": "Aranka",
+              "_entity_id": "061a0316-d9d7-4071-8fb0-57f522189e57",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$c0eb134a-20d1-4e6f-bf68-5817b849750d",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$e257004a-e3d7-4946-932b-f1974aaba0ea",
+            "Spawner": {
+              "EntityNameInEditor": "Tall_DesnaAdept",
+              "_entity_id": "c52499e3-404b-4b08-9162-47b49c5258ab",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$80ba148d-ad4d-4964-a2f7-4b087ed2d3db",
+          "Comment": "если выдан сказать о смерти Хурлана - профейлить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$0e0be62f-ed26-4c46-a89e-a0b191764386",
+                "Not": false,
+                "m_QuestObjective": "!bp_f95a0c06ab3b81b49a1c5894f96e0996",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$cc14b684-7cc9-44cd-b129-7588f741f278",
+                "Status": "Fail",
+                "m_Objective": "!bp_f95a0c06ab3b81b49a1c5894f96e0996",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$12788cbd-78fa-48fa-852d-4e557502fb18",
+          "Comment": "если выдан сказать о решении Хурлана - профейлить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$289fc58c-822e-491d-ad72-35e341f7a578",
+                "Not": false,
+                "m_QuestObjective": "!bp_e9c2b8b489b8d2e49b199ce787aa7bf4",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$a8d0c345-72b7-4b66-8643-80dc24baa155",
+                "Status": "Fail",
+                "m_Objective": "!bp_e9c2b8b489b8d2e49b199ce787aa7bf4",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

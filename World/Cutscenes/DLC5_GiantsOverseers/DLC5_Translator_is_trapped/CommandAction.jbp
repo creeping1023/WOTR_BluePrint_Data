@@ -1,0 +1,104 @@
+{
+  "AssetId": "335114a4c0814847af3da53aa17c94fd",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$7fd7565f-0a38-4082-ad43-994153a63809",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$3725ff8e-59b8-4ee9-82b6-ef65761df6cf",
+            "Spawner": {
+              "EntityNameInEditor": "Translator",
+              "_entity_id": "55c028d5-ba59-4dc3-af05-3f904406b30d",
+              "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": false,
+          "ChangePetsFaction": true
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$d600938b-0bcd-45c4-9a4c-632169eea12c",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$d4bcd9fc-32d9-4f1b-a1e2-b0e352a42f58",
+            "Spawner": {
+              "EntityNameInEditor": "Translator",
+              "_entity_id": "55c028d5-ba59-4dc3-af05-3f904406b30d",
+              "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$531a36b7-6480-4a87-8f85-14b4be3397b0"
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$ce335aa3-6001-4ddc-ba5e-d5fa125abeae",
+          "Status": "Complete",
+          "m_Objective": "!bp_9508259f53884daca0873f2b432e13e1",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$f0407e50-ca02-4743-9971-c92968b8bc9b",
+          "Status": "Fail",
+          "m_Objective": "!bp_80822e615e8c48b8993e1add94eed87b",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$9f950ede-ad33-420d-9f1d-609bf5ca21d5",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$94f62c27-f535-4900-bec0-465169bbb811",
+                "Not": true,
+                "m_QuestObjective": "!bp_80822e615e8c48b8993e1add94eed87b",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$7ed12187-dce4-41ec-bb5d-9acc2109713f",
+                "Not": true,
+                "m_QuestObjective": "!bp_9508259f53884daca0873f2b432e13e1",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$966ee633-b2bc-46ae-8df7-233720a49e3f",
+                "Status": "Fail",
+                "m_Objective": "!bp_3a791096dd5d4dc2838a75187a6cbd53",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

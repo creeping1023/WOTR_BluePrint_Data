@@ -1,0 +1,108 @@
+{
+  "AssetId": "43bbc31a1e6e5284bb015cba6f9dfe18",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_0e71aa73fb697e04582a3b7a1c837525"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$7148e0c8-40a3-4d1d-a2e9-09758ed3ab9c",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+              "NPCUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$2601fc6f-d3d2-427f-b084-8a018c1598ba",
+                "Spawner": {
+                  "EntityNameInEditor": "Arusha1",
+                  "_entity_id": "9dcda382-9a0f-40d1-b0c4-dc5ec61afdd5",
+                  "SceneAssetGuid": "d2a187b41b2a6a54383805f1e5386faf"
+                }
+              },
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "5afa2802918b3874bb6e0d611d6489cd, UpdateEtudes",
+                "name": "$UpdateEtudes$db1a5a12-992f-4dd0-8827-72d2710e4f18"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$f5b02186-ef7d-420b-9dad-e487b2719eea",
+                "Comment": "активен романс с Арушей",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$fd5f5367-e2b1-4971-8f16-7e693eec2eb4",
+                      "Not": false,
+                      "m_Etude": "!bp_6a3fdd0758fe78d4aa2c3b26d7614fbc",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6c49e8ba6a0800c4d8a905426e811558, AddCampingEncounter",
+                      "name": "$AddCampingEncounter$0cc3d602-52b9-4b81-a9c4-4c36fb121e9a",
+                      "m_Encounter": "!bp_b1501473507eb00418ab14db5fd9f23a"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "OnRecruitImmediate": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$80f2121d-6fed-4722-a518-a0de9daa6fda",
+          "Etude": "!bp_68d8697e770001647a97f4e115b6d877",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "AssetId": "065ae0f6cb8d46208d4f9b07885a83ad",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$a133d63b-be11-4af1-b808-777fd97c7442",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$6468f988-7505-4a25-ae83-ce93befe509e",
+              "Comment": "Addendum is started",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$33cea1f0-31a9-4675-8313-ae7143f5cd1a",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_9c4313e5ca194ed08973c17b2f9524a0",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$8ed8c694-67f6-4810-8d3d-ab8b83b6ff18",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_9c4313e5ca194ed08973c17b2f9524a0",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1789d313-5f91-481f-abc4-4775667f0f53",
+              "Comment": "Quest is started",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$446a29c5-c76d-4b20-a346-4f1d3fcf7713",
+                    "Not": false,
+                    "m_Quest": "!bp_e694bb253fc04236b6efcad76a3dac0f",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$c6f5f3db-2a90-4f64-9bec-7a446748c401",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_7a162b4c7e2f4e24b61a864d04675916",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4e10eaa1-624a-486d-ba05-dbd5d93119cc",
+              "Comment": "Event isn't completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ec24f24f-7371-4e7a-b2c0-9a71806681b8",
+                    "Not": false,
+                    "m_Etude": "!bp_021ad846549c42c4bbdf8b88b4635d89",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$7780f865-7f20-4d0b-bf5e-774c7fa3bf8a",
+                    "Etude": "!bp_021ad846549c42c4bbdf8b88b4635d89",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$cb2d01a0-e81a-4383-a6e0-d822e607dd42",
+              "m_Cutscene": "!bp_8c912ac0e8c04b7aa55bf5e99e598425",
+              "m_AllCutscenesFromUnit": false,
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$47663ddc-c24e-4015-8542-42a865a52ad4",
+              "m_Group": {
+                "EntityNameInEditor": "Crowd",
+                "_entity_id": "d894af7d-e747-42d9-bccb-50af46f341fb",
+                "SceneAssetGuid": "715d32aedd15ca747b53376ec38a132a"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$5434a109-94b7-4d67-b249-6d6893b05e02",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$89bff65e-61fe-4279-90f6-30f321df66ad"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsFromSpawnersInUnitGroup$71e2999a-72f2-4f55-8e21-c3532e3789ee",
+              "m_Group": {
+                "EntityNameInEditor": "Children",
+                "_entity_id": "6a580f90-ad3d-473a-a08c-78f9b7750462",
+                "SceneAssetGuid": "715d32aedd15ca747b53376ec38a132a"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$c5f5ff31-7fcd-4709-b8be-412f2d76d83b",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$94f6a293-1837-413e-92fa-1c485545b639"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f4dbb70a-64b4-4123-a850-ec04a30cba3a",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$f40fce86-4a4c-4f7e-99eb-62e3f75286b1",
+                "MapObject": {
+                  "EntityNameInEditor": "CallAivuToKids",
+                  "_entity_id": "1d28d4c8-b8b1-4f88-bb20-c6d464631888",
+                  "SceneAssetGuid": "715d32aedd15ca747b53376ec38a132a"
+                }
+              },
+              "Unhide": false,
+              "UseEntityFader": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$4367e8ce-8c27-4112-9c85-a1eb773f2b4c",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$e10c76f7-0129-4d55-a8ec-5394539ff162",
+                "MapObject": {
+                  "EntityNameInEditor": "CallAivuToCake",
+                  "_entity_id": "a58b1b56-eaa9-46a6-8d75-f84e66672d4f",
+                  "SceneAssetGuid": "715d32aedd15ca747b53376ec38a132a"
+                }
+              },
+              "Unhide": false,
+              "UseEntityFader": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$48b1bffd-4048-4e4d-8b82-2ca02a6949e0",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$56bff826-98f9-4352-aec9-4d80166008fe",
+                "MapObject": {
+                  "EntityNameInEditor": "Cart",
+                  "_entity_id": "cf9a6e73-701f-4fad-b961-9009d6c91f27",
+                  "SceneAssetGuid": "715d32aedd15ca747b53376ec38a132a"
+                }
+              },
+              "Unhide": false,
+              "UseEntityFader": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      }
+    ],
+    "Comment": "Aivu is already dead",
+    "m_Parent": "!bp_8f57b05e79974db1b3f15b35cb9ee443",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$e44b128c-5c9c-4117-a79a-4c045f42fce4",
+          "Not": false,
+          "m_Etude": "!bp_6bb323decc944e88915bd75765ae5fc2",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+          "name": "$UnitIsDead$5f9cf588-db0f-4f5a-bac5-6dd435cff1c3",
+          "Not": false,
+          "Target": {
+            "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+            "name": "$PetEvaluator$147d32b5-9180-471b-bccb-c144231e0df2",
+            "Master": {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$94bb6220-9335-4ac8-a049-9487a1dffd8c"
+            },
+            "PetType": "AzataHavocDragon"
+          }
+        },
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$fb161c85-4205-4075-9558-a77ecdd555f4",
+          "Not": true,
+          "m_ConditionFlag": "!bp_c0e40336da814953b8cbbded2ef1a34b",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_8faa6a4a12bd42da92e5c46287824ec5",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_c0f9e002c0b7499dbe0bbca24fdf6a8f"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

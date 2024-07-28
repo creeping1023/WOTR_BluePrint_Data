@@ -1,0 +1,240 @@
+{
+  "AssetId": "a31b01603b4c40689a56b4f480ffa73e",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0ef8a056-2b42-4f03-a755-3243d3baaf78",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Поспавнить трупы",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$7ea2c561-cc2e-4486-8c48-6b521d6a22cb",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$f8027a55-b9e6-4490-8cf6-0c8ac8ec23b8",
+                "MapObject": {
+                  "EntityNameInEditor": "DaeranDemonCorpse",
+                  "_entity_id": "280b5d3e-0d21-4f2f-83f6-1eead0db9962",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$4de6bec3-6eb2-4ca7-946b-4b395003683d",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$ce5d51db-9f5c-4727-9208-8ba5097f635a",
+                "MapObject": {
+                  "EntityNameInEditor": "DaeranDemonCorpse_bark",
+                  "_entity_id": "1c0c9d58-8738-4fb3-bd05-45c51ab3ce9c",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3d52e1fc-74da-46f0-9603-6b33999b288b",
+              "Comment": "Передвинуть уголька",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ef4d3999-20f5-4d4c-a491-48ebd11cdbc4",
+                    "Not": false,
+                    "m_Etude": "!bp_2589a632c85ff504f8c7d278223bb117",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$6d5c4a65-8607-42cb-bb0e-c56a25d2fcd4",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$29b24155-d5e9-4d06-9c23-1a63a54e347d",
+                      "Spawner": {
+                        "EntityNameInEditor": "Ember",
+                        "_entity_id": "882ab92c-b385-4035-81e4-878df86c5df5",
+                        "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                      }
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "EmberLoc_DemonCorpse",
+                      "_entity_id": "616135e7-6f50-4bfb-99ee-8760ce81f151",
+                      "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$4ce11df9-59d2-4d77-9f61-f893ccb480d1",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "EmberLoc_DemonCorpse",
+                        "_entity_id": "616135e7-6f50-4bfb-99ee-8760ce81f151",
+                        "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "name": "$DeactivateTrigger$b1c0a25c-5cfb-451f-b059-3cdc02d3fbdc",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Убрать трупы",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$c8447a0f-81c9-4087-ac82-337746970f50",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$82f1a24b-a801-4446-9481-173c75dabaaf",
+                "MapObject": {
+                  "EntityNameInEditor": "DaeranDemonCorpse",
+                  "_entity_id": "280b5d3e-0d21-4f2f-83f6-1eead0db9962",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$582fc8ad-1c70-42d6-a181-ba8dabf3b6f8",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$7983eca7-374d-4030-90a8-b4c6a084834c",
+                "MapObject": {
+                  "EntityNameInEditor": "DaeranDemonCorpse_bark",
+                  "_entity_id": "1c0c9d58-8738-4fb3-bd05-45c51ab3ce9c",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1c79e470-3cf3-43aa-af4f-54a12b8f7d7c",
+              "Comment": "Передвинуть уголька",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$2f9c677a-95e9-458f-9ae8-2933bc525617",
+                    "Not": false,
+                    "m_Etude": "!bp_2589a632c85ff504f8c7d278223bb117",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$15c7617a-8d69-4e82-9a03-fcd9b7df872a",
+                    "Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$54bd2c44-20e0-418f-a414-dde8b3f168a3",
+                      "Spawner": {
+                        "EntityNameInEditor": "Ember",
+                        "_entity_id": "882ab92c-b385-4035-81e4-878df86c5df5",
+                        "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                      }
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "EmberLoc_DemonCorpse (1)",
+                      "_entity_id": "02e9420b-d9e7-4902-a266-d0d75c4c9077",
+                      "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                    },
+                    "translocatePositionEvaluator": null,
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$e5d02cee-ec7c-4f2b-b659-bb38df6fe1d9",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "EmberLoc_DemonCorpse (1)",
+                        "_entity_id": "02e9420b-d9e7-4902-a266-d0d75c4c9077",
+                        "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Трупы лемонов в комнате командора",
+    "m_Parent": "!bp_b73a4e97547057b41a14de6c072b2f56",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_089e897983fef564d9e15b46ff679d7e",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

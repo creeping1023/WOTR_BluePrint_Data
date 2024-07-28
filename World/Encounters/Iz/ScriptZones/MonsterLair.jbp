@@ -1,0 +1,157 @@
+{
+  "AssetId": "e177d158abc545a4cbc8910a731f1ad3",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$30d784d3-8d78-4002-b04c-426bd7648e14",
+          "Not": false,
+          "m_Etude": "!bp_c6f99eb931a98e24ba3c786389ab7570",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "95ab8455743b4254580bb0adfaf3be54, IsInCombat",
+          "name": "$IsInCombat$3b736058-a5f8-4adf-b649-ace18274998d",
+          "Not": true,
+          "Unit": null,
+          "Player": true
+        }
+      ]
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e82e72fc-6486-4eae-8660-076101cbbcb6",
+          "Comment": "Стейт \"до\"",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$dffe9143-3af7-4fc2-b272-baaef9b6a96e",
+                "Not": true,
+                "m_Etude": "!bp_9daf0401427a8e444941bdd1a8c6e301",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$868d2de9-1b1e-4e54-b3b2-ce0ba32c16dd",
+                "m_Cutscene": "!bp_817d7537c3e106140a844c31c6cd16b5",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$673ab9ab-3057-40b3-b0e7-cad0cdd4c9cd",
+                "Comment": "Cutscene Galfrey fight againt Terendelev or another monster",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$9bf620df-1bad-436b-917c-e01448a86153",
+                      "Not": false,
+                      "m_Etude": "!bp_6b98ec3e704599149b99fe70b5f793ab",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$c0c1b886-587f-4778-8457-49e0c87dc50b",
+                      "m_Cutscene": "!bp_eb0ad2d2ab20aee409461529c8dd8e0c",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Monster",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$94e79618-506b-4283-9524-69a8f457e382",
+                              "Spawner": {
+                                "EntityNameInEditor": "AnotherMonster",
+                                "_entity_id": "e0419d22-62a3-4000-ad0e-6bf0a9848ffa",
+                                "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$ad03f1bf-2694-4f88-9b69-fbfa2eac0cf2",
+                      "m_Cutscene": "!bp_eb0ad2d2ab20aee409461529c8dd8e0c",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Monster",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$f679449f-22b6-444f-9b85-22a52769383a",
+                              "Spawner": {
+                                "EntityNameInEditor": "TerendelevUndead",
+                                "_entity_id": "ba16f7fd-bbb4-4e4e-a98d-8f6ab555ae53",
+                                "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  }
+}

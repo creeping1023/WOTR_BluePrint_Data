@@ -1,0 +1,177 @@
+{
+  "AssetId": "690c11c30d64454ab880b61e5922dd72",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$8caaa72e-1a86-4e81-902c-931ddc9a321e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$46d54834-69ef-44fb-ad17-e54c21a41011",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "DrunkGnome",
+                  "_entity_id": "524a4d08-c06b-4aea-8665-cafa87cc38c0",
+                  "SceneAssetGuid": "86c13b269d33a854583d09e1cd9ef70f"
+                },
+                {
+                  "EntityNameInEditor": "LittleGirl",
+                  "_entity_id": "7d60f606-e17a-49af-bd3b-fb3c1c6ce5ea",
+                  "SceneAssetGuid": "86c13b269d33a854583d09e1cd9ef70f"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              },
+              "RespawnIfDead": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$78d98ef5-9ebb-4eef-a311-7abd0025b88c",
+              "m_Objective": "!bp_7bb8a95ce3b147879895e02a0d7c0d76"
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$dc609b36-9e93-42e3-a190-be2edc7a785d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$4d244e04-a46d-46c9-ba5f-9fd257c698a9",
+              "m_Flag": "!bp_1ca6ec2ca8b74441a3f51eab0ab04203",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$32f1ae57-bc53-45a9-b889-75bdeb3f78d1",
+                "Value": -1
+              },
+              "UnlockIfNot": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$a0a37642-5df1-43cc-ae1f-764fa5a2cfa1",
+              "Etude": "!bp_597cfc1b38e34bdbbf20191302763725",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b71983d8-93f1-4730-b854-bf8427140830",
+              "Comment": "Fake commander is on scene",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3668a332-9bdc-490a-a9a1-4582277a588d",
+                    "Not": false,
+                    "m_Etude": "!bp_bf937759d21d4e2d93924ec03342d334",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$be96e19b-d395-4524-9fbe-9ba5887a8c92",
+                    "m_flag": "!bp_4ca4a775c06e46f5918ad6116d0de3be",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_9e14471aa9214ca7ad54a05dc18018d5",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$07b7cdf2-5e29-4f4f-b35f-215adaad6029",
+          "Not": true,
+          "m_Etude": "!bp_597cfc1b38e34bdbbf20191302763725",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "d00239901a4bf03408fc8b12116b4d67, CompanionIsDead",
+          "name": "$CompanionIsDead$fc16f397-f241-4f76-a430-1da9dd922395",
+          "Not": true,
+          "m_companion": "!bp_54be53f0b35bf3c4592a97ae335fe765",
+          "anyCompanion": false,
+          "includeRemote": true
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$6c723eb0-0852-4c82-a53b-cf5b96bd1b36",
+          "Not": false,
+          "m_Quest": "!bp_5a5a533c9ce630a48b877f9a194840cb",
+          "State": "Completed"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_4adcc57a2e5e40028e0f9011efa94f71"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

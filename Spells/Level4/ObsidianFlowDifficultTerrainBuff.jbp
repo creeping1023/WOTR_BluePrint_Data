@@ -1,0 +1,248 @@
+{
+  "AssetId": "6e2eeb312ec681d4b9d089e53399a168",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$AddCondition$23651826-4a97-4713-bf57-c1e4000d917a",
+      "$AddFactContextActions$65c0629b-0189-462d-afe0-8ce9f52a717d",
+      "$AddFallProneTrigger$ad42cb69-3cd5-4601-a281-ee89f18b0232"
+    ],
+    "Components": [
+      {
+        "$type": "4c36aacebf153574eb39757fc3965edb, AddCondition",
+        "name": "$AddCondition$23651826-4a97-4713-bf57-c1e4000d917a",
+        "m_Overrides": [],
+        "Condition": "DifficultTerrain"
+      },
+      {
+        "$type": "a2844c135c0324e439072bd3cc2f9260, AddStatBonus",
+        "name": "$AddStatBonus$d12ca3bc-cf0e-4863-9d4a-085f2298aea8",
+        "m_Overrides": [],
+        "Descriptor": "None",
+        "Stat": "SkillMobility",
+        "Value": -5,
+        "ScaleByBasicAttackBonus": false
+      },
+      {
+        "$type": "25d172d2be8f52f468b2050d14d59806, AddFactContextActions",
+        "name": "$AddFactContextActions$65c0629b-0189-462d-afe0-8ce9f52a717d",
+        "m_Overrides": [],
+        "Activated": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$44df34b6-9706-44a3-978e-ba0c58b0ddbb",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                    "name": "$ContextConditionHasBuff$64979e16-1238-4aa3-9a8a-db23d49a9480",
+                    "Not": false,
+                    "m_Buff": "!bp_f36da144a379d534cad8e21667079066"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "de19bd4eb40decb419caec8194765ed0, ContextActionSkillCheck",
+                    "name": "$ContextActionSkillCheck$2e1908a2-4562-46e4-b226-691f75cefe5d",
+                    "Stat": "SkillMobility",
+                    "m_ConditionalDCIncrease": [],
+                    "UseCustomDC": true,
+                    "CustomDC": {
+                      "ValueType": "Simple",
+                      "Value": 15,
+                      "ValueRank": "Default",
+                      "ValueShared": "Damage",
+                      "Property": "None",
+                      "m_CustomProperty": null
+                    },
+                    "CalculateDCDifference": false,
+                    "Success": {
+                      "Actions": []
+                    },
+                    "Failure": {
+                      "Actions": [
+                        {
+                          "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                          "name": "$ContextActionApplyBuff$dd8536d2-20ed-441b-8f3e-7297c09927c8",
+                          "m_Buff": "!bp_7a9542dc5650a634a8c085d7e9993716",
+                          "Permanent": false,
+                          "UseDurationSeconds": false,
+                          "DurationValue": {
+                            "Rate": "Rounds",
+                            "DiceType": "Zero",
+                            "DiceCountValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            },
+                            "BonusValue": {
+                              "ValueType": "Simple",
+                              "Value": 1,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            },
+                            "m_IsExtendable": false
+                          },
+                          "DurationSeconds": 0.0,
+                          "IsFromSpell": false,
+                          "IsNotDispelable": true,
+                          "ToCaster": false,
+                          "AsChild": false,
+                          "SameDuration": false
+                        }
+                      ]
+                    },
+                    "FailureDiffMoreOrEqual5Less10": {
+                      "Actions": []
+                    },
+                    "FailureDiffMoreOrEqual10": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "Deactivated": {
+          "Actions": []
+        },
+        "NewRound": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "247e231f11904044980d01c5c7fd1341, AddFallProneTrigger",
+        "name": "$AddFallProneTrigger$ad42cb69-3cd5-4601-a281-ee89f18b0232",
+        "m_Overrides": [],
+        "Action": {
+          "Actions": [
+            {
+              "$type": "bdc93cbacbdc05843a933659f15c1302, ContextActionDealDamage",
+              "name": "$ContextActionDealDamage$aa6f8713-c9c0-405e-8d0f-b1690902400b",
+              "m_Type": "Damage",
+              "DamageType": {
+                "Type": "Physical",
+                "Common": {
+                  "Reality": 0,
+                  "Alignment": 0,
+                  "Precision": false
+                },
+                "Physical": {
+                  "Material": 0,
+                  "Form": "Piercing, Slashing",
+                  "Enhancement": 0,
+                  "EnhancementTotal": 0
+                },
+                "Energy": "Fire"
+              },
+              "Drain": false,
+              "AbilityType": "Unknown",
+              "EnergyDrainType": "Temporary",
+              "Duration": {
+                "Rate": "Rounds",
+                "DiceType": "Zero",
+                "DiceCountValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null
+                },
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null
+                },
+                "m_IsExtendable": true
+              },
+              "ReadPreRolledFromSharedValue": false,
+              "PreRolledSharedValue": "Damage",
+              "Value": {
+                "DiceType": "D6",
+                "DiceCountValue": {
+                  "ValueType": "Simple",
+                  "Value": 1,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null
+                },
+                "BonusValue": {
+                  "ValueType": "Simple",
+                  "Value": 0,
+                  "ValueRank": "Default",
+                  "ValueShared": "Damage",
+                  "Property": "None",
+                  "m_CustomProperty": null
+                }
+              },
+              "Half": false,
+              "AlreadyHalved": false,
+              "IsAoE": false,
+              "HalfIfSaved": false,
+              "IgnoreCritical": false,
+              "UseMinHPAfterDamage": false,
+              "MinHPAfterDamage": 0,
+              "WriteResultToSharedValue": false,
+              "ResultSharedValue": "Damage",
+              "WriteCriticalToSharedValue": false,
+              "CriticalSharedValue": "Damage"
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "IsClassFeature": false,
+    "m_Flags": "HiddenInUi",
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  }
+}

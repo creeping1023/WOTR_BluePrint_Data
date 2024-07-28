@@ -1,0 +1,205 @@
+{
+  "AssetId": "cf15af283da744128648fd080eba1b4a",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$c30e81ff-4cb8-4790-9739-8bfb56acd413",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$09643647-5ef8-4e45-95c7-18574d113d08",
+              "m_Cutscene": "!bp_e8d44f13de8b6154687a05f42f767eb5",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$25594517-40cd-4d93-a0f1-b0b8c9fc4655",
+                      "Spawner": {
+                        "EntityNameInEditor": "UlbrigAsNPC",
+                        "_entity_id": "78ae0f04-03da-41b6-9a70-44e5a2914a06",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    }
+                  },
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$5ca927f0-08bf-4342-8629-90d4c393c8cd",
+                      "m_Value": "!bp_1eb8f1218d734946a0ab971b6f76104e"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$44e36969-d4cf-41e8-95f6-d587d8b4ae03",
+                      "m_Value": "!bp_cf15af283da744128648fd080eba1b4a"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$1e52f5d0-454f-489b-af8a-8c49d94edd87",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$15cd4c52-0313-4789-80f1-e2a9bf796d05",
+              "Comment": "Ulbrig has joined",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                    "name": "$CueSeen$f8dd479e-6c39-404e-a39c-90ebdcda7bb6",
+                    "Not": false,
+                    "m_Cue": "!bp_5dde95a2dcbe4743ba0649c6a153eafa",
+                    "CurrentDialog": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+                    "name": "$Recruit$6b7e86e0-cfc6-43fd-8872-46111034493c",
+                    "Recruited": [
+                      {
+                        "m_CompanionBlueprint": "!bp_42f0d5ec3dc844feb44b04507a7c1bfc",
+                        "NPCUnit": {
+                          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                          "name": "$UnitFromSpawner$9dc691e1-e55e-4b92-9986-42b55cc7a63e",
+                          "Spawner": {
+                            "EntityNameInEditor": "UlbrigAsNPC",
+                            "_entity_id": "78ae0f04-03da-41b6-9a70-44e5a2914a06",
+                            "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                          }
+                        },
+                        "MustBeInParty": false
+                      }
+                    ],
+                    "AddToParty": true,
+                    "MatchPlayerXpExactly": true,
+                    "OnRecruit": {
+                      "Actions": []
+                    },
+                    "OnRecruitImmediate": {
+                      "Actions": []
+                    }
+                  },
+                  {
+                    "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+                    "name": "$UnlockCompanionStory$348329c6-575d-406a-9a66-8a0759c7e523",
+                    "m_Story": "!bp_2e87b97d297a4b4ca0b95bb67b4cdbbf"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$38a57eff-2b42-41be-945d-c978ebbd7841",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$49b957b0-cb83-4f98-94d7-34792531399c",
+                      "Spawner": {
+                        "EntityNameInEditor": "UlbrigAsNPC",
+                        "_entity_id": "78ae0f04-03da-41b6-9a70-44e5a2914a06",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Прибытие Ульбрига в Дрезен",
+    "m_Parent": "!bp_f106b4f64219428da289b8945dea54c2",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$54b5d027-691a-4862-8b0d-8dfd28b537cc",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$cdbde596-d926-4ff9-b41a-0300c6c05153",
+          "Not": true,
+          "m_Etude": "!bp_439e63fed37f52048887d98f99255e40",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6"
+    ],
+    "Priority": 100
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

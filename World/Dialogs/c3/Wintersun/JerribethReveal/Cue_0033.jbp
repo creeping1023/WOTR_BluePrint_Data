@@ -1,0 +1,102 @@
+{
+  "AssetId": "1c9ab1c7fc002c14ea8dc10827e7a61d",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "после этого куя Жерибет исчезает и Мархевока берет с собой если мы выбрали ансвер 28\n\nЕсли три адда получены - выдать 2 обже, закрыть первый. ВНИАМНИЕ: не надо ревилдит и анлокать.  Санктум тут. Он это делает по квесту на Редуте",
+    "ParentAsset": "4b4a5265c307e8c43b9be673f289745a",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "3238d9a0-ed46-44d0-92cb-e8ddcb1f0700",
+      "m_OwnerString": "1c9ab1c7fc002c14ea8dc10827e7a61d",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/Wintersun/JerribethReveal/Cue_0033_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_fc8d7d07d716bee4499c9d17f6c43196",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$bdd67384-00a1-4092-b3e8-563bdd2c46ca",
+          "m_Objective": "!bp_ab66787d058086a45a84cb6549dbb79d"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$98025716-2900-4ab1-af9c-0d73191e4019",
+          "Comment": "выбать 2 обже, если есть 3 аддендума",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$bcf5a729-9888-4add-b67f-edc5d99db777",
+                "Not": false,
+                "m_QuestObjective": "!bp_e17a13e460f781b4eb4d6540eb386f13",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$ea26f664-7fac-4ff4-b64d-c5d03e07f605",
+                "Status": "Complete",
+                "m_Objective": "!bp_525081808f5c0664eb739474a1526da7",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$f69c6b4a-ffa6-44ca-b748-6eb910211db2",
+                "m_Objective": "!bp_532bfc5f3624ddc4da61274ff58c39da"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_56ea7d62e4c1f7a4e8e00f47baf13d91"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

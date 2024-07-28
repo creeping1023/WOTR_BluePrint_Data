@@ -1,0 +1,326 @@
+{
+  "AssetId": "33ea11b0b7ea4a20a42f9a94945c4061",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$3a9fc01e-5f64-41ea-9682-47e98f9dcbf1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$062087ce-6e3e-4c5d-b442-d4a39ec93565",
+          "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+          "IncludeRemote": true,
+          "IncludeExCompanions": false,
+          "IncludeDettached": false
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$f2e47483-bf8b-45ca-ac48-670dbe8e4467",
+              "m_flag": "!bp_c0e40336da814953b8cbbded2ef1a34b",
+              "flagValue": 0
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b3f2c127-fc29-4bf8-9b7c-9fee2b61fb32",
+              "Comment": "Addendum is started",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$ef008034-1e06-4f1d-95c1-4ba869861b3d",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_d9babc9de7d14670b93c5ea0463f8cc1",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$02c23968-eca4-412f-9fb4-6256c81b79bc",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_d9babc9de7d14670b93c5ea0463f8cc1",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4b60602a-ce6d-479b-b392-1ea9b0d4f3ff",
+              "Comment": "Event is playing",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ae7e4617-98fb-4ec2-b41f-ec0278db5220",
+                    "Not": false,
+                    "m_Etude": "!bp_bfff536a1ad34b54a7c66ceb8eed2145",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$be4d8fa6-bde8-497e-9503-c0c858c2114f",
+                    "m_Cutscene": "!bp_7434ddf3c85e471f83fd0327e1f639b1",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "EventEtude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$d3f8df80-7af8-4b94-b18a-3a605c8500c9",
+                            "m_Value": "!bp_bfff536a1ad34b54a7c66ceb8eed2145"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "6083d09a91ef9b340ba326bff905e131, FadeoutCommand",
+              "name": "$FadeoutCommand$606dd5ca-7016-4146-af72-420073942f6a",
+              "m_Time": 1.0,
+              "m_OverrideAnimTime": true,
+              "m_AnimTime": 1.0,
+              "m_InFadeActions": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$f959e074-33c1-4941-ae22-4d92a2d75d51",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$4b7c6cbe-f278-4dd4-adf7-2a61752559ba",
+                      "MapObject": {
+                        "EntityNameInEditor": "GuardsWithStretcher",
+                        "_entity_id": "7417892f-87ba-4898-b262-01e9a800ccf4",
+                        "SceneAssetGuid": "39e6ab0a37fec9247b4b1e7bde899df3"
+                      }
+                    },
+                    "Unhide": true,
+                    "UseEntityFader": false
+                  },
+                  {
+                    "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                    "name": "$TranslocateUnit$5c170554-b1c1-49fb-a32b-ea166d11f91b",
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$09db9705-6894-423d-a39f-05328c4f4763"
+                    },
+                    "translocatePosition": {
+                      "EntityNameInEditor": "",
+                      "_entity_id": "",
+                      "SceneAssetGuid": ""
+                    },
+                    "translocatePositionEvaluator": {
+                      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                      "name": "$LocatorPosition$b91e2dfb-0a37-4099-b52c-c653128ff6ce",
+                      "Locator": {
+                        "EntityNameInEditor": "Player_wounded_companion_pos",
+                        "_entity_id": "2dd18419-cc68-44ba-b366-08a53bee795f",
+                        "SceneAssetGuid": "39e6ab0a37fec9247b4b1e7bde899df3"
+                      },
+                      "Offset": "0|0|0"
+                    },
+                    "m_CopyRotation": true,
+                    "translocateOrientationEvaluator": {
+                      "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                      "name": "$LocatorOrientation$3e4c639e-6c8f-4f47-9e98-5d31c78e24b7",
+                      "LocatorEval": null,
+                      "Locator": {
+                        "EntityNameInEditor": "Player_wounded_companion_pos",
+                        "_entity_id": "2dd18419-cc68-44ba-b366-08a53bee795f",
+                        "SceneAssetGuid": "39e6ab0a37fec9247b4b1e7bde899df3"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+                    "name": "$RaiseDead$f55fe6de-336b-49a9-9c91-c280be3bdd7f",
+                    "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                    "riseAllCompanions": false,
+                    "activeAndRemote": false
+                  },
+                  {
+                    "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+                    "name": "$ScriptZoneDeactivate$6fec2f6a-9069-4e9b-8dbf-d18f7c39fceb",
+                    "UseEvaluator": false,
+                    "ScriptZone": {
+                      "EntityNameInEditor": "BullingScene_SZ",
+                      "_entity_id": "c9523a51-8833-4dd7-bc46-2879b83adb5b",
+                      "SceneAssetGuid": "54ddcf7afde83524d985ee2595fb9271"
+                    },
+                    "ScriptZoneEvaluator": null
+                  },
+                  {
+                    "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                    "name": "$UnitsFromSpawnersInUnitGroup$6adea0fa-211e-44da-8d74-3a30423130e0",
+                    "m_Group": {
+                      "EntityNameInEditor": "WenduagGang",
+                      "_entity_id": "1241107c-ff2a-4d5b-b090-7b6f015a5d3a",
+                      "SceneAssetGuid": "54ddcf7afde83524d985ee2595fb9271"
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                          "name": "$DestroyUnit$ea8f121c-43d8-4b9a-b55c-1eda332acdd7",
+                          "Target": {
+                            "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                            "name": "$UnitGroupUnit$ceefee6d-b18b-47fd-b410-ca86c3cb526e"
+                          },
+                          "FadeOut": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$cd9771a2-5ec6-4e40-8c21-1ad7194fd879",
+                    "Comment": "Unit exists",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fe3ffdeec75949159783a8607d95a321, UnitIsNull",
+                          "name": "$UnitIsNull$1e718ba6-bbf0-4301-8f51-0736cd13a6a6",
+                          "Not": true,
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$5f116a03-df9b-4f9c-825d-bf09ba6bfcdf",
+                            "Spawner": {
+                              "EntityNameInEditor": "VictimOfBulling",
+                              "_entity_id": "e34dfbba-b2d9-4fd7-aeb4-51e571b590de",
+                              "SceneAssetGuid": "54ddcf7afde83524d985ee2595fb9271"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                          "name": "$DestroyUnit$cda987f0-21a8-4877-8cbe-91cc6e87865f",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$45a0fede-fa9e-4c89-8f48-dbeb01d372dc",
+                            "Spawner": {
+                              "EntityNameInEditor": "VictimOfBulling",
+                              "_entity_id": "e34dfbba-b2d9-4fd7-aeb4-51e571b590de",
+                              "SceneAssetGuid": "54ddcf7afde83524d985ee2595fb9271"
+                            }
+                          },
+                          "FadeOut": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$b567c71d-deec-40dd-813d-ba80ad2262d6",
+              "m_Cutscene": "!bp_091dcd18e8c943d18afe9fc9d4dd82cf",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$32d84533-17ef-4fc2-9780-250993ea2341",
+                      "m_Companion": "!bp_ae766624c03058440a036de90a7f2009",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$26881841-c2e9-48b4-a2d6-a70fef088e26",
+                      "m_Value": "!bp_ae04d6b452d149109d0edc39ddae5a2d"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_0a0c8bfbb0d340f5adb19c272d37e4eb",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_8faa6a4a12bd42da92e5c46287824ec5",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_d2fbe649b0d8443ab6b5b0d610b950ce"
+    ],
+    "m_StartsWith": [
+      "!bp_bfff536a1ad34b54a7c66ceb8eed2145",
+      "!bp_6a877507521644f9b8eb75a74af81616"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

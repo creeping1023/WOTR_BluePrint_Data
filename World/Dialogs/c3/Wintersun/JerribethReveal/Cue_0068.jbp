@@ -1,0 +1,92 @@
+{
+  "AssetId": "0e4d4549b1d109f4d82d25a377a98f76",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "ЕСЛИ АКТИВЕН РОМАН С АРУШАЛАЙ, этот куй разблокирует диалог Arueshalae_Romance_C3_After_Wintersun_Dialogue на следующем привале с её участием",
+    "ParentAsset": "eae82c3cc6f08734faa853ed61b3a75b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "0fb2130a-bd8c-48c3-a32c-c62879d20fb7",
+      "m_OwnerString": "0e4d4549b1d109f4d82d25a377a98f76",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/Wintersun/JerribethReveal/Cue_0068_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6d3a7696-b36f-4a9d-bf95-be355231e9e0",
+          "Comment": "если есть романс",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$ad4029f2-79aa-4d23-8b04-b7b61360c0f4",
+                "Not": false,
+                "m_Etude": "!bp_6a3fdd0758fe78d4aa2c3b26d7614fbc",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6c49e8ba6a0800c4d8a905426e811558, AddCampingEncounter",
+                "name": "$AddCampingEncounter$79098a93-2cf7-405b-b279-522f1c7f0a9d",
+                "m_Encounter": "!bp_22dad7c1dc2b0b14c9dcc8d82e6c33d0"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

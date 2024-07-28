@@ -1,0 +1,177 @@
+{
+  "AssetId": "ff5bbacf19a90094485330c1605012a1",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$df2d7e14-a026-4832-8ddb-6318c9fdf9aa"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$df2d7e14-a026-4832-8ddb-6318c9fdf9aa",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$95ac02db-efc5-4f09-8300-b337b90f08e5",
+              "m_Cutscene": "!bp_f2c59ec4305187e4a9e6d31d2e36e6b4",
+              "WithUnit": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$1b37c0b8-c5f1-4e08-bb9a-e22bfddae44e",
+                "m_Companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+                "IncludeRemote": true,
+                "IncludeExCompanions": false,
+                "IncludeDettached": true
+              },
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$8b7c4692-3872-4ff6-be37-22a22acb153f",
+              "m_Cutscene": "!bp_e8d44f13de8b6154687a05f42f767eb5",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$2f4b9d26-0f4e-41ca-817a-97b9bd03dea2",
+                      "m_Value": "!bp_b7c99a6002c14e541ab8de6aba7dba15"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$f2274144-225d-44c4-b72d-173b37d128f1",
+                      "m_Value": "!bp_ff5bbacf19a90094485330c1605012a1"
+                    }
+                  },
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$72cf7446-4733-419f-a1d0-223658822d25",
+                      "m_Companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+              "name": "$ReloadMechanic$736cf688-d3c3-4e26-901a-0d317190e97b",
+              "Desc": "Empty action",
+              "ClearFx": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$fcc1f84a-12cb-47bf-8933-32df6aef9437",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Включает катсцену поиска места для рисования и и романс ",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$48276318-8f01-4e07-ab72-5cc56cd07234",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e69c50a6-87a6-4483-95b0-fe78d9c8fcb7",
+                    "Not": false,
+                    "m_Etude": "!bp_73ce3890c20c44979a4be00786e32c95",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$51da3f4d-46c8-4e55-97d3-7e32f1c234eb",
+                    "Etude": "!bp_cf8b0d74df1d81a46a60f53c3a15fb56",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_bf8b5f4a9efd27c4bb0a6dffc98b3966",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$ea85b874-691e-4f22-8c25-73027f222162",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_4669319266af37346aae8314ff61074f"
+    ],
+    "Priority": 2
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

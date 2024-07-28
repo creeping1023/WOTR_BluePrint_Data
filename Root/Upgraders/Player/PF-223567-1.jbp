@@ -1,0 +1,64 @@
+{
+  "AssetId": "90809be2e6c54736b8b78cfe08f94dbc",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": "!bp_2ccc6731787b6ec41ab5adc13f1b9ce9",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$448871b9-60ec-4225-b4c0-63d50fb3d207",
+          "Comment": "если игрок сделал реинфорс локуста в лагере Иза - прячем умерших юнитов",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$9bb9f292-e1b0-4582-ba28-8ff724964b8f",
+                "Not": false,
+                "m_Cue": "!bp_2436a77d50231484ea9453fbbfea8445",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$e8d22fdd-87fa-4abd-9b5d-90db19f3d3c9",
+                "m_SummonPool": "!bp_1f51deb60758e78469b2e18ec31660b4",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$272cebeb-179a-4e55-8689-ebc7c57a2942",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$6c8d2c6b-a40a-4683-a826-79f374a92f2c"
+                      },
+                      "Unhide": false,
+                      "Fade": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

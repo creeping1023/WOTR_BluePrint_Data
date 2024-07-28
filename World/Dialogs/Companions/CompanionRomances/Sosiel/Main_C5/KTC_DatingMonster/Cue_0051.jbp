@@ -1,0 +1,123 @@
+{
+  "AssetId": "1fa98d5f5b5445141b2710467a53fe26",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Убить Зосиэля насовсем. Если есть Тревер, убрать его из ростера\nСразу после этого диалога KTC_TreverDead\n\nПоставить флаг SosielKilledByRomance, рассказать об этом нарративам. Мы хотим баркобантер на это событие завязать.\nТакой же флаг поднимается в диалоге Sosiel_Romance_Breakup ",
+    "ParentAsset": "7cd085313b54b204db14051d44121947",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "91983802-2988-41b0-ad2c-c2eedac1e256",
+      "m_OwnerString": "1fa98d5f5b5445141b2710467a53fe26",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionRomances/Sosiel/Main_C5/KTC_DatingMonster/Cue_0051_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$1d4b6fbc-c9f9-4b86-a1d2-f85edbfb3613",
+          "m_Cutscene": "!bp_1eb8954dc61220f4888e45b527325c56",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$4ddbecef-3479-4c40-a98e-ec59dfebc784",
+          "Etude": "!bp_50eb9ca1adf78254ea8482637335a856",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2d8c2fdd-7530-4178-ae6a-4da73dd864cc",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$b0c865ce-e0c4-4f7e-b352-69e9eae26fb0",
+                "Not": false,
+                "m_companion": "!bp_0bb1c03b9f7bbcf42bb74478af2c6258",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$9092df79-a5c8-4e6f-a8c0-74aa2df4ad90",
+                "m_CompanionBlueprint": "!bp_0bb1c03b9f7bbcf42bb74478af2c6258",
+                "OnUnrecruit": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$eb9e0c0b-2c0f-4021-9f1e-f43534cf93aa",
+                "Etude": "!bp_e51dacc6378903a43b80eed6447aeb8a",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

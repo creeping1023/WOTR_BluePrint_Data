@@ -1,0 +1,98 @@
+{
+  "AssetId": "fa3837a8a1bf4fb8acd493f2be124555",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "выдать обжектив если видел трикстерский куй в диалоге ",
+    "m_SpecificArea": "!bp_dab7e98700276964b855d6793ffd83fd",
+    "m_SpecificMechanic": "!bp_ec2201cb79716a84ea64986c3cb1c03a",
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d940972d-f6e7-4282-9d06-b411074740a2",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$f11eb47a-284b-4135-8028-50d1815327c9",
+                "Not": false,
+                "m_Cue": "!bp_5c86b7d3539bcd54cabeb2b2c37845c8",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$3ee7d682-98e3-4f2a-921c-5fcb5a178e95",
+                "Not": true,
+                "m_QuestObjective": "!bp_32723bcb5c2868a49bf53652db28e9dd",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$f2cecb2e-7da4-4b09-9176-e3647c219405",
+                "Status": "Complete",
+                "m_Objective": "!bp_847e07246a6496940a6c89b3a5bf96b3",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$a47990e1-56b5-4de6-8852-2f6b31c716f8",
+                "m_Objective": "!bp_32723bcb5c2868a49bf53652db28e9dd"
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$b05aa6a3-c269-4cc1-b46e-d81454834583",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$c54220d3-4aac-4150-afa8-a8c33e13276d",
+                      "Not": false,
+                      "m_Cue": "!bp_e78ed8dd5cb6bb24fa1092dfa1bb65eb",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$9a9dbc8f-1446-4210-9d0e-3728216966c6",
+                      "Not": true,
+                      "m_QuestObjective": "!bp_32723bcb5c2868a49bf53652db28e9dd",
+                      "State": "Completed"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$d6f5b86a-1492-4955-b37d-f80f1d8984cc",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_32723bcb5c2868a49bf53652db28e9dd",
+                      "StartObjectiveIfNone": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

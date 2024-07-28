@@ -1,0 +1,135 @@
+{
+  "AssetId": "92428587a60d27a49972c0d8df25f55a",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "если Ирабет была в этой сцене, ее надо увести с поклоном",
+    "ParentAsset": "8c4ea06b42fa66b4c89df84b3ca00584",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "44b180af-9f1a-4d6f-8079-49204690f4a9",
+      "m_OwnerString": "92428587a60d27a49972c0d8df25f55a",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/Drezen_C3/Herald/Cue_0024_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$85ecc372-93da-4a98-9821-2d341496bdb1",
+          "Comment": "если нет обжа про голфри - дать",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$a08a0f2f-7fdd-4152-aa7b-764ff77164d1",
+                "Not": false,
+                "m_QuestObjective": "!bp_e2fb9483fccb7104f8c3ea9815bdac25",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$702d83b7-ff00-4f81-80b8-6dfc4734c10e",
+                "m_Objective": "!bp_e2fb9483fccb7104f8c3ea9815bdac25"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6c7ff64e-b51a-4c3d-88b5-dc5e009e1936",
+          "Comment": "Если Ирабет еще тут",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d6a537b4-387c-4e43-8afb-ff2a381dc05c",
+                "Not": false,
+                "m_Etude": "!bp_132ab001736a23748ac1ccbf809d01b0",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$bf695c37-6dd7-4d66-bc10-8ebd92c9ed4f",
+                "m_Cutscene": "!bp_e0cd8eb016ec176459cc06aaa07407c9",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$d8e15965-bf60-4894-ade0-27dd3e3b7ece",
+                "Etude": "!bp_36bec7886d7160b488bc42eb1d146db4",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_797452ab97defe74487c091e59379224"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

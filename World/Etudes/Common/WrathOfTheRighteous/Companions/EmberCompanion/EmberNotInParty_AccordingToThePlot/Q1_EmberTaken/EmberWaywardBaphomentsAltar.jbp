@@ -1,0 +1,248 @@
+{
+  "AssetId": "f705301db421b1440a8e6b7bb2657739",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$SummonPoolTrigger$2629616c-27f2-472c-893b-353b9fa7a1a8",
+      "$EtudePlayTrigger$18464fde-7244-4f73-9955-61527e5cae9e"
+    ],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$2629616c-27f2-472c-893b-353b9fa7a1a8",
+        "m_Overrides": [],
+        "Comment": "демоны умирают",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_4013917d18b1c9a4aae62187191eb9f4",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$d8edb924-acf3-4fe6-9154-9401378c5864",
+              "Status": "Complete",
+              "m_Objective": "!bp_2ab731b292fc4514f88333fbb2bce5ba",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$28df073d-362a-44cf-85ba-92206b012bc0",
+              "m_Objective": "!bp_bbdb00464d3c92d439da8c1b92264009"
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$d9b1642c-b2ed-4d81-a3e8-9241cec3992e",
+              "m_Cutscene": "!bp_8fdb59f403f8b1b41a005d4f74ab5912",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Speaker",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$4a3c4715-ab30-411f-8c0a-2d2db13a1f62",
+                      "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                      "IncludeRemote": true,
+                      "IncludeExCompanions": true,
+                      "IncludeDettached": true
+                    }
+                  },
+                  {
+                    "Name": "Dialogue",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$cfaef194-cdb9-4aaa-964f-ac5b9d653588",
+                      "m_Value": "!bp_73f85b39f00df61468e30693d449d8ee"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$6faef1aa-b92e-48c8-889a-805df7ccd786",
+        "m_Overrides": [],
+        "Comment": "культисты умирают",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_0155f17501f9e19408430e664d239502",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$07a0dc2e-553e-42c0-b42f-f0f530f18371",
+              "m_Cutscene": "!bp_67b43d1307477f347bf760561c01adcb",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$18464fde-7244-4f73-9955-61527e5cae9e",
+        "m_Overrides": [],
+        "Comment": "если пришли позже срока",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+              "name": "$QuestStatus$ff303e20-714d-442f-8df7-018bc180ece0",
+              "Not": false,
+              "m_Quest": "!bp_1fdf404b17d464a489267f69d58b846d",
+              "State": "Failed"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+              "name": "$UnitsInUnitGroup$7578b3e4-0523-416d-997e-575e8738cd9b",
+              "m_Group": {
+                "EntityNameInEditor": "FriendlyCultistsPack",
+                "_entity_id": "0cbb94be-e0ac-42f8-885b-3bb2a306dbc6",
+                "SceneAssetGuid": "33eb61fe5289afa4295dda07a63b55e2"
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                    "name": "$Kill$1a027f36-4db5-49bd-93fa-426996e960ab",
+                    "Target": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$f80c5c1c-609b-4e6b-8c1d-358a81036b47"
+                    },
+                    "Killer": {
+                      "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                      "name": "$UnitGroupUnit$aff2489e-30a0-4ebb-91b4-ec89ed1ee03b"
+                    },
+                    "Critical": false,
+                    "DisableBattleLog": true,
+                    "RemoveExp": true
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+              "name": "$SpawnByUnitGroup$d94df6ee-23a0-466c-8fdd-901c0c2ed52c",
+              "m_Group": {
+                "EntityNameInEditor": "Demons_Failed",
+                "_entity_id": "5dd7a9e6-8366-4620-9a43-53624429f2e0",
+                "SceneAssetGuid": "33eb61fe5289afa4295dda07a63b55e2"
+              },
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+              "name": "$SwitchFaction$10428ba3-df9a-4e64-b329-bacb27f9cee8",
+              "Target": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$1713a3e9-2143-4851-b6b4-36b8810405d9",
+                "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              },
+              "m_Faction": "!bp_d8de50cc80eb4dc409a983991e0b77ad",
+              "IncludeGroup": false,
+              "ResetAllRelations": false
+            },
+            {
+              "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+              "name": "$Kill$1f97b143-37b1-45ee-a9a5-e0f618a8203f",
+              "Target": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$b53d8587-64a6-41c5-a56e-5926e69d6330",
+                "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              },
+              "Killer": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$6f4fbc86-9050-4eea-abac-8e6fee34ed36",
+                "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                "IncludeRemote": true,
+                "IncludeExCompanions": true,
+                "IncludeDettached": true
+              },
+              "Critical": false,
+              "DisableBattleLog": true,
+              "RemoveExp": true
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$c801e4b6-9c36-4772-9933-ea62f2e16724",
+              "ScriptZone": {
+                "EntityNameInEditor": "BarkScene",
+                "_entity_id": "b3386b92-5acf-417c-ae0d-e634a1f096d7",
+                "SceneAssetGuid": "33eb61fe5289afa4295dda07a63b55e2"
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$8bf89eb8-a041-4d5a-96a6-5fca45b80903",
+              "Etude": "!bp_f705301db421b1440a8e6b7bb2657739",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "активен Q1 / в столице",
+    "m_Parent": "!bp_666e12ba2ccee8b4b866d2fb1dae970f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+          "name": "$CurrentAreaIs$aa86f1f5-a57e-460a-a20c-8fb8dc03a30a",
+          "Not": true,
+          "m_Area": "!bp_97622c84997e42949acf567fa2afaa3d"
+        }
+      ]
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_97622c84997e42949acf567fa2afaa3d",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_11e91dfb549ca364682b70cef55b5a33"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

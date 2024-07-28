@@ -1,0 +1,176 @@
+{
+  "AssetId": "ce3a64e2bf2743dc8831351ae4cfbab0",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Ссила\n\nбой с Ссилой\nпосле боя - запустить TalkToSelf\n\nЕсли сделан квест EqualizeLawChaos, то выбрать эндинг DLC1Paradox. Иначе -  выбран эндинг DLC1Nothing",
+    "ParentAsset": "ef726f8c054041769f875c44366ca022",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "fae5f9cb-6f34-4d3a-85c9-0bce776743f0",
+      "m_OwnerString": "ce3a64e2bf2743dc8831351ae4cfbab0",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC1_Megaepic\\Threshold\\FinalBattle\\Cue_24_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_6cd685a49efc463b9954f7e0afc90e5f",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$12f2ebb1-fb05-4dc9-aafb-883f4f8a9c9f",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$c39a0ef1-18d3-45d5-9949-67914116276a",
+            "Spawner": {
+              "EntityNameInEditor": "Ssilameshnik",
+              "_entity_id": "54c80b12-b569-46a0-949f-864a3a85b923",
+              "SceneAssetGuid": "94a8d08d2f09c714f906f5bb47c3993e"
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": false,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$db88304e-56c2-414e-b717-fa2bb955fe10",
+          "Unit1": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$f901379c-7884-45b2-8873-5932a3002387"
+          },
+          "Unit2": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$66fc5968-2cb4-449e-ae81-7694da977758",
+            "Spawner": {
+              "EntityNameInEditor": "Ssilameshnik",
+              "_entity_id": "54c80b12-b569-46a0-949f-864a3a85b923",
+              "SceneAssetGuid": "94a8d08d2f09c714f906f5bb47c3993e"
+            }
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$7c2cc8da-5238-4f87-9477-34de36766d9b",
+          "Comment": "парадокс или нет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$d95562b9-5015-482b-82cf-75c3acdee760",
+                "Not": false,
+                "m_Quest": "!bp_d057bb8070074ca8aeac6b89cd86c1b5",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$aa891f16-4fcf-4020-bb39-a92d19de41ed",
+                "Etude": "!bp_214899c76ece4d4e8a274b82e77003de",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$bd151fdb-e7be-4682-aca6-d03d68cee013",
+                "Etude": "!bp_4e7cf5148b7d4644b0abaf2ddbc5c1b7",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$78a701ae-40a6-4987-87a6-962eb1b450b1",
+          "Comment": "areelu",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$2ed49bdc-b995-4a79-abc2-3e28c0dd1c5e",
+                "Not": false,
+                "m_Quest": "!bp_d057bb8070074ca8aeac6b89cd86c1b5",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$8d89367e-3ec2-4aa0-a45e-402bec09ebf6",
+                "m_Cutscene": "!bp_d6521ddf81e74ae59bbaddfd4eae6c53",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "b416216a964543c4e89e50cd51b22cf7, SetSoundState",
+          "name": "$SetSoundState$15f5264e-34ef-4630-adf0-76b94fe0bef9",
+          "m_State": {
+            "Value": "Ssila",
+            "Group": "DLC1_Bosses"
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

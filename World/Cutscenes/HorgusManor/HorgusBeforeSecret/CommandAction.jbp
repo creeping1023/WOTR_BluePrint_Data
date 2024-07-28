@@ -1,0 +1,130 @@
+{
+  "AssetId": "4147c06340e999043b7e1666fae69823",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$4854a29d-909a-4c93-9bf2-cd826ae7c140",
+          "m_exitPositon": "!bp_bfc4cf00ec2d1c44d8146598bfc3a3fb",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$015c6f9a-f281-4947-b05b-48dc79ea5fdd",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "HorgusQ0_Cutscene",
+              "_entity_id": "4d1a1600-4f17-4979-8fe6-f6cf6dd91e07",
+              "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b39d7d15-dc8c-4972-b0f1-8913d4824230",
+          "Comment": "если Камелия не в партии",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$57a3ddcd-57ab-430c-a153-519f6725dfd6",
+                "Not": true,
+                "m_companion": "!bp_397b090721c41044ea3220445300e1b8",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$0d8fbb6f-2840-487c-bfc7-efd4ee0f43e1",
+                "Comment": "если она не в партии и мертва",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$dec2d923-3c99-43cd-9772-556c6e4a9c46",
+                      "Not": true,
+                      "m_companion": "!bp_397b090721c41044ea3220445300e1b8",
+                      "MatchWhenActive": false,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": true,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+                      "name": "$RaiseDead$0ea8351b-1b1c-4d9d-86dd-dccc0da69011",
+                      "m_companion": "!bp_397b090721c41044ea3220445300e1b8",
+                      "riseAllCompanions": false
+                    },
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$a4d23fe1-24a9-40dd-9346-05d65c2f14ac",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "CamelliaCS_Cutscene",
+                          "_entity_id": "df4ae138-7fdb-4ac5-b227-927f42f950e1",
+                          "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$b7d8a257-9864-40f9-93fe-9b4f96637db4",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "CamelliaCS_Cutscene",
+                          "_entity_id": "df4ae138-7fdb-4ac5-b227-927f42f950e1",
+                          "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

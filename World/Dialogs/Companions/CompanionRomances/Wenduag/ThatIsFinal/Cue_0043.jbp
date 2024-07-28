@@ -1,0 +1,134 @@
+{
+  "AssetId": "28918ca59e0f39540acbebf7c4c98d39",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "второй вход - после ужаливания\nвыход из затемнения\nигрок лежит\nбаф игроку \n\nПоднимает флаг WenduRom_ItIsTrue, если подняты флаги WenduRomTrueFlag1-3",
+    "ParentAsset": "7c798639edba52f48b21785c7e478d3d",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "ad8a6fe0-7319-4bdc-ac9d-78f566d1069d",
+      "m_OwnerString": "28918ca59e0f39540acbebf7c4c98d39",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionRomances/Wenduag/ThatIsFinal/Cue_0043_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": true,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0ad0148c-ded3-456c-99b9-520d09369280",
+          "Comment": "тру энд если есть все три флага",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$34121d94-53dc-472b-88c8-4046fa7e8717",
+                "Not": false,
+                "m_Etude": "!bp_f81bd436fbf10aa45867a210c5313287",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$13cf0c4f-fd9d-4eab-9d66-1bb6b7cfbcc5",
+                "Not": false,
+                "m_Etude": "!bp_b47f18b68a19dd6428f026574881707a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$c130fb17-2294-46ab-bf8a-f8feb2d10891",
+                "Not": false,
+                "m_Etude": "!bp_eb1e0fb000e45a64d8f4a5d5b6f2d622",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$f6f11f60-0255-44e4-acd8-20ee472e4cb2",
+                "Etude": "!bp_bf5bb702e577a0a4eaa1a9df7dea253b",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$0ae7e1b6-c2c9-4d4b-a18a-11c907d97d73",
+          "m_flag": "!bp_adf563ff2597a7747a15c7de7613a10e",
+          "flagValue": 1
+        },
+        {
+          "$type": "7e9b6e3ec852e264e8fcd8c4b5956eee, AddFact",
+          "name": "$AddFact$7bfe7f0a-5fd5-42fb-9e89-1885376e04d3",
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$806c66fe-41b6-47ab-90ac-be0306ab57c8"
+          },
+          "m_Fact": "!bp_d6821b4401584f469cae3492aeba9808"
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_56cb0941618de50428e6a0e286a5bdde"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "AssetId": "ce27c79b59c5425fa4b78445712b4795",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$63e0fb88-e2a9-4ec5-8812-3c9492c9c2fd",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$a652cab3-e78c-44a8-8d94-d37d78a95197",
+            "Spawner": {
+              "EntityNameInEditor": "MegaWorm_OnMarketSquare",
+              "_entity_id": "06d563b0-c2c3-4fc0-9853-c6ef05bbfa4a",
+              "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$138583a8-e65e-42eb-9371-6a200f15b5b1",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$5b960183-a01f-4edf-a261-09dee314027c",
+                "m_Cutscene": "!bp_5b73444d36ee1c940a0125b92c5e55f0",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$ddd8644a-c2c7-4b06-ab6a-9af700267e76"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$19431aaf-e79e-494c-93ec-1fb066d7621f",
+          "m_Group": {
+            "EntityNameInEditor": "Swarm",
+            "_entity_id": "46f3072d-ad75-449f-a61c-d9bc3f5ff972",
+            "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$6f323d65-218c-4097-a001-1a5147c6d506",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$26035d45-c104-4f6f-89e5-fb6aa83c41d1"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6ba91561-ab3d-4e47-9958-9452ae5b9059",
+          "Comment": "Everyone are engaged",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$fd89344f-e664-43bf-890c-15a98502707b",
+                "Not": false,
+                "m_Cue": "!bp_83fa7ca9c474460b9c0f0cb3430a1505",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsFromSpawnersInUnitGroup$66c8fbdd-067b-40b4-92d8-2a6e9acfa996",
+                "m_Group": {
+                  "EntityNameInEditor": "GudrunMilitia",
+                  "_entity_id": "8284b034-b5fc-40f4-9ded-66bd9126e190",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$55872b60-6e9a-4ed0-b23b-53b01d826126",
+                      "Target": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$c3a12b99-6e9a-45cd-b19b-6fa90093b9be"
+                      },
+                      "m_Faction": "!bp_af9919037b3c4844b5c7860a56c0a298",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsFromSpawnersInUnitGroup$8f8fcc9f-3301-48d6-b8f5-348d6273fb7c",
+                "m_Group": {
+                  "EntityNameInEditor": "UstalavWarrior",
+                  "_entity_id": "524a72d2-5317-4f03-8104-d39d04e9483e",
+                  "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$312e0f8a-73f0-4b86-b324-970e09bf6f4b",
+                      "Target": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$bb08de8c-0b04-45d9-b016-77b9f695b26c"
+                      },
+                      "m_Faction": "!bp_9ea2c2f061a7449f80c53945ceb92148",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$cd1fe471-d6ad-4dab-ad06-e5b74e3ec192",
+                "m_SummonPool": "!bp_8e069deab85847888f0ac78a8fef1fa0",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$5812a9ca-bba2-4d37-868c-f117d2b183d4",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$fc640b2b-74cc-4036-8911-c0bdd7e90cca"
+                      },
+                      "m_Faction": "!bp_9ea2c2f061a7449f80c53945ceb92148",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$e395cc37-511d-4822-9e6e-b8ac64a8b870",
+                "m_SummonPool": "!bp_7404a60779554d9489442cc084b4c493",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$cf2e1c84-05b6-4b95-913c-13a44dd6a0c4",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$7e394512-b9c7-42fc-ab29-81b6e7b4524b"
+                      },
+                      "m_Faction": "!bp_af9919037b3c4844b5c7860a56c0a298",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$48c9948b-9737-4310-bb97-469eab98f831",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$cef3111a-a7c4-42b6-b315-13052cc6c066",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [CR8_UstalavOfficer] (1)",
+                    "_entity_id": "db62123c-e16d-437c-8346-d8009c13c250",
+                    "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$da4f25bb-5afb-4a1c-b4c6-d04a7598cbee",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [CR7_GundrunShamansWarrior] (4)",
+                    "_entity_id": "790b21b4-c5cd-40ef-94fe-79c23fb66f15",
+                    "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                  }
+                }
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$44fd85b6-77d7-4faa-927c-8c10583497c1",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$64b8beea-46e6-40ec-98da-4fca352531b5",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [CR7_UstalavSoldier] (9)",
+                    "_entity_id": "cde4af05-e049-49a4-a7a9-508026157ed5",
+                    "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$e058ae98-95e6-4636-9192-445e9103e087",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [CR6_GundrunMilitiaFemale]",
+                    "_entity_id": "ecfd9f13-bada-4e85-89fc-513e6cfc3899",
+                    "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                  }
+                }
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$baa63bc7-62b5-4932-8218-3c555f13fce1",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$5f2d42c3-9351-47b8-975e-5687c6029388",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [CR7_GundrunShamansWarrior] (3)",
+                    "_entity_id": "88238e23-2080-4107-bac8-41cf004ba565",
+                    "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$64bbe5f8-75be-4df4-b02f-2944772d8a7c",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [CR7_UstalavSoldier] (7)",
+                    "_entity_id": "47788cc4-64bc-425d-b6d9-68fc4314e8d2",
+                    "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                  }
+                }
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$698fc8db-e693-4d18-a8b2-d1117e771fb6",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$0c27b847-939f-4589-9a67-a0750fd87737",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [CR6_GundrunMilitiaFemale]",
+                    "_entity_id": "ecfd9f13-bada-4e85-89fc-513e6cfc3899",
+                    "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$d244c377-edd1-41dc-8388-fa0490e52dae",
+                  "Spawner": {
+                    "EntityNameInEditor": "Spawner [CR7_UstalavSoldier] (9)",
+                    "_entity_id": "cde4af05-e049-49a4-a7a9-508026157ed5",
+                    "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$2d8a6459-e139-46e2-ab4f-b7613b29cbbe",
+          "m_Group": {
+            "EntityNameInEditor": "GudrunMilitia",
+            "_entity_id": "8284b034-b5fc-40f4-9ded-66bd9126e190",
+            "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$73007b95-eae3-4188-9e58-c5342d57390e",
+                "m_Cutscene": "!bp_1bd5c5fa7dc243eeaf5b38dbb2eeff07",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$06bc0224-1f5c-47e3-8cec-56832e28c8bd"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$ac1ccdfb-6452-467f-81c7-db0d1bf4a8d5",
+          "m_Group": {
+            "EntityNameInEditor": "UstalavWarrior",
+            "_entity_id": "524a72d2-5317-4f03-8104-d39d04e9483e",
+            "SceneAssetGuid": "d0f7b170b8b06e946aa3a0802225017a"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$3b62eea7-20d5-4d7c-b2db-77def0519527",
+                "m_Cutscene": "!bp_1bd5c5fa7dc243eeaf5b38dbb2eeff07",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$a9d46c7d-2dd3-44e7-849a-495f81cb61c8"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$1fa03283-b9b4-44e5-a344-00966943f2ad",
+          "Comment": "Demon power was used",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$2f6d4e85-25b1-4969-a41a-5b9ae105b075",
+                "Not": false,
+                "m_Answer": "!bp_2543cffc27eb48c89f2382162a479ac5",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$f3b154d2-91d4-474b-ad85-3de084e10b74",
+                "m_SummonPool": "!bp_8e069deab85847888f0ac78a8fef1fa0",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$ccddb4f6-3aa3-4285-af57-6526b09fd3a2",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$e49c18ef-93a1-4d31-a887-c3060b04810f"
+                      },
+                      "m_Faction": "!bp_9ea2c2f061a7449f80c53945ceb92148",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$c5ec9945-6a79-47b1-860a-61cdd9ab9e81",
+                "m_SummonPool": "!bp_7404a60779554d9489442cc084b4c493",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$c49f7428-778a-4ed4-a717-39e2265bbd34",
+                      "Target": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$05611ae7-0499-478b-8e18-dae6687b490f"
+                      },
+                      "m_Faction": "!bp_9ea2c2f061a7449f80c53945ceb92148",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

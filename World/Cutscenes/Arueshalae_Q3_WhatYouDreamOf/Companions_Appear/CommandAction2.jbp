@@ -1,0 +1,77 @@
+{
+  "AssetId": "99b1ea4552e4418da973e10bbfa2fde9",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b1b85082-e188-48e1-be56-63d4a0f98c3b",
+          "Comment": "Spawn Sosiel",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$6d87ba3c-4d37-4df3-8f29-6c14f70b489b",
+                "Not": false,
+                "m_companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$2a2e376f-47f2-466b-9e34-e6374681108b",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Fake_Sosiel",
+                    "_entity_id": "4a7cbd57-99bd-4fd7-aa7a-d508e5968957",
+                    "SceneAssetGuid": "fec7d8dfea7d2c54298d265212f485a2"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$b044c136-c8b8-4441-a4ac-f8b5da564421",
+                      "m_Cutscene": "!bp_b51eac1c5bb344eaa063e9886336a212",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                              "name": "$SpawnedUnit$f4f79b81-f599-411b-b117-526501b2b5c0"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

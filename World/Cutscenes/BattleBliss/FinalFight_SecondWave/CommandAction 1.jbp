@@ -1,0 +1,91 @@
+{
+  "AssetId": "0ce40be6a5523fc489cc11a8c3ba1c40",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f8a31396-a500-4926-9d26-7b99a116b51f",
+          "Comment": "гладиаторы",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0d24620e-3052-4f05-832e-2a7f8f48c52f",
+                "Not": false,
+                "m_Etude": "!bp_f60dbbab3f200ad4a8e819c6b92bbbac",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$0190b092-233a-493f-a2b5-4da4a05f4c21",
+                "Comment": "гладиаторы с нами или против",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$1fc51aea-0e0e-46bf-bbe5-ebac0a9e674d",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_3b1d4db7b076be146bc993525dda7cb7",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                      "name": "$SummonPoolUnits$f4f37c31-5e90-45d1-b9df-48cf7bd19026",
+                      "m_SummonPool": "!bp_80547872d82ca5b4fbe4e409a65e7d1f",
+                      "Conditions": {
+                        "Operation": "And",
+                        "Conditions": []
+                      },
+                      "Actions": {
+                        "Actions": [
+                          {
+                            "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                            "name": "$AttachBuff$14eb46f1-2396-4e6c-873a-ef110722abdb",
+                            "m_Buff": "!bp_6f1d9e5b1bf462642bb7e72d1ed67141",
+                            "Target": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$602da663-4064-4a42-ade8-7847877256ee"
+                            },
+                            "Duration": null
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

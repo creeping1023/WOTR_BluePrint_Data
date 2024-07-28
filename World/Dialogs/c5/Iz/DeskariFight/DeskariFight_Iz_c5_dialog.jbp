@@ -1,0 +1,268 @@
+{
+  "AssetId": "f9dfb5b7c5838fd4f967af7886a49e01",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_63059bf54db95b74cbae2fee6decc89b",
+        "!bp_51c72b5f2ad84794eb23177130fec996"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": {
+      "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+      "name": "$LocatorPosition$0fd799fa-e155-4c61-8ffc-f59e2d6d7bc6",
+      "Locator": {
+        "EntityNameInEditor": "DeskariArrivesSceneDialogueLoc",
+        "_entity_id": "f4540e39-bb86-4d37-bcb1-031a3a035deb",
+        "SceneAssetGuid": "2f68a0a672ece9647b65979b3afe479f"
+      },
+      "Offset": "0|0|0"
+    },
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$d59c819b-cd83-440b-b3ff-a3636a17f159",
+          "MusicEventStart": "MUS_Demon_Lords_Theme_forDialogs_Play",
+          "MusicEventStop": "MUS_Demon_Lords_Theme_forDialogs_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c4eaafe1-b6be-4652-abe2-67f954760c54",
+          "Comment": "First Enter",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$238563f2-5d7a-4bd8-8625-197124cac819",
+                "Not": true,
+                "m_Etude": "!bp_d2b4b2a3f8201a4499f4abe503f135a2",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$688241ce-21fb-49e2-8cf8-ce5ff939de4d",
+                "Comment": "Angel Ring",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$b5256a02-c780-4f1a-974b-3e67cfd1ccff",
+                      "Not": false,
+                      "m_Etude": "!bp_3a25b1f2a81f84a40b4fb658f4d2fe0f",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$0ceb6cee-15d8-491b-9130-ce2549c53edb",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_2fe2f0d628cfb07458ee8e21b4f50b2c",
+                      "State": "Completed"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$af8d1eaa-f0da-429c-95b2-2d3ccf13a9ad",
+                      "m_Cutscene": "!bp_d105833f6e7744cd8feba0ccb66860e1",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$5e9ad082-2030-4049-a08a-f4ed219fc77b",
+                      "m_Buff": "!bp_89e35c5e00538c44f98b2af5c196a623",
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$91977fb6-cfc6-4c7a-b514-1bf9f4cecb90",
+                        "Spawner": {
+                          "EntityNameInEditor": "Deskari",
+                          "_entity_id": "bc806174-7615-4ca5-a10d-f7686b446d6a",
+                          "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                        }
+                      },
+                      "Duration": null
+                    },
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$ee2f95e4-a50a-4c22-86a8-291ff18c7c5f",
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$fdea7cc2-be49-4525-bcb4-635cc5fa2775",
+                        "Spawner": {
+                          "EntityNameInEditor": "Deskari",
+                          "_entity_id": "bc806174-7615-4ca5-a10d-f7686b446d6a",
+                          "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                        }
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$d80c6806-37cd-4008-86c9-402d2d635be4",
+                      "Unit1": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$3f0da928-2f9b-4b67-b767-981c5a2737cf"
+                      },
+                      "Unit2": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$3f48ad3b-3ac1-49fd-b540-cf6a70430614",
+                        "Spawner": {
+                          "EntityNameInEditor": "Deskari",
+                          "_entity_id": "bc806174-7615-4ca5-a10d-f7686b446d6a",
+                          "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                        }
+                      }
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$a1ec0131-047d-4a47-b12e-7264780b33de",
+                      "m_Cutscene": "!bp_99bd2516b7834c06b72794bb3b4e87ea",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$79a9f092-92e2-43b1-ba46-aa24efe7b25c",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$3446891c-60ca-4cbf-9552-319b43f040a4",
+                      "Not": false,
+                      "m_Etude": "!bp_047d71e3e928d454bbd168497ee7c17f",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+                      "name": "$False$9149655f-83cf-472b-a86f-2ca8045233a0",
+                      "Not": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                      "name": "$Kill$878f8bda-40ee-4318-9631-c81414da17a9",
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$4760b41b-67a4-4492-adcd-9c5f7f7cfcd6",
+                        "Spawner": {
+                          "EntityNameInEditor": "Deskari",
+                          "_entity_id": "bc806174-7615-4ca5-a10d-f7686b446d6a",
+                          "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                        }
+                      },
+                      "Killer": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$b6afbb04-4f74-409d-a470-3ffa15a44ff6"
+                      },
+                      "Critical": false,
+                      "DisableBattleLog": false,
+                      "RemoveExp": false
+                    },
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$1aa5c636-6404-4de0-a9c5-1a2e0b95e6bf",
+                      "Target": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$93e5e68c-0dfb-4c3b-a28f-12f576942b7f",
+                        "Spawner": {
+                          "EntityNameInEditor": "Deskari",
+                          "_entity_id": "bc806174-7615-4ca5-a10d-f7686b446d6a",
+                          "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                        }
+                      },
+                      "Unhide": false,
+                      "Fade": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$428d5c8a-4cc9-4c4b-9c4c-fd7bb1d791bb",
+                "m_Cutscene": "!bp_99bd2516b7834c06b72794bb3b4e87ea",
+                "WithUnit": null,
+                "m_CheckType": "Params"
+              }
+            ]
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$8d509a6e-24e2-48f7-84c0-ffd441fff5d7"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

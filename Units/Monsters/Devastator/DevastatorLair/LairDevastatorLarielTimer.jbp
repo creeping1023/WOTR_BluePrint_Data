@@ -1,0 +1,215 @@
+{
+  "AssetId": "eb74483395d3ca54c895d8a8ce60daf0",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$AddFactContextActions$a43de76d-a380-4baf-9d4c-58fde5ddd68d"
+    ],
+    "Components": [
+      {
+        "$type": "25d172d2be8f52f468b2050d14d59806, AddFactContextActions",
+        "m_Flags": 0,
+        "name": "$AddFactContextActions$a43de76d-a380-4baf-9d4c-58fde5ddd68d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Activated": {
+          "Actions": [
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$5fa60a7c-73b5-4bc2-a44f-ad994f5bf974",
+              "m_flag": "!bp_3b3dde79b71d3064391bedb21c526ace",
+              "flagValue": 1
+            }
+          ]
+        },
+        "Deactivated": {
+          "Actions": []
+        },
+        "NewRound": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$c8d6669d-7972-4907-8b9d-d338d5cb2fba",
+              "m_Flag": "!bp_3b3dde79b71d3064391bedb21c526ace",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$ebe85b8d-1da0-4b38-bab4-aefe5ce2b323",
+                "Value": 1
+              },
+              "UnlockIfNot": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$45ad4bba-b2c5-4e77-a915-277c3968831a",
+              "Comment": "Hardmode?",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$fbdd1743-0283-4b4e-b5cd-d140cc43b41b",
+                    "Not": false,
+                    "m_Etude": "!bp_1771c3a073be44daabfdc9b326c23ab2",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$7fd58ea3-3990-4a5e-b9ca-562f53e8b758",
+                    "Comment": "Bad End",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$e5c7d27c-1549-4201-ab14-36e9eb505ba0",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_2816203e92f67664d843cf247e510b21",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                          "name": "$LessThan$92937ca5-3fb3-438d-985d-5c7a35076c91",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$9412b28a-548b-4b73-9458-89695eadff96",
+                            "m_Flag": "!bp_3b3dde79b71d3064391bedb21c526ace"
+                          },
+                          "MaxValue": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$0b66e44f-287a-48cc-a138-b6708f7cb943",
+                            "Value": 4
+                          },
+                          "FloatValue": null,
+                          "FloatMaxValue": null
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$a39a5786-437e-4628-a4d8-b5e1186fdc21",
+                          "Etude": "!bp_3a5906daae1d9154ab222577b07ad7ba",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$0b3c2e54-be15-4577-bb81-56252fab7bcd",
+                    "Comment": "Bad End",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$de8e2675-7a55-475f-9089-061f0a210ad8",
+                          "Not": true,
+                          "m_ConditionFlag": "!bp_2816203e92f67664d843cf247e510b21",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        },
+                        {
+                          "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                          "name": "$LessThan$2c6675e1-5d37-4e1c-83ce-16176bb7347c",
+                          "Not": true,
+                          "FloatValues": false,
+                          "Value": {
+                            "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                            "name": "$FlagValue$33dfb67d-d966-4114-996f-44aa9535cb37",
+                            "m_Flag": "!bp_3b3dde79b71d3064391bedb21c526ace"
+                          },
+                          "MaxValue": {
+                            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                            "name": "$IntConstant$3e33b3ef-71b6-4de0-8937-97dcad907484",
+                            "Value": 6
+                          },
+                          "FloatValue": null,
+                          "FloatMaxValue": null
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                          "name": "$StartEtude$5cfe2ebe-6efe-4097-ba86-6ec45e1719b1",
+                          "Etude": "!bp_3a5906daae1d9154ab222577b07ad7ba",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": true,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": null,
+    "IsClassFeature": false,
+    "m_Flags": "HiddenInUi, StayOnDeath",
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

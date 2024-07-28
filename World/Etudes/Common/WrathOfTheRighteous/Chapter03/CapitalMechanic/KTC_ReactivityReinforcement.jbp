@@ -1,0 +1,1840 @@
+{
+  "AssetId": "aab244968f3c489c8e0eb385a999021f",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$f68bc406-e7cd-4c1d-95e8-f9e3414f24bf",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "старт катсцены в зависимости от расы",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$39b58ab1-bc9b-4b46-9c2a-3760643a7f76",
+              "Comment": "Игрок хуман",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$4f93371c-9829-42e3-9d28-5abfd6a33197",
+                    "Not": false,
+                    "Race": "Human"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$b4986897-b1ec-4be1-82e6-0d2f2500877a",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Barbarian",
+                        "_entity_id": "7f78455a-3d23-4f0e-b32f-f8273509295e",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$cf78d1fc-c422-4953-8b0c-743a6e3413c3",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$ab34cf2a-39e4-4269-90db-fd6534b40ac5",
+                            "Spawner": {
+                              "EntityNameInEditor": "Barbarian",
+                              "_entity_id": "7f78455a-3d23-4f0e-b32f-f8273509295e",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$1350cf59-63a9-4500-83a5-0018af40e818",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$4ac977bc-e8b7-45a1-bf28-78c5ef74f90c",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$1e3fd2f8-0cee-441a-a0de-446c31c865bf",
+                            "Spawner": {
+                              "EntityNameInEditor": "Barbarian",
+                              "_entity_id": "7f78455a-3d23-4f0e-b32f-f8273509295e",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$8d2f5bf0-9499-446e-ae18-00b3ea1255bd",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$b60b20e2-4868-4aae-a278-ad97bc9c8aa1",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$97bf64f3-6595-4881-8232-653aa0aea9ba",
+              "Comment": "Игрок Эльф",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$fc3e5510-1853-48ff-828d-4f42d1e286e5",
+                    "Not": false,
+                    "Race": "Elf"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$aa2bc560-0fc0-4ea0-8a00-7e63fbce8762",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "DragonDiscipleBard",
+                        "_entity_id": "8bf87d2b-a3d7-4927-bd87-6091c7b2b419",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$e0075ab9-cf63-4dfc-abab-d7bea26a8ea2",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$73b77890-8ebe-4d09-b3c8-1ceca8059403",
+                            "Spawner": {
+                              "EntityNameInEditor": "DragonDiscipleBard",
+                              "_entity_id": "8bf87d2b-a3d7-4927-bd87-6091c7b2b419",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$739405f0-104a-42f5-93bb-f1529e783543",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$9ee1cf12-3073-4cc4-8552-774ce85ab0e7",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$a3710725-1c4f-406a-ab85-87fc8490ead7",
+                            "Spawner": {
+                              "EntityNameInEditor": "DragonDiscipleBard",
+                              "_entity_id": "8bf87d2b-a3d7-4927-bd87-6091c7b2b419",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$c6707307-dc42-4530-ac59-b13f1f03af52",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$2170a1b1-4377-4a2f-917c-5c9220882f2c",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f6f641b7-58f9-4e0a-b468-bae89b80c1db",
+              "Comment": "Игрок Дворф",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$58c60877-143b-4daf-be6e-a71105f8fd1f",
+                    "Not": false,
+                    "Race": "Dwarf"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$b9d917e5-be38-4190-9c3c-25db57884015",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "ShieldBearers",
+                        "_entity_id": "a66b194c-b500-4195-bd19-a5da351ff7a6",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$ae9a40d2-0b09-4881-ac6f-579f39595132",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$9ea53d1f-9e20-4d9d-8f02-b05174437b7a",
+                            "Spawner": {
+                              "EntityNameInEditor": "ShieldBearers",
+                              "_entity_id": "a66b194c-b500-4195-bd19-a5da351ff7a6",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$830fdb7e-79c6-4c85-84be-f8eba84d1561",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$4a98928b-d391-413d-944d-fadf7ce73881",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$4985565d-2ba7-4308-b67d-c87a918891f3",
+                            "Spawner": {
+                              "EntityNameInEditor": "ShieldBearers",
+                              "_entity_id": "a66b194c-b500-4195-bd19-a5da351ff7a6",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$7f40390a-5efc-4d18-b0ab-364627872a4c",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$62341fb3-0189-48a7-bba6-5b420f3e15f8",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e9f9dd46-15ee-4700-b32a-cf7e6874e5d0",
+              "Comment": "Игрок Халфлинг",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$56421316-c5ba-4af5-b77c-36004529a7eb",
+                    "Not": false,
+                    "Race": "Halfling"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$4f872221-5435-43a2-b43a-4eaef544b804",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "BellflowerHalfling",
+                        "_entity_id": "d6e9e974-9b46-4704-8d00-8246356f8eae",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$6e915dc8-0e93-4bd2-a466-bf1c78f4744c",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$6721bd10-fd5a-4033-8300-3353c0593b30",
+                            "Spawner": {
+                              "EntityNameInEditor": "BellflowerHalfling",
+                              "_entity_id": "d6e9e974-9b46-4704-8d00-8246356f8eae",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$8bf9da79-4020-413e-9739-37bf122bea48",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$43090013-4f34-4180-aa11-929d4da12003",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$535c19d6-0e09-4424-ba0d-6aab661a51d5",
+                            "Spawner": {
+                              "EntityNameInEditor": "BellflowerHalfling",
+                              "_entity_id": "d6e9e974-9b46-4704-8d00-8246356f8eae",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$5e4d02aa-6377-45ee-a666-939ec66e810c",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$cb5562ac-b56d-4df7-908f-6f8cedef4057",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b1406829-ddff-4c4c-aca0-b711f52298bb",
+              "Comment": "Игрок Полуорк",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$263b5734-d94d-4c37-a5c3-cb8e19af6bbf",
+                    "Not": false,
+                    "Race": "HalfOrc"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$7698f734-aef9-4f39-83d7-6259acf03f0f",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Headhunter",
+                        "_entity_id": "9c30fe4a-66d6-47b9-ab67-e96ddca6140f",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$a9deac8c-b2aa-4260-adae-369eb547fb1b",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$5b413372-f0f1-4dae-b857-61e4b06b1d73",
+                            "Spawner": {
+                              "EntityNameInEditor": "Headhunter",
+                              "_entity_id": "9c30fe4a-66d6-47b9-ab67-e96ddca6140f",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$402bc1ba-d770-47c5-a99a-ef6ede8c619f",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$d4600e54-098a-4506-b66a-cbd8d0a08b16",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$24e9971a-7be6-4c82-bdc9-bf0ce9dc5b06",
+                            "Spawner": {
+                              "EntityNameInEditor": "Headhunter",
+                              "_entity_id": "9c30fe4a-66d6-47b9-ab67-e96ddca6140f",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$33e706a1-dadb-4af9-9227-500bd42b7d00",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$e80c6ad0-a53c-405b-971b-b115e95d0940",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d6e925b7-80ec-45e1-8548-3c3b1a531a1c",
+              "Comment": "Игрок Гном",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$788428fc-d02a-4a72-bc7b-bc6f08d3823f",
+                    "Not": false,
+                    "Race": "Gnome"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$a7ac8aaa-e294-4cb1-9ca0-b7ceeb0c1b28",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Illusionist",
+                        "_entity_id": "17699c16-f6d2-4720-971d-5bf009696967",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$2dd829ed-24f6-4bb7-af4c-7e2ae4e1ed1c",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$2f9e2951-f96c-4c7d-9adb-901c4a11a9d6",
+                            "Spawner": {
+                              "EntityNameInEditor": "Illusionist",
+                              "_entity_id": "17699c16-f6d2-4720-971d-5bf009696967",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$09dd01b8-8142-4b91-a03e-e6a00939c64d",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$551faa14-b218-4b00-9a07-07154146e11a",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$4b62e27c-aa81-48f0-86d3-e16f75c54175",
+                            "Spawner": {
+                              "EntityNameInEditor": "Illusionist",
+                              "_entity_id": "17699c16-f6d2-4720-971d-5bf009696967",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$dfb46bbf-0723-40d3-b721-5a89796146b1",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$3d95d17d-e4ea-4b46-a018-4381f0e901a8",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$19b136fb-53a5-4092-999c-c87b351a21ba",
+              "Comment": "Игрок Полуэльф",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$c2c0d59c-0061-45f1-bf6a-efc9e500b73c",
+                    "Not": false,
+                    "Race": "HalfElf"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$729a53f7-8c15-475d-9b17-0a4c3046a70d",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Ranger",
+                        "_entity_id": "041caff2-a650-44ec-9f80-58ac4d6a8b4e",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$27a67235-a6ac-4db1-8cdd-040d0c9ba4e6",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$b1f84629-c57a-4514-9ea5-ad2b3bcee7c2",
+                            "Spawner": {
+                              "EntityNameInEditor": "Ranger",
+                              "_entity_id": "041caff2-a650-44ec-9f80-58ac4d6a8b4e",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$d1e06f39-e595-4952-9dde-0f525fa21d00",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$c8d2c2e3-01f2-476c-8a21-5ff533db221f",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$16e911b1-f31b-4b00-ad7d-a02398a6a1cc",
+                            "Spawner": {
+                              "EntityNameInEditor": "Ranger",
+                              "_entity_id": "041caff2-a650-44ec-9f80-58ac4d6a8b4e",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$05f350e0-35ac-4b20-9a1a-39fa4853c011",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$ed6b5eb7-ac71-41f0-8316-6ceae32067ae",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1b722735-af81-4e75-a851-1256cc56a6fa",
+              "Comment": "Игрок Асимар",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$21e8c097-faeb-46c4-b60a-7bb468c884b3",
+                    "Not": false,
+                    "Race": "Aasimar"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$a125b74e-7968-4b9c-95e9-75206b6918bb",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Magus",
+                        "_entity_id": "b1aee582-a0d8-442c-ba49-9d277d017fa7",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$2897128f-ec9c-4ca8-ad3a-c3189d9edced",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$cb776ec6-5d3b-49ed-8331-72d39ce197ae",
+                            "Spawner": {
+                              "EntityNameInEditor": "Magus",
+                              "_entity_id": "b1aee582-a0d8-442c-ba49-9d277d017fa7",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$9df0fb4d-de45-4612-a95e-08fac4e9b28e",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$829cf2fb-c3cb-43bd-877f-6d761e9add99",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$2c246e18-cbc5-45df-b0ad-7469572a7aa9",
+                            "Spawner": {
+                              "EntityNameInEditor": "Magus",
+                              "_entity_id": "b1aee582-a0d8-442c-ba49-9d277d017fa7",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$119695f0-18a1-4345-8791-96abe45ec196",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$92ea46e5-c727-425e-be9f-d25eebf4c9ff",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$89f43cd0-cd61-4b92-a364-3a79c488d916",
+              "Comment": "Игрок Тифлинг",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$4b47e797-2a31-478b-9326-a54f7c292100",
+                    "Not": false,
+                    "Race": "Tiefling"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$9723f20a-8350-41d2-ae15-f3feb0975428",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Bandit",
+                        "_entity_id": "83cd5c59-6731-4b2c-a4ce-71f72b2ce1e0",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$20b1e25f-0c6e-4a99-a6d5-2bb0bfdd422f",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$e99a5e5c-9f94-4628-aafa-2bfafd7933f0",
+                            "Spawner": {
+                              "EntityNameInEditor": "Bandit",
+                              "_entity_id": "83cd5c59-6731-4b2c-a4ce-71f72b2ce1e0",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$9dc00bd5-628b-444e-a9b5-52d4af9ab695",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$1271896e-dd3a-428a-a68c-af252389cdb7",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$bf9b2b54-8175-4b3a-80a3-af2edef85e4b",
+                            "Spawner": {
+                              "EntityNameInEditor": "Bandit",
+                              "_entity_id": "83cd5c59-6731-4b2c-a4ce-71f72b2ce1e0",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$0658ea75-b615-475d-8c0b-4660e0b1c097",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$da672a49-74f8-43cc-a00d-3e7b026ec6b2",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$e9b3532d-ec61-4aac-aa81-f067dd2f2e6f",
+              "Comment": "Игрок Оред",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$420c20e9-ff20-4a64-bce8-0a9cf0a87982",
+                    "Not": false,
+                    "Race": "Oread"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$3336134c-c4d2-4747-97c6-784be3977e01",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "StoneInfantry",
+                        "_entity_id": "dd424d52-2dfe-467f-a3bf-0430e8421ea1",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$6130b666-1b5f-4c6d-bcce-843b33c7de97",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$524f67b3-a3f8-4e2d-8446-ade7ba79c14e",
+                            "Spawner": {
+                              "EntityNameInEditor": "StoneInfantry",
+                              "_entity_id": "dd424d52-2dfe-467f-a3bf-0430e8421ea1",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$71fa0475-5205-487a-a873-9ed1cd9e2bf8",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$c2d11c82-0bd7-45f5-a5ba-6dc4973634a9",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$16e83127-c5dd-48cb-837e-017f6672601b",
+                            "Spawner": {
+                              "EntityNameInEditor": "StoneInfantry",
+                              "_entity_id": "dd424d52-2dfe-467f-a3bf-0430e8421ea1",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$99a9a5c5-d01b-4fe7-ae2c-cf1dc10711cc",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$413f33cf-feee-4be8-9b39-a8140e778b36",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4d546670-3bdb-48f2-ae8c-ac1c9f35d8d3",
+              "Comment": "Игрок Дампир",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$6c96956d-0c6c-4fd6-baa8-fa9e51552d96",
+                    "Not": false,
+                    "Race": "Dhampir"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$c1033183-162e-4bfa-b8e4-e4751ff25cde",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Vampires",
+                        "_entity_id": "f8f3547e-98df-4b60-b49e-ae687f68a508",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$84d02817-7ebe-4fc9-b7bc-3fee6a38699c",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$d5bd0b4f-410a-457e-bd81-ae5906227611",
+                            "Spawner": {
+                              "EntityNameInEditor": "Vampires",
+                              "_entity_id": "f8f3547e-98df-4b60-b49e-ae687f68a508",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$7f0c2d9c-f4d2-4c02-b424-69cf823a3a1d",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$288fafec-a5bb-42e8-a3b7-e6f5dbbe2ed8",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$a5e4c08b-b503-4d79-8557-48e3b07e39bd",
+                            "Spawner": {
+                              "EntityNameInEditor": "Vampires",
+                              "_entity_id": "f8f3547e-98df-4b60-b49e-ae687f68a508",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$f925aa7b-aa5d-4743-982e-ae84ca49acd8",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$3d7f2222-c81b-4e51-8235-a67c3417e8a9",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$035f62d1-0dea-4b96-ba73-255f80c4f20a",
+              "Comment": "Игрок Кицунэ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$83a8b3d4-103d-4c25-a4ac-5d6f32ff0dc3",
+                    "Not": false,
+                    "Race": "Kitsune"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$45e2b327-6177-45b2-8e5c-ac0aebba4d11",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "InfernalCavalry",
+                        "_entity_id": "6066f9d5-8dfd-4402-a702-26465f9caf27",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$8ae5ef97-33e7-4146-b5c0-d9ec4edd47ff",
+                          "Target": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$874ccb87-6477-4cbd-a276-4f47be43d6c8",
+                            "Spawner": {
+                              "EntityNameInEditor": "InfernalCavalry",
+                              "_entity_id": "6066f9d5-8dfd-4402-a702-26465f9caf27",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          },
+                          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$3a7e8d13-fbe2-4190-8834-51e004074d74",
+                    "m_Cutscene": "!bp_aed41df55b4b2b146ff19c12b3bb0b76",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$c2515c64-2cff-4d9f-a244-f44bc1e5901c",
+                            "Spawner": {
+                              "EntityNameInEditor": "IrabethTirabade_DrezenCapital",
+                              "_entity_id": "3dc302d8-58ce-44f3-9766-2a437a080108",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Unit2",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$8e3511cd-c9dd-4ecb-a6d9-8fad90b0e21c",
+                            "Spawner": {
+                              "EntityNameInEditor": "InfernalCavalry",
+                              "_entity_id": "6066f9d5-8dfd-4402-a702-26465f9caf27",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$401e2750-211e-41c1-8f02-be4021c777b1",
+                            "m_Value": "!bp_0e117c3029773e54982313ead1342515"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$980b706c-bedb-4331-a475-f90943ba66d5",
+                            "m_Value": "!bp_aab244968f3c489c8e0eb385a999021f"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$2dbdd694-9037-40e0-aeab-e3d599e67d50",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Хайд юнитов для ктц",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$0a87d4e9-eb8e-4234-a2e3-ac4f2d80a8f9",
+              "Comment": "Игрок хуман",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$8501a545-f720-40dc-8c60-b017e3d311e7",
+                    "Not": false,
+                    "Race": "Human"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$6b762337-5a63-444d-b61c-1417e7d9a766",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$c50a9cf4-0f65-450e-82b5-26af17e30e1d",
+                      "Spawner": {
+                        "EntityNameInEditor": "Barbarian",
+                        "_entity_id": "7f78455a-3d23-4f0e-b32f-f8273509295e",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$23b5d71f-724f-4a87-a36f-eee91f68a615",
+              "Comment": "Игрок Эльф",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$1a7c5d77-a569-42fd-8f62-4caaaf709590",
+                    "Not": false,
+                    "Race": "Elf"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$fc92963d-d57c-48d9-9f31-e21ad1ca1b67",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$58e60625-69a3-43de-8ae9-70ce39743639",
+                      "Spawner": {
+                        "EntityNameInEditor": "DragonDiscipleBard",
+                        "_entity_id": "8bf87d2b-a3d7-4927-bd87-6091c7b2b419",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2bcf47f8-e233-41fc-9259-2699cea2ee9e",
+              "Comment": "Игрок Дворф",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$1d668340-fd02-405b-8e0b-0aff5f1cfa1d",
+                    "Not": false,
+                    "Race": "Dwarf"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$b9d2caec-b181-4adf-9800-ddbade378ce1",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$be9bfd40-8ad1-40c9-b8c2-5d9a55ee7487",
+                      "Spawner": {
+                        "EntityNameInEditor": "ShieldBearers",
+                        "_entity_id": "a66b194c-b500-4195-bd19-a5da351ff7a6",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$488ea25d-9c80-42a0-b310-c504af4814f8",
+              "Comment": "Игрок Халфлинг",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$c619dd1d-d564-42f8-91ff-7fa1f27fe1b6",
+                    "Not": false,
+                    "Race": "Halfling"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$96edca4f-6eae-4644-a1fa-725e949e52b2",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$200573f1-6475-48da-bc20-df564605d973",
+                      "Spawner": {
+                        "EntityNameInEditor": "BellflowerHalfling",
+                        "_entity_id": "d6e9e974-9b46-4704-8d00-8246356f8eae",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$ca9ba9de-dfeb-462b-a189-88d140f7f6f2",
+              "Comment": "Игрок Полуорк",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$3e5c8318-929a-424e-a7fb-0afafae3b332",
+                    "Not": false,
+                    "Race": "HalfOrc"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$ee044811-ce20-4a22-98f7-1b1d850aaf58",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$79182e3f-e369-401a-bfe5-b6b2d139e1e3",
+                      "Spawner": {
+                        "EntityNameInEditor": "Headhunter",
+                        "_entity_id": "9c30fe4a-66d6-47b9-ab67-e96ddca6140f",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4fdc77ce-622b-40fc-9d17-760bb81bc134",
+              "Comment": "Игрок Гном",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$36edd5cc-2933-4c34-a1aa-a2d86e66d333",
+                    "Not": false,
+                    "Race": "Gnome"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$c9f134d3-1099-449e-88ee-73ba18ebac65",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$5d749506-e86b-40e4-9271-d7566234f147",
+                      "Spawner": {
+                        "EntityNameInEditor": "Illusionist",
+                        "_entity_id": "17699c16-f6d2-4720-971d-5bf009696967",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$657512b3-d3e6-4e12-b346-38dc180c45a7",
+              "Comment": "Игрок Полуэльф",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$51813039-fa4d-4006-aebb-1e77a8ea23ce",
+                    "Not": false,
+                    "Race": "HalfElf"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$237ccd95-131e-41d5-8d98-6c996f9802fc",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$39ad94aa-c434-4c8a-9976-9db12071f349",
+                      "Spawner": {
+                        "EntityNameInEditor": "Ranger",
+                        "_entity_id": "041caff2-a650-44ec-9f80-58ac4d6a8b4e",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1b96f139-bceb-4058-b6bf-5aaff934db01",
+              "Comment": "Игрок Асимар",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$12073546-5358-4166-ae93-d23f423ff0f4",
+                    "Not": false,
+                    "Race": "Aasimar"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$2c2fb834-9806-4376-be2e-a848b90839a6",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$02419d4e-41aa-4e3a-bf53-7d1a731ccede",
+                      "Spawner": {
+                        "EntityNameInEditor": "Magus",
+                        "_entity_id": "b1aee582-a0d8-442c-ba49-9d277d017fa7",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7efe0c97-9361-4884-98d5-f5567d1ea5b0",
+              "Comment": "Игрок Тифлинг",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$401e7ca5-5158-4bba-8587-4d2d0f3229b2",
+                    "Not": false,
+                    "Race": "Tiefling"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$ce10929a-e485-481b-bb69-f52edd3511d3",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$27e25e5d-40e5-4c33-ab5a-424e4378de5f",
+                      "Spawner": {
+                        "EntityNameInEditor": "Bandit",
+                        "_entity_id": "83cd5c59-6731-4b2c-a4ce-71f72b2ce1e0",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$eab42439-52a9-4a8c-ba3e-0ce73217173c",
+              "Comment": "Игрок Оред",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$33a41f97-c7fd-4b47-92ba-2fe552129fbe",
+                    "Not": false,
+                    "Race": "Oread"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$01360d1c-709b-4812-91ff-bbb2d390d9fb",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$e614b084-3283-4126-a0f5-d6c9b54e84e6",
+                      "Spawner": {
+                        "EntityNameInEditor": "StoneInfantry",
+                        "_entity_id": "dd424d52-2dfe-467f-a3bf-0430e8421ea1",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$28f98a5d-b604-432b-841e-064e8847e7d4",
+              "Comment": "Игрок Дампир",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$8a1e5945-0ef2-43b1-8384-c7c937700623",
+                    "Not": false,
+                    "Race": "Dhampir"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$90834a43-1e02-4edd-900f-2016a5ef6b9b",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$a8f677b8-9686-4d5f-8f31-2ae606fc3945",
+                      "Spawner": {
+                        "EntityNameInEditor": "Vampires",
+                        "_entity_id": "f8f3547e-98df-4b60-b49e-ae687f68a508",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$b5af758a-6a08-4cc7-8857-ca1381de90ff",
+              "Comment": "Игрок Кицунэ",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "294fa514f9b7760448adbaa37eb1dbfa, PcRace",
+                    "name": "$PcRace$6ee67078-2741-4125-b46a-047726651991",
+                    "Not": false,
+                    "Race": "Kitsune"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$df86fdd2-f13b-43de-b4ec-0f8ed06a63cd",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$d7dcfe1d-f1ac-4aec-b407-a847732233c1",
+                      "Spawner": {
+                        "EntityNameInEditor": "InfernalCavalry",
+                        "_entity_id": "6066f9d5-8dfd-4402-a702-26465f9caf27",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_67ea56f7c7d546e7adb41dd53029289b",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$3bda1b42-d734-4347-9695-c353f66a021d",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_997d865aa6f17cc48b480bd62ba02841"
+    ],
+    "Priority": 100
+  }
+}

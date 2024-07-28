@@ -1,0 +1,560 @@
+{
+  "AssetId": "1949150e8988ab940b1ff2e7c79843a2",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$8c0fcad1-2139-4954-9475-074f888f0134",
+          "m_SummonPool": "!bp_e88cf69679b75124fabc37d46057dbf2",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$96d0d1a7-69d2-497e-a1c9-d6a8c57aca5c",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$ff8bb06e-d3fc-4179-85d9-d593744ca30f"
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$914f133c-6e26-4e50-af09-5f87290aaca4",
+          "Comment": "Спавним Миаммир если ее вылечили",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$da46c3f9-25aa-4e12-9a7b-2b80c1f66f80",
+                "Not": false,
+                "m_Etude": "!bp_7a1741f550d35c444b8523444d8fc9cf",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$44684940-d2d1-4ed9-b040-c02fb33f5175",
+                "Not": true,
+                "m_Etude": "!bp_474356f29d7ef854f856d2ae522b78d1",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$eacec6e1-144b-4881-8b53-9b702ad73ecc",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Miammir (1)",
+                    "_entity_id": "4f025fba-9ec3-45ad-973a-25f43c56aba5",
+                    "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$d7513768-eb7a-4adf-8bd7-99dd6e61b075",
+                "Comment": "Спавним Клейма помощником если жив",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$90430b93-1611-4b73-b366-56ae9b656633",
+                      "Not": true,
+                      "m_Etude": "!bp_52398548a41c78142baa7b3d047d16d0",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$0daa9220-187e-4a10-8876-86168fa94d0e",
+                      "Not": false,
+                      "m_Etude": "!bp_c9d921cf00cb6eb49a371021d7f31ce0",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$a6dfbdc5-19fe-4a59-9474-337bb7567488",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Claim (1)",
+                          "_entity_id": "f413fc23-2417-4097-b08a-5a78ff94036d",
+                          "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                "name": "$SpawnBySummonPool$b949cecd-deb0-487c-a4b1-4e8f6167f4d9",
+                "m_Pool": "!bp_94b3a202fcbb124438ba4240061008e1",
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$d16b9a8b-71c8-4ffc-aee7-c6fafb22d453",
+                "Comment": "Cпавним Клейма если жив",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$5687c534-aff0-4d68-a209-bd351723844e",
+                      "Not": true,
+                      "m_Etude": "!bp_52398548a41c78142baa7b3d047d16d0",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$aaadc485-7ba0-44b6-bac5-3292217c1487",
+                      "Not": false,
+                      "m_Etude": "!bp_c9d921cf00cb6eb49a371021d7f31ce0",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$9152dcdc-6ae2-40c9-a647-417165ea58ac",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Claim (1)",
+                          "_entity_id": "f413fc23-2417-4097-b08a-5a78ff94036d",
+                          "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                      "name": "$SpawnBySummonPool$a713755d-8bb5-45dd-92a2-12f5f8d34f1b",
+                      "m_Pool": "!bp_94b3a202fcbb124438ba4240061008e1",
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$3f4c2f94-1ab4-41d3-aa89-a894e94e7c10",
+                      "Comment": "Спавним Нистру если жива",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$35b0dff0-263a-47c1-8787-9217a7be26d0",
+                            "Not": false,
+                            "m_Etude": "!bp_f4061966aa497234f925793940fe3649",
+                            "NotStarted": true,
+                            "Started": false,
+                            "Playing": false,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          },
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$e6577709-0eb5-4eda-9a64-eeaad09cdd7f",
+                            "Not": true,
+                            "m_Etude": "!bp_e9075f618637f444192c6dd4b7ec167a",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                            "name": "$Spawn$9a068e38-0cdd-45df-b5ed-7f2f9ebb83da",
+                            "Spawners": [
+                              {
+                                "EntityNameInEditor": "Nystra (1)",
+                                "_entity_id": "c5f8100c-ad65-4a59-8f6b-199d7297f2c3",
+                                "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                              }
+                            ],
+                            "ActionsOnSpawn": {
+                              "Actions": []
+                            }
+                          },
+                          {
+                            "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                            "name": "$SpawnBySummonPool$666d5cd1-53e4-4374-bbab-e953d4bdde33",
+                            "m_Pool": "!bp_94b3a202fcbb124438ba4240061008e1",
+                            "ActionsOnSpawn": {
+                              "Actions": []
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bf5630e1-03f6-44bc-8319-b4ffb28effb4",
+          "Comment": "Spawn Ciar if alive",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$24a5256c-f97f-4212-b3c8-b27b8cbdd0c5",
+                "Not": true,
+                "m_Etude": "!bp_f4d163bf18936984ba228b851c3269c5",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$102e5321-81a2-415f-8a1d-b13a4a285877",
+                "Not": true,
+                "m_Etude": "!bp_38fa3b3e1f24d044ea40efe91998348a",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8cf8deed-6769-4338-9f18-b37bad374512",
+                "Not": true,
+                "m_Etude": "!bp_cfdf1d51e50d33a429ef1237a6ee0512",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$e55f02c0-d769-4d12-8837-28e7b481bc07",
+                "Not": false,
+                "m_Etude": "!bp_2210350e1edc1db46a68d22cdaaa4d57",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$e0815473-89aa-4d92-8bae-8f619c581f76",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Ciar (1)",
+                    "_entity_id": "6fe2207b-d2aa-49ce-9a14-3231372e77bb",
+                    "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                "name": "$SpawnBySummonPool$7de7bb5d-8208-42ab-9ef2-3b73ac84f3e6",
+                "m_Pool": "!bp_2d8d0bfd4aadbde47af8edabed3624de",
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4d8b0345-1e4a-4f13-9cde-26de19b33443",
+          "Comment": "spawn Staunton if aeon changed his past",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$fbec4e02-4b0c-4d35-9f7f-f593dbb4c807",
+                "Not": false,
+                "m_Etude": "!bp_998b505008f960a4b92e679fbd588098",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$6e07830d-c17d-4e68-9724-7463601ce2e6",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Staunton (1)",
+                    "_entity_id": "6fe32a16-1d12-40d7-a0a6-24153755bacf",
+                    "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$52e7e44b-d0e0-4329-bc2a-b4e7220c498f",
+          "Comment": "spawn molten scar knights if they were saved",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0ceb904a-16d3-44af-8a56-2dc66956f3b9",
+                "Not": false,
+                "m_Etude": "!bp_36539c58dcdd44a9bda37ba4c444f3a4",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$94fbba0c-2714-476f-b4b3-f7c695e518df",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Tomaz (1)",
+                    "_entity_id": "ba04e4fe-ffc0-471b-a99f-dc651477af3b",
+                    "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                  },
+                  {
+                    "EntityNameInEditor": "Vollard (1)",
+                    "_entity_id": "c7edea33-a312-427d-9034-f637009af1c5",
+                    "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$44e880d9-6617-49a6-ae71-c454aa9dce58",
+          "Comment": "spawn chun or hurlin",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8db054b9-a308-435a-a2b9-ec62ec9d60bd",
+                "Not": false,
+                "m_Etude": "!bp_4f476683058cc73468697776817838c7",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$c59e3172-a0de-4e63-80ee-4c03f3909b9f",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Hurlun (1)",
+                    "_entity_id": "841e8e62-fc1b-41bd-aeba-3bce14bf3fa5",
+                    "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                "name": "$SpawnBySummonPool$615fc717-aaed-4687-90a8-cb3122aae453",
+                "m_Pool": "!bp_006dec2f6c4a14b47be4387fecddce5f",
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$5d01a025-6ebc-46cf-b1de-315e69843c45",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$c828d08c-3216-49fb-8fd0-579da25a9701",
+                      "Not": false,
+                      "m_Etude": "!bp_42f05ca151890e14d982e6b1f23d489d",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                      "name": "$Spawn$17312855-9013-47a9-abda-8ad75c2a8d03",
+                      "Spawners": [
+                        {
+                          "EntityNameInEditor": "Chun (1)",
+                          "_entity_id": "0c3ab106-488b-4ed9-8332-d95ae761d1b8",
+                          "SceneAssetGuid": "7dda2cdd7612d8f4ea4996822783c02d"
+                        }
+                      ],
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    },
+                    {
+                      "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+                      "name": "$SpawnBySummonPool$d13dcfc7-8226-4b79-9660-f3232cb90704",
+                      "m_Pool": "!bp_006dec2f6c4a14b47be4387fecddce5f",
+                      "ActionsOnSpawn": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+          "name": "$SpawnBySummonPool$35107bd1-2b7f-44c9-a5c1-9820e98dde0f",
+          "m_Pool": "!bp_426732f5545ee2c4280f92a8e2d2a23f",
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

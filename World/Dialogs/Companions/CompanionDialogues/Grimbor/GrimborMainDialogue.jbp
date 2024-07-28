@@ -1,0 +1,95 @@
+{
+  "AssetId": "40a79e99680bd8c4a8ba77413ec372d9",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_9b374b3bff1426942b4f0230129103b3",
+        "!bp_b7cb4a526c0af0640b59948839cbb316",
+        "!bp_3d58ae53571cbe74894139d1c3695d09",
+        "!bp_3b4f724c17a3583428fd916755ea2842"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$455649ff-1be1-4b02-b63b-4002bef146c4",
+          "Comment": "Остановить анимацию бухающего грейбора и игрока",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$7f58801f-4aea-4b28-b4dc-8845793a3334",
+                "Not": false,
+                "m_Quest": "!bp_bee846a37e6b5c948b93b2feb1e27374",
+                "State": "Completed"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d2a21875-214e-40fb-82fc-8b80e324c0e0",
+                "Not": false,
+                "m_Etude": "!bp_cb304a7269204c119eacff32a878ac8d",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$c2440155-4a52-48d0-bc75-a471024f1234",
+                "Not": true,
+                "m_Answer": "!bp_6471949ae20da734d8e928fec2418911",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$3787c843-125f-44ca-85c3-78558c818474",
+                "Not": true,
+                "m_Answer": "!bp_647880e668a5e0540be3f76869f9c50d",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$3a06f5d7-331f-4718-b47c-edb305a57f3d",
+                "Etude": "!bp_cb304a7269204c119eacff32a878ac8d",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

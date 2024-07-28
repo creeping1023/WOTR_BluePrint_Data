@@ -1,0 +1,364 @@
+{
+  "AssetId": "aa5e2d38e675d2244b46b999a4e87a81",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "если Халран жив\nспикер ХалранБой с инквами. Если при этом они - наши друзья и стоят в Сердце Защитника, то теперь они больше нам не друзья, из Сердца уйдут, в ГГ помогать нам не будут",
+    "ParentAsset": "81dc6ca22eb32e040a3a30199dcf3c94",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$81f6bfd7-d49b-4e66-bb63-fd2cc33b2727",
+          "Not": true,
+          "m_Etude": "!bp_d7169995e449fdc4db861ddf0b9beff8",
+          "NotStarted": false,
+          "Started": true,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "5c2649f2-2f54-4bf5-aa50-d9065d897e18",
+      "m_OwnerString": "aa5e2d38e675d2244b46b999a4e87a81",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c1/KenabresBurning/DesnaAdept3/Cue_0015_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_6b66b00927bd6184388e012358888b35",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5e9ad649-3cfd-4d0e-94c0-97a5c8219ce9",
+          "Comment": "выдать обж если его еще нет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$68b1fbcc-002e-4925-ba04-4d637d4b651e",
+                "Not": false,
+                "m_QuestObjective": "!bp_aa1569db29477a14bbe95548fe94a515",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$4a13a6e3-7a88-4ced-a4b6-6f993a3d3231",
+                "m_Objective": "!bp_aa1569db29477a14bbe95548fe94a515"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$6865ecf6-0352-48d2-be70-ca5a8e01269b",
+          "Status": "Complete",
+          "m_Objective": "!bp_aa1569db29477a14bbe95548fe94a515",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$d4ab5a07-58eb-48b0-8724-0b1db71f2c61",
+          "m_Objective": "!bp_f95a0c06ab3b81b49a1c5894f96e0996"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$29a7f04b-8a4e-431f-87c6-aabf9d8d2077",
+          "Comment": "Если инквы - наши друзья, то теперь они больше не друзья",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$0b5b7aa0-7a03-44a4-a7eb-830ebe6204ae",
+                "Not": false,
+                "m_QuestObjective": "!bp_18eb223a3eeed5e4c88271cc08edfd7d",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$835e6123-4029-40f4-9e57-64fee5a6a2ba",
+                "Status": "Fail",
+                "m_Objective": "!bp_18eb223a3eeed5e4c88271cc08edfd7d",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$0e01438c-f24e-46e8-9582-04d9137a81ce",
+          "Etude": "!bp_d7169995e449fdc4db861ddf0b9beff8",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsInUnitGroup$93edc20c-b6ec-47d8-8cc5-c088c9a03da6",
+          "m_Group": {
+            "EntityNameInEditor": "HurlunGroupLate_CR9",
+            "_entity_id": "81ff2eb6-74d5-4b3a-b1db-538a60d46a49",
+            "SceneAssetGuid": "d23f655a90a852f40a77be4fe2df0c4c"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$c716feb2-2349-4b7e-8f6f-b2be38929072",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$0e8892ec-aae9-4378-86e1-d0282e347c8f"
+                },
+                "FadeOut": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsInUnitGroup$56963e11-5580-4643-8f7c-3280782d8200",
+          "m_Group": {
+            "EntityNameInEditor": "HurlunGroupEarly_CR9",
+            "_entity_id": "2b1856f0-67f0-44bd-a53c-eb56c5189958",
+            "SceneAssetGuid": "1965cd68e37f04645834c10c1164aad2"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$d72ef003-43c2-4771-a3d0-d2a8acfeb73a",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$4bd9108c-230d-4377-9df8-65141e1f3288"
+                },
+                "FadeOut": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$b565bfe0-3049-4071-9c8c-f4c40eb645e2",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$8bb4b21c-94d6-4df6-b683-e13c14a74f6e",
+            "Spawner": {
+              "EntityNameInEditor": "RamienLate",
+              "_entity_id": "9ca245f7-6d92-4052-9553-307c09a5c21d",
+              "SceneAssetGuid": "d23f655a90a852f40a77be4fe2df0c4c"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$2a4524ee-5224-4029-b088-cbe23ce8be8a",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$9c9355b2-1f01-481e-9210-7fe7a002510c",
+            "Spawner": {
+              "EntityNameInEditor": "RamienEarly",
+              "_entity_id": "95753d0b-38e8-4bc5-9ef9-db786269ed82",
+              "SceneAssetGuid": "1965cd68e37f04645834c10c1164aad2"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+          "name": "$DetachBuff$9c7d34d5-562d-4c28-94e4-e573c1b12d53",
+          "m_Buff": "!bp_525f980cb29bc2240b93e953974cb325",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$058b4049-dbcd-4730-a65c-d9bb20c291d9",
+            "Spawner": {
+              "EntityNameInEditor": "RamienNearTemple",
+              "_entity_id": "4d017d51-9208-44d4-b776-268cfb943e58",
+              "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+            }
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsInUnitGroup$9c077f8c-ff55-40d9-9828-81768d4ad8e5",
+          "m_Group": {
+            "EntityNameInEditor": "InquisitorsAndAdept",
+            "_entity_id": "df9b6e88-41cc-430e-ae4e-1cda747d834c",
+            "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$290698a7-046e-4bb1-bf09-ad8986faf35b",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$f099194f-fb3a-491f-8833-07b6771baf20"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$3524959f-633b-40f8-9508-041295c52660",
+                "Unit1": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$7e73f2ec-5795-47ab-82b8-97596c3a1235"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$701770fa-5f39-4c9b-bfbc-9aee8386521d"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$09d0f68b-c5b2-435e-a96e-ffee90b137a6",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$53cf3246-f8e7-440b-855e-0ab63adb5ed8",
+                "Not": false,
+                "m_Etude": "!bp_81037254dcdfb5441902e9b23f65aee4",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f90c04d7-7311-44ee-80bf-3118ca052bbf",
+                "Not": false,
+                "m_Etude": "!bp_90e5e19c66519d349a58ed131812f85e",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0cbd2060-490c-4dba-a1d7-225053f49924",
+                "Not": false,
+                "m_Etude": "!bp_a6b8893e6d44a2040ba1736fb69d3786",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$46e0a2a3-ed0c-4d09-86b7-4ff5168533b2",
+                "Not": false,
+                "m_Etude": "!bp_994794f975bc4fcf81d43330540373dc",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$c1f8518f-a582-4398-9f92-04f230ba1f6e",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "RamienNearTemple",
+                    "_entity_id": "4d017d51-9208-44d4-b776-268cfb943e58",
+                    "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$701388c3-f78a-4999-bcf9-fcb79dc81458",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$203f006a-a382-4a0e-b7d7-3519fb0be01d",
+                  "Spawner": {
+                    "EntityNameInEditor": "RamienNearTemple",
+                    "_entity_id": "4d017d51-9208-44d4-b776-268cfb943e58",
+                    "SceneAssetGuid": "53d4f7bcb66bae84490780e7534f6c71"
+                  }
+                },
+                "Unhide": true,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "AssetId": "cde9d540b7e0a8744b8d5e668e7065e4",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$0a67dd4b-93ae-4ec4-9b6b-ae2da2fa0e59",
+      "$EtudeCompleteTrigger$fe298ede-236a-4de3-86f3-c1c60e181d1f"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$0a67dd4b-93ae-4ec4-9b6b-ae2da2fa0e59",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$3226b2d6-b3ee-47b0-9057-eb8152b18fef",
+              "m_Cutscene": "!bp_e8d44f13de8b6154687a05f42f767eb5",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$05f16380-948e-47c5-898c-2ad7e4dbcbc7",
+                      "Spawner": {
+                        "EntityNameInEditor": "MythicLich_KTC_Septimus",
+                        "_entity_id": "f1736671-683d-4c82-9f8b-caeb30d6bc4d",
+                        "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                      }
+                    }
+                  },
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$dd058f5b-061f-4ff8-8d30-5a6247896047",
+                      "m_Value": "!bp_5a3fba8f9be7dc24cbccb835404f6a59"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$bd24eb5e-b7fb-46e9-8643-9e451df7d6dd",
+                      "m_Value": "!bp_cde9d540b7e0a8744b8d5e668e7065e4"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$e734af02-1480-4ed0-b2e8-0ce640e93a08",
+              "Etude": "!bp_d6d16b1673e88434fb2a23b4c2f18112",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$fe298ede-236a-4de3-86f3-c1c60e181d1f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Septimus заселяется в Дрезен",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$091f06b6-1756-4fa2-951b-3d13f07c2958",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                    "name": "$CurrentAreaIs$f8ac8045-2c7d-4d3f-941a-1d2d44f66097",
+                    "Not": false,
+                    "m_Area": "!bp_2570015799edf594daf2f076f2f975d8"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$6e8aa328-603b-464d-a3f9-cb2b077ee2cb",
+                    "Etude": "!bp_a8a5f6e87d9f41d4d9db620d46c30f29",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  },
+                  {
+                    "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                    "name": "$ReloadMechanic$218f6635-385c-4583-98d2-5170da87de5d",
+                    "Desc": "Empty action",
+                    "ClearFx": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "KTC про первый приход Септимуса. Вызывается по времени в механике столицы",
+    "m_Parent": "!bp_3481bbe55663cf24d80d897f68fab165",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$f82d7fd4-e401-49ff-aec9-b2a9785e0dad",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$8e0a3683-f11b-4b2c-8fec-6644b7b97f66",
+          "Not": false,
+          "m_Etude": "!bp_68a4497289b1b48489f3d97dcd00d5d7",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_5327e6fc4ab6941439d64a084d6e1829",
+      "!bp_64e644718059eb3498b77d3a8980223f"
+    ],
+    "Priority": 0
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "AssetId": "cf62ce05a0b24472ad59230f0efe01bd",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$e5022595-ee33-4cb7-8fd0-c409e166e7ae",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$670578a3-83b8-472a-914b-938eadc2c1ee",
+              "Comment": "Есть StartC4",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$62b6d141-8f13-4c26-be54-c0d7536818f8",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_671284b8f9b54146b58691cecb7afc57",
+                    "State": "Started"
+                  },
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$3f850815-45de-4a8a-b628-e88cb5924fb5",
+                    "Not": true,
+                    "m_QuestObjective": "!bp_671284b8f9b54146b58691cecb7afc57",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$30434bdb-2b4c-4a09-810a-39d7fd79b44e",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_671284b8f9b54146b58691cecb7afc57",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$af869558-ecf8-4256-a3f9-98e27b6421b5",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_4af88488fc5142c4be58af73507d7167",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9df22ab5-772d-42d3-95ab-ea710df15c2c",
+              "Comment": "Не закончили тир 1",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$04ec0ca3-9bc1-49f5-9dc7-9c06608ab545",
+                    "Not": false,
+                    "m_Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$789358e4-aa26-4f64-9baf-d069bcd17719",
+                    "m_Objective": "!bp_9dddc4ab45ad4e0aa1565089bae27b8a"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$f5661a9c-caf7-4947-946d-eeed63ee6a30",
+                    "Comment": "Не закончили тир 2",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$9c545e6e-2bb9-47eb-ba07-15a0fcb8c8be",
+                          "Not": false,
+                          "m_Etude": "!bp_0912638e3ec84ad58621fc36e5f60556",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                          "name": "$GiveObjective$d3b7bd08-ff1a-427c-8260-67d923842309",
+                          "m_Objective": "!bp_5c8d10cedf6a4000bb6a24e415cafc95"
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$0e0108a2-1c5e-45fa-92d1-6a5ed4c08023",
+              "Status": "Complete",
+              "m_Objective": "!bp_4faa281533d9447f82d1bb450db04e44",
+              "StartObjectiveIfNone": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_093db34c2e0c4f7683cc6e87bb4dfac9",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$48468273-e632-4431-aaf3-3ee2a9c3ee7d",
+          "Not": false,
+          "m_Etude": "!bp_5b01aa690202e584888dfc600a4aac0a",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$5a4dbfbf-6e68-4a47-8fe6-1b3c61ad0474",
+          "Not": true,
+          "m_Etude": "!bp_90a98fca882f4d91b06fb562ccd24c44",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

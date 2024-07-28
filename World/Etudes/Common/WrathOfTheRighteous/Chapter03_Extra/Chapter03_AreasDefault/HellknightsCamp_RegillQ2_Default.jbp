@@ -1,0 +1,462 @@
+{
+  "AssetId": "f3760f68cd782d748b53b0435f19244b",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$SummonPoolTrigger$ee702b15-a6d6-4cdf-8273-483fd3968c96",
+      "$EvaluatedUnitCombatTrigger$a8c7db26-1c74-4be4-a4cf-16d59fe64b00",
+      "$SummonPoolTrigger$d1ef00ec-7f65-4079-92d6-b6d751afcd54",
+      "$SummonPoolTrigger$22be68ca-5688-4da1-bbda-759a21e08381",
+      "$EtudeBracketMarkUnitEssential$3ea956ef-1f54-4a5e-93bb-bde94f4f6f08",
+      "$EtudePlayTrigger$26e096e7-61ac-4a05-9ef3-81240749be31",
+      "$EvaluatedUnitCombatTrigger$e581c0f6-e03c-487e-bbf6-205ce45e1383",
+      "$EtudePlayTrigger$b24a7853-709a-4ca7-95c9-8fd5501b0cbb"
+    ],
+    "Components": [
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$ee702b15-a6d6-4cdf-8273-483fd3968c96",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "Poor cultist appear",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_273e281e998ace04ba2ceeec83a77ab8",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$f003aa17-6d29-40c9-84f0-92ede4447eac",
+              "m_Cutscene": "!bp_dbe78f3d4865aa8418b6322e00e3d2df",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$a8c7db26-1c74-4be4-a4cf-16d59fe64b00",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "After poor cultist killed",
+        "Unit": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$692c3560-ecea-425a-a5a0-a704c6b9298a",
+          "m_Companion": "!bp_0d37024170b172346b3769df92a971f5",
+          "IncludeRemote": false,
+          "IncludeExCompanions": false,
+          "IncludeDettached": false
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c07c9207-66c8-4da7-a390-ed97ab68dd69",
+              "Comment": "Not yet entered indoor",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$979d743c-b3fa-407e-ade9-1a2c28408101",
+                    "Not": false,
+                    "m_Etude": "!bp_9bf1b7f8bfb3f6d44b8f84f0b6a59e5c",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$33d7d2a3-0668-4ff0-b350-02fb4dd3204c",
+                    "Not": false,
+                    "m_Etude": "!bp_d3631023dc639794d8ed2316d438cf4a",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                    "name": "$CueSeen$3cfcf599-b5ab-4ba1-b8cc-d280a3465959",
+                    "Not": true,
+                    "m_Cue": "!bp_5865c329652406b4b84e51f46fa01342",
+                    "CurrentDialog": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                    "name": "$StartDialog$dcdc2669-4d68-4532-a083-81c6541c12ad",
+                    "DialogueOwner": null,
+                    "m_Dialogue": "!bp_485c1dfd76b4acd4a93ac6257a1f1de0",
+                    "DialogEvaluator": null,
+                    "SpeakerName": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": true
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$d1ef00ec-7f65-4079-92d6-b6d751afcd54",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "After tea succubus killed",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_bc2bbb2f334833b408131e5256ca3684",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$77fae874-f2d3-479e-b7f3-ff0584e4cbbb",
+              "Not": false,
+              "m_Etude": "!bp_b149b9c63668feb438e1e3ec7959b881",
+              "NotStarted": false,
+              "Started": true,
+              "Playing": false,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$3a8ec306-48bb-4a49-b549-614ecc7c24c0",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_3ae5a62d66d7bee48999b7d9d656abb6",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$22be68ca-5688-4da1-bbda-759a21e08381",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Final dialog with shadow demon boss",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_ddbc9e6ce53408a4488d98b12f11c07f",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$7bcf9b5d-a4a8-44ba-ab01-fcd37419109d",
+              "m_Cutscene": "!bp_7cd61a9d95069c54d9c58f6624b46d34",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "2631f5df3cb69464399dcdbcbbd803d8, EtudeBracketMarkUnitEssential",
+        "name": "$EtudeBracketMarkUnitEssential$3ea956ef-1f54-4a5e-93bb-bde94f4f6f08",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "Regill cannot die here",
+        "Target": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$462e0793-7aad-447c-b93b-0fca1414c022",
+          "m_Companion": "!bp_0d37024170b172346b3769df92a971f5",
+          "IncludeRemote": true,
+          "IncludeExCompanions": true,
+          "IncludeDettached": true
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$26e096e7-61ac-4a05-9ef3-81240749be31",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "Hide all remaining hellknights",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$0de3ab6b-bee3-4499-9531-71849c55a1f7",
+              "m_SummonPool": "!bp_c818e6b387d09ed43ae81cf0dc481ccf",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$4d58339c-eaf1-4419-b755-3fe200223e1a",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$2dab36e3-7a08-4547-a7d7-97d5a182b47d"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f77f7470b5b4ccf489fa052f95c399a1, EvaluatedUnitCombatTrigger",
+        "name": "$EvaluatedUnitCombatTrigger$e581c0f6-e03c-487e-bbf6-205ce45e1383",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "First shadow demon starts fight",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$e44acaab-6240-48fe-8cbf-6b95b58d5587",
+          "Spawner": {
+            "EntityNameInEditor": "ShadowDemonInCultist",
+            "_entity_id": "926f000e-f4f2-45db-b62b-0a98ada0bfb2",
+            "SceneAssetGuid": "cfc076dc5baac144fbbb35d76cf7a9ab"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$033bc5b4-d14a-4cda-9bf0-961305697013",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "462d8aa921e95dd4087864b2ef179658, DayTime",
+                    "name": "$DayTime$0bab40de-9eb3-47db-ad06-c24224666bc0",
+                    "Not": false,
+                    "Time": "Day"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$6053fe62-78fb-4114-a361-c6654e64bc35",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "06e142f1c27949240b819169a8dee8df",
+                        "stringkey": "9a9c599d-ed0d-499b-926d-3477430b5eb6"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": true,
+                    "TargetUnit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$d2034280-ced4-41d2-8933-1bb9e41cbdf9",
+                      "Spawner": {
+                        "EntityNameInEditor": "ShadowDemonInCultist",
+                        "_entity_id": "926f000e-f4f2-45db-b62b-0a98ada0bfb2",
+                        "SceneAssetGuid": "cfc076dc5baac144fbbb35d76cf7a9ab"
+                      }
+                    },
+                    "TargetMapObject": null
+                  },
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$e4ff51ad-1b55-4eda-a704-c21a73e34715",
+                    "m_Buff": "!bp_c710d4abe08060c4e9111a64332697ae",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$b6a5d0f6-598d-4fa6-9d0f-cde640c46692",
+                      "Spawner": {
+                        "EntityNameInEditor": "ShadowDemonInCultist",
+                        "_entity_id": "926f000e-f4f2-45db-b62b-0a98ada0bfb2",
+                        "SceneAssetGuid": "cfc076dc5baac144fbbb35d76cf7a9ab"
+                      }
+                    },
+                    "Duration": null
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "TriggerOnExit": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$b24a7853-709a-4ca7-95c9-8fd5501b0cbb",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "Hide/unhide Regill",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8284a256-e96c-4281-b8cf-2fc358a683d1",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                    "name": "$CompanionInParty$970e416e-b6c9-4c91-b8e5-54ae8adf40b7",
+                    "Not": false,
+                    "m_companion": "!bp_0d37024170b172346b3769df92a971f5",
+                    "MatchWhenActive": true,
+                    "MatchWhenDetached": false,
+                    "MatchWhenRemote": false,
+                    "MatchWhenDead": false,
+                    "MatchWhenEx": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$aaf4ebe2-4712-467b-b8ed-f3da93ff7d8a",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$ac2c1a76-6663-46c9-95b7-6c9061c8dad9",
+                      "Spawner": {
+                        "EntityNameInEditor": "Regill_IfNotInParty",
+                        "_entity_id": "9bf3eafb-8a70-4db8-b86f-8ed4a38336aa",
+                        "SceneAssetGuid": "cfc076dc5baac144fbbb35d76cf7a9ab"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$9a4a8f45-63a5-4c4c-8bc7-b13edb6d101d",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$6ba4a883-7c5f-4589-9acf-511a08be5f84",
+                      "Spawner": {
+                        "EntityNameInEditor": "Regill_IfNotInParty",
+                        "_entity_id": "9bf3eafb-8a70-4db8-b86f-8ed4a38336aa",
+                        "SceneAssetGuid": "cfc076dc5baac144fbbb35d76cf7a9ab"
+                      }
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_718adc04ec9307a49babdd7ae0ca7ea3",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_998fb6866a352f642abed7caa8fad0af",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_84a08f9e87f22974dbce0af1c99437df"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_71d37626f55f4f54bb91a0728a63a82c"
+    ],
+    "Priority": 0
+  }
+}

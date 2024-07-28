@@ -1,0 +1,258 @@
+{
+  "AssetId": "93c97e26a11341bb891eb37c264d7ec6",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$31f72abb-ca21-4455-9ef6-f779212e86c2",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$c6dd3de0-7bf4-44c8-ac6a-cb931c354945",
+                "Comment": "Except main characters",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$6a890498-86a0-4224-b140-c61959960b89",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$5d5db082-f565-49f0-92d3-10d7b3a1d8d1"
+                      },
+                      "SecondUnit": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$a4002188-b657-4f7a-8625-b19ed793b5bd"
+                      }
+                    },
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$b7de37dd-b9bd-429f-8d30-812a3167a0e3",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$6c8d23ac-158d-42c0-bf33-f17c7edc6148"
+                      },
+                      "SecondUnit": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$20713b13-7155-4890-9e70-763e5f92f4b7",
+                        "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    },
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$b5c2be2e-4c04-452f-8f52-1066a0cd7bb3",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$5ec7e2b8-ac9f-4cd6-a2a8-01ce34225735"
+                      },
+                      "SecondUnit": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$d891a8cc-c407-4d5f-8ac1-e7aee06669c3",
+                        "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$628fbc10-6c98-4218-91f1-cb7b6f9446c9",
+                      "m_Cutscene": "!bp_550de302093041afa1604b76aae3ee66",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$9b66a725-7b78-44bd-8ad1-f451eae2029a"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$88ad6783-efad-4346-98c2-278fc00ff81a",
+          "Comment": "Player character in combat mode",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$1da69a3f-98a3-4c05-86be-95005c76acec",
+                "Not": false,
+                "m_ConditionFlag": "!bp_067c44bfd67a4d0d86d351effc54fade",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              },
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$ac5efbbb-0983-4d6b-8c74-6b95ac54453c",
+                "Not": false,
+                "m_Flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+                "MinValue": 0,
+                "MaxValue": 2
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$f3fadd20-f7ff-4670-89d9-b5661b8833ab",
+                "m_Cutscene": "!bp_550de302093041afa1604b76aae3ee66",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$8b9c7fbb-7904-471b-bfe5-2eec827bf899"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$63eaba77-2532-4eca-bad1-db2637ff17be",
+          "Comment": "Sendri has less than 3 shards",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$7970f390-6204-4c7f-ae76-0dc028a68b78",
+                "Not": false,
+                "m_Flag": "!bp_7716aeb81bec4e76bfd81b57edc42014",
+                "MinValue": 0,
+                "MaxValue": 2
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$6e49d503-724d-487e-98e5-24a096d740fa",
+                "m_Cutscene": "!bp_550de302093041afa1604b76aae3ee66",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$e7efa762-bf5e-46fe-9233-c35a4cd167a0",
+                        "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$28d7202c-19a3-4c16-b025-e11f15f2ab0b",
+          "Comment": "Rekarth has less than 3 shards",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$1a4820d7-8a56-4dee-8112-dc84aba509f8",
+                "Not": false,
+                "m_Flag": "!bp_d00d4746f368447295e917967a67fe71",
+                "MinValue": 0,
+                "MaxValue": 2
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$5f0425c1-3b34-461e-ab98-eea2b2f6f4bf",
+                "m_Cutscene": "!bp_550de302093041afa1604b76aae3ee66",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$2285e776-e4c5-485c-b245-c4e55e25ae3e",
+                        "m_Companion": "!bp_3e0014e4be454482a2797fd81123d7b4",
+                        "IncludeRemote": false,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "AssetId": "dbdc99649fad472fa0ba2227841c16f2",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Кормчий",
+    "ParentAsset": "94f71890f88c4ccdb5550d36ea3557be",
+    "ShowOnce": true,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "21295b14-bb16-4ffe-bbb6-0c9ff849ebc6",
+      "m_OwnerString": "dbdc99649fad472fa0ba2227841c16f2",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC3_Roguelike\\DarkBalor_Tier1end\\Cue_0001_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_b13fa6c6d2b54d86875eb1e853455e98",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$49ee06dd-84ed-4f0c-ae4a-31c4583033ed",
+          "MusicEventStart": "MUS_Nahyndri_Theme_Play",
+          "MusicEventStop": "MUS_Nahyndri_Theme_Stop"
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6b04f290-9afc-4a62-9b76-fa54bb7b83f7",
+          "Comment": "Интеграция",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$899da093-0c25-4a68-a3ae-4c9402f11ced",
+                "Not": false,
+                "m_Etude": "!bp_093db34c2e0c4f7683cc6e87bb4dfac9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                "name": "$StopCutscene$bb37b95a-3077-47d9-8cb3-2f47f172ead7",
+                "m_Cutscene": "!bp_f18c4cb6189246eab07ed04e050edd70",
+                "WithUnit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$ae6e3f35-b5be-45b8-abc3-751cd381c820",
+                  "Spawner": {
+                    "EntityNameInEditor": "Steersman",
+                    "_entity_id": "d59c52c5-a9ea-4d8e-90f0-b58b80e91fc3",
+                    "SceneAssetGuid": "66245b8e1e70e1340bfa15c70de35078"
+                  }
+                },
+                "m_CheckType": "Params"
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$ffe7c16b-8e75-4f3c-99b6-018d7178df64",
+                "m_Cutscene": "!bp_d7ebafa91ece401095dfb11034eac3c2",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$d1a881ac-2d00-4683-9b14-5e667a07d200",
+                        "Spawner": {
+                          "EntityNameInEditor": "Steersman",
+                          "_entity_id": "d59c52c5-a9ea-4d8e-90f0-b58b80e91fc3",
+                          "SceneAssetGuid": "66245b8e1e70e1340bfa15c70de35078"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$0220265c-a121-4e9e-b2e7-8c88f2aff385",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$b3880d17-4754-4210-94bf-6c91341a4010",
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$0c941f57-fa16-4408-97ab-91a2974c3d82"
+                      },
+                      "Position": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$5b332b42-b3f5-453b-80ff-900b5b9037f2",
+                        "Unit": {
+                          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                          "name": "$UnitFromSpawner$ef5bb53d-66ca-46b1-ae87-729e6c8a6d70",
+                          "Spawner": {
+                            "EntityNameInEditor": "Steersman",
+                            "_entity_id": "d59c52c5-a9ea-4d8e-90f0-b58b80e91fc3",
+                            "SceneAssetGuid": "66245b8e1e70e1340bfa15c70de35078"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_45bd525d39494308a7c1475ffd6d4275"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

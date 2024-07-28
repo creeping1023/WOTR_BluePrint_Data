@@ -1,0 +1,315 @@
+{
+  "AssetId": "0e81fc1d3bec6f64aa63e23a4fb601f5",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "ночевка",
+    "ParentAsset": "77bd5d542ab9d65438fa3947276b9252",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "a7bfc58b-f47c-4b0e-8d68-3fb5b60e3d47",
+      "m_OwnerString": "0e81fc1d3bec6f64aa63e23a4fb601f5",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/TavernBadLuck/InnKeeper_mainDialogue/Cue_0055_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+          "name": "$RemoveItemFromPlayer$1945677d-7cad-4e87-9ed7-fe836f9e8d57",
+          "Money": true,
+          "RemoveAll": false,
+          "m_ItemToRemove": null,
+          "m_Silent": false,
+          "Quantity": 1000,
+          "Percentage": 0.0
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$db884c42-316e-4010-91a8-753d43959c92",
+          "Comment": "Первый ивент во время сна",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$1298f296-9b66-481f-81a2-99544538d6cd",
+                "Not": false,
+                "m_Etude": "!bp_0ed75450cb47c83499a2574736abd2a2",
+                "NotStarted": true,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$b5e5f751-f8ff-4ed6-be9b-28b7dd80ae1f",
+                "Not": true,
+                "m_Etude": "!bp_4d9c60b612e5c264283213c6d521a405",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$283c8e71-7524-46e2-acb9-2aa7b80ac21f",
+                "Etude": "!bp_0ed75450cb47c83499a2574736abd2a2",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$635bb07d-ea63-4e67-acd2-af6a05fac6af",
+                "m_Cutscene": "!bp_a51205ae1aff88646835d4d31a9d7f3a",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$9781e347-8de2-427a-9bff-b5b7de9a9728",
+                "m_Buff": "!bp_cafcc72426214982bc00213d9ca41521",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$99833a7e-f01f-4208-9c2d-08056a6dd61b"
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$bab66a5c-b1df-4135-871b-d5fb584dea54",
+                "Comment": "Второй ивент во время сна",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$d6796c20-9b3b-4122-8355-f5b7ef8d541b",
+                      "Not": false,
+                      "m_Etude": "!bp_5478be81e08203c499fdbfc0c333ab73",
+                      "NotStarted": true,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$833660a6-2b7c-4bec-84e0-33265945e8e1",
+                      "Not": true,
+                      "m_Etude": "!bp_4d9c60b612e5c264283213c6d521a405",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                      "name": "$RandomAction$b68df372-acc0-4624-925f-f8ccce889a13",
+                      "CalculateSeed": false,
+                      "Seed": null,
+                      "Salt": null,
+                      "Actions": [
+                        {
+                          "Weight": 12,
+                          "Conditions": {
+                            "Operation": "And",
+                            "Conditions": []
+                          },
+                          "Action": {
+                            "Actions": [
+                              {
+                                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                "name": "$StartEtude$bc98c84e-fb14-43bd-a61f-b196a10d580b",
+                                "Etude": "!bp_5478be81e08203c499fdbfc0c333ab73",
+                                "EtudeEvaluator": null,
+                                "Evaluate": false
+                              },
+                              {
+                                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                                "name": "$PlayCutscene$15f52968-da41-4042-9c81-98197b72e901",
+                                "m_Cutscene": "!bp_832e757fe1df004464c0377b068f183a",
+                                "PutInQueue": false,
+                                "CheckExistence": true,
+                                "Parameters": {
+                                  "Parameters": []
+                                }
+                              },
+                              {
+                                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                                "name": "$AttachBuff$9b837904-3dad-4d18-92a7-dd05bc5d1bce",
+                                "m_Buff": "!bp_cafcc72426214982bc00213d9ca41521",
+                                "Target": {
+                                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                  "name": "$PlayerCharacter$aeeb9a8f-b9b8-4bf2-aee2-4cd0be1d0463"
+                                },
+                                "Duration": null,
+                                "BattleLog": false,
+                                "HasCustomBattleLogMessage": false,
+                                "CustomBattleLogMessage": {
+                                  "m_Key": "",
+                                  "m_OwnerString": "",
+                                  "m_OwnerPropertyPath": "",
+                                  "m_JsonPath": "",
+                                  "Shared": null
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 8,
+                          "Conditions": {
+                            "Operation": "And",
+                            "Conditions": []
+                          },
+                          "Action": {
+                            "Actions": [
+                              {
+                                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                                "name": "$TeleportParty$1ef92c7c-42d0-403c-b53e-e8d5215312f5",
+                                "m_exitPositon": "!bp_011b2cfa44a0ff64390b404a29b49de1",
+                                "AutoSaveMode": "None",
+                                "ForcePauseAfterTeleport": false,
+                                "AfterTeleport": {
+                                  "Actions": [
+                                    {
+                                      "$type": "9c6cd580a876d0d4e83cbb48ec00870f, FakePartyRest",
+                                      "name": "$FakePartyRest$2e00f922-c938-46a7-8ca4-2f9b7e8bc62d",
+                                      "m_Immediate": false,
+                                      "m_IgnoreCorruption": true,
+                                      "m_RestWithCraft": true,
+                                      "m_ActionsOnRestEnd": {
+                                        "Actions": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                      "name": "$TeleportParty$c8922e66-384f-4288-b7a7-687c35399424",
+                      "m_exitPositon": "!bp_011b2cfa44a0ff64390b404a29b49de1",
+                      "AutoSaveMode": "None",
+                      "ForcePauseAfterTeleport": false,
+                      "AfterTeleport": {
+                        "Actions": [
+                          {
+                            "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                            "name": "$PartyUnits$96adebd4-5da9-4312-a271-b64ec4a78e0d",
+                            "m_UnitsList": "Everyone",
+                            "Actions": {
+                              "Actions": [
+                                {
+                                  "$type": "7c34a1bbda3ce6c4680181ce3eb2581b, RemoveDeathDoor",
+                                  "name": "$RemoveDeathDoor$cf7935db-08d2-4f22-a13b-3124c6b04207",
+                                  "Unit": {
+                                    "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                    "name": "$PartyUnit$edf0405e-1415-4181-bebd-45931e454d00"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "$type": "9c6cd580a876d0d4e83cbb48ec00870f, FakePartyRest",
+                            "name": "$FakePartyRest$7768d66c-a891-4886-8d1b-8356d5ae8b00",
+                            "m_Immediate": false,
+                            "m_IgnoreCorruption": true,
+                            "m_RestWithCraft": false,
+                            "m_ActionsOnRestEnd": {
+                              "Actions": []
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "AssetId": "1fafe723e9ca24b42a18eafd792c4568",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "личные квесты Ланна/венды фейлятся (не выдаются), если их нет в группе/они мертвы. Если они есть - они попросят передумать далее",
+    "ParentAsset": "6e1354923e3836144b6ada6819de880b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "eb0e1a9e-efa0-49e6-b19f-92c90d38bcae",
+      "m_OwnerString": "1fafe723e9ca24b42a18eafd792c4568",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Lann/Q3The Last Resort/SullWeak/Cue_0035_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2b74b04b-aac5-4f30-9321-b265d3bb4533",
+          "Comment": "Lann or Wendu?",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$bc1440ab-1eee-442c-9a50-07a7e6189221",
+                "Not": false,
+                "m_companion": "!bp_cb29621d99b902e4da6f5d232352fbda",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              },
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$b16584cc-b3c1-4c9f-bb4e-671296e6447f",
+                "Not": false,
+                "m_companion": "!bp_ae766624c03058440a036de90a7f2009",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": []
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$5e54395d-cbe8-4fbf-b585-053dc488fd9d",
+                "m_Cutscene": "!bp_0cadb40c2b694d34b8156a5bba779140",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$248cee77-352f-44e6-b1a0-02cff305dd47"
+                      }
+                    },
+                    {
+                      "Name": "Target",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$ca5232bc-75eb-402a-b498-1fed617b409d",
+                        "Spawner": {
+                          "EntityNameInEditor": "Chief_Sull",
+                          "_entity_id": "7ed19582-629a-46c3-99f2-5a851c51d228",
+                          "SceneAssetGuid": "7b700e75dfac788479c6874536d2caa0"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$55c21ae6-e4b7-4f25-a12e-2ae7a1fc0153",
+                "Etude": "!bp_4e6f9b71b62da8941918676eb7aae32b",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_d3819d79bf43d104b86acc5c857f824d"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

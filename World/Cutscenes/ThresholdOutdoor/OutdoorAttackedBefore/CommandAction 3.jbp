@@ -1,0 +1,99 @@
+{
+  "AssetId": "37d0bc9b4ebab6f4e9fe53edffaf4cf1",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+          "name": "$PartyMembersDetachEvaluated$bdd6564a-e2b3-4276-9b7f-726fb908812a",
+          "DetachThese": [
+            {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$39037512-49a9-412a-ac35-4161c100f3af"
+            }
+          ],
+          "AfterDetach": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$93a6dad0-7d1e-4194-83e2-07b5ef6869c3",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$1d4542af-1ab2-4c76-8732-ea733760ae51"
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          },
+          "m_RestrictPartySize": false,
+          "m_PartySize": -1
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$6f375c12-62f8-4a17-a863-a2de231bcb6d",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$849daf00-185b-45f1-ba95-5b9db3029779",
+                "Comment": "прячем кастомных компаньонов",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "532ebdb8947e7264fa70abf67952d814, IsUnitCustomCompanion",
+                      "name": "$IsUnitCustomCompanion$6e95ea0d-8dc4-46df-9065-daf8e94391a1",
+                      "Not": false,
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$e7385a2c-72e8-4f28-84a5-32967ffc0789"
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$ba34beff-79e2-4fa8-9cef-3b248bf43145",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$30238270-2d29-4570-aeef-fbbba27798b5"
+                      },
+                      "Unhide": false,
+                      "Fade": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$b539ec79-2ea0-4016-be0a-1dab936bbdb7",
+          "m_exitPositon": "!bp_d43e44a6bb7a62e46907a2b8db461f97",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

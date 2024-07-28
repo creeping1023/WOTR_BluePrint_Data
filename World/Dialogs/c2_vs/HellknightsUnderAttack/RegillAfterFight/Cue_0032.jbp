@@ -1,0 +1,171 @@
+{
+  "AssetId": "445bfd98e73d2014c9053f4bb9bde3a5",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "регилл идет в ростер, хеллкнайты м санрайзы - в нашу армию, уходят с карты все",
+    "ParentAsset": "3c750708a2380724b84769f158833b6b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "aec85a5d-0246-4892-8513-7c4fc0357cb4",
+      "m_OwnerString": "445bfd98e73d2014c9053f4bb9bde3a5",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c2_vs/HellknightsUnderAttack/RegillAfterFight/Cue_0032_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$72e4928f-1ac6-4980-ba89-c359e0d91773",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_0d37024170b172346b3769df92a971f5",
+              "NPCUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$99c6bcf3-c1ad-4376-9b2a-6b46c911bd30",
+                "Spawner": {
+                  "EntityNameInEditor": "Regill",
+                  "_entity_id": "ab0f4d75-ac41-43d3-8f91-fb64e8ac2504",
+                  "SceneAssetGuid": "7ed3ef616cd8ad84f94a503f830e3fce"
+                }
+              },
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": true,
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$497a8f46-3674-47bf-9b2a-6ca2ee31114d",
+                "m_Cutscene": "!bp_3352c54fae1654944badef4345200391",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "OnRecruitImmediate": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$98505b94-855b-4326-954d-cdb24835cb4f",
+          "Etude": "!bp_e74866d50da079f44a868f0433cf77ff",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6f7c013f-23e7-47c5-90bb-5375f8a85289",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$09d58567-7fed-4a6a-95b4-b14c3ead0eb9",
+                "Not": false,
+                "m_Cue": "!bp_4bbf673739cdfa44ca0e892c4bab5aa2",
+                "CurrentDialog": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                "name": "$CreateArmy$3b3c4b59-0bae-4c71-a846-eba6dc0fd315",
+                "Faction": "Crusaders",
+                "Preset": "!bp_68a086bcb12a407593fb7e5a929a94d9",
+                "Location": "!bp_40bf57992d9a3f94a8b09a9b3489dffc",
+                "WithLeader": false,
+                "ArmyLeader": null,
+                "MovementPoints": 60,
+                "m_MoveTarget": "None",
+                "m_TargetLocation": null,
+                "m_CompleteActions": null,
+                "m_ArmySpeed": 1.0,
+                "m_ApplyRecruitIncrease": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                "name": "$CreateArmy$0a27e9bf-4c6a-459e-bd2b-ab7cb76a7c4f",
+                "Faction": "Crusaders",
+                "Preset": "!bp_fe15383cad034ef4b2ef66fb460acab1",
+                "Location": "!bp_40bf57992d9a3f94a8b09a9b3489dffc",
+                "WithLeader": false,
+                "ArmyLeader": null,
+                "MovementPoints": 60,
+                "m_MoveTarget": "None",
+                "m_TargetLocation": null,
+                "m_CompleteActions": null,
+                "m_ArmySpeed": 1.0,
+                "m_ApplyRecruitIncrease": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+          "name": "$AddMercenaryToPool$ef4c43c6-fa27-4163-96cd-95b1ed13c071",
+          "m_Unit": "!bp_61e12d43771a40241ac05471a60ddb38",
+          "m_Weight": 1.0
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$8801e1c5-6d0e-4d03-905b-4d61e2d2a076",
+          "m_flag": "!bp_996353b55c7644dcad2ca0c0ccf6b952",
+          "flagValue": 1
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

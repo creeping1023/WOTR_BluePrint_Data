@@ -1,0 +1,380 @@
+{
+  "AssetId": "d674766cbbf34399a6ea441c297afb7a",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "что попробовали \n1 - рыба",
+    "ParentAsset": "f8d88264c5fb47e890036be293320e76",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$b4cdd4e1-35e8-47a2-b0ac-1e81504b329f",
+          "Not": false,
+          "m_ConditionFlag": "!bp_d8bf28ca44c145898c8f0ec7d611ea59",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": [
+            1
+          ]
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "3aa12f7a-5e29-4045-803b-a4c64b730a3e",
+      "m_OwnerString": "d674766cbbf34399a6ea441c297afb7a",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC6_ADanceOfMasks\\KenabresFestival\\Lann_Event\\Lann_Event_FreeFood\\Cue_0002_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_cb29621d99b902e4da6f5d232352fbda",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "DialogCalmLong01",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b80dc611-c9d9-42ff-9526-b247211c8e3a",
+          "Comment": "This food is shown on map",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$f37e215d-be2c-4bdc-b84c-1852dc6a1763",
+                "Not": false,
+                "m_Flag": "!bp_da8c5e8a698a4ffb8ef97c1588452983",
+                "MinValue": 1,
+                "MaxValue": 1
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$1e8e722f-fcb7-4c66-a52b-260cfa8b6279",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$999a22b6-e5ec-4ed4-ab17-2b4632ae1a3e",
+                  "MapObject": {
+                    "EntityNameInEditor": "FishMarker",
+                    "_entity_id": "cd0555f4-5138-41f8-8ba1-5d1a53d2e494",
+                    "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                  }
+                },
+                "Unhide": false,
+                "UseEntityFader": false
+              },
+              {
+                "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                "name": "$RandomAction$b3045a58-2448-4784-825c-1aad483f2a31",
+                "CalculateSeed": false,
+                "Seed": null,
+                "Salt": null,
+                "Actions": [
+                  {
+                    "Weight": 1,
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                          "name": "$CueSeen$14518875-c1c3-4a59-88cd-37b42aea4a27",
+                          "Not": true,
+                          "m_Cue": "!bp_4809f54b4f7c47028c85264e5045ba0c",
+                          "CurrentDialog": false
+                        }
+                      ]
+                    },
+                    "Action": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$c4f60b96-46ef-4ac9-b415-8b256310f8e4",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$7a4a482b-86e7-4511-8760-7621a80ad3a6",
+                            "MapObject": {
+                              "EntityNameInEditor": "PiesMarker",
+                              "_entity_id": "e98fb143-27b0-443c-bc53-0d55f4025d55",
+                              "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                            }
+                          },
+                          "Unhide": true,
+                          "UseEntityFader": false
+                        },
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$54000cee-f971-45af-a855-c977e2edcd64",
+                          "m_flag": "!bp_da8c5e8a698a4ffb8ef97c1588452983",
+                          "flagValue": 2
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$1baa710f-e372-42d2-bbc7-ccf28011b522",
+                          "m_Cutscene": "!bp_dd3cf6055b17474eb44a46f37752677b",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": [
+                              {
+                                "Name": "Locator",
+                                "Type": "Locator",
+                                "Evaluator": {
+                                  "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                                  "name": "$LocatorReference$fd0a946c-7256-424d-9a3e-d435c215f62d",
+                                  "Locator": {
+                                    "EntityNameInEditor": "Pies_marker_revealer",
+                                    "_entity_id": "830800f7-878a-48b6-b1c3-bcc6bbc85e2b",
+                                    "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Weight": 1,
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                          "name": "$CueSeen$d5f1292c-c30b-4a3f-8624-6244b8323c6b",
+                          "Not": true,
+                          "m_Cue": "!bp_b398c6ee7e2c4a598a44b2f4ed20d120",
+                          "CurrentDialog": false
+                        }
+                      ]
+                    },
+                    "Action": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$6c397514-17d2-4bf2-8eab-914543dc7e95",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$c524d04e-371e-4c41-bcb7-7bfec288f2c9",
+                            "MapObject": {
+                              "EntityNameInEditor": "KebabsMarker",
+                              "_entity_id": "91bdc7b7-c51b-47ae-a12b-ec76cf79159b",
+                              "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                            }
+                          },
+                          "Unhide": true,
+                          "UseEntityFader": false
+                        },
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$58c41eb9-bb12-4929-ae71-d8f3614bcc79",
+                          "m_flag": "!bp_da8c5e8a698a4ffb8ef97c1588452983",
+                          "flagValue": 3
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$86a677c7-2031-4b24-b688-c5f020bdf9aa",
+                          "m_Cutscene": "!bp_dd3cf6055b17474eb44a46f37752677b",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": [
+                              {
+                                "Name": "Locator",
+                                "Type": "Locator",
+                                "Evaluator": {
+                                  "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                                  "name": "$LocatorReference$f946aef0-1a2f-4e5e-bcb2-246d6053b1ca",
+                                  "Locator": {
+                                    "EntityNameInEditor": "Kebab_marker_revealer",
+                                    "_entity_id": "6a10d347-b329-4f6c-85d9-5f82f28aeadd",
+                                    "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Weight": 1,
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                          "name": "$CueSeen$ad98d76a-891a-4efa-a7dc-243b65961ef1",
+                          "Not": true,
+                          "m_Cue": "!bp_f39d660173e949b68105ae017214ab6c",
+                          "CurrentDialog": false
+                        }
+                      ]
+                    },
+                    "Action": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$e1e06484-7648-4a37-b586-bdbbacdfec38",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$76976777-bfc0-4679-956a-6ccdfe5813c4",
+                            "MapObject": {
+                              "EntityNameInEditor": "SoupMarker",
+                              "_entity_id": "7730fdf4-ed23-442c-8a86-c80f6bbcdf44",
+                              "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                            }
+                          },
+                          "Unhide": true,
+                          "UseEntityFader": false
+                        },
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$5e94edaa-80bf-426a-981c-ffca1fb1c6a4",
+                          "m_flag": "!bp_da8c5e8a698a4ffb8ef97c1588452983",
+                          "flagValue": 4
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$c6b23504-6574-4efa-83a0-1bd9f197b80b",
+                          "m_Cutscene": "!bp_dd3cf6055b17474eb44a46f37752677b",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": [
+                              {
+                                "Name": "Locator",
+                                "Type": "Locator",
+                                "Evaluator": {
+                                  "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                                  "name": "$LocatorReference$3d8aa4dd-50d3-4407-95ef-e33d30d6260d",
+                                  "Locator": {
+                                    "EntityNameInEditor": "Soup_marker_revealer",
+                                    "_entity_id": "ffe0ac7c-217b-4b57-979e-1a10420518ef",
+                                    "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "Weight": 1,
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                          "name": "$CueSeen$f563890a-7f84-40e6-90ce-cd9e1d4ef313",
+                          "Not": true,
+                          "m_Cue": "!bp_990e40b665c3413589e2670f7f9bff0d",
+                          "CurrentDialog": false
+                        }
+                      ]
+                    },
+                    "Action": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$c235acd4-5237-4596-83c5-881d187e99dd",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$d624f72c-9ab3-42b1-ad74-f3d6ca595fc0",
+                            "MapObject": {
+                              "EntityNameInEditor": "DeerMarker",
+                              "_entity_id": "ae558468-9c3f-488d-8d91-9215916aac7d",
+                              "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                            }
+                          },
+                          "Unhide": true,
+                          "UseEntityFader": false
+                        },
+                        {
+                          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                          "name": "$UnlockFlag$dd83e56f-df94-4800-8047-b239809c33e8",
+                          "m_flag": "!bp_da8c5e8a698a4ffb8ef97c1588452983",
+                          "flagValue": 5
+                        },
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$49cce18a-d95f-40d5-acd8-86e7368da853",
+                          "m_Cutscene": "!bp_dd3cf6055b17474eb44a46f37752677b",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": [
+                              {
+                                "Name": "Locator",
+                                "Type": "Locator",
+                                "Evaluator": {
+                                  "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                                  "name": "$LocatorReference$1a382420-e64c-4d54-bb86-1a4eec1e7ac8",
+                                  "Locator": {
+                                    "EntityNameInEditor": "Deer_marker_revealer",
+                                    "_entity_id": "d52eedbf-03d1-495b-b357-24fca111b035",
+                                    "SceneAssetGuid": "3f8619808058a8d4c98f6fbefe29a8e5"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [
+      "!bp_e821fe17d32844fc88066b0eaea1dfa0"
+    ],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

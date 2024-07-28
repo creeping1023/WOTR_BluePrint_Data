@@ -1,0 +1,121 @@
+{
+  "AssetId": "b443f13799524b8a987564f5e0923949",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Выдвет и комплитит обж. войти в тюрьму, если игрок прошел мимо драки у входа",
+    "m_SpecificArea": "!bp_3538511f16d45f44f8249ff710777e2d",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5e52a457-c3d7-49ca-a144-d4a96e98eeb6",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$6f4f3b57-dca3-4911-a8f3-72f7f5d6b314",
+                "Not": false,
+                "m_Etude": "!bp_663c8e3a1de94b91bcaa73f4be588bee",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$05bc9c02-8d2d-4b62-a670-2e3ec2115d63",
+                "Not": false,
+                "Comment": "Видел ли игрок диалог с Aponavicius или с Svendack",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$f85705a7-3e24-4ab0-b6e1-c75fe81bf39b",
+                      "Not": true,
+                      "m_Dialog": "!bp_adba308cf6583f844aa88d4985bf06d8"
+                    },
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$3d7a20d9-0c43-469f-a624-c603c1905e06",
+                      "Not": true,
+                      "m_Dialog": "!bp_e7a3b9026387b654fb768d6662b48291"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$143900cb-b942-45d5-8aa2-db8a39df383d",
+                "Comment": "Если Aponavanicus живой, то выполняет механику из его диалога, если нет то выполняет механику из диалога с Svendack",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$6934fb11-666b-4f5b-9ede-9b0f9d299d8d",
+                      "Not": true,
+                      "m_Etude": "!bp_b7c10efbae086ba4683de9be61e97d88",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$194cfafc-c7d3-48b2-af83-bf303dba0b06",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_1a5d04630aac6434c9ebc6f8db8ac7ad",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$d76c306c-bea4-4b6e-b1ac-8f589edf5e4b",
+                      "m_Objective": "!bp_9d25f8fa7a51fcf40a8677889672688f"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$75e9ddee-7db5-4da6-8b2e-dfed05735745",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_1a5d04630aac6434c9ebc6f8db8ac7ad",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$4ec58edf-7ff6-4f2c-904e-9d1fb93a61fa",
+                      "m_Objective": "!bp_9d25f8fa7a51fcf40a8677889672688f"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

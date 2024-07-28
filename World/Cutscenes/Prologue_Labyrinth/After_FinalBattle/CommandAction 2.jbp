@@ -1,0 +1,74 @@
+{
+  "AssetId": "a45a046fa1bed414fa6c3098d82d509b",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$91fd148f-d920-4160-a71e-f612574a1af5",
+          "Comment": "If Wenduag knockedOut",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f4707a68-e37f-45a6-bac0-0a8f3c94d496",
+                "Not": false,
+                "m_Etude": "!bp_455220f8ab2bf5b4c8132afda12d410b",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$3f5b3a73-38a0-4bba-baf7-bf9ff2eb908b",
+                "Etude": "!bp_455220f8ab2bf5b4c8132afda12d410b",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$8d79e1c6-36ef-430b-bf63-75f0afe516f2",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$a7b1f49c-2bc6-4a6b-8e5f-6f23b093755f",
+                  "Spawner": {
+                    "EntityNameInEditor": "Venduag",
+                    "_entity_id": "a19f70ae-6e78-452d-a0e9-f65f4569bcd5",
+                    "SceneAssetGuid": "2c79edf2397a1914590e0216add5b96b"
+                  }
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$4f212922-008f-44d1-a080-f0fd8849c2ed",
+          "Status": "Complete",
+          "m_Objective": "!bp_1992ddc7d1b615748a0652a964846d4c",
+          "StartObjectiveIfNone": false
+        }
+      ]
+    }
+  }
+}

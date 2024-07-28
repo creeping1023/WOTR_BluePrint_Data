@@ -1,0 +1,304 @@
+{
+  "AssetId": "db12d8ff19ad59542ad319433439cb67",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$dd12ff89-7e2f-4be5-b7d4-3dbb5049f5c4",
+      "$SummonPoolTrigger$5e9f8601-2aa1-4bca-a413-925213793714"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$dd12ff89-7e2f-4be5-b7d4-3dbb5049f5c4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Spawn mercenaries",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+              "name": "$SpawnByUnitGroup$14e0a24b-bf89-4f43-a32b-741f26df502c",
+              "m_Group": {
+                "EntityNameInEditor": "RottenGuttingMercenaries_CR23",
+                "_entity_id": "d858b11b-2792-4e2b-baf5-600df86de540",
+                "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+              },
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$9a1e464b-2dbc-4dc6-bdb3-763814302d5b",
+                    "Comment": "If player is patronaged",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$8cbeafe0-eb67-44db-ab75-5c63b1c881a3",
+                          "Not": false,
+                          "m_Etude": "!bp_4d9c60b612e5c264283213c6d521a405",
+                          "NotStarted": false,
+                          "Started": true,
+                          "Playing": false,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                          "name": "$UnitsInUnitGroup$3aad9fc1-786c-4d89-b7b9-d19aa54ecfa3",
+                          "m_Group": {
+                            "EntityNameInEditor": "RottenGuttingMercenaries_CR23",
+                            "_entity_id": "d858b11b-2792-4e2b-baf5-600df86de540",
+                            "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                          },
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                                "name": "$SwitchFaction$42d48a54-d861-4608-8cc8-46d7faa29824",
+                                "Target": {
+                                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                                  "name": "$UnitGroupUnit$f5bc6e6a-1e11-4337-91a0-44d30aeb4974"
+                                },
+                                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                                "IncludeGroup": true,
+                                "ResetAllRelations": true
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "m_Flags": 0,
+        "name": "$SummonPoolTrigger$5e9f8601-2aa1-4bca-a413-925213793714",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Start torlek dialogue",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_53018ff048bb444dbe00fc9f4a15828a",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$afb0f7ec-8a57-4c75-abce-20ffa5163330",
+              "Comment": "If player is not patronaged",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$48af5e7d-25e4-46aa-b445-4fcce151ec7e",
+                    "Not": true,
+                    "m_Etude": "!bp_4d9c60b612e5c264283213c6d521a405",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$86190e06-0707-4ce5-b601-dfab2f948bda",
+                    "m_Cutscene": "!bp_37317c98361b082419dbe01a5b69bd23",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitHealthTrigger$caf848d9-b05c-46e9-9009-de00188de979",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$360eb564-cd21-4588-9312-b0df15e5796a",
+          "Spawner": {
+            "EntityNameInEditor": "Torlek_CR19",
+            "_entity_id": "59960d80-04b0-4a8e-bc96-15b7c6cd2ebf",
+            "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+          }
+        },
+        "Once": true,
+        "Percentage": 10,
+        "TriggerOnAlreadyLowerHeath": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$52d55d33-627e-41a3-9164-2a65fd16ae66",
+              "Comment": "no patronage",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$76fd97e9-6c07-43e9-882b-30658beab6bd",
+                    "Not": true,
+                    "m_Etude": "!bp_4d9c60b612e5c264283213c6d521a405",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "5a5562d34459ae64dbcf70310e467944, InterruptAllActions",
+                    "name": "$InterruptAllActions$47ac9854-ffee-4fb5-9365-5b2feeeb89f7",
+                    "m_Unit": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$28801a87-a47c-456f-8941-4a366821b2d1",
+                      "Spawner": {
+                        "EntityNameInEditor": "Torlek_CR19",
+                        "_entity_id": "59960d80-04b0-4a8e-bc96-15b7c6cd2ebf",
+                        "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                      }
+                    }
+                  },
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$9c523766-323a-46e7-ac2d-43a156e6733e",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$ce9eb607-f0e1-4d88-bded-18f8dd80e434",
+                      "Spawner": {
+                        "EntityNameInEditor": "Torlek_CR19",
+                        "_entity_id": "59960d80-04b0-4a8e-bc96-15b7c6cd2ebf",
+                        "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                      }
+                    },
+                    "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                    "IncludeGroup": false,
+                    "ResetAllRelations": true
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$e2ce2a79-f000-44fc-9b1d-a0c9e55afec4",
+                    "m_Cutscene": "!bp_19e78092f413486e80b561310a320c94",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$c5a02c9d-6fbf-455a-97a6-2f476add2f9d",
+                            "Spawner": {
+                              "EntityNameInEditor": "Torlek_CR19",
+                              "_entity_id": "59960d80-04b0-4a8e-bc96-15b7c6cd2ebf",
+                              "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                            }
+                          }
+                        },
+                        {
+                          "Name": "Locator",
+                          "Type": "Position",
+                          "Evaluator": {
+                            "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                            "name": "$LocatorPosition$4a920a8e-8a59-4534-ad5a-1a89ee7ec292",
+                            "Locator": {
+                              "EntityNameInEditor": "RottenGuttingExit",
+                              "_entity_id": "a829f93f-5952-4b8a-845d-f2fe76dcca1e",
+                              "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                            },
+                            "Offset": "0|0|0"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_deecc937a263ca24c9f1a64a4874451a",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_4f849f5683145d0489db4077e0d7eccf",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

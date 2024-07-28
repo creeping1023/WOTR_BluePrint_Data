@@ -1,0 +1,184 @@
+{
+  "AssetId": "0b377d6a162f4c4c99020cd446149f6a",
+  "Data": {
+    "$type": "251b1bf89b36e384d8e452ce50ea1d8b, BlueprintAreaTransition",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "m_Actions": [
+      {
+        "Condition": null,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d8211ae8-af5c-4d9a-b3e8-d724e891d758",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "5236ec115f7d59046beea8a13d9f23f3, IsUnitMythicLevel",
+                    "name": "$IsUnitMythicLevel$ae2f42e1-2f59-4f66-99ba-37258dae9905",
+                    "Not": false,
+                    "Unit": {
+                      "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                      "name": "$PlayerCharacter$f4f6ec88-e154-407a-8abc-5ac48053033a"
+                    },
+                    "CheckMinLevel": true,
+                    "MinLevel": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$04cd10c3-6ae8-458c-8353-2349641cafe6",
+                      "Value": 7
+                    },
+                    "CheckMaxLevel": false,
+                    "MaxLevel": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                    "name": "$TeleportParty$f2d4ab56-08ed-41e7-b7cd-5b24ffc32549",
+                    "m_exitPositon": "!bp_707f288550a2f564bafa5cfdb6b8abba",
+                    "AutoSaveMode": "None",
+                    "ForcePauseAfterTeleport": false,
+                    "AfterTeleport": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$7160273a-4232-4345-83e0-ec49dab712fe",
+                          "Comment": "Return finnean for unlucky player",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                                "name": "$QuestStatus$c52e5318-eb24-46ca-86b9-b709f6334400",
+                                "Not": false,
+                                "m_Quest": "!bp_eac41e4707186904fa70293031f2879f",
+                                "State": "Started"
+                              },
+                              {
+                                "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                                "name": "$ItemsEnough$8e5f6f19-996b-46f0-9ec9-841016c39a8b",
+                                "Not": true,
+                                "Money": false,
+                                "m_ItemToCheck": "!bp_95c126deb99ba054aa5b84710520c035",
+                                "Quantity": 1,
+                                "IgnoreRemoteCompanions": false,
+                                "CheckInPlayerHubChest": false
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                                "name": "$AddItemToPlayer$3ff70b4f-b63c-4545-b1f7-0851b5ddeb7e",
+                                "m_ItemToGive": "!bp_95c126deb99ba054aa5b84710520c035",
+                                "Silent": true,
+                                "Quantity": 1,
+                                "Identify": false,
+                                "Equip": false,
+                                "EquipOn": null,
+                                "PreferredWeaponSet": 0,
+                                "ErrorIfDidNotEquip": true
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "8731ea7b28813994ba10d8e5e66b767a, OpenSelectMythicUI",
+                    "name": "$OpenSelectMythicUI$bdb6739f-b968-4be0-b165-073580275f80",
+                    "m_AfterCommitActions": {
+                      "Actions": [
+                        {
+                          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                          "name": "$TeleportParty$29f25601-b40e-4990-a5ad-04e2420310aa",
+                          "m_exitPositon": "!bp_707f288550a2f564bafa5cfdb6b8abba",
+                          "AutoSaveMode": "None",
+                          "ForcePauseAfterTeleport": false,
+                          "AfterTeleport": {
+                            "Actions": [
+                              {
+                                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                                "name": "$Conditional$efdc3084-2bd2-49cf-a2c9-6cac877a72fb",
+                                "Comment": "Return finnean for unlucky player",
+                                "ConditionsChecker": {
+                                  "Operation": "And",
+                                  "Conditions": [
+                                    {
+                                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                                      "name": "$QuestStatus$aaf24aac-b363-4f37-b5e0-0ca647b01c1e",
+                                      "Not": false,
+                                      "m_Quest": "!bp_eac41e4707186904fa70293031f2879f",
+                                      "State": "Started"
+                                    },
+                                    {
+                                      "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                                      "name": "$ItemsEnough$8f9e9a52-b81a-4cbd-a49e-81d5c3d16e88",
+                                      "Not": true,
+                                      "Money": false,
+                                      "m_ItemToCheck": "!bp_95c126deb99ba054aa5b84710520c035",
+                                      "Quantity": 1,
+                                      "IgnoreRemoteCompanions": false,
+                                      "CheckInPlayerHubChest": false
+                                    }
+                                  ]
+                                },
+                                "IfTrue": {
+                                  "Actions": [
+                                    {
+                                      "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                                      "name": "$AddItemToPlayer$c3f012d1-fa13-4890-b8b4-90fc94ca83fe",
+                                      "m_ItemToGive": "!bp_95c126deb99ba054aa5b84710520c035",
+                                      "Silent": true,
+                                      "Quantity": 1,
+                                      "Identify": false,
+                                      "Equip": false,
+                                      "EquipOn": null,
+                                      "PreferredWeaponSet": 0,
+                                      "ErrorIfDidNotEquip": true
+                                    }
+                                  ]
+                                },
+                                "IfFalse": {
+                                  "Actions": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "m_LockStopChargen": true,
+                    "m_AfterStopActions": {
+                      "Actions": []
+                    },
+                    "m_MayLoopLevelUp": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

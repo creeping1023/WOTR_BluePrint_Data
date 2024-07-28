@@ -1,0 +1,564 @@
+{
+  "AssetId": "6bcaf7636388f2a40bce263372735eef",
+  "Data": {
+    "$type": "da11db195c86e0d4dae17a2c03a4ba9a, BlueprintAbility",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$AbilityResourceLogic$90f5c894-592c-44bf-87e0-cff854149038",
+      "$AbilityEffectRunAction$1e3ed85e-608f-4636-93dd-f73f0a2cc5fd",
+      "$AbilityCalculateSharedValue$39135b92-845a-4b32-a703-ee7cf5bda4eb",
+      "$AbilityRankConfig$a8f474f1-ee0f-44e3-96a8-9db3970f668d",
+      "$AbilityUseOnRest$67702027-9245-4c2d-99b2-306dc420110f",
+      "$ContextRankConfig$77631a8f-5ed1-49f8-87b9-1eaa1a109dd8",
+      "$ContextCalculateSharedValue$e267d183-ffd9-4866-9fc8-205488f01e71",
+      "$AbilityDeliverProjectile$0b2dca49-ca60-411d-a374-2b37ea3123cb"
+    ],
+    "Components": [
+      {
+        "$type": "2945aafe5b353dc49b283c982269ade6, AbilityResourceLogic",
+        "name": "$AbilityResourceLogic$90f5c894-592c-44bf-87e0-cff854149038",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_RequiredResource": "!bp_da0fb35828917f344b1cd72c98b70498",
+        "m_IsSpendResource": true,
+        "CostIsCustom": false,
+        "Amount": 2,
+        "ResourceCostIncreasingFacts": [],
+        "ResourceCostDecreasingFacts": []
+      },
+      {
+        "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
+        "name": "$AbilityEffectRunAction$1e3ed85e-608f-4636-93dd-f73f0a2cc5fd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "SavingThrowType": "Unknown",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f1fc2137-efa7-43d6-bf82-f125a52d119d",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+                    "name": "$ContextConditionCasterHasFact$026e1913-1aa6-45a5-b842-452a48ac7900",
+                    "Not": false,
+                    "m_Fact": "!bp_fd30c69417b434d47b6b03b9c1f568ff"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$078dd88c-5925-4814-b366-6aba854ac21e",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "c5b3b6002404ca249add2943e99f366a, ContextConditionIsAlly",
+                          "name": "$ContextConditionIsAlly$93314747-da7d-4513-bb67-097a8e149569",
+                          "Not": false
+                        },
+                        {
+                          "$type": "9706de75454abeb48bd4cfa7f526a1c2, ContextConditionHasFact",
+                          "name": "$ContextConditionHasFact$546f12ef-d4a9-42bd-ab3f-9c871b587947",
+                          "Not": true,
+                          "m_Fact": "!bp_d5ee498e19722854198439629c1841a5"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "8abf85d8c6ea04343a2e4fe6bb27a3bb, ContextActionHealTarget",
+                          "name": "$ContextActionHealTarget$321c352b-44a8-445a-8048-d9a609d6f22b",
+                          "Value": {
+                            "DiceType": "Zero",
+                            "DiceCountValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            },
+                            "BonusValue": {
+                              "ValueType": "Shared",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Heal",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            }
+                          }
+                        },
+                        {
+                          "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+                          "name": "$ContextActionSpawnFx$4b5a6c4d-e8ac-47b9-a43d-db11e6da2779",
+                          "PrefabLink": {
+                            "AssetId": "61602c5b0ac793d489c008e9cb58f631"
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$6a168afc-d29c-41a9-abd6-8d48a6ec1a96",
+                          "Comment": "",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "9706de75454abeb48bd4cfa7f526a1c2, ContextConditionHasFact",
+                                "name": "$ContextConditionHasFact$0c5a10ca-54d9-4f10-b205-225a3aa35338",
+                                "Not": false,
+                                "m_Fact": "!bp_8f58b4029511b5345981ffaf1da5ea2e"
+                              },
+                              {
+                                "$type": "c5b3b6002404ca249add2943e99f366a, ContextConditionIsAlly",
+                                "name": "$ContextConditionIsAlly$cfed3d1b-dbe4-48fc-bccd-996d0498e962",
+                                "Not": false
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "8abf85d8c6ea04343a2e4fe6bb27a3bb, ContextActionHealTarget",
+                                "name": "$ContextActionHealTarget$f22a6308-0a61-4502-9e85-f2f277a175e5",
+                                "Value": {
+                                  "DiceType": "Zero",
+                                  "DiceCountValue": {
+                                    "ValueType": "Simple",
+                                    "Value": 0,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "Damage",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  },
+                                  "BonusValue": {
+                                    "ValueType": "Shared",
+                                    "Value": 0,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "StatBonus",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  }
+                                }
+                              },
+                              {
+                                "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+                                "name": "$ContextActionSpawnFx$ba5c5aaf-4176-449f-937f-7438f0842243",
+                                "PrefabLink": {
+                                  "AssetId": "61602c5b0ac793d489c008e9cb58f631"
+                                }
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$2a3ded72-aa86-4036-8b05-e9b1d6c556cb",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "9706de75454abeb48bd4cfa7f526a1c2, ContextConditionHasFact",
+                          "name": "$ContextConditionHasFact$c3247df7-7c33-48f2-9e6d-e4d11d9773c0",
+                          "Not": true,
+                          "m_Fact": "!bp_d5ee498e19722854198439629c1841a5"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "8abf85d8c6ea04343a2e4fe6bb27a3bb, ContextActionHealTarget",
+                          "name": "$ContextActionHealTarget$d1a77ab9-64bd-406b-8f68-3ffee107ca79",
+                          "Value": {
+                            "DiceType": "Zero",
+                            "DiceCountValue": {
+                              "ValueType": "Simple",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Damage",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            },
+                            "BonusValue": {
+                              "ValueType": "Shared",
+                              "Value": 0,
+                              "ValueRank": "Default",
+                              "ValueShared": "Heal",
+                              "Property": "None",
+                              "m_CustomProperty": null
+                            }
+                          }
+                        },
+                        {
+                          "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+                          "name": "$ContextActionSpawnFx$12efed23-195f-44eb-b2c2-98f0038dde15",
+                          "PrefabLink": {
+                            "AssetId": "61602c5b0ac793d489c008e9cb58f631"
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$e71067f6-c21b-42b0-ae33-1aba04bd2dab",
+                          "Comment": "",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "9706de75454abeb48bd4cfa7f526a1c2, ContextConditionHasFact",
+                                "name": "$ContextConditionHasFact$31b1fa09-b400-41fd-85e8-a6279f9897f8",
+                                "Not": false,
+                                "m_Fact": "!bp_8f58b4029511b5345981ffaf1da5ea2e"
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "8abf85d8c6ea04343a2e4fe6bb27a3bb, ContextActionHealTarget",
+                                "name": "$ContextActionHealTarget$cd78e6f8-d96b-4bce-bc31-170b0886d7ea",
+                                "Value": {
+                                  "DiceType": "Zero",
+                                  "DiceCountValue": {
+                                    "ValueType": "Simple",
+                                    "Value": 0,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "Damage",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  },
+                                  "BonusValue": {
+                                    "ValueType": "Shared",
+                                    "Value": 0,
+                                    "ValueRank": "Default",
+                                    "ValueShared": "StatBonus",
+                                    "Property": "None",
+                                    "m_CustomProperty": null
+                                  }
+                                }
+                              },
+                              {
+                                "$type": "120df4726e71c854e95f84b87a99a3c5, ContextActionSpawnFx",
+                                "name": "$ContextActionSpawnFx$91e6feab-cd21-40cf-af34-b6a6b9df6cb7",
+                                "PrefabLink": {
+                                  "AssetId": "61602c5b0ac793d489c008e9cb58f631"
+                                }
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "a6777ad03deb60a4e8ef6b7067ac836b, ContextCalculateSharedValue",
+        "name": "$AbilityCalculateSharedValue$39135b92-845a-4b32-a703-ee7cf5bda4eb",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "ValueType": "Heal",
+        "Value": {
+          "DiceType": "D6",
+          "DiceCountValue": {
+            "ValueType": "Rank",
+            "Value": 0,
+            "ValueRank": "Default",
+            "ValueShared": "Damage",
+            "Property": "None",
+            "m_CustomProperty": null
+          },
+          "BonusValue": {
+            "ValueType": "Rank",
+            "Value": 0,
+            "ValueRank": "DamageBonus",
+            "ValueShared": "Damage",
+            "Property": "None",
+            "m_CustomProperty": null
+          }
+        },
+        "Modifier": 1.0
+      },
+      {
+        "$type": "a15673bd9e3879442825226335fd8fe2, ContextRankConfig",
+        "name": "$AbilityRankConfig$a8f474f1-ee0f-44e3-96a8-9db3970f668d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Type": "Default",
+        "m_BaseValueType": "FeatureListRanks",
+        "m_Feature": null,
+        "m_FeatureList": [
+          "!bp_4d4f00bb16467144780538107387af78",
+          "!bp_bfcafb19f397da542be30d77126f1097"
+        ],
+        "m_Stat": "Unknown",
+        "m_SpecificModifier": "None",
+        "m_Buff": null,
+        "m_Progression": "AsIs",
+        "m_CustomProgression": [],
+        "m_StartLevel": 0,
+        "m_StepLevel": 0,
+        "m_UseMin": false,
+        "m_Min": 0,
+        "m_UseMax": false,
+        "m_Max": 20,
+        "m_ExceptClasses": false,
+        "Archetype": null,
+        "m_AdditionalArchetypes": [],
+        "m_Class": [
+          "!bp_67819271767a9dd4fbfd4ae700befea0"
+        ],
+        "m_CustomProperty": null,
+        "m_CustomPropertyList": []
+      },
+      {
+        "$type": "fb300f49c72e4ea4ba7f03bfb2b1d5a3, AbilityUseOnRest",
+        "name": "$AbilityUseOnRest$67702027-9245-4c2d-99b2-306dc420110f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Type": "HealDamageMass",
+        "BaseValue": 1,
+        "AddCasterLevel": false,
+        "MultiplyByCasterLevel": true,
+        "MaxCasterLevel": 20
+      },
+      {
+        "$type": "91216784d99a12e428bf782c8a8c7f5c, SpellDescriptorComponent",
+        "name": "$SpellDescriptorComponent$5e1bcfcb-1d21-45be-a9f1-96005479de66",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": {
+          "m_IntValue": 9007336693694464
+        }
+      },
+      {
+        "$type": "a15673bd9e3879442825226335fd8fe2, ContextRankConfig",
+        "name": "$ContextRankConfig$77631a8f-5ed1-49f8-87b9-1eaa1a109dd8",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Type": "DamageBonus",
+        "m_BaseValueType": "CustomProperty",
+        "m_Feature": null,
+        "m_FeatureList": [],
+        "m_Stat": "Unknown",
+        "m_SpecificModifier": "None",
+        "m_Buff": null,
+        "m_Progression": "AsIs",
+        "m_CustomProgression": [],
+        "m_StartLevel": 0,
+        "m_StepLevel": 0,
+        "m_UseMin": false,
+        "m_Min": 0,
+        "m_UseMax": false,
+        "m_Max": 20,
+        "m_ExceptClasses": false,
+        "Archetype": null,
+        "m_AdditionalArchetypes": [],
+        "m_Class": [],
+        "m_CustomProperty": "!bp_152e61de154108d489ff34b98066c25c",
+        "m_CustomPropertyList": []
+      },
+      {
+        "$type": "a6777ad03deb60a4e8ef6b7067ac836b, ContextCalculateSharedValue",
+        "name": "$ContextCalculateSharedValue$e267d183-ffd9-4866-9fc8-205488f01e71",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "ValueType": "StatBonus",
+        "Value": {
+          "DiceType": "Zero",
+          "DiceCountValue": {
+            "ValueType": "Simple",
+            "Value": 0,
+            "ValueRank": "Default",
+            "ValueShared": "Damage",
+            "Property": "None",
+            "m_CustomProperty": null
+          },
+          "BonusValue": {
+            "ValueType": "Shared",
+            "Value": 0,
+            "ValueRank": "Default",
+            "ValueShared": "Heal",
+            "Property": "None",
+            "m_CustomProperty": null
+          }
+        },
+        "Modifier": 0.5
+      },
+      {
+        "$type": "a7ec15576fb827040bfe609a904482cd, AbilityDeliverProjectile",
+        "name": "$AbilityDeliverProjectile$0b2dca49-ca60-411d-a374-2b37ea3123cb",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Projectiles": [
+          "!bp_7363081f6144d604da3645a6ea94fcb1"
+        ],
+        "Type": "Cone",
+        "IsHandOfTheApprentice": false,
+        "m_Length": {
+          "m_Value": 30.0
+        },
+        "m_LineWidth": {
+          "m_Value": 5.0
+        },
+        "NeedAttackRoll": false,
+        "m_Weapon": null,
+        "ReplaceAttackRollBonusStat": false,
+        "AttackRollBonusStat": "Unknown",
+        "UseMaxProjectilesCount": false,
+        "MaxProjectilesCountRank": "Default",
+        "DelayBetweenProjectiles": 0.0,
+        "m_ControlledProjectileHolderBuff": null
+      },
+      {
+        "$type": "97314ad9d71c4080a029cbd00e961acb, AbilityRequirementHasItemInHands",
+        "name": "$AbilityRequirementHasItemInHands$20a070ec-5552-4fb0-b2a2-e657d7307a57",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Type": "HasShield"
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "7887b0e03950452449492326eddcede3",
+        "stringkey": "548b6bb4-8680-425a-a8df-53769875f3fd"
+      }
+    },
+    "m_Description": {
+      "m_Key": "b1d349ee-7de2-45ca-91be-ba10542f0cac",
+      "m_OwnerString": "6bcaf7636388f2a40bce263372735eef",
+      "m_OwnerPropertyPath": "m_Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/Classes/Warpriest/Archetypes/Shieldbearer/WarpriestShieldbearerChannelEnergy_m_Description.json",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "636f55d7ac7635e459967e29e1c71cdd",
+      "fileid": 21300000
+    },
+    "m_DefaultAiAction": null,
+    "Type": "Supernatural",
+    "Range": "Close",
+    "CustomRange": {
+      "m_Value": 0.0
+    },
+    "ShowNameForVariant": false,
+    "OnlyForAllyCaster": false,
+    "CanTargetPoint": true,
+    "CanTargetEnemies": true,
+    "CanTargetFriends": true,
+    "CanTargetSelf": false,
+    "SpellResistance": false,
+    "ActionBarAutoFillIgnored": false,
+    "Hidden": false,
+    "NeedEquipWeapons": false,
+    "NotOffensive": false,
+    "EffectOnAlly": "None",
+    "EffectOnEnemy": "Harmful",
+    "m_Parent": null,
+    "Animation": "Omni",
+    "HasFastAnimation": false,
+    "AnimationStyle": "CastActionOmni",
+    "m_TargetMapObjects": false,
+    "ActionType": "Standard",
+    "AvailableMetamagic": "Empower, Maximize, Quicken, Heighten",
+    "m_IsFullRoundAction": false,
+    "LocalizedDuration": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "LocalizedSavingThrow": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "MaterialComponent": {
+      "m_Item": null,
+      "Count": 1
+    },
+    "DisableLog": false,
+    "ResourceAssetIds": [
+      "d58c16961298c6f4490ed4c158c142e6"
+    ]
+  }
+}

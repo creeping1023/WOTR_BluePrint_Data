@@ -1,0 +1,173 @@
+{
+  "AssetId": "9d6cbc0edc9fd4a40af4b9ce975efc61",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$91eff8ca-88f4-419e-8f90-5c047a487519",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$93c94c9b-50cb-469a-8335-8d7aecc56895",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "GreyborDefaultPosition",
+                  "_entity_id": "4c556c14-cb36-449e-ab33-45bde5e4acfb",
+                  "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              },
+              "RespawnIfDead": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$b87fffbb-a682-404c-8a70-6b661bb99871",
+              "m_Cutscene": "!bp_8c6c293d75fb9874cb9f27dc21cb444a",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitHealthTrigger$3eada445-65fa-4a91-ac6d-549b2477a754",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$c55255bd-8ebc-43b3-a120-35dfdddc85b8",
+          "Spawner": {
+            "EntityNameInEditor": "Assasin",
+            "_entity_id": "3f93d545-6e1d-4409-8865-8a893c3edb99",
+            "SceneAssetGuid": "cdbfaf851b49736468c906967f7e5cc2"
+          }
+        },
+        "Once": true,
+        "Percentage": 10,
+        "TriggerOnAlreadyLowerHeath": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$a7f9ed0d-c940-450a-8ff7-66e611286afd",
+              "m_Cutscene": "!bp_cd00b0813ba84c9394d4651ad42e0d5e",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$385288b2-1f8a-4f71-8372-a2c0c073017d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$956019bf-42e4-493b-a190-dffa71fbab00",
+              "m_UnitsList": "Everyone",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                    "name": "$StopCutscene$4754a7df-de38-46fc-a41a-9dcfe92a01a6",
+                    "m_Cutscene": "!bp_d3e237dfd5364983ab10c9be841073ba",
+                    "m_AllCutscenesFromUnit": false,
+                    "WithUnit": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$75d82f72-1fac-4282-bf21-39e4fe4bb4c3"
+                    },
+                    "m_CheckType": "Params"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "КТЦ нападения ассасина в спальне игрока",
+    "m_Parent": "!bp_6d4166f7ad617374aa349cfccb2c72df",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$569866c2-05d8-4890-93e8-6790602cf1ea",
+          "Not": false,
+          "m_ConditionFlag": "!bp_8a03b7367c640164bb4e43a93cf3c63c",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        },
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$d559a2be-1f71-4193-94f3-bdaa7c6b4205",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [
+      "!bp_41b9e17188094c24a072a55fc4c73b4b"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_69c9ee32149c3214d807bc60a0f2b8e5",
+      "!bp_10d01be767521a340978c8e57ab536b6"
+    ],
+    "Priority": 501
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

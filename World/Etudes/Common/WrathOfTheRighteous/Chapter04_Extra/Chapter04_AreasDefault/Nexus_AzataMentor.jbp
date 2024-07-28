@@ -1,0 +1,116 @@
+{
+  "AssetId": "94a1f01d28fcf5e42bda6c00fb9f9882",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$8010c048-ea16-469d-aa1e-f2a204992206",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$edbe60b6-42d8-4a67-9289-a1595ac02062",
+              "Comment": "Расхайдить ментора (если не раскрыли его по завершению квеста)",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$9d86d5cb-7303-4c10-9356-51da453bb018",
+                    "Not": false,
+                    "m_Quest": "!bp_1ad9b8fa1fe3cb84b932e8a889fc1897",
+                    "State": "Completed"
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3ea51fd1-a694-49a0-abb1-d52a144cdb9c",
+                    "Not": true,
+                    "m_Etude": "!bp_124658ca7c47df04d88d0f6aec527eab",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$8e6413eb-c42c-4aa9-9963-f053dd3ed8e7",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$c2151422-3bd0-46a1-9414-1951a7de8afc",
+                      "Spawner": {
+                        "EntityNameInEditor": "AzataMentor",
+                        "_entity_id": "ef1d0bfe-2913-44e0-ace1-73f61921a6d9",
+                        "SceneAssetGuid": "cd8fe577020cb254bb46ffa7533a48fe"
+                      }
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$07d478a5-f892-4edd-b464-87af6db7c706",
+                    "m_Buff": "!bp_ae86c475594e4634b96213fdc0bc37d5",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$ea87e9ce-d23f-4d80-9161-951b7aef8486",
+                      "Spawner": {
+                        "EntityNameInEditor": "AzataMentor",
+                        "_entity_id": "ef1d0bfe-2913-44e0-ace1-73f61921a6d9",
+                        "SceneAssetGuid": "cd8fe577020cb254bb46ffa7533a48fe"
+                      }
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_9f6b216f4439a7f4e913d39d2d813287",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_7847c3e3537104f4694167af0b9fcd0e",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_37074eb53724757479efa66245053717"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

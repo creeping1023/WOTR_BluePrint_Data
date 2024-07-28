@@ -1,0 +1,277 @@
+{
+  "AssetId": "6742a96b76d6498696bcac55d3014255",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "диалог с Арушалай - в начале и в конце эвента",
+    "FirstCue": {
+      "Cues": [
+        "!bp_d90fac0e041b4908ad74b54658ae33e1",
+        "!bp_cea0761bebc24ba185764c2189d604b3"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$cc328682-df4b-48b4-93d8-fb6f807bb666",
+          "Not": false,
+          "m_Etude": "!bp_b29124c979464465b491530d2f2b1417",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+          "name": "$OrAndLogic$e52eafdc-5b63-49a7-9c65-72bb198f1ee0",
+          "Not": false,
+          "Comment": "Event isn't started or almost completed",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$bbc1bd62-3583-41e9-bff7-8b1dfca215b8",
+                "Not": false,
+                "m_QuestObjective": "!bp_14ba1112eb114bfdb56f869b9be6f3a5",
+                "State": "None"
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$e94d4eb1-6166-4a44-9810-9ffdc0c8e5c9",
+                "Not": false,
+                "Comment": "Arueshalae had all conversations",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$c9ada584-4a8c-4bd1-b487-c0818f837e1e",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_14ba1112eb114bfdb56f869b9be6f3a5",
+                      "State": "Started"
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$bb4273f4-58cb-4c57-8b75-2a25fe9428b3",
+                      "Not": false,
+                      "m_Cue": "!bp_4376216f270a4e8397b7882a19faee8f",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$1e7e4ee3-72e0-4f67-bfee-c2bf7ccbd60d",
+                      "Not": false,
+                      "m_Cue": "!bp_d0c250e5120e45b3986c463ad311d01f",
+                      "CurrentDialog": false
+                    },
+                    {
+                      "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                      "name": "$CueSeen$28ee3a95-aec5-4fe7-92af-633b9fdcdc95",
+                      "Not": false,
+                      "m_Cue": "!bp_473a1403cbf34ee1964ecb277b0f717e",
+                      "CurrentDialog": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": []
+    },
+    "ReplaceActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b6ab4159-842a-415b-bdcb-aea47b80c9bc",
+          "Comment": "Errand is in process",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$612c1cc4-028a-42bd-b51f-7daaa9136810",
+                "Not": false,
+                "m_QuestObjective": "!bp_14ba1112eb114bfdb56f869b9be6f3a5",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$05abbf59-01b8-46ce-954d-eeb75ad37087",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "3efe077c76a6d9e45b30bcd01fbedcf8",
+                    "stringkey": "e2e8ae4c-30d7-405f-85ae-6efc02c8052d"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                  "name": "$ClickedUnit$f00238b4-5968-4f17-9e88-7c6321eb8a10"
+                },
+                "TargetMapObject": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$2121a589-94ff-4752-9c73-48011c828491",
+          "Comment": "Errand is completed",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$2d782095-72db-4c18-a769-fb5cd6660431",
+                "Not": false,
+                "m_QuestObjective": "!bp_14ba1112eb114bfdb56f869b9be6f3a5",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$bb62ceec-1a9c-46e9-9516-4a02ecfe8df2",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "8950a887285b89b4db70db95d7ef4ee0",
+                    "stringkey": "b677d205-39da-4af0-b150-3d68ff4cc11a"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                  "name": "$ClickedUnit$ae5d4181-7197-4e7e-8cf5-4cf08df0d121"
+                },
+                "TargetMapObject": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$618d3c8d-7608-406b-8157-3e1867eea503",
+          "Comment": "There is no event",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$59a6406e-8a28-41e3-8ab6-dbae8ebe1a8a",
+                "Not": false,
+                "m_QuestObjective": "!bp_14ba1112eb114bfdb56f869b9be6f3a5",
+                "State": "None"
+              },
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$32ffa827-ab86-4b28-ba0e-a3506173abe7",
+                "Not": false,
+                "Comment": "Without event or cancelled event",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$ab3abbc7-273b-4b37-811e-89591e93e571",
+                      "Not": false,
+                      "m_Etude": "!bp_b29124c979464465b491530d2f2b1417",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": false,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$7dee2965-6c70-4f6e-87ed-c8cd83b6ede6",
+                      "Not": false,
+                      "m_Etude": "!bp_73c336123dbd48ae93f68e94f79a33f8",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                "name": "$ShowBark$9aa433c0-ba23-43d0-8b4e-d3da6ca2083e",
+                "WhatToBark": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": {
+                    "assetguid": "47a371decfef8b34c8765676859766b3",
+                    "stringkey": "dc6ab012-66e7-4fcc-9a38-69e1196caa82"
+                  }
+                },
+                "WhatToBarkShared": null,
+                "BarkDurationByText": true,
+                "TargetUnit": {
+                  "$type": "19b540e6a8755b142b2d2cb2c945a261, ClickedUnit",
+                  "name": "$ClickedUnit$94f2cf0e-9202-49cf-9086-14c07955eae4"
+                },
+                "TargetMapObject": null
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

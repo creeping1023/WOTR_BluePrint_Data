@@ -1,0 +1,222 @@
+{
+  "AssetId": "1686b22fd9f8d364e9cee0180d95ce1b",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "удар\nПоднимает флаг Kaylessa_dead",
+    "ParentAsset": "53a2540656646e44e92e3d9b30b35179",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "33a45f62-0116-4c26-a7da-58ea3afec341",
+      "m_OwnerString": "1686b22fd9f8d364e9cee0180d95ce1b",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/NPC_Common/Kaylessa/Kaylessa_main/Cue_0019_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$5879918e-9825-4624-9e70-18d4fd5d44ea",
+          "m_SummonPool": "!bp_bee41daf9e8d466480616b4b9e8f523b",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d47f198683f34b0f8e13012d2a635017, UnitIsHidden",
+                "name": "$UnitIsHidden$16d869e2-e7ba-449c-a653-1e3632d131aa",
+                "Not": true,
+                "Unit": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$d9dd031a-db1a-44b3-bcf0-fdeeede8f02b"
+                }
+              }
+            ]
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$e35a6a93-d8e6-45fd-9a09-156eaccc00e4",
+                "m_Cutscene": "!bp_dd6e52a39fb34041a799e97adb960edb",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$c40d529b-ade0-4960-afd0-1b9ea79629ae"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6dcbacab-2dbe-475c-95d6-a9e4141b9480",
+          "Comment": "если обж1 стартован - комплитим и выдаем обж3",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$4adb97d8-df23-4e72-87be-1c93ac073431",
+                "Not": false,
+                "m_QuestObjective": "!bp_eff2e67436f14bd4089c02df12c90a62",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$10f9f469-e4ff-4fc5-9793-b5be647ab76f",
+                "Status": "Complete",
+                "m_Objective": "!bp_eff2e67436f14bd4089c02df12c90a62",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$5f5c9477-43a6-4f78-9ed5-60841c1ac7a5",
+                "m_Objective": "!bp_5effcc494649d044d962bd674d24191f"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$63d955bc-5c9b-47d6-85b1-ef0504be7af9",
+          "Comment": "если обж2 стартован - комплитим и выдаем обж3",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$840cdbaf-25bd-4692-a7da-5dfe1af979b4",
+                "Not": false,
+                "m_QuestObjective": "!bp_e74ccd34a9307fa4f82c98722f5a7479",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$31297a5e-ba87-4932-aa56-944db9f1a0ae",
+                "Status": "Complete",
+                "m_Objective": "!bp_e74ccd34a9307fa4f82c98722f5a7479",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$e5146498-97f5-4110-bff1-5c6929c63cb6",
+                "m_Objective": "!bp_5effcc494649d044d962bd674d24191f"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$452050d8-9de0-4deb-9a92-753c9fafe870",
+          "Comment": "если обж4 стартован - комплитим и выдаем обж3",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$c30b1254-e584-4ceb-b347-9ffbacee0fb6",
+                "Not": false,
+                "m_QuestObjective": "!bp_48df168dd59fc664bb37990403df7dd6",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$1b461a2b-b348-428a-8b3b-0eb8bfaf980f",
+                "Status": "Complete",
+                "m_Objective": "!bp_48df168dd59fc664bb37990403df7dd6",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$14c016f1-f045-441b-b7d7-c83fa2fd3446",
+                "m_Objective": "!bp_5effcc494649d044d962bd674d24191f"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$ab2ff4ed-43c9-4e05-bf5b-b52a22b01720",
+          "Etude": "!bp_4dd373d7c9954b6419adf920cca9231f",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_a71103ae0f782454f979d106eb4cc08c"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

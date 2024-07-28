@@ -1,0 +1,152 @@
+{
+  "AssetId": "91645746b99d12646af479beace7ec9d",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "минус 100 000 если выбрали ансвер 29 (25000 новая цена)\nминус 200 000 если выбрали ансвер 30 (50000 новая цена)\n\nГримбор нанимается в ростер игрока",
+    "ParentAsset": "aa3c24e445646b141a5b870f330f02ce",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "05d04577731490c43b231e46c4aa3a2d",
+        "stringkey": "46fb3dfb-c590-4c6b-a832-2f46be881b8b"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e8e929f2-6a21-489a-b490-40a0485f10c5",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$be4fcb4e-f80e-4b3f-9f87-89fd6d73d2ed",
+                "Not": false,
+                "m_Answer": "!bp_aa3c24e445646b141a5b870f330f02ce",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+                "name": "$RemoveItemFromPlayer$f9fa8ad6-9900-40d1-b406-362be7e8e89a",
+                "Money": true,
+                "RemoveAll": false,
+                "m_ItemToRemove": null,
+                "m_Silent": false,
+                "Quantity": 25000,
+                "Percentage": 0.0
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$c25d0552-260e-4a66-b7e8-788294889ff8",
+                "Etude": "!bp_f00bd00ec67e36f46b098f2ef94dd29c",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+                "name": "$RemoveItemFromPlayer$d39d027e-2450-4831-b78d-26e318779615",
+                "Money": true,
+                "RemoveAll": false,
+                "m_ItemToRemove": null,
+                "m_Silent": false,
+                "Quantity": 50000,
+                "Percentage": 0.0
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$7fa708a8-2c4e-434a-a008-a2196fcb005f",
+                "Etude": "!bp_d82234d1db2cd3d43b548518da0d4de2",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "857993ffeba11124699997a531336700, RecruitInactive",
+          "name": "$RecruitInactive$795e0df1-8e91-4ca3-8c12-c473422f2b7f",
+          "m_CompanionBlueprint": "!bp_f72bb7c48bb3e45458f866045448fb58",
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "5afa2802918b3874bb6e0d611d6489cd, UpdateEtudes",
+                "name": "$UpdateEtudes$166e0f88-34e1-432e-8504-9dc9204ab3fd"
+              }
+            ]
+          }
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$d02baf14-31b1-4718-9160-d13cd89ce22d",
+          "Etude": "!bp_65f308dff0c932c419b7535df264a854",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+          "name": "$IncrementFlagValue$a9cb8e34-6db9-4f95-95d9-61fa3cf4bacf",
+          "m_Flag": "!bp_34f0f22738c283240af69dabf825dd21",
+          "Value": {
+            "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+            "name": "$IntConstant$fa9c2a55-88c8-46e7-a1c9-8306c0c538f9",
+            "Value": 1
+          },
+          "UnlockIfNot": true
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

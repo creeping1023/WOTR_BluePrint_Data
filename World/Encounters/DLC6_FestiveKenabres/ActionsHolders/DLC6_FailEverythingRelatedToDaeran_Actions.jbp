@@ -1,0 +1,147 @@
+{
+  "AssetId": "37fdb6781185450b9bbc0da1c3bd749d",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+          "name": "$RaiseDead$b0eded65-cd61-4990-aed1-d7f5314a9d56",
+          "m_companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+          "riseAllCompanions": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$32157e4b-ad93-4c51-befb-4628cdead4c4",
+          "Comment": "Addendum is started",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$561349f9-169d-48cc-b9a0-8121e23a46d6",
+                "Not": false,
+                "m_QuestObjective": "!bp_eef53121b56e4e53860566d06312aed3",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$1c910d10-3f88-4520-96ac-d1718e15c74f",
+                "Status": "Fail",
+                "m_Objective": "!bp_eef53121b56e4e53860566d06312aed3",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f11e5f12-2f2a-4a31-b9d7-21e7e607416d",
+          "Comment": "Event is playing",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$d4478801-1c05-4377-bdad-fcfd7ae3d675",
+                "Not": false,
+                "m_Etude": "!bp_cc78f42a7b4b4f3bad473eb29911f936",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$dda9bea0-dba3-4c83-bdbe-1484dbb897ed",
+                "Etude": "!bp_cc78f42a7b4b4f3bad473eb29911f936",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+          "name": "$ScriptZoneDeactivate$7e3c340a-3812-43db-a6a7-86c33af9e49a",
+          "UseEvaluator": false,
+          "ScriptZone": {
+            "EntityNameInEditor": "DaeransContest_SZ",
+            "_entity_id": "1666f3a0-274e-4f2e-8197-d5ee010e5ea0",
+            "SceneAssetGuid": "4409ddc7e7eb5254f84b1d723f0c2683"
+          },
+          "ScriptZoneEvaluator": null
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$1a2dab05-b78f-4ae0-aaf7-5544b26ca648",
+          "m_Group": {
+            "EntityNameInEditor": "ContestParticipants",
+            "_entity_id": "07cfa437-d552-4f57-9f6a-78ca8afa5253",
+            "SceneAssetGuid": "4409ddc7e7eb5254f84b1d723f0c2683"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$3950381a-e0d3-4120-8b8a-fa2a06fe57c2",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$c12f9a8f-cb4e-4b99-9048-39b17357ad02"
+                },
+                "FadeOut": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$8f7541b5-6c00-4012-9704-368ac091bbe5",
+          "m_UseEvaluator": false,
+          "m_CompanionEvaluator": null,
+          "m_CompanionBlueprint": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+          "OnUnrecruit": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$89b31f0a-21a2-494a-8b0d-75b759fb23b8",
+                "Etude": "!bp_039b6c97ee66479c8ba8b6bc62873fed",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$cecbda75-5671-4150-88b3-ef847255c30f",
+                "m_Flag": "!bp_ee0c0c38790442c899a2d58a89580fa9",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$f3ce64e5-cc1e-4645-9e1f-d83d38756644",
+                  "Value": -1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

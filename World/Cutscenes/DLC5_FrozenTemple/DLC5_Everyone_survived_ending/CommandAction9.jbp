@@ -1,0 +1,309 @@
+{
+  "AssetId": "6ace767af0dd41e48a85f12f9d43e7f8",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "6083d09a91ef9b340ba326bff905e131, FadeoutCommand",
+          "name": "$FadeoutCommand$bc57259d-ce79-4a1e-a3ef-58f815ff5ad5",
+          "m_Time": 2.0,
+          "m_OverrideAnimTime": true,
+          "m_AnimTime": 2.0,
+          "m_InFadeActions": {
+            "Actions": [
+              {
+                "$type": "c4bd35a6e76bcf848a4f1530926a8fee, HealParty",
+                "name": "$HealParty$2f97e23d-ba59-4997-b893-a944e09402b6",
+                "HealSource": null
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5419e2a8-a8c3-4df2-9f32-2ab18204ec70",
+          "Comment": "Everyone survived",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$ea51bb7a-57a2-4490-b590-816cc11c248c",
+                "Not": true,
+                "m_ConditionFlag": "!bp_bd3f7008f1e342e0bb42f15951aa4f0a",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              },
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$4b297e77-71d7-4cad-a872-af2d7168133f",
+                "Not": true,
+                "m_ConditionFlag": "!bp_01ae823c187d45f59f1213f397ea925a",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              },
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$d7956201-c64e-4d23-8a77-f70ff464e42d",
+                "Not": true,
+                "m_ConditionFlag": "!bp_8353bddb99084869aeb5a6bf6a685dfe",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$0f72c87d-9661-4b56-af1e-281f0e2656e3",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$27a1e387-3a1b-414d-8498-b180894a9097",
+                  "MapObject": {
+                    "EntityNameInEditor": "MainGrave_Hermit",
+                    "_entity_id": "7c437f39-03ed-4b73-83cc-aad8550f134c",
+                    "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                  }
+                },
+                "Unhide": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$e3410267-6fdf-4ee8-8128-6257425062b1",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$c340b22f-a50f-4daa-8945-c153545986fe",
+                  "MapObject": {
+                    "EntityNameInEditor": "Grave_Hermit",
+                    "_entity_id": "b1b373b3-af82-4531-8491-3283d7327b98",
+                    "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$95925bf7-dc8c-4c17-909d-bc439cf03454",
+                "Comment": "Player is dead",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$8a154921-dd63-4869-b959-dcf177bc84af",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_bd3f7008f1e342e0bb42f15951aa4f0a",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                      "name": "$HideMapObject$b029eafd-53d0-4cdc-b193-e801055957f2",
+                      "MapObject": {
+                        "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                        "name": "$MapObjectFromScene$a018f5ff-b65b-47dc-8b84-346da244bd63",
+                        "MapObject": {
+                          "EntityNameInEditor": "MainGrave_Player",
+                          "_entity_id": "48b2c93d-d46b-48ef-a213-c8327a04e7e6",
+                          "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                        }
+                      },
+                      "Unhide": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$b3bf5d75-1df0-44f5-a8db-369fa29f309e",
+                "Comment": "Rekarth is dead",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$70911bc7-4db1-43fe-bafc-9bb0e43c0814",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_01ae823c187d45f59f1213f397ea925a",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$fe6ac84b-9f64-4511-b7b7-d3795d3f8484",
+                      "Comment": "Only Rekarth",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$124ce3f8-c493-4778-a9be-a24ef7793f93",
+                            "Not": true,
+                            "m_ConditionFlag": "!bp_bd3f7008f1e342e0bb42f15951aa4f0a",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          },
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$f3a391d7-dbff-4bd2-94c8-7ca0b7b23ae1",
+                            "Not": true,
+                            "m_ConditionFlag": "!bp_8353bddb99084869aeb5a6bf6a685dfe",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                            "name": "$HideMapObject$d2f378d6-7a51-43e3-ae58-8adea52d8c32",
+                            "MapObject": {
+                              "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                              "name": "$MapObjectFromScene$2c6b0f5c-a12f-45f5-b44e-4187ae6935d6",
+                              "MapObject": {
+                                "EntityNameInEditor": "MainGrave_Rekarth",
+                                "_entity_id": "c9ed6560-afcd-4fcf-a68b-7372a83b03a3",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              }
+                            },
+                            "Unhide": true
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                            "name": "$HideMapObject$4b99a9b1-1e9e-4d1a-97d1-529b00656616",
+                            "MapObject": {
+                              "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                              "name": "$MapObjectFromScene$6f8dacf4-599d-4aca-ab35-521646570323",
+                              "MapObject": {
+                                "EntityNameInEditor": "Grave_Rekarth_2",
+                                "_entity_id": "f0fdd595-2081-4f77-81d1-5f4fb1ace70e",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              }
+                            },
+                            "Unhide": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$bdf2e5e8-9ce8-4233-b450-3ee3ec5f4a45",
+                "Comment": "Sendri is dead",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$73377623-2a82-4f05-be27-847ee29cfbc4",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_8353bddb99084869aeb5a6bf6a685dfe",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$0a4638b5-943c-42a4-9ee9-d09753928b54",
+                      "Comment": "Only Sendri",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$cc86302d-ab58-442d-9102-b251e95b7641",
+                            "Not": true,
+                            "m_ConditionFlag": "!bp_bd3f7008f1e342e0bb42f15951aa4f0a",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                            "name": "$HideMapObject$1b95c464-c66a-4ca1-9d61-996c9a8438c7",
+                            "MapObject": {
+                              "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                              "name": "$MapObjectFromScene$73bb7248-54cd-454c-b04d-b89032fb88a9",
+                              "MapObject": {
+                                "EntityNameInEditor": "MainGrave_Sendri",
+                                "_entity_id": "ca6979d7-c7bc-43a2-b529-71c62393ef84",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              }
+                            },
+                            "Unhide": true
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                            "name": "$HideMapObject$16589abd-4169-4e22-a56a-094dae6ac329",
+                            "MapObject": {
+                              "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                              "name": "$MapObjectFromScene$828c0450-cda5-40a8-8e92-c09aa6a6064c",
+                              "MapObject": {
+                                "EntityNameInEditor": "Grave_Sendri",
+                                "_entity_id": "297fc817-2a6a-482f-8014-bc8c992d08c6",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              }
+                            },
+                            "Unhide": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

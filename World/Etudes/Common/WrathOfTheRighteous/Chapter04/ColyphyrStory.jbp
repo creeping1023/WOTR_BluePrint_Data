@@ -1,0 +1,200 @@
+{
+  "AssetId": "8fd5011c2303a81499c41aa8ba065ec4",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$4042cfe8-d437-4903-be8f-c4603e991458",
+      "$DeactivateTrigger$501d23d0-9523-4a0d-9b75-26d845c65014"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$4042cfe8-d437-4903-be8f-c4603e991458",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Выдача основного квеста",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$3b3c04b8-774d-4e08-981d-81300d3555f1",
+              "m_Objective": "!bp_f04f3fb286872ec42a575f3c231302cf"
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$ad12e02a-23ee-42f0-aa15-1209b6934c75",
+              "Status": "Complete",
+              "m_Objective": "!bp_bd13f3b4bd976eb449b90221c81539b3",
+              "StartObjectiveIfNone": true
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$fb90ddad-f69b-4f61-80ad-455238068d4d",
+              "Comment": "Аруша - если романс есть, а эвента не случилось",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$5689b006-69ba-4bc1-9fd2-d6e14a955592",
+                    "Not": true,
+                    "m_Dialog": "!bp_86597ac9662ad35409f311a6b52c86b8"
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$33d9e026-df85-4960-b36c-5cccee49ce3e",
+                    "Not": false,
+                    "m_Etude": "!bp_6a3fdd0758fe78d4aa2c3b26d7614fbc",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$f9730f44-337d-40f5-b25b-080ed872a632",
+                    "Etude": "!bp_d6a90c0f6536331498cafa1f3195d886",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+              "name": "$UnlockFlag$5987de1a-8b86-497f-806f-d0b5e9584cc5",
+              "m_flag": "!bp_7f73f0f8373b28347adb658cff5dd556",
+              "flagValue": 0
+            },
+            {
+              "$type": "576a514e5164d254f936cd4ce788ae6a, RunActionHolder",
+              "name": "$RunActionHolder$f9f89434-736b-4d7b-b7eb-055fac41d377",
+              "Comment": "Фейл Алюшиниррских квестов",
+              "Holder": "!bp_d8f5db7c23d345648d42def6857ee72b",
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "m_Flags": 0,
+        "name": "$DeactivateTrigger$501d23d0-9523-4a0d-9b75-26d845c65014",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Драконьи сокровища",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c9b2a005-0aac-41ec-938e-339c2ce06b6d",
+              "Comment": "Has false treasures",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                    "name": "$ItemsEnough$d5c89bb5-62e7-4fce-b244-751210291f3b",
+                    "Not": false,
+                    "Money": false,
+                    "m_ItemToCheck": "!bp_f5584424e8c9bd2419f5cce90daa564a",
+                    "Quantity": 1,
+                    "IgnoreRemoteCompanions": false,
+                    "CheckInPlayerHubChest": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "ef95139bce5938c48b2997497ab811af, RemoveItemFromPlayer",
+                    "name": "$RemoveItemFromPlayer$7b85ea2e-a1da-40aa-9170-e2a524f96b8c",
+                    "Money": false,
+                    "RemoveAll": true,
+                    "m_ItemToRemove": "!bp_f5584424e8c9bd2419f5cce90daa564a",
+                    "m_Silent": true,
+                    "Quantity": 1,
+                    "Percentage": 0.0
+                  },
+                  {
+                    "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                    "name": "$AddItemToPlayer$fcb2b6cf-22fc-4cb0-8a52-933e5cda2e11",
+                    "m_ItemToGive": "!bp_a879112ea14fcc745a4fc694d510f707",
+                    "Silent": true,
+                    "Quantity": 1,
+                    "Identify": false,
+                    "Equip": false,
+                    "EquipOn": null,
+                    "PreferredWeaponSet": 0,
+                    "ErrorIfDidNotEquip": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_637a57423a82b044f888677c92f5d6cb",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_c876d5303f4a19f4a80b0cc9b313db6f",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_d8d1474c1d0436e47a8ed50058bb12c3",
+      "!bp_5beb5334db595844fac7fc5d367b471a",
+      "!bp_c0ef7efd96e345dfb2b29c0790726a97",
+      "!bp_25c72c48ad744bac8a506f1f48601219",
+      "!bp_ae52a0e59df64538b0e266ba63584e00"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

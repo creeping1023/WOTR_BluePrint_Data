@@ -1,0 +1,83 @@
+{
+  "AssetId": "891cacdd59484aeaa38dc74887297c81",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$aeccf0f4-1848-44fe-be80-cc3e0471a056",
+          "m_exitPositon": "!bp_e7e40a9dc07545e9b501c8b375d9fead",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "6981071bc74236f4293f1a19ed2ebb32, TranslocatePlayer",
+                "name": "$TranslocatePlayer$5549a2bd-40f5-416a-ae20-539ab6c1a88f",
+                "transolcatePosition": {
+                  "EntityNameInEditor": "player_translocate",
+                  "_entity_id": "d4f3acf9-b5d7-4f09-ae07-6b83506595cd",
+                  "SceneAssetGuid": "81b54427ea054c64cb93918d5b994bad"
+                },
+                "ByFormationAndWithPets": false,
+                "ScrollCameraToPlayer": true
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$49e9bfba-0c1a-49bd-898e-d518c830a141",
+                "Comment": "Если убили Грейбора",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$0f29b56c-8df9-4551-a850-0876b306aac2",
+                      "Not": false,
+                      "m_Etude": "!bp_8d756e856c9448b1be9d01384b5d04d8",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$b765dba4-074e-4dc8-84a0-ab8e3a0459b7",
+                      "Target": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$debfc975-988e-427a-89d8-e40af912f078",
+                        "m_Companion": "!bp_f72bb7c48bb3e45458f866045448fb58",
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      },
+                      "Unhide": false,
+                      "Fade": false,
+                      "SetHideInSaves": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

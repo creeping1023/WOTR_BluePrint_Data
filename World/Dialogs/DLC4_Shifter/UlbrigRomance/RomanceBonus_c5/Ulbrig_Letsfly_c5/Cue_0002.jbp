@@ -1,0 +1,166 @@
+{
+  "AssetId": "e02ad67ac7924fdca6c2e143c5fc3809",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "23dc19c44e96419a9189fae202ce540f",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "b58dcc17e2b823e48a09affa425ab1aa",
+        "stringkey": "bdaa6557-b12c-4aeb-9304-4df7c76c63aa"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$86e768ac-4416-4e26-819c-4b1efb29caa3",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$53e8484a-4993-4eea-9ab3-2f8205f79bfd",
+            "MapObject": {
+              "EntityNameInEditor": "RomanceBonusLine",
+              "_entity_id": "acb0487e-8f33-45c0-b491-2c93a72f5b27",
+              "SceneAssetGuid": "ab1539e23083bd84ebdbc74e235385a6"
+            }
+          },
+          "Unhide": true
+        },
+        {
+          "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+          "name": "$PartyMembersDetachEvaluated$ab0081da-01cc-427d-8033-eb586ae3a04d",
+          "DetachThese": [
+            {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$c49cddbe-8139-46b7-a35b-c8536b66292b"
+            },
+            {
+              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+              "name": "$CompanionInParty$9653b73f-27b7-455d-935b-a70e089b1ff9",
+              "m_Companion": "!bp_42f0d5ec3dc844feb44b04507a7c1bfc",
+              "IncludeRemote": true,
+              "IncludeExCompanions": false,
+              "IncludeDettached": true
+            }
+          ],
+          "AfterDetach": {
+            "Actions": [
+              {
+                "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                "name": "$PartyMembersSwapAttachedAndDetached$a20da077-d02a-4034-a642-a213269cdf2a"
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$a16b6a55-b384-46b4-a537-2872d98ab9db",
+                "m_UnitsList": "DetachedPartyCharacters",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$d37d280f-dfd7-4d83-bd72-6eca0238fa72",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$c9cca168-0d02-4372-83d2-e1244fb3d248"
+                      },
+                      "Unhide": false,
+                      "Fade": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "m_RestrictPartySize": false,
+          "m_PartySize": -1
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$a3e37b73-5f4f-4cb1-842c-5d5ff7409b01",
+          "m_UnitsList": "DetachedPartyCharacters",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$c480c663-fe87-479b-8f91-82c8457749e8",
+                "m_exitPositon": "!bp_6b2f4267986a44d18b2571b297fe4aa3",
+                "AutoSaveMode": "BeforeExit",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$f4bcf514-c159-4b5f-989e-920e3f724460",
+          "m_exitPositon": "!bp_6b2f4267986a44d18b2571b297fe4aa3",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$5355c514-f499-4346-8d7f-a42a860191e1",
+                "m_Cutscene": "!bp_094c6094246f4629b0ecccfbdc7fc7f1",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

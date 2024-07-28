@@ -1,0 +1,188 @@
+{
+  "AssetId": "c1b6866b5fa94e0a9435eea0d7b4d142",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+          "name": "$TranslocateUnit$dc863680-9816-4e02-b6ca-ee2b320ac366",
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$ea106b24-f8cc-4ab1-9848-db4418947456"
+          },
+          "translocatePosition": {
+            "EntityNameInEditor": "",
+            "_entity_id": "",
+            "SceneAssetGuid": ""
+          },
+          "translocatePositionEvaluator": {
+            "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+            "name": "$LocatorPosition$25bd8fb6-d90f-475e-b271-1e0a377fed16",
+            "Locator": {
+              "EntityNameInEditor": "Player_start_pos",
+              "_entity_id": "8ce7e6dd-f529-4444-8058-212580978c4b",
+              "SceneAssetGuid": "c2d05e971270686499566ac19a75dd72"
+            },
+            "Offset": "0|0|0"
+          },
+          "m_CopyRotation": true,
+          "translocateOrientationEvaluator": {
+            "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+            "name": "$LocatorOrientation$a63a8a66-32a2-484b-9cc4-84805c7af081",
+            "LocatorEval": null,
+            "Locator": {
+              "EntityNameInEditor": "Player_start_pos",
+              "_entity_id": "8ce7e6dd-f529-4444-8058-212580978c4b",
+              "SceneAssetGuid": "c2d05e971270686499566ac19a75dd72"
+            }
+          }
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$1361211f-624a-4649-9a0b-e775bd4b2322",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$d088d640-ef5d-418b-9d86-b698e37a30ba",
+            "Spawner": {
+              "EntityNameInEditor": "Songbird",
+              "_entity_id": "8a15b497-78e6-4c12-9c86-7ae847ff8e7c",
+              "SceneAssetGuid": "c2d05e971270686499566ac19a75dd72"
+            }
+          },
+          "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "34e053881beca7546b12a7c45fc61817, UnitDismount",
+          "name": "$UnitDismount$033fab07-96c7-4c7d-b6df-59a5c20934f6",
+          "Unit": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$5ba6bc3e-18a7-44b6-8df2-f4cf81e306a5"
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c4f766cd-6d00-4954-aef1-ea4f0025f4e8",
+          "Comment": "В пати больше 1 чел",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "3b8a817c2d1aed24ca0779940550d2bc, GreaterThan",
+                "name": "$GreaterThan$927a627d-3b45-481a-a825-e6569e0f01e2",
+                "Not": false,
+                "FloatValues": false,
+                "Value": {
+                  "$type": "594eb1641121be9419363a2f68ab0d7d, CurrentPartySize",
+                  "name": "$CurrentPartySize$5b202c36-00e0-4d0e-93c1-8848bb53277b"
+                },
+                "MinValue": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$8eb8fdd9-317a-4311-a8fe-8818c3239ac7",
+                  "Value": 1
+                },
+                "FloatValue": null,
+                "FloatMinValue": null
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$c90f11cb-a688-4ab0-ba70-cc2a5665b88e",
+                "Unit": {
+                  "$type": "4a0b4f8a27ed6e74c940f821cc147af9, RandomPartyUnit",
+                  "name": "$RandomPartyUnit$53448ed2-2bdd-4a0b-adaf-170834aa630e",
+                  "ExceptPlayerCharacter": true,
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": [
+                      {
+                        "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                        "name": "$HasBuff$7d22bb03-dcf5-458d-842d-b2c1ac65ced7",
+                        "Not": false,
+                        "Target": {
+                          "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                          "name": "$PartyUnit$63ef5860-2f9e-43a1-b68a-5ae18bbcdc80"
+                        },
+                        "m_Buff": "!bp_52c8271a6c2919f42a0b2fd4a8097dc8"
+                      }
+                    ]
+                  },
+                  "UnitIfNoVariants": null,
+                  "m_ForbiddenBlueprints": []
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "",
+                  "_entity_id": "",
+                  "SceneAssetGuid": ""
+                },
+                "translocatePositionEvaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$89271bf2-5842-457e-9198-e5375a38ea24",
+                  "Locator": {
+                    "EntityNameInEditor": "Rand_comp_pos",
+                    "_entity_id": "99ba8d5d-e32e-41d2-a049-3642dd1997fe",
+                    "SceneAssetGuid": "c2d05e971270686499566ac19a75dd72"
+                  },
+                  "Offset": "0|0|0"
+                },
+                "m_CopyRotation": true,
+                "translocateOrientationEvaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$d5bda17d-38a9-4867-b1e2-baaf4452793d",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "Rand_comp_pos",
+                    "_entity_id": "99ba8d5d-e32e-41d2-a049-3642dd1997fe",
+                    "SceneAssetGuid": "c2d05e971270686499566ac19a75dd72"
+                  }
+                }
+              },
+              {
+                "$type": "34e053881beca7546b12a7c45fc61817, UnitDismount",
+                "name": "$UnitDismount$e798429c-71f3-4d1e-85e9-01f497d96211",
+                "Unit": {
+                  "$type": "4a0b4f8a27ed6e74c940f821cc147af9, RandomPartyUnit",
+                  "name": "$RandomPartyUnit$4aeb8b40-e037-4ce7-935e-a04ece27b4f1",
+                  "ExceptPlayerCharacter": true,
+                  "Conditions": {
+                    "Operation": "And",
+                    "Conditions": [
+                      {
+                        "$type": "0cbc5ea4bddfb1543be0d2e54a3eacd0, HasBuff",
+                        "name": "$HasBuff$bca1c293-0429-4cb5-b101-742a91b4115b",
+                        "Not": false,
+                        "Target": {
+                          "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                          "name": "$PartyUnit$4d340a0f-82c6-4125-9894-fb16ea8b9bb1"
+                        },
+                        "m_Buff": "!bp_52c8271a6c2919f42a0b2fd4a8097dc8"
+                      }
+                    ]
+                  },
+                  "UnitIfNoVariants": null,
+                  "m_ForbiddenBlueprints": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

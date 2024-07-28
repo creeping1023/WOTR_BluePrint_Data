@@ -1,0 +1,162 @@
+{
+  "AssetId": "fd54de2eb3aad8b44838245439d051ed",
+  "Data": {
+    "$type": "2e95eea1aa90d2b428dfe389189dc287, BlueprintScriptZone",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "Prefab": null,
+    "TriggerConditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "EnterActions": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$a444b013-bbfa-406b-9a2f-74d38124e8b8",
+          "m_Cutscene": "!bp_8394c6a3952610a4a94b682532170b2e",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": []
+          }
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$a4f93e62-ed66-4fbf-8c25-a7ee849fbe65",
+          "m_flag": "!bp_fe8fe4c32373c0e4db9ebe97fd901b49",
+          "flagValue": 0
+        },
+        {
+          "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+          "name": "$ScriptZoneDeactivate$9418c520-3f60-49c9-ba54-fed4cbb71f82",
+          "ScriptZone": {
+            "EntityNameInEditor": "DragonKidnap2",
+            "_entity_id": "a401f14a-8225-4cfa-a01a-4eda8f897ee4",
+            "SceneAssetGuid": "906fc0d3cfc2f414393a5be56d212a16"
+          }
+        },
+        {
+          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+          "name": "$DestroyUnit$b6109955-7c99-48f4-85a4-3d9029fdba7b",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$dffcfc55-4124-41b2-a48c-d7cbf12c8588",
+            "Spawner": {
+              "EntityNameInEditor": "DemonKidnapper1 (1)",
+              "_entity_id": "475cc8ec-c45c-451f-a63a-ed83eaa659b2",
+              "SceneAssetGuid": "906fc0d3cfc2f414393a5be56d212a16"
+            }
+          },
+          "FadeOut": false
+        },
+        {
+          "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+          "name": "$DestroyUnit$8a714d18-35ff-4c48-b18d-5886983af7c4",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$100c71ce-560b-4620-9480-151bc1af101f",
+            "Spawner": {
+              "EntityNameInEditor": "DemonKidnapper2 (1)",
+              "_entity_id": "78f526e1-81fe-485a-a7a0-689f7ac017b0",
+              "SceneAssetGuid": "906fc0d3cfc2f414393a5be56d212a16"
+            }
+          },
+          "FadeOut": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5b9e81f1-2a47-47c8-a6ea-133d9cd1b152",
+          "Comment": "Оживить дракона если мертв",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "af04b660ed2c54f439b2dec09c84f5ad, UnitIsDead",
+                "name": "$UnitIsDead$6ec54946-1859-4c11-9d3c-aaf09be4f6e6",
+                "Not": false,
+                "Target": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$e2f6ed45-35f7-43a6-8088-1fddd993da7d",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$755b9161-bae4-4d1a-8e97-5fac2ec0fb87"
+                  },
+                  "PetType": "AzataHavocDragon"
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+                "name": "$RaiseDead$f986118d-947d-4d3d-b32a-c226b0b4628a",
+                "m_companion": "!bp_32a037e97c3d5c54b85da8f639616c57",
+                "riseAllCompanions": false
+              },
+              {
+                "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                "name": "$TranslocateUnit$a6fa9f17-84ad-444c-98c8-85c01e4db2b0",
+                "Unit": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$9ae14606-6412-4e9e-ae60-3292d6837b53",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$14dc9743-df1e-4918-a3c6-444a7d01fbf8"
+                  },
+                  "PetType": "AzataHavocDragon"
+                },
+                "translocatePosition": {
+                  "EntityNameInEditor": "KTC_AzataDragonTrap",
+                  "_entity_id": "b26f39ac-45e4-4e06-b25d-0cfa4fa241f1",
+                  "SceneAssetGuid": "906fc0d3cfc2f414393a5be56d212a16"
+                },
+                "translocatePositionEvaluator": null,
+                "m_CopyRotation": false,
+                "translocateOrientationEvaluator": null
+              },
+              {
+                "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                "name": "$UnitLookAt$5f236630-8b29-40a7-a2ea-2cba047bb6bf",
+                "Unit": {
+                  "$type": "2acbdd1ca6a54777b460e429f4e2d2c7, PetEvaluator",
+                  "name": "$PetEvaluator$e0a0ad02-3a71-4ca4-811a-21571f346eee",
+                  "Master": {
+                    "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                    "name": "$PlayerCharacter$7e84ad95-73ad-42f0-bac5-59138d3fab04"
+                  },
+                  "PetType": "AzataHavocDragon"
+                },
+                "Position": {
+                  "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                  "name": "$UnitPosition$0701df81-29eb-45d4-9da7-a9f657ceafe5",
+                  "Unit": {
+                    "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                    "name": "$UnitFromSpawner$869b1d2f-b218-4ec0-b5aa-c1c8f8d276c2",
+                    "Spawner": {
+                      "EntityNameInEditor": "DemonKidnapper1",
+                      "_entity_id": "902d1fac-a906-447d-8e56-09d28abf74a3",
+                      "SceneAssetGuid": "906fc0d3cfc2f414393a5be56d212a16"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ExitActions": {
+      "Actions": []
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

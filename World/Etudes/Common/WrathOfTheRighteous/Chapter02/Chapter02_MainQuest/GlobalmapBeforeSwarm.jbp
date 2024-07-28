@@ -1,0 +1,146 @@
+{
+  "AssetId": "b83be206a84704547a8fd50bc6e02be6",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$a1805b0b-9654-4e27-aaf5-a6a3971d7558",
+      "$PlayerVisitGlobalMapLocationTrigger$6922c64d-f1ca-4ccb-8bc4-3bc14faa67d3"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$a1805b0b-9654-4e27-aaf5-a6a3971d7558",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "Стартуем Цепочку Регилла. Переделать как появится механика!",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$efcfdc95-5639-47a9-a696-02c7929214af",
+              "Etude": "!bp_d6eb5e4b0fdbdcc49ab5ec1eb3929cd3",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "283706d83f2b5a8418f90b318819b1ae, UnlockLocation",
+              "name": "$UnlockLocation$378f0fd8-d2f3-4633-aeb3-5711716bbb39",
+              "m_Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+              "FakeDescription": false,
+              "HideInstead": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1de3b2d076094d1b8aa5af0f5564c34a, GarrisonDefeatedTrigger",
+        "name": "$GarrisonDefeatedTrigger$0ac5047e-d778-40be-9be0-00b5d0e63790",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_295836fc8773eb94d9e6c879285996eb",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f593e739d9844b2388ac4acaea703a5d, SetWarCampLocation",
+              "name": "$SetWarCampLocation$23b9ae5c-c90b-4d52-8f02-34a1ca792790",
+              "m_Location": "!bp_295836fc8773eb94d9e6c879285996eb"
+            },
+            {
+              "$type": "1c7b1754db3d4c908b1dbe779c4ed85c, ShowNewTutorial",
+              "name": "$ShowNewTutorial$bf59f505-f7cb-4a41-85d6-58f687d2f0cf",
+              "m_Tutorial": "!bp_f9d4e9ef153e4b198eeb3486fdec5c09",
+              "Evaluators": []
+            }
+          ]
+        }
+      },
+      {
+        "$type": "4c29a4c7a1ef4c8c850cdc4e78fa002c, PlayerVisitGlobalMapLocationTrigger",
+        "name": "$PlayerVisitGlobalMapLocationTrigger$6922c64d-f1ca-4ccb-8bc4-3bc14faa67d3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": null
+        },
+        "m_Overrides": [],
+        "m_Location": "!bp_295836fc8773eb94d9e6c879285996eb",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$44340345-0a4a-4ef2-bbcf-046a78487d2c",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ba912e5d-4225-483a-9f7b-87bc186d9872",
+                    "Not": false,
+                    "m_Etude": "!bp_1250a237480836a41b9ea8cf3c2b557d",
+                    "NotStarted": true,
+                    "Started": false,
+                    "Playing": false,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+                    "name": "$LockFlag$43786894-4657-4d88-aad2-84cae021db1e",
+                    "m_Flag": "!bp_3fbb9ff07cd8c3249be7c0124250f693"
+                  },
+                  {
+                    "$type": "cb129ef740f24203ae8ef973c1349e73, StartEncounter",
+                    "name": "$StartEncounter$7460b988-6767-4cf8-9055-86d02641b319",
+                    "m_Encounter": "!bp_b03555b40a2916a409436a2afb313f8e"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "первый триггер на перемещение лагеря и эвент с Региллом",
+    "m_Parent": "!bp_1ce032bec353c5d45a0a9f26df0471ca",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [
+      "!bp_7b947c0ecc1b2684f8bdfbc3073614d3"
+    ],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

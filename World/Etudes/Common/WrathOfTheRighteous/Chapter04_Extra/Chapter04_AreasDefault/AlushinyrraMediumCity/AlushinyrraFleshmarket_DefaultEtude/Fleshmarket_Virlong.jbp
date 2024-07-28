@@ -1,0 +1,195 @@
+{
+  "AssetId": "ab3a6819d50740fd810d453544efd087",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$99b9c29e-0e60-4b34-a06f-0034b234407f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "смерть Вирлонга",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$757c2400-d80a-400b-b599-79d84c810268",
+          "Spawner": {
+            "EntityNameInEditor": "VirlongBlackMask_CR19",
+            "_entity_id": "58ab45a2-0806-407a-8a84-e58e753d8e3a",
+            "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$a393f79e-bfd8-456f-88bd-8ac9d2c59b63",
+              "Etude": "!bp_5f47472a6ae64ad45a2e3a66c453812d",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9e069155-32d2-49ac-97cb-59254e59508d",
+              "Comment": "Sosiel Quest",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$59b9ce11-7ba7-47ca-b894-a507ef10f95c",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_0dbe91523a3c09f40b06a9e17bf5a924",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$51e3a8a2-3c80-45bf-80d7-04fee3f51116",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_0dbe91523a3c09f40b06a9e17bf5a924",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$90c5e251-29d1-4f57-9557-e67c0f5e19af",
+                    "m_Objective": "!bp_fb98ebdcc9291004f92ced248f5962eb"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$619fce23-98fc-4bff-a3cf-4f0abfb411d8",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$9eb794d9-2292-4c4f-93b6-7b7284f3b74d",
+              "Not": false,
+              "m_Etude": "!bp_5f47472a6ae64ad45a2e3a66c453812d",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$8673ecd9-692e-4422-b65b-e090a59f6189",
+              "m_SummonPool": "!bp_e6710528c77643f1a0266b8e7fed6f06",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$79e05dd5-95a6-4ae2-bda3-17f655c3315e",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$ce2afb1b-688f-4757-b7e6-887537dbcfdd"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$023aa4a2-f73e-456c-8f96-aa4efcefe67d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Give him a coin",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+              "name": "$AddItemsToCollection$880f1e36-5f27-40b2-8ff0-5998c7be5a11",
+              "ItemsCollection": {
+                "$type": "424c082e5648c164ebd1000e96ef8e10, SharedVendorTable",
+                "name": "$SharedVendorTable$9947fdd7-0251-462d-bb03-44d93c290175",
+                "m_SharedVendor": "!bp_a6ba12cd0d91c5244a8105628b42a5a4"
+              },
+              "UseBlueprintUnitLoot": false,
+              "Loot": [
+                {
+                  "m_Item": "!bp_6210ba9b808803547a9ddc292db502fe",
+                  "Count": 1
+                }
+              ],
+              "m_BlueprintLoot": null,
+              "Silent": true,
+              "Identify": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_c9e64ecd28a6f6c429786c97fc9cd189",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_180cdb4b48d561f4cb4ef9a066727960",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

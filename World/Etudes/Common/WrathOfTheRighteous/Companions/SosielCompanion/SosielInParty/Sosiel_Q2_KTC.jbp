@@ -1,0 +1,235 @@
+{
+  "AssetId": "4ff659434ee301e4d99cad924df322fe",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$fc125335-ab33-493a-adc3-5943de78f431"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$fc125335-ab33-493a-adc3-5943de78f431",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$1c905c5e-3e50-4a30-a7c4-08acd4b79c8c",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$e100f118-ad7f-4152-ac2f-b31a96b3ee67",
+                "Spawner": {
+                  "EntityNameInEditor": "AneviaTirabade_DrezenCapital",
+                  "_entity_id": "86b332a9-5910-4d46-9951-8e06f7dcf0cf",
+                  "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                }
+              },
+              "Unhide": true,
+              "Fade": false
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$fb7ec018-517e-4219-9312-67d97977b6b7",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$855a8f12-8b13-4542-8c38-1504937b7a3d",
+                "Spawner": {
+                  "EntityNameInEditor": "Sosiel_Q2_Deserter_Impostor",
+                  "_entity_id": "eebeded0-eb8c-4660-aea5-1b02f8a7b136",
+                  "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                }
+              },
+              "Unhide": true,
+              "Fade": false
+            },
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$a859b28e-4864-4c8d-a200-9190cf48ea7b",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "Sosiel_Q2_KTC",
+                  "_entity_id": "5a52425d-ec6c-4b40-993e-8a75f1f48a28",
+                  "SceneAssetGuid": "1ef2f46aca6073c4f9d68e3e6120b031"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$47f72d84-bfcb-4aab-ace9-42a9c557f641",
+              "m_Cutscene": "!bp_2462123da95c1a8408f29b5c0e648fbb",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$427cecb1-b27d-407f-8a67-971139b4d57c",
+                      "m_Value": "!bp_effb33cc9f3e14548a625336c979a1ed"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$38fc0919-3bbc-4cd5-aab2-05d5d28aad31",
+                      "m_Value": "!bp_4ff659434ee301e4d99cad924df322fe"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c0032e0c-3f0e-479e-a36e-71e6a1311001",
+              "Comment": "Q1",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$1bbe366c-5b22-4e70-aa17-7b0f0875703c",
+                    "Not": true,
+                    "m_Quest": "!bp_3b2116dc509d04c42a9302b2d1acbbff",
+                    "State": "Completed"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$4f5ba0c0-4725-48f9-8226-506eae07f2f1",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_19b7d800c358c104280ddf5ade6a7b55",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$c58d89a9-677b-4d57-b2eb-53cf4f0cade1",
+              "m_Cutscene": "!bp_f2c59ec4305187e4a9e6d31d2e36e6b4",
+              "WithUnit": null
+            },
+            {
+              "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+              "name": "$AttachBuff$2cad521f-18ed-4de2-875c-aa6d88851b40",
+              "m_Buff": "!bp_a474c827d6e1bfd46956b8d841a496c7",
+              "Target": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$6ca2e18e-2116-433f-9d5e-0d23a6923827"
+              },
+              "Duration": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$4f8e7acc-9cde-4ce7-b29f-74ec3a12808f",
+                "Value": 30000
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_29873be7102b29845be823f7af9a243a",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$b0415694-e33c-4c86-8a8b-e57683710ab5",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$7aa2b3b5-12c0-429f-b437-cb7ffdb3aa34",
+          "Not": false,
+          "m_companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+          "MatchWhenActive": true,
+          "MatchWhenDetached": false,
+          "MatchWhenRemote": true,
+          "MatchWhenDead": false,
+          "MatchWhenEx": false
+        },
+        {
+          "$type": "d00239901a4bf03408fc8b12116b4d67, CompanionIsDead",
+          "name": "$CompanionIsDead$5647d56f-5e74-4009-8254-7332da81ccbd",
+          "Not": true,
+          "m_companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+          "anyCompanion": false
+        },
+        {
+          "$type": "8cdb33023b6305c4bb71547f612ac998, CompanionIsLost",
+          "name": "$CompanionIsLost$43c45e69-22dc-47aa-884f-7546a4a8bdbd",
+          "Not": true,
+          "m_Companion": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$0a82e99d-1afd-4dbe-9192-f9db636d2742",
+          "Not": true,
+          "m_Etude": "!bp_0b51051031abb4e4a818928b9cd181ee",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$49a85caa-3d0f-4055-bcbf-e4e7ed44a942",
+          "Not": false,
+          "m_Quest": "!bp_3b2116dc509d04c42a9302b2d1acbbff",
+          "State": "Completed"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [
+      "!bp_a1a7a7717312d714cb8fd08b585ab199"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [
+      "!bp_fcc41c54a183a5a4b9851e255500700c"
+    ],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_4669319266af37346aae8314ff61074f",
+      "!bp_27d10af5650a01b4d803da81799cbc86",
+      "!bp_b73029a84d7cd194696df5910f9433ff",
+      "!bp_d1f94807db273c644b6b12b423e0d270"
+    ],
+    "Priority": 10
+  }
+}

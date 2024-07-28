@@ -1,0 +1,302 @@
+{
+  "AssetId": "dd85519510bd4ec8b20e4f9205ac870e",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_5982b1a4e464415aa50ffe5d32df52be",
+        "!bp_8cb8f50719c047379bda652f490bb9f1",
+        "!bp_bcdc0c45481f444b9c9703cf8bd51b72",
+        "!bp_61935532e6d943a9be88b2a058b4e2ad",
+        "!bp_5835d6cfc5b4432090d2f8ec55fc71b9"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$131aa37f-c683-4480-a711-353d1a0c34fb",
+          "MusicEventStart": "MUS_Demon_Lords_Theme_forDialogs_Play",
+          "MusicEventStop": "MUS_Demon_Lords_Theme_forDialogs_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$65e92064-0eeb-4bf0-9f17-1e8fdab82c80",
+          "Comment": "Final part",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$6aff3f92-d088-46f0-ab73-f7f0275940d8",
+                "Not": false,
+                "m_Cue": "!bp_5982b1a4e464415aa50ffe5d32df52be",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$61d37f86-1dbc-4b14-8f19-c5ef36690b97",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+                      "name": "$StopCutscene$4e98f049-5f24-4993-9938-3b79a8e221a2",
+                      "m_Cutscene": "!bp_aab526e671c14731b0ad9ae1b5a55ee1",
+                      "WithUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$64913d30-4abe-437d-b28f-dab42dbeaa1d"
+                      },
+                      "m_CheckType": "Params"
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                "name": "$UnlockFlag$b4220fa3-76f5-43b6-b21e-31b89e677fe6",
+                "m_flag": "!bp_53ff2de0dd4643439ed5bcd21623d339",
+                "flagValue": 0
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$06245713-0681-47e2-a7f0-522e7169cfa8",
+                "Comment": "Betrayal ending",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                      "name": "$ObjectiveStatus$52c2e57f-7c1b-4785-8f8e-45aa6adf6d8a",
+                      "Not": false,
+                      "m_QuestObjective": "!bp_f6c82fb8ff2c4eb18823fb7c32b9354a",
+                      "State": "Completed"
+                    },
+                    {
+                      "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                      "name": "$OrAndLogic$5acb8439-2532-44a5-a0eb-a25e9c61ae3a",
+                      "Not": false,
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                            "name": "$FlagInRange$1dd12d9d-c4b3-48c7-b588-9f561d0e0eef",
+                            "Not": false,
+                            "m_Flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+                            "MinValue": 3,
+                            "MaxValue": 3
+                          },
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$4d61fbe5-7d47-456a-a9be-05bd32094052",
+                            "Not": false,
+                            "m_ConditionFlag": "!bp_ae924c84f6834f2cadcb37f109fc8b84",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                      "name": "$StartEtude$73a716c8-b4b3-4053-8b88-3d66e9aa7726",
+                      "Etude": "!bp_511e1e9d3ece4ce9b5225ae23ea29763",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$0cd9399e-0414-467b-8bad-c2bdc90caa0d",
+                      "m_Cutscene": "!bp_4077b2c6fc6440a89c31b9f98f0a758f",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$bdd4255f-72e3-4175-94bb-0f99c1a13607",
+                      "m_Cutscene": "!bp_b821903e053f18d4e909c6e7bd2edbc7",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "ShowLoc",
+                            "Type": "Locator",
+                            "Evaluator": {
+                              "$type": "e2e5f250da682644dbc648ec03f805ac, LocatorReference",
+                              "name": "$LocatorReference$a548593f-1e51-4609-9bb5-e3de9e50e3ed",
+                              "Locator": {
+                                "EntityNameInEditor": "Whole_map_revealer",
+                                "_entity_id": "816ad129-14db-49b8-8b5a-266cf73fb569",
+                                "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$cfadfd91-d3fe-49cd-a197-1b5cf0847db3",
+                      "Comment": "Hermit is alive",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$5ac2c292-b63c-46ec-afda-593b656954a1",
+                            "Not": false,
+                            "m_ConditionFlag": "!bp_067c44bfd67a4d0d86d351effc54fade",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                            "name": "$PlayCutscene$6c80de6d-6f6d-4a22-aedb-acc37088a27f",
+                            "m_Cutscene": "!bp_26b3c17bea634e1c826b23b54da7fbcf",
+                            "PutInQueue": false,
+                            "CheckExistence": true,
+                            "Parameters": {
+                              "Parameters": []
+                            }
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": [
+                          {
+                            "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                            "name": "$Conditional$89ac3026-37fe-4a9e-94f6-fbddeb90232a",
+                            "Comment": "Someone is obsessed",
+                            "ConditionsChecker": {
+                              "Operation": "Or",
+                              "Conditions": [
+                                {
+                                  "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                                  "name": "$FlagUnlocked$66b5bb7e-c275-4fb6-bbe1-22246187d67b",
+                                  "Not": false,
+                                  "m_ConditionFlag": "!bp_48aab23a8888419ab2d534151af88c23",
+                                  "ExceptSpecifiedValues": false,
+                                  "SpecifiedValues": []
+                                },
+                                {
+                                  "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                                  "name": "$FlagUnlocked$809985bc-ef83-406b-b73f-55a0d9967939",
+                                  "Not": false,
+                                  "m_ConditionFlag": "!bp_270f7ff25e9f48648433b2cd08fedf5e",
+                                  "ExceptSpecifiedValues": false,
+                                  "SpecifiedValues": []
+                                }
+                              ]
+                            },
+                            "IfTrue": {
+                              "Actions": [
+                                {
+                                  "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                                  "name": "$PlayCutscene$4327ad90-24d7-40c9-9d05-b31772953def",
+                                  "m_Cutscene": "!bp_a8257e97c7db4c7fbf06f751892b1a69",
+                                  "PutInQueue": false,
+                                  "CheckExistence": true,
+                                  "Parameters": {
+                                    "Parameters": []
+                                  }
+                                }
+                              ]
+                            },
+                            "IfFalse": {
+                              "Actions": [
+                                {
+                                  "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                  "name": "$StartEtude$bae57036-837f-4ba5-b10d-6c521c04d5ac",
+                                  "Etude": "!bp_f0a2c61c07c14c4388db77c122282e55",
+                                  "EtudeEvaluator": null,
+                                  "Evaluate": false
+                                },
+                                {
+                                  "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                                  "name": "$PartyUnits$d318a900-fc09-4415-b2ab-9cc4fdc4dc21",
+                                  "m_UnitsList": "ActiveUnits",
+                                  "Actions": {
+                                    "Actions": [
+                                      {
+                                        "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                                        "name": "$DetachBuff$e5ae3e19-e6cc-41f7-be73-eaae29142148",
+                                        "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                                        "TargetType": "Evaluator",
+                                        "Target": {
+                                          "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                                          "name": "$PartyUnit$23c62bc8-ef52-4460-b099-1c6b863f4411"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$4ee39727-ba13-4fd4-813a-f5f848aa52ad"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

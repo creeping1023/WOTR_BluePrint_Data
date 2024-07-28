@@ -1,0 +1,496 @@
+{
+  "AssetId": "e49732bbb3126ec4280cf7f12946abad",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$RestTrigger$dd4c3f91-cb15-41fb-8080-5edb48dc5612",
+      "$EtudePlayTrigger$13f9f193-02dc-414b-bf30-eb703913b182"
+    ],
+    "Components": [
+      {
+        "$type": "c75ee4e1acb84f96b01f36cb06b2b5aa, RestTrigger",
+        "name": "$RestTrigger$dd4c3f91-cb15-41fb-8080-5edb48dc5612",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Добавление отрубленных голов на ресте в 1-й главе",
+        "Once": false,
+        "RestResults": 31,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$38b71717-fe3a-4825-8707-a0403af5c92a",
+              "Comment": "1-я глава",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$873d384b-2d4d-463c-8777-a81dca4ea070",
+                    "Not": false,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$61305648-1422-4273-92f8-01d56e5f1709",
+                      "m_Flag": "!bp_015f073abf03cf442a2b2fbca9a01527"
+                    },
+                    "MaxValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$23092ac4-ac83-4d27-b092-47f80ff122d3",
+                      "Value": 10
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$4d63bb11-75b2-46ee-98c0-f217c1fb3eb1",
+                    "Not": false,
+                    "m_Etude": "!bp_df17ab913c348644b9bd3fe3f9781a84",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                    "name": "$RandomAction$33de516f-5add-4a67-b455-a122377782a2",
+                    "Actions": [
+                      {
+                        "Weight": 1,
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        },
+                        "Action": {
+                          "Actions": [
+                            {
+                              "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                              "name": "$AddItemToPlayer$2149a382-30bf-4ed7-a7d5-4227361470b1",
+                              "m_ItemToGive": "!bp_a1fa3991b7d835c439754d9f61d20500",
+                              "Silent": true,
+                              "Quantity": 1,
+                              "Identify": false,
+                              "Equip": false,
+                              "EquipOn": null,
+                              "PreferredWeaponSet": 0,
+                              "ErrorIfDidNotEquip": true
+                            },
+                            {
+                              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                              "name": "$IncrementFlagValue$c09af408-128b-43e3-a45e-9bb3c3be164d",
+                              "m_Flag": "!bp_015f073abf03cf442a2b2fbca9a01527",
+                              "Value": {
+                                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                                "name": "$IntConstant$3e6aea47-c3c9-4635-979f-750680f71841",
+                                "Value": 1
+                              },
+                              "UnlockIfNot": true
+                            },
+                            {
+                              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                              "name": "$Conditional$1fb9bc1b-3df9-44fc-935f-042f59c27211",
+                              "Comment": "Flag",
+                              "ConditionsChecker": {
+                                "Operation": "And",
+                                "Conditions": [
+                                  {
+                                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                    "name": "$EtudeStatus$04a09f72-4c2e-4729-9d4d-53e363fcec30",
+                                    "Not": true,
+                                    "m_Etude": "!bp_f41fcb3626091da458b22b0cbe1063b8",
+                                    "NotStarted": false,
+                                    "Started": false,
+                                    "Playing": true,
+                                    "CompletionInProgress": false,
+                                    "Completed": false
+                                  }
+                                ]
+                              },
+                              "IfTrue": {
+                                "Actions": [
+                                  {
+                                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                    "name": "$StartEtude$6430bb59-91ca-468a-aa1e-82e4ecbe0c35",
+                                    "Etude": "!bp_f41fcb3626091da458b22b0cbe1063b8",
+                                    "EtudeEvaluator": null,
+                                    "Evaluate": false
+                                  }
+                                ]
+                              },
+                              "IfFalse": {
+                                "Actions": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "Weight": 2,
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        },
+                        "Action": {
+                          "Actions": []
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$504efb38-17e5-45f7-8aaa-d0edfa9b8700",
+              "Comment": "4-я глава",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$c6de03bd-3c09-436a-84c2-e54d6a21ae23",
+                    "Not": false,
+                    "m_Etude": "!bp_637a57423a82b044f888677c92f5d6cb",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$12be8732-da96-4985-a3d7-1e7760c0f8e3",
+                    "Not": false,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$3a57b0af-dcd6-454d-86d4-66f30b793972",
+                      "m_Flag": "!bp_fc4e1532d6e169e4f92b8a0ef113466b"
+                    },
+                    "MaxValue": {
+                      "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                      "name": "$IntConstant$dd44b0b0-64e8-4a55-a734-817faec56007",
+                      "Value": 30
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "fe04f935f78d4ba4c805faf9a4be38a3, RandomAction",
+                    "name": "$RandomAction$700c7c3c-130c-41c0-b0ee-2cac8d309fea",
+                    "Actions": [
+                      {
+                        "Weight": 1,
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        },
+                        "Action": {
+                          "Actions": [
+                            {
+                              "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                              "name": "$AddItemToPlayer$ffd1c021-5eb1-4f7b-8acc-60a0c8fc5b82",
+                              "m_ItemToGive": "!bp_bc39bfe36d10679478bb193ae56f4fc3",
+                              "Silent": true,
+                              "Quantity": 1,
+                              "Identify": false,
+                              "Equip": false,
+                              "EquipOn": null,
+                              "PreferredWeaponSet": 0,
+                              "ErrorIfDidNotEquip": true
+                            },
+                            {
+                              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                              "name": "$IncrementFlagValue$21d859c3-5d65-4dd1-a699-228b1cae7a7a",
+                              "m_Flag": "!bp_fc4e1532d6e169e4f92b8a0ef113466b",
+                              "Value": {
+                                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                                "name": "$IntConstant$1b8550ab-748e-4906-8cf4-c97c5724003e",
+                                "Value": 1
+                              },
+                              "UnlockIfNot": true
+                            },
+                            {
+                              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                              "name": "$Conditional$3a5e1f7d-f103-434e-b03d-95274328d477",
+                              "Comment": "Flag",
+                              "ConditionsChecker": {
+                                "Operation": "And",
+                                "Conditions": [
+                                  {
+                                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                    "name": "$EtudeStatus$6d7a6776-c96e-499f-ab5f-4d1535ae1f71",
+                                    "Not": true,
+                                    "m_Etude": "!bp_2d060fd6d7ed6fb43846cb2d3c752277",
+                                    "NotStarted": false,
+                                    "Started": false,
+                                    "Playing": true,
+                                    "CompletionInProgress": false,
+                                    "Completed": false
+                                  }
+                                ]
+                              },
+                              "IfTrue": {
+                                "Actions": [
+                                  {
+                                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                    "name": "$StartEtude$8fbd784e-1455-4858-875c-78281f32f9ee",
+                                    "Etude": "!bp_2d060fd6d7ed6fb43846cb2d3c752277",
+                                    "EtudeEvaluator": null,
+                                    "Evaluate": false
+                                  }
+                                ]
+                              },
+                              "IfFalse": {
+                                "Actions": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "Weight": 1,
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        },
+                        "Action": {
+                          "Actions": [
+                            {
+                              "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                              "name": "$AddItemToPlayer$8281fce2-891c-4ee2-b170-774dae4e218f",
+                              "m_ItemToGive": "!bp_bc39bfe36d10679478bb193ae56f4fc3",
+                              "Silent": true,
+                              "Quantity": 2,
+                              "Identify": false,
+                              "Equip": false,
+                              "EquipOn": null,
+                              "PreferredWeaponSet": 0,
+                              "ErrorIfDidNotEquip": true
+                            },
+                            {
+                              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                              "name": "$IncrementFlagValue$0ccf2025-b04b-416a-913b-44e8fcc2225a",
+                              "m_Flag": "!bp_fc4e1532d6e169e4f92b8a0ef113466b",
+                              "Value": {
+                                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                                "name": "$IntConstant$59ba62cd-b988-4340-917f-9f04039b026e",
+                                "Value": 1
+                              },
+                              "UnlockIfNot": true
+                            },
+                            {
+                              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                              "name": "$Conditional$ab341525-2629-4010-bda1-8998f3bb8d40",
+                              "Comment": "Flag",
+                              "ConditionsChecker": {
+                                "Operation": "And",
+                                "Conditions": [
+                                  {
+                                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                    "name": "$EtudeStatus$6e8ed2c4-26a2-431b-917a-cf5f65bd1a71",
+                                    "Not": true,
+                                    "m_Etude": "!bp_2d060fd6d7ed6fb43846cb2d3c752277",
+                                    "NotStarted": false,
+                                    "Started": false,
+                                    "Playing": true,
+                                    "CompletionInProgress": false,
+                                    "Completed": false
+                                  }
+                                ]
+                              },
+                              "IfTrue": {
+                                "Actions": [
+                                  {
+                                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                    "name": "$StartEtude$7e56d5c0-735f-4fb5-8f7f-eab5698f0d0a",
+                                    "Etude": "!bp_2d060fd6d7ed6fb43846cb2d3c752277",
+                                    "EtudeEvaluator": null,
+                                    "Evaluate": false
+                                  }
+                                ]
+                              },
+                              "IfFalse": {
+                                "Actions": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "Weight": 1,
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        },
+                        "Action": {
+                          "Actions": [
+                            {
+                              "$type": "1f1c883ef085c5c4b877eeb4c5da318c, AddItemToPlayer",
+                              "name": "$AddItemToPlayer$743e8f34-514a-449e-8f02-0ca8542379e8",
+                              "m_ItemToGive": "!bp_bc39bfe36d10679478bb193ae56f4fc3",
+                              "Silent": true,
+                              "Quantity": 3,
+                              "Identify": false,
+                              "Equip": false,
+                              "EquipOn": null,
+                              "PreferredWeaponSet": 0,
+                              "ErrorIfDidNotEquip": true
+                            },
+                            {
+                              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                              "name": "$IncrementFlagValue$cc5d1e5d-6455-4eff-9093-e66f570b23ab",
+                              "m_Flag": "!bp_fc4e1532d6e169e4f92b8a0ef113466b",
+                              "Value": {
+                                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                                "name": "$IntConstant$fbfd0417-2f3f-441c-91da-45c3a9ecfc3d",
+                                "Value": 1
+                              },
+                              "UnlockIfNot": true
+                            },
+                            {
+                              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                              "name": "$Conditional$f60bdf31-b22b-44a9-96dd-b2f5595192f3",
+                              "Comment": "Flag",
+                              "ConditionsChecker": {
+                                "Operation": "And",
+                                "Conditions": [
+                                  {
+                                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                    "name": "$EtudeStatus$efa40b9e-88b0-4e49-b035-5e15c37bc5ca",
+                                    "Not": true,
+                                    "m_Etude": "!bp_2d060fd6d7ed6fb43846cb2d3c752277",
+                                    "NotStarted": false,
+                                    "Started": false,
+                                    "Playing": true,
+                                    "CompletionInProgress": false,
+                                    "Completed": false
+                                  }
+                                ]
+                              },
+                              "IfTrue": {
+                                "Actions": [
+                                  {
+                                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                                    "name": "$StartEtude$d52f0ccf-9303-4f17-b839-39c1cd698361",
+                                    "Etude": "!bp_2d060fd6d7ed6fb43846cb2d3c752277",
+                                    "EtudeEvaluator": null,
+                                    "Evaluate": false
+                                  }
+                                ]
+                              },
+                              "IfFalse": {
+                                "Actions": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "Weight": 3,
+                        "Conditions": {
+                          "Operation": "And",
+                          "Conditions": []
+                        },
+                        "Action": {
+                          "Actions": []
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$13f9f193-02dc-414b-bf30-eb703913b182",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+              "name": "$UnlockCompanionStory$463a45ed-d82c-4a6f-b004-938e4a88d4ef",
+              "m_Story": "!bp_6f218d35a47c2e4459da2703853a1498"
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_1491d3e31d35c8c4c800d9151afb940e",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$64553f95-b041-4006-8b95-94ea5243380a",
+          "Not": false,
+          "m_companion": "!bp_096fc4a96d675bb45a0396bcaa7aa993",
+          "MatchWhenActive": true,
+          "MatchWhenDetached": true,
+          "MatchWhenRemote": true,
+          "MatchWhenDead": false,
+          "MatchWhenEx": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_b73a4e97547057b41a14de6c072b2f56",
+      "!bp_b4bbbc2c113f57047b2290bb59f65d98",
+      "!bp_ede6203c91c7a954380514a129bab3e8",
+      "!bp_e59148d983a054b47894398f15230555",
+      "!bp_7925ef82349b45a41a47f93cc8ba927c"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

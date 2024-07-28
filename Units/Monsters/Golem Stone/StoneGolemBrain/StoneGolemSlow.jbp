@@ -1,0 +1,323 @@
+{
+  "AssetId": "341cd9a1610563d44938145e4b8d5432",
+  "Data": {
+    "$type": "da11db195c86e0d4dae17a2c03a4ba9a, BlueprintAbility",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$AbilityTargetsAround$cd41a41e-e265-4b53-ba2b-e767fbaef456",
+      "$ContextCalculateAbilityParams$2f81ae4c-6b6e-4585-8379-481328b6a373"
+    ],
+    "Components": [
+      {
+        "$type": "c788cf748ec86bc45b986ac4de28cf45, AbilitySpawnFx",
+        "m_Flags": 0,
+        "name": "$AbilitySpawnFx$946217a4-3d61-49aa-8faa-34fe897ea9b0",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "PrefabLink": {
+          "AssetId": "b38bf3862651d024cbf5e4baaf83bfcd"
+        },
+        "Time": "OnApplyEffect",
+        "Anchor": "SelectedTarget",
+        "WeaponTarget": "None",
+        "DestroyOnCast": false,
+        "Delay": 0.0,
+        "PositionAnchor": "None",
+        "OrientationAnchor": "None",
+        "OrientationMode": "Copy"
+      },
+      {
+        "$type": "757439ef8cc900741bd9b57bf26eb500, AbilityTargetsAround",
+        "m_Flags": 0,
+        "name": "$AbilityTargetsAround$cd41a41e-e265-4b53-ba2b-e767fbaef456",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "m_Radius": {
+          "m_Value": 10.0
+        },
+        "m_TargetType": "Enemy",
+        "m_IncludeDead": false,
+        "m_Condition": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "m_SpreadSpeed": {
+          "m_Value": 0.0
+        }
+      },
+      {
+        "$type": "66e032e5cf38801428940a1a0d14b946, AbilityEffectRunAction",
+        "m_Flags": 0,
+        "name": "$AbilityEffectRunAction$fde881f8-6107-499a-ad75-21db1f0a645e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "SavingThrowType": "Unknown",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$06bf4178-58e5-4507-9a80-fe0e5127116a",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "1dd7af4212bb7a84497b86ac1ba4ded1, ContextConditionDistanceToTarget",
+                    "name": "$ContextConditionDistanceToTarget$ee5ef4b7-0bd5-438d-aae6-1923835cf1c3",
+                    "Not": true,
+                    "DistanceGreater": {
+                      "m_Value": 10.0
+                    }
+                  },
+                  {
+                    "$type": "b0c4370c781db0142b035f14ca13a6a5, ContextConditionIsEnemy",
+                    "name": "$ContextConditionIsEnemy$c7b0029a-4046-40f3-88eb-b6200b185b09",
+                    "Not": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$f0a51f8f-9cc3-407d-86eb-b7294cff3cc2",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "72a5648a7abcbd748b5d2a601acb616d, ContextConditionHasBuff",
+                          "name": "$ContextConditionHasBuff$a8100168-2adf-4d35-a462-30c5027aec27",
+                          "Not": false,
+                          "m_Buff": "!bp_03464790f40c3c24aa684b57155f3280"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                          "name": "$ContextActionRemoveBuff$5b86d29c-fb5f-4f4c-9de9-04db431fb589",
+                          "m_Buff": "!bp_03464790f40c3c24aa684b57155f3280",
+                          "RemoveRank": false,
+                          "ToCaster": false,
+                          "OnlyFromCaster": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "5e2f2046f3bd6984c8833bf019c8e8ad, ContextActionSavingThrow",
+                          "name": "$ContextActionSavingThrow$cdf5a36d-58f3-4d7b-8eb9-0b9f871d547e",
+                          "Type": "Will",
+                          "FromBuff": false,
+                          "m_ConditionalDCIncrease": [],
+                          "UseDCFromContextSavingThrow": false,
+                          "HasCustomDC": false,
+                          "CustomDC": {
+                            "ValueType": "Simple",
+                            "Value": 0,
+                            "ValueRank": "Default",
+                            "ValueShared": "Damage",
+                            "Property": "None",
+                            "m_CustomProperty": null,
+                            "m_AbilityParameter": "Level"
+                          },
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "d61949c589ee885458c9439b2aa202b6, ContextActionConditionalSaved",
+                                "name": "$ContextActionConditionalSaved$e091413a-00d2-4147-a4fa-e0620bd98e08",
+                                "Succeed": {
+                                  "Actions": []
+                                },
+                                "Failed": {
+                                  "Actions": [
+                                    {
+                                      "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                                      "name": "$ContextActionApplyBuff$2e1933fe-d2d7-4a7f-8bb9-f467d66b3485",
+                                      "m_Buff": "!bp_0bc608c3f2b548b44b7146b7530613ac",
+                                      "Permanent": false,
+                                      "UseDurationSeconds": false,
+                                      "DurationValue": {
+                                        "Rate": "Rounds",
+                                        "DiceType": "Zero",
+                                        "DiceCountValue": {
+                                          "ValueType": "Simple",
+                                          "Value": 0,
+                                          "ValueRank": "Default",
+                                          "ValueShared": "Damage",
+                                          "Property": "None",
+                                          "m_CustomProperty": null,
+                                          "m_AbilityParameter": "Level"
+                                        },
+                                        "BonusValue": {
+                                          "ValueType": "Simple",
+                                          "Value": 7,
+                                          "ValueRank": "Default",
+                                          "ValueShared": "Damage",
+                                          "Property": "None",
+                                          "m_CustomProperty": null,
+                                          "m_AbilityParameter": "Level"
+                                        },
+                                        "m_IsExtendable": true
+                                      },
+                                      "DurationSeconds": 0.0,
+                                      "IsFromSpell": false,
+                                      "IsNotDispelable": false,
+                                      "ToCaster": false,
+                                      "AsChild": true,
+                                      "SameDuration": false,
+                                      "NotLinkToAreaEffect": false
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "c1058e0291443ae4390e0b4b94ca93dd, ContextCalculateAbilityParams",
+        "m_Flags": 0,
+        "name": "$ContextCalculateAbilityParams$2f81ae4c-6b6e-4585-8379-481328b6a373",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "UseKineticistMainStat": false,
+        "StatType": "Constitution",
+        "StatTypeFromCustomProperty": false,
+        "m_CustomProperty": null,
+        "ReplaceCasterLevel": false,
+        "CasterLevel": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "ReplaceSpellLevel": false,
+        "SpellLevel": {
+          "ValueType": "Simple",
+          "Value": 0,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        }
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "1081925c-adf8-4ec0-bc93-998401fdc175",
+      "m_OwnerString": "341cd9a1610563d44938145e4b8d5432",
+      "m_OwnerPropertyPath": "m_DisplayName",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/Units/Monsters/Golem Stone/StoneGolemBrain/StoneGolemSlow_m_DisplayName.json",
+      "Shared": null
+    },
+    "m_Description": {
+      "m_Key": "8a337ebe-f55e-472d-a702-2f9a89cee8b7",
+      "m_OwnerString": "341cd9a1610563d44938145e4b8d5432",
+      "m_OwnerPropertyPath": "m_Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/Units/Monsters/Golem Stone/StoneGolemBrain/StoneGolemSlow_m_Description.json",
+      "Shared": null
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "3b7a9110ea51b5444a2a5d3a9a6ccdb9",
+      "fileid": 21300000
+    },
+    "m_DefaultAiAction": null,
+    "Type": "Special",
+    "Range": "Personal",
+    "IgnoreMinimalRangeLimit": false,
+    "CustomRange": {
+      "m_Value": 0.0
+    },
+    "ShowNameForVariant": false,
+    "OnlyForAllyCaster": false,
+    "CanTargetPoint": false,
+    "CanTargetEnemies": true,
+    "CanTargetFriends": false,
+    "CanTargetSelf": true,
+    "ShouldTurnToTarget": true,
+    "SpellResistance": false,
+    "IgnoreSpellResistanceForAlly": false,
+    "ActionBarAutoFillIgnored": false,
+    "Hidden": false,
+    "NeedEquipWeapons": false,
+    "NotOffensive": false,
+    "EffectOnAlly": "None",
+    "EffectOnEnemy": "Harmful",
+    "m_Parent": null,
+    "Animation": "Omni",
+    "HasFastAnimation": false,
+    "AnimationStyle": "CastActionOmni",
+    "m_TargetMapObjects": false,
+    "ActionType": "Free",
+    "AvailableMetamagic": "Extend, Heighten, CompletelyNormal, Selective",
+    "m_IsFullRoundAction": false,
+    "LocalizedDuration": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "bc9d2ab7ff01bc44786d1ba2eb1090f9",
+        "stringkey": "c106ea15-f587-44ce-9472-fa7cd4c11dab"
+      }
+    },
+    "LocalizedSavingThrow": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "MaterialComponent": {
+      "m_Item": null,
+      "Count": 1
+    },
+    "DisableLog": false,
+    "ResourceAssetIds": [
+      "b38bf3862651d024cbf5e4baaf83bfcd",
+      "d6a8c6aead8ec1e4b9362cff1c2373a2"
+    ]
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

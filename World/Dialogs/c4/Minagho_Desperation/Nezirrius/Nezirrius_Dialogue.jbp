@@ -1,0 +1,87 @@
+{
+  "AssetId": "2081a84bda50a8a4798fcc9d1c1d417f",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_be7c50f6116a2624ca1f92fec4be751a"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$24f26b3f-29fa-4977-96fa-1baf2dc48a26",
+          "MusicEventStart": "MUS_MysteryTheme_Play",
+          "MusicEventStop": "MUS_MysteryTheme_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b08e260c-0b5b-4eea-813d-dc0d065cb98d",
+          "Comment": "exp for no combat",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$7b1f2d26-6363-4df6-976b-7a2d578cba37",
+                "Not": true,
+                "m_Cue": "!bp_7a2acbd93b8975c4ab65af9bd936d08d",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$d5df10db-d56c-492a-bc6f-03ecc970e647",
+                "Not": true,
+                "m_Cue": "!bp_668df2d0f0dee2e4094a490131ebb094",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+                "name": "$GainExp$a83e0371-d6db-4fea-b2c4-301ef83a2533",
+                "Encounter": "Mob",
+                "CR": 22,
+                "Modifier": 1.0,
+                "Count": null,
+                "Dummy": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$29e70374-cf31-4cac-a034-c7bc633fbb27"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

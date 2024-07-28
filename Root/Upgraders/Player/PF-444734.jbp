@@ -1,0 +1,77 @@
+{
+  "AssetId": "73b05def168d4e2bb72bc76e7c612d96",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$7a54f942-00c8-4f2d-928a-1fa1c207f8d5",
+          "Comment": "Проверка был ли запущен таймер на ожидание",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$459e4164-540c-4730-a2b1-6ff786177f8c",
+                "Not": false,
+                "m_Etude": "!bp_0e66272af9cfc0a438918bd042505047",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$beed2774-4a89-404e-bebf-69f8a4e9d70f",
+                "Not": false,
+                "m_Quest": "!bp_bc50e858b1a4afe4895ce52f7c954c7e",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$8e45b915-36b4-4fdc-8076-0e051f7c995b",
+                "Not": false,
+                "m_Etude": "!bp_d6a90c0f6536331498cafa1f3195d886",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$a631a38b-d995-4471-b65d-e1975c8fcb16",
+                "Etude": "!bp_0e66272af9cfc0a438918bd042505047",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$462ce85e-cb36-4286-bac7-0a3a87c71cc7",
+                "Status": "Fail",
+                "m_Objective": "!bp_08e705b0445ec0140bbfed263796a48c",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

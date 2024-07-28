@@ -1,0 +1,158 @@
+{
+  "AssetId": "0c4ad4242467433787abbb9f3eea8d97",
+  "Data": {
+    "$type": "63bb90208198450095c55997ebc6ae0a, ActionsHolder",
+    "Actions": {
+      "Actions": [
+        {
+          "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+          "name": "$RaiseDead$4853ab15-b071-46cc-bf11-c1a0e6776905",
+          "m_companion": "!bp_2779754eecffd044fbd4842dba55312c",
+          "riseAllCompanions": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$a2fb8a11-0509-41f3-99f9-c5d1a9ce7525",
+          "Comment": "Event is playing",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$11310b7f-6d7a-4f19-906c-511c00760254",
+                "Not": false,
+                "m_Etude": "!bp_dc3e46dbae99451e906d485d95878eef",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$8c8da0c0-7ff4-4663-8977-9f76f99ae4aa",
+                "Etude": "!bp_dc3e46dbae99451e906d485d95878eef",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$876ef55c-1314-4a23-b8e2-31f447301020",
+          "Comment": "Quest is started",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$89ed5534-23ce-4265-8b65-06e56c7572b8",
+                "Not": false,
+                "m_QuestObjective": "!bp_b0d8a3ed9a694988aaa6da279fdd575c",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$6d920ab4-d034-4392-ae67-f83a40733e77",
+                "Status": "Fail",
+                "m_Objective": "!bp_b0d8a3ed9a694988aaa6da279fdd575c",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$edadb068-ba1d-4cc1-8e50-150b4b6cc602",
+          "m_Group": {
+            "EntityNameInEditor": "KidsAndNobles",
+            "_entity_id": "89425166-84ba-47be-b72e-d11bb8986d35",
+            "SceneAssetGuid": "4173112cdf275e7488f1e1598eab22eb"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$5227817e-0343-4d67-a282-9a9c2bec8caa",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$489954bf-60f0-49c6-9ca4-49292bd902bf"
+                },
+                "FadeOut": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$1a1b9c3b-6ea1-4a82-bf99-19a827d51055",
+          "m_Group": {
+            "EntityNameInEditor": "GratefulCitizens",
+            "_entity_id": "c7847d1a-b306-418f-a7c2-b7d730b4b831",
+            "SceneAssetGuid": "4173112cdf275e7488f1e1598eab22eb"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$5cb316bb-ad8e-4895-9ac4-eed5a7adda9c",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$8a17c51f-f4ae-4fd0-bb36-34da7cd1fdda"
+                },
+                "FadeOut": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$f68de8c7-f221-4876-bc5c-72ba18d8a642",
+          "m_UseEvaluator": false,
+          "m_CompanionEvaluator": null,
+          "m_CompanionBlueprint": "!bp_2779754eecffd044fbd4842dba55312c",
+          "OnUnrecruit": {
+            "Actions": [
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$63ed6668-f79b-4f32-9bf2-29f476444631",
+                "Etude": "!bp_a7e243efcd4f4d7f99a0b28b0611a66a",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+                "name": "$IncrementFlagValue$addaeec5-195f-41b8-9fc4-f6a651012663",
+                "m_Flag": "!bp_ee0c0c38790442c899a2d58a89580fa9",
+                "Value": {
+                  "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                  "name": "$IntConstant$2a359ec0-347d-46c9-a5f1-c3e7e0574b8b",
+                  "Value": -1
+                },
+                "UnlockIfNot": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

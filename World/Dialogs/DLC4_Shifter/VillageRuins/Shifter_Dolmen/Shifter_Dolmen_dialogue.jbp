@@ -1,0 +1,108 @@
+{
+  "AssetId": "ef4947e1ebfc47ee8af2f7a132cc0ff6",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_98cf10a81c384e669354f6110ffb17ed"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$18b71d84-394d-4bfe-a78e-7c77a2089ab0",
+          "Status": "Complete",
+          "m_Objective": "!bp_1ccd6c0894394ec099e007687d3e0ece",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$fde7e329-14b6-4dc9-8e83-a5c00555d0fe",
+          "Comment": "Выдаем эрранд до 5-ой главы",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "56dbbbbbe442d504eb6761bdca7c8066, CurrentChapter",
+                "name": "$CurrentChapter$005e72c6-b932-491a-8e1c-cc10c0381421",
+                "Not": true,
+                "Chapter": 5
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$14b1ac3a-7699-4e68-b1ad-171c4bbea7c5",
+                "m_Objective": "!bp_bab3f68f1df042d39d8c08cb62f90aee"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$67cce493-8d05-4f69-a4d0-f482c15f1263",
+                "Comment": "Выдаем эрранд в 5-ой главе, но только если не игралось KTC",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$a4e02a90-7cc3-4939-a76b-ceb8924f480e",
+                      "Not": true,
+                      "m_Etude": "!bp_cf15af283da744128648fd080eba1b4a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": true
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$de979f94-d502-4976-87e2-f9187ad09fa2",
+                      "m_Objective": "!bp_bab3f68f1df042d39d8c08cb62f90aee"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "AssetId": "2b7b0456f933438ca752ea09d3a77a06",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeCompleteTrigger$4ad15a0a-25bb-4cd7-8c3b-d868974a7e3c"
+    ],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$4ad15a0a-25bb-4cd7-8c3b-d868974a7e3c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$d0d31c3a-f7ac-4a36-8357-7810226d18e4",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                    "name": "$CurrentAreaIs$b17c81db-b849-4242-8886-f9c42e158130",
+                    "Not": false,
+                    "m_Area": "!bp_2570015799edf594daf2f076f2f975d8"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                    "name": "$ReloadMechanic$596cdbe5-1e69-4f4b-a682-6f4658109606",
+                    "Desc": "Empty action",
+                    "ClearFx": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "7ca48b69cfcb37e4a9c23345171e23df, KingdomActionResolveEvent",
+              "name": "$KingdomActionResolveEvent$aaab7796-d3e5-4e4b-abe5-cbaed30e1dfb",
+              "m_EventBlueprint": "!bp_694121243d4f43cd8ad1077924a04d36",
+              "Result": "Success",
+              "Alignment": "TrueNeutral",
+              "FinalResolve": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$895a8b97-94f3-4c73-804c-782d8997533a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$f18dbd33-318b-4d59-90b6-35cc3337dd08",
+              "m_Cutscene": "!bp_df83bf98fd2813d4916b9778983a2259",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": [
+                  {
+                    "Name": "Unit",
+                    "Type": "Unit",
+                    "Evaluator": {
+                      "$type": "e2b7a7cc2b994e3c925a5ab6abc2b793, ConditionalUnitEvaluator",
+                      "name": "$ConditionalUnitEvaluator$e282ca75-24bf-454c-95c6-a8e2df6cd9f9",
+                      "m_Units": [
+                        {
+                          "Condition": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                "name": "$EtudeStatus$94be13c0-1c60-4cb5-abd3-b3206308ad95",
+                                "Not": true,
+                                "m_Etude": "!bp_bc65b234df544a718afc4856eb7f33fc",
+                                "NotStarted": false,
+                                "Started": false,
+                                "Playing": true,
+                                "CompletionInProgress": false,
+                                "Completed": false
+                              },
+                              {
+                                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                "name": "$ObjectiveStatus$6ef139fe-6e0b-4290-9864-e69213a1dd70",
+                                "Not": false,
+                                "m_QuestObjective": "!bp_2fe2f0d628cfb07458ee8e21b4f50b2c",
+                                "State": "Completed"
+                              }
+                            ]
+                          },
+                          "Unit": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$7afbb3ec-3b51-4581-b7ea-a4741464b800",
+                            "Spawner": {
+                              "EntityNameInEditor": "Targona",
+                              "_entity_id": "2a27abe5-0d42-4a94-b564-7a406f406d44",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                "name": "$EtudeStatus$19856c89-ae41-4303-a69f-0a4b7b32caf9",
+                                "Not": false,
+                                "m_Etude": "!bp_c05ef3ce5cd8ef246883e59e7ef9db56",
+                                "NotStarted": false,
+                                "Started": false,
+                                "Playing": true,
+                                "CompletionInProgress": false,
+                                "Completed": false
+                              },
+                              {
+                                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                                "name": "$OrAndLogic$3611a63e-a2b5-4eb5-93f9-5c9d1a81a911",
+                                "Not": false,
+                                "Comment": "Targona",
+                                "ConditionsChecker": {
+                                  "Operation": "Or",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$9d25c204-b652-4ac5-95b7-1ad7cfe86e23",
+                                      "Not": false,
+                                      "m_Etude": "!bp_bc65b234df544a718afc4856eb7f33fc",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    },
+                                    {
+                                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                      "name": "$ObjectiveStatus$95534e7d-24ff-4855-be6b-6bce9e4f0aee",
+                                      "Not": true,
+                                      "m_QuestObjective": "!bp_2fe2f0d628cfb07458ee8e21b4f50b2c",
+                                      "State": "Completed"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "Unit": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$f1b3a59d-c92b-4997-8fb3-c8015725b1b4",
+                            "Spawner": {
+                              "EntityNameInEditor": "Eliandra",
+                              "_entity_id": "9a41b047-9314-4719-a915-9c24aedf3e95",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                "name": "$EtudeStatus$f1f85ac7-c73d-4583-a6f1-2fff11cfed6b",
+                                "Not": false,
+                                "m_Etude": "!bp_ed661476a2645934b8b2fceb9ec20558",
+                                "NotStarted": false,
+                                "Started": false,
+                                "Playing": true,
+                                "CompletionInProgress": false,
+                                "Completed": false
+                              },
+                              {
+                                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                                "name": "$OrAndLogic$f7c470cf-7da7-4e49-afb8-ce428de55a6a",
+                                "Not": false,
+                                "Comment": "Targona",
+                                "ConditionsChecker": {
+                                  "Operation": "Or",
+                                  "Conditions": [
+                                    {
+                                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                                      "name": "$EtudeStatus$44cba443-8191-499b-9dad-603f5470325e",
+                                      "Not": false,
+                                      "m_Etude": "!bp_bc65b234df544a718afc4856eb7f33fc",
+                                      "NotStarted": false,
+                                      "Started": false,
+                                      "Playing": true,
+                                      "CompletionInProgress": false,
+                                      "Completed": false
+                                    },
+                                    {
+                                      "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                                      "name": "$ObjectiveStatus$fde1659e-1025-4c63-bbd5-fcfc5f489124",
+                                      "Not": true,
+                                      "m_QuestObjective": "!bp_2fe2f0d628cfb07458ee8e21b4f50b2c",
+                                      "State": "Completed"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "Unit": {
+                            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                            "name": "$UnitFromSpawner$e4cf607d-c747-4976-aa44-2f6b7645a6d7",
+                            "Spawner": {
+                              "EntityNameInEditor": "Katair",
+                              "_entity_id": "596e530e-56fe-48db-8151-5ad3575fb2d6",
+                              "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                            }
+                          }
+                        }
+                      ],
+                      "m_Default": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$4327fbe5-675e-44dc-8aca-d7179421d868",
+                        "Spawner": {
+                          "EntityNameInEditor": "Targona",
+                          "_entity_id": "2a27abe5-0d42-4a94-b564-7a406f406d44",
+                          "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "Name": "Dialog",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                      "name": "$Dialog$04a538fd-e1e0-4b46-a209-ebfc1ffda8e1",
+                      "m_Value": "!bp_b3cc44a970b1c264f92139e08c1226a3"
+                    }
+                  },
+                  {
+                    "Name": "Etude",
+                    "Type": "Blueprint",
+                    "Evaluator": {
+                      "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                      "name": "$EtudeBlueprint$1d3d907b-9918-4aee-b80a-b9d56b3687eb",
+                      "m_Value": "!bp_2b7b0456f933438ca752ea09d3a77a06"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_62f448c978a94ce899575e1d38a8477a",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$34f131f9-0272-4d92-b639-c9c6dd1012e0",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$cf2fba87-8992-47d7-a099-24279b9621a8",
+          "Not": false,
+          "m_Etude": "!bp_3a25b1f2a81f84a40b4fb658f4d2fe0f",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+          "name": "$ObjectiveStatus$6a6c1498-fc14-4be3-9b9e-1893287e2ac4",
+          "Not": false,
+          "m_QuestObjective": "!bp_2fe2f0d628cfb07458ee8e21b4f50b2c",
+          "State": "Completed"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6",
+      "!bp_5d632f2f01132ba4faabb2017ecfb547",
+      "!bp_1c2c710d1b9e4fb9a53b501ceb6b14ce",
+      "!bp_167cb2e4ea9a4cf8b6467c40953c44c9"
+    ],
+    "Priority": 60
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

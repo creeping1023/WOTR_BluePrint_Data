@@ -1,0 +1,147 @@
+{
+  "AssetId": "635d82ed578031b4b80cefb96033ac71",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "старт безбарковой катсцены - бодак отпирает клетку, игрок и партия бегут к ящщику экипироваться",
+    "ParentAsset": "fb53b14f2335ebe428c294fe20499b97",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "f231438c-cc10-47c3-8fb3-98a35738df97",
+      "m_OwnerString": "635d82ed578031b4b80cefb96033ac71",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/FinalDungeon_Colyphyr/KestoglyrsCage/Cue_0010_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": "!bp_6a04d6af3da1a8d45bb491ff85823afc",
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$6f7b45c5-0dc3-4456-8a56-e45994d260eb",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$9fb43235-afd6-4e0a-bf9c-abd70e2a4812",
+            "MapObject": {
+              "EntityNameInEditor": "Cell",
+              "_entity_id": "f9103770-5702-445f-93fe-1c4d304d2d40",
+              "SceneAssetGuid": "401816e14e23d214087b91a76ccf3533"
+            }
+          },
+          "Unhide": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+          "name": "$SwitchDoor$da4b2c2e-fc8c-4ab6-bcce-be4c2e1f3d6b",
+          "Door": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$691803d3-1063-4e39-a57c-a8b17b72b232",
+            "MapObject": {
+              "EntityNameInEditor": "Catacombs_lattice_door_01",
+              "_entity_id": "2b1b9b82-cde4-432c-99a3-49115b71a486",
+              "SceneAssetGuid": "682028449dfdd5244969f623cba0e482"
+            }
+          },
+          "UnlockIfLocked": false,
+          "CloseIfAlreadyOpen": false,
+          "OpenIfAlreadyClosed": true
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$577c93eb-572c-410c-9807-2c292b9b4e62",
+          "m_SummonPool": "!bp_56188081001ade24daaab2236eca1b78",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$471dce0b-254f-4099-9ba7-76c669a5014b",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$1186c5f6-a0a7-4969-8c7e-78990848a236"
+                },
+                "m_Faction": "!bp_6e3318c9f3f1b044c8e72823ba2f9000",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "c99aa15b0ad07ce4db8044f7adfccaa5, ScriptZoneActivate",
+          "name": "$ScriptZoneActivate$8bf09f1b-6456-4683-abc3-9f0f54f1c47d",
+          "ScriptZone": {
+            "EntityNameInEditor": "StartCombatTrickster",
+            "_entity_id": "5fed4295-299b-468b-a66d-5fcd89aec4fc",
+            "SceneAssetGuid": "401816e14e23d214087b91a76ccf3533"
+          }
+        },
+        {
+          "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+          "name": "$ScriptZoneDeactivate$66680950-7c66-4696-82f3-ad3fce5c4747",
+          "ScriptZone": {
+            "EntityNameInEditor": "DimensionDoorTrigger",
+            "_entity_id": "7990f366-4398-4f31-878a-600c5c4ac469",
+            "SceneAssetGuid": "401816e14e23d214087b91a76ccf3533"
+          }
+        },
+        {
+          "$type": "675865eb3bfd09a46beb0a7283774f0f, SwitchInteraction",
+          "name": "$SwitchInteraction$84ad9614-3187-4ba0-880c-8a6b193a5f4f",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$fab01069-8559-4a5c-b7d5-202a46736e61",
+            "MapObject": {
+              "EntityNameInEditor": "Cell",
+              "_entity_id": "f9103770-5702-445f-93fe-1c4d304d2d40",
+              "SceneAssetGuid": "401816e14e23d214087b91a76ccf3533"
+            }
+          },
+          "EnableIfAlreadyDisabled": false,
+          "DisableIfAlreadyEnabled": true
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

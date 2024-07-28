@@ -1,0 +1,189 @@
+{
+  "AssetId": "ae04d6b452d149109d0edc39ddae5a2d",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$c6d31c24-f597-48f3-a09a-f2d052905e3c",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Show interactions",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$2d155833-2781-450e-b896-aeb6fe931fc2",
+              "Comment": "Event is completed",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                    "name": "$DialogSeen$15db4243-be16-4cb2-86f7-8ddfc001e6a8",
+                    "Not": false,
+                    "m_Dialog": "!bp_a93b5623a49c47a6a3ad1ceff6cf7558"
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e6eee41c-91dd-4334-b358-1253ea4a9da1",
+                    "Not": false,
+                    "m_Etude": "!bp_4def8ef7e75e483382365a8f144afc79",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$14ece9af-1233-4ebc-8359-25abbe1d7b88",
+                    "Not": true,
+                    "m_ConditionFlag": "!bp_c0e40336da814953b8cbbded2ef1a34b",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$342d76ec-9c70-4b4e-85a4-1bc783a8ad0d",
+                    "Comment": "With or without gang",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                          "name": "$FlagUnlocked$6cd34188-f4bf-4e73-aee8-0b1f2657ce8a",
+                          "Not": false,
+                          "m_ConditionFlag": "!bp_53902461af4448b0a75358d924995ef9",
+                          "ExceptSpecifiedValues": false,
+                          "SpecifiedValues": []
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                          "name": "$HideMapObject$302b2610-f6bd-4959-9f0f-242a10bf88a6",
+                          "MapObject": {
+                            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                            "name": "$MapObjectFromScene$ddff5cdb-815b-4cdf-8b11-d2ccd5a1142a",
+                            "MapObject": {
+                              "EntityNameInEditor": "WenduagKidnappedWithoutGang",
+                              "_entity_id": "9ed0590f-0038-4965-9fe3-1f37bc9d596f",
+                              "SceneAssetGuid": "54ddcf7afde83524d985ee2595fb9271"
+                            }
+                          },
+                          "Unhide": true,
+                          "UseEntityFader": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": [
+                        {
+                          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                          "name": "$Conditional$77829047-e052-43d4-866c-deff02078c65",
+                          "Comment": "After victory or exile",
+                          "ConditionsChecker": {
+                            "Operation": "And",
+                            "Conditions": [
+                              {
+                                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                                "name": "$FlagUnlocked$fd27970e-3cf4-411a-bff9-2781d62d3428",
+                                "Not": false,
+                                "m_ConditionFlag": "!bp_818173aa209c48f6b4e1fc78fa3fe84a",
+                                "ExceptSpecifiedValues": false,
+                                "SpecifiedValues": []
+                              }
+                            ]
+                          },
+                          "IfTrue": {
+                            "Actions": [
+                              {
+                                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                                "name": "$HideMapObject$18edd03a-5bc0-408e-a1d5-56f5e0ad6aa2",
+                                "MapObject": {
+                                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                                  "name": "$MapObjectFromScene$fe21787b-6e38-48e9-9e79-fcffe2261671",
+                                  "MapObject": {
+                                    "EntityNameInEditor": "WenduagKidnappedWithGang_2",
+                                    "_entity_id": "345fb722-defb-4db0-9830-e04f6b7ac7a2",
+                                    "SceneAssetGuid": "54ddcf7afde83524d985ee2595fb9271"
+                                  }
+                                },
+                                "Unhide": true,
+                                "UseEntityFader": false
+                              }
+                            ]
+                          },
+                          "IfFalse": {
+                            "Actions": [
+                              {
+                                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                                "name": "$HideMapObject$20097c8d-84bd-4276-b691-dfccadddd691",
+                                "MapObject": {
+                                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                                  "name": "$MapObjectFromScene$810cb8a5-4527-4ef1-acad-a7040204372e",
+                                  "MapObject": {
+                                    "EntityNameInEditor": "WenduagKidnappedWithGang_1",
+                                    "_entity_id": "75a4bf06-6af7-4079-b86a-b2b566300d0a",
+                                    "SceneAssetGuid": "54ddcf7afde83524d985ee2595fb9271"
+                                  }
+                                },
+                                "Unhide": true,
+                                "UseEntityFader": false
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "Unit is unrecruited if this etude is completed. Companion gets unrecruited in DLC6_KidnappingTime_Actions and returns to party in DLC6_ReturnAllKidnappedCompanions_Actions.",
+    "m_Parent": "!bp_0a0c8bfbb0d340f5adb19c272d37e4eb",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

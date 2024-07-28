@@ -1,0 +1,140 @@
+{
+  "AssetId": "9dfe841363d78f44da1572abb4e53fc6",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Начало боя. УГОЛЁК ВЫХОДИТ ИЗ ПАРТИИ, ДЕРЕТСЯ ПРОТИВ НАС И ГИБНЕТ НАВСЕГДА",
+    "ParentAsset": "db84dfc69a073c14e91a1f186c0f0ff5",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "e68e058d-0374-4236-9f77-0962a32759dc",
+      "m_OwnerString": "9dfe841363d78f44da1572abb4e53fc6",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/Companions/CompanionQuests/Ember/Q3_Worshipped/Brotherhood/Cue_0068_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_2779754eecffd044fbd4842dba55312c",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+          "name": "$Unrecruit$755b0207-7276-4739-b4c0-7c6aef9e548d",
+          "m_CompanionBlueprint": "!bp_2779754eecffd044fbd4842dba55312c",
+          "OnUnrecruit": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$7696e0d6-bd21-4c40-9911-2c8f8f22f9b3",
+                "Target": {
+                  "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                  "name": "$RecruitedUnit$cc60ee80-97c1-4252-9d78-80326c3282bf"
+                },
+                "Unhide": true,
+                "Fade": false
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$5d4fea87-3589-4a3c-aaed-71fd9a015f6a",
+                "Target": {
+                  "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                  "name": "$RecruitedUnit$f67d8589-a19f-4092-900d-6b4f541d8e61"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$c71ec17c-666d-4372-9ca6-8ca94a7b6c5f",
+                "Unit1": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$f8554573-a61b-4fe2-b990-98ea2abdb615"
+                },
+                "Unit2": {
+                  "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                  "name": "$RecruitedUnit$6963775a-3d0e-44e7-9640-49e96886619d"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$67455bba-7cc0-49bd-bf36-995a56e84c24",
+          "m_SummonPool": "!bp_5e6ae843a7bf6114ab3dcb80afe215e5",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$062cca24-ae4e-496e-8d3a-ff2d3dc72d19",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$323403fc-0595-4742-ba46-5b29c2575a3c"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$d226311b-14e6-4b3d-a89b-35bf26954b0c",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$fc262af4-4581-40f0-b435-73a81d05c4c9"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$3832a400-ac65-4823-abc4-40f751a8c415"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

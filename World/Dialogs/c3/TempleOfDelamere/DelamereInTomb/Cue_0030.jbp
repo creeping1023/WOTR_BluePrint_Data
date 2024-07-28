@@ -1,0 +1,194 @@
+{
+  "AssetId": "24c9bcafd94a7084ea1cd12e5e200c15",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "(Уничтожает Деламер, оставляет лук и броню Деламер) ",
+    "ParentAsset": "32613e762d219454bb6d56a90a1ce7fc",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "bb1b9d11-b9cc-491d-90a5-3ea36af47161",
+      "m_OwnerString": "24c9bcafd94a7084ea1cd12e5e200c15",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/TempleOfDelamere/DelamereInTomb/Cue_0030_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ac0c924e-34a3-4399-a6f9-9b7832a82ac7",
+          "Comment": "Delamere in party",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$0672c7b4-41c0-41f6-88dc-7f188e833208",
+                "Not": false,
+                "m_companion": "!bp_6b1f599497f5cfa42853d095bda6dafd",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": true,
+                "MatchWhenRemote": true,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$0f93554d-efb3-4054-813f-1cfcbc8d42a3",
+                "m_CompanionBlueprint": "!bp_6b1f599497f5cfa42853d095bda6dafd",
+                "OnUnrecruit": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$82b1a472-45e9-4fd5-8d3f-b5566f2e0606",
+                      "Target": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$e5b07200-1af1-4bf1-b001-31e60d005860"
+                      },
+                      "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                      "IncludeGroup": false,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                      "name": "$Kill$3c6942ef-7a73-42ef-a49d-db9f91a9495e",
+                      "Target": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$56a58ba6-7ded-4f07-82e3-d12305c60f04"
+                      },
+                      "Killer": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$b440ec99-8e1e-440f-a1fc-76e31b159c7e"
+                      },
+                      "Critical": false,
+                      "DisableBattleLog": true,
+                      "RemoveExp": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$89843d56-8eef-4d2e-9e2a-d4b84f5b7682",
+                "ItemsCollection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$218af110-0e06-4bb9-9f75-f4fb0fc2ed65",
+                  "Unit": {
+                    "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                    "name": "$DialogCurrentSpeaker$83e762e4-9d64-456f-88ec-8bcc5b0e2eb4"
+                  }
+                },
+                "UseBlueprintUnitLoot": false,
+                "Loot": [
+                  {
+                    "m_Item": "!bp_3cd7903030009ed4f985c25a0c6fcde3",
+                    "Count": 1
+                  },
+                  {
+                    "m_Item": "!bp_5fd95b425dd0b73488554abcb68382d3",
+                    "Count": 1
+                  }
+                ],
+                "m_BlueprintLoot": null,
+                "Silent": true,
+                "Identify": false
+              },
+              {
+                "$type": "57055a7958e0457cb16c1654f5bb4826, RemoveItemsFromCollection",
+                "name": "$RemoveItemsFromCollection$413fcf3f-e600-4845-988a-96f33ed496fa",
+                "Collection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$53032fd7-8779-4f4f-bc95-e1fa23ce20c5",
+                  "Unit": {
+                    "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                    "name": "$DialogCurrentSpeaker$14d15b5e-577b-42d9-8fa1-251371094b70"
+                  }
+                },
+                "Loot": [
+                  {
+                    "m_Item": "!bp_2ae1cfe7ea8e60d459948193b6a0f7fe",
+                    "Count": 1
+                  },
+                  {
+                    "m_Item": "!bp_c65f6fc979d5556489b20e478189cbdd",
+                    "Count": 1
+                  }
+                ]
+              },
+              {
+                "$type": "abb0dcfdb51f3594ab0d2b1d28ecc782, Kill",
+                "name": "$Kill$a9fb9e60-3d23-43f9-b9a7-797e77ba8ba5",
+                "Target": {
+                  "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                  "name": "$DialogCurrentSpeaker$39f970e8-e995-4da4-8049-58a62bef1b50"
+                },
+                "Killer": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$f20cdafd-0ae2-4089-be1b-8defe68969e5"
+                },
+                "Critical": false,
+                "DisableBattleLog": true,
+                "RemoveExp": true
+              }
+            ]
+          }
+        },
+        {
+          "$type": "0e571e9f07a314048afedff605fa53ce, LockFlag",
+          "name": "$LockFlag$003b9897-bdba-4180-921e-02df929cd520",
+          "m_Flag": "!bp_623c506062c8bad4090adfe619fa0b27"
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

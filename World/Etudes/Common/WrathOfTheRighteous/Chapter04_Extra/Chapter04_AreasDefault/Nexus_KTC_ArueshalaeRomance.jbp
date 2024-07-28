@@ -1,0 +1,218 @@
+{
+  "AssetId": "b4994d9e9b04a2e4a83a940fb076a767",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$793c4418-0a8f-4d94-8d56-2f5d90bacaf6",
+      "$EtudeCompleteTrigger$3fe265ea-d451-4fee-bdf6-37bfaa2867b4"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$793c4418-0a8f-4d94-8d56-2f5d90bacaf6",
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$61a09e21-a660-4220-a167-00077aa90f22",
+              "Comment": "есть ли романс",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$7c40b9a0-59db-464b-a945-90eaa9ee9402",
+                    "Not": false,
+                    "m_Etude": "!bp_6a3fdd0758fe78d4aa2c3b26d7614fbc",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$7c3c6574-f587-41aa-a001-b3239724985e",
+                    "Comment": "если ещё не побывали внутри сна",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                          "name": "$DialogSeen$53d184e2-ed09-413b-a043-d10b656f0608",
+                          "Not": true,
+                          "m_Dialog": "!bp_5a9506c7a54853746a149776c554ef8e"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                          "name": "$PlayCutscene$e1b9efa3-d65d-4458-be5f-f8048472643a",
+                          "m_Cutscene": "!bp_6e48af9b8fad42942af91e4f834ac30a",
+                          "PutInQueue": false,
+                          "CheckExistence": true,
+                          "Parameters": {
+                            "Parameters": [
+                              {
+                                "Name": "Dialogue",
+                                "Type": "Blueprint",
+                                "Evaluator": {
+                                  "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                                  "name": "$Dialog$8c2aff2d-a008-4667-ab98-7c4407f92e3b",
+                                  "m_Value": "!bp_0d144e992a66a8046831ebc76ceda438"
+                                }
+                              },
+                              {
+                                "Name": "Unit",
+                                "Type": "Unit",
+                                "Evaluator": {
+                                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                                  "name": "$CompanionInParty$0e95ecbe-e162-4dfa-a894-5f859a5d7155",
+                                  "m_Companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+                                  "IncludeRemote": true,
+                                  "IncludeExCompanions": false,
+                                  "IncludeDettached": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$a548c4af-54f4-42a9-afc9-2681141e1f91",
+                    "Comment": "если ещё не побывали внутри сна",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                          "name": "$DialogSeen$1b8877ec-f0c7-4ae1-8abb-ffcd1a4e0c8d",
+                          "Not": true,
+                          "m_Dialog": "!bp_5a9506c7a54853746a149776c554ef8e"
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                          "name": "$CompleteEtude$b162d6fc-54b9-41f8-9d9d-5fc23fb35610",
+                          "Etude": "!bp_b4994d9e9b04a2e4a83a940fb076a767",
+                          "EtudeEvaluator": null,
+                          "Evaluate": false
+                        },
+                        {
+                          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                          "name": "$SetObjectiveStatus$2f5eda97-fc88-44df-b661-6c853a965103",
+                          "Status": "Fail",
+                          "m_Objective": "!bp_da8bbf648e125cb4e91c663fc2da430e",
+                          "StartObjectiveIfNone": false
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "name": "$EtudeCompleteTrigger$3fe265ea-d451-4fee-bdf6-37bfaa2867b4",
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+              "name": "$ReloadMechanic$0504f0c5-8b95-4f29-ace4-758d024349d1",
+              "Desc": "Empty action",
+              "ClearFx": true
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_1aae876689f5ab24f8a94bc024d3e5c4",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+          "name": "$CompanionInParty$ac68e1b4-8178-4a1b-85a8-cb353c0f079c",
+          "Not": false,
+          "m_companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+          "MatchWhenActive": true,
+          "MatchWhenDetached": true,
+          "MatchWhenRemote": true,
+          "MatchWhenDead": false,
+          "MatchWhenEx": false
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$2ac2769b-d7fc-4a5d-8052-3e0be8fda6fa",
+          "Not": false,
+          "m_Etude": "!bp_a7065c0d6f6b83d4e9eb259279b7d66c",
+          "NotStarted": true,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": false
+        },
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$ead5b31c-5f2a-4d07-9b0e-ecea6ac0f8a6",
+          "Not": true,
+          "m_Group": "!bp_f1d9c6151022e6141b5365e3960eef44"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_7847c3e3537104f4694167af0b9fcd0e",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_f1d9c6151022e6141b5365e3960eef44",
+      "!bp_9b10f9eeceb51114ba0cc5bc02bc8cc5"
+    ],
+    "Priority": 50
+  }
+}

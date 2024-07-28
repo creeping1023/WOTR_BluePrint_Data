@@ -1,0 +1,277 @@
+{
+  "AssetId": "02b0aafe2c01894428a2f2f37f5a35bd",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$a7e59a8e-1064-4353-9932-9698a3019c07",
+      "$GenericInteractionTrigger$276fc642-a144-4784-94c8-4809022235df",
+      "$ItemTrigger$fbe32e2f-bc3a-4ceb-8ceb-9cbd30d474a2"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$a7e59a8e-1064-4353-9932-9698a3019c07",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": " - диалог с Геральдом\n- спавн Шва",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$baa31afd-01e8-438a-97d3-05d080a655a9",
+              "m_Cutscene": "!bp_d2e10032d63c8da4c8236b1478bc1208",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$4081ecd5-510b-43df-9412-6844543172d0",
+              "Comment": "жив ли Шов",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ae16d280-a6be-42dd-b913-de19f10be165",
+                    "Not": false,
+                    "m_Etude": "!bp_290fb46ad9f61da4a8151e8263f6cba7",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                    "name": "$Spawn$71d04999-7737-429a-8523-6b27efe5965a",
+                    "Spawners": [
+                      {
+                        "EntityNameInEditor": "Dretch_Stitch_InMines",
+                        "_entity_id": "7a9256e0-f0b7-4e2e-a260-5b0af62a7855",
+                        "SceneAssetGuid": "7508335bf58f53d4f9bf8dbd883c7b16"
+                      }
+                    ],
+                    "ActionsOnSpawn": {
+                      "Actions": []
+                    },
+                    "RespawnIfDead": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "40186c9b2cc082a4ab4ac4f0dad177c7, GenericInteractionTrigger",
+        "m_Flags": 0,
+        "name": "$GenericInteractionTrigger$276fc642-a144-4784-94c8-4809022235df",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "Comment": "даёт аддендум Add_CrystalMined ",
+        "MapObject": {
+          "EntityNameInEditor": "Bark_NahyndrianRemains",
+          "_entity_id": "6396ad8e-e34d-4b2f-827b-2ec8a70a275a",
+          "SceneAssetGuid": "7508335bf58f53d4f9bf8dbd883c7b16"
+        },
+        "TriggerBeforeInteraction": false,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$4339e7a6-a0ea-4874-a3f0-52ee89ddb831",
+              "m_Objective": "!bp_89a595cdd5bd4f64fb1d401311aca60e"
+            }
+          ]
+        },
+        "RestrictedActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "2692cd97dff261b40b530d7b25e425cd, PartyInventoryTrigger",
+        "m_Flags": 0,
+        "name": "$ItemTrigger$fbe32e2f-bc3a-4ceb-8ceb-9cbd30d474a2",
+        "PrototypeLink": {
+          "guid": null,
+          "name": null
+        },
+        "m_Overrides": [],
+        "m_Item": "!bp_aa261cc262b568c44a11efee4e5eafe8",
+        "OnAddActions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$0306fcac-d26f-4962-ba93-19ab10a1b848",
+              "Status": "Complete",
+              "m_Objective": "!bp_e61fda0550ca403468b01a88ce86b0ed",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$8c4c1737-b7de-42c5-8df3-ec49af5b0aa0",
+              "m_Objective": "!bp_363dd274615f28c418e69dd89acda65e"
+            }
+          ]
+        },
+        "OnRemoveActions": {
+          "Actions": []
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$6bc9fd47-9bb1-47b2-bc22-a7926c338c2e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "disable altar",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$0d32998b-9025-46f0-a378-6cb660795ef3",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$da046ef7-a877-46e0-b2a0-24edeed820e1",
+                "MapObject": {
+                  "EntityNameInEditor": "IomedaeAltar",
+                  "_entity_id": "0159eca4-9121-4bef-9d3c-f34addabccbe",
+                  "SceneAssetGuid": "80b94c7860421294b8187b9e018dea75"
+                }
+              },
+              "Unhide": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$4a20e556-1f6f-4256-a1cc-67d616c277e0",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Nexus Coin Check",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$7bd439ca-4dc3-4e71-bec8-0bbfa10bddf1",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                    "name": "$ItemsEnough$28ef7016-8a9c-48b0-b287-738a683c5716",
+                    "Not": false,
+                    "Money": false,
+                    "m_ItemToCheck": "!bp_060d4982238ba604aac2ded721d67e09",
+                    "Quantity": 1,
+                    "IgnoreRemoteCompanions": false,
+                    "CheckInPlayerHubChest": true,
+                    "CheckBesmaritesChests": false,
+                    "CheckMemoriesChests": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$e22dd521-e089-4282-b543-9773faf4407e",
+                    "Not": true,
+                    "m_Etude": "!bp_7d13e52b56b14075a4639b0463ce29a3",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$64560cdb-8f63-4abe-82f9-1b019abb9085",
+                    "Etude": "!bp_7d13e52b56b14075a4639b0463ce29a3",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_9f6b216f4439a7f4e913d39d2d813287",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_7847c3e3537104f4694167af0b9fcd0e",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [
+      "!bp_a306a45af54d10742be60c756337725b"
+    ],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

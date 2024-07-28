@@ -1,0 +1,453 @@
+{
+  "AssetId": "11c9043a929f37d4c8a9d9d8606851ee",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Хоргус и Камелия нападают. Камелия выходит из партии, из ростера, умрет тут и больше не появится",
+    "ParentAsset": "3bbe09ace463a0b43a2c4911152f93e5",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "effb8dc7-7b54-41a0-855a-6efcf1c4822e",
+      "m_OwnerString": "11c9043a929f37d4c8a9d9d8606851ee",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c1/HorgusManor/HorgusSecret/Cue_0040_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "Angry",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$62fec76d-825f-4bb4-8476-d6b9df63491a",
+          "Etude": "!bp_cf3639c5cf057034fa766dd5f421d2ed",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$5995d770-3895-4a1b-a173-9d2f7b6fb1df",
+          "Etude": "!bp_e9d86456ca52ee44eb9f6ce1fa13a9fd",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$a4a5144a-bcf5-4c74-9454-5cf2e0bf2575",
+          "Etude": "!bp_fc8ec3200fcb8da41ae2ad391f2f6eb0",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "76f3713a528441968267c8d93ba89f39, MakeItemNonRemovable",
+          "name": "$MakeItemNonRemovable$74260459-c275-4a8e-81c7-9ddc6eafb10a",
+          "m_Item": "!bp_94b2b8b9ef254344cbc71663fecf8b99",
+          "NonRemovable": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d507c36c-ff0f-4cb9-b5cb-5b1ba308ad17",
+          "Comment": "Камелия не в партии / в партии",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                "name": "$CompanionInParty$f6466cdb-73db-4838-932c-e3a1607802d0",
+                "Not": true,
+                "m_companion": "!bp_397b090721c41044ea3220445300e1b8",
+                "MatchWhenActive": true,
+                "MatchWhenDetached": false,
+                "MatchWhenRemote": false,
+                "MatchWhenDead": false,
+                "MatchWhenEx": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$40833503-addc-40cd-90f6-40e9c61c2b0c",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$665f2837-a160-42ab-b141-c7279bcb5cde",
+                      "Not": false,
+                      "m_companion": "!bp_397b090721c41044ea3220445300e1b8",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": true,
+                      "MatchWhenRemote": true,
+                      "MatchWhenDead": true,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                      "name": "$Unrecruit$afa70dbb-1408-4b3a-b219-81a555217af4",
+                      "m_CompanionBlueprint": "!bp_397b090721c41044ea3220445300e1b8",
+                      "OnUnrecruit": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$7e38b11f-588f-4003-b735-8126119dbc06",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "CamelliaCS_Cutscene02",
+                    "_entity_id": "114282ed-472c-436c-805f-6aee8a8040ba",
+                    "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$deef4a1c-5c01-42c0-a85f-05c054e42bb4",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$fdfd49a1-f8da-4234-89eb-8c905961e08f",
+                  "Spawner": {
+                    "EntityNameInEditor": "HorgusQ0_Cutscene",
+                    "_entity_id": "4d1a1600-4f17-4979-8fe6-f6cf6dd91e07",
+                    "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                  }
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$e1f755d8-f486-4b26-a5c6-39b7f8efc51f",
+                "Unit1": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$24dddfc0-713c-4bfd-b893-05d2122d67f0"
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$cf21253a-6de8-4979-8c18-fa9e7d1b7846",
+                  "Spawner": {
+                    "EntityNameInEditor": "HorgusQ0_Cutscene",
+                    "_entity_id": "4d1a1600-4f17-4979-8fe6-f6cf6dd91e07",
+                    "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$455d9382-c642-4507-8747-131c19c8991f",
+                "m_CompanionBlueprint": "!bp_397b090721c41044ea3220445300e1b8",
+                "OnUnrecruit": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$71878dd2-9235-4c05-baf0-c4a956131ddb",
+                      "Target": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$d8abe6bd-6107-4f1e-9595-37fbdfe7ce87"
+                      },
+                      "Unhide": true,
+                      "Fade": false
+                    },
+                    {
+                      "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                      "name": "$AddUnitToSummonPool$47552511-03a6-47d2-a78c-4c0f69d4ff57",
+                      "m_SummonPool": "!bp_294279f3961d6da48b2dbdd14ad6b57d",
+                      "Unit": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$ac535b16-fe14-40cb-a215-c60ea50d9175"
+                      }
+                    },
+                    {
+                      "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+                      "name": "$TranslocateUnit$fc0913bc-4653-4592-8f11-6db7287e8bc8",
+                      "Unit": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$19ce34c8-7aae-4c2e-810f-2def2de70b46"
+                      },
+                      "translocatePosition": {
+                        "EntityNameInEditor": "",
+                        "_entity_id": "",
+                        "SceneAssetGuid": ""
+                      },
+                      "translocatePositionEvaluator": {
+                        "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                        "name": "$UnitPosition$8d431446-4e13-481c-97a0-182aa9bb7da5",
+                        "Unit": {
+                          "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                          "name": "$RecruitedUnit$b467b8b3-efb4-4e2a-8451-4134d6a354ea"
+                        }
+                      },
+                      "m_CopyRotation": false,
+                      "translocateOrientationEvaluator": null
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$9e46b776-ea69-4141-9d77-1895e6a34446",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$e04a22ac-2fab-4c6b-a8ae-2296f5af5232",
+                  "Spawner": {
+                    "EntityNameInEditor": "HorgusQ0_Cutscene",
+                    "_entity_id": "4d1a1600-4f17-4979-8fe6-f6cf6dd91e07",
+                    "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                  }
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": false,
+                "ResetAllRelations": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$f663f32e-5460-481c-ba48-65cf0da1be65",
+                "Unit1": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$a375de2e-bf53-404f-af31-2d32f7d0541f"
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$7b23662a-6c28-4476-9f2d-d389f15bccd0",
+                  "Spawner": {
+                    "EntityNameInEditor": "HorgusQ0_Cutscene",
+                    "_entity_id": "4d1a1600-4f17-4979-8fe6-f6cf6dd91e07",
+                    "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$3b2a6ba2-08f2-4018-84aa-7e52e0ff3f60",
+          "Target": {
+            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+            "name": "$FirstUnitFromSummonPool$39bff0da-1d76-4e82-843c-50007429000c",
+            "m_SummonPool": "!bp_294279f3961d6da48b2dbdd14ad6b57d",
+            "Conditions": {
+              "Operation": "And",
+              "Conditions": []
+            }
+          },
+          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+          "IncludeGroup": false,
+          "ResetAllRelations": true
+        },
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$fba5d589-4409-45db-b97a-b7cb549ab39f",
+          "Unit1": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$511871e9-4d49-4d23-853e-fdebea470cbc"
+          },
+          "Unit2": {
+            "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+            "name": "$FirstUnitFromSummonPool$2dd30906-01c5-494f-9b22-f906de3e6c40",
+            "m_SummonPool": "!bp_294279f3961d6da48b2dbdd14ad6b57d",
+            "Conditions": {
+              "Operation": "And",
+              "Conditions": []
+            }
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4f92f078-8ac0-461d-85f5-ddbf624d7d02",
+          "Comment": "кладём золото в Хоргуса",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$ac0c71b1-1fbf-4e9e-98af-944173f78d92",
+                "Not": true,
+                "m_ConditionFlag": "!bp_386c9e297d3bf4548a5c41ccdcdd60ba",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$ed7235e8-df73-4420-8a4c-7e8229540f28",
+                "ItemsCollection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$49cec114-7400-49f3-a548-a356d20a1fae",
+                  "Unit": {
+                    "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                    "name": "$UnitFromSpawner$6d1b2be8-ede7-4d96-ab3f-03ff6d407179",
+                    "Spawner": {
+                      "EntityNameInEditor": "HorgusQ0_Cutscene",
+                      "_entity_id": "4d1a1600-4f17-4979-8fe6-f6cf6dd91e07",
+                      "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                    }
+                  }
+                },
+                "UseBlueprintUnitLoot": false,
+                "Loot": [
+                  {
+                    "m_Item": "!bp_f2bc0997c24e573448c6c91d2be88afa",
+                    "Count": 1000
+                  }
+                ],
+                "m_BlueprintLoot": null,
+                "Silent": true,
+                "Identify": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$5054a8f6-aba5-481a-b02c-b19c6e17ca1a",
+                "Comment": "сколько награды выдавать",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$273b1dea-1aa6-4248-908e-d54508cf6f02",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_386c9e297d3bf4548a5c41ccdcdd60ba",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": [
+                        1
+                      ]
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                      "name": "$AddItemsToCollection$60dcb777-5f7b-406c-bc6c-d73e081f2438",
+                      "ItemsCollection": {
+                        "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                        "name": "$UnitInventory$b89fb03a-e29f-493d-8790-160f4c3ee5f2",
+                        "Unit": {
+                          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                          "name": "$UnitFromSpawner$d75121f5-57cd-40c4-a3f3-eb8cc860a4ad",
+                          "Spawner": {
+                            "EntityNameInEditor": "HorgusQ0_Cutscene",
+                            "_entity_id": "4d1a1600-4f17-4979-8fe6-f6cf6dd91e07",
+                            "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                          }
+                        }
+                      },
+                      "UseBlueprintUnitLoot": false,
+                      "Loot": [
+                        {
+                          "m_Item": "!bp_f2bc0997c24e573448c6c91d2be88afa",
+                          "Count": 2000
+                        }
+                      ],
+                      "m_BlueprintLoot": null,
+                      "Silent": true,
+                      "Identify": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                      "name": "$AddItemsToCollection$30d3dd9f-7636-4334-86ea-820e9455a6c7",
+                      "ItemsCollection": {
+                        "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                        "name": "$UnitInventory$0fdf4246-6310-4b0e-bccc-b42b0b908de6",
+                        "Unit": {
+                          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                          "name": "$UnitFromSpawner$6473e69d-c53e-4e80-a690-2c10e728fea4",
+                          "Spawner": {
+                            "EntityNameInEditor": "HorgusQ0_Cutscene",
+                            "_entity_id": "4d1a1600-4f17-4979-8fe6-f6cf6dd91e07",
+                            "SceneAssetGuid": "49a2d61ea79eb634db45e4423ffb8166"
+                          }
+                        }
+                      },
+                      "UseBlueprintUnitLoot": false,
+                      "Loot": [
+                        {
+                          "m_Item": "!bp_f2bc0997c24e573448c6c91d2be88afa",
+                          "Count": 2300
+                        }
+                      ],
+                      "m_BlueprintLoot": null,
+                      "Silent": true,
+                      "Identify": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

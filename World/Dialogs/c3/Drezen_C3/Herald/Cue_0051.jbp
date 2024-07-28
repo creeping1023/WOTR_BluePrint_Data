@@ -1,0 +1,144 @@
+{
+  "AssetId": "95b0ab1a2cbb9db4eb582c3dd79c712e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "даем обжектив \"ждать мифик\"\nоднако, если мы уже прошли Лабу, то сразу выдаем аддендум NowReadyToEnterFane",
+    "ParentAsset": "dddf6213bdc9c0d4f918e0a5521927ab",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "4a742ba5-9d44-4cc9-a404-448a3b9931b7",
+      "m_OwnerString": "95b0ab1a2cbb9db4eb582c3dd79c712e",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/Drezen_C3/Herald/Cue_0051_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$329af122-c28f-441a-9cf1-bf9181a05ec1",
+          "m_Objective": "!bp_6dca932e5a96b4c4db18b5ab55b50b96"
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$c3f96a98-2936-492b-9031-141a3887dc53",
+          "Comment": "Прошли ли лабу",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$18dedc45-478a-4ab3-8966-f47445ba0987",
+                "Not": false,
+                "m_Etude": "!bp_41815d07e5faeab43af8c5aba089583e",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": true
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$4d388569-1daa-4cd4-9358-34636e5452ce",
+                "m_Objective": "!bp_d2c9bf8365ea9ee468d0d28cb15dfe2e"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$f33da68b-79d3-4b12-91a5-b0d5b7d350d4",
+          "Comment": "Если Ирабет еще тут",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$9da0ce19-49c1-437d-8333-87ea07482cf6",
+                "Not": false,
+                "m_Etude": "!bp_132ab001736a23748ac1ccbf809d01b0",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$9d82b139-490f-4ca6-ab2f-737406607baf",
+                "m_Cutscene": "!bp_e0cd8eb016ec176459cc06aaa07407c9",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                "name": "$StartEtude$b4006e29-8bfe-4db8-8a14-2535d4ca0006",
+                "Etude": "!bp_36bec7886d7160b488bc42eb1d146db4",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_8561c0bb5183db24fbd42c4b9c505236"
+      ],
+      "Strategy": "First"
+    }
+  }
+}

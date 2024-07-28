@@ -1,0 +1,115 @@
+{
+  "AssetId": "f02cfcbd859b4b219892825f78514202",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Проверяет был ли бой с Арушкагай, через статут обжа. Респаунит Нено и снова запускает цепочку действий (комплит обжа, маленькая катсцена и выдача нового обжа). Это позволяет подойти к лисе и начать нужный диалог, который откроет выход с уровня и решит ее судьбу.",
+    "m_SpecificArea": "!bp_646d29390deeba548b9605329897801f",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$47c6977c-706e-4479-80d5-b728f0f17343",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$4127d183-db9d-4a2f-b13d-3bb8b278e3ec",
+                "Not": false,
+                "m_QuestObjective": "!bp_9f1be78a43be2f54eb3c18c5ac5f25a9",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+                "name": "$RaiseDead$bab869fa-0c06-4144-a0d6-10c454c68553",
+                "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                "riseAllCompanions": false
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$b5370863-cbbf-4edc-a624-6e6066aaca26",
+                "Comment": "Лиса не в партии (EX)",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$607621d4-3082-4c4a-ae63-83796ad4586b",
+                      "Not": false,
+                      "m_companion": "!bp_1b893f7cf2b150e4f8bc2b3c389ba71d",
+                      "MatchWhenActive": false,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": false,
+                      "MatchWhenEx": true
+                    },
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$aa6c6b3d-f463-4566-94ad-d72e42c409a5",
+                      "Not": false,
+                      "m_Etude": "!bp_96d12b37cf84da049be8587c4914a496",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$533e7be8-5370-4eee-b112-5a87e3ae324a",
+                      "Etude": "!bp_35399489cd494583af28e059e5726d6c",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$a51c5053-0934-49dd-933f-cb2d2a3dc7d7",
+                      "m_Cutscene": "!bp_c99bd7930b2c46339899ade3d3e6e341",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    },
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$2ee5549f-657e-48a4-a56e-79272550a220",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_9f1be78a43be2f54eb3c18c5ac5f25a9",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                      "name": "$GiveObjective$9c79cfd0-5acb-4a12-ae98-b0dc58cc496d",
+                      "m_Objective": "!bp_af57a842cbd1354429c28074594bf4f0"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

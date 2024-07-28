@@ -1,0 +1,248 @@
+{
+  "AssetId": "b9baf672dd6e53a4c93016e024cb5519",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudeBracketAudioObjects$8f768b8a-a6c7-4473-bc6a-0abf8d953017"
+    ],
+    "Components": [
+      {
+        "$type": "168ca2fb1b284714caf2ac02c537a76c, EtudeBracketAudioObjects",
+        "m_Flags": 0,
+        "name": "$EtudeBracketAudioObjects$8f768b8a-a6c7-4473-bc6a-0abf8d953017",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Загружает банк для представления театра в C5 в Дрезене",
+        "ConnectedObjectName": "TheatreDuringThePerformance_EtudeConnectedAudioBankLoader"
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$262069dc-d82d-4775-9c9d-ca51b7a26006",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$cad2c03b-0ae9-444d-af0b-48e4366657df",
+              "DialogueOwner": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$e530d4c1-5b64-4732-900f-71baee32e6b6",
+                "Spawner": {
+                  "EntityNameInEditor": "Theatre_Director (1)",
+                  "_entity_id": "75a360e4-862b-46de-8999-a4123ee864ea",
+                  "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                }
+              },
+              "m_Dialogue": "!bp_8878023d412745d41beaee0338308d57",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            },
+            {
+              "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+              "name": "$SpawnBySummonPool$738538dd-32a2-44f3-a21c-36c9c93e9840",
+              "m_Pool": "!bp_f6c23181f05b24a4d93e4fef15dcf81c",
+              "m_IgnoreSpawnerConditions": true,
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$043b9578-17af-4737-989d-5e7c5a750252",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ac7ae017-2284-46fa-9add-05bbd0e2dee2",
+                    "Not": false,
+                    "m_Etude": "!bp_9a3739370f84b0b4196d0e4d326ea3a8",
+                    "NotStarted": false,
+                    "Started": true,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$3bda682b-c0aa-49f6-977e-32d335107ca1",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$51d91e4c-0ed4-4a05-9751-de975c55fa7e",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawn_BabauSpear (3)",
+                        "_entity_id": "3aad9c03-a754-4921-83f0-b21bc40c85b3",
+                        "SceneAssetGuid": "3609f45a5e351bc46bbac3495ff1069a"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  },
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$ee64967c-9a48-467b-825e-9e45914603fa",
+                    "Target": {
+                      "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                      "name": "$UnitFromSpawner$345b7a99-116c-4ab1-93d1-781a31247bd5",
+                      "Spawner": {
+                        "EntityNameInEditor": "Spawn_BrimorakStandard (2)",
+                        "_entity_id": "a793ee86-c3c1-4794-8133-0bfe5ceea776",
+                        "SceneAssetGuid": "3609f45a5e351bc46bbac3495ff1069a"
+                      }
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+              "name": "$CompleteEtude$84674349-d932-4914-8a57-481c5907d42f",
+              "Etude": "!bp_72e0b164e5724b5f9278d1abf12fa4a6",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$091bfa52-6b47-43c8-80a8-52cc7673fb41",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$ae77f3fb-a24d-45f8-8a96-fb198ae77387",
+              "m_SummonPool": "!bp_f6c23181f05b24a4d93e4fef15dcf81c",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$0097aa17-0238-44ff-990b-4494c47db0ac",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$84158376-ff43-4330-8424-4fbd68bcf70b"
+                    },
+                    "Unhide": false,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "38b104786c153ae409ee91b85544a4a5, TranslocateUnit",
+              "name": "$TranslocateUnit$60bb6f67-9b6c-4b8d-b4ab-562b9d2159ba",
+              "Unit": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$5935a07f-1121-4a80-8877-727b81ee5b7e",
+                "m_Companion": "!bp_32a037e97c3d5c54b85da8f639616c57",
+                "IncludeRemote": false,
+                "IncludeExCompanions": false,
+                "IncludeDettached": false
+              },
+              "translocatePosition": {
+                "EntityNameInEditor": "IvyThorneRoom_Locator",
+                "_entity_id": "15abcf55-68da-4189-b5ba-0dc782fb25af",
+                "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+              },
+              "translocatePositionEvaluator": {
+                "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                "name": "$LocatorPosition$e645ac67-dcc0-4547-9899-8121eea9624c",
+                "Locator": {
+                  "EntityNameInEditor": "IvyThorneRoom_Locator",
+                  "_entity_id": "15abcf55-68da-4189-b5ba-0dc782fb25af",
+                  "SceneAssetGuid": "3e2b5ea054cd5b2479e7f13134363ef4"
+                },
+                "Offset": "0|0|0"
+              },
+              "m_CopyRotation": false,
+              "translocateOrientationEvaluator": null
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_93aa6210adbb1ac49ba33c588b18751d",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$8f97367e-b278-4064-b3f7-761e686d7356",
+          "Not": true,
+          "m_Group": "!bp_09bcb0ca88c8a394f8601179a094905a"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_LinkedCampaigns": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [
+      "!bp_5f4df1eeed6d43e8ab21c5fb5167ee37",
+      "!bp_5c91918e440f487e96d84d6080dca818",
+      "!bp_23642e113a4349a0aee313343659d42d",
+      "!bp_449a4f97cb504c5ca3f121463782ca9c",
+      "!bp_9a30f973a4b240588edf87f9e9505ded"
+    ],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [
+      "!bp_09bcb0ca88c8a394f8601179a094905a"
+    ],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

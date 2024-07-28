@@ -1,0 +1,150 @@
+{
+  "AssetId": "9948565aca0d84644b1c00de118af389",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "ParentAsset": "342b47dd4b214f84aa9118814132d8d7",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "fb38e7c2-8a47-49bd-8fae-542512e72189",
+      "m_OwnerString": "9948565aca0d84644b1c00de118af389",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c0/CavesUnderKenabres/MeetSeelahAnevia/Cue_0049_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_54be53f0b35bf3c4592a97ae335fe765",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "Neutral",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$48556828-f423-413b-9cd6-fd819b21a4b1",
+          "m_Objective": "!bp_d16508b77beb87340a4d1933750f1f8d"
+        },
+        {
+          "$type": "b90eea06ce91f564e8793832eea02cef, Recruit",
+          "name": "$Recruit$14ecacca-6f9f-42e1-90db-172b40ea533f",
+          "Recruited": [
+            {
+              "m_CompanionBlueprint": "!bp_54be53f0b35bf3c4592a97ae335fe765",
+              "NPCUnit": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$8f1a7e0a-64ff-41ef-9e3a-2ec418854dfe",
+                "Spawner": {
+                  "EntityNameInEditor": "Seelah",
+                  "_entity_id": "46bc4268-6224-4089-9ce9-aad2670639ec",
+                  "SceneAssetGuid": "93ce88a5d3c3c8041a07cd8d78f49422"
+                }
+              },
+              "MustBeInParty": false
+            }
+          ],
+          "AddToParty": true,
+          "MatchPlayerXpExactly": false,
+          "OnRecruit": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$6bbbafee-a17b-4fff-bd65-d9e8490aacf8",
+                "Comment": "Attach Fatigue in necessary",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$86f111bb-41a3-41b5-bf4d-5ca230717cb0",
+                      "Not": false,
+                      "m_Etude": "!bp_deac985ff40aeab45bda996027473cfc",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$57f205be-a2d9-4740-9271-955b3c621667",
+                      "m_Buff": "!bp_e6f2fc5d73d88064583cb828801212f4",
+                      "Target": {
+                        "$type": "6c997aeb1537f2d44a5d7abd8ea1ef0a, RecruitedUnit",
+                        "name": "$RecruitedUnit$5f4c4518-06e8-456a-bc54-f432ada270bc"
+                      },
+                      "Duration": null
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "OnRecruitImmediate": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$b7e9887d-32f7-4b5d-a3ad-e5a1e4bbc2b0",
+          "Etude": "!bp_b5f1df4ce72c8cd459eb18a1cffc091b",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$473b3b52-858a-4759-880f-099ab221d48a",
+          "Etude": "!bp_cab903611be84934b8ebb21623db4cfa",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "1c7b1754db3d4c908b1dbe779c4ed85c, ShowNewTutorial",
+          "name": "$ShowNewTutorial$437c3ca4-8783-4299-84b9-d9111db4f687",
+          "m_Tutorial": "!bp_8340de01086105040b4c89e43c6cd48e",
+          "Evaluators": []
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

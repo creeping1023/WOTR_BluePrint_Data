@@ -1,0 +1,165 @@
+{
+  "AssetId": "fb78a8cae9c86044ebd1bd39f6c82d20",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$fb3f18c9-e000-47ea-b255-8b1da5ee16a2"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$fb3f18c9-e000-47ea-b255-8b1da5ee16a2",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9fb550e3-63de-447c-88a6-96225960ab5a",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$94670ef6-2df2-47d9-b21a-b548b8f5ac92",
+                    "Not": true,
+                    "m_Etude": "!bp_439e63fed37f52048887d98f99255e40",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$09c72030-b02c-46d5-b6bf-0b034ec56bd8",
+                    "Status": "Complete",
+                    "m_Objective": "!bp_c898a44e5b8f661469fd4b7baac397ad",
+                    "StartObjectiveIfNone": false
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$13c44e04-9aae-4547-a125-b7afbe143cf6",
+                    "m_Objective": "!bp_7938f4daa0678b94ba1e51ecf3d335ed"
+                  },
+                  {
+                    "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                    "name": "$Conditional$6fab45b7-5909-4ad0-9367-b8ef2c8319f2",
+                    "Comment": "",
+                    "ConditionsChecker": {
+                      "Operation": "And",
+                      "Conditions": [
+                        {
+                          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                          "name": "$EtudeStatus$78b459a0-944e-4b45-95c7-f09d210d6e28",
+                          "Not": false,
+                          "m_Etude": "!bp_cddee8b9dabe81e4fa76418ca4698124",
+                          "NotStarted": false,
+                          "Started": false,
+                          "Playing": true,
+                          "CompletionInProgress": false,
+                          "Completed": false
+                        }
+                      ]
+                    },
+                    "IfTrue": {
+                      "Actions": [
+                        {
+                          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                          "name": "$Spawn$be2affad-00b6-4855-a06f-1f869ae0db02",
+                          "Spawners": [
+                            {
+                              "EntityNameInEditor": "Regill_IfNotInPartyQ3 (1)",
+                              "_entity_id": "df69926b-a0b3-4499-a519-569d94376d57",
+                              "SceneAssetGuid": "d56ceb4049b84c045bbfb8fa978a11c8"
+                            }
+                          ],
+                          "ActionsOnSpawn": {
+                            "Actions": []
+                          }
+                        }
+                      ]
+                    },
+                    "IfFalse": {
+                      "Actions": []
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                    "name": "$SummonPoolUnits$b476651a-f183-4f43-bd5e-0b991215091c",
+                    "m_SummonPool": "!bp_f7f75a1fe5cdf8843a2cffdcfe406902",
+                    "Conditions": {
+                      "Operation": "And",
+                      "Conditions": []
+                    },
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                          "name": "$SwitchFaction$d6f0281b-398b-4933-beb0-ff39ad5993f1",
+                          "Target": {
+                            "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                            "name": "$SummonPoolUnit$92b77aeb-66da-4eab-a165-1894d247fb83"
+                          },
+                          "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                          "IncludeGroup": true,
+                          "ResetAllRelations": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_948d835ae63fe9f4c82e10534d8381c5",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_998fb6866a352f642abed7caa8fad0af",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_cc6b5c23472f0e8459befe86542bbb52"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "AssetId": "ede9fb5d6b512694280601a7699326fb",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+          "name": "$FlagInRange$1b070a4f-7fde-4ec2-be60-ea45cb986163",
+          "Not": false,
+          "m_Flag": "!bp_f263cd63729cea24099c81058aad59b2",
+          "MinValue": 0,
+          "MaxValue": 2
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$7c6a22b8-0742-4c02-942f-06426f39d557",
+          "Not": false,
+          "m_Quest": "!bp_9ca7bd68d132db34ba4c9e236a2672a1",
+          "State": "Completed"
+        }
+      ]
+    },
+    "OnFail": "FinishTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "5a0f8a1614a840f8b0629a71b6de51f7, SpawnBySummonPool",
+          "name": "$SpawnBySummonPool$41f55e7a-5c0c-4a60-a0f9-b063d267b9dc",
+          "m_Pool": "!bp_6fe63d83e55a64c42ac15c6801b3fa1e",
+          "ActionsOnSpawn": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$95d761b5-63ee-4a8d-a0b2-e59e27e68d60",
+                "m_Cutscene": "!bp_38e86ffb5c0c410bb6c8c35aeb102140",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$93bf2ffd-b42b-4aba-b8c5-2bf2204143f5"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$92eb23ef-fe5b-41c9-9975-b93893440619",
+          "Comment": "Yaker or Aminas",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a6c7990b-a4e9-4f36-baa6-6938823b770e",
+                "Not": false,
+                "m_Etude": "!bp_410b27a157626fb4d9b7161535484626",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$e5e1ba6a-2062-447b-8939-5b3fa4277db9",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$c1bbf54e-6f38-42a8-9c2a-c632f54c665d",
+                  "Spawner": {
+                    "EntityNameInEditor": "HellknightsParaliktor_Aminas",
+                    "_entity_id": "bd8b2784-747a-4a80-a6ab-29831224f281",
+                    "SceneAssetGuid": "590a7372fd11686439e3a73c4495c420"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$a62855f0-c37a-4ae3-a8bb-ca6bf894bab3",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$7a6a4570-0cac-4dcf-9854-d00eed6dff81",
+                  "Spawner": {
+                    "EntityNameInEditor": "YakerAnkelli_Hellknight",
+                    "_entity_id": "bd1ac528-14c3-4a2b-9c9f-f29cc49b79b3",
+                    "SceneAssetGuid": "590a7372fd11686439e3a73c4495c420"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "AssetId": "52ceac85f5284fe7a9575dcb071d2ab4",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$b490acdf-12c4-43ff-84fb-7435dcee12bd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Remove golarion slaves if Rvaniy dead",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "Or",
+          "Conditions": [
+            {
+              "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+              "name": "$EtudeStatus$ebe69c0b-8a49-46be-8427-3b01cd0de100",
+              "Not": false,
+              "m_Etude": "!bp_200a4df047f46a54cbc3cd8ccf6eaef0",
+              "NotStarted": false,
+              "Started": false,
+              "Playing": true,
+              "CompletionInProgress": false,
+              "Completed": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$f17bb7d5-8541-4b83-9380-2145e3340b96",
+              "m_SummonPool": "!bp_7381a9043e6643ed8944cbad03a895c1",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                    "name": "$DestroyUnit$8d931134-4ed8-463b-a5cc-eab380ba5ab0",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$6183d457-8e7f-427b-aea5-9caa011a8564"
+                    },
+                    "FadeOut": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f2a51e84-991b-43dd-ae5c-2c79ee20c8bc",
+              "Comment": "Arena or Nexus?",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$7a017004-57dd-4e6e-99a4-2792d0afa4c5",
+                    "Not": true,
+                    "m_Etude": "!bp_a43a5070977b4b1f9d8913d5f8eb790f",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  },
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$3305d1b9-7857-4f0e-95f3-66976a006099",
+                    "Not": true,
+                    "m_Etude": "!bp_1cde1f53d8a84648834a7cc22cbf449b",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+                    "name": "$StartEtude$5e0ff42c-fd75-494c-a4ee-00729e85390e",
+                    "Etude": "!bp_1dc7c71a5b9e00746988c838f767d320",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "576c0defa521db5409ebace3b946bf6a, EvaluatedUnitDeathTrigger",
+        "m_Flags": 0,
+        "name": "$EvaluatedUnitDeathTrigger$8447b6ab-ab19-4a95-a6a5-c365059b199d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "смерть Рваного",
+        "AnyUnit": false,
+        "Unit": {
+          "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+          "name": "$UnitFromSpawner$f65f6e5e-b839-4a8f-9c87-38f132cba89e",
+          "Spawner": {
+            "EntityNameInEditor": "Rvaniy_CR19",
+            "_entity_id": "8934b9b7-5d3e-4c03-96b1-be512f7d2cbe",
+            "SceneAssetGuid": "dea797b8ba927bb48b27d254989ef580"
+          }
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$72969033-f2eb-422b-9d5b-17a5e44840a7",
+              "Etude": "!bp_200a4df047f46a54cbc3cd8ccf6eaef0",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$861e729d-6c1d-4981-ad1a-76de3b5aed10",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Give him a coin",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+              "name": "$AddItemsToCollection$0cd7213c-8d4e-456c-8792-f7c3ca0e3d8c",
+              "ItemsCollection": {
+                "$type": "424c082e5648c164ebd1000e96ef8e10, SharedVendorTable",
+                "name": "$SharedVendorTable$9fed8d19-5ea8-4fa5-a9c5-3129135a433b",
+                "m_SharedVendor": "!bp_8edcc85ae155a3f45947d09876634131"
+              },
+              "UseBlueprintUnitLoot": false,
+              "Loot": [
+                {
+                  "m_Item": "!bp_6210ba9b808803547a9ddc292db502fe",
+                  "Count": 1
+                }
+              ],
+              "m_BlueprintLoot": null,
+              "Silent": true,
+              "Identify": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_c9e64ecd28a6f6c429786c97fc9cd189",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_180cdb4b48d561f4cb4ef9a066727960",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

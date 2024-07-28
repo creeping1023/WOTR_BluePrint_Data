@@ -1,0 +1,179 @@
+{
+  "AssetId": "e63dfbd03f07fb14aa8ebe29bbc6cbe7",
+  "Data": {
+    "$type": "9d27cf036b8dcef408e34b42d5234400, BlueprintQuestObjective",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$Experience$f9f3c2fc-0393-471c-9cb7-e9ba78a2bc3d"
+    ],
+    "Components": [
+      {
+        "$type": "011e862b513000f4bae31886f3489ace, Experience",
+        "name": "$Experience$f9f3c2fc-0393-471c-9cb7-e9ba78a2bc3d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Encounter": "QuestNormal",
+        "CR": 12,
+        "Modifier": 1.0,
+        "Count": null,
+        "Dummy": false
+      },
+      {
+        "$type": "0f213d9babee7834da8ccf71a034ad1c, ObjectiveStatusTrigger",
+        "name": "$ObjectiveStatusTrigger$6f0e6a39-0e05-4e08-81f7-c06e8c62e7c1",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "objectiveState": "Completed",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+              "name": "$UnlockCompanionStory$383a9fee-5d33-4382-8221-ec019166ccbe",
+              "m_Story": "!bp_b1a07412f0a8fbe4b964dfd7ccce5402"
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$7e76cd3f-4db6-44e3-a9ae-ceb137b3834f",
+              "Etude": "!bp_81430484c29c1f34180a77198e74c4b0",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$32063e79-250d-4968-b560-95403813d047",
+              "Comment": "Angel was used in prologue",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ef55b538-b295-49c6-996c-98631c08f625",
+                    "Not": false,
+                    "m_Etude": "!bp_1dff6917701d5f44c9073efc3ab25b32",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                    "name": "$CreateArmy$00e608fa-1e2c-4a35-aaca-0697c6f9a1d9",
+                    "Faction": "Crusaders",
+                    "Preset": "!bp_921c6ec2347a451db64a7eedf073da2d",
+                    "Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+                    "WithLeader": false,
+                    "ArmyLeader": null,
+                    "MovementPoints": 30,
+                    "m_MoveTarget": "None",
+                    "m_TargetLocation": null,
+                    "m_CompleteActions": null,
+                    "m_ArmySpeed": 1.0,
+                    "m_ApplyRecruitIncrease": false
+                  },
+                  {
+                    "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+                    "name": "$AddMercenaryToPool$2c954f29-216c-4a46-9517-2de5e211e079",
+                    "m_Unit": "!bp_c0efa7525b6389a4992b11a574e5507a",
+                    "m_Weight": 1.0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                    "name": "$CreateArmy$b7dbd2f8-5298-48da-a50d-c4c0512c6cff",
+                    "Faction": "Crusaders",
+                    "Preset": "!bp_081051d4de5a4daba85d79028959057f",
+                    "Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+                    "WithLeader": false,
+                    "ArmyLeader": null,
+                    "MovementPoints": 30,
+                    "m_MoveTarget": "None",
+                    "m_TargetLocation": null,
+                    "m_CompleteActions": null,
+                    "m_ArmySpeed": 1.0,
+                    "m_ApplyRecruitIncrease": false
+                  },
+                  {
+                    "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+                    "name": "$AddMercenaryToPool$dd501a98-8d48-4ea1-8e22-119040890088",
+                    "m_Unit": "!bp_fd8421c605a527649961278e7fd22993",
+                    "m_Weight": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "062924fe653b9df4ab8b8789fc1ff422, KingdomActionStartEvent",
+              "name": "$KingdomActionStartEvent$0915862a-081a-46f3-b454-776d5c65afdc",
+              "m_Event": "!bp_1c83e77fb0f8470a96a12fb588ebfe3f",
+              "m_Region": null,
+              "RandomRegion": false,
+              "DelayDays": 20,
+              "StartNextMonth": false,
+              "CheckTriggerImmediately": false,
+              "CheckTriggerOnStart": true
+            },
+            {
+              "$type": "062924fe653b9df4ab8b8789fc1ff422, KingdomActionStartEvent",
+              "name": "$KingdomActionStartEvent$1f72cf9c-401d-44d4-8d7f-9ee7732a238d",
+              "m_Event": "!bp_06b9d05d79554ec697acaede381d7114",
+              "m_Region": null,
+              "RandomRegion": false,
+              "DelayDays": 45,
+              "StartNextMonth": false,
+              "CheckTriggerImmediately": false,
+              "CheckTriggerOnStart": true
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Addendums": [],
+    "m_Areas": [],
+    "Title": {
+      "m_Key": "e99cbf4b-1138-42d1-98db-ea10b427ba36",
+      "m_OwnerString": "e63dfbd03f07fb14aa8ebe29bbc6cbe7",
+      "m_OwnerPropertyPath": "Title",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Quests/Companions/Lann/Q1BackToTheRoots/Obj3_TellSull_Title.json",
+      "Shared": null
+    },
+    "Locations": [
+      "!bp_960596c69378ca84eb6325a0bce84124",
+      "!bp_7e1ba32e81ab3e94c9030aeb0dfd14ac"
+    ],
+    "MultiEntranceEntries": [],
+    "Description": {
+      "m_Key": "c9b0a62a-3d37-4be7-9e8c-b377e1c10a25",
+      "m_OwnerString": "e63dfbd03f07fb14aa8ebe29bbc6cbe7",
+      "m_OwnerPropertyPath": "Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Quests/Companions/Lann/Q1BackToTheRoots/Obj3_TellSull_Description.json",
+      "Shared": null
+    },
+    "AutoFailDays": 0,
+    "IsFakeFail": false,
+    "StartOnKingdomTime": false,
+    "m_FinishParent": true,
+    "m_Hidden": false,
+    "m_NextObjectives": [],
+    "m_Quest": "!bp_4111a326336677041acaa26d28f00608",
+    "m_Type": "Objective"
+  }
+}

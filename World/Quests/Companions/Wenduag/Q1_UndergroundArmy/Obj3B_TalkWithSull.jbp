@@ -1,0 +1,166 @@
+{
+  "AssetId": "5c32d5a46133ae34e9aa8aa1a9efbcbf",
+  "Data": {
+    "$type": "9d27cf036b8dcef408e34b42d5234400, BlueprintQuestObjective",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$ObjectiveStatusTrigger$63679527-958e-4fda-9627-d7f8b449893e",
+      "$Experience$973e357b-323b-49d5-8ffd-611b5b009250"
+    ],
+    "Components": [
+      {
+        "$type": "0f213d9babee7834da8ccf71a034ad1c, ObjectiveStatusTrigger",
+        "m_Flags": 0,
+        "name": "$ObjectiveStatusTrigger$5ce10d2b-8b60-42ba-9396-ab54faadfbfd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "objectiveState": "Completed",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+              "name": "$UnlockCompanionStory$0e6251b8-f8e2-4a5b-8452-4ecaaa4bf8e3",
+              "m_Story": "!bp_c051713dbef6d8a49851ee386ad5eb9e"
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$e9101b7a-9e9a-4588-933b-3272d08e3eff",
+              "Etude": "!bp_4d2ddafa3f064f848b7378c553585e79",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$81577d89-c37d-411d-a57f-b6467d446b23",
+              "Comment": "Angel was used in prologue",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$ca63dd90-b497-4381-be2a-1d4af767fc74",
+                    "Not": false,
+                    "m_Etude": "!bp_1dff6917701d5f44c9073efc3ab25b32",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                    "name": "$CreateArmy$2e007436-c421-4067-9cbe-aa4562f07d49",
+                    "Faction": "Crusaders",
+                    "Preset": "!bp_921c6ec2347a451db64a7eedf073da2d",
+                    "Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+                    "WithLeader": false,
+                    "ArmyLeader": null,
+                    "MovementPoints": 30,
+                    "m_MoveTarget": "None",
+                    "m_TargetLocation": null,
+                    "m_CompleteActions": null,
+                    "m_ArmySpeed": 1.0,
+                    "m_DaysToDestination": 7,
+                    "m_ApplyRecruitIncrease": false
+                  },
+                  {
+                    "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+                    "name": "$AddMercenaryToPool$336f88d7-6e2e-4b24-a3a3-05a25684389d",
+                    "m_Unit": "!bp_c0efa7525b6389a4992b11a574e5507a",
+                    "m_Weight": 1.0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "1606a72d626b45b99d566cb17d478221, CreateArmy",
+                    "name": "$CreateArmy$f2511a94-b215-484c-9c03-43d45dd8edb0",
+                    "Faction": "Crusaders",
+                    "Preset": "!bp_081051d4de5a4daba85d79028959057f",
+                    "Location": "!bp_70990a0f7010447478e68b8e16ae52b2",
+                    "WithLeader": false,
+                    "ArmyLeader": null,
+                    "MovementPoints": 30,
+                    "m_MoveTarget": "None",
+                    "m_TargetLocation": null,
+                    "m_CompleteActions": null,
+                    "m_ArmySpeed": 1.0,
+                    "m_DaysToDestination": 7,
+                    "m_ApplyRecruitIncrease": false
+                  },
+                  {
+                    "$type": "e3ce27f595f4426c835e0423b6a0d15c, AddMercenaryToPool",
+                    "name": "$AddMercenaryToPool$a743a6ad-53cc-4c44-ae49-577a8ba26306",
+                    "m_Unit": "!bp_fd8421c605a527649961278e7fd22993",
+                    "m_Weight": 1.0
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "011e862b513000f4bae31886f3489ace, Experience",
+        "m_Flags": 0,
+        "name": "$Experience$973e357b-323b-49d5-8ffd-611b5b009250",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Encounter": "ChallengeMinor",
+        "CR": 12,
+        "Modifier": 1.0,
+        "Count": null,
+        "PlayerGainsNoExp": false,
+        "Dummy": false
+      }
+    ],
+    "Comment": "помимо прочих кондишнов закрывается, если игрок увидел в Wendu_DontTouchMyMongrels куй0063 - открывается после смерти Ланна",
+    "m_Addendums": [],
+    "m_Areas": [],
+    "Title": {
+      "m_Key": "f167e742-db0d-4873-9f01-fd91a2df010e",
+      "m_OwnerString": "5c32d5a46133ae34e9aa8aa1a9efbcbf",
+      "m_OwnerPropertyPath": "Title",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Quests/Companions/Wenduag/Q1_UndergroundArmy/Obj3B_TalkWithSull_Title.json",
+      "Shared": null
+    },
+    "Locations": [
+      "!bp_960596c69378ca84eb6325a0bce84124",
+      "!bp_7e1ba32e81ab3e94c9030aeb0dfd14ac"
+    ],
+    "MultiEntranceEntries": [],
+    "Description": {
+      "m_Key": "85a3eb41-50b3-47c1-804d-4c9d4084be77",
+      "m_OwnerString": "5c32d5a46133ae34e9aa8aa1a9efbcbf",
+      "m_OwnerPropertyPath": "Description",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Quests/Companions/Wenduag/Q1_UndergroundArmy/Obj3B_TalkWithSull_Description.json",
+      "Shared": null
+    },
+    "AutoFailDays": 0,
+    "IsFakeFail": false,
+    "StartOnKingdomTime": false,
+    "m_FinishParent": false,
+    "m_Hidden": false,
+    "m_NextObjectives": [],
+    "m_Quest": "!bp_f7e03a41a7280db4dba44d981e65f312",
+    "m_Type": "Objective"
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "AssetId": "cb782d4e2eef4141a51e191349abb714",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Ангел\n\nстарт боя",
+    "ParentAsset": "ee11fc3fd7034f4da97be43f2700e3b7",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "8d89033c-40e6-4af5-98ef-7702661fbfdc",
+      "m_OwnerString": "cb782d4e2eef4141a51e191349abb714",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\c5\\Mythic_Devil\\DevilishTemptation\\Angels\\Cue_0022_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$e36c4105-166b-4976-89bd-5fa40824eaf2",
+          "Status": "Complete",
+          "m_Objective": "!bp_3370446fd4564c9897c91139456ea6c4",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+          "name": "$UnlockFlag$9d38d716-8501-459d-9fe9-d847c93be245",
+          "m_flag": "!bp_d2d8796e7a7246ffb8116ac309452dee",
+          "flagValue": 0
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$e90a6bde-bf84-44b3-8f1f-1113fd86675d",
+          "m_Objective": "!bp_063e0d6bdfc14edeae530d58886e97f3"
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$83b97136-f6f5-41f7-9d04-8281d9f53415",
+          "m_Group": {
+            "EntityNameInEditor": "IomedaeServants",
+            "_entity_id": "d3a2f984-3fa1-4571-93cb-fa7b5730f2a6",
+            "SceneAssetGuid": "f9649128063d70842954f3044d7e5905"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$5aae1aeb-e29c-4301-ae2e-f59afb08dd1c",
+                "Comment": "Everyone except skald",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$9fcc1521-f66c-4116-8328-7d0aade17f51",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$ebf03968-45f3-4989-a695-53e400b08308"
+                      },
+                      "SecondUnit": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$5d90c3d0-6d09-46b0-88aa-1ffa4d910be5",
+                        "Spawner": {
+                          "EntityNameInEditor": "IomedaeServant_Skald",
+                          "_entity_id": "a71334ea-272b-4ff2-8122-950d78ab42d5",
+                          "SceneAssetGuid": "f9649128063d70842954f3044d7e5905"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$67105228-6877-405c-b59f-0a77e1054dc3",
+                      "m_Cutscene": "!bp_6bd3f48d2c9f72f48aaf78bc27f24d71",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                              "name": "$UnitGroupUnit$353b5d3a-f19b-4f18-8e1a-c8daa014856d"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$a26dd5d1-1a82-4818-b5cd-06bf8639ed46",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                "name": "$DetachBuff$dc9a0878-d3f5-462e-af6c-b9607186e188",
+                "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                "TargetType": "Evaluator",
+                "Target": {
+                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                  "name": "$PartyUnit$000972f7-3eb7-4fd7-b4a9-74b510e12752"
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$8c9670b4-0c04-4811-bd35-090c07c51fdd",
+                "Comment": "Except player character",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$e069b86a-a0db-40ba-8c00-626f0a1d0db2",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$a89c77b6-4ab2-4c3b-8466-656aea408ff8"
+                      },
+                      "SecondUnit": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$fc859a38-e03a-497b-a47e-4188d8c9f04c"
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$1de29231-5622-473d-96fc-a3693bb6575e",
+                      "m_Cutscene": "!bp_550de302093041afa1604b76aae3ee66",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$b1d9c140-4639-4984-ae6a-012d40fd2f7f"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": []
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

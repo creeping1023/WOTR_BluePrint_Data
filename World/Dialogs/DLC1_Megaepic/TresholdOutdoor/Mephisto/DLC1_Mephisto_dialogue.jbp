@@ -1,0 +1,118 @@
+{
+  "AssetId": "1aeab93a099e4f1db5aaac82b33ea587",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Спикеры Мефистофели - Судья, Защитник, Обвинитель. \nСудья стоит по центру, Защитник - слева от него, Обвинитель - справа от него",
+    "FirstCue": {
+      "Cues": [
+        "!bp_46e6f18c27664b4e91c0d0bec50b2114",
+        "!bp_af4b58b68b9f4f8086710b230a3a8015"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$eaedf8d1-8a2e-4980-a150-26e7976d67d9",
+          "Comment": "Combat",
+          "ConditionsChecker": {
+            "Operation": "Or",
+            "Conditions": [
+              {
+                "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                "name": "$AnswerSelected$b91e8aab-19d2-4c3f-9d49-5bcfab071ff1",
+                "Not": false,
+                "m_Answer": "!bp_0c2b824276ca44eab2975ac11080b42a",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$be4cae91-4975-4605-8a6f-7d446bf04292",
+                "Not": false,
+                "m_Cue": "!bp_1235482d00eb428f92f753e4137c6382",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$269aa6e8-5cd7-4a8a-944c-a533cac70556",
+                "m_SummonPool": "!bp_b0467a9646ea49cdb5bf2adc12aba0f6",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                      "name": "$AddUnitToSummonPool$637aba96-272f-4c56-b04d-a8f3b8f81423",
+                      "m_SummonPool": "!bp_814244d3c12546b7a040242d614f7cb7",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$bc6ede25-61ee-49bb-b1a8-d44223811f45"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$5ffba480-7ab3-4837-ad2f-2321eeb79444",
+                "m_SummonPool": "!bp_814244d3c12546b7a040242d614f7cb7",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$90b94d4e-b8b7-4572-9c65-676897bcc30c",
+                      "Unit1": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$0e84f202-1258-4af7-9b2f-90a8f9df980d"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$7d8a47ce-26cb-45cd-bbce-72b138209bf1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

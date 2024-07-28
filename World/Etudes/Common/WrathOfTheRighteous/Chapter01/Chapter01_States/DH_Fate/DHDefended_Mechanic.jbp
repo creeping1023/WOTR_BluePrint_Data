@@ -1,0 +1,660 @@
+{
+  "AssetId": "d9042ef7dd8941d8b71b2e4f66684f03",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$01236bda-b6e1-42f6-800d-aebeffa35a19",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Вольжиф уходит, если не в партии.",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+              "name": "$CompanionInParty$9b8d19bb-fc6d-4f6e-b68d-b73a6948bccc",
+              "Not": true,
+              "m_companion": "!bp_766435873b1361c4287c351de194e5f9",
+              "MatchWhenActive": true,
+              "MatchWhenDetached": false,
+              "MatchWhenRemote": true,
+              "MatchWhenDead": false,
+              "MatchWhenEx": true
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$f5634381-a297-4c73-96d2-28e9e410b9ff",
+              "m_Cutscene": "!bp_8f1694eba2479d64d9886c6e108f72f2",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$362dc98a-0183-4072-95bc-97643fe3769a",
+              "m_Cutscene": "!bp_78249ea515641474fa136dd288103b27",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$aa5b8ba7-bf8f-4381-8bd5-e8f3db9b0170",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$bf99a889-3213-4047-addb-a49237e0ee6d",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [TownGuard_Delvan]",
+                  "_entity_id": "3592356c-ac21-4014-8e0b-689a95576bf5",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "da1815e1ca093d14190aa9351c0c0f66, SwitchDoor",
+              "name": "$SwitchDoor$5910d4c4-827b-4bb6-954d-14b0a48bc842",
+              "Door": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$e2e233ae-0dbd-4b6c-946c-979d9cdd285d",
+                "MapObject": {
+                  "EntityNameInEditor": "Catacombs_lattice_door_01",
+                  "_entity_id": "56c5b451-354c-463d-bc01-095b4ec94cde",
+                  "SceneAssetGuid": "870536c34900527468a551bcb0d969f4"
+                }
+              },
+              "UnlockIfLocked": false,
+              "CloseIfAlreadyOpen": false,
+              "OpenIfAlreadyClosed": true
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$be990ca7-e350-4993-b128-ebc0b0d5bf96",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$10f87914-7234-43d4-9d0e-0c4560ffb29c",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [Woljif_DH_NotCompanion]",
+                  "_entity_id": "828bdd8c-30a6-41d1-bb8b-23f53e681229",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": false,
+              "Fade": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$a8950a35-2a72-4a13-ad6d-854824c84aca",
+              "Comment": "Если взяли Эранд на вольжифа (пофейлить)",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                    "name": "$ObjectiveStatus$9bcc79a5-a146-4bbe-a598-81d644de0bd0",
+                    "Not": false,
+                    "m_QuestObjective": "!bp_f3c67b4695cc3ce46bde6513aeb2ba4f",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$c1b8e2e4-5366-4996-9a3b-ca793d5fc1ce",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_f3c67b4695cc3ce46bde6513aeb2ba4f",
+                    "StartObjectiveIfNone": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$dc6e5a29-7b0c-4912-9164-8c6892b4c322",
+              "ScriptZone": {
+                "EntityNameInEditor": "WoljifFirstScene",
+                "_entity_id": "703eff4c-3461-4afa-88c4-25857f8c4ebc",
+                "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$fade3410-1d58-4d04-ad90-aa6e5cd94f84",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Сцена с беженцами внутри таверны",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$851c1178-95d0-4680-90c2-1c7c1c9e3c9c",
+              "m_SummonPool": "!bp_8f09c6ce3f85f4a478b92ecc7d321983",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$881091e1-d60c-4b2c-8c81-cc483bb63538",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$ba7cbb9b-6efa-4425-9563-1b6a83ba609b"
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$72ec2836-a5bc-451e-b7e7-314cb1a5a53b",
+              "m_Cutscene": "!bp_54b95ebff4178b142b3ca2bae66c4882",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$78f55476-b918-47d3-90f5-a0a996509479",
+              "m_SummonPool": "!bp_c8585edcfaa833f4ca6afef9a6224e6c",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                    "name": "$HideUnit$7e26d893-8f39-4c2e-a99d-ede839d59e43",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$2309c819-8998-47a7-9c99-1475100c26a3"
+                    },
+                    "Unhide": true,
+                    "Fade": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$8d7c9028-ad95-4d8b-8576-00e8171b748a",
+              "m_Cutscene": "!bp_d0d65fd8a2838ac4aa93e76c1f16d4e0",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$439a47f0-f34e-4a09-b182-76f7c97e8ad8",
+              "m_Cutscene": "!bp_6deba5db1f2dbc4449ac4a4de081f174",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$80ab2d01-8057-4144-bfbb-cae15dea37ba",
+              "m_Cutscene": "!bp_29a5bfabfa4ba464785d381c2be6ee4d",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$e4ea5f3b-2b59-44c9-84de-01470cf1924c",
+              "m_Cutscene": "!bp_b42400a8e3e8958468f84869c0ea6041",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$659cee1a-b412-4421-a238-7dd9efd4372d",
+              "m_Cutscene": "!bp_a8043ed3d83a21d4797ab3d7ba2a29bc",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$edff1ada-aee9-4bbf-a224-e94d09be59d7",
+              "Etude": "!bp_d1d2087325f748d1aa695f81263e9960",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$1d5a2808-53e0-4710-b955-c70c091b316d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Сменяем аддендумы в квесте на зачистку эстрода",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+              "name": "$ObjectiveStatus$bf943fcb-dcbd-4c27-b00f-f04634ae8900",
+              "Not": false,
+              "m_QuestObjective": "!bp_28e8dc7bc381f7f4bb5f8dc32404cbec",
+              "State": "Started"
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$b3deaf45-f877-45de-83f4-58384aa55b5d",
+              "Status": "Complete",
+              "m_Objective": "!bp_75b1363c95007a5498a554362467eb7f",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$399c8e50-e1fb-455a-aa85-ab3298be705c",
+              "m_Objective": "!bp_f5b8f93d3dd275a41be05bb31e3ba908"
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$31f712c5-ba5d-49bd-9cc0-262e48e90576",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Лут после боя",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+              "name": "$SpawnByUnitGroup$f99fd35a-5347-4d17-ac0c-a58cee3c3126",
+              "m_Group": {
+                "EntityNameInEditor": "Spawners",
+                "_entity_id": "63cc5f7f-a6f4-4b73-890e-4d369e77a376",
+                "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+              },
+              "ActionsOnSpawn": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$3b7a8f92-cbd5-4dcc-9ed0-b296277c8198",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$d97f527e-64f8-4ddc-91e4-f9ff5c76f397",
+                "MapObject": {
+                  "EntityNameInEditor": "CartCorpseAll",
+                  "_entity_id": "52eb123b-941d-43e1-86fe-92aeceaea3b3",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$027593e6-9075-4450-aff4-f4bfdcd773af",
+              "m_Cutscene": "!bp_b2ede6b4a2322c941a325c468ab46b11",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$f8890280-f1c3-40f0-9d38-8cef48fd0e86",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$cee6a7ea-6f88-4447-9182-1b210c74a1ce",
+                "MapObject": {
+                  "EntityNameInEditor": "AfterBattle",
+                  "_entity_id": "74e3a384-7c59-4e4b-a629-84c42f759234",
+                  "SceneAssetGuid": "76fd9bd06db7fe94ca783ea99d327650"
+                }
+              },
+              "Unhide": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$18407636-3112-428e-bf25-27da2f7059b5",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Стоп катсцен, анхайд голема",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "086f25bb4bbcf634289124979aefb433, StopCutscene",
+              "name": "$StopCutscene$2cd9bb93-5429-4297-be34-ff8660302cdc",
+              "m_Cutscene": "!bp_c32bfa0d2f7c3f34e98eda7c1e0902a2",
+              "WithUnit": null,
+              "m_CheckType": "Params"
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$e91e4dde-2568-43e7-ba79-3b19742cbd64",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$f5588ba4-42ed-47a5-935c-72e146e3c972",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [Golem]",
+                  "_entity_id": "9e3668d2-19eb-4959-b38d-76ae61756311",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": true,
+              "Fade": false
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$0d443328-a892-4063-979e-0753d608147e",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$64a777c5-e174-4d78-a1c3-5733fc905b34",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [GolemWatcher_1]",
+                  "_entity_id": "49d7e243-85fc-4cf8-9847-b58d7e4c459b",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": true,
+              "Fade": false
+            },
+            {
+              "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+              "name": "$HideUnit$4b09cc4c-07bd-4e9e-8343-b5293f570ef8",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$8e52f4a2-d063-4f2a-a52d-2fa193e77b74",
+                "Spawner": {
+                  "EntityNameInEditor": "Spawner [GolemWatcher_2]",
+                  "_entity_id": "173e079c-e1f4-4a03-9368-1da89777c1dd",
+                  "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                }
+              },
+              "Unhide": true,
+              "Fade": false
+            }
+          ]
+        }
+      },
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$12ab0396-e160-4fd4-86a7-d4242a6720b3",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "После боя FX",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$f85019a4-29fa-47bf-8fc0-ff267bb82e55",
+              "Comment": "Кузня",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$b8654001-5225-4255-89e6-49a422b7bbfe",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_1285925ac28a4af88f8a719d5db935ff",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$27c7e8bb-5ce2-4372-9e39-f7489b691d7c",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$bb34c8ee-c343-43df-a740-84a9f9c0884c",
+                      "MapObject": {
+                        "EntityNameInEditor": "SmithAfterFire",
+                        "_entity_id": "0fa9641b-6fe6-4122-b311-5597cfc41ce0",
+                        "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$57b16a23-ba3f-4feb-96ae-bf8df2db37c6",
+              "Comment": "Стойла",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$87b5cade-b74f-4f3a-9ec2-c581e20ed96e",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_a9dc6985d0184d0f8a49557903d5a900",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$a4ed58ba-e9fb-4a39-ba7d-37d5e2fd63f2",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$a45d4684-35b8-4d82-bd12-5da61a8c6ca9",
+                      "MapObject": {
+                        "EntityNameInEditor": "StabelsAfterFire",
+                        "_entity_id": "8b1c8aa5-e997-45d0-b9e2-b68b49a45fb8",
+                        "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$3b3e83f5-6491-40dd-98d1-c66c8e45d186",
+              "Comment": "Склад",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$576ac769-e6ea-4e31-ba26-db73fd64697b",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_ba4057c5d6c94bcd8009cd81326dfda8",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$03c8e39f-e367-4319-9c1d-0fb90dac53b4",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$5270869e-d3e9-4562-bb39-de237d6de206",
+                      "MapObject": {
+                        "EntityNameInEditor": "StoregeAfterFire",
+                        "_entity_id": "0e6bbc41-ae78-4529-94c7-775333a00aa2",
+                        "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$8fef677b-2040-4a2c-8f81-bb5bc20908a8",
+              "Comment": "Таверна",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                    "name": "$FlagUnlocked$84856469-0153-4cc9-a3b4-3a5ea2956a85",
+                    "Not": false,
+                    "m_ConditionFlag": "!bp_1f430e9e29094dab8aab7b117b83d249",
+                    "ExceptSpecifiedValues": false,
+                    "SpecifiedValues": []
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                    "name": "$HideMapObject$514c197f-05e3-487f-9140-5878ec6b9bc1",
+                    "MapObject": {
+                      "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                      "name": "$MapObjectFromScene$bb8c4824-2c91-4954-b8dd-0ba68302f33e",
+                      "MapObject": {
+                        "EntityNameInEditor": "TavernAfterFire",
+                        "_entity_id": "f79cf88e-584d-4bd1-be3a-2f49fe205f61",
+                        "SceneAssetGuid": "a83e25448573b2049aeddd0bbe6ad7bc"
+                      }
+                    },
+                    "Unhide": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_b4f7860936e1248468d7ec3583b7441e",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_089e897983fef564d9e15b46ff679d7e",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_ad92f8704de5a9f4aad1fc273bafc909"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

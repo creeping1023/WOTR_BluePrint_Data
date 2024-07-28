@@ -1,0 +1,101 @@
+{
+  "AssetId": "6450dd73381526845ab94574bcb312f2",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b6037fa1-fe24-42f9-90c6-ff5238110c4a",
+          "Comment": "Yaniel",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$5fbca81e-91c7-4aa9-bf59-d71b2f1f9dc5",
+                "Not": false,
+                "m_Etude": "!bp_63c9e7be8e501ac4db60fb11676fdd38",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$651f965b-6154-4521-b2cd-7cb89e1e8dd2",
+                "Unit1": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$3c91ffac-2a90-4b21-bba5-a8951388cf44",
+                  "Spawner": {
+                    "EntityNameInEditor": "Yaniel",
+                    "_entity_id": "5ad1539d-16b3-41dd-a83b-caf87aec5779",
+                    "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                  }
+                },
+                "Unit2": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$5b298f01-a152-4669-90a3-b701d0d29c6f",
+                  "Spawner": {
+                    "EntityNameInEditor": "Minagho",
+                    "_entity_id": "622d7116-28d1-4341-ad3d-fee9fd2f6736",
+                    "SceneAssetGuid": "1b5e2227ad48c7a4f9073b58feb8bba5"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$369a98f1-5b33-468e-aedd-4189879bee36",
+          "m_SummonPool": "!bp_a90d61743ef690146888dc9d0614c05f",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$0e846881-3482-47f3-b576-35cec59d7daf",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$48978965-32fb-4d4b-b229-47c10e2550f1"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": true
+              },
+              {
+                "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                "name": "$StartCombat$fb4a3e5a-94bf-4650-9a16-f9e9a5b6c7cd",
+                "Unit1": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$f9e1a2cd-499c-4231-9a2a-b08f1dc1b6ae"
+                },
+                "Unit2": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$47c52a0a-9ce7-4252-aead-4dcd7a41100a"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

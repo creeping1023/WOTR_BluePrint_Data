@@ -1,0 +1,91 @@
+{
+  "AssetId": "de08cce2e4b2482180e0fc6f155dbbb8",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$1bd85812-f021-4dda-be3e-d3a726642d9b",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$e3378523-db93-4d08-ae10-d27fb3863560",
+            "Spawner": {
+              "EntityNameInEditor": "SpectatorWall",
+              "_entity_id": "40bdc79d-666f-430a-81f7-9f6430190c51",
+              "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+            }
+          },
+          "Unhide": true,
+          "Fade": false
+        },
+        {
+          "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+          "name": "$HideMapObject$24938b1d-1424-4a66-9d29-e45ba133844f",
+          "MapObject": {
+            "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+            "name": "$MapObjectFromScene$8b944d19-d4ca-42e0-8b89-43ab841f0ece",
+            "MapObject": {
+              "EntityNameInEditor": "Nalfeshnee",
+              "_entity_id": "374fafd8-e9f8-4bfd-ad68-0b78088aec7a",
+              "SceneAssetGuid": "ddea2474da644e24a931707e174a61c9"
+            }
+          },
+          "Unhide": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d32811a1-84af-4a27-a565-749e7957496c",
+          "Comment": "Player character in combat mode",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "342eb5cf69e9d0e48917ff4215600e0b, FlagInRange",
+                "name": "$FlagInRange$436f5f56-4c62-45df-8fd6-73e0d905dfbf",
+                "Not": false,
+                "m_Flag": "!bp_faf66b8ef0574de0bfe51b227950375f",
+                "MinValue": 0,
+                "MaxValue": 2
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$8de24871-42d8-4e24-b486-13b7840398b3",
+                "m_Cutscene": "!bp_550de302093041afa1604b76aae3ee66",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$8ec32700-f8bd-466c-a60b-37ba3c46adef"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

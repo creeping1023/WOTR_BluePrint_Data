@@ -1,0 +1,125 @@
+{
+  "AssetId": "9e7f8f55f239b5d4cbe70b643e393b7d",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$95fabbfc-d530-4583-88bc-2807824adb6f"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$95fabbfc-d530-4583-88bc-2807824adb6f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$43e3f11d-d153-4eb0-bb82-7e6265c19e02",
+              "Comment": "если Закариус ещё с нами",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$1e279a5a-865c-453f-971b-f7f2fa4c5c67",
+                    "Not": false,
+                    "m_Etude": "!bp_2844d387f27a0bb468f72603dd15eda2",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": []
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                    "name": "$CompleteEtude$85bd8106-73f2-4901-8a5e-feba0fba51df",
+                    "Etude": "!bp_7b80ec84c75e76e4e9c8a45fefca34b3",
+                    "EtudeEvaluator": null,
+                    "Evaluate": false
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+              "name": "$SetObjectiveStatus$e7f1e904-6431-4c78-9676-dd1824f07f40",
+              "Status": "Fail",
+              "m_Objective": "!bp_45fbaa2010213e942a59239805d3f69c",
+              "StartObjectiveIfNone": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$df8cdd49-52da-4468-a279-4a820bf0cbf9",
+              "Comment": "fail Soul Chains",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                    "name": "$QuestStatus$b7eb7ab4-a2ef-41b8-bd45-50f30860407e",
+                    "Not": false,
+                    "m_Quest": "!bp_022ded56805096d4db5535a592640393",
+                    "State": "Started"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                    "name": "$SetObjectiveStatus$647216cb-87f2-4626-8c30-7c94db8120d2",
+                    "Status": "Fail",
+                    "m_Objective": "!bp_45fbaa2010213e942a59239805d3f69c",
+                    "StartObjectiveIfNone": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_3002b84a0cfe89845903e053738fe6cd",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": null,
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

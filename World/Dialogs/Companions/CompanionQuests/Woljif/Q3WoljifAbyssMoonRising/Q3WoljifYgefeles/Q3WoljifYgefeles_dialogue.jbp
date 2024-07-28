@@ -1,0 +1,272 @@
+{
+  "AssetId": "3cba9abef2b894442b0d0293eba7fbbb",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_5fd00747833206d4b96182b01c92efb8"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$20c56cc6-cb87-4228-b76b-199b4900a356",
+          "MusicEventStart": "MUS_MysteryTheme_Play",
+          "MusicEventStop": "MUS_MysteryTheme_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "0bafe290985641b9a831acfc037c631f, PartyMembersDetachEvaluated",
+          "name": "$PartyMembersDetachEvaluated$3c77f914-acc3-4755-806c-3557961d1a92",
+          "DetachThese": [
+            {
+              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+              "name": "$PlayerCharacter$65566ae1-698d-44c2-9e26-19860b1c42d3"
+            }
+          ],
+          "AfterDetach": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$ee3e131f-0cf4-452a-827e-aa91c0b374f7",
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$e82a35d0-5275-44ea-a255-d8ea005dfeed",
+                      "Not": false,
+                      "m_companion": "!bp_766435873b1361c4287c351de194e5f9",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": false,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                      "name": "$Unrecruit$8c33f451-ad55-4b29-9ec6-304e022a2ee0",
+                      "m_CompanionBlueprint": "!bp_766435873b1361c4287c351de194e5f9",
+                      "OnUnrecruit": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "c291eff3e32794044804e2ba104df165, PartyMembersSwapAttachedAndDetached",
+                "name": "$PartyMembersSwapAttachedAndDetached$f6b7874d-ccf8-4990-adf4-0f414d0483dc"
+              },
+              {
+                "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+                "name": "$TeleportParty$82d139fc-324a-4be7-bf31-160836345bee",
+                "m_exitPositon": "!bp_954f2e4cc1398e446a3a0ff95e92bf00",
+                "AutoSaveMode": "None",
+                "ForcePauseAfterTeleport": false,
+                "AfterTeleport": {
+                  "Actions": [
+                    {
+                      "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+                      "name": "$StartDialog$82d87da2-0a84-47c8-b1dd-bdadbdaea961",
+                      "DialogueOwner": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$f3557327-2a60-45d2-98a6-ed383b6d16ef",
+                        "Spawner": {
+                          "EntityNameInEditor": "Egefeles_OldWoman",
+                          "_entity_id": "708d5cd6-0ffb-4489-a976-8da30f7f984d",
+                          "SceneAssetGuid": "e4966d187bb50af4bb2b49a61513eac3"
+                        }
+                      },
+                      "m_Dialogue": "!bp_8f51ca0f5e9861842b2f820b97970793",
+                      "DialogEvaluator": null,
+                      "SpeakerName": {
+                        "m_Key": "",
+                        "m_OwnerString": "",
+                        "m_OwnerPropertyPath": "",
+                        "m_JsonPath": "",
+                        "Shared": null
+                      }
+                    },
+                    {
+                      "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                      "name": "$AttachBuff$4a441fd2-b952-4dd0-b641-20b024703c3b",
+                      "m_Buff": "!bp_20f79fea035330b479fc899fa201d232",
+                      "Target": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$39c2a7bf-1c77-4ef9-806c-3c7a1d5946ce"
+                      },
+                      "Duration": null
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$2e9a2230-38d8-4d5b-9de2-f17409e35ea1",
+                "m_UnitsList": "AllDetachedUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                      "name": "$HideUnit$e6ec9c45-d7ad-41a9-a7f7-6ec83e5fe51b",
+                      "Target": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$0de5ee14-cd34-43a8-abca-327ecdfa3347"
+                      },
+                      "Unhide": false,
+                      "Fade": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "m_RestrictPartySize": false,
+          "m_PartySize": -1
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$fea769c9-b400-4f29-ae67-9027cc1afb3b",
+          "m_Objective": "!bp_90d77db9a414a1b48a2e17b0509e5ed1"
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$59850b09-f3b5-454e-851b-7d31e329a6a3",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$324fd377-b5d0-4342-8f54-4cb7b255ac5b",
+            "Spawner": {
+              "EntityNameInEditor": "Voetiel",
+              "_entity_id": "98ab265e-f44f-4a3a-a410-91e4af2a86fe",
+              "SceneAssetGuid": "e4966d187bb50af4bb2b49a61513eac3"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+          "name": "$HideUnit$65cacfed-7ac0-48e9-82c4-c3d8bc381b1c",
+          "Target": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$dfcb8ce7-bbfe-4199-b5d5-086250b0c023",
+            "Spawner": {
+              "EntityNameInEditor": "Ygefeles",
+              "_entity_id": "952c17de-ea48-4a3e-b051-8fee868576f5",
+              "SceneAssetGuid": "e4966d187bb50af4bb2b49a61513eac3"
+            }
+          },
+          "Unhide": false,
+          "Fade": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d8a7536a-88a6-4b12-b680-f4c2a36e6dbb",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f94d48c9-7ab2-4b52-adb6-df59482cd3f6",
+                "Not": false,
+                "m_Etude": "!bp_5e4ffc0f3fb389a4ba5a2f658214117c",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                "name": "$HideUnit$72778225-5448-4aa3-bbe9-9c9b2e96befd",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$9622ab62-27ff-4cd5-b2e8-bda859075f46",
+                  "Spawner": {
+                    "EntityNameInEditor": "Woljif_tied",
+                    "_entity_id": "aeb9bbe8-eb99-40bc-a8e1-2d53b15fb22b",
+                    "SceneAssetGuid": "e4966d187bb50af4bb2b49a61513eac3"
+                  }
+                },
+                "Unhide": false,
+                "Fade": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+          "name": "$Spawn$248d2632-d868-4b3c-bef0-a6fcfac61735",
+          "Spawners": [
+            {
+              "EntityNameInEditor": "Hepzamirah",
+              "_entity_id": "f30f53e6-fb32-49c3-a8dc-a2f2ce32d715",
+              "SceneAssetGuid": "e4966d187bb50af4bb2b49a61513eac3"
+            },
+            {
+              "EntityNameInEditor": "Woljif_npc",
+              "_entity_id": "c5cdd682-f0ba-48c0-8b31-e8bf4b1bb04f",
+              "SceneAssetGuid": "e4966d187bb50af4bb2b49a61513eac3"
+            }
+          ],
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$a9097527-7947-4c70-a866-58fd021b8019"
+        },
+        {
+          "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+          "name": "$StartEtude$147be10f-6c9f-46f3-aaa6-fe2634e289a9",
+          "Etude": "!bp_1bbf7d9eff0f47ea9bc50f2d88ae39fc",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

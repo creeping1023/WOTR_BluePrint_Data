@@ -1,0 +1,235 @@
+{
+  "AssetId": "d95152499fa0696478cc6af83e44f029",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$86b002b2-42b5-43df-925e-50bce428d02a",
+      "$DeactivateTrigger$b9d773ac-7cb1-457f-bbb0-01e51697893d",
+      "$CapitalCompanionLogic$4aae2690-2adf-4fb7-9dc5-8be7113a0164",
+      "$PeacefulZone$ac34fb18-e94f-4a1e-941a-527eeb196e70",
+      "$EtudeIgnorePartyEncumbrance$db83c4a0-b6ab-4d67-afc7-a9ab85175ae8",
+      "$EtudeIgnorePersonalEncumbrance$e0f5f700-3c62-4317-80c3-92e3e33b5167"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$86b002b2-42b5-43df-925e-50bce428d02a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "13d9e1df4f8f8b24d9c7e6bceb81711b, TimeSkip",
+              "name": "$TimeSkip$998e6ce4-2757-4cb3-aea8-b6db62d0bb4d",
+              "m_Type": "TimeOfDay",
+              "MinutesToSkip": null,
+              "TimeOfDay": "Day",
+              "NoFatigue": true,
+              "MatchTimeOfDay": true,
+              "Silent": false
+            },
+            {
+              "$type": "66dfc08af22a32e4d8d89b367175aee3, RaiseDead",
+              "name": "$RaiseDead$b77a5058-448b-472e-9318-37943698ead8",
+              "m_companion": null,
+              "riseAllCompanions": true,
+              "activeAndRemote": false
+            },
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$febc7c52-238b-45e5-a40d-8767bf112967",
+              "m_Cutscene": "!bp_cc8685802b2a97a4eaae60a6608f4cbe",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9c950359-c870-4a18-858e-f7f5a067f135",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "131c56a11ed870042b3ae34ce1b1cc0b, AutoKingdom",
+                    "name": "$AutoKingdom$88bd03f2-4d08-493f-bf81-9795dcc45fc6",
+                    "Not": true
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$ca8e6545-3051-4b36-91a5-d2f16012a642",
+                    "m_Objective": "!bp_7a308a5d6dcc4f7fbceb518167d72b69"
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$312f620d-f18c-4368-8a45-49d5997d66ef",
+                    "m_Objective": "!bp_c3302251aaac40e4b84cf9874044ebbe"
+                  },
+                  {
+                    "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                    "name": "$GiveObjective$027ef22a-1eac-45c8-8439-5e182fb1251d",
+                    "m_Objective": "!bp_eef95656d2dc470696bc3546b62abff5"
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+              "name": "$PartyUnits$7fead6fa-b1de-4757-bc23-f16c32525b3d",
+              "m_UnitsList": "ActiveUnits",
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                    "name": "$AttachBuff$e2bb5fe5-abf9-4644-8dfa-e958f764df2f",
+                    "m_Buff": "!bp_d29a752469e941a19727e7e3090314c2",
+                    "Target": {
+                      "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                      "name": "$PartyUnit$32317d93-f9ba-414f-ab38-21246c3c9dd4"
+                    },
+                    "Duration": null,
+                    "BattleLog": false,
+                    "HasCustomBattleLogMessage": false,
+                    "CustomBattleLogMessage": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": null
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b2970e0dadd194546bbf27a691e55d4c, DeactivateTrigger",
+        "m_Flags": 0,
+        "name": "$DeactivateTrigger$b9d773ac-7cb1-457f-bbb0-01e51697893d",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "f3e94df96a3153f4eb5a5c97dfa322e8, False",
+              "name": "$False$a2c1ab71-b7fd-4f58-a64e-4d2e71a6e6e8",
+              "Not": false
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+              "name": "$ReloadMechanic$95004795-cdc5-4dc4-b53f-184468ec9c93",
+              "Desc": "Empty action",
+              "ClearFx": true
+            }
+          ]
+        }
+      },
+      {
+        "$type": "1862eb457738a6a4d908e20172213f3a, CapitalCompanionLogic",
+        "m_Flags": 0,
+        "name": "$CapitalCompanionLogic$4aae2690-2adf-4fb7-9dc5-8be7113a0164",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_RestAllRemoteCompanions": true
+      },
+      {
+        "$type": "8b25726bac4999347b6946ed9ade440e, EtudePeacefulZone",
+        "m_Flags": 0,
+        "name": "$PeacefulZone$ac34fb18-e94f-4a1e-941a-527eeb196e70",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "7d9dc37dd50d49e1bfe8001119168464, EtudeIgnorePartyEncumbrance",
+        "m_Flags": 0,
+        "name": "$EtudeIgnorePartyEncumbrance$db83c4a0-b6ab-4d67-afc7-a9ab85175ae8",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      },
+      {
+        "$type": "f905ab8b4c014637b79eae5da34c6fd5, EtudeIgnorePersonalEncumbrance",
+        "m_Flags": 0,
+        "name": "$EtudeIgnorePersonalEncumbrance$e0f5f700-3c62-4317-80c3-92e3e33b5167",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": ""
+      }
+    ],
+    "Comment": "Катсцена с объявлением 5-го Крестового Похода. Голфри и все-все-все.",
+    "m_Parent": "!bp_76654062afeec304e8eeb69dc6421c3f",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": "!bp_7a25c101fe6f7aa46b192db13373d03b",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_365e6193b68acf44fbb359e03ad0b45e"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [
+      "!bp_4be1dcbb5f0a05f43b8915e14251b76c"
+    ],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

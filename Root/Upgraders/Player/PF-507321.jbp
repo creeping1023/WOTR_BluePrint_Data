@@ -1,0 +1,55 @@
+{
+  "AssetId": "4e21434718cd4455bfb965c0281550d8",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "фейл квеста Грейбора на Колифире, если квест ГБ еще не сделан",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$62d77589-f7e3-45ce-abe4-3a44de240cdc",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$039548f2-beb0-4648-84f6-0a24ad901247",
+                "Not": false,
+                "m_Quest": "!bp_0d57a9d9faec6c64aab20c1ab376c913",
+                "State": "Started"
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$88e8d16b-8459-4d35-9ab3-a1839f89bda8",
+                "Not": true,
+                "m_QuestObjective": "!bp_f04f3fb286872ec42a575f3c231302cf",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$f3df7fc2-3e8d-448c-8449-e1e3dd4c5117",
+                "Status": "Fail",
+                "m_Objective": "!bp_fbd5d7a0c2546444e83dbe126e134691",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

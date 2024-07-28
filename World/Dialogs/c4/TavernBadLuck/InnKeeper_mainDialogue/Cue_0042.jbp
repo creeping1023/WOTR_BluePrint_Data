@@ -1,0 +1,106 @@
+{
+  "AssetId": "b5e59dd28c4f1e2499e900f426cb694e",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "ЕСЛИ ПОДНЯТ ФЛАГ PATRONAGE - НЕ ВЫПОЛНЯЕМ ACTIONS",
+    "ParentAsset": "9c98d6413077d6c45b7773e4f91fdc9b",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$a75151c8-6b57-463f-b33c-84419c1deaf6",
+          "Not": true,
+          "m_Quest": "!bp_d83999279374c9946af9edd7d932cce0",
+          "State": "Completed"
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "7a29d1729a7e34b49ade62b8f5468e5f",
+        "stringkey": "a0dc6701-7c5c-44d8-9677-08afc212c45b"
+      }
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$b1fcfdc2-e579-4e56-b4e7-1613924eb94b",
+          "Comment": "если еще не взяли обж - берем тут",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$a008e4f4-6ca7-4cec-ad53-2b3c9f567948",
+                "Not": false,
+                "m_QuestObjective": "!bp_cbd3a4c5dda49fb4c9de6df4c5d27579",
+                "State": "None"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$cde2c46c-20ef-4bab-84cc-cf4d4b2f2c20",
+                "m_Objective": "!bp_cbd3a4c5dda49fb4c9de6df4c5d27579"
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$618467af-8c7c-4593-9132-f20b25f9456b",
+                "Status": "Complete",
+                "m_Objective": "!bp_46be6adb81348ee4aac6f627d62a20d9",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

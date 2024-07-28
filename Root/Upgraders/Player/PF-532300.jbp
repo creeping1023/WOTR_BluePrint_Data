@@ -1,0 +1,115 @@
+{
+  "AssetId": "9a0083396b3346aaab718e31240a7b9c",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5d2677ee-7134-4c32-99f5-829550c78cab",
+          "Comment": "For Location",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                "name": "$OrAndLogic$59378e40-e591-4f98-9605-c47b2f664568",
+                "Not": false,
+                "Comment": "",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$2a6938bb-12f6-4026-8dda-93017e218229",
+                      "Not": true,
+                      "m_Quest": "!bp_476c9e81420b4a25941c486a2ebfb752",
+                      "State": "Started"
+                    },
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$d4df0801-d70d-457e-acc8-88d3ba982644",
+                      "Not": true,
+                      "m_Quest": "!bp_476c9e81420b4a25941c486a2ebfb752",
+                      "State": "Completed"
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$4efee59b-d1b1-4115-a316-95b264da925f",
+                "Not": true,
+                "m_QuestObjective": "!bp_855256f37ed545ebbb2f4f12c866aeb6",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "283706d83f2b5a8418f90b318819b1ae, UnlockLocation",
+                "name": "$UnlockLocation$007de4cc-3abf-4dae-8957-d50bc50ee163",
+                "m_Location": "!bp_7ad6f20dc44d4d098f6374ff9711052c",
+                "FakeDescription": false,
+                "HideInstead": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$e446f3ec-f0f7-4dad-a23c-0ce9167961e0",
+          "Comment": "For Quest",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$8bad5b1a-80d0-4b41-8a9d-539b9f24499b",
+                "Not": false,
+                "m_Quest": "!bp_476c9e81420b4a25941c486a2ebfb752",
+                "State": "Started"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$51b9237f-98c4-40d4-a160-9c3693af9619",
+                "Not": true,
+                "m_Etude": "!bp_a1db9daf676b36f4d99c6a788a0fe1af",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$388bcc83-66f7-4d09-84f1-f491da3b2c2b",
+                "Status": "Fail",
+                "m_Objective": "!bp_0b8760bcbf024e468b7a8dbbb49439ea",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

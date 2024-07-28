@@ -1,0 +1,284 @@
+{
+  "AssetId": "f1663b79ed3e4c04b98d1e37c46e08b3",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Голфри уходит насовсем\n(доступно как до того, как она присоединилась, так и после)",
+    "ParentAsset": "7aa9f04bf230b03448215694dfc55192",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "9ddd83c4-138e-4b1b-9e3f-72b0691dcbd4",
+      "m_OwnerString": "f1663b79ed3e4c04b98d1e37c46e08b3",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c5/Mythic_Lich/Galfrey_Zombie/Cue_0023_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": "!bp_d58b81fd7ec14784fa05bc29fb6c7ae0"
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6cc5268d-dbfb-410c-a062-f5d4be1a2753",
+          "Comment": "в Зиккурате",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$25ba117a-71d5-4c99-a120-c094923b020d",
+                "Not": false,
+                "m_Etude": "!bp_f69401a70b5f5db46b19572568a2ec50",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$d6d22f9d-8542-45e6-8073-a16468d3b9c1",
+                "m_Cutscene": "!bp_96c2eac8c1002f34e5030a329b6704f3",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Locator",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$81e3196c-7c10-49c2-a9b7-a6ba9d612799",
+                        "Locator": {
+                          "EntityNameInEditor": "ZigguratGoAwayLoc",
+                          "_entity_id": "372c8364-3cba-4752-953f-4563af5e65ab",
+                          "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    },
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                        "name": "$CompanionInParty$eb4a500d-bff8-412e-8517-a7c7f66cc7c4",
+                        "m_Companion": "!bp_d58b81fd7ec14784fa05bc29fb6c7ae0",
+                        "IncludeRemote": true,
+                        "IncludeExCompanions": true,
+                        "IncludeDettached": true
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                "name": "$CompleteEtude$7c4115bd-e2a7-49f9-864d-6f93b8ce1dd9",
+                "Etude": "!bp_f69401a70b5f5db46b19572568a2ec50",
+                "EtudeEvaluator": null,
+                "Evaluate": false
+              },
+              {
+                "$type": "7d6c4f7ff596e5e4086531c0f96ac650, Unrecruit",
+                "name": "$Unrecruit$c1c09001-ce6e-46cb-ae1a-ecb443af5314",
+                "m_CompanionBlueprint": "!bp_d58b81fd7ec14784fa05bc29fb6c7ae0",
+                "OnUnrecruit": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$ea95159e-e93a-44d7-9dd9-bcb98793f338",
+                "Comment": "в манускриптах или нет",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$ed061d51-67b1-49fc-8337-bf1b3294b592",
+                      "Not": false,
+                      "m_Etude": "!bp_4b3f1b15817e2034f85d7fa7b2a6f20a",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$47850f33-dbea-4488-8678-17255c0e208e",
+                      "m_Cutscene": "!bp_96c2eac8c1002f34e5030a329b6704f3",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Locator",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "289b383f327f643449b0b142c36fabfc, NearestPosition",
+                              "name": "$NearestPosition$c86a7cc3-064c-47bf-8360-9e084c809899",
+                              "m_Positions": [
+                                {
+                                  "Condition": {
+                                    "Operation": "And",
+                                    "Conditions": []
+                                  },
+                                  "Position": {
+                                    "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                                    "name": "$LocatorPosition$28e9f2a2-7fc6-4907-b056-825d2a435cf9",
+                                    "Locator": {
+                                      "EntityNameInEditor": "GalfreyGhostAway",
+                                      "_entity_id": "4b02394e-4279-43ac-8194-8b95fb88bae2",
+                                      "SceneAssetGuid": "2f68a0a672ece9647b65979b3afe479f"
+                                    },
+                                    "Offset": "0|0|0"
+                                  }
+                                },
+                                {
+                                  "Condition": {
+                                    "Operation": "And",
+                                    "Conditions": []
+                                  },
+                                  "Position": {
+                                    "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                                    "name": "$LocatorPosition$dbb044af-7eb7-4876-8778-18a1a87ebe8f",
+                                    "Locator": {
+                                      "EntityNameInEditor": "GalfreyGoAwayManuscript",
+                                      "_entity_id": "4c13368c-3f23-4fef-aab9-74bd1c5a5ce3",
+                                      "SceneAssetGuid": "8c649c51a5c0cf748947ef53b24431b0"
+                                    },
+                                    "Offset": "0|0|0"
+                                  }
+                                }
+                              ],
+                              "Center": {
+                                "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                                "name": "$UnitPosition$b14d8283-89e7-4652-80b7-8e8bb2693442",
+                                "Unit": {
+                                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                                  "name": "$PlayerCharacter$1e485733-90d7-453c-ba88-0b8368f282f0"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$38649218-fb78-47b4-ba6d-bc4c7dce641f",
+                              "Spawner": {
+                                "EntityNameInEditor": "GalfreysGhost",
+                                "_entity_id": "4f31382e-5307-415b-b6ed-72dcae8628db",
+                                "SceneAssetGuid": "8c649c51a5c0cf748947ef53b24431b0"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$94dc5da1-3e96-4615-886e-ab98ad8f1a22",
+                      "m_Cutscene": "!bp_96c2eac8c1002f34e5030a329b6704f3",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Locator",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$84c50fcd-e9c6-4d7f-8c17-ff45887e2735",
+                              "Locator": {
+                                "EntityNameInEditor": "GalfreyGoAway",
+                                "_entity_id": "3716fd99-446a-4dea-a326-b01397db187d",
+                                "SceneAssetGuid": "8c649c51a5c0cf748947ef53b24431b0"
+                              },
+                              "Offset": "0|0|0"
+                            }
+                          },
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                              "name": "$UnitFromSpawner$6383dcb4-a109-473a-ac5e-f80e7c014d75",
+                              "Spawner": {
+                                "EntityNameInEditor": "GalfreysGhost",
+                                "_entity_id": "4f31382e-5307-415b-b6ed-72dcae8628db",
+                                "SceneAssetGuid": "8c649c51a5c0cf748947ef53b24431b0"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

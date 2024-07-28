@@ -1,0 +1,454 @@
+{
+  "AssetId": "89d8ed5faf004df9ae1da944f967bea9",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$3eb233ae-8b67-40f5-a93e-0534b5eba0fc",
+          "Comment": "Patrolling Giant is still alive",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "61d393ff6aff61647a785e561f98ffc5, UnitFromSpawnerIsDead",
+                "name": "$UnitFromSpawnerIsDead$3f11d486-a447-420c-a1c2-b3742d3381e4",
+                "Not": true,
+                "Target": {
+                  "EntityNameInEditor": "PatrolingGiant",
+                  "_entity_id": "76163abb-928c-408c-a970-2a2a7d8cda00",
+                  "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$7556c9cc-53d1-44e6-b2be-1833088cc40a",
+                "m_Cutscene": "!bp_f54977c8fa47404b948cd1460ec4462b",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$5e58ac9b-9671-4751-9283-8e07966d26bc",
+                        "Spawner": {
+                          "EntityNameInEditor": "PatrolingGiant",
+                          "_entity_id": "76163abb-928c-408c-a970-2a2a7d8cda00",
+                          "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$3183a9d7-3d39-41fe-962b-726b6bdd7d5a",
+                        "Locator": {
+                          "EntityNameInEditor": "Son_ritual_pos",
+                          "_entity_id": "3033966d-bb82-4374-a8e1-3566b5329590",
+                          "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    },
+                    {
+                      "Name": "Rotation",
+                      "Type": "Float",
+                      "Evaluator": {
+                        "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                        "name": "$LocatorOrientation$7a672dda-6736-462f-a0d9-68ac2d0364de",
+                        "LocatorEval": null,
+                        "Locator": {
+                          "EntityNameInEditor": "Son_ritual_pos",
+                          "_entity_id": "3033966d-bb82-4374-a8e1-3566b5329590",
+                          "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$4bec86b0-d71a-45c3-8563-4ec2a64dd4de",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$e8654cfa-1b9c-4148-8fe4-46ca9a753e7a",
+                  "Spawner": {
+                    "EntityNameInEditor": "PatrolingGiant",
+                    "_entity_id": "76163abb-928c-408c-a970-2a2a7d8cda00",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                "name": "$AddUnitToSummonPool$fde7138b-5c68-4078-88f4-3fc7dea911e0",
+                "m_SummonPool": "!bp_a7da2ec4cc284044912d5a7f1a84eee6",
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$28d3273f-e3ff-48aa-be12-ea797335c830",
+                  "Spawner": {
+                    "EntityNameInEditor": "PatrolingGiant",
+                    "_entity_id": "76163abb-928c-408c-a970-2a2a7d8cda00",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+          "name": "$UnitsFromSpawnersInUnitGroup$4b609301-4621-4bd8-b1ee-18d197bb3c62",
+          "m_Group": {
+            "EntityNameInEditor": "GiantGuards",
+            "_entity_id": "a5655569-0e91-45d7-a7b3-b611826bf075",
+            "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$2bb96201-fd66-4d14-9a4f-437d9ad78a0f",
+                "m_Cutscene": "!bp_f54977c8fa47404b948cd1460ec4462b",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$fc1e6930-f281-448c-8f31-3cbe939ef3da"
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$461d2aad-0eff-407e-ac72-5cdef0b90087",
+                        "Locator": {
+                          "EntityNameInEditor": "Son_ritual_pos",
+                          "_entity_id": "3033966d-bb82-4374-a8e1-3566b5329590",
+                          "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    },
+                    {
+                      "Name": "Rotation",
+                      "Type": "Float",
+                      "Evaluator": {
+                        "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                        "name": "$LocatorOrientation$898af899-2925-4f12-a476-18f1e49e865f",
+                        "LocatorEval": null,
+                        "Locator": {
+                          "EntityNameInEditor": "Son_ritual_pos",
+                          "_entity_id": "3033966d-bb82-4374-a8e1-3566b5329590",
+                          "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$71223395-5277-464c-b1d2-e33f2f6f2360",
+                "Target": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$cfdba840-3022-4cb7-9052-afdf458cbe8a"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+                "name": "$AddUnitToSummonPool$768f3be1-12b8-4d8a-a5ed-5c3341d7d241",
+                "m_SummonPool": "!bp_a7da2ec4cc284044912d5a7f1a84eee6",
+                "Unit": {
+                  "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                  "name": "$UnitGroupUnit$530cf63e-e6ea-41ba-b592-c51235e7ecfc"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+          "name": "$ShowBark$7f82dbed-5a12-4a92-b112-8d1c7135f515",
+          "WhatToBark": {
+            "m_Key": "",
+            "m_OwnerString": "",
+            "m_OwnerPropertyPath": "",
+            "m_JsonPath": "",
+            "Shared": {
+              "assetguid": "be6abd4be56fd81409a4137dc96f5264",
+              "stringkey": "eaa09d73-43fe-4f41-a518-421823b60d7a"
+            }
+          },
+          "WhatToBarkShared": null,
+          "BarkDurationByText": true,
+          "TargetUnit": {
+            "$type": "e2b7a7cc2b994e3c925a5ab6abc2b793, ConditionalUnitEvaluator",
+            "name": "$ConditionalUnitEvaluator$3563ac30-3ed2-4eee-8ee6-cc9a3a6087ef",
+            "m_Units": [
+              {
+                "Condition": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$a3a0d7ca-9cdd-456c-a804-6a8af02d5b80",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_c11a8e874d564b419d75d706389e95a6",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$1e3da8ee-0280-4746-8b89-f7b5bdd5cdbb",
+                  "Spawner": {
+                    "EntityNameInEditor": "CarefulSon_Weapon",
+                    "_entity_id": "ba300df3-7aad-47a6-a853-b05468d8b450",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              },
+              {
+                "Condition": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$3d3a110b-889c-43d2-8829-3f9581020bde",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_3faf281475fe4cd19702be86223af13f",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$78bc26fc-553b-4dd2-845c-bd89c0f8a7d1",
+                  "Spawner": {
+                    "EntityNameInEditor": "BraveSon_Weapon",
+                    "_entity_id": "a8e31e27-c409-4fa7-8fb8-d9fff8f0b89c",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              }
+            ],
+            "m_Default": {
+              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+              "name": "$UnitFromSpawner$45a62021-1a28-4abd-8872-4382ad7980c8",
+              "Spawner": {
+                "EntityNameInEditor": "CarefulSon",
+                "_entity_id": "46e0123a-8e02-4035-bc06-9a168aebc031",
+                "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+              }
+            }
+          },
+          "TargetMapObject": null
+        },
+        {
+          "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+          "name": "$AttachBuff$ee9684d7-5f35-4dc7-9022-92dce33e3bc2",
+          "m_Buff": "!bp_281a1f606d92728409ee5cbf5599855d",
+          "Target": {
+            "$type": "e2b7a7cc2b994e3c925a5ab6abc2b793, ConditionalUnitEvaluator",
+            "name": "$ConditionalUnitEvaluator$7097f23b-25d8-4817-bae4-698549afab47",
+            "m_Units": [
+              {
+                "Condition": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$1b120b32-fe75-40b5-8bc2-c7daa5134ae9",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_c11a8e874d564b419d75d706389e95a6",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$112fc6ed-b3e3-41bf-bce8-23ced877573b",
+                  "Spawner": {
+                    "EntityNameInEditor": "CarefulSon",
+                    "_entity_id": "46e0123a-8e02-4035-bc06-9a168aebc031",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              },
+              {
+                "Condition": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$d3e85f25-2b1a-4339-878d-28dfb977f74d",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_3faf281475fe4cd19702be86223af13f",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$5e7b070c-1c7d-4ceb-96dc-14a5e09fd49a",
+                  "Spawner": {
+                    "EntityNameInEditor": "BraveSon",
+                    "_entity_id": "53aaf376-c728-4315-bd9e-28cd31f79bb5",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              }
+            ],
+            "m_Default": {
+              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+              "name": "$UnitFromSpawner$f462541d-e0cb-4f9a-b49a-d57ea694bfb4",
+              "Spawner": {
+                "EntityNameInEditor": "CarefulSon",
+                "_entity_id": "46e0123a-8e02-4035-bc06-9a168aebc031",
+                "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+              }
+            }
+          },
+          "Duration": null,
+          "BattleLog": false,
+          "HasCustomBattleLogMessage": false,
+          "CustomBattleLogMessage": {
+            "m_Key": "",
+            "m_OwnerString": "",
+            "m_OwnerPropertyPath": "",
+            "m_JsonPath": "",
+            "Shared": null
+          }
+        },
+        {
+          "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+          "name": "$SwitchFaction$d273f99a-fe9d-4896-bfba-d129814cff50",
+          "Target": {
+            "$type": "e2b7a7cc2b994e3c925a5ab6abc2b793, ConditionalUnitEvaluator",
+            "name": "$ConditionalUnitEvaluator$fc0bdbf1-0da7-428c-a4ca-b58f8675884c",
+            "m_Units": [
+              {
+                "Condition": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$39314b0f-9856-48e7-a436-6bd383b0bbc7",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_c11a8e874d564b419d75d706389e95a6",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$6c303fec-9c19-4c6a-a419-b15ba9f850f9",
+                  "Spawner": {
+                    "EntityNameInEditor": "CarefulSon_Weapon",
+                    "_entity_id": "ba300df3-7aad-47a6-a853-b05468d8b450",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              },
+              {
+                "Condition": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$ca7efcdd-c604-4fba-908e-85283f8bca3c",
+                      "Not": false,
+                      "m_ConditionFlag": "!bp_3faf281475fe4cd19702be86223af13f",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    }
+                  ]
+                },
+                "Unit": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$21b8ec8e-c110-48ee-b7ad-0f9300ffe74e",
+                  "Spawner": {
+                    "EntityNameInEditor": "BraveSon_Weapon",
+                    "_entity_id": "a8e31e27-c409-4fa7-8fb8-d9fff8f0b89c",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              }
+            ],
+            "m_Default": {
+              "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+              "name": "$UnitFromSpawner$845bfa41-8217-46bf-9d9a-04a446106c98",
+              "Spawner": {
+                "EntityNameInEditor": "CarefulSon",
+                "_entity_id": "46e0123a-8e02-4035-bc06-9a168aebc031",
+                "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+              }
+            }
+          },
+          "m_Faction": "!bp_31359684b6f0ca9438e1fd6be6766cb0",
+          "IncludeGroup": true,
+          "ResetAllRelations": false
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$f0e72bca-acc0-4bdf-b87e-aa1244469bf2",
+          "m_Objective": "!bp_a511b15b4b074d7188622c1901f984bc"
+        },
+        {
+          "$type": "8a4f41327b18c0f47b0a1d132429f14e, AddUnitToSummonPool",
+          "name": "$AddUnitToSummonPool$47e787dd-2c3f-4b9c-85f8-0ed04ce84cf1",
+          "m_SummonPool": "!bp_a7da2ec4cc284044912d5a7f1a84eee6",
+          "Unit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$bc71f6e3-a53c-45a6-b14a-abd38ec04d05",
+            "Spawner": {
+              "EntityNameInEditor": "GiantCampGuard",
+              "_entity_id": "9907b339-a3ca-42b6-98ed-47b9b7106d85",
+              "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

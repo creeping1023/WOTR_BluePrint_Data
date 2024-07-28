@@ -1,0 +1,206 @@
+{
+  "AssetId": "da3f86695375404582e36e7ebe6dfb6e",
+  "Data": {
+    "$type": "618a7e0d54149064ab3ffa5d9057362c, BlueprintBuff",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "6fd75aca8fe021d40afb330524413b24, InitiatorCritAutoconfirm",
+        "m_Flags": 0,
+        "name": "$InitiatorCritAutoconfirm$61281ac1-a4a7-4741-aa98-dc09e3f1291e",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": []
+      },
+      {
+        "$type": "ce3d90b3cfa65eb418d4fd6388c1cd3c, WeaponCriticalEdgeIncreaseStackable",
+        "m_Flags": 0,
+        "name": "$WeaponCriticalEdgeIncreaseStackable$693c473a-d017-48bc-8a40-21bdc34169b9",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "IncludeCategories": [],
+        "ExcludeCategories": [],
+        "IncludeAttackTypes": [
+          "Melee",
+          "Touch",
+          "Ranged",
+          "RangedTouch"
+        ],
+        "ExcludeAttackTypes": [],
+        "Value": 20
+      },
+      {
+        "$type": "228c903689cdcf94f8d0665fb9a69757, AddInitiatorAttackRollTrigger",
+        "m_Flags": 0,
+        "name": "$AddInitiatorAttackRollTrigger$b36366f8-3292-4f1c-885f-152ca6e998e4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "OnlyHit": true,
+        "CriticalHit": false,
+        "SneakAttack": false,
+        "OnOwner": false,
+        "CheckWeapon": false,
+        "WeaponCategory": "UnarmedStrike",
+        "AffectFriendlyTouchSpells": false,
+        "Action": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$1b0b295e-aa00-4e97-b18d-51b460d7c82a",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "43f75bd73450e1f4aa1f6163f51956e3, ContextConditionCasterHasFact",
+                    "name": "$ContextConditionCasterHasFact$c15da10c-d706-41fb-b7e2-1704dd63deb8",
+                    "Not": false,
+                    "m_Fact": "!bp_56580a700377441ca5e239614ceede98"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                    "name": "$ContextActionRemoveBuff$2f917742-3299-4bc2-8297-efadfc7582af",
+                    "m_Buff": "!bp_56580a700377441ca5e239614ceede98",
+                    "RemoveRank": false,
+                    "ToCaster": true,
+                    "OnlyFromCaster": false
+                  },
+                  {
+                    "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                    "name": "$ContextActionRemoveBuff$ca1749e0-a13a-4d73-9bb5-6598de92d594",
+                    "m_Buff": "!bp_da3f86695375404582e36e7ebe6dfb6e",
+                    "RemoveRank": false,
+                    "ToCaster": true,
+                    "OnlyFromCaster": false
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$f89ed267-611c-43ef-acbb-7aa6b13956f1",
+                    "m_Buff": "!bp_56580a700377441ca5e239614ceede98",
+                    "Permanent": true,
+                    "UseDurationSeconds": false,
+                    "DurationValue": {
+                      "Rate": "Rounds",
+                      "DiceType": "Zero",
+                      "DiceCountValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "m_IsExtendable": true
+                    },
+                    "DurationSeconds": 0.0,
+                    "IsFromSpell": false,
+                    "IsNotDispelable": false,
+                    "ToCaster": true,
+                    "AsChild": true,
+                    "SameDuration": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "f08844ce14d498a45a9fc64582489a2a, AddContextStatBonus",
+        "m_Flags": 0,
+        "name": "$AddContextStatBonus$acbeec29-fe44-49ae-81a8-c88735159958",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Descriptor": "UntypedStackable",
+        "Stat": "AC",
+        "Multiplier": 1,
+        "Value": {
+          "ValueType": "Simple",
+          "Value": 5,
+          "ValueRank": "Default",
+          "ValueShared": "Damage",
+          "Property": "None",
+          "m_CustomProperty": null,
+          "m_AbilityParameter": "Level"
+        },
+        "HasMinimal": false,
+        "Minimal": 0
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_DisplayName": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "cde86f4ae4a38f942bda253f8c8ae018",
+        "stringkey": "00ad7b9e-e7cf-4746-bb57-2d342ac3404d"
+      }
+    },
+    "m_Description": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": {
+        "assetguid": "13a4ce4eb6a08744eb12ecb71569ec6b",
+        "stringkey": "a3e17de3-eeb8-47c7-ac47-7fc7fe1d03db"
+      }
+    },
+    "m_DescriptionShort": {
+      "m_Key": "",
+      "m_OwnerString": "",
+      "m_OwnerPropertyPath": "",
+      "m_JsonPath": "",
+      "Shared": null
+    },
+    "m_Icon": {
+      "guid": "bcab909b7dc6d3549ace4b94f7325c0d",
+      "fileid": 21300000
+    },
+    "IsClassFeature": false,
+    "m_Flags": 0,
+    "Stacking": "Replace",
+    "Ranks": 0,
+    "TickEachSecond": false,
+    "Frequency": "Rounds",
+    "FxOnStart": null,
+    "FxOnRemove": null,
+    "ResourceAssetIds": []
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

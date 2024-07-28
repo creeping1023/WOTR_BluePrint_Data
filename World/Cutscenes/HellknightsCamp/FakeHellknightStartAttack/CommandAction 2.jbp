@@ -1,0 +1,81 @@
+{
+  "AssetId": "fde29bbfd0fcb1741a7cd72bf37207b6",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+          "name": "$SpawnByUnitGroup$a93d0514-efb0-43cd-b8a5-93fd10c387d0",
+          "m_Group": {
+            "EntityNameInEditor": "FakeHellknightsGroup(NoFight)",
+            "_entity_id": "ba61bc02-3444-42a9-8674-971d1aac2f07",
+            "SceneAssetGuid": "cfc076dc5baac144fbbb35d76cf7a9ab"
+          },
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "2a580ffc7fd649d7a9cdad06b33c8ef9, SpawnByUnitGroup",
+          "name": "$SpawnByUnitGroup$224531cb-f59b-4779-8b2a-89c6c0a9a53b",
+          "m_Group": {
+            "EntityNameInEditor": "TeaSuccubusIndoorGroup_CR14",
+            "_entity_id": "6afa5f40-961d-4a65-a885-c1fa535c27b8",
+            "SceneAssetGuid": "cfc076dc5baac144fbbb35d76cf7a9ab"
+          },
+          "ActionsOnSpawn": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4d3b9a3a-53c2-4e5e-a112-db25a60403dd",
+          "Comment": "If tea succubus was killed earlier",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$114f1025-291a-41ff-938d-22a28c039d06",
+                "Not": false,
+                "m_Etude": "!bp_b149b9c63668feb438e1e3ec7959b881",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$3b6c99e5-d476-4821-ac11-1ed5a2cc40ac",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$be4567bb-16ec-4543-a25b-6144704523c0",
+                  "Spawner": {
+                    "EntityNameInEditor": "TeaSuccubusIndoorJoin",
+                    "_entity_id": "4d8da17f-e677-43e8-8823-1ba3d8a36b48",
+                    "SceneAssetGuid": "cfc076dc5baac144fbbb35d76cf7a9ab"
+                  }
+                },
+                "FadeOut": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  }
+}

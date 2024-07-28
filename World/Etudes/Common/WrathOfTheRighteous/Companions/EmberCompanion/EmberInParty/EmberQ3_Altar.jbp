@@ -1,0 +1,442 @@
+{
+  "AssetId": "1b5c1dd2b0ec4c34a88137e21718afa5",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": null,
+    "m_Overrides": [
+      "$EtudePlayTrigger$5bf142d9-3286-4a54-b404-c5b17cc3cc6c",
+      "$SummonPoolTrigger$faf42e4a-f3d3-4a28-ab24-8c2aaa6e03a5",
+      "$EtudeBracketMarkUnitEssential$37f5d878-3714-4153-861d-3684aadcfee5"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$5bf142d9-3286-4a54-b404-c5b17cc3cc6c",
+        "m_Overrides": [],
+        "Comment": "стартовый диалог",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$0446b35e-1e4b-4611-a1df-87f74c219690",
+              "DialogueOwner": {
+                "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                "name": "$CompanionInParty$e6270a07-83cd-49dc-b7fd-847abb0049b5",
+                "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                "IncludeRemote": false,
+                "IncludeExCompanions": false,
+                "IncludeDettached": false
+              },
+              "m_Dialogue": "!bp_9e9612f39bf6fad4a858fcd4b5e6c183",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$faf42e4a-f3d3-4a28-ab24-8c2aaa6e03a5",
+        "m_Overrides": [],
+        "Comment": "умирает последний враждебый культист/демон из первой сценки",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_f5f25273ecb44644a814caf9b0e88766",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$7e22fd6c-b65f-4920-b2ba-a9e79397b90c",
+              "m_Cutscene": "!bp_fd4c10f4d31ea9449b9b292557c470de",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$bbb4da2c-6b84-4ac7-900f-582267762c32",
+        "m_Overrides": [],
+        "Comment": "умирает последний неубеждённый демон во втором бое",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_c5b29d8aba4e7e44989f191ac674d51b",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": [
+            {
+              "$type": "f12047e0588c11f4ba28423a0b8c3e8e, UnitInScriptZone",
+              "name": "$UnitInScriptZone$47215e0b-08e3-4d13-ac3b-0c89190d10b3",
+              "Not": false,
+              "Unit": {
+                "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                "name": "$PlayerCharacter$1b6ae075-4d4c-4017-96f3-c76a7e57e3fb"
+              },
+              "ScriptZone": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$d5f63c1f-ab67-4bb3-8bdf-51b9150b1fa4",
+                "MapObject": {
+                  "EntityNameInEditor": "EmberQ3_NearAltar",
+                  "_entity_id": "4587e2b2-426c-4cff-8255-ee7f0d164392",
+                  "SceneAssetGuid": "37f08d34108785449a9643c37c65fc8b"
+                }
+              }
+            }
+          ]
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$cf1fdf8a-ac90-4764-b629-fd61ad5b03e7",
+              "m_Cutscene": "!bp_acfd06f1a9a4157489dec688cc1a6411",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            },
+            {
+              "$type": "936004d258436d2459d0339955a70892, ScriptZoneDeactivate",
+              "name": "$ScriptZoneDeactivate$1ce7ba7f-cc4b-4593-af6d-ed9a20df4183",
+              "ScriptZone": {
+                "EntityNameInEditor": "EmberQ3_NearAltar",
+                "_entity_id": "4587e2b2-426c-4cff-8255-ee7f0d164392",
+                "SceneAssetGuid": "37f08d34108785449a9643c37c65fc8b"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "2631f5df3cb69464399dcdbcbbd803d8, EtudeBracketMarkUnitEssential",
+        "name": "$EtudeBracketMarkUnitEssential$37f5d878-3714-4153-861d-3684aadcfee5",
+        "m_Overrides": [],
+        "Comment": "Эмбер важная",
+        "Target": {
+          "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+          "name": "$CompanionInParty$85ae5b94-92e7-4d97-98ad-0b0a02cd6768",
+          "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+          "IncludeRemote": false,
+          "IncludeExCompanions": false,
+          "IncludeDettached": false
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$7991de01-f7fb-4a93-992a-cf371b8627f2",
+        "m_Overrides": [],
+        "Comment": "умирает последний демон в финальном бою",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_c98b007bd4c9bcc4393498ec363c09dc",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$c7434ff6-9c85-4506-baf9-58131e942a19",
+              "Comment": "злая концовка или нет",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$4fc7be89-720f-42e9-8d2d-9776930fe952",
+                    "Not": false,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$d06f2346-b54f-48ba-ab7c-ffdbf0bbb97a",
+                      "m_Flag": "!bp_143421f69c04df047ab0e537640d9e69"
+                    },
+                    "MaxValue": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$7dad9167-bead-4182-99c3-31011d03219f",
+                      "m_Flag": "!bp_b388259df998a2a4183b12304eafb4b3"
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  },
+                  {
+                    "$type": "4874411993c669b48b6ccb90d57a750b, LessThan",
+                    "name": "$LessThan$d01a77f9-bf93-4548-b6f8-bf353468787a",
+                    "Not": false,
+                    "FloatValues": false,
+                    "Value": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$136fcfcd-a860-43c0-b0b4-b473688ab074",
+                      "m_Flag": "!bp_5efbfae4bcf7aa74792da0423fb02bac"
+                    },
+                    "MaxValue": {
+                      "$type": "d544653997f745c4ebead9b1719c7830, FlagValue",
+                      "name": "$FlagValue$672f27d0-fe79-4823-8af2-f1a828951849",
+                      "m_Flag": "!bp_b388259df998a2a4183b12304eafb4b3"
+                    },
+                    "FloatValue": null,
+                    "FloatMaxValue": null
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$227eaa46-3487-462f-9243-ad2880781e9d",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "ea4ccf9e4c89fdb408035d7070c3f390",
+                        "stringkey": "7a19d182-bb4d-488e-ba02-0dacd9466803"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": true,
+                    "TargetUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$971c7b97-8754-469a-b469-4942becd50c5",
+                      "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    },
+                    "TargetMapObject": null
+                  },
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$79825c30-7ed2-46e0-920c-772da24ed549",
+                    "m_Cutscene": "!bp_18228ef7a7e17d045d3cd3dbea2d842d",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Speaker",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                            "name": "$CompanionInParty$d4cd347e-4d5a-469d-b6a6-b11c0781b861",
+                            "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                            "IncludeRemote": false,
+                            "IncludeExCompanions": false,
+                            "IncludeDettached": false
+                          }
+                        },
+                        {
+                          "Name": "Dialogue",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$ca5f12d4-bdb7-45c2-b45e-73583fa9dd05",
+                            "m_Value": "!bp_62ac670f6d20fe44aab9084c6a232ff4"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$614326f9-4f69-4dfc-982e-56346c7c9abe",
+                    "m_Cutscene": "!bp_18228ef7a7e17d045d3cd3dbea2d842d",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Speaker",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                            "name": "$CompanionInParty$f50f84cc-4c40-458e-a0a0-672032f12a82",
+                            "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                            "IncludeRemote": false,
+                            "IncludeExCompanions": false,
+                            "IncludeDettached": false
+                          }
+                        },
+                        {
+                          "Name": "Dialogue",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$4baf4590-09ee-40ee-9d36-cc06cfefbfe6",
+                            "m_Value": "!bp_8583b76d49407c34e90453a4b9b2de02"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+                    "name": "$ShowBark$c339b7ef-5ba5-4958-9066-79b946f8326c",
+                    "WhatToBark": {
+                      "m_Key": "",
+                      "m_OwnerString": "",
+                      "m_OwnerPropertyPath": "",
+                      "m_JsonPath": "",
+                      "Shared": {
+                        "assetguid": "8bfaa7432c8817948892cea7aa90b0fa",
+                        "stringkey": "99347fce-8f1b-42b9-9f0d-f172f2b402f6"
+                      }
+                    },
+                    "WhatToBarkShared": null,
+                    "BarkDurationByText": true,
+                    "TargetUnit": {
+                      "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                      "name": "$CompanionInParty$67fd0014-6b40-4a35-a1a7-d8d1122a0a61",
+                      "m_Companion": "!bp_2779754eecffd044fbd4842dba55312c",
+                      "IncludeRemote": false,
+                      "IncludeExCompanions": false,
+                      "IncludeDettached": false
+                    },
+                    "TargetMapObject": null
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$e33614b9-c34b-4251-9772-8f7acb14e4e9",
+              "m_SummonPool": "!bp_fcbe1de3aa118064abb884b978b0647f",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$02a180fa-b298-4e84-adb4-2a6dc21aaa20",
+                    "m_Buff": "!bp_6f1d9e5b1bf462642bb7e72d1ed67141",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$c36b66a3-35f9-4957-bde2-184209fcc1c9"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$7b1eb5eb-c7cb-4032-9bab-29accdd0a81b",
+              "m_SummonPool": "!bp_f26d0c1119dbc96429450944e9d9dce2",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$fd4d8263-d4e0-4425-800b-8eb4832db4bc",
+                    "m_Buff": "!bp_6f1d9e5b1bf462642bb7e72d1ed67141",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$8d5e3797-372f-4b99-924e-21fd1395cacd"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$09ada0dd-eb5b-4406-a7bf-6ae3b9effbcb",
+              "m_SummonPool": "!bp_788a070860e3f624db8db132aa6775fd",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$a7013cf5-1b68-46a7-a572-d5331896f1e9",
+                    "m_Buff": "!bp_6f1d9e5b1bf462642bb7e72d1ed67141",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$b8cad033-9573-4536-898c-3b4a39795f51"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$fc1f5b78-0399-46c1-a782-9edec1ebcbe7",
+              "m_SummonPool": "!bp_4c626ed9e31a9dd48b2e214bde44b292",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$7f029a62-9176-4a8b-8813-6f8bce29fae8",
+                    "m_Buff": "!bp_6f1d9e5b1bf462642bb7e72d1ed67141",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$1f18352f-7c96-4207-a880-33d8bd985bcc"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "зона Алтарь Бафомета, в пятой главе",
+    "m_Parent": "!bp_3a708ad53771a2d44ac506361fb7aafc",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_97622c84997e42949acf567fa2afaa3d",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_29b555c979f797c42a642fce7ac5e39b"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

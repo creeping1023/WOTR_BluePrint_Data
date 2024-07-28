@@ -1,0 +1,334 @@
+{
+  "AssetId": "24a984f4cffa49bab177546cf9ff7000",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$ebe1b521-1c0f-4728-b25c-0ad96b7fdd29",
+          "Not": false,
+          "m_ConditionFlag": "!bp_ae924c84f6834f2cadcb37f109fc8b84",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        }
+      ]
+    },
+    "OnFail": "FinishTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "8072988edd00cce40bc433869828e6b3, TeleportParty",
+          "name": "$TeleportParty$71eb3718-7912-4fb6-815b-05ca0de83cbb",
+          "m_exitPositon": "!bp_da9c52b5d1c7441ea6d36ab3af1cdb8e",
+          "AutoSaveMode": "None",
+          "ForcePauseAfterTeleport": false,
+          "AfterTeleport": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$c86568a8-9e01-457b-acb1-3398b0782a3f",
+                "m_Cutscene": "!bp_374d05975ce24adfbe549a1bdb46220d",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$1a43723e-852e-45ad-bf6b-3603f43baf20",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                      "name": "$Conditional$6964b86f-7cc6-4509-a355-78ef25dacfaa",
+                      "Comment": "Everyone except Sendri and PC",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                            "name": "$UnitEqual$2e633fde-3d8f-4c38-869c-14721d8fecde",
+                            "Not": true,
+                            "FirstUnit": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$0ce63396-127c-4d2d-9cbd-773e71b038c3"
+                            },
+                            "SecondUnit": {
+                              "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                              "name": "$PlayerCharacter$e4cc1467-b274-43e4-92c1-15fb366c72a0"
+                            }
+                          },
+                          {
+                            "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                            "name": "$UnitEqual$9738f2dc-c1a7-42d8-a38a-c2d02b1abc7a",
+                            "Not": true,
+                            "FirstUnit": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$882fe577-1cc7-46fa-aa88-c8c02561d7df"
+                            },
+                            "SecondUnit": {
+                              "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                              "name": "$CompanionInParty$bc28bfde-3ff1-4b0b-97fa-6beb07c11ac5",
+                              "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                              "IncludeRemote": false,
+                              "IncludeExCompanions": false,
+                              "IncludeDettached": false
+                            }
+                          }
+                        ]
+                      },
+                      "IfTrue": {
+                        "Actions": [
+                          {
+                            "$type": "0edf8920d3df9b54c9db189bdad67cac, HideUnit",
+                            "name": "$HideUnit$27089d55-48b2-49fa-92cd-8993b6f58ab1",
+                            "Target": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$6e7e38df-1f13-44ab-afed-7bbeaa92b65e"
+                            },
+                            "Unhide": false,
+                            "SetHideInSaves": true,
+                            "Fade": false
+                          }
+                        ]
+                      },
+                      "IfFalse": {
+                        "Actions": []
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "2284267c23c69d442a9c3b9e9954283b, HideWeapons",
+                "name": "$HideWeapons$a3edfa99-052c-41da-a960-794cfc2ea1b5",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$28f8d1a7-484f-4165-83e9-6f1a7e68ab97"
+                },
+                "Hide": true
+              },
+              {
+                "$type": "2284267c23c69d442a9c3b9e9954283b, HideWeapons",
+                "name": "$HideWeapons$d23df84d-b973-4ea5-b4b9-bb36109af7b9",
+                "Target": {
+                  "$type": "7aafe88b061e08e44aa3e725e8d8ff00, CompanionInParty",
+                  "name": "$CompanionInParty$91c30442-502a-4ab3-8c84-5bafbba6755c",
+                  "m_Companion": "!bp_561036c882a640089b1d42f03ebe3a6c",
+                  "IncludeRemote": false,
+                  "IncludeExCompanions": false,
+                  "IncludeDettached": false
+                },
+                "Hide": true
+              },
+              {
+                "$type": "492a452ed68248a3bb668b5a3f2a289e, HideCloak",
+                "name": "$HideCloak$630b0980-39ae-4673-bc8f-f77595644531",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$e1859e9a-181c-4f4e-b684-908aeba0e0b2"
+                },
+                "Hide": true
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$9a503775-71dc-492e-b17c-1966505bab3d",
+                "Comment": "Mercenary is in party",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$8e1bc567-13f4-41c0-96a0-c3ee5377e66f",
+                      "Not": false,
+                      "m_companion": "!bp_f0467c84594941f0a9ebe49a42b89cda",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": false,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+                      "name": "$UnlockCompanionStory$c3f3e8a0-0e99-4fee-b472-bec89e9d8dbf",
+                      "m_Story": "!bp_611afa69d7114b978be79f429e6f2f0b"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$cf3c81fc-28fc-4e13-a5e7-6b3c1480892b",
+                "Comment": "Mercenary is in party",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$e799ddc3-cead-4733-a967-5f24c465fa2c",
+                      "Not": false,
+                      "m_companion": "!bp_88c0a078fb7a44eca7937b368f36a0c6",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": false,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+                      "name": "$UnlockCompanionStory$17676245-f677-4eb4-a77a-b91ae0a49450",
+                      "m_Story": "!bp_afd160a1261d44deb0ef96c53fbcee20"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$668c32d7-7284-4a54-a482-ddd39dbbc643",
+                "Comment": "Mercenary is in party",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "d2f424beb5ace314887e9cc946b68dfa, CompanionInParty",
+                      "name": "$CompanionInParty$46003d04-6322-4cd8-a7b1-71550a2c8197",
+                      "Not": false,
+                      "m_companion": "!bp_924caa31897f427bafae780988253fb2",
+                      "MatchWhenActive": true,
+                      "MatchWhenDetached": false,
+                      "MatchWhenRemote": false,
+                      "MatchWhenDead": false,
+                      "MatchWhenEx": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "330752e882f99ea41a86354e64f8d769, UnlockCompanionStory",
+                      "name": "$UnlockCompanionStory$8cd6713f-a418-45d4-bd51-1e9a558cecc1",
+                      "m_Story": "!bp_26b76a86186a4e53b944a290c485f481"
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$b034158a-c800-4e9f-9072-33e8bd081914",
+                "m_Buff": "!bp_ba96343d59a9463d92630e79f5bd7378",
+                "Target": {
+                  "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                  "name": "$PlayerCharacter$6cc343fd-c031-4927-bc36-33fa4c0dbfc4"
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$f0db4515-ae66-464d-aaff-f5daca259ae9",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$df4133b8-96f3-42bd-8cad-71e1088b6875",
+                  "MapObject": {
+                    "EntityNameInEditor": "Abrikandilu_1",
+                    "_entity_id": "65124c2a-f02b-4d21-9573-7a91a5e2f923",
+                    "SceneAssetGuid": "be1014d40e940c44a90401c29c94acd2"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$f8780b6b-04fd-4ba1-9a66-182afc4944ca",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$10d107d6-3758-438f-9ca8-3cf426e056ac",
+                  "MapObject": {
+                    "EntityNameInEditor": "Abrikandilu_2",
+                    "_entity_id": "f712146d-03ce-4a5b-9a2d-f1e21596549c",
+                    "SceneAssetGuid": "be1014d40e940c44a90401c29c94acd2"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$45a8890c-1f61-4364-b876-6b49178910e5",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$506b392f-e63c-4231-8304-228ea62ebf74",
+                  "MapObject": {
+                    "EntityNameInEditor": "Abrikandilu_3",
+                    "_entity_id": "1fe6a8b4-38bc-4df1-b16c-a9508a9d228d",
+                    "SceneAssetGuid": "be1014d40e940c44a90401c29c94acd2"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$0e422226-ad13-4cce-8328-59ba2671fa5f",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$7d202aa0-5fb1-4913-b3f8-4d4dfebbc72f",
+                  "MapObject": {
+                    "EntityNameInEditor": "Abrikandilu_4",
+                    "_entity_id": "2a77bc37-ce9a-4c43-af51-7f2816e296f0",
+                    "SceneAssetGuid": "be1014d40e940c44a90401c29c94acd2"
+                  }
+                },
+                "Unhide": true
+              },
+              {
+                "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                "name": "$HideMapObject$2c031383-1a5b-49ba-8807-565bb2c041ad",
+                "MapObject": {
+                  "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                  "name": "$MapObjectFromScene$0b332f59-2e04-4bcb-868d-3a0417719d7f",
+                  "MapObject": {
+                    "EntityNameInEditor": "ColdWizard",
+                    "_entity_id": "4b357a88-ef7d-4203-9642-b9202e2d1879",
+                    "SceneAssetGuid": "be1014d40e940c44a90401c29c94acd2"
+                  }
+                },
+                "Unhide": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

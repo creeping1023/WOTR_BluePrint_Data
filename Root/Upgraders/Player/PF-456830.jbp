@@ -1,0 +1,128 @@
+{
+  "AssetId": "1867835a7e34421ea43d294a63934bb5",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Corrupted summon pools in Attack on Ziggurat",
+    "m_SpecificArea": "!bp_e8f1160e960935344a8aa7466484506d",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ca6d237b-bb2c-4e0e-9d20-4d89c76117eb",
+          "Comment": "Attack after ritual is playing",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$f5b7c999-a03e-4824-83be-bfc6b1f1c82e",
+                "Not": false,
+                "m_Etude": "!bp_9ad4fceef50d9fe4ba346054e812e04c",
+                "NotStarted": false,
+                "Started": true,
+                "Playing": false,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$8b630adc-c147-4f47-a2a2-da447c1e3328",
+                "Comment": "ZigguratRiot is playing",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                      "name": "$EtudeStatus$fe96debd-0da6-47e8-8985-2edbe323de8a",
+                      "Not": false,
+                      "m_Etude": "!bp_5ecb3695c95e4bd4b836a0deac1ecfd7",
+                      "NotStarted": false,
+                      "Started": false,
+                      "Playing": true,
+                      "CompletionInProgress": false,
+                      "Completed": false
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+                      "name": "$CompleteEtude$3e0c0dec-e447-44fe-a64b-d062f9e569c6",
+                      "Etude": "!bp_5ecb3695c95e4bd4b836a0deac1ecfd7",
+                      "EtudeEvaluator": null,
+                      "Evaluate": false
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$9cbfaed8-0502-4f3f-9797-be682c1ab120",
+                "Comment": "Summonpool units are dead but player haven't seen dialog",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "4121bfadf09dfbc4cb2c967b559d575c, SummonPoolCount",
+                      "name": "$SummonPoolCount$d4f89559-a9d3-46e9-870e-b2fedf781a6c",
+                      "Not": false,
+                      "m_SummonPoll": "!bp_3cffa1c116f907e4b8291419b7b94a9f",
+                      "m_Operation": "Equal",
+                      "m_Count": 0,
+                      "m_AliveOnly": true
+                    },
+                    {
+                      "$type": "34f02a2ceadc2e442bdf2bfe54478571, DialogSeen",
+                      "name": "$DialogSeen$81d4c979-b0d6-45de-a303-565082ef9ff4",
+                      "Not": true,
+                      "m_Dialog": "!bp_7c8cfe1a40d5c3c4f991e4977acd5bc3"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                      "name": "$UnlockFlag$32b55ff1-e40d-407f-b456-96f0dde62b4d",
+                      "m_flag": "!bp_e0627bb035f65654499a72deb1f0c535",
+                      "flagValue": 1
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$3ec2192e-a6be-44a5-bb92-b9948656223e",
+                      "m_Cutscene": "!bp_b3a0eba54a1874c412ed61b68b61569a",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

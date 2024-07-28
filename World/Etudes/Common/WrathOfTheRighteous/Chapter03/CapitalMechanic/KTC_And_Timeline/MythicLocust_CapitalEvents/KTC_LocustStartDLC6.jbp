@@ -1,0 +1,197 @@
+{
+  "AssetId": "c069d6d82d8b406f8cbfba8b238afcce",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$3d0b8ee5-8d4d-4b36-bbc0-65498003eccd",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$100cc108-63d8-4ff7-878e-64d2a9730d8b",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "[Locust_Cultist_DLC6_KTC]",
+                  "_entity_id": "295ac142-35e1-472f-810f-7519ae02a88d",
+                  "SceneAssetGuid": "f2c218983db8268469c4fd9de1cdc8cd"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": [
+                  {
+                    "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                    "name": "$PlayCutscene$9fefbc99-a9c9-4e64-8104-5c92a1fdf72d",
+                    "m_Cutscene": "!bp_e8d44f13de8b6154687a05f42f767eb5",
+                    "PutInQueue": false,
+                    "CheckExistence": true,
+                    "Parameters": {
+                      "Parameters": [
+                        {
+                          "Name": "Unit",
+                          "Type": "Unit",
+                          "Evaluator": {
+                            "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                            "name": "$SpawnedUnit$6581f21d-a12e-42e0-814a-c64140619609"
+                          }
+                        },
+                        {
+                          "Name": "Dialog",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "5c84f2b0c2d44251b320ae180dcaecd8, Dialog",
+                            "name": "$Dialog$96d9e671-6d3c-4937-a1e9-c5ee02acadbf",
+                            "m_Value": "!bp_b12c57f50b574c96b7b967e6a6d7093e"
+                          }
+                        },
+                        {
+                          "Name": "Etude",
+                          "Type": "Blueprint",
+                          "Evaluator": {
+                            "$type": "1273add9ac97d9b45a4744747bbc65cb, EtudeBlueprint",
+                            "name": "$EtudeBlueprint$532d1e60-2364-495a-8733-0978cf4b9b68",
+                            "m_Value": "!bp_c069d6d82d8b406f8cbfba8b238afcce"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "RespawnIfDead": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$9c7d585e-44fe-4d29-8f6a-320f0a17894b",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+              "name": "$DestroyUnit$d0e50b13-128c-42d7-a1df-09dfeef3499c",
+              "Target": {
+                "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                "name": "$UnitFromSpawner$637213b9-79da-4b7a-a50a-de1512fefff0",
+                "Spawner": {
+                  "EntityNameInEditor": "[Locust_Cultist_DLC6_KTC]",
+                  "_entity_id": "295ac142-35e1-472f-810f-7519ae02a88d",
+                  "SceneAssetGuid": "f2c218983db8268469c4fd9de1cdc8cd"
+                }
+              },
+              "FadeOut": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$5aacde92-7b7a-4a4c-afa3-7756b0946ecc",
+              "Comment": "Curren area is Drezen",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "6644a1aff0f24b4fac0fd20fcd9f26f3, CurrentAreaIs",
+                    "name": "$CurrentAreaIs$1898eebd-9814-4ed6-a36d-378756721412",
+                    "Not": false,
+                    "m_Area": "!bp_2570015799edf594daf2f076f2f975d8"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "54433c6dbef335648b44073fc3f0f06e, ReloadMechanic",
+                    "name": "$ReloadMechanic$9f9c7efa-ed93-4a56-8861-3d4a69c9175c",
+                    "Desc": "Empty action",
+                    "ClearFx": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            },
+            {
+              "$type": "7ca48b69cfcb37e4a9c23345171e23df, KingdomActionResolveEvent",
+              "name": "$KingdomActionResolveEvent$db46a83a-045b-4d21-9387-1478eb72b96a",
+              "m_EventBlueprint": "!bp_e824880c3a7d402991247b34683af564",
+              "Result": "Success",
+              "Alignment": "TrueNeutral",
+              "FinalResolve": true
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_39e5c15e6b3e4e81a371c083d800c902",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ee651e222f282454fbd2821c9ea18a72, AnotherEtudeOfGroupIsPlaying",
+          "name": "$AnotherEtudeOfGroupIsPlaying$ddcbb68f-96fc-4211-92f0-dc5b25ab36c4",
+          "Not": true,
+          "m_Group": "!bp_10d01be767521a340978c8e57ab536b6"
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$6f61b65c-f631-4238-b715-e774b5325bba",
+          "Not": false,
+          "m_Etude": "!bp_439e63fed37f52048887d98f99255e40",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_2570015799edf594daf2f076f2f975d8",
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": false,
+    "m_AddedAreaMechanics": [
+      "!bp_a8bc625a226f422bb867ff3c43821f24"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": true,
+    "m_CompletesParent": true,
+    "m_ConflictingGroups": [
+      "!bp_10d01be767521a340978c8e57ab536b6"
+    ],
+    "Priority": 240
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "AssetId": "3034d21124a9d5a43969b119cada65c5",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Если квест не сделан любым иным способом\n\nФейлим квест про похороны",
+    "ParentAsset": "dec9aca3f99610f45b492c5ed17c9c13",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$5fd4156d-d9c9-46f1-b191-1e8badeaf03a",
+          "Not": true,
+          "m_Quest": "!bp_a7bf37ec5a11adc478dee868e7466ec0",
+          "State": "Completed"
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "09cdb7f0-26db-4256-90fa-6b341c7fe07d",
+      "m_OwnerString": "3034d21124a9d5a43969b119cada65c5",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c2_vs/DrezenSiege/Council/Cue_0123_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_1cbbbb892f93c3d439f8417ad7cbb6aa",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": []
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$940690bb-0cb4-467b-9f87-c3eeeaf7d6f4",
+          "m_Objective": "!bp_8022d910a231384419a51dc0d4690fff"
+        },
+        {
+          "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+          "name": "$SetObjectiveStatus$65c78789-0f93-469e-99e0-f453a550f912",
+          "Status": "Fail",
+          "m_Objective": "!bp_8022d910a231384419a51dc0d4690fff",
+          "StartObjectiveIfNone": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$94823d72-b337-4f8f-a3c8-4d5e7ca97148",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$10cba424-df1c-4f14-b4a0-b06c39bc8382",
+                "Not": false,
+                "m_QuestObjective": "!bp_b8ee172981736d84caa09ebed7bd5ce1",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$cafb77c2-c826-4498-82bf-ddb2ae4ff9f3",
+                "Status": "Fail",
+                "m_Objective": "!bp_b8ee172981736d84caa09ebed7bd5ce1",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$0321062c-5ccc-4b50-bf29-32e62cbf9e62",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$56eab0e6-d771-45ee-8d53-8c73a22ef9ce",
+                "Not": false,
+                "m_QuestObjective": "!bp_3e1b64857c0015648996367cab57d083",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$f9456f3f-42b2-4c01-85b5-8ba55052f397",
+                "Status": "Fail",
+                "m_Objective": "!bp_3e1b64857c0015648996367cab57d083",
+                "StartObjectiveIfNone": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "2f599f92d959dbd45b6db7a2fea5ccdb, MarkLocationClosed",
+          "name": "$MarkLocationClosed$632e4839-df76-4ac8-aa1c-2088096063e5",
+          "m_Location": "!bp_5dc1d3ae90c266648b88aec9229744db",
+          "Closed": true
+        },
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$a3471be6-1200-4efd-bfb3-c8f68a782c4c",
+          "Etude": "!bp_a72084eae70bc5b41884bf9150649379",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "AssetId": "2445a910cb9bf88449ed170848c5acfd",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Культисты Бафомета убегают, культисты Дескари нападают на нас",
+    "ParentAsset": "a178b6d44a1681f43bef8d7033d06e5a",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+          "name": "$AnswerSelected$34ea1371-b5df-4d73-87e1-161e7218a951",
+          "Not": false,
+          "m_Answer": "!bp_24c4e69e3075f1a45a92220ecf46a190",
+          "CurrentDialog": false
+        }
+      ]
+    },
+    "Text": {
+      "m_Key": "8090efaa-77b8-44cc-914e-daa360ed599c",
+      "m_OwnerString": "2445a910cb9bf88449ed170848c5acfd",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c3/IvorySanctum/Cultists_Baph_Desk/Cue_0013_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_82f4694565c46e542962a2d3f2dbb5fb",
+      "MoveCamera": false,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": "!bp_6e3156147972ce14ba8ba3ce5eebcba6",
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "db6095c1906d85748b0a8506de7c9dd7, GainExp",
+          "name": "$GainExp$f6d3d794-1e06-4c83-ac0b-09925ec940bb",
+          "Encounter": "Mob",
+          "CR": 16,
+          "Modifier": 1.0,
+          "Count": null,
+          "Dummy": false
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$6d5b92f9-cb49-486b-a02f-09b39afb3c5a",
+          "Comment": "Direction to run",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "a906a0326978eee4f81b0893a191e7e4, PartyUnits",
+                "name": "$PartyUnits$c6aef8d4-7f86-4b27-afac-622443d15480",
+                "Not": false,
+                "Any": true,
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "f12047e0588c11f4ba28423a0b8c3e8e, UnitInScriptZone",
+                      "name": "$UnitInScriptZone$4ecf4168-5eb3-4f2a-b4a9-8265ef85797e",
+                      "Not": false,
+                      "Unit": {
+                        "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                        "name": "$PartyUnit$a76cece0-26fa-48f7-bc9e-188ac31661b7"
+                      },
+                      "ScriptZone": {
+                        "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                        "name": "$MapObjectFromScene$c892bbf8-e1a8-471c-a00f-1cf18c272e2a",
+                        "MapObject": {
+                          "EntityNameInEditor": "SanctumScene2",
+                          "_entity_id": "460d4f82-9455-47d1-a1d1-8cecf947339c",
+                          "SceneAssetGuid": "1b3609da30e000d4da2f192527f56b0d"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$265ef58f-7f0c-4571-9a61-ffaa0a4391a8",
+                "m_SummonPool": "!bp_7e09d1b29bf79b1469900df740202c1d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$0a74ab71-4cd6-4820-8200-f93a6f195193",
+                      "m_Cutscene": "!bp_05131df3a1abb3244af3c42b51a481a2",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$f9c982fe-ca04-41c2-96c2-87b9e30ce1a7"
+                            }
+                          },
+                          {
+                            "Name": "Locator",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$1f89cb1c-0ef3-4d2f-9002-232d6ce68bd4",
+                              "Locator": {
+                                "EntityNameInEditor": "SanctumScene_CultistsRunAway1",
+                                "_entity_id": "081d0930-8ea4-4120-ba12-e8dc812f41fc",
+                                "SceneAssetGuid": "1b3609da30e000d4da2f192527f56b0d"
+                              },
+                              "Offset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$f537debb-9dd2-4026-ad4a-129585f06b10",
+                "m_Cutscene": "!bp_fda72b8d58f617743927780c14786b20",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+                "name": "$SummonPoolUnits$ed72db00-f57f-449e-8150-6559416c92a8",
+                "m_SummonPool": "!bp_7e09d1b29bf79b1469900df740202c1d",
+                "Conditions": {
+                  "Operation": "And",
+                  "Conditions": []
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$f4c207be-4431-4609-9ad8-a13a41e97a5f",
+                      "m_Cutscene": "!bp_05131df3a1abb3244af3c42b51a481a2",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$07e66f90-cbcc-4536-9b59-499e2038bf20"
+                            }
+                          },
+                          {
+                            "Name": "Locator",
+                            "Type": "Position",
+                            "Evaluator": {
+                              "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                              "name": "$LocatorPosition$f162bf41-c54e-4a17-b6d3-4efd52bc824a",
+                              "Locator": {
+                                "EntityNameInEditor": "SanctumScene_CultistsRunAway2",
+                                "_entity_id": "9702c800-f480-4a16-ad2a-9846e2e04dc3",
+                                "SceneAssetGuid": "1b3609da30e000d4da2f192527f56b0d"
+                              },
+                              "Offset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$8132eca4-1cf6-4795-a10c-3f996f46ef3b",
+                "m_Cutscene": "!bp_fda72b8d58f617743927780c14786b20",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

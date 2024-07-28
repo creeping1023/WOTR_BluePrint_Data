@@ -1,0 +1,260 @@
+{
+  "AssetId": "0d22fd186d557a049b46c0fb3d623f04",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "",
+    "FirstCue": {
+      "Cues": [
+        "!bp_c9dcefe2267041542980d34663baa770"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": []
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$7a42ae48-269d-47dd-827c-e6985a298c98",
+          "Comment": "Занедра умирает или убегает",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$2e717ed5-981b-46ba-842f-cab004abb2c9",
+                "Not": false,
+                "m_ConditionFlag": "!bp_11f3537509219444483b22f3eb152d1e",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              },
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$a8d54b78-8835-462f-8a98-690ff729877f",
+                "Not": true,
+                "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$91d8dd8c-d921-4680-b7c5-adfe0969b0cd",
+                "m_Cutscene": "!bp_44171872bb0d63446b55eb2d4cc4b1c3",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$61168d94-2214-4ea7-b6e3-d51986b978d2",
+                "Comment": "если есть квест Zanedra Escape",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                      "name": "$QuestStatus$97144165-fa32-407e-ae42-fc4198ee4f6a",
+                      "Not": false,
+                      "m_Quest": "!bp_62689e32325839e40b9ee3fc6a110f10",
+                      "State": "Started"
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$c7959ec5-04e1-4b13-90ed-13601979da7e",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_22ced87618f7c6445ba5028d88408312",
+                      "StartObjectiveIfNone": false
+                    },
+                    {
+                      "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                      "name": "$SetObjectiveStatus$d6010b5e-5ce4-46b4-be99-01c0a12beb4f",
+                      "Status": "Complete",
+                      "m_Objective": "!bp_32ec81725a1f42e468d419f795e1b01c",
+                      "StartObjectiveIfNone": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$d4506be1-85a8-4609-a3f4-bb83ec0d5aaa",
+                "m_Cutscene": "!bp_38b461be5bccd8d4a902c0d18b9486a0",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": [
+                    {
+                      "Name": "Unit",
+                      "Type": "Unit",
+                      "Evaluator": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$dbb3ab27-dbd4-43c4-960f-4eeeb444b1aa",
+                        "Spawner": {
+                          "EntityNameInEditor": "Zanedra_After",
+                          "_entity_id": "c913181a-287e-46a6-8819-a8d4c40908a6",
+                          "SceneAssetGuid": "a9899a896371e834f9477e56ee9c86a1"
+                        }
+                      }
+                    },
+                    {
+                      "Name": "Position",
+                      "Type": "Position",
+                      "Evaluator": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$193192d5-bd0a-43cf-a6b3-61d5cc830c5a",
+                        "Locator": {
+                          "EntityNameInEditor": "GoToCrypt",
+                          "_entity_id": "42a048bf-1d63-43d4-ac8e-6ef9d8e16c20",
+                          "SceneAssetGuid": "a9899a896371e834f9477e56ee9c86a1"
+                        },
+                        "Offset": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$8b2d46f3-d384-48f0-924b-464b506aa317",
+                "Comment": "Кьядо атакует нас",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                      "name": "$FlagUnlocked$98e0bc75-b53d-4d2d-9884-f7cbf5ae9c07",
+                      "Not": true,
+                      "m_ConditionFlag": "!bp_8c8b748a66ebad84f9b4cbcd73c2aab9",
+                      "ExceptSpecifiedValues": false,
+                      "SpecifiedValues": []
+                    },
+                    {
+                      "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                      "name": "$OrAndLogic$5ec1475e-09c4-445f-ac81-be37bc710996",
+                      "Not": false,
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "Or",
+                        "Conditions": [
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$87013495-7d9a-459c-ac70-6ce59797f1e4",
+                            "Not": false,
+                            "m_ConditionFlag": "!bp_ece35899d02145c48b2d2f75cef3fe39",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          },
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$428ad1b3-b15a-4947-9b0f-265718c1e66d",
+                            "Not": true,
+                            "m_Cue": "!bp_d98ed277c91d1424bae8bf73168e3ea7",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                      "name": "$OrAndLogic$25e10383-8243-4ea1-82ee-8f439df02882",
+                      "Not": true,
+                      "Comment": "",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$8741e99d-c5ae-4c48-833e-c3f9f0f5e8e7",
+                            "Not": false,
+                            "m_ConditionFlag": "!bp_4c214685b2174324a904385f4af2fbc6",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          },
+                          {
+                            "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                            "name": "$FlagUnlocked$6966d541-a4bb-4346-bda1-bde3c9523e50",
+                            "Not": false,
+                            "m_ConditionFlag": "!bp_81dac2544284c2046a42ec40af67c03f",
+                            "ExceptSpecifiedValues": false,
+                            "SpecifiedValues": []
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$d79e6309-4eee-4029-8c33-f8dfd260bf8f",
+                      "m_Cutscene": "!bp_e0acb4f2ae515d24fafcbe5cb2725f52",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": []
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              },
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$36410999-0244-49ae-8c36-9c7654363c72",
+                "Status": "Complete",
+                "m_Objective": "!bp_22ced87618f7c6445ba5028d88408312",
+                "StartObjectiveIfNone": false
+              },
+              {
+                "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+                "name": "$GiveObjective$7013921d-3600-452d-bc18-161a6cdaffa3",
+                "m_Objective": "!bp_32ec81725a1f42e468d419f795e1b01c"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

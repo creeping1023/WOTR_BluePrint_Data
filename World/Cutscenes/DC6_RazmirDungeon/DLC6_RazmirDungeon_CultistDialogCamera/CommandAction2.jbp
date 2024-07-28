@@ -1,0 +1,103 @@
+{
+  "AssetId": "9c723f55ef8946258191e3a325b6380e",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$5dcb3e59-55db-4adc-b9f0-d340b938ff75",
+          "m_SummonPool": "!bp_022c725b242f4d9cae739cf2cb821fca",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$d955b937-15f6-4678-adc5-20e892f8492a",
+                "Comment": "Everyone except",
+                "ConditionsChecker": {
+                  "Operation": "And",
+                  "Conditions": [
+                    {
+                      "$type": "8ddc3b555bdf08448b9083dba5153210, UnitEqual",
+                      "name": "$UnitEqual$76d3d170-fc2b-4fad-bce0-642c759c3e9d",
+                      "Not": true,
+                      "FirstUnit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$ccf5dfc3-8114-410c-a9bf-51e2bd3dbfa8"
+                      },
+                      "SecondUnit": {
+                        "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                        "name": "$UnitFromSpawner$5b4cbf30-c24e-49d4-9979-eef82293345c",
+                        "Spawner": {
+                          "EntityNameInEditor": "Cultist4",
+                          "_entity_id": "faad2930-beb2-4bfc-8f01-fa0341e5d67c",
+                          "SceneAssetGuid": "1b9995303d6cd774fb8fffda62485151"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                      "name": "$UnitLookAt$8da5faa0-63b4-4fd4-af56-e3329ac06e24",
+                      "Unit": {
+                        "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                        "name": "$SummonPoolUnit$d8bb4f37-35fb-4fa6-b38d-0b498fab4851"
+                      },
+                      "Position": {
+                        "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                        "name": "$LocatorPosition$f4d2f7f4-08fb-45ea-8355-46fe708b6086",
+                        "Locator": {
+                          "EntityNameInEditor": "Kitchen_party_pos_1",
+                          "_entity_id": "9d836d72-3a74-4a55-90b4-14599a3f8932",
+                          "SceneAssetGuid": "1b9995303d6cd774fb8fffda62485151"
+                        },
+                        "Offset": "0|0|0"
+                      }
+                    },
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$3af97d7e-3f83-4811-9050-806f1f7dd897",
+                      "m_Cutscene": "!bp_550de302093041afa1604b76aae3ee66",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                              "name": "$SummonPoolUnit$d16ca430-57be-4943-bfe7-0bfb17bc2835"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

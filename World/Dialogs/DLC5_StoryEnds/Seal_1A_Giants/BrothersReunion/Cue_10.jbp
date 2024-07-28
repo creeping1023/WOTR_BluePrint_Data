@@ -1,0 +1,153 @@
+{
+  "AssetId": "3f7c64249d294437a2d35557517af5a2",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "Спикер - Переводчик",
+    "ParentAsset": "67d864fccefa46ccac3a400dfe29e468",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "21ad0692-4653-4a63-a4b2-cbf7e9b75155",
+      "m_OwnerString": "3f7c64249d294437a2d35557517af5a2",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints\\World\\Dialogs\\DLC5_StoryEnds\\Seal_1A_Giants\\BrothersReunion\\Cue_10_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": "!bp_e766928232024c4ebf2bc9a3ab958f1b",
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": true,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+          "name": "$PartyUnits$ebdf55c8-4a65-428d-887b-d6d2e9810134",
+          "m_UnitsList": "ActiveUnits",
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "5842a0dd9c0748f43b45ba496edf8c03, UnitLookAt",
+                "name": "$UnitLookAt$c1c55dd8-b33e-4d06-8f3e-6f9fdb5fe97f",
+                "Unit": {
+                  "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                  "name": "$PartyUnit$32b15348-1187-4e56-a47d-38ca6188dd85"
+                },
+                "Position": {
+                  "$type": "ac7da90e77cb5af44b778bfce17bb4aa, UnitPosition",
+                  "name": "$UnitPosition$49471aae-ec68-45f9-b020-840bb6cf4e4a",
+                  "Unit": {
+                    "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                    "name": "$UnitFromSpawner$f423daeb-c4a1-4a91-8ee2-45a89f787aa4",
+                    "Spawner": {
+                      "EntityNameInEditor": "Translator",
+                      "_entity_id": "55c028d5-ba59-4dc3-af05-3f904406b30d",
+                      "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                    }
+                  },
+                  "Offset": "0|0|0"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+          "name": "$PlayCutscene$a92873f2-47cf-4b1a-90fb-f798e9d5e0e8",
+          "m_Cutscene": "!bp_aab526e671c14731b0ad9ae1b5a55ee1",
+          "PutInQueue": false,
+          "CheckExistence": true,
+          "Parameters": {
+            "Parameters": [
+              {
+                "Name": "Unit",
+                "Type": "Unit",
+                "Evaluator": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$6dde1790-3a22-4673-a59f-cefd67db6db4",
+                  "Spawner": {
+                    "EntityNameInEditor": "Translator",
+                    "_entity_id": "55c028d5-ba59-4dc3-af05-3f904406b30d",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              },
+              {
+                "Name": "Position",
+                "Type": "Position",
+                "Evaluator": {
+                  "$type": "ee272e7d88aff6648b4c1b052228fdc7, LocatorPosition",
+                  "name": "$LocatorPosition$3dab52d6-f540-408e-8085-6a143ba0a68b",
+                  "Locator": {
+                    "EntityNameInEditor": "Translator_default_pos",
+                    "_entity_id": "6432d581-9617-4978-9e24-a5e2d76bb362",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  },
+                  "Offset": "0|0|0"
+                }
+              },
+              {
+                "Name": "Rotation",
+                "Type": "Float",
+                "Evaluator": {
+                  "$type": "e11ac2cb26534343ba689a3fdd4de609, LocatorOrientation",
+                  "name": "$LocatorOrientation$1122d2c1-4bbe-4bb6-a746-4c1a24b7e113",
+                  "LocatorEval": null,
+                  "Locator": {
+                    "EntityNameInEditor": "Translator_default_pos",
+                    "_entity_id": "6432d581-9617-4978-9e24-a5e2d76bb362",
+                    "SceneAssetGuid": "810228531b6b2df47bc5d2e8445669ee"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+          "name": "$GiveObjective$e5c6b375-b36b-4e07-a520-66d974339d18",
+          "m_Objective": "!bp_c766a367dc9e48fba37a1c06954d1faf"
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [
+        "!bp_dc2e8f642934406d915614b0a58024d2"
+      ],
+      "Strategy": "First"
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

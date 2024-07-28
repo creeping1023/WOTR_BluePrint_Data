@@ -1,0 +1,92 @@
+{
+  "AssetId": "9e46b9c5356e3054bbd6af65bd06ce8e",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$7c7f7206-2480-4674-aefb-b3cfe3e02d89",
+          "Unit1": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$3d11a3b5-fef3-4f5c-93ff-af6802d50789",
+            "Spawner": {
+              "EntityNameInEditor": "Alderpash25",
+              "_entity_id": "fb9c9277-e30c-4b3c-b58a-4d2525f5a416",
+              "SceneAssetGuid": "1c9b1a8d692860647848123dc61f3baa"
+            }
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$a866b260-d870-476d-a377-f892a23ef0fa"
+          }
+        },
+        {
+          "$type": "e164ef6758f918a4abcc3889472a2a3c, ShowBark",
+          "name": "$ShowBark$ac86d988-52c0-4f82-8388-d26305505c59",
+          "WhatToBark": {
+            "m_Key": "",
+            "m_OwnerString": "",
+            "m_OwnerPropertyPath": "",
+            "m_JsonPath": "",
+            "Shared": {
+              "assetguid": "6ab15b7e4848d854686c28765a34e138",
+              "stringkey": "6ac41a12-5c82-4ad1-9cf8-f54d6715bc52"
+            }
+          },
+          "WhatToBarkShared": null,
+          "BarkDurationByText": true,
+          "TargetUnit": {
+            "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+            "name": "$UnitFromSpawner$07ee6bc5-3d43-4a60-bbd4-8952e46e9709",
+            "Spawner": {
+              "EntityNameInEditor": "Alderpash25",
+              "_entity_id": "fb9c9277-e30c-4b3c-b58a-4d2525f5a416",
+              "SceneAssetGuid": "1c9b1a8d692860647848123dc61f3baa"
+            }
+          },
+          "TargetMapObject": null
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$bc5398eb-4626-4c08-a047-28ad57d2cc17",
+          "Comment": "Если квест стартован - он фейлится",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$b3b00e9e-4649-445a-b813-4807bf7dbc0a",
+                "Not": false,
+                "m_Quest": "!bp_c1c5f3bc79de25247a31b9cecf87709b",
+                "State": "Started"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "31abd123cda0b4147b509219dbb097a0, SetObjectiveStatus",
+                "name": "$SetObjectiveStatus$6edab723-82da-4a30-8fd7-a2f6e094baed",
+                "Status": "Complete",
+                "m_Objective": "!bp_efeb3f7ba72a47d1bf520ae55979d020",
+                "StartObjectiveIfNone": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

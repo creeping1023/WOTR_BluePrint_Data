@@ -1,0 +1,172 @@
+{
+  "AssetId": "b29124c979464465b491530d2f2b1417",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "m_Flags": 0,
+        "name": "$EtudePlayTrigger$5d7d971a-f66e-4aab-a260-6fb07dc55120",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "m_Once": true,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3af21dd61b640c941b5704f3df91e16d, GiveObjective",
+              "name": "$GiveObjective$de2475f1-9a27-45fc-b9e3-77f6eeff5223",
+              "m_Objective": "!bp_659a240255bc40ba9d727b7b95910e4f"
+            },
+            {
+              "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+              "name": "$Spawn$29a136bc-1a84-49c1-b84f-aa31a2ad3023",
+              "Spawners": [
+                {
+                  "EntityNameInEditor": "ValisaHidding",
+                  "_entity_id": "1fb9c58c-90b1-4e72-8f72-8a4de1bb5da1",
+                  "SceneAssetGuid": "bb28a240abad0d648b610e49c9e68c30"
+                }
+              ],
+              "ActionsOnSpawn": {
+                "Actions": []
+              },
+              "RespawnIfDead": false
+            }
+          ]
+        },
+        "IsActivateOnLoadArea": false
+      },
+      {
+        "$type": "b20b3c539fa60ed44abbfc7e367245ea, EtudeCompleteTrigger",
+        "m_Flags": 0,
+        "name": "$EtudeCompleteTrigger$4613820d-88b8-4dfd-abfa-3bc86c91a0a4",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "",
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "f4ef63ec9a4741d4bae871a91255f89a, IncrementFlagValue",
+              "name": "$IncrementFlagValue$6048503b-360f-4b2c-8653-604515afc637",
+              "m_Flag": "!bp_1ca6ec2ca8b74441a3f51eab0ab04203",
+              "Value": {
+                "$type": "9054151c7eb2e854ca7109522b1c3dde, IntConstant",
+                "name": "$IntConstant$c752bdba-24b4-46da-884b-4f9805fc88f4",
+                "Value": -1
+              },
+              "UnlockIfNot": false
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$066e0f8f-c9b9-44c0-866e-7fb2eafe643e",
+              "Etude": "!bp_56e21965f6e844d3bfdb81e9ca9a93ca",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            },
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$9359f886-5321-49d4-a970-3257989e116a",
+              "Comment": "Fake commander is on scene",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                    "name": "$EtudeStatus$b08dcac6-e0b8-4c09-b668-3165bb4e6e4f",
+                    "Not": false,
+                    "m_Etude": "!bp_bf937759d21d4e2d93924ec03342d334",
+                    "NotStarted": false,
+                    "Started": false,
+                    "Playing": true,
+                    "CompletionInProgress": false,
+                    "Completed": false
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "4a2be3982ea87e44f8d704b9a6330f57, UnlockFlag",
+                    "name": "$UnlockFlag$1441a145-d57d-4e06-8855-eb0395c19e63",
+                    "m_flag": "!bp_4ca4a775c06e46f5918ad6116d0de3be",
+                    "flagValue": 0
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_8f10acbdb0a94ef59236ecc11db6cfb2",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$fa948b66-a5f3-42c7-8a1a-5e53993ceff1",
+          "Not": true,
+          "m_Etude": "!bp_56e21965f6e844d3bfdb81e9ca9a93ca",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": false,
+          "CompletionInProgress": false,
+          "Completed": true
+        },
+        {
+          "$type": "d00239901a4bf03408fc8b12116b4d67, CompanionIsDead",
+          "name": "$CompanionIsDead$4bb93764-9cd9-49e6-9c63-77fab5e972cc",
+          "Not": true,
+          "m_companion": "!bp_a352873d37ec6c54c9fa8f6da3a6b3e1",
+          "anyCompanion": false,
+          "includeRemote": true
+        },
+        {
+          "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+          "name": "$QuestStatus$3c5c25df-aa69-4f2a-81c3-3dadf2b65151",
+          "Not": false,
+          "m_Quest": "!bp_a836a86056d777b418cf421aebbc6030",
+          "State": "Completed"
+        }
+      ]
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": false,
+    "m_LinkedAreaPart": null,
+    "m_LinkedCampaigns": [],
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [
+      "!bp_490bf5a84fdc4dd686256988e7d2a284"
+    ],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

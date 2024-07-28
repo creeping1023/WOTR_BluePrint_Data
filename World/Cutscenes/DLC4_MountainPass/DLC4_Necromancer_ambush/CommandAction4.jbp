@@ -1,0 +1,256 @@
+{
+  "AssetId": "263060b2c1934de6b0ff59da6e4a2ed8",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": [
+        {
+          "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+          "name": "$FlagUnlocked$4dbf0e2e-f426-4ae3-ad74-90b32909a705",
+          "Not": true,
+          "m_ConditionFlag": "!bp_f0371ed35e164e82a57ae5b9431a07b8",
+          "ExceptSpecifiedValues": false,
+          "SpecifiedValues": []
+        },
+        {
+          "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+          "name": "$EtudeStatus$be2464cf-67a4-419e-ae55-a7c5bf3bd63c",
+          "Not": true,
+          "m_Etude": "!bp_11fc5662e0ce8074ea145a022282b879",
+          "NotStarted": false,
+          "Started": false,
+          "Playing": true,
+          "CompletionInProgress": false,
+          "Completed": false
+        }
+      ]
+    },
+    "OnFail": "FinishTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "49e3105a0ea5eb9499b86c72c715c140, RollPartySkillCheck",
+          "name": "$RollPartySkillCheck$62664ade-c677-43de-a323-dbb21035b49c",
+          "Stat": "SkillPerception",
+          "DC": 29,
+          "LogSuccess": true,
+          "LogFailure": true,
+          "OnSuccess": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$0ece9517-0e52-4bf1-a602-a411a76e10d8",
+                "m_Cutscene": "!bp_1ba976c01ad443ac84b6f3dd799eecea",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "OnFailure": {
+            "Actions": [
+              {
+                "$type": "633639d7e81b7d1499298b189b6f18b3, PartyUnits",
+                "name": "$PartyUnits$8833dea6-1b7a-41c8-959c-822365ef460c",
+                "m_UnitsList": "ActiveUnits",
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                      "name": "$PlayCutscene$834f6bbc-bdc6-464c-9ce9-f5cbe9644a0e",
+                      "m_Cutscene": "!bp_5b73444d36ee1c940a0125b92c5e55f0",
+                      "PutInQueue": false,
+                      "CheckExistence": true,
+                      "Parameters": {
+                        "Parameters": [
+                          {
+                            "Name": "Unit",
+                            "Type": "Unit",
+                            "Evaluator": {
+                              "$type": "2b9ad38748400fb4a9db077957c3a839, PartyUnit",
+                              "name": "$PartyUnit$322313a8-d987-40ae-a851-e8d8b8b6cad1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$da31f868-9ffd-403e-899e-a7b7b2ca17e5",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Skeleton_MiniBoss",
+                    "_entity_id": "75f6af17-f449-4a39-8ead-9eb00375691a",
+                    "SceneAssetGuid": "7071f2ec24ea58f41bd1fb442611d311"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                },
+                "RespawnIfDead": false
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$3c5da80c-9961-431b-aa65-037765c1b1de",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$4c9a8b7c-a968-4e8c-aa2e-971c95fad41c",
+                  "Spawner": {
+                    "EntityNameInEditor": "Cart_Guard_1",
+                    "_entity_id": "43936d40-0c88-4b59-a5ff-e4c1f876d4e2",
+                    "SceneAssetGuid": "7071f2ec24ea58f41bd1fb442611d311"
+                  }
+                },
+                "m_Faction": "!bp_31359684b6f0ca9438e1fd6be6766cb0",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$6a4a9714-c3f3-42fc-82b0-914b8b6ea005",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$6c22b891-3997-42e5-9cae-6c0f7af777ef",
+                  "Spawner": {
+                    "EntityNameInEditor": "Cart_Guard_2",
+                    "_entity_id": "1db1e405-92d9-41e9-9c4b-a17af92feb0c",
+                    "SceneAssetGuid": "7071f2ec24ea58f41bd1fb442611d311"
+                  }
+                },
+                "m_Faction": "!bp_31359684b6f0ca9438e1fd6be6766cb0",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              },
+              {
+                "$type": "d6438d31eff349d4bf1ec872cfc0a001, UnitsFromSpawnersInUnitGroup",
+                "name": "$UnitsFromSpawnersInUnitGroup$584f0d94-bfc7-4d6e-a53e-72e6d67b2f5e",
+                "m_Group": {
+                  "EntityNameInEditor": "Undead_group",
+                  "_entity_id": "28a74f87-50b4-4edc-a0eb-ad785f10a003",
+                  "SceneAssetGuid": "7071f2ec24ea58f41bd1fb442611d311"
+                },
+                "Actions": {
+                  "Actions": [
+                    {
+                      "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                      "name": "$SwitchFaction$3a8440bc-ffaf-4726-8654-fa2156531dd5",
+                      "Target": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$2fd73c34-5af9-467e-b47a-5054bdcb34e8"
+                      },
+                      "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                      "IncludeGroup": true,
+                      "ResetAllRelations": false
+                    },
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$bca81e28-4770-49f7-a001-c40be85fade0",
+                      "Unit1": {
+                        "$type": "108c71e06af64dc8a69cb1290889fb18, UnitGroupUnit",
+                        "name": "$UnitGroupUnit$d3569965-6e01-4c85-b040-e7497fff22b6"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$35d2a310-3898-419a-8679-f580491e13b0"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$23538f03-a4bb-4667-a241-3b3bdf804f1b",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Ravens_Swarm_1",
+                    "_entity_id": "61dadd61-61a1-4a52-96a3-60528271baf8",
+                    "SceneAssetGuid": "7071f2ec24ea58f41bd1fb442611d311"
+                  },
+                  {
+                    "EntityNameInEditor": "Ravens_Swarm_2",
+                    "_entity_id": "219a77ac-e16e-407b-862b-2ef9f4f3f5de",
+                    "SceneAssetGuid": "7071f2ec24ea58f41bd1fb442611d311"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": [
+                    {
+                      "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+                      "name": "$StartCombat$a961e3c8-1b55-40c1-913c-c7fc95b98b9a",
+                      "Unit1": {
+                        "$type": "5abcc51ecc3df064ebb6c4ec13a8a8e9, SpawnedUnit",
+                        "name": "$SpawnedUnit$37521c59-2cc3-4d37-8f44-3c5db5378d9b"
+                      },
+                      "Unit2": {
+                        "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+                        "name": "$PlayerCharacter$68310f2f-8990-499d-8ab8-9c8b9297a2ce"
+                      }
+                    }
+                  ]
+                },
+                "RespawnIfDead": false
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$6cf5b4f1-e876-46b5-b675-aa20e76bc8ca",
+                "m_Buff": "!bp_d38770585922e5e4e94ba2c0dc776095",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$8509a6cd-8d9b-447f-9a0e-3ae84765213b",
+                  "Spawner": {
+                    "EntityNameInEditor": "Necromancer",
+                    "_entity_id": "9d4e6bd9-e048-44fc-8333-f5849c5db8ac",
+                    "SceneAssetGuid": "7071f2ec24ea58f41bd1fb442611d311"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              },
+              {
+                "$type": "0c996f778c13abb408bdd05f7f6fe317, AttachBuff",
+                "name": "$AttachBuff$469e0299-5e8a-44ec-8936-e655dfb07a09",
+                "m_Buff": "!bp_d616ce293b89af14e839c846554b2ccb",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$f17762d9-6a44-4dc9-ade3-5c57d4ec22b1",
+                  "Spawner": {
+                    "EntityNameInEditor": "Necromancer",
+                    "_entity_id": "9d4e6bd9-e048-44fc-8333-f5849c5db8ac",
+                    "SceneAssetGuid": "7071f2ec24ea58f41bd1fb442611d311"
+                  }
+                },
+                "Duration": null,
+                "BattleLog": false,
+                "HasCustomBattleLogMessage": false,
+                "CustomBattleLogMessage": {
+                  "m_Key": "",
+                  "m_OwnerString": "",
+                  "m_OwnerPropertyPath": "",
+                  "m_JsonPath": "",
+                  "Shared": null
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

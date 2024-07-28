@@ -1,0 +1,217 @@
+{
+  "AssetId": "63cc30e6086ce1842997d0924677019c",
+  "Data": {
+    "$type": "de1b6b4bab9b223478a7bc8835ca81d7, BlueprintEtude",
+    "PrototypeLink": "",
+    "m_Overrides": [
+      "$EtudePlayTrigger$b81a0123-705f-4d09-814d-59200659cf61",
+      "$ItemInContainerTrigger$6de5a397-2484-48d6-9fcb-7209b3580935"
+    ],
+    "Components": [
+      {
+        "$type": "fec4340333b7d1f4189d73aa8ff10eee, EtudePlayTrigger",
+        "name": "$EtudePlayTrigger$b81a0123-705f-4d09-814d-59200659cf61",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "Закариус становится враждебным",
+        "m_Once": false,
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+              "name": "$SummonPoolUnits$c35b6285-5b63-4fa6-afb4-7eabf92d31dd",
+              "m_SummonPool": "!bp_217c00fa4f8fe7243a0bfedd60a8f106",
+              "Conditions": {
+                "Operation": "And",
+                "Conditions": []
+              },
+              "Actions": {
+                "Actions": [
+                  {
+                    "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                    "name": "$SwitchFaction$dd6c9994-f01d-482f-8666-3e1f2c8d33a9",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$cb64bef8-933f-4464-a99c-3ef4a2a9aed3"
+                    },
+                    "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                    "IncludeGroup": true,
+                    "ResetAllRelations": false
+                  },
+                  {
+                    "$type": "eefa4c5532569b74d9ae18b954372790, DetachBuff",
+                    "name": "$DetachBuff$144bb1ff-6b6c-4dca-a199-072f7332bb29",
+                    "m_Buff": "!bp_0f775c7d5d8b6494197e1ce937754482",
+                    "Target": {
+                      "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                      "name": "$SummonPoolUnit$e1b8099f-25f8-4d00-b405-68b02b556002"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "570b5a90510c3434d82aec942a3323a6, ItemInContainerTrigger",
+        "name": "$ItemInContainerTrigger$6de5a397-2484-48d6-9fcb-7209b3580935",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "m_ItemToCheck": "!bp_622bb73ea55945b6a3d082e73166cc5c",
+        "MapObject": {
+          "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+          "name": "$MapObjectFromScene$258850c6-4b9e-40ac-97f2-a8f2b3a50fd3",
+          "MapObject": {
+            "EntityNameInEditor": "LootWithWand",
+            "_entity_id": "0c513a6e-ff41-4277-af79-8e0e4d68c1cf",
+            "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+          }
+        },
+        "OnAddActions": {
+          "Actions": []
+        },
+        "OnRemoveActions": {
+          "Actions": [
+            {
+              "$type": "0e0c1fe99d7862d4492bcd1535939a9a, StartDialog",
+              "name": "$StartDialog$94aa98ac-92dc-4ac8-b966-6f4c7eb01ab9",
+              "DialogueOwner": null,
+              "m_Dialogue": "!bp_d93236056d58e3e44af15901ad696ede",
+              "DialogEvaluator": null,
+              "SpeakerName": {
+                "m_Key": "",
+                "m_OwnerString": "",
+                "m_OwnerPropertyPath": "",
+                "m_JsonPath": "",
+                "Shared": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5d57d20f5d6e2c64688f23636662ad03, EvaluatedUnitHealthTrigger",
+        "name": "$EvaluatedUnitHealthTrigger$9f852aa8-3350-421c-9956-bce7437e1752",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "30% HP Лича",
+        "Unit": {
+          "$type": "d182d1ff68a8efd45bba3d39c75f5d8d, FirstUnitFromSummonPool",
+          "name": "$FirstUnitFromSummonPool$7c7b0948-381e-4523-b611-5049faf7dfbb",
+          "m_SummonPool": "!bp_217c00fa4f8fe7243a0bfedd60a8f106",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          }
+        },
+        "Once": true,
+        "Percentage": 30,
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+              "name": "$PlayCutscene$b821940b-b5b3-4b08-afee-6e52532b454d",
+              "m_Cutscene": "!bp_3b58a2c2bfd64f1caeacc8c2598e8b1d",
+              "PutInQueue": false,
+              "CheckExistence": true,
+              "Parameters": {
+                "Parameters": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$type": "5ce1080e9c809614daae11db4baa37a4, SummonPoolTrigger",
+        "name": "$SummonPoolTrigger$d0517821-21cf-4fe1-8930-ae39b7bc144a",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "Comment": "секретная дверь после смерти Лича",
+        "Count": 0,
+        "ChangeType": "Descending",
+        "m_SummonPool": "!bp_409428dbae0429c4bb505407905e0c6d",
+        "Conditions": {
+          "Operation": "And",
+          "Conditions": []
+        },
+        "Actions": {
+          "Actions": [
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$d4b612c4-7fc9-46bb-b080-86b39f1f3597",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$255c3342-a4a3-4d74-b6a5-48c7a3423087",
+                "MapObject": {
+                  "EntityNameInEditor": "HiddenWallAlwaysDisabled",
+                  "_entity_id": "9394e929-68da-4dd2-ba9c-a01284b5623b",
+                  "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                }
+              },
+              "Unhide": false
+            },
+            {
+              "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+              "name": "$HideMapObject$5b57af91-e6da-462a-81c1-e7fdb2614fd3",
+              "MapObject": {
+                "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                "name": "$MapObjectFromScene$495e5664-ab04-4f07-af99-996ae2aa6fdf",
+                "MapObject": {
+                  "EntityNameInEditor": "HiddenWallAfterLichDeath",
+                  "_entity_id": "a1e4acb1-805b-4070-8f15-6dac8327e27a",
+                  "SceneAssetGuid": "0c36fa243cff5f24ca5eef37bea42838"
+                }
+              },
+              "Unhide": true
+            },
+            {
+              "$type": "6ab8dd2cc3ba43e8b76882f981bf2b99, StartEtude",
+              "name": "$StartEtude$bd4b793b-0354-4c6d-a99b-c07c65e551b2",
+              "Etude": "!bp_ef0c98bcce6201f4dbf17e141ffa4e44",
+              "EtudeEvaluator": null,
+              "Evaluate": false
+            }
+          ]
+        }
+      }
+    ],
+    "Comment": "",
+    "m_Parent": "!bp_758d792f0bb979846a3da0d579e7343d",
+    "ActivationCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "CompletionCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "m_Synchronized": [],
+    "m_AllowActionStart": true,
+    "m_LinkedAreaPart": "!bp_e8f1160e960935344a8aa7466484506d",
+    "m_IncludeAreaParts": true,
+    "m_AddedAreaMechanics": [],
+    "m_StartsWith": [],
+    "m_StartsOnComplete": [],
+    "m_StartsParent": false,
+    "m_CompletesParent": false,
+    "m_ConflictingGroups": [],
+    "Priority": 0
+  }
+}

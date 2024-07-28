@@ -1,0 +1,65 @@
+{
+  "AssetId": "9bc944ba036144c4bb22dcbddfeab05f",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Фикс старта диалога с Яруникой после боя",
+    "m_SpecificArea": "!bp_a56ef888ed3ddcf4bac9c1210877f605",
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$db928d4b-43c7-4618-8d22-1beb31cda425",
+          "Comment": "Принудительный запуск катсцены-заглушки с диалогом",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "e77a58dedc8350a4faa55f5e66b9f575, ObjectiveStatus",
+                "name": "$ObjectiveStatus$600d056a-3bd8-4a0f-8149-2fd8e5da9bad",
+                "Not": false,
+                "m_QuestObjective": "!bp_ee7984590801da944b55e0da50a97237",
+                "State": "Completed"
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$a0549394-e050-462c-8abb-702c84cae041",
+                "Not": true,
+                "m_Cue": "!bp_198fed91a63895e43a642fc1837bd61c",
+                "CurrentDialog": false
+              },
+              {
+                "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                "name": "$CueSeen$ea89e383-1d0d-47a4-8e53-b70ec8fbfff3",
+                "Not": true,
+                "m_Cue": "!bp_edb49a9359b9e254996f6e05b9d2c0cf",
+                "CurrentDialog": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "507aef8c6c6218c49aaf0987b355f400, PlayCutscene",
+                "name": "$PlayCutscene$58add5b4-e0cf-46ae-ada1-b961363dee20",
+                "m_Cutscene": "!bp_8a8f3531aae9da14ba59427031138e66",
+                "PutInQueue": false,
+                "CheckExistence": true,
+                "Parameters": {
+                  "Parameters": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

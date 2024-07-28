@@ -1,0 +1,66 @@
+{
+  "AssetId": "6646f4f6b88845cba2ae37ad8077e386",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "Ресет квеста, если он был зафейлен слишком рано",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$231f71c7-f1c6-476a-85b7-24b2af840b4e",
+          "Comment": "",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$c94eb3e9-6f9c-4b7b-a30a-30f0a6f09463",
+                "Not": false,
+                "m_Quest": "!bp_e8543cd1c0afa7845b5527e88a8da5a7",
+                "State": "Failed"
+              },
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$0c6fb1f8-b0ca-4fcc-898c-c7afe2e90900",
+                "Not": false,
+                "m_Etude": "!bp_3a25b1f2a81f84a40b4fb658f4d2fe0f",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              },
+              {
+                "$type": "49ab5e967cc13354493c3f9395e55611, QuestStatus",
+                "name": "$QuestStatus$1af91a5d-25a0-47ff-80d6-7022ab46ff53",
+                "Not": true,
+                "m_Quest": "!bp_5154dbc38aa2ea84a80b733a443cdca7",
+                "State": "Completed"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "efe90dcd2b77dfa4bbcad5f00b4d486d, ResetQuest",
+                "name": "$ResetQuest$eceb68b4-f307-463c-bc51-95f7c70756fc",
+                "m_Quest": "!bp_e8543cd1c0afa7845b5527e88a8da5a7",
+                "m_ObjectiveToStart": "!bp_1bf3f21e655ac1341ac188d9468d5bfe",
+                "m_ObjectivesToReset": []
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "AssetId": "c600b2133b7f4d6db4171000cc00810e",
+  "Data": {
+    "$type": "4e19ee98b71c98b40ba235cfa715b760, BlueprintAbilityAreaEffect",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [
+      {
+        "$type": "24be9d7901731604fb3e9dcc6c21fbb6, AbilityAreaEffectRunAction",
+        "m_Flags": 0,
+        "name": "$AbilityAreaEffectRunAction$2c657a9c-442c-4fde-8c87-1729fe1ea76f",
+        "PrototypeLink": {
+          "guid": "",
+          "name": ""
+        },
+        "m_Overrides": [],
+        "UnitEnter": {
+          "Actions": [
+            {
+              "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+              "name": "$Conditional$391f667f-9573-4dd0-b809-76dc4662fbf7",
+              "Comment": "",
+              "ConditionsChecker": {
+                "Operation": "And",
+                "Conditions": [
+                  {
+                    "$type": "2fc04e4a4ece686409d7b7857e09ed4c, ContextConditionHasBuffFromCaster",
+                    "name": "$ContextConditionHasBuffFromCaster$d29ee6f3-45bb-440b-8dec-0dd90187ee10",
+                    "Not": false,
+                    "m_Buff": "!bp_45fdadbde76943c4a9a79435ee08ebf2"
+                  }
+                ]
+              },
+              "IfTrue": {
+                "Actions": [
+                  {
+                    "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                    "name": "$ContextActionRemoveBuff$af047614-5e97-4500-9541-dc51f25ca459",
+                    "m_Buff": "!bp_45fdadbde76943c4a9a79435ee08ebf2",
+                    "RemoveRank": false,
+                    "ToCaster": false,
+                    "OnlyFromCaster": true
+                  },
+                  {
+                    "$type": "5d13a597de91e4746b804f8233518523, ContextActionApplyBuff",
+                    "name": "$ContextActionApplyBuff$b84e9f62-78de-461a-a6fd-fbfc30af088f",
+                    "m_Buff": "!bp_dbc7580fa4b14e5680b64e11db25c6c0",
+                    "Permanent": false,
+                    "UseDurationSeconds": true,
+                    "DurationValue": {
+                      "Rate": "Rounds",
+                      "DiceType": "Zero",
+                      "DiceCountValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "BonusValue": {
+                        "ValueType": "Simple",
+                        "Value": 0,
+                        "ValueRank": "Default",
+                        "ValueShared": "Damage",
+                        "Property": "None",
+                        "m_CustomProperty": null,
+                        "m_AbilityParameter": "Level"
+                      },
+                      "m_IsExtendable": true
+                    },
+                    "DurationSeconds": 1.0,
+                    "IsFromSpell": false,
+                    "IsNotDispelable": true,
+                    "ToCaster": false,
+                    "AsChild": true,
+                    "SameDuration": false,
+                    "NotLinkToAreaEffect": false,
+                    "IgnoreParentContext": true
+                  },
+                  {
+                    "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+                    "name": "$ContextActionOnContextCaster$3adbc44e-1446-47c2-89f8-f8efe38309f4",
+                    "TargetAsCaster": false,
+                    "Actions": {
+                      "Actions": [
+                        {
+                          "$type": "769361e952c9283428356061fa311a3c, ContextActionsOnPet",
+                          "name": "$ContextActionsOnPet$3f0930ba-e865-4ad0-a5b9-bef38387a38a",
+                          "AllPets": false,
+                          "PetType": "AnimalCompanion",
+                          "Actions": {
+                            "Actions": [
+                              {
+                                "$type": "5f950c181b3157a4486fcd36b702b702, ContextActionOnContextCaster",
+                                "name": "$ContextActionOnContextCaster$1baa6ac4-829e-4cd2-a132-67acf9a336f8",
+                                "TargetAsCaster": true,
+                                "Actions": {
+                                  "Actions": [
+                                    {
+                                      "$type": "2f9cfff2340b8c344ab4fd92c2eb61f2, ContextActionCastSpell",
+                                      "name": "$ContextActionCastSpell$ef767e8c-e104-4928-9d3a-6f37b216da51",
+                                      "m_Spell": "!bp_b03327ddd4c74fcfafaeeb8efbe59a4b",
+                                      "OverrideDC": false,
+                                      "DC": {
+                                        "ValueType": "Simple",
+                                        "Value": 0,
+                                        "ValueRank": "Default",
+                                        "ValueShared": "Damage",
+                                        "Property": "None",
+                                        "m_CustomProperty": null,
+                                        "m_AbilityParameter": "Level"
+                                      },
+                                      "OverrideSpellLevel": false,
+                                      "SpellLevel": {
+                                        "ValueType": "Simple",
+                                        "Value": 0,
+                                        "ValueRank": "Default",
+                                        "ValueShared": "Damage",
+                                        "Property": "None",
+                                        "m_CustomProperty": null,
+                                        "m_AbilityParameter": "Level"
+                                      },
+                                      "CastByTarget": false,
+                                      "LogIfCanNotTarget": false,
+                                      "MarkAsChild": false
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "$type": "23ddfb172c2d3c144ab007dec380d712, ContextActionRemoveBuff",
+                    "name": "$ContextActionRemoveBuff$e2952515-8ad1-46a3-b1c7-ef3a76acf257",
+                    "m_Buff": "!bp_dbc7580fa4b14e5680b64e11db25c6c0",
+                    "RemoveRank": false,
+                    "ToCaster": false,
+                    "OnlyFromCaster": true
+                  }
+                ]
+              },
+              "IfFalse": {
+                "Actions": []
+              }
+            }
+          ]
+        },
+        "UnitExit": {
+          "Actions": []
+        },
+        "UnitMove": {
+          "Actions": []
+        },
+        "Round": {
+          "Actions": []
+        }
+      }
+    ],
+    "Comment": "",
+    "m_AllowNonContextActions": false,
+    "m_TargetType": "Enemy",
+    "m_Tags": "None",
+    "SpellResistance": false,
+    "AffectEnemies": true,
+    "AggroEnemies": true,
+    "AffectDead": false,
+    "IgnoreSleepingUnits": false,
+    "Shape": "Cylinder",
+    "Size": {
+      "m_Value": 10.0
+    },
+    "Fx": null,
+    "CanBeUsedInTacticalCombat": false,
+    "m_SizeInCells": 0,
+    "m_TickRoundAfterSpawn": false
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

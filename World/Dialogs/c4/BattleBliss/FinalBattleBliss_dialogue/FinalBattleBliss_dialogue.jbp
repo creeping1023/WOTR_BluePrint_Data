@@ -1,0 +1,131 @@
+{
+  "AssetId": "97b90d7a241161e4ebb622a4e74b73af",
+  "Data": {
+    "$type": "c8ff73feae580b142a9f43e0c61d7f32, BlueprintDialog",
+    "PrototypeLink": null,
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "спикер по умолчанию - Зеклекс",
+    "FirstCue": {
+      "Cues": [
+        "!bp_4385cc486ca6fee47ab21aa222a2a203"
+      ],
+      "Strategy": "First"
+    },
+    "StartPosition": null,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "StartActions": {
+      "Actions": [
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$3c7f1060-fb1e-419b-b41a-719f129f6b92",
+          "m_SummonPool": "!bp_a691e3db0910b9542979b866adbf2cbc",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$ded63fe9-c296-4785-8d24-5c8adc2349cf",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$771105ce-fdc1-40ab-811e-f65612a5eda3"
+                },
+                "m_Faction": "!bp_d64258e86eeb1d8479f35a9b16f6590a",
+                "IncludeGroup": false,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        },
+        {
+          "$type": "60ce9f50487c58446aad79d52f8e5e54, PlayCustomMusic",
+          "name": "$PlayCustomMusic$fcd8781f-0f6f-45d9-b85c-fbf317f87a4a",
+          "MusicEventStart": "MUS_CrusadeTheme_Play",
+          "MusicEventStop": "MUS_CrusadeTheme_Stop"
+        }
+      ]
+    },
+    "FinishActions": {
+      "Actions": [
+        {
+          "$type": "09697d9710264407a9c32060cfe8a2c7, CompleteEtude",
+          "name": "$CompleteEtude$5deeb54f-694c-4bfc-b277-b2fe028f08ac",
+          "Etude": "!bp_f86683ed8003c8c4aa002a1bd8293360",
+          "EtudeEvaluator": null,
+          "Evaluate": false
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d83f3d6b-c24c-4866-a00c-b97948841f42",
+          "Comment": "если победил Ирмангалет",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "fcc336266b98019488d20a50d120e05c, FlagUnlocked",
+                "name": "$FlagUnlocked$a9dc4426-8efa-4f4d-9fce-3bfc1da91919",
+                "Not": false,
+                "m_ConditionFlag": "!bp_81977f735d048c34a8d32163a9daa51b",
+                "ExceptSpecifiedValues": false,
+                "SpecifiedValues": []
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "9f0cd598c83b33949802eb2ed789207c, DestroyUnit",
+                "name": "$DestroyUnit$e50e0b28-421d-40e7-82e3-beacaf1bfe73",
+                "Target": {
+                  "$type": "da45a98792587f244901f1020d4b35b1, UnitFromSpawner",
+                  "name": "$UnitFromSpawner$4d1cb150-6bde-4897-a8a9-9a84d2132664",
+                  "Spawner": {
+                    "EntityNameInEditor": "Zeklex",
+                    "_entity_id": "1ad68ff1-d5e5-4100-813d-93edd4324752",
+                    "SceneAssetGuid": "8856e6e52d2120148a475feaf200e3e7"
+                  }
+                },
+                "FadeOut": false
+              },
+              {
+                "$type": "0652c1b85291c994f8411a22deb2b6ec, Spawn",
+                "name": "$Spawn$e5192878-8c36-42ce-a839-8bfa1faf8d33",
+                "Spawners": [
+                  {
+                    "EntityNameInEditor": "Irmangaleth_after",
+                    "_entity_id": "62ffee55-67cc-49e6-b3b6-a842bff99787",
+                    "SceneAssetGuid": "8856e6e52d2120148a475feaf200e3e7"
+                  }
+                ],
+                "ActionsOnSpawn": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "fc8c0dda384d425087138a6644060968, StopCustomMusic",
+          "name": "$StopCustomMusic$3cea48da-0933-43c5-9d45-63213dd5b8e5"
+        }
+      ]
+    },
+    "ReplaceActions": {
+      "Actions": []
+    },
+    "TurnPlayer": true,
+    "TurnFirstSpeaker": true,
+    "IsLockCameraRotationButtons": false,
+    "Type": "Common",
+    "m_OverrideAreaCR": null
+  }
+}

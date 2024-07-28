@@ -1,0 +1,155 @@
+{
+  "AssetId": "e05e95bfc41e49068cce276ca8418ab8",
+  "Data": {
+    "$type": "a07b97ed760cca9409b22e2e3ebc622f, CommandAction",
+    "EntryCondition": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "OnFail": "RemoveTrack",
+    "Action": {
+      "Actions": [
+        {
+          "$type": "9c6cd580a876d0d4e83cbb48ec00870f, FakePartyRest",
+          "name": "$FakePartyRest$21d8002f-6cb6-4393-ad24-1ce632c3c41e",
+          "m_Immediate": false,
+          "m_IgnoreCorruption": true,
+          "m_RestWithCraft": true,
+          "m_ActionsOnRestEnd": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$83f01dbb-722c-4803-8389-342a35e04cd5",
+          "Comment": "In Main Campaign",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$a7b67e31-5d34-4e1d-a6ea-52f19296f1b9",
+                "Not": false,
+                "m_Etude": "!bp_093db34c2e0c4f7683cc6e87bb4dfac9",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+                "name": "$Conditional$3aa5375f-c28b-4d80-af33-575d2ca9ca91",
+                "Comment": "Talked to Steersman in port",
+                "ConditionsChecker": {
+                  "Operation": "Or",
+                  "Conditions": [
+                    {
+                      "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                      "name": "$OrAndLogic$bfaeb820-a966-4ee5-a872-92e3a26f9912",
+                      "Not": false,
+                      "Comment": "Tier 1 isn't completed",
+                      "ConditionsChecker": {
+                        "Operation": "And",
+                        "Conditions": [
+                          {
+                            "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                            "name": "$EtudeStatus$f53f6af6-550c-4b85-98e6-b8a6ac1baa82",
+                            "Not": false,
+                            "m_Etude": "!bp_90f94e62903546a6858c1002144a73e4",
+                            "NotStarted": false,
+                            "Started": false,
+                            "Playing": true,
+                            "CompletionInProgress": false,
+                            "Completed": false
+                          },
+                          {
+                            "$type": "a091db175cce8f94f815f98e9e353a84, AnswerSelected",
+                            "name": "$AnswerSelected$5eb7e882-f298-4b06-9a36-e8200ad9727f",
+                            "Not": false,
+                            "m_Answer": "!bp_00d679b5ce5d4c049e17cd363d5b25ba",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$type": "1d392c8d9feed78408fbcb18f9468fb9, OrAndLogic",
+                      "name": "$OrAndLogic$7ce3f46b-7910-417d-a669-ede4e14d1f0e",
+                      "Not": false,
+                      "Comment": "Started from port or ready to start Tier 2",
+                      "ConditionsChecker": {
+                        "Operation": "Or",
+                        "Conditions": [
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$02abacb9-7d07-4eb1-9629-b74730d26b4f",
+                            "Not": false,
+                            "m_Cue": "!bp_03af7a628f2b46cab83fab9137d8e9d9",
+                            "CurrentDialog": false
+                          },
+                          {
+                            "$type": "4d2b3bd16c3f2bf4ebb8a19907e2be7e, CueSeen",
+                            "name": "$CueSeen$d4e46a7c-1f2b-49c0-9413-f85d92b61735",
+                            "Not": false,
+                            "m_Cue": "!bp_8185d7eca07f4264a5bad9f59fed3dc7",
+                            "CurrentDialog": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "IfTrue": {
+                  "Actions": [
+                    {
+                      "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                      "name": "$HideMapObject$0543ec03-e5b8-4f86-af70-b8c9e687c6d1",
+                      "MapObject": {
+                        "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                        "name": "$MapObjectFromScene$45d373aa-ad56-45b9-bf1b-d42103ace6cd",
+                        "MapObject": {
+                          "EntityNameInEditor": "Translocate_FromShip",
+                          "_entity_id": "8151d89e-9019-4463-8216-1acbe507553d",
+                          "SceneAssetGuid": "5769f56e620d89f44887182c79c5107b"
+                        }
+                      },
+                      "Unhide": false
+                    },
+                    {
+                      "$type": "3abef1c138b2b3344bebcf6fbbe5cf47, HideMapObject",
+                      "name": "$HideMapObject$7c1e6261-886c-43db-b4c2-6cf22bf8a32b",
+                      "MapObject": {
+                        "$type": "2f7f1ee24f13dca42977f3b2b5a847f8, MapObjectFromScene",
+                        "name": "$MapObjectFromScene$2a51e8c5-5868-4f1b-a922-a1f3f8566430",
+                        "MapObject": {
+                          "EntityNameInEditor": "Translocate_OnShip",
+                          "_entity_id": "961c4e3d-3c92-42d4-9dc0-8c9dcadf380a",
+                          "SceneAssetGuid": "5769f56e620d89f44887182c79c5107b"
+                        }
+                      },
+                      "Unhide": true
+                    }
+                  ]
+                },
+                "IfFalse": {
+                  "Actions": []
+                }
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}

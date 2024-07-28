@@ -1,0 +1,167 @@
+{
+  "AssetId": "3e9300fdb419fc4438c342fa5ee88cb8",
+  "Data": {
+    "$type": "8eee9d45ddcfa614d99610c1892993e3, BlueprintCue",
+    "PrototypeLink": "",
+    "m_Overrides": [],
+    "Components": [],
+    "Comment": "старт боя",
+    "ParentAsset": "a98bbc6b53dbe114f82c8edf2284baf9",
+    "ShowOnce": false,
+    "ShowOnceCurrentDialog": false,
+    "Conditions": {
+      "Operation": "And",
+      "Conditions": []
+    },
+    "Text": {
+      "m_Key": "95b2cdcd-6c72-4775-90f3-4a6911f683cc",
+      "m_OwnerString": "3e9300fdb419fc4438c342fa5ee88cb8",
+      "m_OwnerPropertyPath": "Text",
+      "m_JsonPath": "Strings/Mechanics/Blueprints/World/Dialogs/c4/TavernBadLuck/Tumberd/Cue_0069_Text.json",
+      "Shared": null
+    },
+    "Experience": "NoExperience",
+    "Speaker": {
+      "m_Blueprint": null,
+      "MoveCamera": true,
+      "NotRevealInFoW": false,
+      "NoSpeaker": false,
+      "SwitchDual": false,
+      "m_SpeakerPortrait": null
+    },
+    "TurnSpeaker": false,
+    "Animation": "None",
+    "m_Listener": null,
+    "OnShow": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$5f84f330-784a-4ab0-89fb-d4f9f01959ec",
+          "Comment": "Fly Price 1",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "ea981728db8a5f84888ecba390671a05, EtudeStatus",
+                "name": "$EtudeStatus$719c2caa-1705-4d7f-b164-1c863ae3c30f",
+                "Not": false,
+                "m_Etude": "!bp_df1b52f64d9b0284bb7388c4ded5e4e7",
+                "NotStarted": false,
+                "Started": false,
+                "Playing": true,
+                "CompletionInProgress": false,
+                "Completed": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$f96a624e-fc51-48aa-9c36-95e08542047d",
+                "ItemsCollection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$3a455865-cdae-4585-9ce2-be393398053e",
+                  "Unit": {
+                    "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                    "name": "$DialogCurrentSpeaker$2b4c4a69-29ef-403d-84fd-8defc66fe30b"
+                  }
+                },
+                "UseBlueprintUnitLoot": false,
+                "Loot": [
+                  {
+                    "m_Item": "!bp_f2bc0997c24e573448c6c91d2be88afa",
+                    "Count": 150000
+                  }
+                ],
+                "m_BlueprintLoot": null,
+                "Silent": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": [
+              {
+                "$type": "6fa8c37d53264cfc9f73ce7f3004f492, AddItemsToCollection",
+                "name": "$AddItemsToCollection$e30a4f3e-f7ac-46c3-8afe-a3317bf65786",
+                "ItemsCollection": {
+                  "$type": "ac0b2a9e4daea5c42b85d77e48d5a304, UnitInventory",
+                  "name": "$UnitInventory$8e0e1e9e-462f-4bf9-b165-57d0e4591fbc",
+                  "Unit": {
+                    "$type": "437e91be60e97ae4cbd13c47f2b2de18, DialogCurrentSpeaker",
+                    "name": "$DialogCurrentSpeaker$e904498a-6022-48c8-8662-c58d58511098"
+                  }
+                },
+                "UseBlueprintUnitLoot": false,
+                "Loot": [
+                  {
+                    "m_Item": "!bp_f2bc0997c24e573448c6c91d2be88afa",
+                    "Count": 100000
+                  }
+                ],
+                "m_BlueprintLoot": null,
+                "Silent": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "OnStop": {
+      "Actions": [
+        {
+          "$type": "cbc450c881049cb43a3d474b0a176122, StartCombat",
+          "name": "$StartCombat$a9a31868-2f24-45ee-b2bc-3ce9e40eece1",
+          "Unit1": {
+            "$type": "4672b5eaedf80cc4392a6475dfeea78e, DialogFirstSpeaker",
+            "name": "$DialogFirstSpeaker$8cff9d03-c9f7-499d-848a-76b2faa29379"
+          },
+          "Unit2": {
+            "$type": "25c132cb07bfaef4683b062a74f6e012, PlayerCharacter",
+            "name": "$PlayerCharacter$c5c03e5e-c421-49a7-8715-810eee52bee4"
+          }
+        },
+        {
+          "$type": "5e4603a125002e449ba3cfc391334f5c, SummonPoolUnits",
+          "name": "$SummonPoolUnits$e9bf9b65-fbc7-4b81-b686-070969eb568f",
+          "m_SummonPool": "!bp_463763d06c5c8e84fbf741dc5ddd79aa",
+          "Conditions": {
+            "Operation": "And",
+            "Conditions": []
+          },
+          "Actions": {
+            "Actions": [
+              {
+                "$type": "4ba3c72bb22d4da7857a6fbcdfd82f46, SwitchFaction",
+                "name": "$SwitchFaction$fbe6cdf4-0ad2-478d-9805-677f5ecb0bbd",
+                "Target": {
+                  "$type": "d67e5007013a92946a7f740132296ab4, SummonPoolUnit",
+                  "name": "$SummonPoolUnit$ff5f5946-69d1-4fc4-9c37-b0eb18076357"
+                },
+                "m_Faction": "!bp_0f539babafb47fe4586b719d02aff7c4",
+                "IncludeGroup": true,
+                "ResetAllRelations": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "AlignmentShift": {
+      "Direction": "TrueNeutral",
+      "Value": 0,
+      "Description": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    },
+    "Answers": [],
+    "Continue": {
+      "Cues": [],
+      "Strategy": "First"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "AssetId": "156061427b524196bf93123488e66c42",
+  "Data": {
+    "$type": "3f84b30d95ddfcf4eb8ddd26cbf70e82, BlueprintPlayerUpgrader",
+    "m_Comment": "",
+    "m_SpecificArea": null,
+    "m_SpecificMechanic": null,
+    "m_CriticalConvert": false,
+    "m_Actions": {
+      "Actions": [
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$4ab24584-3515-47d6-b440-61faec640c58",
+          "Comment": "Если проект уже делается - завершить",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "92b7dbc82c3949d6a99453442dafa380, KingdomEventIsBeingResolved",
+                "name": "$KingdomEventIsBeingResolved$719aea43-b8d2-4b7f-a727-c1d25bf00eba",
+                "Not": false,
+                "m_Event": "!bp_69eab257f7ac4afa923968905b1cdccb"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "14bfce87b387497c9b9d9f2ee3c3e2b7, KingdomActionResolveProject",
+                "name": "$KingdomActionResolveProject$674057f0-4545-4307-b88f-30b8112c727c",
+                "m_EventBlueprint": "!bp_69eab257f7ac4afa923968905b1cdccb"
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$d7543e11-80b7-431d-a16e-8b1658f88b50",
+          "Comment": "Если есть Gorums Blade - убрать все, кроме выполняемых",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "11dcc5eb3dad4ac6862626026e59b87b, KingdomProjectIsAvailable",
+                "name": "$KingdomProjectIsAvailable$31de966e-4161-4652-9695-a545799c0959",
+                "Not": false,
+                "m_Project": "!bp_69eab257f7ac4afa923968905b1cdccb",
+                "CheckResources": false,
+                "CheckLeader": false,
+                "FinishableThisMonth": false
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "2193ca7bb470464ba7442f281a66414d, KingdomActionRemoveEvent",
+                "name": "$KingdomActionRemoveEvent$38070c6f-0227-465c-9540-ad95aeb3cec9",
+                "m_EventBlueprint": "!bp_69eab257f7ac4afa923968905b1cdccb",
+                "CancelIfInProgress": false,
+                "AllIfMultiple": true
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        },
+        {
+          "$type": "52d8973f2e470e14c97b74209680491a, Conditional",
+          "name": "$Conditional$ae312450-de40-4b8c-9b06-2f4240404012",
+          "Comment": "Если нет Gorums Blade, но должен быть - выдать",
+          "ConditionsChecker": {
+            "Operation": "And",
+            "Conditions": [
+              {
+                "$type": "11dcc5eb3dad4ac6862626026e59b87b, KingdomProjectIsAvailable",
+                "name": "$KingdomProjectIsAvailable$f7ac3d33-71ab-4bb1-b1a6-cbf3349315eb",
+                "Not": true,
+                "m_Project": "!bp_69eab257f7ac4afa923968905b1cdccb",
+                "CheckResources": false,
+                "CheckLeader": false,
+                "FinishableThisMonth": false
+              },
+              {
+                "$type": "4976252585b024c499c47cd56966ab2b, ItemsEnough",
+                "name": "$ItemsEnough$a942c828-405a-4bbe-8aae-c658b0342acd",
+                "Not": false,
+                "Money": false,
+                "m_ItemToCheck": "!bp_a3488b3542ba3b941b345ed42d31ecad",
+                "Quantity": 1
+              },
+              {
+                "$type": "50a5416180e945318f42c9795cf00641, KingdomProjectIsDone",
+                "name": "$KingdomProjectIsDone$02eb8103-724b-4713-98bd-674cbc5fc7d3",
+                "Not": true,
+                "m_Project": "!bp_69eab257f7ac4afa923968905b1cdccb"
+              }
+            ]
+          },
+          "IfTrue": {
+            "Actions": [
+              {
+                "$type": "062924fe653b9df4ab8b8789fc1ff422, KingdomActionStartEvent",
+                "name": "$KingdomActionStartEvent$29237672-db80-4c00-ad05-920d325ea55a",
+                "m_Event": "!bp_69eab257f7ac4afa923968905b1cdccb",
+                "m_Region": null,
+                "RandomRegion": false,
+                "DelayDays": 0,
+                "StartNextMonth": false,
+                "CheckTriggerImmediately": false,
+                "CheckTriggerOnStart": false
+              }
+            ]
+          },
+          "IfFalse": {
+            "Actions": []
+          }
+        }
+      ]
+    }
+  },
+  "Meta": {
+    "ShadowDeleted": false
+  }
+}
